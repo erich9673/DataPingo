@@ -1,2 +1,2 @@
 # Image Folder
-Add images here for PingFrame website and product.
+Add images here for DataPingo website and product.
