@@ -53,20 +53,15 @@ body {
 
 /* NAVBAR */
 .navbar {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
   background: var(--white);
   backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 40px;
+  padding: 16px 0;
   box-shadow: var(--shadow-medium);
   border-bottom: 1px solid var(--border-light);
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 /* Logo styling */
@@ -83,17 +78,29 @@ body {
 
 .navbar .logo {
   height: 60px;
-  max-height: 60px;
-  margin-right: 40px;
-  border-radius: 8px;
+  max-height: 70px;
+  margin-right: 60px;
+  border-radius: 08px;
 }
 
 .nav-menu {
   display: flex;
-  gap: 32px;
   align-items: center;
-  flex: 1;
-  margin-left: 40px;
+  gap: 32px;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.navbar-inner {
+  flex-wrap: nowrap;
 }
 
 /* CTA Button in navbar */

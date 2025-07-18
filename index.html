@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <meta name="description" content="DataPingo - Real-time alerts for Google Sheets. Monitor spreadsheet changes and get instant notifications in Slack.">
   <title>DataPingo, Inc.</title>
-  <link rel="icon" type="image/png" href="assets/img/DataPingo-Logo-Gray.png">
+  <link rel="icon" type="image/png" href="DataPingo.png">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <!-- Preload critical CSS -->
@@ -14,11 +14,13 @@
 </head>
 <body>
   <!-- NAVIGATION -->
-  <nav class="navbar">
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="logo-link">
+      <img src="assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
+    </a>
+
     <div class="nav-menu">
-      <a href="/" class="logo-link">
-        <img src="assets/img/DataPingo-Logo-Gray.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
-      </a>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -26,6 +28,7 @@
           <a href="#" style="color: #999; cursor: not-allowed;">Analytics Alert for Slack (coming soon)</a>
         </div>
       </div>
+
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
         <div class="dropdown-content">
@@ -34,26 +37,19 @@
           <a href="/company/contact.html">Contact</a>
         </div>
       </div>
-      <div class="dropdown">
-        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
-        <div class="dropdown-content">
-          <a href="/partners/become-a-partner.html">Become a Partner</a>
-          <a href="/partners/find-a-partner.html">Find a Partner</a>
-        </div>
-      </div>
-      <a href="/resources/resources.html" class="nav-link">Resources</a>
+
+      <a href="/partners.html" class="nav-link">Partners</a>
+      <a href="/resources.html" class="nav-link">Resources</a>
     </div>
-    <div class="nav-cta">
-      <a href="https://forms.gle/L6kW4tSSzeAf5Rps7" class="nav-cta-button">Get Started</a>
-    </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- HERO SECTION -->
   <section class="hero">
     <h1>Real-Time Alerts. Right When It Matters.</h1>
     <a href="https://forms.gle/L6kW4tSSzeAf5Rps7" class="hero-cta">Try Now For Free</a>
     <div>
-      <img src="assets/img/GPT1.png" alt="DataPingo Example" class="hero-img" loading="eager" decoding="async" />
+      <img src="assets/img/app_setup1.png" alt="DataPingo Example" class="hero-img" loading="eager" decoding="async" />
     </div>
   </section>
 
