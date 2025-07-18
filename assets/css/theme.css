@@ -87,7 +87,7 @@ body {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -96,8 +96,9 @@ body {
 }
 
 .nav-menu .logo-link {
-  position: absolute;
-  left: 40px;
+  position: static;
+  margin-right: 32px;
+  order: -1;
 }
 
 /* CTA Button in navbar */
@@ -501,8 +502,9 @@ a:hover {
   }
   
   .nav-menu .logo-link {
-    position: static;
+    margin-right: 0;
     margin-bottom: 20px;
+    order: 0;
   }
   
   .nav-cta-button {
