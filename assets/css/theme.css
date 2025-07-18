@@ -57,36 +57,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 16px 0;
   box-shadow: var(--shadow-medium);
   border-bottom: 1px solid var(--border-light);
-}
-
-/* Logo styling */
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.logo-link:hover {
-  opacity: 0.8;
-}
-
-.navbar .logo {
-  height: 60px;
-  max-height: 70px;
-  margin-right: 60px;
-  border-radius: 08px;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 32px;
 }
 
 .navbar-inner {
@@ -96,16 +71,40 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40px;
+  flex-wrap: nowrap;
 }
 
-.navbar-inner {
-  flex-wrap: nowrap;
+/* Logo styling */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.navbar .logo {
+  height: 60px;
+  max-height: 70px;
+  border-radius: 8px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  justify-content: center;
 }
 
 /* CTA Button in navbar */
 .nav-cta {
-  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .nav-cta-button {
@@ -186,7 +185,7 @@ body {
 .hero {
   text-align: center;
   padding: 80px 40px 100px;
-  background: var(--gradient-secondary);
+  background: linear-gradient(135deg, var(--gray-50) 0%, rgba(139, 92, 246, 0.05) 50%, rgba(20, 184, 166, 0.05) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -198,8 +197,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gradient-primary);
-  opacity: 0.08;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+  opacity: 1;
   z-index: 1;
 }
 
@@ -256,10 +256,30 @@ body {
 }
 
 .section.alt {
-  background: var(--gray-100);
+  background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
   border-radius: 20px;
   margin: 40px auto;
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.section.alt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.03) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.section.alt > * {
+  position: relative;
+  z-index: 2;
 }
 
 .section h2 {
@@ -471,34 +491,31 @@ a:hover {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 16px 20px;
+  .navbar-inner {
+    padding: 0 20px;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+  }
+  
+  .navbar {
+    padding: 20px 0;
   }
   
   .nav-menu {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
-    width: 100%;
     justify-content: center;
-    margin-left: 0;
-  }
-  
-  .navbar .logo {
-    margin-right: 0;
-    margin-bottom: 16px;
+    flex: none;
   }
   
   .nav-cta {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
+    flex: none;
   }
   
   .nav-cta-button {
-    width: auto;
-    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
   
   .hero {
