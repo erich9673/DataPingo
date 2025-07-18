@@ -328,10 +328,23 @@ body {
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 24px;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.feature:hover .feature-icon img {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-medium);
 }
 
 .feature-title {
