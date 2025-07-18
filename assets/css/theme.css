@@ -64,16 +64,6 @@ body {
   border-bottom: 1px solid var(--border-light);
 }
 
-.navbar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 40px;
-  flex-wrap: nowrap;
-}
 
 /* Logo styling */
 .logo-link {
@@ -98,8 +88,16 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
-  flex: 1;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.nav-menu .logo-link {
+  position: absolute;
+  left: 40px;
 }
 
 /* CTA Button in navbar */
@@ -491,26 +489,20 @@ a:hover {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  .navbar-inner {
-    padding: 0 20px;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
   .navbar {
     padding: 20px 0;
   }
   
   .nav-menu {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 16px;
-    justify-content: center;
-    flex: none;
+    padding: 0 20px;
   }
   
-  .nav-cta {
-    flex: none;
+  .nav-menu .logo-link {
+    position: static;
+    margin-bottom: 20px;
   }
   
   .nav-cta-button {
