@@ -4,10 +4,12 @@
 		{
 			"label": "Serve Website",
 			"type": "shell",
-			"command": "python3",
+			"command": "npx",
 			"args": [
-				"-m",
-				"http.server",
+				"serve",
+				"-s",
+				".",
+				"-l",
 				"8000"
 			],
 			"group": "build",
