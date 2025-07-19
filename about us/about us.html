@@ -13,10 +13,37 @@
   <nav class="navbar">
     <div class="nav-menu">
       <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/about us/about us.html" class="nav-link">About Us</a>
-      <a href="#team" class="nav-link">Team</a>
-      <a href="/company/contact.html" class="nav-link">Contact</a>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/products/DataPingo Sheets Connector/">Sheets Connector for Slack</a>
+          <a href="#" style="color: #999; cursor: not-allowed;">Analytics Alert for Slack (coming soon)</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/about us/about us.html">About Us</a>
+          <a href="/company/careers.html">Careers</a>
+          <a href="/company/contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/partners/become-a-partner.html">Become a Partner</a>
+          <a href="/partners/find-a-partner.html">Find a Partner</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/resources/resources.html">Resources</a>
+          <a href="/resources/blog.html">Blog Post</a>
+          <a href="/resources/use-cases.html">Use Cases</a>
+          <a href="/resources/documentation.html">Documentation</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -25,7 +52,7 @@
     <h1>Welcome to DataPingo</h1>
     <p>Connecting applications to make business work better.</p>
     <div style="margin-top: 30px;">
-      <img src="/assets/img/DataPingo.png" alt="DataPingo Logo" style="max-width: 200px; height: auto;" />
+      <img src="/assets/img/DataPingo.png" alt="DataPingo Logo" style="max-width: 400px; height: auto;" />
     </div>
   </section>
 
@@ -71,7 +98,9 @@
   <section class="section">
     <h2>Ready to Get Started?</h2>
     <p style="margin-bottom: 30px;">Ready to connect your applications and optimize your business processes?</p>
-    <a href="/company/contact.html" class="hero-cta">Contact us today and let's build something extraordinary together!</a>
+    <div style="text-align: center;">
+      <a href="/company/contact.html" class="hero-cta">Contact us today and let's build something extraordinary together!</a>
+    </div>
   </section>
 
   <!-- FOOTER -->
