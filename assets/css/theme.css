@@ -573,6 +573,11 @@ button:hover, .btn:hover {
     padding: 20px 0;
   }
   
+  .navbar .logo {
+    height: 60px;
+    max-height: 70px;
+  }
+  
   .nav-menu {
     flex-direction: column;
     gap: 16px;
@@ -616,6 +621,11 @@ button:hover, .btn:hover {
 }
 
 @media (max-width: 480px) {
+  .navbar .logo {
+    height: 70px;
+    max-height: 80px;
+  }
+  
   .hero h1 {
     font-size: 2rem;
   }
@@ -634,6 +644,25 @@ button:hover, .btn:hover {
   }
 }
 
+/* Extra small devices */
+@media (max-width: 360px) {
+  .navbar .logo {
+    height: 75px;
+    max-height: 85px;
+  }
+  
+  .nav-menu {
+    padding: 0 15px;
+  }
+  
+  .hero {
+    padding: 50px 15px 70px;
+  }
+  
+  .section {
+    padding: 50px 15px;
+  }
+}
 /* Touch device optimizations */
 @media (hover: none) {
   .feature:hover,
