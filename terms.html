@@ -50,43 +50,90 @@
         .terms-subtitle {
             font-size: 1.1rem;
             color: #666;
-            margin-bottom: 20px;
+            margin: 0;
         }
-        .last-updated {
-            font-size: 0.9rem;
-            color: #888;
-            font-style: italic;
+        .terms-meta {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #007bff;
+        }
+        .terms-meta p {
+            margin: 5px 0;
+            font-size: 0.95rem;
         }
         .terms-content h2 {
             color: #007bff;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .terms-content h3 {
+            color: #495057;
             font-size: 1.4rem;
+            font-weight: 600;
             margin-top: 30px;
             margin-bottom: 15px;
+        }
+        .terms-content h4 {
+            color: #495057;
+            font-size: 1.2rem;
             font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
         .terms-content p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             text-align: justify;
         }
-        .terms-content ul {
-            margin: 15px 0;
+        .terms-content ul, .terms-content ol {
+            margin-bottom: 20px;
             padding-left: 25px;
         }
         .terms-content li {
             margin-bottom: 8px;
         }
-        .contact-info {
-            background-color: #f8f9fa;
-            padding: 20px;
+        .terms-content strong {
+            color: #495057;
+            font-weight: 600;
+        }
+        .highlight-box {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
             border-radius: 8px;
-            margin-top: 30px;
+            padding: 20px;
+            margin: 20px 0;
         }
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+        .contact-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 4px solid #dc3545;
+        }
+        .contact-section h3 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+        .update-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
         }
         .back-link {
             display: inline-block;
@@ -98,6 +145,17 @@
         .back-link:hover {
             text-decoration: underline;
         }
+        @media (max-width: 768px) {
+            .terms-container {
+                padding: 20px 15px;
+            }
+            .terms-title {
+                font-size: 2rem;
+            }
+            .terms-content h2 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -105,154 +163,156 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-      <div class="nav-menu">
-        <a href="/" class="logo-link">
-          <img src="/assets/img/big logo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
-        </a>
-        <div class="dropdown">
-          <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
-          <div class="dropdown-content">
-            <a href="/products/DataPingo Sheets Connector/">Sheets Connector for Slack</a>
-            <a href="#" style="color: #999; cursor: not-allowed;">Sheets Connector for Teams (coming soon)</a>
-            <a href="#" style="color: #999; cursor: not-allowed;">Analytics Alert for Slack (coming soon)</a>
-          </div>
+
+    <div class="terms-container">
+        <a href="/" class="back-link">← Back to Home</a>
+        
+        <header class="terms-header">
+            <h1 class="terms-title">📋 Terms of Service</h1>
+            <p class="terms-subtitle">Terms and conditions for using DataPingo services</p>
+        </header>
+
+        <div class="terms-meta">
+            <p><strong>Effective Date:</strong> January 1, 2025</p>
+            <p><strong>Last Updated:</strong> August 11, 2025</p>
+            <p><strong>Company:</strong> DataPingo</p>
         </div>
-        <div class="dropdown">
-          <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
-          <div class="dropdown-content">
-            <a href="/about us/about us.html">About Us</a>
-            <a href="/company/careers.html">Careers</a>
-            <a href="/company/contact.html">Contact</a>
-          </div>
+
+        <div class="highlight-box">
+            <h3>📝 Terms Summary</h3>
+            <p>These Terms of Service govern your use of DataPingo's real-time data alert services, including our Sheets Connector for Slack and related integrations. By using our services, you agree to these terms.</p>
         </div>
-        <div class="dropdown">
-          <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
-          <div class="dropdown-content">
-            <a href="/partners/become-a-partner.html">Become a Partner</a>
-            <a href="/partners/find-a-partner.html">Find a Partner</a>
-          </div>
+
+        <div class="terms-content">
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+                By accessing or using DataPingo's services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services.
+            </p>
+
+            <h2>2. Description of Services</h2>
+            <h3>2.1 DataPingo Services</h3>
+            <p>DataPingo provides real-time monitoring and alert services for Google Sheets, including:</p>
+            <ul>
+                <li>Sheets Connector for Slack - Real-time notifications when spreadsheet data changes</li>
+                <li>Custom alert conditions and monitoring rules</li>
+                <li>Integration with messaging platforms (Slack, Microsoft Teams)</li>
+                <li>Data synchronization and update tracking</li>
+            </ul>
+
+            <h3>2.2 Third-Party Integrations</h3>
+            <p>Our services integrate with third-party platforms including:</p>
+            <ul>
+                <li><strong>Google Workspace:</strong> Google Sheets API access for data monitoring</li>
+                <li><strong>Slack:</strong> Slack API for sending notifications and alerts</li>
+                <li><strong>Microsoft Teams:</strong> Teams API for enterprise communication</li>
+                <li><strong>Atlassian:</strong> Integration with Jira and Confluence workflows</li>
+            </ul>
+
+            <h2>3. User Accounts and Registration</h2>
+            <h3>3.1 Account Creation</h3>
+            <p>
+                To use DataPingo services, you must create an account by providing accurate and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
+            </p>
+
+            <h3>3.2 Account Responsibility</h3>
+            <p>You agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete account information</li>
+                <li>Maintain and promptly update your account information</li>
+                <li>Maintain the security of your password and account</li>
+                <li>Notify us immediately of any unauthorized use of your account</li>
+            </ul>
+
+            <h2>4. Acceptable Use Policy</h2>
+            <h3>4.1 Permitted Use</h3>
+            <p>You may use DataPingo services only for lawful purposes and in accordance with these Terms. You agree not to use the services:</p>
+            <ul>
+                <li>In any way that violates applicable laws or regulations</li>
+                <li>To transmit or procure the transmission of any unlawful, harmful, or objectionable content</li>
+                <li>To impersonate or attempt to impersonate DataPingo, DataPingo employees, or other users</li>
+                <li>To engage in any activity that interferes with or disrupts the services</li>
+            </ul>
+
+            <h3>4.2 Data Usage Limits</h3>
+            <p>
+                DataPingo implements fair usage policies to ensure service quality for all users. Excessive usage may result in rate limiting or account suspension. Commercial usage limits are defined in your subscription plan.
+            </p>
+
+            <h2>5. Privacy and Data Protection</h2>
+            <h3>5.1 Data Collection</h3>
+            <p>
+                DataPingo collects and processes data necessary to provide our services. Our data collection and use practices are detailed in our Privacy Policy, which is incorporated into these Terms by reference.
+            </p>
+
+            <h3>5.2 Customer Data</h3>
+            <p>You retain ownership of all data you provide to DataPingo. We process your data solely to provide our services and in accordance with your instructions and applicable data protection laws.</p>
+
+            <h2>6. Subscription and Billing</h2>
+            <h3>6.1 Service Plans</h3>
+            <p>DataPingo offers various service plans with different features and usage limits. Subscription details, pricing, and billing terms are specified during the sign-up process.</p>
+
+            <h3>6.2 Payment Terms</h3>
+            <ul>
+                <li>Subscription fees are billed in advance</li>
+                <li>All fees are non-refundable unless otherwise specified</li>
+                <li>Price changes will be communicated 30 days in advance</li>
+                <li>Accounts may be suspended for non-payment</li>
+            </ul>
+
+            <h2>7. Intellectual Property Rights</h2>
+            <h3>7.1 DataPingo Property</h3>
+            <p>
+                DataPingo and its services, including all content, features, and functionality, are owned by DataPingo and are protected by copyright, trademark, and other intellectual property laws.
+            </p>
+
+            <h3>7.2 Customer Content</h3>
+            <p>
+                You retain ownership of all content you submit to DataPingo. By using our services, you grant us a limited license to access, process, and transmit your content solely to provide our services.
+            </p>
+
+            <h2>8. Service Availability and Modifications</h2>
+            <h3>8.1 Service Uptime</h3>
+            <p>
+                While we strive for high availability, DataPingo does not guarantee uninterrupted service. Planned maintenance will be communicated in advance when possible.
+            </p>
+
+            <h3>8.2 Service Modifications</h3>
+            <p>
+                DataPingo reserves the right to modify, suspend, or discontinue any aspect of our services at any time. We will provide reasonable notice for significant changes that affect functionality.
+            </p>
+
+            <h2>9. Limitation of Liability</h2>
+            <p>
+                To the maximum extent permitted by law, DataPingo shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or other intangible losses, resulting from your use of our services.
+            </p>
+
+            <h2>10. Termination</h2>
+            <h3>10.1 Termination by User</h3>
+            <p>You may terminate your account at any time by contacting our support team or through your account settings.</p>
+
+            <h3>10.2 Termination by DataPingo</h3>
+            <p>We may terminate or suspend your account immediately, without prior notice, for any reason, including but not limited to breach of these Terms.</p>
+
+            <h2>11. Governing Law</h2>
+            <p>
+                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which DataPingo operates, without regard to conflict of law provisions.
+            </p>
+
+            <h2>12. Changes to Terms</h2>
+            <p>
+                DataPingo reserves the right to modify these Terms at any time. We will notify users of significant changes via email or through our service. Continued use of our services after changes constitutes acceptance of the new Terms.
+            </p>
         </div>
-        <a href="/resources/resources.html" class="nav-link">Resources</a>
-      </div>
-    </nav>
 
-    <main>
-        <div class="terms-container">
-            <div class="terms-header">
-                <h1 class="terms-title">📄 Terms of Service</h1>
-                <p class="terms-subtitle">DataPingo - Data Monitoring and Analytics Platform</p>
-                <p class="last-updated">Last updated: July 13, 2025</p>
-            </div>
-
-            <div class="terms-content">
-                <h2>1. Acceptance of Terms</h2>
-                <p>By using any DataPingo applications or services ("the Services"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Services.</p>
-
-                <h2>2. Description of Services</h2>
-                <p>DataPingo provides data monitoring and analytics services including:</p>
-                <ul>
-                    <li>Real-time monitoring of Google Sheets for changes</li>
-                    <li>Automated notifications to communication platforms (Slack, Teams, etc.)</li>
-                    <li>Analytics alerts and data insights</li>
-                    <li>Custom alerting based on your configured conditions</li>
-                    <li>Integration with various third-party platforms and services</li>
-                </ul>
-
-                <h2>3. User Responsibilities</h2>
-                <p>You agree to:</p>
-                <ul>
-                    <li>Provide accurate information when setting up monitoring and using our Services</li>
-                    <li>Use the Services only for lawful purposes</li>
-                    <li>Respect Google Sheets and third-party API usage limits</li>
-                    <li>Not attempt to reverse engineer, disrupt, or compromise our Services</li>
-                    <li>Keep your login credentials and account information secure</li>
-                    <li>Comply with the terms of service of integrated third-party platforms</li>
-                </ul>
-
-                <h2>4. Service Availability</h2>
-                <ul>
-                    <li><strong>Best Effort:</strong> We strive for 99.9% uptime but cannot guarantee uninterrupted service</li>
-                    <li><strong>Maintenance:</strong> Scheduled maintenance may temporarily interrupt service</li>
-                    <li><strong>Dependencies:</strong> Service depends on Google Sheets and third-party platform API availability</li>
-                </ul>
-
-                <h2>5. Limitations and Disclaimers</h2>
-                <ul>
-                    <li>The Services are provided "AS IS" without warranties of any kind</li>
-                    <li>We are not responsible for missed notifications due to API limits or third-party outages</li>
-                    <li>Users are responsible for backing up important data</li>
-                    <li>We do not guarantee the accuracy or timeliness of notifications</li>
-                </ul>
-
-                <h2>6. API Usage and Limits</h2>
-                <ul>
-                    <li>Google Sheets and other third-party APIs have daily quotas that may affect monitoring frequency</li>
-                    <li>Excessive API usage may result in temporary service restrictions</li>
-                    <li>We recommend monitoring frequencies of 5 minutes or longer for most use cases</li>
-                </ul>
-
-                <h2>7. Privacy and Data</h2>
-                <p>Your use of the Services is subject to our <a href="privacy.html">Privacy Policy</a>, which details how we collect, use, and protect your information.</p>
-
-                <h2>8. Termination</h2>
-                <p>Either party may terminate use of the Services at any time:</p>
-                <ul>
-                    <li>You may stop using the Services and revoke permissions via your Google Account and third-party platform settings</li>
-                    <li>We may suspend access for violations of these terms</li>
-                    <li>Upon termination, monitoring stops and cached data is deleted</li>
-                </ul>
-
-                <h2>9. Limitation of Liability</h2>
-                <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages resulting from your use of the Services.</p>
-
-                <h2>10. Changes to Terms</h2>
-                <p>We reserve the right to modify these terms at any time. Material changes will be communicated by updating the "Last updated" date. Continued use constitutes acceptance of modified terms.</p>
-
-                <h2>11. Governing Law</h2>
-                <p>These terms are governed by the laws of the United States. Any disputes will be resolved in accordance with applicable law.</p>
-
-                <h2>12. Contact Information</h2>
-                <div class="contact-info">
-                    <p>For questions about these Terms of Service, please contact us:</p>
-                    <ul>
-                        <li>Email: <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
-                        <li>Website: <a href="https://datapingo.com">DataPingo.com</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="contact-section">
+            <h3>📞 Contact Information</h3>
+            <p>If you have any questions about these Terms of Service, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> eric.huang@datapingo.com</li>
+                <li><strong>Website:</strong> <a href="https://datapingo.com">datapingo.com</a></li>
+                <li><strong>Legal:</strong> <a href="/privacy.html">Privacy Policy</a> | <a href="/security.html">Security Policy</a></li>
+            </ul>
         </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-col">
-          <h4>Products</h4>
-          <a href="/products/DataPingo Sheets Connector/">Sheets Connector for Slack</a>
-          <a href="/products/DataPingo Sheets Connector for Teams/">Sheets Connector for Teams</a>
-          <a href="#" style="color: #999; cursor: not-allowed;">Analytics Alerts</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="/about us/about us.html">About</a>
-          <a href="/company/careers.html">Careers</a>
-          <a href="/company/contact.html">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <a href="/resources/resources.html">Help Center</a>
-          <a href="/resources/blog.html">Blog</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="https://www.linkedin.com/in/erichuang0/">LinkedIn</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2025 DataPingo. All rights reserved.
-      </div>
-    </footer>
+    </div>
 </body>
 </html>
