@@ -5,6 +5,7 @@
     text-decoration: none;
     display: block;
     padding: 10px 15px;
+    opacity: 1 !important;
 }
 
 .dropdown-content a:hover {
@@ -12,10 +13,19 @@
     color: #22c55e !important;
 }
 
-/* Ensure no grayed out styles on resource links */
+/* Ensure no grayed out styles on resource links - Force active styling */
 .dropdown-content a[href*="blog"],
 .dropdown-content a[href*="use-cases"],
 .dropdown-content a[href*="documentation"] {
+    color: #333 !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Override any potential grayed out inline styles */
+.dropdown-content a[style*="color: #999"],
+.dropdown-content a[style*="cursor: not-allowed"] {
     color: #333 !important;
     cursor: pointer !important;
     opacity: 1 !important;
