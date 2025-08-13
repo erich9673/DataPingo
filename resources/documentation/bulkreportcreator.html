@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Report Creator for Confluence - Documentation | DataPingo</title>
+  <meta name="description" content="Complete documentation for Bulk Report Creator for Confluence - Transform your reporting workflow with 106+ customizable templates and bulk generation capabilities.">
+  <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    .docs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .docs-nav {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 20px;
+    }
+    .docs-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .docs-nav ul li {
+      margin-bottom: 8px;
+    }
+    .docs-nav ul li a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .docs-nav ul li a:hover {
+      color: #6366f1;
+    }
+    .docs-content {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .docs-content h1 {
+      color: #1f2937;
+      border-bottom: 3px solid #4f46e5;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    .docs-content h2 {
+      color: #4f46e5;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .docs-content h3 {
+      color: #374151;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    .docs-content h4 {
+      color: #4b5563;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .feature-card {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #4f46e5;
+    }
+    .feature-card h4 {
+      margin-top: 0;
+      color: #4f46e5;
+    }
+    .template-category {
+      background: #f0f9ff;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border-left: 4px solid #0ea5e9;
+    }
+    .template-category h4 {
+      color: #0ea5e9;
+      margin-top: 0;
+    }
+    .code-block {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      margin: 15px 0;
+    }
+    .highlight {
+      background: #fef3c7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .warning {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+    .success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+    .back-button {
+      display: inline-block;
+      background: #4f46e5;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+    .back-button:hover {
+      background: #4338ca;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-menu">
+      <a href="/" class="logo-link"><img src="/assets/img/big logo.png" alt="DataPingo Logo" class="logo" /></a>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="#" style="color: #999; cursor: not-allowed;">Sheets Connector for Slack (unavailable)</a>
+          <a href="#" style="color: #999; cursor: not-allowed;">Bulk Report Creator for Confluence (coming soon)</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/company/about-us.html">About Us</a>
+          <a href="/company/careers.html">Careers</a>
+          <a href="/company/contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/partners/become-a-partner.html">Become a Partner</a>
+          <a href="/partners/find-a-partner.html">Find a Partner</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/resources/blog.html">Blog</a>
+          <a href="/resources/use-cases.html">Use Cases</a>
+          <a href="/resources/documentation.html">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="docs-container">
+    <a href="/resources/documentation.html" class="back-button">← Back to Documentation</a>
+    
+    <div class="docs-content">
+      <h1>Bulk Report Creator for Confluence - Complete Documentation</h1>
+      
+      <div class="docs-nav">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#getting-started">Getting Started</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#user-guide">User Guide</a></li>
+          <li><a href="#template-categories">Template Categories</a></li>
+          <li><a href="#configuration-options">Configuration Options</a></li>
+          <li><a href="#automation-scheduling">Automation & Scheduling</a></li>
+          <li><a href="#technical-specifications">Technical Specifications</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#support">Support</a></li>
+        </ul>
+      </div>
+
+      <section id="overview">
+        <h2>🎯 Overview</h2>
+        <p><strong>Bulk Report Creator for Confluence</strong> is a powerful Forge app that transforms your reporting workflow by enabling bulk generation of professional, structured reports directly in Confluence. With 106+ customizable templates spanning all business functions, teams can eliminate manual reporting overhead while maintaining professional standards.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>⏱️ Save Time</h4>
+            <p>Transform hours of manual work into minutes with automated bulk generation</p>
+          </div>
+          <div class="feature-card">
+            <h4>📊 Ensure Consistency</h4>
+            <p>Standardized formatting across all reports with professional templates</p>
+          </div>
+          <div class="feature-card">
+            <h4>📈 Scale Reporting</h4>
+            <p>Generate multiple reports simultaneously for teams and departments</p>
+          </div>
+          <div class="feature-card">
+            <h4>🎨 Full Customization</h4>
+            <p>Adapt every aspect to your organization's specific needs and branding</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="getting-started">
+        <h2>🚀 Getting Started</h2>
+        
+        <h3>Installation</h3>
+        <ol>
+          <li>Navigate to the Atlassian Marketplace</li>
+          <li>Search for "Bulk Report Creator for Confluence"</li>
+          <li>Click "Install" and follow the prompts</li>
+          <li>The app will be available in your Confluence instance within minutes</li>
+        </ol>
+
+        <h3>First Use</h3>
+        <div class="success">
+          <strong>Quick Start:</strong>
+          <ol>
+            <li><strong>Access the App:</strong> Type <span class="highlight">/bulkreport</span> in any Confluence page</li>
+            <li><strong>Select from Macro Menu:</strong> Choose "Bulk Report Creator" from the dropdown</li>
+            <li><strong>Start Configuration:</strong> The 4-step wizard will guide you through setup</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="features">
+        <h2>🛠️ Features</h2>
+        
+        <h3>Core Capabilities</h3>
+        
+        <div class="template-category">
+          <h4>1. Template Selection</h4>
+          <ul>
+            <li><strong>106+ Professional Templates</strong> across 15+ business categories</li>
+            <li>Pre-built frameworks for every business function</li>
+            <li>Industry-standard layouts and structures</li>
+            <li>Instant preview and selection interface</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>2. Full Customization</h4>
+          <ul>
+            <li><strong>Flexible KPI Configuration:</strong> Modify metrics to match your needs</li>
+            <li><strong>Custom Formatting:</strong> Adjust layouts, colors, and branding</li>
+            <li><strong>Metric Adaptation:</strong> Add, remove, or modify any data points</li>
+            <li><strong>Structure Flexibility:</strong> Reorganize sections and content flow</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>3. Bulk Generation</h4>
+          <ul>
+            <li><strong>Multiple Report Creation:</strong> Generate dozens of reports simultaneously</li>
+            <li><strong>Consistent Formatting:</strong> Uniform professional appearance</li>
+            <li><strong>One-Click Process:</strong> Simple execution for complex tasks</li>
+            <li><strong>Structured Output:</strong> Organized Confluence page hierarchy</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>4. Intelligent Automation</h4>
+          <ul>
+            <li><strong>Smart Scheduling:</strong> Automated report generation on custom schedules</li>
+            <li><strong>Time Estimation:</strong> Realistic planning with built-in time tracking</li>
+            <li><strong>Progress Indicators:</strong> Visual feedback during bulk operations</li>
+            <li><strong>Status Monitoring:</strong> Track completion and success rates</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="user-guide">
+        <h2>📖 User Guide</h2>
+        
+        <h3>Step-by-Step Workflow</h3>
+        
+        <h4>Step 1: Space and Page Selection</h4>
+        <ol>
+          <li><strong>Choose Target Space:</strong> Select the Confluence space for your reports</li>
+          <li><strong>Select Parent Location:</strong> Choose folder or parent page structure</li>
+          <li><strong>Validation:</strong> System confirms permissions and access rights</li>
+        </ol>
+
+        <h4>Step 2: Template Selection</h4>
+        <ol>
+          <li><strong>Browse Categories:</strong> Explore 15+ business function categories</li>
+          <li><strong>Preview Templates:</strong> View structure and content organization</li>
+          <li><strong>Select Multiple:</strong> Choose one or more templates for your reports</li>
+          <li><strong>Customization Preview:</strong> See available modification options</li>
+        </ol>
+
+        <h4>Step 3: Metrics and Configuration</h4>
+        <ol>
+          <li><strong>KPI Selection:</strong> Choose relevant key performance indicators</li>
+          <li><strong>OKR Alignment:</strong> Connect objectives and key results</li>
+          <li><strong>Custom Metrics:</strong> Add organization-specific measurements</li>
+          <li><strong>Time Estimates:</strong> Set realistic completion timeframes</li>
+          <li><strong>Report Naming:</strong> Define consistent naming conventions</li>
+        </ol>
+
+        <h4>Step 4: Generation and Scheduling</h4>
+        <ol>
+          <li><strong>Review Configuration:</strong> Confirm all settings and selections</li>
+          <li><strong>Schedule Options:</strong> Set immediate or future generation</li>
+          <li><strong>Automation Rules:</strong> Configure recurring report creation</li>
+          <li><strong>Final Execution:</strong> Generate reports with monitoring dashboard</li>
+        </ol>
+      </section>
+
+      <section id="template-categories">
+        <h2>📊 Template Categories</h2>
+        
+        <div class="template-category">
+          <h4>1. Financial Reports</h4>
+          <ul>
+            <li>Quarterly Financial Summary</li>
+            <li>Budget vs Actual Analysis</li>
+            <li>Revenue Performance Dashboard</li>
+            <li>Cost Center Reporting</li>
+            <li>Cash Flow Analysis</li>
+            <li>Financial KPI Tracking</li>
+            <li>Investment Performance Review</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>2. Marketing Analytics</h4>
+          <ul>
+            <li>Campaign Performance Report</li>
+            <li>Lead Generation Analysis</li>
+            <li>Customer Acquisition Metrics</li>
+            <li>Social Media Analytics</li>
+            <li>Content Marketing ROI</li>
+            <li>Brand Awareness Tracking</li>
+            <li>Market Research Summary</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>3. Human Resources</h4>
+          <ul>
+            <li>Employee Performance Review</li>
+            <li>Recruitment Analytics</li>
+            <li>Training and Development Report</li>
+            <li>Employee Satisfaction Survey</li>
+            <li>Compensation Analysis</li>
+            <li>Diversity and Inclusion Metrics</li>
+            <li>Turnover Rate Analysis</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>4. Project Management</h4>
+          <ul>
+            <li>Project Status Dashboard</li>
+            <li>Sprint Retrospective</li>
+            <li>Resource Allocation Report</li>
+            <li>Timeline and Milestone Tracking</li>
+            <li>Risk Assessment Matrix</li>
+            <li>Stakeholder Communication Plan</li>
+            <li>Project ROI Analysis</li>
+          </ul>
+        </div>
+
+        <div class="template-category">
+          <h4>5. Sales Performance</h4>
+          <ul>
+            <li>Sales Pipeline Report</li>
+            <li>Territory Performance Analysis</li>
+            <li>Customer Retention Metrics</li>
+            <li>Sales Team Productivity</li>
+            <li>Deal Closure Analysis</li>
+            <li>Forecasting Dashboard</li>
+            <li>Commission Tracking</li>
+          </ul>
+        </div>
+
+        <p><strong>And 10+ more categories</strong> including Operations, Strategic Planning, Customer Success, Technology & Development, Legal & Compliance, and Executive Reporting.</p>
+      </section>
+
+      <section id="configuration-options">
+        <h2>⚙️ Configuration Options</h2>
+        
+        <h3>Customization Settings</h3>
+        
+        <h4>Template Modification</h4>
+        <ul>
+          <li><strong>Layout Adjustment:</strong> Modify section arrangement and hierarchy</li>
+          <li><strong>Content Adaptation:</strong> Add, remove, or edit template sections</li>
+          <li><strong>Branding Integration:</strong> Incorporate logos, colors, and styling</li>
+          <li><strong>Field Customization:</strong> Create custom data fields and metrics</li>
+        </ul>
+
+        <h4>Metric Configuration</h4>
+        <ul>
+          <li><strong>KPI Selection:</strong> Choose from predefined or create custom KPIs</li>
+          <li><strong>Data Source Integration:</strong> Connect to external data systems</li>
+          <li><strong>Calculation Methods:</strong> Define formulas and aggregation rules</li>
+          <li><strong>Visualization Options:</strong> Charts, graphs, and display formats</li>
+        </ul>
+      </section>
+
+      <section id="automation-scheduling">
+        <h2>🤖 Automation & Scheduling</h2>
+        
+        <h3>Scheduling Options</h3>
+        <ul>
+          <li><strong>Daily:</strong> Morning reports, end-of-day summaries</li>
+          <li><strong>Weekly:</strong> Team updates, progress reviews</li>
+          <li><strong>Monthly:</strong> Performance assessments, financial summaries</li>
+          <li><strong>Quarterly:</strong> Strategic reviews, board presentations</li>
+          <li><strong>Custom Intervals:</strong> Any frequency to match business needs</li>
+        </ul>
+
+        <h3>Smart Scheduling Features</h3>
+        <ul>
+          <li><strong>Business Hours:</strong> Generate reports during optimal times</li>
+          <li><strong>Time Zone Awareness:</strong> Multi-region team coordination</li>
+          <li><strong>Holiday Handling:</strong> Skip generation during non-business days</li>
+          <li><strong>Load Balancing:</strong> Distribute generation to optimize performance</li>
+        </ul>
+      </section>
+
+      <section id="technical-specifications">
+        <h2>🔧 Technical Specifications</h2>
+        
+        <h3>Platform Requirements</h3>
+        <ul>
+          <li><strong>Atlassian Forge Platform:</strong> Node.js with Forge runtime</li>
+          <li><strong>Confluence Cloud:</strong> All versions supported</li>
+          <li><strong>API Integration:</strong> Native Confluence REST and GraphQL APIs</li>
+          <li><strong>Permission Model:</strong> Inherits Confluence security and permissions</li>
+        </ul>
+
+        <h3>Performance Specifications</h3>
+        <ul>
+          <li><strong>Bulk Processing:</strong> Generate up to 50 reports simultaneously</li>
+          <li><strong>Template Library:</strong> 106+ templates with sub-second load times</li>
+          <li><strong>Page Creation:</strong> Average 2-3 seconds per report page</li>
+          <li><strong>Concurrent Users:</strong> Supports multiple teams generating simultaneously</li>
+        </ul>
+
+        <h3>Security Features</h3>
+        <ul>
+          <li><strong>Encryption:</strong> All data encrypted in transit and at rest</li>
+          <li><strong>Access Control:</strong> Confluence-native permission inheritance</li>
+          <li><strong>Audit Logging:</strong> Complete activity tracking and reporting</li>
+          <li><strong>GDPR Compliance:</strong> Full compliance with privacy regulations</li>
+        </ul>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>🚨 Troubleshooting</h2>
+        
+        <h3>Common Issues</h3>
+        
+        <div class="warning">
+          <h4>Installation Problems</h4>
+          <p><strong>Issue:</strong> App not appearing after installation</p>
+          <p><strong>Solution:</strong> Refresh browser cache and re-login to Confluence</p>
+          <p><strong>Alternative:</strong> Check Confluence app management for installation status</p>
+        </div>
+
+        <div class="warning">
+          <h4>Configuration Issues</h4>
+          <p><strong>Issue:</strong> Templates not loading</p>
+          <p><strong>Solution:</strong> Check internet connection and refresh the page</p>
+          <p><strong>Alternative:</strong> Clear browser cache and try again</p>
+        </div>
+
+        <div class="warning">
+          <h4>Generation Problems</h4>
+          <p><strong>Issue:</strong> Reports not creating</p>
+          <p><strong>Solution:</strong> Check Confluence storage limits and permissions</p>
+          <p><strong>Alternative:</strong> Try generating fewer reports at once</p>
+        </div>
+      </section>
+
+      <section id="support">
+        <h2>📞 Support</h2>
+        
+        <h3>Getting Help</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>Primary Support</h4>
+            <p><a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank">Support Portal</a></p>
+          </div>
+          <div class="feature-card">
+            <h4>Documentation</h4>
+            <p><a href="https://datapingo.com/bulk-report-creator/docs" target="_blank">Complete Docs</a></p>
+          </div>
+          <div class="feature-card">
+            <h4>Community Forum</h4>
+            <p>Access through Atlassian Marketplace listing</p>
+          </div>
+          <div class="feature-card">
+            <h4>Status Page</h4>
+            <p>Monitor system status and maintenance updates</p>
+          </div>
+        </div>
+
+        <h3>Response Times</h3>
+        <ul>
+          <li><strong>Critical Issues:</strong> 4 hours during business hours</li>
+          <li><strong>Standard Support:</strong> 24 hours for general inquiries</li>
+          <li><strong>Feature Requests:</strong> 48 hours for evaluation and response</li>
+          <li><strong>Documentation Updates:</strong> Weekly updates for new features</li>
+        </ul>
+      </section>
+
+      <hr style="margin: 50px 0; border: 1px solid #e5e7eb;">
+      
+      <div style="text-align: center; color: #6b7280; padding: 20px;">
+        <p><strong>Current Version:</strong> 3.12.0 | <strong>Last Updated:</strong> August 12, 2025</p>
+        <p><strong>Compatibility:</strong> Confluence Cloud (all versions) | <strong>Platform:</strong> Atlassian Forge</p>
+        <p style="margin-top: 20px;">
+          <a href="/privacy.html" style="color: #4f46e5; margin: 0 10px;">Privacy Policy</a> |
+          <a href="/terms.html" style="color: #4f46e5; margin: 0 10px;">Terms of Service</a> |
+          <a href="/security.html" style="color: #4f46e5; margin: 0 10px;">Security</a>
+        </p>
+        <p style="margin-top: 15px; font-style: italic;">This documentation is maintained by the DataPingo team. For the latest updates and information, please visit our support portal or marketplace listing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <span style="color: #999;">Sheets Connector for Slack (unavailable)</span>
+        <a href="#" style="color: #999; cursor: not-allowed;">Bulk Report Creator for Confluence (coming soon)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/resources/blog.html">Blog</a>
+        <a href="/resources/use-cases.html">Use Cases</a>
+        <a href="/resources/documentation.html">Documentation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/company/about-us.html">About</a>
+        <a href="/company/careers.html">Careers</a>
+        <a href="/company/contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <a href="/partners/become-a-partner.html">Become a Partner</a>
+        <a href="/partners/find-a-partner.html">Find a Partner</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/company/datapingo" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+      <p>&copy; 2025 DataPingo. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
