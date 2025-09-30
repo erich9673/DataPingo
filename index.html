@@ -27,12 +27,43 @@
   <!-- Preload critical CSS -->
   <link rel="preload" href="assets/css/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="assets/css/theme.css"></noscript>
+  <style>
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- SUCCESS ANNOUNCEMENT - TOP BANNER -->
+  <section style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 12px 0; text-align: center; color: white; position: relative; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <img src="assets/img/bulk-report-generator-logo.png" alt="Bulk Report Generator Logo" style="width: 32px; height: 32px; border-radius: 4px;">
+        <div>
+          <span style="font-size: 1rem; font-weight: 700;">🎉 Bulk Report Generator Now Live on Atlassian Marketplace!</span>
+          <span style="background: rgba(255,255,255,0.2); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; animation: pulse 2s infinite;">✅ APPROVED</span>
+        </div>
+        <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" style="background: white; color: #059669; padding: 6px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Install Now →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-menu">
@@ -42,7 +73,7 @@
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="#" style="color: #999; cursor: not-allowed;">Sheets Connector for Slack (unavailable)</a>
+          <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
         </div>
       </div>
       <div class="dropdown">
@@ -75,9 +106,69 @@
   <section class="hero">
     <h1>Connect Your Business Applications.<br>Streamline Everything.</h1>
     <p>DataPingo bridges the gap between your tools and systems, creating seamless workflows that save time, reduce errors, and drive better business decisions.</p>
-    <a href="https://forms.gle/L6kW4tSSzeAf5Rps7" class="hero-cta">Try Now For Free</a>
-    <div>
-      <img src="assets/img/GPT1.png" alt="DataPingo Example" class="hero-img" loading="eager" decoding="async" />
+    
+    <a href="#featured-product" class="hero-cta">Try Now</a>
+  </section>
+
+  <!-- FEATURED PRODUCTS SECTION -->
+  <section class="section" id="featured-product" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 80px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 16px;">Featured Products</h2>
+        <p style="font-size: 1.2rem; color: #6b7280; max-width: 600px; margin: 0 auto;">Transform your Confluence reporting workflow with our officially approved Atlassian Marketplace app</p>
+      </div>
+      
+      <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+              <img src="assets/img/bulk-report-generator-logo.png" alt="Bulk Report Generator" style="width: 80px; height: 80px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <div>
+                <h3 style="font-size: 1.8rem; font-weight: 700; color: #1f2937; margin: 0; margin-bottom: 8px;">Bulk Report Generator</h3>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Confluence App</span>
+                  <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; animation: pulse 2s infinite;">✅ Marketplace Approved</span>
+                </div>
+              </div>
+            </div>
+            
+            <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.6; margin-bottom: 24px;">Automate bulk report generation with professional templates, metrics, and scheduling. Create multiple structured reports simultaneously using our powerful <code>/bulkreport</code> macro.</p>
+            
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="/products/bulk-report-creator/" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                📖 Learn More
+              </a>
+              <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" style="background: transparent; color: #8B5CF6; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; border: 2px solid #8B5CF6; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#8B5CF6'; this.style.color='white'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.color='#8B5CF6'; this.style.transform='translateY(0)'">
+                🚀 Install from Marketplace
+              </a>
+            </div>
+          </div>
+          
+          <div style="flex: 0 0 300px; text-align: center;">
+            <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #14B8A6 100%); padding: 40px 20px; border-radius: 16px; color: white;">
+              <div style="font-size: 3rem; margin-bottom: 16px;">📊</div>
+              <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;">Key Features</h4>
+              <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #14B8A6;">✓</span> 4-Step Workflow
+                </li>
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #14B8A6;">✓</span> Template System
+                </li>
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #14B8A6;">✓</span> Bulk Generation
+                </li>
+                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #14B8A6;">✓</span> Scheduled Reports
+                </li>
+                <li style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: #14B8A6;">✓</span> Forge Security
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -86,7 +177,7 @@
     <h2>How DataPingo Works</h2>
     <div class="features-grid">
       <div class="feature">
-        <div class="feature-icon">�</div>
+        <div class="feature-icon">🔗</div>
         <div class="feature-title">Connect Applications</div>
         <div class="feature-desc">Link your business tools and systems together with intelligent integrations.</div>
       </div>
@@ -114,7 +205,7 @@
     <div class="footer-content">
       <div class="footer-col">
         <h4>Products</h4>
-        <span style="color: #999;">Sheets Connector for Slack (unavailable)</span>
+        <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>

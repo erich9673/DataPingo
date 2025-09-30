@@ -7,6 +7,22 @@
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- NAVIGATION -->
@@ -16,7 +32,6 @@
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="#" style="color: #999; cursor: not-allowed;">Sheets Connector for Slack (unavailable)</a>
           <a href="/docs/bulk-report-generator/">Bulk Report Generator for Confluence</a>
         </div>
       </div>
@@ -74,20 +89,17 @@
             </svg>
             <div>
               <h3 style="color: white; margin: 0; font-size: 1.4rem;">Bulk Report Generator for Confluence</h3>
-              <span style="background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-top: 8px; display: inline-block;">v4.4.0 • NEW</span>
+              <div style="display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;">
+                <span style="background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block;">v4.4.0</span>
+                <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block; animation: pulse 2s infinite;">✅ LIVE ON MARKETPLACE</span>
+              </div>
             </div>
           </div>
-          <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px; line-height: 1.6;">Complete documentation for automating bulk report generation with templates, metrics, and scheduling. Transform your Confluence reporting workflow with our powerful macro.</p>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px; line-height: 1.6;">🎉 <strong>Now Live!</strong> Complete documentation for automating bulk report generation with templates, metrics, and scheduling. Transform your Confluence reporting workflow with our powerful, Atlassian-approved macro.</p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a href="/docs/bulk-report-generator/" style="background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">📖 View Full Documentation</a>
-            <a href="https://marketplace.atlassian.com/apps/bulk-report-generator" target="_blank" style="background: white; color: #8B5CF6; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🚀 Install from Marketplace</a>
+            <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" style="background: white; color: #8B5CF6; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🚀 Install from Marketplace</a>
           </div>
-        </div>
-        
-        <div style="background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-          <h3 style="color: #333; margin-bottom: 10px;">Sheets Connector for Slack</h3>
-          <p style="color: #666; margin-bottom: 15px;">Real-time alerts for Google Sheets changes delivered directly to your Slack channels. Monitor spreadsheet data and get instant notifications when values change.</p>
-          <span style="color: #999; font-style: italic;">Currently unavailable - Documentation coming soon...</span>
         </div>
       </div>
 
@@ -212,7 +224,7 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>Products</h3>
-        <span style="color: #999;">Sheets Connector (currently unavailable)</span>
+        <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
       </div>
       <div class="footer-section">
         <h3>Company</h3>

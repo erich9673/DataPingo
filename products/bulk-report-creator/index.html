@@ -27,6 +27,22 @@
   <!-- Preload critical CSS -->
   <link rel="preload" href="/assets/css/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/assets/css/theme.css"></noscript>
+  <style>
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -41,8 +57,7 @@
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="#" style="color: #999; cursor: not-allowed;">Sheets Connector for Slack (unavailable)</a>
-          <a href="/products/bulk-report-creator/">Bulk Report Creator for Confluence</a>
+          <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
         </div>
       </div>
       <div class="dropdown">
@@ -75,14 +90,14 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-          <p style="margin: 0; color: #92400e; font-weight: 600;">🚧 Coming Soon - This product is currently in development and not yet available on the Atlassian Marketplace.</p>
+        <div style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; animation: pulse 2s infinite;">
+          <p style="margin: 0; color: white; font-weight: 600;">🎉 Now Live! This app is officially approved and available on the Atlassian Marketplace.</p>
         </div>
-        <h1>Bulk Report Creator for Confluence</h1>
-        <p>Transform your reporting workflow with 100+ professional templates. Generate multiple structured reports simultaneously and eliminate manual reporting overhead.</p>
+        <h1>Bulk Report Generator for Confluence</h1>
+        <p>🚀 <strong>Now Live on Atlassian Marketplace!</strong> Transform your reporting workflow with professional templates. Generate multiple structured reports simultaneously and eliminate manual reporting overhead with our officially approved Confluence macro.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn-primary" style="background: #999; cursor: not-allowed;" onclick="return false;">Coming Soon to Marketplace</a>
-          <a href="/resources/documentation/bulkreportcreator.html" class="btn-secondary">View Documentation</a>
+          <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" class="btn-primary">Install from Marketplace</a>
+          <a href="/docs/bulk-report-generator/" class="btn-secondary">View Documentation</a>
         </div>
       </div>
       <div class="hero-image">
@@ -287,10 +302,10 @@
   <section class="section bg-primary text-white">
     <div class="cta-content">
       <h2>Ready to Transform Your Reporting?</h2>
-      <p>Join our waitlist to be notified when Bulk Report Creator becomes available on the Atlassian Marketplace.</p>
+      <p>🎉 <strong>The wait is over!</strong> Bulk Report Generator is now live and approved on the Atlassian Marketplace. Start automating your Confluence reports today!</p>
       <div class="cta-buttons">
-        <a href="#" class="btn-white" style="background: rgba(255,255,255,0.3); cursor: not-allowed;" onclick="return false;">Coming Soon to Marketplace</a>
-        <a href="/resources/documentation/bulkreportcreator.html" class="btn-outline-white">View Documentation</a>
+        <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" class="btn-white">Install from Marketplace</a>
+        <a href="/docs/bulk-report-generator/" class="btn-outline-white">View Documentation</a>
       </div>
     </div>
   </section>
@@ -300,8 +315,7 @@
     <div class="footer-content">
       <div class="footer-col">
         <h4>Products</h4>
-        <span style="color: #999;">Sheets Connector for Slack (unavailable)</span>
-        <a href="/products/bulk-report-creator/">Bulk Report Creator for Confluence</a>
+        <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
