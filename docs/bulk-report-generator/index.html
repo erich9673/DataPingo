@@ -6,9 +6,45 @@
   <meta name="description" content="Complete documentation for Bulk Report Generator for Confluence - Automate bulk report generation with templates, metrics, and scheduling">
   <title>Bulk Report Generator for Confluence | Documentation | DataPingo</title>
   <link rel="icon" type="image/png" href="../../assets/img/DataPingo logo_LOGO A3.png">
-  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+  
+  <style>
+    .hero {
+      background: #6366f1 !important;
+      background-image: none !important;
+    }
+    .hero::before {
+      display: none !important;
+    }
+    .container {
+      max-width: none !important;
+      margin-left: 0 !important;
+      padding-left: 20px !important;
+      padding-right: 40px !important;
+    }
+    .main-content .container {
+      max-width: none !important;
+      margin-left: 0 !important;
+      padding-left: 20px !important;
+    }
+    .content-wrapper {
+      max-width: none !important;
+      margin-left: 0 !important;
+    }
+    .section {
+      text-align: left !important;
+    }
+    .section h2, .section h3 {
+      text-align: left !important;
+    }
+    .steps {
+      text-align: left !important;
+    }
+  </style>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,24 +58,46 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="/" class="logo-link">
-          <img src="../../assets/img/big logo.png" alt="DataPingo Logo" class="logo">
-        </a>
-        <div class="nav-links">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/products/" class="nav-link">Products</a>
-          <a href="/company/contact.html" class="nav-link">Contact</a>
-          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="nav-link">Support</a>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-menu">
+      <a href="/" class="logo-link">
+        <img src="../../assets/img/big logo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
+      </a>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/products/bulk-report-creator/">Bulk Report Generator for Confluence</a>
         </div>
-      </nav>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/company/about-us.html">About Us</a>
+          <a href="/company/careers.html">Careers</a>
+          <a href="/company/contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/partners/become-a-partner.html">Become a Partner</a>
+          <a href="/partners/find-a-partner.html">Find a Partner</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/resources/blog.html" style="color: #333 !important;">Blog</a>
+          <a href="/resources/use-cases.html" style="color: #333 !important;">Use Cases</a>
+          <a href="/resources/documentation.html" style="color: #333 !important;">Documentation</a>
+        </div>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" style="background: #6366f1 !important; color: white !important;">
     <div class="container">
       <div class="hero-content">
         <div class="app-icon">
@@ -50,8 +108,7 @@
             <path d="M44 36l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h1 class="hero-title">Bulk Report Generator for Confluence</h1>
-        <p class="hero-subtitle">Automate bulk report generation with templates, metrics, and scheduling. Streamline your Confluence reporting workflow with our powerful macro.</p>
+        <p class="hero-subtitle" style="color: white !important; opacity: 0.95 !important;">Bulk Report Generator for Confluence<br>Automate bulk report generation with templates, metrics, and scheduling. Streamline your Confluence reporting workflow with our powerful macro.</p>
         <div class="hero-badges">
           <span class="badge">v4.4.0</span>
           <span class="badge">Atlassian Forge</span>
@@ -81,7 +138,7 @@
           <li><a href="#bulk-generation">Bulk Generation Options</a></li>
           <li><a href="#troubleshooting">Troubleshooting</a></li>
           <li><a href="#faq">Frequently Asked Questions</a></li>
-          <li><a href="#support">Support & Contact</a></li>
+          <li><a href="#support">Support & Troubleshooting</a></li>
         </ul>
       </nav>
     </div>
@@ -98,19 +155,27 @@
           <div class="card">
             <h3>Install from Atlassian Marketplace</h3>
             <ol class="steps">
-              <li>
+              <li style="margin-bottom: 2rem;">
                 <strong>Access Atlassian Marketplace</strong>
                 <p>Visit the <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank">Bulk Report Generator</a> page on Atlassian Marketplace.</p>
               </li>
-              <li>
+              <li style="margin-bottom: 2rem;">
                 <strong>Install the App</strong>
                 <p>Click "Get it now" and follow the installation prompts for your Confluence instance.</p>
               </li>
-              <li>
+              <li style="margin-bottom: 2rem;">
                 <strong>Grant Permissions</strong>
                 <p>The app requires permissions to create and edit pages in your Confluence spaces.</p>
               </li>
-              <li>
+              <li style="margin-bottom: 2rem;">
+                <strong>Access Admin Dashboard</strong>
+                <p>After installation, navigate to your Confluence administration to access the Bulk Report Generator admin dashboard.</p>
+                <div class="screenshot-container">
+                  <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Admin Dashboard.png" alt="Admin Dashboard" class="screenshot">
+                  <p class="screenshot-caption">Admin Dashboard: View previously created reports (click 'Open' to access them) or start creating new reports</p>
+                </div>
+              </li>
+              <li style="margin-bottom: 2rem;">
                 <strong>Verify Installation</strong>
                 <p>Go to any Confluence page and type <code>/bulkreport</code> to verify the macro is available.</p>
               </li>
@@ -176,7 +241,7 @@
               <h3>Space & Page Selection</h3>
             </div>
             <div class="step-content">
-              <p>Choose where your reports will be created in Confluence.</p>
+              <p>Choose which Confluence space you want your reports created in, and decide the page structure for your reports.</p>
               
               <h4>Page Creation Options</h4>
               <div class="options-grid">
@@ -194,8 +259,9 @@
                 </div>
               </div>
               
-              <div class="screenshot-placeholder">
-                📸 Screenshot: Space and page selection interface
+              <div class="screenshot-container">
+                <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Space Selection.png" alt="Space Selection Interface" class="screenshot">
+                <p class="screenshot-caption">Space Selection: Choose which Confluence space you want your reports created in, and decide the page structure: create as child-page, parent page, or new parent with new child pages.</p>
               </div>
             </div>
           </div>
@@ -207,34 +273,54 @@
               <h3>Select Your Template</h3>
             </div>
             <div class="step-content">
-              <p>Choose between pre-built templates or upload your own.</p>
+              <p>Choose between two fundamentally different template approaches: Upload Template (copy/paste pages or use native Confluence templates) or Simple Template (select from 150+ prebuilt templates).</p>
+              
+              <div class="screenshot-container">
+                <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Template Selection.png" alt="Template Selection Interface" class="screenshot">
+                <p class="screenshot-caption">Template Selection: Choose your template method - Upload Template (copy/paste pages or use native Confluence templates) or Simple Template (select from 150+ prebuilt templates).</p>
+              </div>
               
               <div class="template-types">
                 <div class="template-type">
-                  <h4>🎯 Simple Templates</h4>
-                  <ul>
-                    <li>Pre-built templates with metrics and descriptions</li>
-                    <li>Ready-to-use catalog of professional reports</li>
-                    <li>Customizable in Step 3</li>
-                  </ul>
-                </div>
-                <div class="template-type">
                   <h4>📤 Upload Templates</h4>
                   <ul>
-                    <li>Clone existing Confluence pages using URLs</li>
+                    <li>Copy and paste any existing page content</li>
+                    <li>Use native Confluence templates via link generation</li>
                     <li>Perfect for replicating existing report structures</li>
                     <li>Skips Step 3 and goes directly to bulk generation</li>
                   </ul>
+                  
+                  <div class="upload-template-flow">
+                    <h5>Upload Template Process:</h5>
+                    <div class="screenshot-container">
+                      <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Upload Template.png" alt="Upload Template Interface" class="screenshot">
+                      <p class="screenshot-caption">Upload Template: Copy and paste any existing page content, OR generate a link to use native Confluence templates, edit them, then copy the link back to bulk generate reports.</p>
+                    </div>
+                    
+                    <div class="screenshot-container">
+                      <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Upload Template Success.png" alt="Upload Template Success" class="screenshot">
+                      <p class="screenshot-caption">Upload Success: Your template has been successfully uploaded and is ready for bulk generation.</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
-              <div class="form-field">
-                <label>Report Name</label>
-                <p>Enter the name for your report in this step.</p>
-              </div>
-              
-              <div class="screenshot-placeholder">
-                📸 Screenshot: Template selection interface
+                
+                <div class="template-type">
+                  <h4>🎯 Simple Templates</h4>
+                  <ul>
+                    <li>Select from over 150 prebuilt templates</li>
+                    <li>Templates come with headers and metrics preset</li>
+                    <li>Fully customizable in the following steps</li>
+                    <li>Ready-to-use catalog of professional reports</li>
+                  </ul>
+                  
+                  <div class="simple-template-flow">
+                    <h5>Simple Template Process:</h5>
+                    <div class="screenshot-container">
+                      <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Simple Template.png" alt="Simple Template Selection" class="screenshot">
+                      <p class="screenshot-caption">Simple Template Library: Select from over 150 prebuilt templates with headers and metrics already preset. These templates can be further customized in the following steps.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -243,27 +329,33 @@
           <div class="card workflow-step">
             <div class="step-header">
               <span class="step-badge">Step 3</span>
-              <h3>Edit Your Template <span class="badge-small">Simple Templates Only</span></h3>
+              <h3>Customize Your Template <span class="badge-small">Simple Templates Only</span></h3>
             </div>
             <div class="step-content">
-              <p>Customize your template with an intuitive toggle button editor.</p>
+              <p>For Simple Templates, you can customize your template with live preview and editing capabilities.</p>
               
               <div class="features-list">
-                <h4>Editor Features</h4>
+                <h4>Template Customization Features</h4>
                 <ul>
-                  <li>✏️ Toggle button editor (similar to Confluence page editing)</li>
-                  <li>🎨 Customize template layout and content</li>
+                  <li>👀 Live Preview: See how your template will appear on the Confluence page</li>
+                  <li>✏️ Text Editor: Customize content, formatting, and structure</li>
                   <li>📊 Modify metrics and descriptions</li>
-                  <li>👀 Real-time preview of changes</li>
+                  <li>� Real-time updates as you make changes</li>
                 </ul>
+              </div>
+              
+              <div class="screenshot-container">
+                <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Live Preview.png" alt="Live Preview Interface" class="screenshot">
+                <p class="screenshot-caption">Live Preview: See a live preview of how your template will appear on the Confluence page. The editor below lets you make changes and see them reflected instantly.</p>
+              </div>
+              
+              <div class="screenshot-container">
+                <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Editor.png" alt="Template Editor" class="screenshot">
+                <p class="screenshot-caption">Template Editor: Use the text editor to customize your simple template. Make detailed adjustments to content, formatting, and structure.</p>
               </div>
               
               <div class="alert alert-warning">
                 <strong>Note:</strong> This step is only available for Simple Templates. Upload Templates skip this step and proceed directly to bulk generation.
-              </div>
-              
-              <div class="screenshot-placeholder">
-                📸 Screenshot: Template editor interface
               </div>
             </div>
           </div>
@@ -275,7 +367,12 @@
               <h3>Bulk Generation</h3>
             </div>
             <div class="step-content">
-              <p>Choose how you want to generate your reports.</p>
+              <p>Generate your reports with flexible options: single reports, multiple reports, or schedule them as dated, weekly, or quarterly reports.</p>
+              
+              <div class="screenshot-container">
+                <img src="../../assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Bulk Generate.png" alt="Bulk Generation Interface" class="screenshot">
+                <p class="screenshot-caption">Bulk Generation: Generate your reports with flexible options - single reports, multiple reports, or schedule them as dated, weekly, or quarterly reports.</p>
+              </div>
               
               <div class="generation-options">
                 <div class="generation-option">
@@ -297,7 +394,18 @@
                 </div>
                 
                 <div class="generation-option">
-                  <h4>📅 Dated Reports with Scheduling</h4>
+                  <h4>📅 Scheduled Reports</h4>
+                  <p>Automated report generation with scheduling</p>
+                  <ul>
+                    <li>Dated reports</li>
+                    <li>Weekly recurring reports</li>
+                    <li>Quarterly reporting cycles</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
                   <p>Automated scheduling for regular reporting</p>
                   <ul>
                     <li>Weekly reporting</li>
@@ -320,40 +428,74 @@
           
           <div class="template-comparison">
             <div class="card">
-              <h3>Simple Templates</h3>
+              <h3>🎯 Simple Templates</h3>
               <div class="template-features">
                 <h4>What are Simple Templates?</h4>
-                <p>Pre-built templates from our catalog with metrics and descriptions already filled out. Perfect for standard reporting needs.</p>
+                <p>Choose from over 150 prebuilt templates with headers and metrics already preset. Perfect for standard reporting needs with professional formatting built-in.</p>
                 
                 <h4>Key Features:</h4>
                 <ul>
-                  <li>✅ Ready-to-use professional templates</li>
-                  <li>✅ Pre-configured metrics and KPIs</li>
-                  <li>✅ Fully customizable in Step 3</li>
+                  <li>✅ 150+ ready-to-use professional templates</li>
+                  <li>✅ Pre-configured metrics and headers</li>
+                  <li>✅ Live preview functionality</li>
+                  <li>✅ Fully customizable with text editor</li>
                   <li>✅ Best for standardized reporting</li>
                 </ul>
                 
                 <h4>Workflow:</h4>
-                <p>Step 1 → Step 2 → <strong>Step 3 (Edit)</strong> → Step 4</p>
+                <p>Step 1 → Step 2 → <strong>Step 3 (Customize with Live Preview & Editor)</strong> → Step 4</p>
+                
+                <div class="alert alert-info">
+                  <strong>Step 3 Details:</strong> Simple Templates include both Live Preview (see how your template will look) and Template Editor (customize content and structure).
+                </div>
               </div>
             </div>
             
             <div class="card">
-              <h3>Upload Templates</h3>
+              <h3>📤 Upload Templates</h3>
               <div class="template-features">
                 <h4>What are Upload Templates?</h4>
-                <p>Clone existing Confluence pages by providing their URLs. Ideal for replicating existing report structures across multiple projects.</p>
+                <p>Copy and paste any existing page content OR use native Confluence templates by generating a link, editing them, then copying the link back for bulk generation.</p>
                 
                 <h4>Key Features:</h4>
                 <ul>
-                  <li>✅ Clone any existing Confluence page</li>
+                  <li>✅ Copy/paste any existing page content</li>
+                  <li>✅ Use native Confluence templates via link generation</li>
                   <li>✅ Maintain existing formatting and structure</li>
-                  <li>✅ Quick setup with URL input</li>
-                  <li>✅ Perfect for established report formats</li>
+                  <li>✅ Perfect for replicating existing report structures</li>
+                  <li>✅ Quick setup process</li>
                 </ul>
                 
                 <h4>Workflow:</h4>
                 <p>Step 1 → Step 2 → <strong>Skip Step 3</strong> → Step 4</p>
+                
+                <div class="alert alert-warning">
+                  <strong>Note:</strong> Upload Templates skip the customization step and go directly to bulk generation, making them perfect for replicating existing formats.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h3>Choosing the Right Template Type</h3>
+            <div class="decision-matrix">
+              <div class="decision-option">
+                <h4>Choose Simple Templates if:</h4>
+                <ul>
+                  <li>You want to browse from 150+ professional templates</li>
+                  <li>You need templates with preset metrics and headers</li>
+                  <li>You want to customize content with live preview</li>
+                  <li>You're creating new report formats</li>
+                </ul>
+              </div>
+              <div class="decision-option">
+                <h4>Choose Upload Templates if:</h4>
+                <ul>
+                  <li>You have existing pages you want to replicate</li>
+                  <li>You want to use native Confluence templates</li>
+                  <li>You need to maintain specific formatting</li>
+                  <li>You want the fastest setup process</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -365,20 +507,21 @@
           
           <div class="generation-detailed">
             <div class="card">
-              <h3>Single Report Generation</h3>
+              <h3>⚡ Single Report Generation</h3>
               <p>Create individual reports on-demand with immediate results.</p>
               <div class="use-cases">
                 <h4>Best for:</h4>
                 <ul>
                   <li>One-time project reports</li>
                   <li>Ad-hoc analysis</li>
-                  <li>Testing templates</li>
+                  <li>Testing templates before bulk generation</li>
+                  <li>Quick individual report creation</li>
                 </ul>
               </div>
             </div>
             
             <div class="card">
-              <h3>Multiple Report Generation</h3>
+              <h3>📋 Multiple Report Generation</h3>
               <p>Batch process multiple reports efficiently in one operation.</p>
               <div class="use-cases">
                 <h4>Best for:</h4>
@@ -386,31 +529,52 @@
                   <li>Department-wide reporting</li>
                   <li>Multi-project analysis</li>
                   <li>Bulk documentation creation</li>
+                  <li>Team-wide report distribution</li>
                 </ul>
               </div>
             </div>
             
             <div class="card">
-              <h3>Scheduled Dated Reports</h3>
-              <p>Automate regular reporting with flexible scheduling options.</p>
+              <h3>📅 Scheduled Reporting</h3>
+              <p>Automate regular reporting with flexible scheduling options for consistent, timely report generation.</p>
               <div class="scheduling-options">
-                <h4>Available Schedules:</h4>
+                <h4>Available Scheduling Options:</h4>
                 <div class="schedule-grid">
                   <div class="schedule-item">
-                    <strong>Weekly</strong>
-                    <p>Generate reports every week</p>
+                    <strong>📆 Dated Reports</strong>
+                    <p>Generate reports for specific dates or date ranges</p>
                   </div>
                   <div class="schedule-item">
-                    <strong>Monthly</strong>
-                    <p>Monthly reporting cycles</p>
+                    <strong>📊 Weekly Reports</strong>
+                    <p>Automatic weekly reporting cycles</p>
                   </div>
                   <div class="schedule-item">
-                    <strong>Quarterly</strong>
-                    <p>Quarterly business reports</p>
+                    <strong>📈 Quarterly Reports</strong>
+                    <p>Quarterly business and performance reports</p>
                   </div>
                 </div>
+                
+                <h4>Perfect for:</h4>
+                <ul>
+                  <li>Regular business reporting cycles</li>
+                  <li>Automated compliance reporting</li>
+                  <li>Consistent team updates</li>
+                  <li>Historical report generation</li>
+                </ul>
               </div>
             </div>
+          </div>
+          
+          <div class="card">
+            <h3>Generation Process</h3>
+            <p>Regardless of which option you choose, the generation process is streamlined and efficient:</p>
+            <ol>
+              <li><strong>Configure your options</strong> - Select single, multiple, or scheduled generation</li>
+              <li><strong>Review settings</strong> - Confirm your template and target settings</li>
+              <li><strong>Initiate generation</strong> - Start the automated process</li>
+              <li><strong>Monitor progress</strong> - Track generation status in real-time</li>
+              <li><strong>Access results</strong> - Find your generated reports in the specified location</li>
+            </ol>
           </div>
         </section>
 
@@ -552,29 +716,90 @@
 
         <!-- Support Section -->
         <section id="support" class="section">
-          <h2>Support & Contact</h2>
+          <h2>Support & Troubleshooting</h2>
           
-          <div class="support-grid">
+          <div class="support-content">
             <div class="card">
-              <h3>📞 Get Help</h3>
-              <p>Need assistance? Our support team is here to help.</p>
-              <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="btn btn-primary">
-                Contact Support
-              </a>
+              <h3>🛠️ Common Issues & Solutions</h3>
+              
+              <div class="troubleshoot-item">
+                <h4>App Installation Issues</h4>
+                <ul>
+                  <li><strong>Problem:</strong> App not appearing after installation</li>
+                  <li><strong>Solution:</strong> Check with your Confluence administrator about app permissions and try refreshing your browser</li>
+                </ul>
+              </div>
+              
+              <div class="troubleshoot-item">
+                <h4>Template Upload Problems</h4>
+                <ul>
+                  <li><strong>Problem:</strong> Template fails to upload</li>
+                  <li><strong>Solution:</strong> Ensure your template is a valid Confluence page export (.xml format) and under 10MB</li>
+                </ul>
+              </div>
+              
+              <div class="troubleshoot-item">
+                <h4>Report Generation Fails</h4>
+                <ul>
+                  <li><strong>Problem:</strong> Reports not generating successfully</li>
+                  <li><strong>Solution:</strong> Check space permissions, verify template compatibility, and ensure sufficient storage space</li>
+                </ul>
+              </div>
             </div>
             
             <div class="card">
-              <h3>📚 Resources</h3>
+              <h3>📞 Get Help</h3>
+              <p>Need assistance? Our support team is here to help with any questions or technical issues.</p>
+              <div class="contact-methods">
+                <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="btn btn-primary">
+                  Contact Support Portal
+                </a>
+                <p class="contact-info">
+                  <strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a>
+                </p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h3>💬 When Contacting Support</h3>
+              <p>For faster resolution, please include:</p>
+              <ul>
+                <li>Your Confluence version</li>
+                <li>App version being used</li>
+                <li>Step-by-step description of the issue</li>
+                <li>Any error messages or screenshots</li>
+                <li>Browser type and version</li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h3>🎯 Best Practices</h3>
+              <div class="best-practices">
+                <h4>For Optimal Performance:</h4>
+                <ul>
+                  <li><strong>Template Design:</strong> Keep templates focused and well-structured</li>
+                  <li><strong>Batch Size:</strong> For large bulk operations, consider smaller batches</li>
+                  <li><strong>Permissions:</strong> Ensure proper space permissions before bulk generation</li>
+                  <li><strong>Testing:</strong> Always test with a single report before bulk operations</li>
+                  <li><strong>Scheduling:</strong> Use scheduled reports for recurring needs to save time</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h3>📚 Additional Resources</h3>
               <div class="resource-links">
                 <a href="https://datapingo.com/privacy" target="_blank">Privacy Policy</a>
                 <a href="https://datapingo.com/terms" target="_blank">Terms of Service</a>
                 <a href="https://datapingo.com/security" target="_blank">Security Statement</a>
+                <a href="../../resources/documentation.html">Documentation Hub</a>
+                <a href="../../resources/use-cases.html">Use Cases & Examples</a>
               </div>
             </div>
             
             <div class="card">
               <h3>🚀 Try the App</h3>
-              <p>Ready to streamline your reporting workflow?</p>
+              <p>Ready to streamline your reporting workflow? Install directly from the Atlassian Marketplace.</p>
               <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" class="btn btn-secondary">
                 Install from Marketplace
               </a>

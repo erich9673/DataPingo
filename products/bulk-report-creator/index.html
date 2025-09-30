@@ -19,8 +19,8 @@
 
     gtag('config', 'G-W5VY62S4LR');
   </script>
-  <title>Bulk Report Creator for Confluence | DataPingo</title>
-  <meta name="description" content="Transform your reporting workflow with Bulk Report Creator for Confluence. Generate professional reports with 106+ customizable templates across all business functions.">
+  <title>Bulk Report Generator for Confluence | DataPingo</title>
+  <meta name="description" content="Transform your reporting workflow with Bulk Report Generator for Confluence. Generate professional reports with 150+ customizable templates across all business functions.">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
@@ -87,225 +87,722 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <div style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; animation: pulse 2s infinite;">
-          <p style="margin: 0; color: white; font-weight: 600;">🎉 Now Live! This app is officially approved and available on the Atlassian Marketplace.</p>
+        <div style="text-align: center; margin-bottom: 30px;">
+          <img src="/assets/img/bulk-report-generator-logo.png" alt="Bulk Report Generator for Confluence Logo" style="width: 120px; height: 120px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
         </div>
         <h1>Bulk Report Generator for Confluence</h1>
         <p>🚀 <strong>Now Live on Atlassian Marketplace!</strong> Transform your reporting workflow with professional templates. Generate multiple structured reports simultaneously and eliminate manual reporting overhead with our officially approved Confluence macro.</p>
         <div class="hero-buttons">
-          <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" class="btn-primary">Install from Marketplace</a>
-          <a href="/docs/bulk-report-generator/" class="btn-secondary">View Documentation</a>
+          <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
+             style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin-right: 15px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
+             onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
+             onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'">
+             🚀 Install from Marketplace
+          </a>
+          <a href="/docs/bulk-report-generator/" 
+             style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
+             onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
+             onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'">
+             📖 View Documentation
+          </a>
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="/assets/img/chart.jpg" alt="Bulk Report Creator Interface" class="hero-img" loading="eager" decoding="async" />
       </div>
     </div>
   </section>
 
   <!-- FEATURES SECTION -->
-  <section class="section">
+  <section class="section" id="features">
     <h2>Key Features</h2>
     <div class="features-grid">
-      <div class="feature-item">
-        <img src="/assets/img/lightning.jpg" alt="Speed" class="feature-icon" />
+      <div class="feature-item" style="text-align: center;">
+        <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Bulk Generate.png" alt="Fast Generation" class="feature-icon" style="cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
         <h3>Lightning Fast Generation</h3>
         <p>Generate dozens of professional reports in minutes, not hours. Bulk processing capabilities save time and ensure consistency.</p>
       </div>
-      <div class="feature-item">
-        <img src="/assets/img/tools.jpg" alt="Templates" class="feature-icon" />
-        <h3>100+ Professional Templates</h3>
+      <div class="feature-item" style="text-align: center;">
+        <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Template Selection.png" alt="Templates" class="feature-icon" style="cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
+        <h3>150+ Professional Templates</h3>
         <p>Comprehensive template library covering all business functions from financial reporting to project management and HR analytics.</p>
       </div>
-      <div class="feature-item">
-        <img src="/assets/img/chart.jpg" alt="Customization" class="feature-icon" />
+      <div class="feature-item" style="text-align: center;">
+        <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Simple Template.png" alt="Customization" class="feature-icon" style="cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
         <h3>Full Customization</h3>
         <p>Adapt every template to your organization's needs. Modify KPIs, layouts, branding, and data structures with ease.</p>
-      </div>
-      <div class="feature-item">
-        <img src="/assets/img/rocket.png" alt="Automation" class="feature-icon" />
-        <h3>Bulk Generation</h3>
-        <p>Generate multiple reports simultaneously with consistent formatting and progress monitoring workflows.</p>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS SECTION -->
-  <section class="section bg-light">
+  <section class="section bg-light" id="workflow">
     <h2>How It Works</h2>
-    <div class="steps-container">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Access the App</h3>
-        <p>Type <strong>/bulkreport</strong> in any Confluence page or select from the macro menu</p>
+    <p style="text-align: center; margin-bottom: 40px; color: #666;">Experience the intuitive 4-step workflow that makes bulk report generation effortless</p>
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+      <!-- Step 1 -->
+      <div class="workflow-step" style="display: flex; align-items: center; margin-bottom: 40px; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div style="margin-right: 30px; flex-shrink: 0;">
+          <div style="background: #8B5CF6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 15px;">1</div>
+        </div>
+        <div style="flex-grow: 1; margin-right: 30px;">
+          <h3 style="margin-bottom: 10px; color: #1f2937;">Choose Your Space</h3>
+          <p style="color: #6b7280; margin: 0;">Select your Confluence space and configure page organization options for your reports</p>
+        </div>
+        <div style="flex-shrink: 0;">
+          <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Space Selection.png" alt="Step 1: Space Selection" style="width: 320px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
       </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Choose Templates</h3>
-        <p>Browse 100+ professional templates across 15+ business categories and select what you need</p>
+      
+      <!-- Step 2 -->
+      <div class="workflow-step" style="display: flex; align-items: center; margin-bottom: 40px; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div style="margin-right: 30px; flex-shrink: 0;">
+          <div style="background: #8B5CF6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 15px;">2</div>
+        </div>
+        <div style="flex-grow: 1; margin-right: 30px;">
+          <h3 style="margin-bottom: 10px; color: #1f2937;">Pick Your Template</h3>
+          <p style="color: #6b7280; margin: 0;">Choose between 150+ prebuilt templates or upload your own custom templates</p>
+        </div>
+        <div style="flex-shrink: 0;">
+          <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Template Selection.png" alt="Step 2: Template Selection" style="width: 320px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
       </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Customize & Configure</h3>
-        <p>Adapt templates to your needs, set KPIs, configure metrics, and define report structure</p>
+      
+      <!-- Step 3 -->
+      <div class="workflow-step" style="display: flex; align-items: center; margin-bottom: 40px; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div style="margin-right: 30px; flex-shrink: 0;">
+          <div style="background: #8B5CF6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 15px;">3</div>
+        </div>
+        <div style="flex-grow: 1; margin-right: 30px;">
+          <h3 style="margin-bottom: 10px; color: #1f2937;">Customize & Preview</h3>
+          <p style="color: #6b7280; margin: 0;">Tailor templates to your needs with live preview and customization options</p>
+        </div>
+        <div style="flex-shrink: 0;">
+          <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Simple Template.png" alt="Step 3: Customize Template" style="width: 320px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
       </div>
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Generate Reports</h3>
-        <p>Create multiple professional reports simultaneously with consistent formatting and structure</p>
+      
+      <!-- Step 4 -->
+      <div class="workflow-step" style="display: flex; align-items: center; margin-bottom: 40px; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div style="margin-right: 30px; flex-shrink: 0;">
+          <div style="background: #8B5CF6; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 15px;">4</div>
+        </div>
+        <div style="flex-grow: 1; margin-right: 30px;">
+          <h3 style="margin-bottom: 10px; color: #1f2937;">Generate in Bulk</h3>
+          <p style="color: #6b7280; margin: 0;">Create multiple reports with flexible scheduling options and progress monitoring</p>
+        </div>
+        <div style="flex-shrink: 0;">
+          <img src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Bulk Generate.png" alt="Step 4: Generate Reports" style="width: 320px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center;">
+      <a href="/docs/bulk-report-generator/" style="background: #8B5CF6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600;">📖 View Complete Workflow Guide</a>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="section bg-light" id="pricing">
+    <h2>Pricing</h2>
+    <p style="text-align: center; margin-bottom: 40px; color: #666;">Enter your team size to see exact pricing. All plans include full access to 150+ templates and unlimited report generation.</p>
+    
+    <!-- Pricing Calculator -->
+    <div style="max-width: 600px; margin: 0 auto 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3 style="text-align: center; margin-bottom: 20px;">💰 Pricing Calculator</h3>
+      
+      <div style="margin-bottom: 20px;">
+        <label for="userCount" style="display: block; margin-bottom: 8px; font-weight: 600;">How many users?</label>
+        <input type="number" id="userCount" placeholder="Enter number of users" min="1" max="150000" 
+               style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem;" 
+               oninput="calculatePricing()">
+      </div>
+      
+      <div id="pricingResult" style="display: none; text-align: center; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8B5CF6;">
+        <div id="monthlyPrice" style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 5px;"></div>
+        <div id="pricePerUser" style="color: #6b7280; margin-bottom: 10px;"></div>
+        <div id="freeTrialInfo" style="color: #059669; font-weight: 600; margin-bottom: 15px;"></div>
+        <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
+           style="background: #8B5CF6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">
+           Start Free Trial → Install from Marketplace
+        </a>
       </div>
     </div>
   </section>
+
+  <script>
+    function calculatePricing() {
+      const userCount = parseInt(document.getElementById('userCount').value);
+      const resultDiv = document.getElementById('pricingResult');
+      const monthlyPriceDiv = document.getElementById('monthlyPrice');
+      const pricePerUserDiv = document.getElementById('pricePerUser');
+      const freeTrialDiv = document.getElementById('freeTrialInfo');
+      
+      if (!userCount || userCount < 1) {
+        resultDiv.style.display = 'none';
+        return;
+      }
+      
+      let pricePerUser = 0;
+      
+      // Pricing tiers based on your CSV
+      if (userCount <= 10) {
+        pricePerUser = 0;
+      } else if (userCount <= 100) {
+        pricePerUser = 1;
+      } else if (userCount <= 250) {
+        pricePerUser = 0.8;
+      } else if (userCount <= 1000) {
+        pricePerUser = 0.75;
+      } else if (userCount <= 2500) {
+        pricePerUser = 0.7;
+      } else if (userCount <= 5000) {
+        pricePerUser = 0.65;
+      } else if (userCount <= 7500) {
+        pricePerUser = 0.6;
+      } else if (userCount <= 10000) {
+        pricePerUser = 0.55;
+      } else if (userCount <= 15000) {
+        pricePerUser = 0.5;
+      } else if (userCount <= 20000) {
+        pricePerUser = 0.45;
+      } else {
+        pricePerUser = 0.4;
+      }
+      
+      const monthlyTotal = userCount * pricePerUser;
+      
+      // Display results
+      if (userCount <= 10) {
+        monthlyPriceDiv.textContent = 'FREE';
+        pricePerUserDiv.textContent = `For teams up to 10 users`;
+        freeTrialDiv.textContent = '🎉 Your team qualifies for our free tier!';
+      } else {
+        monthlyPriceDiv.textContent = `$${monthlyTotal.toFixed(2)}/month`;
+        pricePerUserDiv.textContent = `$${pricePerUser}/user/month for ${userCount} users`;
+        freeTrialDiv.textContent = '✨ Start with a 30-day free trial for all users';
+      }
+      
+      resultDiv.style.display = 'block';
+    }
+  </script>
 
   <!-- TEMPLATE CATEGORIES SECTION -->
-  <section class="section">
-    <h2>Template Categories</h2>
-    <div class="categories-grid">
-      <div class="category-item">
-        <h3>📊 Financial Reports</h3>
-        <ul>
-          <li>Quarterly Financial Summary</li>
-          <li>Budget vs Actual Analysis</li>
-          <li>Revenue Performance Dashboard</li>
-          <li>Cost Center Reporting</li>
-        </ul>
+  <section class="section" style="background: #f8fafc; padding: 80px 0;" id="templates">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+      <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; font-weight: 700; color: #1f2937;">Template Categories</h2>
+      <p style="text-align: center; color: #6b7280; margin-bottom: 50px; font-size: 1.1rem;">Explore our comprehensive collection of 199+ professional report templates across all business functions</p>
+      
+      <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        
+        <!-- Custom Report -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('custom')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">🎨</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Custom Report</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #e5e7eb; color: #374151; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">1 template</span>
+                <span id="custom-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="custom-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <span style="color: #4b5563;">• Blank Canvas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive & Leadership -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('executive')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">👔</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Executive & Leadership</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">10 templates</span>
+                <span id="executive-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="executive-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Executive Meeting Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Strategy Meeting Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Executive Business Review</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Annual Plan One-Pager</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Business Status Update</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Leadership Team Health Monitor</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• All Hands Meeting</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Quarterly Check-In</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Year in Review</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Strategic Plan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Management -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('product')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">📱</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Product Management</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">20 templates</span>
+                <span id="product-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="product-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Requirements Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Launch Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Roadmap</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• MVP Ideation</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Competitive Analysis Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Journey Mapping</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Persona Plan Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Interview Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Analysis Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Feature Usage Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Market Fit Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Competitive Intelligence Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Performance Dashboard</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• User Feedback Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Adoption Metrics</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Feature Impact Assessment</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Pricing Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Market Penetration Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Lifecycle Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Churn Analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketing & Sales -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('marketing')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">📈</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Marketing & Sales</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">21 templates</span>
+                <span id="marketing-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="marketing-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Marketing Campaign Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Marketing Blog Post Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Marketing Plan Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Creative Brief</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Content Strategy</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Message House Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Sales Account Planning</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Sales Portal</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Email Drip Campaign</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Campaign ROI Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Lead Generation Summary</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Social Media Performance Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• SEO Performance Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Email Marketing Campaign Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Paid Advertising Dashboard</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Content Marketing ROI Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Brand Awareness Tracking</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Acquisition Cost Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Marketing Funnel Performance</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Influencer Campaign Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Marketing Attribution Analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Training & Development -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('training')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">🎓</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Training & Development</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">7 templates</span>
+                <span id="training-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="training-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Training Effectiveness Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Skills Gap Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Knowledge Transfer Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Onboarding Progress Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Certification Tracking Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Learning Program Assessment</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Professional Development Plan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitive & Market Intelligence -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('intelligence')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">🔍</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Competitive & Market Intelligence</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">7 templates</span>
+                <span id="intelligence-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="intelligence-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Competitor Analysis Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Industry Trends Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Journey Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Product Feature Comparison</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Market Research Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Competitive Positioning Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Market Intelligence Brief</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk & Compliance -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('risk')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">🛡️</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Risk & Compliance</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">7 templates</span>
+                <span id="risk-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="risk-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Risk Assessment Matrix</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Compliance Audit Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Security Assessment Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Business Continuity Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Regulatory Impact Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Internal Controls Review</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Vendor Risk Assessment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance & Success Tracking -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('performance')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">📊</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Performance & Success Tracking</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">7 templates</span>
+                <span id="performance-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="performance-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• KPI Dashboard Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Balanced Scorecard Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Success Story Documentation</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Performance Benchmark Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Achievement Recognition Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Best Practices Documentation</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Performance Improvement Tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operations & Process -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('operations')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">⚙️</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Operations & Process</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #e0e7ff; color: #3730a3; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">10 templates</span>
+                <span id="operations-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="operations-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Standard Operating Procedure (SOP)</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Charter Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Plan Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Timeline Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Resource Planning Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Capacity Planning Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Change Management Plan</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Risk Assessment Matrix</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Operational Metrics</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Process Improvement Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering & Technical -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('engineering')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">💻</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Engineering & Technical</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">13 templates</span>
+                <span id="engineering-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="engineering-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Sprint Planning Meeting</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Sprint Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Retrospective Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Code Quality Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Deployment Summary</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Bug Analysis Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• DevOps Runbook</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• DevOps Change Management</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Software Architecture Review</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• AWS Architecture Diagram</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• ITSM Change Management</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Incident Postmortem</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Technical Debt Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analytics & Data -->
+        <div class="accordion-item" style="border-bottom: 1px solid #e5e7eb;">
+          <div class="accordion-header" onclick="toggleAccordion('analytics')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">📈</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Analytics & Data</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #e0e7ff; color: #3730a3; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">10 templates</span>
+                <span id="analytics-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="analytics-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• JIRA Report Blueprint</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Customer Impact Assessment</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Data Analysis Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Business Intelligence Dashboard</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Usage Analytics Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Performance Analytics</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• A/B Test Results</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• User Behavior Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Conversion Funnel Analysis</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Market Research Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion('projectmgmt')" style="padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; transition: background-color 0.3s ease;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <div style="display: flex; align-items: center;">
+                <span style="font-size: 1.3rem; margin-right: 12px;">📋</span>
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 600; color: #1f2937;">Project Management</h3>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #e0e7ff; color: #3730a3; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; margin-right: 15px;">10 templates</span>
+                <span id="projectmgmt-icon" style="font-size: 1.2rem; color: #6b7280; transition: transform 0.3s ease;">▼</span>
+              </div>
+            </div>
+          </div>
+          <div id="projectmgmt-content" class="accordion-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f9fafb;">
+            <div style="padding: 15px 25px 20px 50px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px;">
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Kickoff</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Status Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Milestone Template</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Master Project Documentation</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Task Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Team Task Report</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Dependency Mapping</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Health Monitor</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Retrospective</span>
+                <span style="color: #4b5563; font-size: 0.9rem;">• Project Closure Report</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      <div class="category-item">
-        <h3>📈 Marketing Analytics</h3>
-        <ul>
-          <li>Campaign Performance Report</li>
-          <li>Lead Generation Analysis</li>
-          <li>Customer Acquisition Metrics</li>
-          <li>Social Media Analytics</li>
-        </ul>
+      
+      <div style="text-align: center; margin-top: 30px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <p style="color: #4b5563; margin: 0; font-weight: 500;">
+          <strong>Have a suggestion for other templates?</strong><br>
+          Reach out to <a href="mailto:support@datapingo.com" style="color: #8B5CF6; text-decoration: none;">support@datapingo.com</a> and we'll add it!
+        </p>
       </div>
-      <div class="category-item">
-        <h3>👥 Human Resources</h3>
-        <ul>
-          <li>Employee Performance Review</li>
-          <li>Recruitment Analytics</li>
-          <li>Training and Development</li>
-          <li>Compensation Analysis</li>
-        </ul>
-      </div>
-      <div class="category-item">
-        <h3>🚀 Project Management</h3>
-        <ul>
-          <li>Project Status Dashboard</li>
-          <li>Sprint Retrospective</li>
-          <li>Resource Allocation Report</li>
-          <li>Risk Assessment Matrix</li>
-        </ul>
-      </div>
-      <div class="category-item">
-        <h3>💼 Sales Performance</h3>
-        <ul>
-          <li>Sales Pipeline Report</li>
-          <li>Territory Performance</li>
-          <li>Customer Retention Metrics</li>
-          <li>Forecasting Dashboard</li>
-        </ul>
-      </div>
-      <div class="category-item">
-        <h3>⚙️ Operations</h3>
-        <ul>
-          <li>Operational Efficiency</li>
-          <li>Quality Assurance Metrics</li>
-          <li>Supply Chain Analysis</li>
-          <li>Process Improvement</li>
-        </ul>
-      </div>
-    </div>
-    <div class="text-center" style="margin-top: 30px;">
-      <p><strong>And 10+ more categories</strong> including Strategic Planning, Customer Success, Technology & Development, Legal & Compliance, and Executive Reporting.</p>
     </div>
   </section>
+
+  <script>
+    function toggleAccordion(categoryId) {
+      const content = document.getElementById(categoryId + '-content');
+      const icon = document.getElementById(categoryId + '-icon');
+      const header = event.currentTarget;
+      
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+      
+      if (isOpen) {
+        content.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+        icon.textContent = '▼';
+        header.style.backgroundColor = 'white';
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+        icon.textContent = '▲';
+        header.style.backgroundColor = '#f9fafb';
+      }
+    }
+
+    // Add hover effects
+    document.addEventListener('DOMContentLoaded', function() {
+      const headers = document.querySelectorAll('.accordion-header');
+      headers.forEach(header => {
+        header.addEventListener('mouseenter', function() {
+          if (!this.nextElementSibling.style.maxHeight || this.nextElementSibling.style.maxHeight === '0px') {
+            this.style.backgroundColor = '#f9fafb';
+          }
+        });
+        header.addEventListener('mouseleave', function() {
+          if (!this.nextElementSibling.style.maxHeight || this.nextElementSibling.style.maxHeight === '0px') {
+            this.style.backgroundColor = 'white';
+          }
+        });
+      });
+    });
+  </script>
 
   <!-- BENEFITS SECTION -->
-  <section class="section bg-light">
-    <h2>Why Choose Bulk Report Creator?</h2>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <h3>⏱️ Save Time</h3>
-        <p>Transform hours of manual reporting work into minutes with automated bulk generation capabilities.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>📋 Ensure Consistency</h3>
-        <p>Standardized formatting across all reports maintains professional appearance and brand consistency.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>📈 Scale Reporting</h3>
-        <p>Generate multiple reports simultaneously for different teams, departments, or stakeholders.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>🎨 Professional Quality</h3>
-        <p>Business-ready templates with professional layouts designed for executive and stakeholder presentations.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>🔧 Full Customization</h3>
-        <p>Adapt every aspect to your organization's needs including branding, KPIs, and data structures.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>🔒 Enterprise Security</h3>
-        <p>Built on Atlassian Forge with enterprise-grade security, compliance, and data protection.</p>
-      </div>
-    </div>
-  </section>
+  <section style="background: #f8fafc; padding: 80px 0;" id="benefits">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+      <h2 style="margin-bottom: 20px; font-size: 2.5rem; font-weight: 700; color: #8B5CF6;">Why Choose Bulk Report Creator?</h2>
+      <p style="color: #6b7280; margin-bottom: 60px; font-size: 1.1rem;">Powerful features designed to transform your reporting workflow</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 50px;">
+        
+        <!-- Save Time -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">⏱️</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Save Time</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Transform hours of manual reporting work into minutes with automated bulk generation capabilities.</p>
+        </div>
 
-  <!-- TECHNICAL SPECS SECTION -->
-  <section class="section">
-    <h2>Technical Specifications</h2>
-    <div class="specs-grid">
-      <div class="spec-item">
-        <h3>Platform</h3>
-        <ul>
-          <li>Atlassian Forge Runtime</li>
-          <li>Confluence Cloud Compatible</li>
-          <li>Native API Integration</li>
-          <li>Forward Compatible</li>
-        </ul>
-      </div>
-      <div class="spec-item">
-        <h3>Performance</h3>
-        <ul>
-          <li>Generate up to 50 reports simultaneously</li>
-          <li>Sub-second template loading</li>
-          <li>2-3 seconds per report page</li>
-          <li>Multi-team concurrent usage</li>
-        </ul>
-      </div>
-      <div class="spec-item">
-        <h3>Security</h3>
-        <ul>
-          <li>End-to-end encryption</li>
-          <li>Confluence permission inheritance</li>
-          <li>GDPR compliant</li>
-          <li>Complete audit logging</li>
-        </ul>
-      </div>
-      <div class="spec-item">
-        <h3>Support</h3>
-        <ul>
-          <li>Comprehensive documentation</li>
-          <li>Video tutorials</li>
-          <li>Community forum</li>
-          <li>Direct support portal</li>
-        </ul>
+        <!-- Ensure Consistency -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #DBEAFE 0%, #3B82F6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">📋</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Ensure Consistency</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Standardized formatting across all reports maintains professional appearance and brand consistency.</p>
+        </div>
+
+        <!-- Scale Reporting -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #DCFCE7 0%, #10B981 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">📈</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Scale Reporting</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Generate multiple reports simultaneously for different teams, departments, or stakeholders.</p>
+        </div>
+
+        <!-- Professional Quality -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FDE7F3 0%, #EC4899 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">🎨</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Professional Quality</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Business-ready templates with professional layouts designed for executive and stakeholder presentations.</p>
+        </div>
+
+        <!-- Full Customization -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #E0E7FF 0%, #8B5CF6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">🔧</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Full Customization</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Adapt every aspect to your organization's needs including branding, KPIs, and data structures.</p>
+        </div>
+
+        <!-- Enterprise Security -->
+        <div style="background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FEF2F2 0%, #EF4444 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem;">🔒</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; color: #1f2937;">Enterprise Security</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0;">Built on Atlassian Forge with enterprise-grade security, compliance, and data protection.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- CTA SECTION -->
-  <section class="section bg-primary text-white">
+  <section class="section bg-primary text-white" id="cta">
     <div class="cta-content">
       <h2>Ready to Transform Your Reporting?</h2>
       <p>🎉 <strong>The wait is over!</strong> Bulk Report Generator is now live and approved on the Atlassian Marketplace. Start automating your Confluence reports today!</p>
-      <div class="cta-buttons">
-        <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" class="btn-white">Install from Marketplace</a>
-        <a href="/docs/bulk-report-generator/" class="btn-outline-white">View Documentation</a>
+      <div class="cta-buttons" style="text-align: center;">
+        <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
+           style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
+           onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
+           onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'">
+           🚀 Install from Marketplace
+        </a>
+        <a href="/docs/bulk-report-generator/" 
+           style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
+           onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
+           onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'">
+           📖 View Documentation
+        </a>
       </div>
     </div>
   </section>
@@ -344,5 +841,177 @@
       <p>&copy; 2025 DataPingo. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Sticky Table of Contents -->
+  <div id="sticky-toc" style="position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; width: 200px; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease;">
+    <h4 style="margin: 0 0 15px 0; font-size: 1rem; font-weight: 600; color: #1f2937; text-align: center;">Quick Navigation</h4>
+    <nav style="list-style: none; padding: 0; margin: 0;">
+      <a href="#hero" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="hero">🏠 Overview</a>
+      <a href="#features" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="features">⚡ Key Features</a>
+      <a href="#workflow" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="workflow">🔄 How It Works</a>
+      <a href="#pricing" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="pricing">💰 Pricing</a>
+      <a href="#templates" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="templates">📋 Templates</a>
+      <a href="#benefits" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="benefits">✨ Why Choose</a>
+      <a href="#cta" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="cta">🚀 Get Started</a>
+    </nav>
+    <button onclick="toggleTOC()" style="position: absolute; top: -15px; right: -15px; background: #8B5CF6; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">&times;</button>
+  </div>
+
+  <!-- TOC Toggle Button -->
+  <button id="toc-toggle" onclick="toggleTOC()" style="position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background: #8B5CF6; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; z-index: 999; box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.1)'; this.style.boxShadow='0 6px 24px rgba(139, 92, 246, 0.4)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'; this.style.boxShadow='0 4px 16px rgba(139, 92, 246, 0.3)'">≡</button>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="position: relative; max-width: 90%; max-height: 90%; display: flex; align-items: center; justify-content: center;">
+      <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);" />
+      <button onclick="closeLightbox()" style="position: absolute; top: -40px; right: -40px; background: white; color: #333; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">&times;</button>
+    </div>
+    <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.9); padding: 12px 20px; border-radius: 6px; max-width: 80%; text-align: center;">
+      <p id="lightbox-caption" style="margin: 0; color: #333; font-weight: 500;"></p>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src, alt) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      
+      img.src = src;
+      img.alt = alt;
+      caption.textContent = alt;
+      lightbox.style.display = 'flex';
+      
+      // Prevent body scroll when lightbox is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+      
+      // Restore body scroll
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close lightbox when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // TOC Functionality
+    let tocVisible = true; // Start with TOC visible
+
+    function toggleTOC() {
+      const toc = document.getElementById('sticky-toc');
+      const toggle = document.getElementById('toc-toggle');
+      
+      tocVisible = !tocVisible;
+      
+      if (tocVisible) {
+        toc.style.opacity = '1';
+        toc.style.visibility = 'visible';
+        toggle.style.opacity = '0';
+        toggle.style.visibility = 'hidden';
+      } else {
+        toc.style.opacity = '0';
+        toc.style.visibility = 'hidden';
+        toggle.style.opacity = '1';
+        toggle.style.visibility = 'visible';
+      }
+    }
+
+    // Initialize TOC as visible on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const toc = document.getElementById('sticky-toc');
+      const toggle = document.getElementById('toc-toggle');
+      
+      // Show TOC immediately
+      toc.style.opacity = '1';
+      toc.style.visibility = 'visible';
+      toggle.style.opacity = '0';
+      toggle.style.visibility = 'hidden';
+    });
+
+    // Smooth scroll to sections
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+        
+        // Hide TOC after navigation
+        setTimeout(() => {
+          if (tocVisible) toggleTOC();
+        }, 300);
+      });
+    });
+
+    // Highlight current section
+    function updateTOCHighlight() {
+      const sections = ['hero', 'features', 'workflow', 'pricing', 'templates', 'benefits', 'cta'];
+      const scrollPosition = window.scrollY + 100;
+      
+      let currentSection = 'hero';
+      
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section && scrollPosition >= section.offsetTop) {
+          currentSection = sectionId;
+        }
+      });
+      
+      // Update active link
+      document.querySelectorAll('.toc-link').forEach(link => {
+        link.style.background = 'transparent';
+        link.style.color = '#6b7280';
+        
+        if (link.getAttribute('data-section') === currentSection) {
+          link.style.background = '#8B5CF6';
+          link.style.color = 'white';
+        }
+      });
+    }
+
+    // Add hover effects
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        if (this.style.background !== 'rgb(139, 92, 246)') {
+          this.style.background = '#f3f4f6';
+          this.style.color = '#1f2937';
+        }
+      });
+      
+      link.addEventListener('mouseleave', function() {
+        if (this.style.background !== 'rgb(139, 92, 246)') {
+          this.style.background = 'transparent';
+          this.style.color = '#6b7280';
+        }
+      });
+    });
+
+    // Update on scroll
+    window.addEventListener('scroll', updateTOCHighlight);
+    
+    // Initial highlight
+    updateTOCHighlight();
+  </script>
+
 </body>
 </html>
