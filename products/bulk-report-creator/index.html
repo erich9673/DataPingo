@@ -18,9 +18,57 @@
     gtag('js', new Date());
 
     gtag('config', 'G-W5VY62S4LR');
+
+    // Enhanced Event Tracking for Bulk Report Generator
+    function trackEvent(eventName, parameters) {
+      gtag('event', eventName, parameters);
+    }
+
+    // Track CTA clicks
+    function trackCTAClick(buttonName, section) {
+      trackEvent('cta_click', {
+        button_name: buttonName,
+        section: section,
+        page: 'bulk_report_generator'
+      });
+    }
+
+    // Track template category interactions
+    function trackTemplateInteraction(categoryName, action) {
+      trackEvent('template_interaction', {
+        category: categoryName,
+        action: action,
+        page: 'bulk_report_generator'
+      });
+    }
+
+    // Track lightbox interactions
+    function trackLightboxView(imageName) {
+      trackEvent('lightbox_view', {
+        image_name: imageName,
+        page: 'bulk_report_generator'
+      });
+    }
+
+    // Track TOC navigation
+    function trackTOCNavigation(section) {
+      trackEvent('toc_navigation', {
+        section: section,
+        page: 'bulk_report_generator'
+      });
+    }
+
+    // Track pricing calculator usage
+    function trackPricingCalculator(action, value) {
+      trackEvent('pricing_calculator', {
+        action: action,
+        value: value,
+        page: 'bulk_report_generator'
+      });
+    }
   </script>
   <title>Bulk Report Generator for Confluence | DataPingo</title>
-  <meta name="description" content="Transform your reporting workflow with Bulk Report Generator for Confluence. Generate professional reports with 150+ customizable templates across all business functions.">
+  <meta name="description" content="Transform your reporting workflow with Bulk Report Generator for Confluence. Generate professional reports with 199+ customizable templates across 16 business categories.">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
@@ -99,13 +147,15 @@
           <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
              style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin-right: 15px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
              onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
-             onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'">
+             onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'"
+             onclick="trackCTAClick('Install from Marketplace', 'hero_section')">
              🚀 Install from Marketplace
           </a>
           <a href="/docs/bulk-report-generator/" 
              style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
              onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
-             onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'">
+             onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'"
+             onclick="trackCTAClick('View Documentation', 'hero_section')">
              📖 View Documentation
           </a>
         </div>
@@ -705,11 +755,13 @@
         icon.style.transform = 'rotate(0deg)';
         icon.textContent = '▼';
         header.style.backgroundColor = 'white';
+        trackTemplateInteraction(categoryId, 'close');
       } else {
         content.style.maxHeight = content.scrollHeight + 'px';
         icon.style.transform = 'rotate(180deg)';
         icon.textContent = '▲';
         header.style.backgroundColor = '#f9fafb';
+        trackTemplateInteraction(categoryId, 'open');
       }
     }
 
@@ -794,13 +846,15 @@
         <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
            style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
            onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
-           onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'">
+           onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'"
+           onclick="trackCTAClick('Install from Marketplace', 'bottom_cta')">
            🚀 Install from Marketplace
         </a>
         <a href="/docs/bulk-report-generator/" 
            style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
            onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
-           onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'">
+           onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'"
+           onclick="trackCTAClick('View Documentation', 'bottom_cta')">
            📖 View Documentation
         </a>
       </div>
@@ -884,6 +938,9 @@
       
       // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
+      
+      // Track lightbox view
+      trackLightboxView(alt);
     }
 
     function closeLightbox() {
@@ -955,6 +1012,9 @@
             block: 'start'
           });
         }
+        
+        // Track TOC navigation
+        trackTOCNavigation(targetId);
         
         // Hide TOC after navigation
         setTimeout(() => {
