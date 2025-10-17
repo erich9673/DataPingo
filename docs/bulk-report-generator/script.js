@@ -360,7 +360,7 @@ function initPerformanceOptimizations() {
     
     // Preload critical resources
     const criticalLinks = [
-        '../../assets/img/big logo.png',
+        '../../assets/img/DataPingo.png',
         '../../assets/img/DataPingo logo_LOGO A3.png'
     ];
     

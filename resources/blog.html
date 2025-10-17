@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="viewpor          <div style="font-size: 2.5rem; margin-bottom: 20px;">📝</div>" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <meta name="description" content="DataPingo Blog - Insights on data automation, real-time alerts, and business intelligence best practices.">
   <title>Blog | DataPingo</title>
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
@@ -16,7 +16,7 @@
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-menu">
-      <a href="/" class="logo-link"><img src="/assets/img/big logo.png" alt="DataPingo Logo" class="logo" /></a>
+      <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -52,16 +52,63 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <h1>DataPingo Blog</h1>
-    <p style="color: #666; font-style: italic; font-size: 1.2rem;">Coming soon...</p>
+    <p style="color: #666; font-size: 1.2rem;">Insights on data automation, productivity, and business intelligence</p>
   </section>
 
-  <!-- SIMPLE MESSAGE -->
+  <!-- BLOG GRID -->
   <section class="section">
-    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-      <p style="color: #666; font-size: 1.1rem;">We're working on bringing you insights about data automation, business intelligence, and productivity tips.</p>
-      <p style="color: #666; font-size: 1rem; margin-top: 20px;">Check back soon for updates!</p>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <!-- Blog Content -->
+      <div style="max-width: 600px; margin: 0 auto;">
+        
+        <!-- Single Featured Blog Post -->
+        <article style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; margin-bottom: 40px;" onclick="window.location.href='/resources/bulk-report-generator-launch'">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; max-width: 90%;">
+              <img src="/assets/img/bulk-report-generator-logo.png" alt="Bulk Report Generator" style="width: 40px; height: 40px; margin-bottom: 10px;">
+              <div style="font-size: 0.8rem; color: #666; font-weight: 600;">LATEST POST</div>
+            </div>
+          </div>
+          <div style="padding: 25px;">
+            <h3 style="font-size: 1.4rem; margin: 0 0 15px 0; color: #333; line-height: 1.4;">DataPingo Launches Bulk Report Generator: Solving Repetitive Reporting Challenges</h3>
+            <div style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
+              <span style="color: #667eea; font-weight: 600;">✓ Verified</span> • 
+              <time>October 16, 2025</time> • 
+              <span>By Eric Huang, Founder & CEO</span> • 
+              <span>3 min read</span>
+            </div>
+            <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;">How we're transforming repetitive reporting workflows for enterprise teams worldwide. Every enterprise team knows the pain: it's Monday morning, and you're facing the same tedious task of creating weekly, monthly and quarterly reports...</p>
+            <div style="margin-top: 20px;">
+              <span style="display: inline-block; background: #f0f8ff; color: #667eea; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Read More →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Coming Soon Message -->
+        <div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 12px;">
+          <div style="font-size: 2.5rem; margin-bottom: 20px;">�</div>
+          <h3 style="color: #333; margin: 0 0 15px 0;">More Content Coming Soon</h3>
+          <p style="color: #666; margin: 0; font-size: 1.1rem;">We're working on bringing you more insights about data automation, business intelligence, and productivity tips.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <script>
+    // Add hover effects
+    document.querySelectorAll('article').forEach(article => {
+      if (article.onclick) {
+        article.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+          this.style.boxShadow = '0 8px 30px rgba(0,0,0,0.15)';
+        });
+        article.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+          this.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        });
+      }
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>
