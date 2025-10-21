@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Report Generator Documentation | DataPingo</title>
+  <meta name="description" content="Installation, quick start, templates, and troubleshooting for Bulk Report Generator for Confluence." />
+  <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png" />
+  <link rel="stylesheet" href="/assets/css/theme.css" />
+  <link rel="stylesheet" href="/assets/css/mobile.css" />
+  
+  <!-- Mobile Detection & Redirect Script -->
+  <script>
+    (function() {
+      // Detect if user is on mobile
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      // If mobile, redirect to mobile version
+      if (isMobile || isSmallScreen) {
+        const mobileUrl = '/mobile' + window.location.pathname;
+        window.location.replace(mobileUrl);
+      }
+    })();
+  </script>
+  
+  <style>
+    :root { --card-radius: 14px }
+    body { background: #f8fafc }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px }
+    .spacer { height: 24px }
+    .box { background: #fff; border: 1px solid #e5e7eb; border-radius: var(--card-radius); box-shadow: 0 4px 14px rgba(0,0,0,.06) }
+    .box.pad { padding: 28px }
+    .hero { background: linear-gradient(135deg,#8B5CF6 0%,#6366F1 50%,#14B8A6 100%); color: #fff; padding: 72px 0 }
+    .hero-content { text-align: center; max-width: 760px; margin: 0 auto }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      font-weight: 700;
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,.2);
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+  .hero .hero-subtitle { font-size: 1.05rem; margin: 0 0 20px; opacity: .95; color: #ffffff !important; text-shadow: 0 1px 2px rgba(0,0,0,.15) }
+    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 18px 0 22px }
+    .badge { background: rgba(255,255,255,0.18); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600; backdrop-filter: blur(6px) }
+    .badge.approved { background: linear-gradient(135deg,#10B981 0%, #059669 100%); color: #fff }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; font-size: .95rem }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.15) }
+    .btn-primary { background: #fff; color: #4f46e5 }
+    .btn-secondary { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.35) }
+  .toc h2 { text-align: center; margin: 0 0 16px; color: #111827 }
+  /* Numbered vertical TOC */
+  .toc ol { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: toc-counter }
+  .toc li { display: flex; align-items: center; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 16px }
+  .toc li::before { counter-increment: toc-counter; content: counter(toc-counter) "."; font-weight: 700; color: #4f46e5; margin-right: 12px; width: 24px; text-align: right }
+  .toc ol a { display: block; text-decoration: none; color: #374151; font-weight: 600; padding: 0; text-align: left }
+  .toc ol a:hover { color: #4f46e5 }
+    .section { margin: 36px 0 }
+    .section h2 { margin: 0 0 16px; color: #111827; text-align: center }
+
+  /* Installation guide styles */
+  .install-card { max-width: 900px; margin: 0 auto }
+  .install-card h3 { margin: 0 0 18px; color: #111827; font-size: 1.25rem }
+  /* Ensure numbers stay on the left for every step */
+  .install-card .step { display: flex; align-items: flex-start; gap: 16px; padding: 12px 0; flex-direction: row !important; justify-content: flex-start !important; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px }
+  .install-card .step-number { order: 0 !important; flex: 0 0 32px; height: 32px; width: 32px; border-radius: 999px; background: #8B5CF6; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; box-shadow: 0 2px 6px rgba(139,92,246,.35); margin-top: 2px }
+  .install-card .step-content { order: 1 !important; }
+  .install-card .step:nth-child(even) { flex-direction: row !important; }
+  .install-card .step:nth-child(even) .step-number { order: 0 !important; }
+  .step-content h4 { margin: 2px 0 6px; font-size: 0.95rem; color: #111827 }
+  .step-content p { margin: 0; color: #4B5563; line-height: 1.6 }
+  .step-content a { color: #4f46e5; text-decoration: none; font-weight: 600 }
+  .step-content a:hover { text-decoration: underline }
+  .screenshot { margin: 14px 0 6px; display: block; width: 100%; max-width: 720px; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.12) }
+  .screenshot-caption { color: #4B5563; margin: 6px 0 0; font-size: .95rem; text-align: center }
+  .alert { background: #EFF6FF; border: 1px solid #BFDBFE; color: #1E3A8A; padding: 12px 14px; border-radius: 8px; font-size: .95rem }
+  .alert strong { color: #1E3A8A }
+  .code-block { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 10px 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: .9rem; color: #111827; overflow-x: auto }
+  /* Workflow helpers */
+  .pill { display: inline-block; background: #EEF2FF; color: #4F46E5; border: 1px solid #E0E7FF; padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: .8rem }
+  .options-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 12px 0 6px }
+  .option-card { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 12px; text-align: center }
+  .option-card h5 { margin: 0 0 6px; color: #4F46E5; font-size: .95rem }
+  .option-card p { margin: 0; color: #4B5563; font-size: .92rem }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-menu">
+      <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/company/about-us">About Us</a>
+          <a href="/company/careers">Careers</a>
+          <a href="/company/contact">Contact</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/partners/find-a-partner">Find a Partner</a>
+          <a href="/partners/become-a-partner">Become a Partner</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/resources/blog">Blog</a>
+          <a href="/resources/resources">Resources</a>
+          <a href="/resources/documentation">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Bulk Report Generator for Confluence</h1>
+        <p class="hero-subtitle">Automate bulk report generation with templates, metrics, and scheduling. Streamline your Confluence reporting workflow with our powerful macro.</p>
+        <div class="hero-badges">
+          <span class="badge">v4.4.0</span>
+          <span class="badge">Atlassian Forge</span>
+          <span class="badge">Confluence Cloud</span>
+          <span class="badge approved">✅ MARKETPLACE APPROVED</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#installation">Get Started</a>
+          <a class="btn btn-secondary" target="_blank" href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence">Install from Marketplace</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 28px; margin-bottom: 48px;">
+    <!-- Table of Contents -->
+    <section class="section">
+      <div class="box pad toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#installation">Installation Guide</a></li>
+          <li><a href="#quick-start">Quick Start</a></li>
+          <li><a href="#workflow">Complete Workflow</a></li>
+          <li><a href="#templates">Template System</a></li>
+          <li><a href="#bulk-generation">Bulk Generation Options</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+          <li><a href="#support">Support</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section id="installation" class="section">
+      <div class="box pad install-card">
+        <h2>Installation Guide</h2>
+        <h3>Install from Atlassian Marketplace</h3>
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Access Atlassian Marketplace</h4>
+            <p>Visit the <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank">Bulk Report Generator</a> page on Atlassian Marketplace.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Install the App</h4>
+            <p>Click "Get it now" and follow the installation prompts for your Confluence instance.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Grant Permissions</h4>
+            <p>The app requires permissions to create and edit pages in your Confluence spaces.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Access Admin Dashboard</h4>
+            <p>After installation, navigate to your Confluence administration to access the Bulk Report Generator admin dashboard.</p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Admin Dashboard.png" alt="Admin Dashboard" />
+            <p class="screenshot-caption">Admin Dashboard: View previously created reports (click 'Open' to access them) or start creating new reports</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Verify Installation</h4>
+            <p>Go to any Confluence page and type <code>/bulkreport</code> to verify the macro is available.</p>
+          </div>
+        </div>
+
+        <div class="alert" style="margin-top: 12px;">
+          <strong>Note:</strong> This app is built on Atlassian Forge platform, ensuring secure processing within your Confluence environment with no external data transmission.
+        </div>
+      </div>
+    </section>
+    <section id="quick-start" class="section">
+      <div class="box pad install-card">
+        <h2>Quick Start Guide</h2>
+        <h3>Creating Your First Bulk Report</h3>
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Open a Confluence Page</h4>
+            <p>Navigate to any Confluence page where you want to add the bulk report generator.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Insert the Macro</h4>
+            <p>Type <code>/bulkreport</code> and select the "Bulk Report Generator" macro from the suggestions.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Configure Your Settings</h4>
+            <p>Follow the 4-step wizard to configure your space, template, and generation options.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Generate Reports</h4>
+            <p>Click "Generate" to create your bulk reports automatically.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <div style="font-weight: 600; color: #111827; margin-bottom: 6px;">Basic Usage</div>
+          <div class="code-block">/bulkreport</div>
+        </div>
+      </div>
+    </section>
+    <!-- Complete Workflow -->
+    <section id="workflow" class="section">
+      <div class="box pad install-card">
+        <h2>Complete 4-Step Workflow</h2>
+
+        <!-- Step 1 -->
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content" style="width:100%">
+            <h4>Space &amp; Page Selection</h4>
+            <p>Choose which Confluence space you want your reports created in, and decide the page structure for your reports.</p>
+
+            <div class="pill" style="margin:8px 0 10px">Page Creation Options</div>
+            <div class="options-grid">
+              <div class="option-card">
+                <h5>Create Child Page</h5>
+                <p>Add reports as child pages under an existing parent page</p>
+              </div>
+              <div class="option-card">
+                <h5>Create Parent Page</h5>
+                <p>Create a new parent page for organizing your reports</p>
+              </div>
+              <div class="option-card">
+                <h5>Create Parent &amp; Child</h5>
+                <p>Create both a new parent page and child pages structure</p>
+              </div>
+            </div>
+
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Space Selection.png" alt="Space Selection Interface" />
+            <p class="screenshot-caption">Space Selection: Choose which Confluence space you want your reports created in, and decide the page structure: create as child-page, parent page, or new parent with new child pages.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content" style="width:100%">
+            <h4>Select Your Template</h4>
+            <p>Choose between two fundamentally different template approaches: <strong>Upload Template</strong> (copy/paste pages or use native Confluence templates) or <strong>Simple Template</strong> (select from 150+ prebuilt templates).</p>
+
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Template Selection.png" alt="Template Selection Interface" />
+            <p class="screenshot-caption">Template Selection: Choose your template method - Upload Template or Simple Template.</p>
+
+            <div class="pill" style="margin-top:10px">📤 Upload Templates</div>
+            <ul style="margin:8px 0 12px; color:#4B5563">
+              <li>Copy and paste any existing page content</li>
+              <li>Use native Confluence templates via link generation</li>
+              <li>Perfect for replicating existing report structures</li>
+              <li>Skips Step 3 and goes directly to bulk generation</li>
+            </ul>
+            <p style="color:#4B5563; margin:6px 0"><strong>Upload Template Process:</strong></p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Upload Template.png" alt="Upload Template Interface" />
+            <p class="screenshot-caption">Upload Template: Copy and paste any existing page content, or generate a link to use native Confluence templates, edit them, then copy the link back.</p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Upload Template Success.png" alt="Upload Template Success" />
+            <p class="screenshot-caption">Upload Success: Your template has been successfully uploaded and is ready for bulk generation.</p>
+
+            <div class="pill" style="margin-top:16px">🎯 Simple Templates</div>
+            <ul style="margin:8px 0 12px; color:#4B5563">
+              <li>Select from over 150 prebuilt templates</li>
+              <li>Templates come with headers and metrics preset</li>
+              <li>Fully customizable in the following steps</li>
+              <li>Ready-to-use catalog of professional reports</li>
+            </ul>
+            <p style="color:#4B5563; margin:6px 0"><strong>Simple Template Process:</strong></p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Simple Template.png" alt="Simple Template Library" />
+            <p class="screenshot-caption">Simple Template Library: Select from over 150 prebuilt templates with headers and metrics preset.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content" style="width:100%">
+            <h4>Customize Your Template (Simple Templates Only)</h4>
+            <p>For Simple Templates, you can customize your template with live preview and editing capabilities.</p>
+            <ul style="margin:8px 0 12px; color:#4B5563">
+              <li>👀 Live Preview: See how your template will appear on the Confluence page</li>
+              <li>✏️ Text Editor: Customize content, formatting, and structure</li>
+              <li>📊 Modify metrics and descriptions</li>
+              <li>⚡ Real-time updates as you make changes</li>
+            </ul>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Live Preview.png" alt="Live Preview Interface" />
+            <p class="screenshot-caption">Live Preview: See a live preview of how your template will appear on the Confluence page.</p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Editor.png" alt="Template Editor" />
+            <p class="screenshot-caption">Template Editor: Use the text editor to customize your simple template.</p>
+            <div class="alert" style="margin-top: 12px;">
+              <strong>Note:</strong> This step is only available for Simple Templates. Upload Templates skip this step and proceed directly to bulk generation.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content" style="width:100%">
+            <h4>Bulk Generation</h4>
+            <p>Generate your reports with flexible options: single reports, multiple reports, or schedule them as dated, weekly, or quarterly reports.</p>
+            <img class="screenshot" src="/assets/img/Bulk Report Creator for Confluence App Screenshots/Bulk Report Generator for Confluence Bulk Generate.png" alt="Bulk Generation Interface" />
+            <p class="screenshot-caption">Bulk Generation: Generate your reports with flexible options - single reports, multiple reports, or scheduled reporting.</p>
+            <div class="options-grid" style="margin-top: 12px;">
+              <div class="option-card"><h5>⚡ Single Reports</h5><p>Immediate creation of individual reports</p></div>
+              <div class="option-card"><h5>📋 Multiple Reports</h5><p>Batch processing for multiple reports</p></div>
+              <div class="option-card"><h5>📅 Scheduled Reports</h5><p>Automated creation (dated, weekly, quarterly)</p></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="templates" class="section">
+      <div class="box pad install-card">
+        <h2>Template System Explained</h2>
+        
+        <!-- Simple Templates -->
+        <div class="step">
+          <div class="step-number">🎯</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Simple Templates</h4>
+            
+            <div style="margin: 12px 0 16px;">
+              <strong style="color: #111827;">What are Simple Templates?</strong>
+              <p style="margin: 6px 0;">Choose from over 150 prebuilt templates with headers and metrics already preset. Perfect for standard reporting needs with professional formatting built-in.</p>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Key Features:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">✅ 150+ ready-to-use professional templates</li>
+                <li style="margin: 4px 0;">✅ Pre-configured metrics and headers</li>
+                <li style="margin: 4px 0;">✅ Live preview functionality</li>
+                <li style="margin: 4px 0;">✅ Fully customizable with text editor</li>
+                <li style="margin: 4px 0;">✅ Best for standardized reporting</li>
+              </ul>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Workflow:</strong>
+              <p style="margin: 6px 0; color: #4B5563;">Step 1 → Step 2 → Step 3 (Customize with Live Preview & Editor) → Step 4</p>
+              <div class="alert" style="margin: 8px 0;">
+                <strong>Step 3 Details:</strong> Simple Templates include both Live Preview (see how your template will look) and Template Editor (customize content and structure).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upload Templates -->
+        <div class="step">
+          <div class="step-number">📤</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Upload Templates</h4>
+            
+            <div style="margin: 12px 0 16px;">
+              <strong style="color: #111827;">What are Upload Templates?</strong>
+              <p style="margin: 6px 0;">Copy and paste any existing page content OR use native Confluence templates by generating a link, editing them, then copying the link back for bulk generation.</p>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Key Features:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">✅ Copy/paste any existing page content</li>
+                <li style="margin: 4px 0;">✅ Use native Confluence templates via link generation</li>
+                <li style="margin: 4px 0;">✅ Maintain existing formatting and structure</li>
+                <li style="margin: 4px 0;">✅ Perfect for replicating existing report structures</li>
+                <li style="margin: 4px 0;">✅ Quick setup process</li>
+              </ul>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Workflow:</strong>
+              <p style="margin: 6px 0; color: #4B5563;">Step 1 → Step 2 → Skip Step 3 → Step 4</p>
+              <div class="alert" style="margin: 8px 0; background: #FEF3C7; border-color: #F59E0B; color: #92400E;">
+                <strong>Note:</strong> Upload Templates skip the customization step and go directly to bulk generation, making them perfect for replicating existing formats.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Choosing the Right Template Type -->
+        <div class="step">
+          <div class="step-number">💡</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #111827; font-size: 1.2rem;">Choosing the Right Template Type</h4>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0;">
+              
+              <div style="background: #F0F9FF; border: 1px solid #0EA5E9; border-radius: 10px; padding: 16px;">
+                <h5 style="color: #0369A1; margin: 0 0 10px; font-size: 1rem;">Choose Simple Templates if:</h5>
+                <ul style="margin: 0; color: #0F172A; list-style: none; padding-left: 0; font-size: 0.9rem;">
+                  <li style="margin: 4px 0;">• You want to browse from 150+ professional templates</li>
+                  <li style="margin: 4px 0;">• You need templates with preset metrics and headers</li>
+                  <li style="margin: 4px 0;">• You want to customize content with live preview</li>
+                  <li style="margin: 4px 0;">• You're creating new report formats</li>
+                </ul>
+              </div>
+
+              <div style="background: #F0FDF4; border: 1px solid #10B981; border-radius: 10px; padding: 16px;">
+                <h5 style="color: #047857; margin: 0 0 10px; font-size: 1rem;">Choose Upload Templates if:</h5>
+                <ul style="margin: 0; color: #0F172A; list-style: none; padding-left: 0; font-size: 0.9rem;">
+                  <li style="margin: 4px 0;">• You have existing pages you want to replicate</li>
+                  <li style="margin: 4px 0;">• You want to use native Confluence templates</li>
+                  <li style="margin: 4px 0;">• You need to maintain specific formatting</li>
+                  <li style="margin: 4px 0;">• You want the fastest setup process</li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="bulk-generation" class="section">
+      <div class="box pad install-card">
+        <h2>Bulk Generation Options</h2>
+        <p style="text-align: center; color: #4B5563; margin-bottom: 24px;">Generate your reports with flexible options - single reports, multiple reports, or scheduled reporting for consistent delivery.</p>
+        
+        <!-- Single Report Generation -->
+        <div class="step">
+          <div class="step-number">⚡</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Single Report Generation</h4>
+            
+            <div style="margin: 12px 0 16px;">
+              <p style="margin: 6px 0; color: #4B5563;">Create individual reports on-demand with immediate results.</p>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Best for:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">✓ One-time report needs</li>
+                <li style="margin: 4px 0;">✓ Ad-hoc analysis</li>
+                <li style="margin: 4px 0;">✓ Testing templates before bulk generation</li>
+                <li style="margin: 4px 0;">✓ Quick individual report creation</li>
+              </ul>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Features:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">• Immediate report creation</li>
+                <li style="margin: 4px 0;">• Custom page naming</li>
+                <li style="margin: 4px 0;">• Full template customization</li>
+                <li style="margin: 4px 0;">• Real-time preview before generation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multiple Report Generation -->
+        <div class="step">
+          <div class="step-number">📋</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Multiple Report Generation</h4>
+            
+            <div style="margin: 12px 0 16px;">
+              <p style="margin: 6px 0; color: #4B5563;">Batch process multiple reports efficiently in one generation.</p>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Best for:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">✓ Department-wise reporting</li>
+                <li style="margin: 4px 0;">✓ Multi-project analysis</li>
+                <li style="margin: 4px 0;">✓ Bulk documentation creation</li>
+                <li style="margin: 4px 0;">✓ Team-specific report distribution</li>
+              </ul>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Features:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">• Batch processing for efficiency</li>
+                <li style="margin: 4px 0;">• Custom naming conventions</li>
+                <li style="margin: 4px 0;">• Progress tracking during generation</li>
+                <li style="margin: 4px 0;">• Bulk status and error reporting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheduled Reporting -->
+        <div class="step">
+          <div class="step-number">📅</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Scheduled Reporting</h4>
+            
+            <div style="margin: 12px 0 16px;">
+              <p style="margin: 6px 0; color: #4B5563;">Automated report creation with flexible scheduling options for consistent delivery.</p>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Available Scheduling Options:</strong>
+              
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+                
+                <div style="background: #FEF3C7; border: 1px solid #F59E0B; border-radius: 8px; padding: 12px; text-align: center;">
+                  <h5 style="color: #92400E; margin: 0 0 6px; font-size: 0.95rem;">📊 Weekly Reports</h5>
+                  <p style="margin: 0; color: #78350F; font-size: 0.85rem;">Generate business and performance reports</p>
+                </div>
+
+                <div style="background: #DBEAFE; border: 1px solid #3B82F6; border-radius: 8px; padding: 12px; text-align: center;">
+                  <h5 style="color: #1E40AF; margin: 0 0 6px; font-size: 0.95rem;">📈 Monthly Reports</h5>
+                  <p style="margin: 0; color: #1E3A8A; font-size: 0.85rem;">Automated monthly reporting cycles</p>
+                </div>
+
+                <div style="background: #F3E8FF; border: 1px solid #8B5CF6; border-radius: 8px; padding: 12px; text-align: center;">
+                  <h5 style="color: #6B21A8; margin: 0 0 6px; font-size: 0.95rem;">📋 Quarterly Reports</h5>
+                  <p style="margin: 0; color: #581C87; font-size: 0.85rem;">Quarterly business and performance reports</p>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">Scheduling Features:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;">• Set specific delivery dates and times</li>
+                <li style="margin: 4px 0;">• Recurring patterns (weekly, monthly, quarterly)</li>
+                <li style="margin: 4px 0;">• Automated page creation with date stamps</li>
+                <li style="margin: 4px 0;">• Email notifications on completion</li>
+                <li style="margin: 4px 0;">• Skip weekends and holidays option</li>
+              </ul>
+            </div>
+
+            <div class="alert" style="margin: 16px 0; background: #EFF6FF; border-color: #3B82F6; color: #1E40AF;">
+              <strong>Pro Tip:</strong> Scheduled reports automatically organize themselves with consistent naming conventions and date-based folder structures for easy navigation and historical tracking.
+            </div>
+          </div>
+        </div>
+
+        <!-- Generation Process -->
+        <div class="step">
+          <div class="step-number">⚙️</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #111827; font-size: 1.2rem;">Generation Process</h4>
+            
+            <div style="margin: 16px 0;">
+              <p style="color: #4B5563; margin-bottom: 12px;">Regardless of which option you choose, the generation process is streamlined and efficient:</p>
+              
+              <div style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin: 12px 0;">
+                <ol style="margin: 0; padding-left: 20px; color: #374151;">
+                  <li style="margin: 6px 0;"><strong>Validation:</strong> Check page content, chart data, and permissions process is streamlined and efficient</li>
+                  <li style="margin: 6px 0;"><strong>Content Generation:</strong> Apply templates, insert dynamic content, and generate pagination</li>
+                  <li style="margin: 6px 0;"><strong>Page Creation:</strong> Create your reports with page linkings</li>
+                  <li style="margin: 6px 0;"><strong>Quality Control:</strong> Verify formatting, check for errors</li>
+                  <li style="margin: 6px 0;"><strong>Access Rights:</strong> Final permission checks and notifications</li>
+                </ol>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+                
+                <div style="background: #F0FDF4; border: 1px solid #10B981; border-radius: 8px; padding: 12px;">
+                  <h5 style="color: #047857; margin: 0 0 8px;">✅ Success Indicators</h5>
+                  <ul style="margin: 0; color: #065F46; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                    <li>• Progress tracking during generation</li>
+                    <li>• Success confirmation messages</li>
+                    <li>• Direct links to created reports</li>
+                    <li>• Generation summary statistics</li>
+                  </ul>
+                </div>
+
+                <div style="background: #FEF2F2; border: 1px solid #EF4444; border-radius: 8px; padding: 12px;">
+                  <h5 style="color: #DC2626; margin: 0 0 8px;">⚠️ Error Handling</h5>
+                  <ul style="margin: 0; color: #991B1B; font-size: 0.9rem; list-style: none; padding-left: 0;">
+                    <li>• Clear error messages and solutions</li>
+                    <li>• Partial generation recovery options</li>
+                    <li>• Permission issue notifications</li>
+                    <li>• Retry and rollback capabilities</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="troubleshooting" class="section">
+      <div class="box pad install-card">
+        <h2>Troubleshooting</h2>
+        
+        <!-- Common Issues -->
+        <div class="step">
+          <div class="step-number">🛠️</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #DC2626; font-size: 1.2rem;">Common Issues</h4>
+            
+            <!-- Issue 1 -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Macro not appearing when typing /bulkreport</h5>
+              <div style="color: #059669; font-weight: 600; margin-bottom: 6px;">Solution:</div>
+              <ul style="margin: 0; color: #374151; list-style: disc; padding-left: 20px;">
+                <li>Verify the app is installed in your Confluence instance</li>
+                <li>Check if you have permissions to use macros</li>
+                <li>Try refreshing the page and typing the command again</li>
+              </ul>
+            </div>
+
+            <!-- Issue 2 -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Cannot create reports in selected space</h5>
+              <div style="color: #059669; font-weight: 600; margin-bottom: 6px;">Solution:</div>
+              <ul style="margin: 0; color: #374151; list-style: disc; padding-left: 20px;">
+                <li>Ensure you have "Create" permissions in the target space</li>
+                <li>Contact your Confluence administrator for space permissions</li>
+                <li>Try selecting a different space where you have full access</li>
+              </ul>
+            </div>
+
+            <!-- Issue 3 -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Template editing not working</h5>
+              <div style="color: #059669; font-weight: 600; margin-bottom: 6px;">Solution:</div>
+              <ul style="margin: 0; color: #374151; list-style: disc; padding-left: 20px;">
+                <li>This feature is only available for Simple Templates</li>
+                <li>Upload Templates skip the editing step</li>
+                <li>Clear browser cache and try again</li>
+              </ul>
+            </div>
+
+            <!-- Issue 4 -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Scheduled reports not generating</h5>
+              <div style="color: #059669; font-weight: 600; margin-bottom: 6px;">Solution:</div>
+              <ul style="margin: 0; color: #374151; list-style: disc; padding-left: 20px;">
+                <li>Verify the macro is still present on the original page</li>
+                <li>Check space permissions haven't changed</li>
+                <li>Contact support if issues persist</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance Tips -->
+        <div class="step">
+          <div class="step-number">⚡</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #059669; font-size: 1.2rem;">Performance Tips</h4>
+            
+            <ul style="margin: 12px 0; color: #374151; list-style: none; padding-left: 0;">
+              <li style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="margin-right: 8px;">📊</span>
+                Keep templates focused and concise for better performance
+              </li>
+              <li style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="margin-right: 8px;">⏱️</span>
+                Schedule bulk operations during off-peak hours
+              </li>
+              <li style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="margin-right: 8px;">📝</span>
+                Test templates with single reports before bulk generation
+              </li>
+              <li style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="margin-right: 8px;">🔄</span>
+                Use batch processing for multiple reports instead of individual creation
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="faq" class="section">
+      <div class="box pad install-card">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div style="margin: 20px 0;">
+          
+          <!-- FAQ 1 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              Is my data secure with this app? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">Yes, absolutely. This app is built on Atlassian Forge platform, which ensures all processing happens within your Confluence environment. No data is transmitted to external servers, and all operations comply with your existing Confluence security policies.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              Can I use this app with Confluence Server/Data Center? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">Currently, this app is designed specifically for Confluence Cloud and built on the Atlassian Forge platform. Server and Data Center versions are not supported at this time, but we're exploring options for future releases.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              How many reports can I generate at once? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">There's no strict limit, but we recommend batches of 50-100 reports for optimal performance. For larger volumes, consider breaking them into smaller batches or using scheduled generation to distribute the load over time.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              Can I modify the template after creating reports? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">Yes, you can modify templates at any time. However, changes only apply to new reports generated after the modification. Previously created reports remain unchanged, giving you full control over versioning and consistency.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              What happens if I delete the original macro page? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">Generated reports are independent pages and will remain intact even if you delete the original macro page. However, scheduled reports will stop generating since they depend on the original macro configuration.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 6 -->
+          <details style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; margin: 12px 0; padding: 16px;">
+            <summary style="font-weight: 600; color: #111827; cursor: pointer; font-size: 1rem;">
+              Can I export the generated reports? <span style="color: #6B7280; font-weight: normal;">+</span>
+            </summary>
+            <div style="margin-top: 12px; color: #4B5563; line-height: 1.6;">
+              <p style="margin: 0;">Yes, generated reports are standard Confluence pages, so you can export them using Confluence's built-in export functionality (PDF, Word, etc.) or any third-party export tools you have installed.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+    <section id="support" class="section">
+      <div class="box pad install-card">
+        <h2>Support & Troubleshooting</h2>
+        
+        <!-- Common Issues & Solutions -->
+        <div class="step">
+          <div class="step-number">🛠️</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #DC2626; font-size: 1.2rem;">Common Issues & Solutions</h4>
+            
+            <!-- App Installation Issues -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">App Installation Issues</h5>
+              <div style="margin: 8px 0;">
+                <strong style="color: #111827;">Problem:</strong> <span style="color: #4B5563;">App not appearing after installation</span>
+              </div>
+              <div style="margin: 8px 0;">
+                <strong style="color: #059669;">Solution:</strong> <span style="color: #4B5563;">Check with your Confluence administrator about app permissions and try refreshing your browser</span>
+              </div>
+            </div>
+
+            <!-- Template Upload Problems -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Template Upload Problems</h5>
+              <div style="margin: 8px 0;">
+                <strong style="color: #111827;">Problem:</strong> <span style="color: #4B5563;">Template fails to upload</span>
+              </div>
+              <div style="margin: 8px 0;">
+                <strong style="color: #059669;">Solution:</strong> <span style="color: #4B5563;">Ensure your template is a valid Confluence page export (.xml format) and under 10MB</span>
+              </div>
+            </div>
+
+            <!-- Report Generation Fails -->
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 16px; margin: 12px 0;">
+              <h5 style="color: #DC2626; margin: 0 0 8px; font-size: 1rem;">Report Generation Fails</h5>
+              <div style="margin: 8px 0;">
+                <strong style="color: #111827;">Problem:</strong> <span style="color: #4B5563;">Reports not generating successfully</span>
+              </div>
+              <div style="margin: 8px 0;">
+                <strong style="color: #059669;">Solution:</strong> <span style="color: #4B5563;">Check space permissions, verify template compatibility, and ensure sufficient storage space</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Get Help -->
+        <div class="step">
+          <div class="step-number">📞</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #4F46E5; font-size: 1.2rem;">Get Help</h4>
+            <p style="color: #4B5563; margin: 12px 0;">Need assistance? Our support team is here to help with any questions or technical issues.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+              
+              <div style="background: #EFF6FF; border: 1px solid #3B82F6; border-radius: 8px; padding: 16px; text-align: center;">
+                <h5 style="color: #1E40AF; margin: 0 0 8px;">Contact Support Portal</h5>
+                <a href="/support.html" style="color: #2563EB; text-decoration: none; font-weight: 600;">Visit Support Center</a>
+              </div>
+
+              <div style="background: #F0FDF4; border: 1px solid #10B981; border-radius: 8px; padding: 16px; text-align: center;">
+                <h5 style="color: #047857; margin: 0 0 8px;">Email Support</h5>
+                <a href="mailto:contact@datapingo.com" style="color: #059669; text-decoration: none; font-weight: 600;">contact@datapingo.com</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- When Contacting Support -->
+        <div class="step">
+          <div class="step-number">💬</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #111827; font-size: 1.2rem;">When Contacting Support</h4>
+            <p style="color: #4B5563; margin: 12px 0;">For faster resolution, please include:</p>
+            
+            <ul style="margin: 12px 0; color: #374151; list-style: disc; padding-left: 20px;">
+              <li>Your Confluence version</li>
+              <li>App version being used</li>
+              <li>Step-by-step description of the issue</li>
+              <li>Any error messages or screenshots</li>
+              <li>Browser type and version</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="step">
+          <div class="step-number">🎯</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #059669; font-size: 1.2rem;">Best Practices</h4>
+            
+            <div style="margin: 16px 0;">
+              <strong style="color: #111827;">For Optimal Performance:</strong>
+              <ul style="margin: 8px 0 12px; color: #4B5563; list-style: none; padding-left: 0;">
+                <li style="margin: 4px 0;"><strong>Template Design:</strong> Keep templates focused and well-structured</li>
+                <li style="margin: 4px 0;"><strong>Batch Size:</strong> For large bulk operations, consider smaller batches</li>
+                <li style="margin: 4px 0;"><strong>Permissions:</strong> Ensure proper space permissions before bulk generation</li>
+                <li style="margin: 4px 0;"><strong>Testing:</strong> Always test with a single report before bulk operations</li>
+                <li style="margin: 4px 0;"><strong>Scheduling:</strong> Use scheduled reports for recurring needs to save time</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="step">
+          <div class="step-number">📚</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #111827; font-size: 1.2rem;">Additional Resources</h4>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0;">
+              
+              <a href="/privacy.html" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; text-decoration: none; color: #4F46E5; font-weight: 600; text-align: center; display: block;">
+                Privacy Policy
+              </a>
+
+              <a href="/terms.html" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; text-decoration: none; color: #4F46E5; font-weight: 600; text-align: center; display: block;">
+                Terms of Service
+              </a>
+
+              <a href="/security.html" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; text-decoration: none; color: #4F46E5; font-weight: 600; text-align: center; display: block;">
+                Security Statement
+              </a>
+
+              <a href="/resources/documentation" style="background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px; text-decoration: none; color: #4F46E5; font-weight: 600; text-align: center; display: block;">
+                Documentation Hub
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Try the App -->
+        <div class="step">
+          <div class="step-number">🚀</div>
+          <div class="step-content" style="width:100%">
+            <h4 style="color: #8B5CF6; font-size: 1.2rem;">Try the App</h4>
+            <p style="color: #4B5563; margin: 12px 0;">Ready to streamline your reporting workflow? Install directly from the Atlassian Marketplace.</p>
+            
+            <div style="text-align: center; margin: 20px 0;">
+              <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" 
+                 style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);">
+                Install from Marketplace
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- About DataPingo -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 24px; margin: 24px 0; text-align: center;">
+          <h4 style="color: #111827; margin: 0 0 12px; font-size: 1.1rem;">About DataPingo</h4>
+          <p style="color: #4B5563; margin: 0 0 16px; line-height: 1.6;">
+            DataPingo specializes in creating powerful automation tools for business applications. We're committed to helping teams streamline their workflows and boost productivity.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+            <a href="/" style="color: #4F46E5; text-decoration: none; font-weight: 600;">Visit our website</a>
+            <span style="color: #D1D5DB;">•</span>
+            <a href="/company/contact" style="color: #4F46E5; text-decoration: none; font-weight: 600;">Contact us</a>
+            <span style="color: #D1D5DB;">•</span>
+            <a href="/company/about-us" style="color: #4F46E5; text-decoration: none; font-weight: 600;">About us</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <img src="/assets/img/DataPingo.png" alt="DataPingo" style="height: 24px;" />
+      </div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/sla.html">SLA</a>
+        <a href="/support.html">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

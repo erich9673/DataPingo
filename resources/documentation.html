@@ -7,6 +7,22 @@
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
+  
+  <!-- Mobile Detection & Redirect Script -->
+  <script>
+    (function() {
+      // Detect if user is on mobile
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      // If mobile, redirect to mobile version
+      if (isMobile || isSmallScreen) {
+        const mobileUrl = '/mobile' + window.location.pathname;
+        window.location.replace(mobileUrl);
+      }
+    })();
+  </script>
+  
   <style>
     @keyframes pulse {
       0% {
@@ -35,7 +51,7 @@
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="/docs/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+          <a href="/resources/documentation/bulk-report-generator/">Bulk Report Generator for Confluence</a>
         </div>
       </div>
       <div class="dropdown">
@@ -69,7 +85,7 @@
     <h1>DataPingo Documentation</h1>
     <p style="color: #666; font-size: 1.1rem;">Comprehensive guides and documentation for all DataPingo products</p>
     <div style="margin-top: 20px;">
-      <a href="/docs/bulk-report-generator/" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #14B8A6 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; margin-right: 12px; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">📖 Browse Documentation</a>
+  <a href="/resources/documentation/bulk-report-generator/" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #14B8A6 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; margin-right: 12px; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">📖 Browse Documentation</a>
       <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" style="background: transparent; color: #6366F1; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; border: 2px solid #6366F1; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#6366F1'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#6366F1'">💬 Get Support</a>
     </div>
   </section>
@@ -100,7 +116,7 @@
           </div>
           <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px; line-height: 1.6;">🎉 <strong>Now Live!</strong> Complete documentation for automating bulk report generation with templates, metrics, and scheduling. Transform your Confluence reporting workflow with our powerful, Atlassian-approved macro.</p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="/docs/bulk-report-generator/" style="background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">📖 View Full Documentation</a>
+            <a href="/resources/documentation/bulk-report-generator/" style="background: rgba(255,255,255,0.2); color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">📖 View Full Documentation</a>
             <a href="https://marketplace.atlassian.com/apps/2618176149/bulk-report-generator-for-confluence" target="_blank" style="background: white; color: #8B5CF6; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🚀 Install from Marketplace</a>
           </div>
         </div>
