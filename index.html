@@ -25,17 +25,57 @@
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   
-  <!-- Mobile Detection & Redirect Script -->
+  <!-- Enhanced Mobile Detection Script - Clean URL + Responsive -->
   <script>
     (function() {
       // Detect if user is on mobile
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       const isSmallScreen = window.innerWidth <= 768;
       
-      // If mobile, redirect to mobile version
       if (isMobile || isSmallScreen) {
-        const mobileUrl = '/mobile' + window.location.pathname;
-        window.location.replace(mobileUrl);
+        // Add mobile class for responsive behavior
+        document.documentElement.classList.add('mobile-device');
+        
+        // Load mobile-optimized CSS
+        const mobileCSS = document.createElement('link');
+        mobileCSS.rel = 'stylesheet';
+        mobileCSS.href = '/assets/css/mobile.css';
+        document.head.appendChild(mobileCSS);
+        
+        // Load mobile-specific JavaScript
+        const mobileJS = document.createElement('script');
+        mobileJS.src = '/assets/js/mobile.js';
+        document.head.appendChild(mobileJS);
+        
+        // Optional: Load mobile content dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+          loadMobileOptimizations();
+        });
+      }
+      
+      function loadMobileOptimizations() {
+        // Add mobile-specific optimizations
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+          viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
+        }
+        
+        // Add mobile navigation toggle
+        addMobileNavigation();
+      }
+      
+      function addMobileNavigation() {
+        // Create hamburger menu if it doesn't exist
+        const nav = document.querySelector('.nav');
+        if (nav && !document.querySelector('.mobile-nav-toggle')) {
+          const toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-nav-toggle';
+          toggleBtn.innerHTML = '☰';
+          toggleBtn.onclick = function() {
+            nav.classList.toggle('nav-open');
+          };
+          nav.insertBefore(toggleBtn, nav.firstChild);
+        }
       }
     })();
   </script>

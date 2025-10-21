@@ -30,6 +30,27 @@
   
   <!-- End Google Ads -->
   
+  <!-- Enhanced Mobile Detection Script - Clean URL + Responsive -->
+  <script>
+    (function() {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      if (isMobile || isSmallScreen) {
+        document.documentElement.classList.add('mobile-device');
+        
+        const mobileCSS = document.createElement('link');
+        mobileCSS.rel = 'stylesheet';
+        mobileCSS.href = '/assets/css/mobile.css';
+        document.head.appendChild(mobileCSS);
+        
+        const mobileJS = document.createElement('script');
+        mobileJS.src = '/assets/js/mobile.js';
+        document.head.appendChild(mobileJS);
+      }
+    })();
+  </script>
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5VY62S4LR"></script>
   <script>

@@ -1,6 +1,12 @@
 # Enable clean URLs by removing .html extension
 RewriteEngine On
 
+# Mobile folder accessibility (keep your mobile files as fallback)
+RewriteCond %{REQUEST_URI} ^/mobile/
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
 # Remove .html extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

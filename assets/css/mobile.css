@@ -1,18 +1,119 @@
-/* Mobile-Specific Styles */
+/* Enhanced Mobile-Responsive Styles */
 
-.mobile-version {
+/* Applied when mobile-device class is added to html element */
+html.mobile-device {
   font-size: 16px;
   line-height: 1.6;
 }
 
-/* Mobile Navigation */
+/* Hide desktop elements on mobile */
+html.mobile-device .desktop-only {
+  display: none !important;
+}
+
+/* Show mobile elements */
+html.mobile-device .mobile-only {
+  display: block !important;
+}
+
+/* Mobile-specific body adjustments */
+html.mobile-device body {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Container adjustments for mobile */
+html.mobile-device .container {
+  padding: 0 1rem;
+  max-width: 100%;
+}
+
+/* Hero section mobile optimization */
+html.mobile-device .hero-section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+html.mobile-device h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+html.mobile-device .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Enhanced Mobile Navigation */
+html.mobile-device .nav {
+  position: relative;
+}
+
+/* Mobile navigation toggle button */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+html.mobile-device .mobile-nav-toggle {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+.mobile-nav-toggle:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+/* Mobile navigation menu */
+html.mobile-device .nav ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-direction: column;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+html.mobile-device .nav.nav-open ul {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+html.mobile-device .nav li {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+html.mobile-device .nav a {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Mobile navbar styling */
 .mobile-navbar {
   position: sticky;
   top: 0;
   background: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   z-index: 1000;
-  position: relative;
 }
 
 .mobile-header {
