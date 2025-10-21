@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="description" content="Find a DataPingo Partner - Need help implementing or customizing DataPingo? Our certified partners can assist with integration, training, and ongoing support. Mobile-optimized experience.">
+  <title>Find a Partner | DataPingo - Mobile</title>
+  <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  
+  <!-- Desktop Detection & Redirect Script -->
+  <script>
+    (function() {
+      // Detect if user is on desktop
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      
+      // If NOT mobile, redirect to desktop version
+      if (!isMobile && !isSmallScreen) {
+        const desktopUrl = window.location.pathname.replace('/mobile', '');
+        window.location.replace(desktopUrl);
+      }
+    })();
+  </script>
+</head>
+<body class="mobile-version">
+  <!-- MOBILE NAVIGATION -->
+  <nav class="mobile-navbar">
+    <div class="mobile-header">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="/mobile/" class="mobile-logo-link">
+        <img src="/assets/img/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="mobile-logo" />
+      </a>
+      <div class="mobile-spacer"></div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <!-- Home -->
+      <a href="/mobile/" class="mobile-menu-item">🏠 Home</a>
+      
+      <!-- Products Section -->
+      <div class="mobile-menu-section">
+        <button class="mobile-menu-header" onclick="toggleMobileSection('products')">
+          📦 Products <span class="mobile-arrow" id="products-arrow">▼</span>
+        </button>
+        <div class="mobile-submenu" id="products-submenu">
+          <a href="/mobile/products/bulk-report-generator/" class="mobile-submenu-item">Bulk Report Generator for Confluence</a>
+        </div>
+      </div>
+      
+      <!-- Company Section -->
+      <div class="mobile-menu-section">
+        <button class="mobile-menu-header" onclick="toggleMobileSection('company')">
+          🏢 Company <span class="mobile-arrow" id="company-arrow">▼</span>
+        </button>
+        <div class="mobile-submenu" id="company-submenu">
+          <a href="/mobile/company/about-us" class="mobile-submenu-item">About Us</a>
+          <a href="/mobile/company/careers" class="mobile-submenu-item">Careers</a>
+          <a href="/mobile/company/contact" class="mobile-submenu-item">Contact</a>
+        </div>
+      </div>
+      
+      <!-- Partners Section -->
+      <div class="mobile-menu-section">
+        <button class="mobile-menu-header" onclick="toggleMobileSection('partners')">
+          🤝 Partners <span class="mobile-arrow" id="partners-arrow">▼</span>
+        </button>
+        <div class="mobile-submenu" id="partners-submenu">
+          <a href="/mobile/partners/become-a-partner" class="mobile-submenu-item">Become a Partner</a>
+          <a href="/mobile/partners/find-a-partner" class="mobile-submenu-item">Find a Partner</a>
+        </div>
+      </div>
+      
+      <!-- Resources Section -->
+      <div class="mobile-menu-section">
+        <button class="mobile-menu-header" onclick="toggleMobileSection('resources')">
+          📚 Resources <span class="mobile-arrow" id="resources-arrow">▼</span>
+        </button>
+        <div class="mobile-submenu" id="resources-submenu">
+          <a href="/mobile/resources/blog" class="mobile-submenu-item">Blog</a>
+          <a href="/mobile/resources/use-cases" class="mobile-submenu-item">Use Cases</a>
+          <a href="/mobile/resources/documentation" class="mobile-submenu-item">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="partner-main">
+    <section class="hero">
+      <h1>Find a DataPingo Partner</h1>
+      <p>
+        Need help implementing or customizing DataPingo? Our certified partners can assist with integration, training, and ongoing support to ensure you get the most out of DataPingo.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Partner Directory</h2>
+      <p>
+        Coming soon: Search and connect with trusted DataPingo partners worldwide.
+      </p>
+      <p style="color:#888;">If you're interested in joining our partner directory, <a href="/mobile/partners/become-a-partner">become a partner</a> today!</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="/mobile/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/mobile/company/about-us">About</a>
+        <a href="/mobile/company/careers">Careers</a>
+        <a href="/mobile/company/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/mobile/resources/blog">Blog</a>
+        <a href="/mobile/resources/use-cases">Use Cases</a>
+        <a href="/mobile/resources/documentation">Documentation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/erichuang0/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+      © 2025 DataPingo, Inc. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Mobile Navigation Toggle Script -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+    
+    // Toggle mobile submenu sections
+    function toggleMobileSection(sectionId) {
+      const submenu = document.getElementById(sectionId + '-submenu');
+      const arrow = document.getElementById(sectionId + '-arrow');
+      
+      if (submenu.classList.contains('active')) {
+        submenu.classList.remove('active');
+        arrow.textContent = '▼';
+      } else {
+        // Close all other submenus first
+        document.querySelectorAll('.mobile-submenu').forEach(menu => {
+          menu.classList.remove('active');
+        });
+        document.querySelectorAll('.mobile-arrow').forEach(arr => {
+          arr.textContent = '▼';
+        });
+        
+        // Open clicked submenu
+        submenu.classList.add('active');
+        arrow.textContent = '▲';
+      }
+    }
+  </script>
+</body>
+</html>
