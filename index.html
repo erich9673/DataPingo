@@ -102,26 +102,8 @@
   <!-- Mobile Detection & Redirect -->
   <script>
     (function() {
-      // Only redirect if not already on mobile path
-      if (!window.location.pathname.includes('/mobile')) {
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const isSmallScreen = window.innerWidth <= 768;
-        
-        if (isMobile || isSmallScreen) {
-          // Redirect to mobile version but keep the same domain
-          const currentPath = window.location.pathname;
-          let mobileUrl;
-          
-          if (currentPath === '/' || currentPath === '/index.html') {
-            mobileUrl = '/mobile/';
-          } else {
-            mobileUrl = '/mobile' + currentPath;
-          }
-          
-          // Use replace to avoid back button issues
-          window.location.replace(mobileUrl);
-        }
-      }
+      // NO MORE REDIRECTS - Just responsive behavior
+      // This keeps users on clean URLs while serving mobile experience
     })();
   </script>
 
@@ -148,39 +130,59 @@
     </div>
   </section>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
-    <div class="nav-menu">
+  <!-- RESPONSIVE NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
       <a href="/" class="logo-link">
         <img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
       </a>
-      <div class="dropdown">
-        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
-        <div class="dropdown-content">
-          <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+      
+      <!-- Mobile Hamburger Menu -->
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <!-- Navigation Menu -->
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-trigger" tabindex="0">
+            Products <span class="dropdown-arrow">&#x25BE;</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
-        <div class="dropdown-content">
-          <a href="/company/about-us">About Us</a>
-          <a href="/company/careers">Careers</a>
-          <a href="/company/contact">Contact</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-trigger" tabindex="0">
+            Company <span class="dropdown-arrow">&#x25BE;</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/company/about-us">About Us</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/company/contact">Contact</a>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
-        <div class="dropdown-content">
-          <a href="/partners/become-a-partner">Become a Partner</a>
-          <a href="/partners/find-a-partner">Find a Partner</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-trigger" tabindex="0">
+            Partners <span class="dropdown-arrow">&#x25BE;</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/partners/become-a-partner">Become a Partner</a>
+            <a href="/partners/find-a-partner">Find a Partner</a>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
-        <div class="dropdown-content">
-          <a href="/resources/blog" style="color: #333 !important;">Blog</a>
-          <a href="/resources/use-cases" style="color: #333 !important;">Use Cases</a>
-          <a href="/resources/documentation" style="color: #333 !important;">Documentation</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-trigger" tabindex="0">
+            Resources <span class="dropdown-arrow">&#x25BE;</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/resources/blog">Blog</a>
+            <a href="/resources/use-cases">Use Cases</a>
+            <a href="/resources/documentation">Documentation</a>
+          </div>
         </div>
       </div>
     </div>
@@ -313,5 +315,46 @@
       © 2025 DataPingo, Inc. All rights reserved.
     </div>
   </footer>
+  
+  <!-- Mobile Navigation JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const navbar = document.getElementById('navbar');
+      
+      if (mobileNavToggle && navMenu) {
+        mobileNavToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('nav-menu-active');
+          navbar.classList.toggle('nav-open');
+          
+          // Toggle hamburger animation
+          mobileNavToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('nav-menu-active');
+            navbar.classList.remove('nav-open');
+            mobileNavToggle.classList.remove('active');
+          });
+        });
+        
+        // Handle dropdown toggles on mobile
+        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+        dropdownTriggers.forEach(trigger => {
+          trigger.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              const dropdown = this.closest('.dropdown');
+              dropdown.classList.toggle('dropdown-active');
+            }
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
