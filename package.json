@@ -4,9 +4,9 @@
   "description": "DataPingo website - Real-time alerts for Google Sheets",
   "main": "index.html",
   "scripts": {
-    "serve": "serve -s . -l 8000",
-    "start": "serve -s . -l 8000",
-    "dev": "serve -s . -l 8000"
+    "serve": "serve -s . -l 5501",
+    "start": "serve -s . -l 5501",
+    "dev": "serve -s . -l 5501"
   },
   "devDependencies": {
     "serve": "^14.2.1"

@@ -12,6 +12,24 @@
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/theme.css">
+  
+  <!-- Mobile Detection & Redirect -->
+  <script>
+    (function() {
+      // Only redirect if not already on mobile path
+      if (!window.location.pathname.includes('/mobile')) {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth <= 768;
+        
+        if (isMobile || isSmallScreen) {
+          // Redirect to mobile version
+          const mobileUrl = '/mobile' + window.location.pathname;
+          window.location.replace(mobileUrl);
+        }
+      }
+    })();
+  </script>
+  
   <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243367286.js"></script>
   <!-- End of HubSpot Embed Code -->
@@ -76,7 +94,6 @@
           <div style="padding: 25px;">
             <h3 style="font-size: 1.4rem; margin: 0 0 15px 0; color: #333; line-height: 1.4;">DataPingo Launches Bulk Report Generator: Solving Repetitive Reporting Challenges</h3>
             <div style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
-              <span style="color: #667eea; font-weight: 600;">✓ Verified</span> • 
               <time>October 16, 2025</time> • 
               <span>By Eric Huang, Founder & CEO</span> • 
               <span>3 min read</span>

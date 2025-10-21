@@ -78,6 +78,23 @@
       });
     }
   </script>
+  
+  <!-- Mobile Detection & Redirect -->
+  <script>
+    (function() {
+      // Only redirect if not already on mobile path
+      if (!window.location.pathname.includes('/mobile')) {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth <= 768;
+        
+        if (isMobile || isSmallScreen) {
+          // Redirect to mobile version
+          const mobileUrl = '/mobile' + window.location.pathname;
+          window.location.replace(mobileUrl);
+        }
+      }
+    })();
+  </script>
   <title>Bulk Report Generator for Confluence | DataPingo</title>
   <meta name="description" content="Transform your reporting workflow with Bulk Report Generator for Confluence. Generate professional reports with 199+ customizable templates across 16 business categories.">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
@@ -167,7 +184,7 @@
              });">
              🚀 Install from Marketplace
           </a>
-          <a href="/docs/bulk-report-generator/" 
+          <a href="/resources/documentation/bulk-report-generator/" 
              style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
              onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
              onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'"
@@ -265,7 +282,7 @@
     </div>
     
     <div style="text-align: center;">
-      <a href="/docs/bulk-report-generator/" style="background: #8B5CF6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600;">📖 View Complete Workflow Guide</a>
+  <a href="/resources/documentation/bulk-report-generator/" style="background: #8B5CF6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600;">📖 View Complete Workflow Guide</a>
     </div>
   </section>
 
@@ -871,7 +888,7 @@
            });">
            🚀 Install from Marketplace
         </a>
-        <a href="/docs/bulk-report-generator/" 
+  <a href="/resources/documentation/bulk-report-generator/" 
            style="background: #3b82f6; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
            onmouseover="this.style.background='#2563eb'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.4)'"
            onmouseout="this.style.background='#3b82f6'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(59, 130, 246, 0.3)'"

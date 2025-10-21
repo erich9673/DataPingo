@@ -228,25 +228,32 @@ body {
 .toc {
   max-width: 800px;
   margin: 0 auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-light);
 }
 
 .toc h2 {
   color: var(--text-primary);
   margin-bottom: 24px;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .toc ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  gap: 12px 16px;
 }
 
 .toc li {
   background: var(--gray-50);
   border-radius: 8px;
   transition: var(--transition-fast);
+  border: 1px solid var(--border-light);
 }
 
 .toc li:hover {
@@ -262,6 +269,7 @@ body {
   font-weight: 500;
   border-radius: 8px;
   transition: var(--transition-fast);
+  text-align: center;
 }
 
 .toc a:hover {
@@ -1018,5 +1026,90 @@ pre code {
   
   .section {
     break-inside: avoid;
+  }
+}
+
+/* Installation Step Styles */
+.installation-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-light);
+  transition: var(--transition-smooth);
+}
+
+.installation-step:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.step-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.step-content a {
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.step-content a:hover {
+  text-decoration: underline;
+}
+
+.step-content code {
+  background: var(--gray-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Responsive adjustments for installation steps */
+@media (max-width: 768px) {
+  .installation-step {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .step-number {
+    align-self: flex-start;
   }
 }
