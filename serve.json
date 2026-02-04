@@ -1,5 +1,8 @@
 {
-  "public": ".",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/resources/documentation", "destination": "/resources/documentation.html" },
+    { "source": "/resources/documentation/", "destination": "/resources/documentation.html" }
+  ]
 }

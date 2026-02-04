@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete documentation for Bulk Page Cloner for Confluence - Automate page cloning, space management, and content duplication">
+  <title>Bulk Page Cloner for Confluence | Documentation | DataPingo</title>
+  <link rel="icon" type="image/png" href="../../../assets/img/DataPingo logo_LOGO A3.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/styles.css">
+  <link rel="stylesheet" href="../../../assets/css/theme.css">
+  <link rel="stylesheet" href="/docs/bulk-report-generator/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+  
+  <style>
+    .hero {
+      background: #10b981 !important;
+      background-image: none !important;
+    }
+    .hero::before {
+      display: none !important;
+    }
+    body {
+      text-align: center;
+    }
+    .section,
+    .section h2,
+    .section h3,
+    .section h4,
+    .section p {
+      text-align: center !important;
+    }
+    .section ul,
+    .section ol {
+      list-style-position: inside;
+      padding-left: 0;
+      margin: 0 auto 20px;
+      max-width: 760px;
+      text-align: center;
+    }
+    .section li {
+      text-align: center;
+    }
+    .steps {
+      text-align: center !important;
+    }
+    .feature-grid {
+      justify-items: center;
+    }
+    .feature-card {
+      text-align: center;
+    }
+    .toc-section .toc {
+      text-align: center;
+    }
+    .toc-section .toc ul {
+      justify-items: center;
+    }
+    .card {
+      text-align: center;
+    }
+    footer {
+      text-align: left;
+    }
+    .footer-content {
+      justify-content: space-between;
+      text-align: left;
+    }
+    .footer-col {
+      text-align: left;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .feature-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .code-block {
+      background: #1f2937;
+      color: #e5e7eb;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+    .step-number {
+      background: #10b981;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    .warning {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .tip {
+      background: #dbeafe;
+      border-left: 4px solid #3b82f6;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    #technical {
+      text-align: center;
+    }
+    #technical ul {
+      list-style-position: inside;
+      padding-left: 0;
+      margin: 0 auto 20px;
+      max-width: 760px;
+    }
+    #technical li {
+      text-align: center;
+    }
+  </style>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243367286.js"></script>
+  <!-- End of HubSpot Embed Code -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- SUCCESS ANNOUNCEMENT - TOP BANNER -->
+  <section style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 12px 0; text-align: center; color: white; position: relative; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner Logo" style="width: 32px; height: 32px; border-radius: 4px;">
+        <div>
+          <span style="font-size: 1rem; font-weight: 700;">🎉 Bulk Page Cloner Now Live on Atlassian Marketplace!</span>
+        </div>
+        <a href="https://marketplace.atlassian.com/" target="_blank" style="background: white; color: #059669; padding: 6px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Install Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-menu">
+      <a href="/" class="logo-link">
+        <img src="../../../assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
+      </a>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+          <a href="/products/bulkpagecloner/">Bulk Page Cloner for Confluence</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Company &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/company/about-us">About Us</a>
+          <a href="/company/careers">Careers</a>
+          <a href="/company/contact">Contact</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Partners &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/partners/become-a-partner">Become a Partner</a>
+          <a href="/partners/find-a-partner">Find a Partner</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
+        <div class="dropdown-content">
+          <a href="/resources/blog" style="color: #333 !important;">Blog</a>
+          <a href="/resources/use-cases" style="color: #333 !important;">Use Cases</a>
+          <a href="/resources/documentation" style="color: #333 !important;">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background: #10b981 !important; color: white !important;">
+    <div class="container">
+      <div class="hero-content">
+        <div class="app-icon">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence Logo" width="64" height="64" loading="eager" decoding="async" />
+        </div>
+        <h1 class="hero-title">Bulk Page Cloner for Confluence</h1>
+        <p class="hero-subtitle">Create multiple Confluence pages simultaneously to streamline documentation workflows and project setup.</p>
+        <div class="hero-badges">
+          <span class="badge">v2.5.0</span>
+          <span class="badge">Atlassian Forge</span>
+          <span class="badge">Confluence Cloud</span>
+          <span class="badge" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">✅ LIVE</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#quick-start" class="btn btn-primary">🚀 Quick Start</a>
+          <a href="#full-guide" class="btn btn-secondary">📘 Full Guide</a>
+          <a href="https://www.youtube.com/watch?v=Ew8wpqPWk1M" target="_blank" class="btn btn-secondary">▶️ YouTube</a>
+          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="btn btn-secondary">💬 Support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="toc-section">
+    <div class="container">
+      <nav class="toc">
+        <h2>Table of Contents</h2>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#full-guide">Full Guide</a></li>
+            <li><a href="#technical">Technical Specifications</a></li>
+            <li><a href="#version-info">Version Information</a></li>
+            <li><a href="#privacy-security">Privacy & Security</a></li>
+            <li><a href="#support">Support & Contact</a></li>
+          </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+      <div class="content-wrapper">
+
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+          <h2>📋 Overview</h2>
+          <div class="app-icon" style="margin: 0 auto 16px;">
+            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence Logo" width="80" height="80" loading="lazy" decoding="async" />
+          </div>
+          <p>Bulk Page Cloner is a powerful Atlassian Forge app designed for Confluence Cloud that enables users to create multiple pages simultaneously, streamlining documentation workflows and project setup processes.</p>
+          
+          <div class="tip">
+            <strong>💡 Pro Tip:</strong> This tool is perfect for teams that need to maintain consistency across multiple Confluence spaces or quickly replicate content structures for new projects.
+          </div>
+        </section>
+
+        <!-- Full Guide -->
+        <section id="full-guide" class="section">
+          <h2>📘 Full Guide</h2>
+          <h3>Open the App (3 ways)</h3>
+          <ol>
+            <li>Click <strong>Bulk Page Cloner for Confluence</strong> under Apps on the left side of your screen.</li>
+            <li>Type <strong>/bulkpages</strong> in any Confluence page and select <strong>Bulk Page Cloner for Confluence</strong>.</li>
+            <li>Open the app under the <strong>•••</strong> menu in a parent page and select <strong>Create Bulk Page(s)</strong>.</li>
+          </ol>
+
+          <h3>Step 1 — Select a Page as a Template</h3>
+          <p>Pick exactly which Confluence page you will use to create multiple copies.</p>
+          <ul>
+            <li>Use the search bar to find any Confluence page within your environment and select it.</li>
+            <li>If you can’t find it, use the 🔗 <strong>Paste URL</strong> option and paste the desired Confluence link.</li>
+            <li>You can also use the <strong>Space</strong> filter to locate your page.</li>
+            <li><span style="color: #ef4444; font-weight: 700;">This will load up to 5,000 Confluence Pages</span></li>
+          </ul>
+          <div class="card">
+            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Select%20a%20Page%20(1840%20x%20900%20px).png" alt="Select a Page step" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h3>Step 2 — Bulk Cloning</h3>
+          <p>Choose how many pages to create and what to name them.</p>
+          <ol>
+            <li>Use the red slider and choose from 1–25 pages.</li>
+            <li>Write the names of the new page(s).</li>
+          </ol>
+          <h4>Features</h4>
+          <ul>
+            <li>📋 <strong>Copy First Title to All</strong> — Quickly duplicate the first title across all fields.</li>
+            <li>🗑️ <strong>Clear All</strong> — Deletes all title fields.</li>
+            <li><strong>Autofill</strong> — If you name a page “Report1”, it will prompt to auto-populate “Report2”, etc. Works for weekly/monthly date patterns too.</li>
+          </ul>
+          <div class="card">
+            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Cloning%20(1840%20x%20900%20px).png" alt="Bulk Cloning step" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h3>Step 3 — 📍 Location</h3>
+          <p>Choose where to place your pages.</p>
+          <ol>
+            <li>📁 <strong>Select Confluence Space</strong> — Select a Space.</li>
+            <li><strong>Page Creation Options</strong>:
+              <ul>
+                <li><strong>Create Child Page</strong> — Add reports as child pages under an existing parent page.</li>
+                <li><strong>Create Parent Page</strong> — Create a new parent page for organizing your reports.</li>
+                <li><strong>Create Parent & Child</strong> — Create both a new parent page and child pages structure.</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="card">
+            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20(1840%20x%20900%20px).png" alt="Location step" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h3>Step 4 — Success Page</h3>
+          <p>You will see the generated pages with links to each one.</p>
+          <div class="card">
+            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Success%20(1840%20x%20900%20px).png" alt="Success step" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+        </section>
+
+        <!-- Technical Specifications -->
+        <section id="technical" class="section">
+          <h2>🧰 Technical Specifications</h2>
+          
+          <h3>System Requirements</h3>
+          <ul>
+            <li>Confluence Cloud instance</li>
+            <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
+            <li>Active internet connection</li>
+            <li>Appropriate Confluence permissions</li>
+          </ul>
+
+          <h3>Compatibility</h3>
+          <ul>
+            <li><strong>Atlassian Product:</strong> Confluence Cloud</li>
+            <li><strong>Supported Versions:</strong> All current Confluence Cloud versions</li>
+            <li><strong>Forward Compatibility:</strong> Automatically compatible with future Cloud updates</li>
+          </ul>
+
+          <h3>Performance</h3>
+          <ul>
+            <li>Optimized for bulk operations</li>
+            <li>Handles up to 5000 pages per batch via browser interface</li>
+            <li>URL-based fallback for larger operations</li>
+            <li>Minimal impact on Confluence performance</li>
+          </ul>
+
+          <h3>Permissions Required</h3>
+          <ul>
+            <li>Space administration rights (for space-level operations)</li>
+            <li>Page creation permissions</li>
+            <li>Template access rights</li>
+            <li>Read/write access to target spaces</li>
+          </ul>
+          <h3>Troubleshooting</h3>
+          <h4>Pages Not Creating</h4>
+          <ul>
+            <li>Verify you have page creation permissions in the target space</li>
+            <li>Check that the selected template is available</li>
+            <li>Ensure page titles don't contain invalid characters</li>
+          </ul>
+
+          <h4>Template Not Loading</h4>
+          <ul>
+            <li>Confirm the template exists and is accessible</li>
+            <li>Check space-level template permissions</li>
+            <li>Refresh the app interface and try again</li>
+          </ul>
+
+          <h4>Slow Performance</h4>
+          <ul>
+            <li>Reduce batch size for better performance</li>
+            <li>Check network connection stability</li>
+            <li>Consider creating pages in smaller batches</li>
+          </ul>
+
+          <h4>Access Denied Errors</h4>
+          <ul>
+            <li>Verify Confluence space permissions</li>
+            <li>Contact your Confluence administrator for access rights</li>
+            <li>Ensure the app has proper permissions in your instance</li>
+          </ul>
+
+          <h3>Best Practices</h3>
+
+          <h4>Planning Your Page Structure</h4>
+          <ul>
+            <li>Plan your page hierarchy before bulk creation</li>
+            <li>Use consistent naming conventions</li>
+            <li>Consider future organization needs</li>
+          </ul>
+
+          <h4>Template Selection</h4>
+          <ul>
+            <li>Choose appropriate templates for your content type</li>
+            <li>Test with a small batch before large operations</li>
+            <li>Ensure templates meet your formatting requirements</li>
+          </ul>
+
+          <h4>Performance Optimization</h4>
+          <ul>
+            <li>Create pages in batches of 50-100 for optimal performance</li>
+            <li>Avoid special characters in page titles</li>
+            <li>Use numbered sequences for systematic organization</li>
+          </ul>
+        </section>
+
+        <section id="version-info" class="section">
+          <h2>📌 Version Information</h2>
+          <ul>
+            <li><strong>Current Version:</strong> 2.5.0</li>
+            <li><strong>Release Type:</strong> Initial Release</li>
+            <li><strong>Last Updated:</strong> February 2026</li>
+            <li><strong>License:</strong> Commercial - No Charge</li>
+          </ul>
+        </section>
+
+        <section id="privacy-security" class="section">
+          <h2>🔐 Privacy & Security</h2>
+          <ul>
+            <li><strong>Data Privacy:</strong> <a href="/privacy">https://datapingo.com/privacy</a></li>
+            <li><strong>Security:</strong> Built on Atlassian Forge security framework</li>
+            <li><strong>Data Handling:</strong> No user data stored outside of Confluence</li>
+            <li><strong>Compliance:</strong> Follows Atlassian security standards</li>
+          </ul>
+        </section>
+
+        <!-- Support -->
+        <section id="support" class="section">
+          <h2>💬 Support & Contact</h2>
+          <p>For technical support, feature requests, or general questions:</p>
+
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
+            <li><strong>Response Time:</strong> 24-48 hours for technical issues</li>
+            <li><strong>Support Scope:</strong> App functionality and technical issues</li>
+          </ul>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">📚</div>
+              <h3>Documentation</h3>
+              <p>Updated regularly with new features</p>
+              <a href="/resources/documentation" style="color: #10b981; font-weight: 600;">Browse Docs →</a>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎫</div>
+              <h3>Support Portal</h3>
+              <p>Submit tickets and track issues</p>
+              <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" style="color: #10b981; font-weight: 600;">Open Ticket →</a>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💼</div>
+              <h3>Community</h3>
+              <p>Join discussions in Atlassian Community</p>
+              <a href="https://community.atlassian.com/" target="_blank" style="color: #10b981; font-weight: 600;">Visit Community →</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+        <a href="/products/bulkpagecloner/">Bulk Page Cloner for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/company/about-us">About</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/resources/blog">Blog</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/erichuang0/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+      © 2025 DataPingo, Inc. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll spy for table of contents
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('section[id]');
+    
+    function highlightTocLink() {
+      const scrollPosition = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          tocLinks.forEach(link => {
+            link.style.fontWeight = link.getAttribute('href') === '#' + sectionId ? '700' : '500';
+            link.style.color = link.getAttribute('href') === '#' + sectionId ? '#059669' : '#4f46e5';
+          });
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', highlightTocLink);
+    highlightTocLink(); // Initial call
+  </script>
+</body>
+</html>

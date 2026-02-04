@@ -40,59 +40,21 @@
         <span></span>
       </button>
       <a href="/mobile/" class="mobile-logo-link">
-        <img src="/assets/img/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="mobile-logo" />
+        <img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="mobile-logo" />
       </a>
       <div class="mobile-spacer"></div>
     </div>
     
     <div class="mobile-menu" id="mobileMenu">
-      <!-- Home -->
-      <a href="/mobile/" class="mobile-menu-item">🏠 Home</a>
-      
-      <!-- Products Section -->
-      <div class="mobile-menu-section">
-        <button class="mobile-menu-header" onclick="toggleMobileSection('products')">
-          📦 Products <span class="mobile-arrow" id="products-arrow">▼</span>
-        </button>
-        <div class="mobile-submenu" id="products-submenu">
-          <a href="/mobile/products/bulk-report-generator/" class="mobile-submenu-item">Bulk Report Generator for Confluence</a>
-        </div>
-      </div>
-      
-      <!-- Company Section -->
-      <div class="mobile-menu-section">
-        <button class="mobile-menu-header" onclick="toggleMobileSection('company')">
-          🏢 Company <span class="mobile-arrow" id="company-arrow">▼</span>
-        </button>
-        <div class="mobile-submenu" id="company-submenu">
-          <a href="/mobile/company/about-us" class="mobile-submenu-item">About Us</a>
-          <a href="/mobile/company/careers" class="mobile-submenu-item">Careers</a>
-          <a href="/mobile/company/contact" class="mobile-submenu-item">Contact</a>
-        </div>
-      </div>
-      
-      <!-- Partners Section -->
-      <div class="mobile-menu-section">
-        <button class="mobile-menu-header" onclick="toggleMobileSection('partners')">
-          🤝 Partners <span class="mobile-arrow" id="partners-arrow">▼</span>
-        </button>
-        <div class="mobile-submenu" id="partners-submenu">
-          <a href="/mobile/partners/become-a-partner" class="mobile-submenu-item">Become a Partner</a>
-          <a href="/mobile/partners/find-a-partner" class="mobile-submenu-item">Find a Partner</a>
-        </div>
-      </div>
-      
-      <!-- Resources Section -->
-      <div class="mobile-menu-section">
-        <button class="mobile-menu-header" onclick="toggleMobileSection('resources')">
-          📚 Resources <span class="mobile-arrow" id="resources-arrow">▼</span>
-        </button>
-        <div class="mobile-submenu" id="resources-submenu">
-          <a href="/mobile/resources/blog" class="mobile-submenu-item">Blog</a>
-          <a href="/mobile/resources/use-cases" class="mobile-submenu-item">Use Cases</a>
-          <a href="/mobile/resources/documentation" class="mobile-submenu-item">Documentation</a>
-        </div>
-      </div>
+      <a href="/mobile/" class="mobile-menu-item">Home</a>
+      <a href="/mobile/products/bulk-report-generator/" class="mobile-menu-item">Bulk Report Generator</a>
+      <a href="/mobile/company/about-us" class="mobile-menu-item">About Us</a>
+      <a href="/mobile/company/careers" class="mobile-menu-item">Careers</a>
+      <a href="/mobile/company/contact" class="mobile-menu-item">Contact</a>
+      <a href="/mobile/partners/become-a-partner" class="mobile-menu-item">Become a Partner</a>
+      <a href="/mobile/partners/find-a-partner" class="mobile-menu-item">Find a Partner</a>
+      <a href="/mobile/resources/blog" class="mobile-menu-item">Blog</a>
+      <a href="/mobile/resources/documentation" class="mobile-menu-item">Documentation</a>
     </div>
   </nav>
 
@@ -165,35 +127,20 @@
 
   <!-- Mobile Navigation Toggle Script -->
   <script>
-    // Mobile menu toggle
     document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
       this.classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
     });
     
-    // Toggle mobile submenu sections
-    function toggleMobileSection(sectionId) {
-      const submenu = document.getElementById(sectionId + '-submenu');
-      const arrow = document.getElementById(sectionId + '-arrow');
-      
-      if (submenu.classList.contains('active')) {
-        submenu.classList.remove('active');
-        arrow.textContent = '▼';
-      } else {
-        // Close all other submenus first
-        document.querySelectorAll('.mobile-submenu').forEach(menu => {
-          menu.classList.remove('active');
-        });
-        document.querySelectorAll('.mobile-arrow').forEach(arr => {
-          arr.textContent = '▼';
-        });
-        
-        // Open clicked submenu
-        submenu.classList.add('active');
-        arrow.textContent = '▲';
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const nav = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('mobileMenuToggle');
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('active');
+        toggle.classList.remove('active');
       }
-    }
+    });
   </script>
 </body>
 </html>

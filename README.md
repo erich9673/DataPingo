@@ -24,7 +24,7 @@ A modern website for DataPingo - focused on data analytics and business intellig
 
 ### Available Tasks
 
-- **Serve Website**: Starts a local development server on port 5501
+- **Serve Website**: Starts a local development server on port 8000
 
 ### Technology Stack
 
