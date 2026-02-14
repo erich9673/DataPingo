@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <meta name="description" content="DataPingo Blog - Insights on data automation, real-time alerts, and business intelligence best practices. Mobile-optimized experience.">
-  <title>Blog | DataPingo - Mobile</title>
+  <meta name="description" content="DataPingo Documentation - Comprehensive guides, tutorials, and API references for data automation and business intelligence tools. Mobile-optimized experience.">
+  <title>Documentation | DataPingo - Mobile</title>
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
@@ -14,21 +14,14 @@
   <!-- Desktop Detection & Redirect Script -->
   <script>
     (function() {
-      // Detect if user is on desktop
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       const isSmallScreen = window.innerWidth <= 768;
-      
-      // If NOT mobile, redirect to desktop version
       if (!isMobile && !isSmallScreen) {
         const desktopUrl = window.location.pathname.replace('/mobile', '');
         window.location.replace(desktopUrl);
       }
     })();
   </script>
-  
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243367286.js"></script>
-  <!-- End of HubSpot Embed Code -->
 </head>
 <body class="mobile-version">
   <!-- MOBILE NAVIGATION -->
@@ -60,30 +53,61 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <h1>DataPingo Blog</h1>
-    <p>Insights on data automation, real-time alerts, and business intelligence best practices.</p>
+    <h1>Documentation</h1>
+    <p>Comprehensive guides, tutorials, and references for DataPingo products.</p>
   </section>
 
-  <!-- BLOG POSTS -->
+  <!-- DOCUMENTATION SECTIONS -->
   <section class="section">
-    <h2>Latest Posts</h2>
+    <h2>Product Documentation</h2>
     <div style="max-width: 800px; margin: 0 auto;">
       
-      <!-- Coming Soon -->
-      <div style="background: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 24px; text-align: center;">
-        <h3 style="margin-bottom: 12px; color: #1f2937;">More content coming soon</h3>
-        <p style="color: #374151; line-height: 1.6; margin-bottom: 0;">Stay tuned for updates on data automation, Confluence workflows, and product releases.</p>
+      <!-- Bulk Page Cloner Docs -->
+      <div style="background: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 24px;">
+        <h3 style="margin-bottom: 12px;">
+          <a href="/resources/documentation/bulkpagecloner/" style="color: #1f2937; text-decoration: none;">
+            📄 Bulk Page Cloner for Confluence
+          </a>
+        </h3>
+        <p style="color: #374151; line-height: 1.6; margin-bottom: 16px;">
+          Complete guide to using Bulk Page Cloner — from picking a template page to bulk cloning, placement, and publishing.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <a href="/resources/documentation/bulkpagecloner/" style="background: #059669; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 14px;">Getting Started</a>
+          <a href="/resources/documentation/bulkpagecloner/" style="background: #374151; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 14px;">Templates</a>
+          <a href="/resources/documentation/bulkpagecloner/" style="background: #6b7280; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 14px;">API Reference</a>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- SUBSCRIBE SECTION -->
+  <!-- QUICK LINKS -->
   <section class="section alt">
-    <div style="max-width: 500px; margin: 0 auto; text-align: center;">
-      <h2>Stay Updated</h2>
-      <p style="margin-bottom: 24px;">Get the latest insights on data automation and business intelligence delivered to your inbox.</p>
-      <a href="/mobile/company/contact" class="hero-cta">Subscribe to Updates</a>
+    <h2>Quick Links</h2>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title">Getting Started</div>
+          <div class="feature-desc">New to DataPingo? Start here for setup guides and basic tutorials.</div>
+          <a href="/resources/documentation/bulkpagecloner/" style="color: #059669; font-weight: 600; text-decoration: none; margin-top: 10px; display: inline-block;">View Guides →</a>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">📖</div>
+          <div class="feature-title">Template Library</div>
+          <div class="feature-desc">Browse our extensive collection of pre-built report templates.</div>
+          <a href="/resources/documentation/bulkpagecloner/" style="color: #059669; font-weight: 600; text-decoration: none; margin-top: 10px; display: inline-block;">Browse Templates →</a>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">❓</div>
+          <div class="feature-title">Support</div>
+          <div class="feature-desc">Need help? Find answers in our FAQ or contact our support team.</div>
+          <a href="/mobile/company/contact" style="color: #059669; font-weight: 600; text-decoration: none; margin-top: 10px; display: inline-block;">Get Support →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -123,8 +147,6 @@
       this.classList.toggle('active');
       document.getElementById('mobileMenu').classList.toggle('active');
     });
-    
-    // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
       const nav = document.getElementById('mobileMenu');
       const toggle = document.getElementById('mobileMenuToggle');

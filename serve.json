@@ -2,7 +2,28 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/resources/documentation", "destination": "/resources/documentation.html" },
-    { "source": "/resources/documentation/", "destination": "/resources/documentation.html" }
+    { "source": "/resources/documentation", "destination": "/resources/documentation/index.html" },
+    { "source": "/resources/documentation/", "destination": "/resources/documentation/index.html" },
+
+    { "source": "/company/about-us", "destination": "/company/about-us.html" },
+    { "source": "/company/careers", "destination": "/company/careers.html" },
+    { "source": "/company/contact", "destination": "/company/contact.html" },
+
+    { "source": "/partners/become-a-partner", "destination": "/partners/become-a-partner.html" },
+    { "source": "/partners/find-a-partner", "destination": "/partners/find-a-partner.html" },
+
+    { "source": "/resources/blog", "destination": "/resources/blog.html" },
+    { "source": "/resources/use-cases", "destination": "/resources/use-cases.html" },
+
+    { "source": "/mobile/company/about-us", "destination": "/mobile/company/about-us.html" },
+    { "source": "/mobile/company/careers", "destination": "/mobile/company/careers.html" },
+    { "source": "/mobile/company/contact", "destination": "/mobile/company/contact.html" },
+
+    { "source": "/mobile/partners/become-a-partner", "destination": "/mobile/partners/become-a-partner.html" },
+    { "source": "/mobile/partners/find-a-partner", "destination": "/mobile/partners/find-a-partner.html" },
+
+    { "source": "/mobile/resources/blog", "destination": "/mobile/resources/blog.html" },
+    { "source": "/mobile/resources/use-cases", "destination": "/mobile/resources/use-cases.html" },
+    { "source": "/mobile/resources/documentation", "destination": "/mobile/resources/documentation/index.html" }
   ]
 }
