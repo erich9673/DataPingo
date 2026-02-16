@@ -265,25 +265,46 @@
     
     <!-- Pricing Calculator -->
     <div style="max-width: 600px; margin: 0 auto 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h3 style="text-align: center; margin-bottom: 20px;">💰 Pricing Calculator</h3>
+      <h3 style="text-align: center; margin-bottom: 20px;">Get an estimate for your team</h3>
       
       <div style="margin-bottom: 20px;">
-        <label for="userCount" style="display: block; margin-bottom: 8px; font-weight: 600;">How many users?</label>
-        <input type="number" id="userCount" placeholder="Enter number of users" min="1" max="150000" 
+        <label style="display: block; margin-bottom: 12px; font-weight: 600;">Atlassian app billing cycle:</label>
+        <div style="display: flex; gap: 20px;">
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="radio" name="billingCycle" value="monthly" checked onchange="calculatePricing()" 
+                   style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
+            <span style="font-size: 1rem;">Monthly</span>
+          </label>
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="radio" name="billingCycle" value="annual" onchange="calculatePricing()" 
+                   style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
+            <span style="font-size: 1rem;">Annual</span>
+          </label>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 20px;">
+        <label for="userCount" style="display: block; margin-bottom: 8px; font-weight: 600;">Number of users in your Atlassian app instance</label>
+        <input type="number" id="userCount" placeholder="10" min="1" max="150000" 
                style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem;" 
                oninput="calculatePricing()">
       </div>
       
-      <div id="pricingResult" style="display: none; text-align: center; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8B5CF6;">
-        <div id="monthlyPrice" style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 5px;"></div>
-        <div id="pricePerUser" style="color: #6b7280; margin-bottom: 10px;"></div>
+      <div id="pricingResult" style="display: none; text-align: center; padding: 25px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8B5CF6;">
+        <div style="color: #6b7280; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;">App cost</div>
+        <div id="totalPrice" style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 5px;"></div>
+        <div id="billingPeriod" style="color: #6b7280; margin-bottom: 8px;"></div>
+        <div id="pricePerUser" style="color: #6b7280; margin-bottom: 15px; font-size: 0.9rem;"></div>
+        <div id="userTierInfo" style="color: #6b7280; margin-bottom: 15px; font-size: 0.85rem;"></div>
         <div id="freeTrialInfo" style="color: #059669; font-weight: 600; margin-bottom: 15px;"></div>
         <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" 
-           style="background: #8B5CF6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;"
+           style="background: #0052CC; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; transition: all 0.3s ease;"
+           onmouseover="this.style.background='#0747A6'" 
+           onmouseout="this.style.background='#0052CC'"
            onclick="gtag('event', 'conversion_event_purchase_3', {
              'send_to': 'AW-16746113716'
            });">
-           Start Free Trial → Install from Marketplace
+           Start free trial
         </a>
       </div>
     </div>
@@ -292,9 +313,12 @@
   <script>
     function calculatePricing() {
       const userCount = parseInt(document.getElementById('userCount').value);
+      const billingCycle = document.querySelector('input[name="billingCycle"]:checked').value;
       const resultDiv = document.getElementById('pricingResult');
-      const monthlyPriceDiv = document.getElementById('monthlyPrice');
+      const totalPriceDiv = document.getElementById('totalPrice');
+      const billingPeriodDiv = document.getElementById('billingPeriod');
       const pricePerUserDiv = document.getElementById('pricePerUser');
+      const userTierDiv = document.getElementById('userTierInfo');
       const freeTrialDiv = document.getElementById('freeTrialInfo');
       
       if (!userCount || userCount < 1) {
@@ -302,42 +326,81 @@
         return;
       }
       
-      let pricePerUser = 0;
+      // Pricing tiers based on Atlassian Marketplace (tiered pricing - single instance)
+      const priceTiers = [
+        { min: 1, max: 100, price: 0.5 },
+        { min: 101, max: 250, price: 0.45 },
+        { min: 251, max: 1000, price: 0.35 },
+        { min: 1001, max: 2500, price: 0.25 },
+        { min: 2501, max: 5000, price: 0.25 },
+        { min: 5001, max: 7500, price: 0.2 },
+        { min: 7501, max: 10000, price: 0.2 },
+        { min: 10001, max: 15000, price: 0.17 },
+        { min: 15001, max: 20000, price: 0.17 },
+        { min: 20001, max: 25000, price: 0.17 },
+        { min: 25001, max: 30000, price: 0.17 },
+        { min: 30001, max: 35000, price: 0.17 },
+        { min: 35001, max: 40000, price: 0.17 },
+        { min: 40001, max: 45000, price: 0.17 },
+        { min: 45001, max: 50000, price: 0.17 },
+        { min: 50001, max: 60000, price: 0.17 },
+        { min: 60001, max: 70000, price: 0.17 },
+        { min: 70001, max: 80000, price: 0.17 },
+        { min: 80001, max: 90000, price: 0.17 },
+        { min: 90001, max: 100000, price: 0.17 },
+        { min: 100001, max: 110000, price: 0.17 },
+        { min: 110001, max: 120000, price: 0.17 },
+        { min: 120001, max: 130000, price: 0.17 },
+        { min: 130001, max: 140000, price: 0.17 },
+        { min: 140001, max: 150000, price: 0.17 }
+      ];
       
-      if (userCount <= 10) {
-        pricePerUser = 0;
-      } else if (userCount <= 100) {
-        pricePerUser = 1;
-      } else if (userCount <= 250) {
-        pricePerUser = 0.8;
-      } else if (userCount <= 1000) {
-        pricePerUser = 0.75;
-      } else if (userCount <= 2500) {
-        pricePerUser = 0.7;
-      } else if (userCount <= 5000) {
-        pricePerUser = 0.65;
-      } else if (userCount <= 7500) {
-        pricePerUser = 0.6;
-      } else if (userCount <= 10000) {
-        pricePerUser = 0.55;
-      } else if (userCount <= 15000) {
-        pricePerUser = 0.5;
-      } else if (userCount <= 20000) {
-        pricePerUser = 0.45;
-      } else {
-        pricePerUser = 0.4;
+      // Calculate monthly tiered pricing
+      let monthlyTotal = 0;
+      
+      // Up to 10 users is free, beyond that you pay for all users
+      if (userCount > 10) {
+        for (const tier of priceTiers) {
+          if (userCount >= tier.min) {
+            // Calculate how many users fall in this tier
+            const usersInTier = Math.min(userCount, tier.max) - tier.min + 1;
+            monthlyTotal += usersInTier * tier.price;
+          }
+          if (userCount <= tier.max) {
+            break;
+          }
+        }
       }
       
-      const monthlyTotal = userCount * pricePerUser;
+      // Calculate final price based on billing cycle
+      // Annual pricing is 10x monthly according to Atlassian
+      const finalTotal = billingCycle === 'annual' ? monthlyTotal * 10 : monthlyTotal;
+      const averagePricePerUser = userCount > 0 ? finalTotal / userCount : 0;
+      
+      // Determine user tier range
+      let userTierRange = '';
+      for (const tier of priceTiers) {
+        if (userCount >= tier.min && userCount <= tier.max) {
+          userTierRange = `${tier.min.toLocaleString()}-${tier.max.toLocaleString()}`;
+          break;
+        }
+      }
+      
+      // Track pricing calculator usage
+      trackPricingCalculator('calculate', userCount);
       
       if (userCount <= 10) {
-        monthlyPriceDiv.textContent = 'FREE';
-        pricePerUserDiv.textContent = 'For teams up to 10 users';
+        totalPriceDiv.textContent = 'USD 0.00';
+        billingPeriodDiv.textContent = billingCycle === 'annual' ? 'per year' : 'per month';
+        pricePerUserDiv.textContent = 'Free for up to 10 users';
+        userTierDiv.textContent = 'User tier: Up to 10';
         freeTrialDiv.textContent = '🎉 Your team qualifies for our free tier!';
       } else {
-        monthlyPriceDiv.textContent = `$${monthlyTotal.toFixed(2)}/month`;
-        pricePerUserDiv.textContent = `$${pricePerUser}/user/month for ${userCount} users`;
-        freeTrialDiv.textContent = '✨ Start with a 30-day free trial for all users';
+        totalPriceDiv.textContent = `USD ${finalTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        billingPeriodDiv.textContent = billingCycle === 'annual' ? 'per year' : 'per month';
+        pricePerUserDiv.textContent = `USD ${averagePricePerUser.toFixed(2)} per user (average)`;
+        userTierDiv.textContent = `User tier: ${userTierRange}`;
+        freeTrialDiv.textContent = '';
       }
       
       resultDiv.style.display = 'block';
