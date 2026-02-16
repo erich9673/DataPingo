@@ -14,8 +14,9 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-menu">
-      <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/" class="logo-link"><img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="logo" /></a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -47,6 +48,38 @@
       </div>
     </div>
   </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const navMenu = document.getElementById('navMenu');
+      
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navMenu.classList.toggle('active');
+          const isExpanded = navMenu.classList.contains('active');
+          mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+  </script>
 
   <main class="resources-main">
     <section class="hero">
@@ -97,9 +130,9 @@
         <a href="/company/contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/resources/resources.html">Help Center</a>
-        <a href="/resources/blog">Blog</a>
+        <h4>Partners</h4>
+        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/find-a-partner">Find a Partner</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>

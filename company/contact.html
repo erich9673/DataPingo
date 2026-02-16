@@ -16,8 +16,9 @@
 <body>
   <!-- NAVIGATION -->
   <nav class="navbar">
-    <div class="nav-menu">
-      <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/" class="logo-link"><img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="logo" /></a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -49,6 +50,29 @@
       </div>
     </div>
   </nav>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      const navMenu = document.getElementById('navMenu');
+      const isActive = navMenu.classList.toggle('mobile-active');
+      this.textContent = isActive ? '✕' : '☰';
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          const navMenu = document.getElementById('navMenu');
+          const toggle = document.getElementById('mobileMenuToggle');
+          navMenu.classList.remove('mobile-active');
+          toggle.textContent = '☰';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -116,10 +140,9 @@
         <a href="/company/contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/resources/blog">Blog</a>
-        <a href="/resources/use-cases">Use Cases</a>
-        <a href="/resources/documentation">Documentation</a>
+        <h4>Partners</h4>
+        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/find-a-partner">Find a Partner</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>

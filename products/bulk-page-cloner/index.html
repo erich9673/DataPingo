@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <!-- Cookiebot Cookie Consent -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d9173e0e-71f1-445c-bf50-f6e42a492f94" data-blockingmode="auto" type="text/javascript"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -82,10 +84,8 @@
   <meta name="description" content="Transform your reporting workflow with Bulk Page Cloner for Confluence. Generate professional reports with 199+ customizable templates across 16 business categories.">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="/assets/css/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/assets/css/theme.css"></noscript>
   <style>
     @keyframes pulse {
       0% {
@@ -114,8 +114,11 @@
   
   <!-- NAVIGATION -->
   <nav class="navbar">
-    <div class="nav-menu">
-      <a href="/" class="logo-link"><img src="/assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" /></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="/" class="logo-link">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -140,13 +143,36 @@
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="/resources/blog">Blog</a>
-          <a href="/resources/use-cases">Use Cases</a>
-          <a href="/resources/documentation">Documentation</a>
+          <a href="/resources/blog" style="color: #333 !important;">Blog</a>
+          <a href="/resources/use-cases" style="color: #333 !important;">Use Cases</a>
+          <a href="/resources/documentation" style="color: #333 !important;">Documentation</a>
         </div>
       </div>
     </div>
   </nav>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      const navMenu = document.getElementById('navMenu');
+      const isActive = navMenu.classList.toggle('mobile-active');
+      this.textContent = isActive ? '✕' : '☰';
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          const navMenu = document.getElementById('navMenu');
+          const toggle = document.getElementById('mobileMenuToggle');
+          navMenu.classList.remove('mobile-active');
+          toggle.textContent = '☰';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
 
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
@@ -455,12 +481,6 @@
       <div class="footer-col">
         <h4>Products</h4>
         <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/resources/blog">Blog</a>
-        <a href="/resources/use-cases">Use Cases</a>
-        <a href="/resources/documentation">Documentation</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>

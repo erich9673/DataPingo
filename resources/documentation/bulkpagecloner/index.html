@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Cookiebot Cookie Consent -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d9173e0e-71f1-445c-bf50-f6e42a492f94" data-blockingmode="auto" type="text/javascript"></script>
   <meta name="description" content="Complete documentation for Bulk Page Cloner for Confluence - Automate page cloning, space management, and content duplication">
   <title>Bulk Page Cloner for Confluence | Documentation | DataPingo</title>
   <link rel="icon" type="image/png" href="../../../assets/img/DataPingo logo_LOGO A3.png">
@@ -163,10 +165,11 @@
 
   <!-- NAVIGATION -->
   <nav class="navbar">
-    <div class="nav-menu">
+    <div class="nav-menu" id="navMenu">
       <a href="/" class="logo-link">
-        <img src="../../../assets/img/DataPingo.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo Logo" class="logo" loading="eager" decoding="async" />
       </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
@@ -198,6 +201,29 @@
       </div>
     </div>
   </nav>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+      const navMenu = document.getElementById('navMenu');
+      const isActive = navMenu.classList.toggle('mobile-active');
+      this.textContent = isActive ? '✕' : '☰';
+      document.body.style.overflow = isActive ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          const navMenu = document.getElementById('navMenu');
+          const toggle = document.getElementById('mobileMenuToggle');
+          navMenu.classList.remove('mobile-active');
+          toggle.textContent = '☰';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
 
   <!-- Hero Section -->
   <section class="hero" style="background: #10b981 !important; color: white !important;">
@@ -478,10 +504,9 @@
         <a href="/company/contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="/resources/blog">Blog</a>
-        <a href="/resources/use-cases">Use Cases</a>
-        <a href="/resources/documentation">Documentation</a>
+        <h4>Partners</h4>
+        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/find-a-partner">Find a Partner</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
