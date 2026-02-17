@@ -1123,9 +1123,17 @@ html {
   text-decoration: underline !important;
 }
 
-/* Hide iubenda icon at bottom right */
+/* Hide iubenda icon and branding at bottom right */
 .iubenda-cs-opt-in,
 #iubenda-cs-banner .iubenda-cs-opt-in-button,
-.iubenda-cs-opt-in-button {
+.iubenda-cs-opt-in-button,
+.iubenda-ibadge,
+.iubenda-cs-brand,
+.iubenda-cs-footer,
+#iubenda-cs-banner a[href*="iubenda.com"],
+a.iubenda-cs-brand,
+a.iubenda-nostyle {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
