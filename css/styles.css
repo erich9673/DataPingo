@@ -2,3 +2,16 @@
 @import url('../assets/css/theme.css');
 
 /* Additional styles for index.html if needed */
+
+/* Make iubenda "Your Privacy Choices" text visible */
+.iubenda-cs-preferences-link,
+.iubenda-cs-preferences-link a {
+  color: #1f2937 !important;
+  text-decoration: none !important;
+}
+
+.iubenda-cs-preferences-link:hover,
+.iubenda-cs-preferences-link a:hover {
+  color: #6366F1 !important;
+  text-decoration: underline !important;
+}
