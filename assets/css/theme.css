@@ -64,7 +64,7 @@ img {
   z-index: 1000;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: var(--shadow-medium);
   border-bottom: 1px solid var(--border-light);
   transition: var(--transition-smooth);
@@ -95,8 +95,8 @@ img {
 }
 
 .navbar .logo {
-  height: 55px;
-  max-height: 65px;
+  height: 100px;
+  max-height: 100px;
   border-radius: 8px;
   transition: var(--transition-smooth);
 }
@@ -108,6 +108,7 @@ img {
 }
 
 .nav-link {
+  font-size: 18px;
   font-weight: 500;
   text-decoration: none;
   color: var(--text-primary);
@@ -578,8 +579,8 @@ img {
 footer {
   background: var(--gray-800);
   color: var(--white);
-  padding: 80px 40px 40px;
-  margin-top: 80px;
+  padding: 40px 40px 30px;
+  margin-top: 60px;
   position: relative;
   overflow: hidden;
 }

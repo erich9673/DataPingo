@@ -164,26 +164,84 @@ _iub.csConfiguration = {
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-col">
-        <h4>Products</h4>
-        <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
+    <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Left: Company Logo & Address -->
+      <div class="footer-company-info" style="flex: 1; max-width: 300px;">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" style="height: 80px; margin-bottom: 20px;">
+        <p style="color: #9CA3AF; font-size: 14px; line-height: 1.6; margin: 0;">
+          100 Matawan Road, Suite 325 #1104<br>
+          Matawan, New Jersey, 07747, USA
+        </p>
       </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="/company/about-us">About</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/company/contact">Contact</a>
+      
+      <!-- Middle: LinkedIn -->
+      <div class="footer-social" style="flex: 0 0 auto; text-align: center; padding-top: 10px;">
+        <a href="https://www.linkedin.com/company/datapingo/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #8B5CF6; text-decoration: none; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#6366F1'" onmouseout="this.style.color='#8B5CF6'">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
       </div>
-      <div class="footer-col">
-        <h4>Partners</h4>
-        <a href="/partners/become-a-partner">Become a Partner</a>
-        <a href="/partners/find-a-partner">Find a Partner</a>
+      
+      <!-- Right: Email Signup Form -->
+      <div class="footer-newsletter" style="flex: 1; max-width: 400px;">
+        <h4 style="color: #8B5CF6; font-size: 16px; font-weight: 600; margin-bottom: 12px;">Lets keep in Touch</h4>
+        <p style="color: #9CA3AF; font-size: 14px; margin-bottom: 20px;">Get monthly product updates, practical tips, and company news delivered to your inbox. Stay informed about current products and upcoming DataPingo apps.</p>
+        
+        <form action="https://datapingo46249.activehosted.com/proc.php" method="POST" id="footer-email-form" style="margin: 0;">
+          <input type="hidden" name="u" value="5">
+          <input type="hidden" name="f" value="5">
+          <input type="hidden" name="s">
+          <input type="hidden" name="c" value="0">
+          <input type="hidden" name="m" value="0">
+          <input type="hidden" name="act" value="sub">
+          <input type="hidden" name="v" value="2">
+          <input type="hidden" name="or" value="8d3dfa2cc0c3f2b0d91c1fe212cb4141">
+          
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Your email address" 
+            required
+            style="
+              width: 100%;
+              background: rgba(255,255,255,0.1);
+              border: 1px solid rgba(255,255,255,0.2);
+              color: #fff;
+              padding: 12px;
+              border-radius: 6px;
+              font-size: 14px;
+              margin-bottom: 10px;
+              font-family: inherit;
+            "
+          >
+          
+          <button 
+            type="submit"
+            style="
+              background: #8B5CF6;
+              color: white;
+              border: none;
+              padding: 12px 24px;
+              border-radius: 6px;
+              font-weight: 600;
+              cursor: pointer;
+              font-size: 14px;
+              transition: background 0.3s;
+              font-family: inherit;
+            "
+            onmouseover="this.style.background='#6366F1'"
+            onmouseout="this.style.background='#8B5CF6'"
+          >
+            Subscribe
+          </button>
+          
+          <div id="form-message" style="color: #9CA3AF; font-size: 12px; margin-top: 8px;"></div>
+        </form>
       </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="https://www.linkedin.com/company/datapingo/">LinkedIn</a>
-      </div>
+      
     </div>
     <div class="footer-bottom">
       <p><a href="https://www.iubenda.com/privacy-policy/47551801" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a></p>
