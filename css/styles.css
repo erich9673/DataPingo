@@ -25,8 +25,18 @@
 .iubenda-cs-footer,
 #iubenda-cs-banner a[href*="iubenda.com"],
 a.iubenda-cs-brand,
-a.iubenda-nostyle {
+a.iubenda-nostyle,
+div[id^="iubenda-"],
+iframe[src*="iubenda"],
+.iubenda-iframe-wrapper,
+#iub-ck-badge,
+.iub-badge,
+[class*="iubenda-badge"],
+[id*="iubenda-badge"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
