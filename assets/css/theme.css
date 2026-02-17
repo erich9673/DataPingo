@@ -965,6 +965,67 @@ button:hover::before, .btn:hover::before {
     padding: 0 20px;
   }
   
+  /* Mobile Footer Improvements */
+  footer {
+    padding: 30px 20px 20px;
+  }
+  
+  footer .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+    padding: 0 !important;
+  }
+  
+  footer .footer-company-info {
+    max-width: 100% !important;
+    order: 1;
+  }
+  
+  footer .footer-company-info img {
+    height: 50px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  footer .footer-social {
+    order: 3;
+    padding-top: 0 !important;
+  }
+  
+  footer .footer-newsletter {
+    max-width: 100% !important;
+    order: 2;
+  }
+  
+  footer .footer-newsletter h4 {
+    font-size: 18px !important;
+  }
+  
+  footer .footer-newsletter p {
+    font-size: 13px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  footer .footer-newsletter input[type="email"] {
+    width: 100% !important;
+    padding: 14px !important;
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  footer .footer-newsletter button {
+    width: 100% !important;
+    padding: 14px 24px !important;
+    font-size: 16px !important;
+  }
+  
+  footer .footer-bottom {
+    padding-top: 20px !important;
+    font-size: 0.8rem !important;
+  }
+  
   /* Smaller top announcement banner on mobile */
   section[style*="background: linear-gradient(135deg, #10B981"] {
     padding: 8px 0 !important;
