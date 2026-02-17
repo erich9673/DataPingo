@@ -1122,3 +1122,10 @@ html {
   color: #6366F1 !important;
   text-decoration: underline !important;
 }
+
+/* Hide iubenda icon at bottom right */
+.iubenda-cs-opt-in,
+#iubenda-cs-banner .iubenda-cs-opt-in-button,
+.iubenda-cs-opt-in-button {
+  display: none !important;
+}

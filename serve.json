@@ -1,7 +1,12 @@
 {
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/security", "destination": "/security.html" },
+    { "source": "/sla", "destination": "/sla.html" },
+
     { "source": "/resources/documentation", "destination": "/resources/documentation/index.html" },
     { "source": "/resources/documentation/", "destination": "/resources/documentation/index.html" },
 
