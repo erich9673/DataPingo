@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/resources/documentation/">
   <title>Redirecting…</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -11,6 +10,19 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
   <!-- End Google Tag Manager -->
+  <script>
+    (function() {
+      var target = '/resources/documentation/';
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+      var delayMs = isMobile ? 0 : 800;
+      window.setTimeout(function() {
+        window.location.replace(target);
+      }, delayMs);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/resources/documentation/">
+  </noscript>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
