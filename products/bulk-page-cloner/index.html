@@ -39,25 +39,27 @@ _iub.csConfiguration = {
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
   <!-- End Google Tag Manager -->
-  
-  <!-- Google Ads Global Site Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16746113716"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-16746113716');
-  </script>
-  <!-- End Google Ads -->
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5VY62S4LR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-W5VY62S4LR');
+    // Lightweight gtag() shim so existing onclick handlers keep working
+    // without loading gtag.js directly (GA4 + conversions should be configured in GTM).
+    function gtag(command, nameOrId, params) {
+      if (command === 'event') {
+        window.dataLayer.push({
+          event: nameOrId,
+          ...(params || {})
+        });
+        return;
+      }
+
+      window.dataLayer.push({
+        event: 'gtag_call',
+        command: command,
+        nameOrId: nameOrId,
+        params: params || {}
+      });
+    }
 
     // Enhanced Event Tracking for Bulk Page Cloner
     function trackEvent(eventName, parameters) {
@@ -765,6 +767,50 @@ _iub.csConfiguration = {
     
     // Initial highlight
     updateTOCHighlight();
+  </script>
+
+  <script>
+    // Handle footer email form submission without page redirect
+    document.getElementById('footer-email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const messageDiv = document.getElementById('form-message');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const emailInput = form.querySelector('input[type="email"]');
+      
+      // Disable button and show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = 'Subscribing...';
+      messageDiv.textContent = '';
+      
+      // Submit form via fetch
+      fetch(form.action, {
+        mode: 'no-cors',
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // Show success message
+        messageDiv.style.color = '#10B981';
+        messageDiv.textContent = '✓ Thanks! Please check your email to confirm your subscription.';
+        emailInput.value = '';
+        
+        // Reset button after delay
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Subscribe';
+        }, 3000);
+      })
+      .catch(error => {
+        // Show error message
+        messageDiv.style.color = '#EF4444';
+        messageDiv.textContent = 'Something went wrong. Please try again.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Subscribe';
+      });
+    });
   </script>
 
 </body>

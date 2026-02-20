@@ -55,8 +55,19 @@ _iub.csConfiguration = {
   <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243367286.js"></script>
   <!-- End of HubSpot Embed Code -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-menu" id="navMenu">
@@ -249,5 +260,49 @@ _iub.csConfiguration = {
     </div>
   </footer>
   <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+  
+  <script>
+    // Handle footer email form submission without page redirect
+    document.getElementById('footer-email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const messageDiv = document.getElementById('form-message');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const emailInput = form.querySelector('input[type="email"]');
+      
+      // Disable button and show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = 'Subscribing...';
+      messageDiv.textContent = '';
+      
+      // Submit form via fetch
+      fetch(form.action, {
+        mode: 'no-cors',
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // Show success message
+        messageDiv.style.color = '#10B981';
+        messageDiv.textContent = '✓ Thanks! Please check your email to confirm your subscription.';
+        emailInput.value = '';
+        
+        // Reset button after delay
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Subscribe';
+        }, 3000);
+      })
+      .catch(error => {
+        // Show error message
+        messageDiv.style.color = '#EF4444';
+        messageDiv.textContent = 'Something went wrong. Please try again.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Subscribe';
+      });
+    });
+  </script>
 </body>
 </html>
