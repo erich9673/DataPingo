@@ -131,9 +131,7 @@ _iub.csConfiguration = {
       }
     }
   </style>
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243367286.js"></script>
-  <!-- End of HubSpot Embed Code -->
+
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -532,15 +530,7 @@ _iub.csConfiguration = {
         <h4 style="color: #8B5CF6; font-size: 16px; font-weight: 600; margin-bottom: 12px;">Lets keep in Touch</h4>
         <p style="color: #9CA3AF; font-size: 14px; margin-bottom: 20px;">Get monthly product updates, practical tips, and company news delivered to your inbox. Stay informed about current products and upcoming DataPingo apps.</p>
         
-        <form action="https://datapingo46249.activehosted.com/proc.php" method="POST" id="footer-email-form" style="margin: 0;">
-          <input type="hidden" name="u" value="5">
-          <input type="hidden" name="f" value="5">
-          <input type="hidden" name="s">
-          <input type="hidden" name="c" value="0">
-          <input type="hidden" name="m" value="0">
-          <input type="hidden" name="act" value="sub">
-          <input type="hidden" name="v" value="2">
-          <input type="hidden" name="or" value="8d3dfa2cc0c3f2b0d91c1fe212cb4141">
+        <form action="https://formspree.io/f/mjgarwpg" method="POST" id="footer-email-form" style="margin: 0;">
           
           <input 
             type="email" 
@@ -587,7 +577,7 @@ _iub.csConfiguration = {
     </div>
     <div class="footer-bottom">
       <p><a href="https://www.iubenda.com/privacy-policy/47551801" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a></p>
-      <p>&copy; 2025 DataPingo. All rights reserved.</p>
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
     </div>
   </footer>
 
@@ -787,14 +777,15 @@ _iub.csConfiguration = {
       
       // Submit form via fetch
       fetch(form.action, {
-        mode: 'no-cors',
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: { 'Accept': 'application/json' }
       })
       .then(response => {
+        if (!response.ok) throw new Error('Submission failed');
         // Show success message
         messageDiv.style.color = '#10B981';
-        messageDiv.textContent = '✓ Thanks! Please check your email to confirm your subscription.';
+        messageDiv.textContent = '✓ Thanks for subscribing!';
         emailInput.value = '';
         
         // Reset button after delay
