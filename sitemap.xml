@@ -7,14 +7,8 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://datapingo.com/products/sheets-connector/</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://datapingo.com/products/bulk-report-generator/</loc>
-    <lastmod>2025-09-30</lastmod>
+    <loc>https://datapingo.com/products/bulk-page-cloner/</loc>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

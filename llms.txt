@@ -1,0 +1,33 @@
+# DataPingo
+
+> DataPingo builds productivity apps for Confluence teams on the Atlassian Marketplace. Our tools automate bulk operations, content management, and reporting — helping teams save hours of manual work.
+
+DataPingo specializes in Atlassian Forge apps that integrate natively with Confluence Cloud. Products are trusted by teams for project template management, client onboarding automation, sprint documentation, and cross-space reporting.
+
+## Products
+
+- [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner/): Clone individual pages or entire page hierarchies in Confluence with a single click. Supports template reuse across projects, spaces, and teams.
+- [Bulk Report Generator for Confluence](https://datapingo.com/products/bulk-report-generator/): Automatically generate reports across multiple Confluence spaces and pages. Export and share documentation insights at scale.
+
+## Company
+
+- [About Us](https://datapingo.com/company/about-us): DataPingo's mission, background, and team.
+- [Contact](https://datapingo.com/company/contact): Reach the DataPingo team for support, partnerships, or inquiries.
+- [Careers](https://datapingo.com/company/careers): Open roles and culture at DataPingo.
+
+## Resources
+
+- [Documentation](https://datapingo.com/resources/documentation/): Getting started guides, feature documentation, and how-to articles for all DataPingo products.
+- [Blog](https://datapingo.com/resources/blog): Product updates, tips, and insights for Confluence teams.
+- [Use Cases](https://datapingo.com/resources/use-cases): Real-world scenarios showing how teams use DataPingo to automate Confluence workflows.
+
+## Partners
+
+- [Become a Partner](https://datapingo.com/partners/become-a-partner): Join the DataPingo partner program to resell, refer, or integrate our apps.
+- [Find a Partner](https://datapingo.com/partners/find-a-partner): Browse certified DataPingo partners for implementation and support.
+
+## Legal
+
+- [Privacy Policy](https://datapingo.com/privacy.html): How DataPingo collects and handles user data.
+- [Terms of Service](https://datapingo.com/terms.html): Terms governing use of DataPingo products and website.
+- [Security](https://datapingo.com/security.html): DataPingo's security practices and commitments.
