@@ -10,6 +10,9 @@
     { "source": "/resources/documentation", "destination": "/resources/documentation/index.html" },
     { "source": "/resources/documentation/", "destination": "/resources/documentation/index.html" },
 
+    { "source": "/resources/documentation/handoff", "destination": "/resources/documentation/handoff/index.html" },
+    { "source": "/resources/documentation/handoff/", "destination": "/resources/documentation/handoff/index.html" },
+
     { "source": "/company/about-us", "destination": "/company/about-us.html" },
     { "source": "/company/careers", "destination": "/company/careers.html" },
     { "source": "/company/contact", "destination": "/company/contact.html" },

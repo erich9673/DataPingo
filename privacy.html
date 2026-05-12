@@ -166,7 +166,7 @@
 
         <div class="terms-meta">
             <p><strong>Effective Date:</strong> January 1, 2025</p>
-            <p><strong>Last Updated:</strong> August 11, 2025</p>
+            <p><strong>Last Updated:</strong> May 12, 2026</p>
             <p><strong>Company:</strong> DataPingo</p>
         </div>
 
@@ -195,7 +195,21 @@
                 <li><strong>Usage Metrics:</strong> Service usage patterns and performance data</li>
             </ul>
 
-            <h3>1.3 Technical Information</h3>
+            <h3>1.3 Jira App Data (Handoff for Jira)</h3>
+            <p>When you use Handoff for Jira, we collect the following data within your Atlassian Forge environment:</p>
+            <ul>
+                <li><strong>Ticket Queue Data:</strong> Your personal ticket priority list (up to 25 tickets), queue ordering preferences, and visibility settings (private or shared with specific teams)</li>
+                <li><strong>Handoff Records:</strong> Tickets included in a handoff, handoff notes, handoff type (standard or blocker), recipient account IDs, sender display name, sent timestamp, and per-recipient decision metadata (seen, accepted)</li>
+                <li><strong>Blocker Alerts:</strong> Blocked and blocking ticket relationships, Jira issue IDs and keys, assigned responsible party account IDs, reporter display name, blocker notes, and creation timestamp — stored in a shared instance-wide record</li>
+                <li><strong>Team Data:</strong> Team names, member account IDs, and queue visibility sharing settings</li>
+                <li><strong>Inbox &amp; Sent Records:</strong> Incoming handoffs and blocker alerts stored in each recipient's inbox (up to 100 records); outgoing handoffs stored in the sender's sent box (up to 100 records)</li>
+                <li><strong>Display Names (Personal Data):</strong> Sender display names are stored inside handoff records for attribution. These are fetched from the Jira API using the <code>read:jira-user</code> scope and tracked in a GDPR personal data index — reported weekly to Atlassian's Personal Data Reporting API and erased when an Atlassian account is closed</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>🔒 Data stays in Atlassian's cloud:</strong> All Handoff for Jira data is stored exclusively in Atlassian Forge KV Storage. No data is transmitted to or stored on DataPingo's external servers. Avatars and issue content are fetched live from Jira — they are never cached or stored by the app.
+            </div>
+
+            <h3>1.4 Technical Information</h3>
             <p>We automatically collect technical information including:</p>
             <ul>
                 <li><strong>Device Information:</strong> Browser type, operating system, device identifiers</li>

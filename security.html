@@ -226,7 +226,7 @@ _iub.csConfiguration = {
 
         <div class="terms-meta">
             <p><strong>Effective Date:</strong> January 1, 2025</p>
-            <p><strong>Last Updated:</strong> February 16, 2026</p>
+            <p><strong>Last Updated:</strong> May 12, 2026</p>
             <p><strong>Company:</strong> DataPingo</p>
         </div>
 
@@ -337,6 +337,25 @@ _iub.csConfiguration = {
                 <li>Isolated execution environment for enhanced security</li>
                 <li>Secure API access using Atlassian's authentication mechanisms</li>
                 <li>Compliance with Atlassian's security and privacy requirements</li>
+            </ul>
+
+            <h3>5.3 Handoff for Jira — Data Handling</h3>
+            <p>Handoff for Jira is built with a security-first, zero-external-server approach:</p>
+            <ul>
+                <li><strong>Storage:</strong> All app data (queues, handoffs, blocker alerts, inbox, sent records, and team data) is stored exclusively in Atlassian Forge KV Storage — no data leaves Atlassian's cloud infrastructure</li>
+                <li><strong>Minimum Permissions:</strong> Only four scopes are requested, each with a specific purpose:
+                    <ul style="margin-top: 8px;">
+                        <li><code>read:jira-work</code> — read Jira issues and project data for queue browsing and handoff workflows</li>
+                        <li><code>write:jira-work</code> — post ADF comments to Jira issues for handoff and blocker audit trails only; the app does not create, edit, or delete issues</li>
+                        <li><code>read:jira-user</code> — fetch user display names for sender attribution in handoff records and @mentions in comments</li>
+                        <li><code>storage:app</code> — read and write Forge KV Storage for all app state</li>
+                    </ul>
+                </li>
+                <li><strong>Audit Trail:</strong> Handoff and blocker alert events post rich ADF comments (with @mentions and hyperlinks) directly to Jira tickets, keeping a full history on the issue itself with no external log storage</li>
+                <li><strong>GDPR Compliance:</strong> Sender display names stored in handoff records are tracked in a personal data index. A weekly Forge scheduled trigger reports all stored account IDs to Atlassian's Personal Data Reporting API — handling automatic erasure when an account is closed and display name refresh when a user updates their profile</li>
+                <li><strong>Licensing:</strong> Access is gated through Atlassian Marketplace licensing — only licensed Jira Cloud users on an active subscription can access the app</li>
+                <li><strong>Runtime:</strong> nodejs24.x on arm64, 256 MB memory — fully managed and sandboxed by Atlassian Forge</li>
+                <li><strong>App ID:</strong> b64e8d8a-a3f6-4692-8c1b-279f0c30b74b</li>
             </ul>
 
             <h2>6. Incident Response and Business Continuity</h2>
