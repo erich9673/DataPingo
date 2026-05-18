@@ -71,14 +71,12 @@ _iub.csConfiguration = {
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- SUCCESS ANNOUNCEMENT - TOP BANNER -->
-  <section style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 12px 0; text-align: center; color: white; position: relative; z-index: 1000;">
+  <section id="top-banner" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 12px 0; text-align: center; color: white; position: relative; z-index: 1000;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
       <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner Logo" style="width: 32px; height: 32px; border-radius: 4px;">
-        <div>
-          <span style="font-size: 1rem; font-weight: 700;">🎉 Bulk Page Cloner Now Live on Atlassian Marketplace!</span>
-        </div>
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" style="background: white; color: #059669; padding: 6px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Install Now →</a>
+        <img src="/assets/img/Handoff%20for%20Jira%20Assets/Handoff%20for%20Jira%20(128%20x%20128%20px).png" alt="Handoff for Jira Logo" style="width: 32px; height: 32px; border-radius: 4px;">
+        <span style="font-size: 1rem; font-weight: 700;">🎉 Handoff for Jira Now Live on Atlassian Marketplace!</span>
+        <a href="https://marketplace.atlassian.com/apps/2024223472" target="_blank" style="background: white; color: #059669; padding: 6px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Install Now →</a>
       </div>
     </div>
   </section>
@@ -94,6 +92,7 @@ _iub.csConfiguration = {
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
           <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
+          <a href="/products/handoff/">Handoff for Jira</a>
         </div>
       </div>
       <div class="dropdown">
@@ -114,7 +113,7 @@ _iub.csConfiguration = {
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="/resources/blog" style="color: #333 !important;">Blog</a>
+          <a href="/resources/blog" style="color: #333 !important;">Updates & Blogs</a>
           <a href="/resources/use-cases" style="color: #333 !important;">Use Cases</a>
           <a href="/resources/documentation/" style="color: #333 !important;">Documentation</a>
         </div>
@@ -155,62 +154,87 @@ _iub.csConfiguration = {
   </section>
 
   <!-- FEATURED PRODUCTS SECTION -->
-  <section class="section" id="featured-product" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 80px 0;">
+  <section class="section" id="featured-product" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 80px 0; scroll-margin-top: 80px;">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
       <div style="text-align: center; margin-bottom: 60px;">
         <h2 style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 16px;">Featured Products</h2>
+        <p style="font-size: 1.1rem; color: #6b7280; max-width: 600px; margin: 0 auto;">Productivity apps for Confluence and Jira, built on Atlassian Forge.</p>
       </div>
-      
-      <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
-        <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 300px;">
-            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
-              <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner" style="width: 80px; height: 80px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-              <div>
-                <h3 style="font-size: 1.8rem; font-weight: 700; color: #1f2937; margin: 0; margin-bottom: 8px;">Bulk Page Cloner</h3>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                  <span style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Confluence App</span>
-                  <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; animation: pulse 2s infinite;">✅ Marketplace Approved</span>
+
+      <div style="display: flex; flex-direction: column; gap: 32px; max-width: 1060px; margin: 0 auto;">
+
+        <!-- Handoff for Jira Card (newest product first) -->
+        <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+          <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Handoff%20for%20Jira%20(128%20x%20128%20px).png" alt="Handoff for Jira" style="width: 80px; height: 80px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+                <div>
+                  <h3 style="font-size: 1.8rem; font-weight: 700; color: #1f2937; margin: 0 0 8px;">Handoff for Jira</h3>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Jira App</span>
+                    <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">✅ Marketplace Approved</span>
+                  </div>
                 </div>
               </div>
+              <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.6; margin-bottom: 24px;">Personal ticket queues, structured handoffs, blocker alerts, and team views — all inside Jira Cloud with no external tools. Keep your team in sync without leaving Jira.</p>
+              <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="https://marketplace.atlassian.com/apps/2024223472" target="_blank" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(99,102,241,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🚀 Install from Marketplace</a>
+                <a href="/products/handoff/" style="background: transparent; color: #6366f1; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; border: 2px solid #6366f1; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#6366f1'; this.style.color='white'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.color='#6366f1'; this.style.transform='translateY(0)'">📖 Handoff for Jira</a>
+              </div>
             </div>
-            
-            <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.6; margin-bottom: 24px;">Instantly clone Confluence pages in bulk while preserving hierarchy, labels, permissions, and relationships. Use the /bulkpages macro to standardize templates and launch projects faster.</p>
-            
-            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-              <a href="/products/bulk-page-cloner/" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                📖 Bulk Page Cloner for Confluence
-              </a>
-              <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" style="background: transparent; color: #8B5CF6; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; border: 2px solid #8B5CF6; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#8B5CF6'; this.style.color='white'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.color='#8B5CF6'; this.style.transform='translateY(0)'">
-                🚀 Install from Marketplace
-              </a>
-            </div>
-          </div>
-          
-          <div style="flex: 0 0 300px; text-align: center;">
-              <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #14B8A6 100%); padding: 40px 20px; border-radius: 16px; color: white;">
-              <div style="font-size: 3rem; margin-bottom: 16px;">📄</div>
-              <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 12px;">Key Features</h4>
-              <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
-                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #14B8A6;">✓</span> 3-step cloning workflow
-                </li>
-                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #14B8A6;">✓</span> Preserve and clone exactly as is
-                </li>
-                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #14B8A6;">✓</span> Bulk titles with autofill and copy-first tools
-                </li>
-                <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #14B8A6;">✓</span> Choose parent/child placement
-                </li>
-                <li style="display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #14B8A6;">✓</span> Forge-hosted security
-                </li>
-              </ul>
+            <div style="flex: 0 0 280px; text-align: center;">
+              <div style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%); padding: 36px 24px; border-radius: 16px; color: white;">
+                <div style="font-size: 2.8rem; margin-bottom: 14px;">🔀</div>
+                <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;">Key Features</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #a5b4fc;">✓</span> My Queue (up to 25 tickets)</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #a5b4fc;">✓</span> Structured handoffs &amp; ADF audit</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #a5b4fc;">✓</span> Blocker alerts (instance-wide)</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #a5b4fc;">✓</span> Team View &amp; queue sharing</li>
+                  <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #a5b4fc;">✓</span> Forge-hosted — zero servers</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Bulk Page Cloner Card -->
+        <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+          <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+                <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner" style="width: 80px; height: 80px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div>
+                  <h3 style="font-size: 1.8rem; font-weight: 700; color: #1f2937; margin: 0 0 8px;">Bulk Page Cloner for Confluence</h3>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Confluence App</span>
+                    <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; animation: pulse 2s infinite;">✅ Marketplace Approved</span>
+                  </div>
+                </div>
+              </div>
+              <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.6; margin-bottom: 24px;">Instantly clone Confluence pages in bulk while preserving hierarchy, labels, permissions, and relationships. Use the /bulkpages macro to standardize templates and launch projects faster.</p>
+              <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); color: white; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">🚀 Install from Marketplace</a>
+                <a href="/products/bulk-page-cloner/" style="background: transparent; color: #8B5CF6; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: 600; border: 2px solid #8B5CF6; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.background='#8B5CF6'; this.style.color='white'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.color='#8B5CF6'; this.style.transform='translateY(0)'">📖 Bulk Page Cloner for Confluence</a>
+              </div>
+            </div>
+            <div style="flex: 0 0 280px; text-align: center;">
+              <div style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #14B8A6 100%); padding: 36px 24px; border-radius: 16px; color: white;">
+                <div style="font-size: 2.8rem; margin-bottom: 14px;">📄</div>
+                <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;">Key Features</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #14B8A6;">✓</span> 3-step cloning workflow</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #14B8A6;">✓</span> Preserve and clone exactly as is</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #14B8A6;">✓</span> Bulk titles with autofill tools</li>
+                  <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;"><span style="color: #14B8A6;">✓</span> Choose parent/child placement</li>
+                  <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #14B8A6;">✓</span> Forge-hosted security</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -240,19 +264,9 @@ _iub.csConfiguration = {
   <!-- BENEFITS SECTION -->
   <section class="section alt">
     <h2>Built for Fast-Moving Teams</h2>
-    <p>Stop wasting hours on repetitive Confluence and Jira tasks. DataPingo apps eliminate manual work with powerful automation—from cloning hundreds of pages instantly to generating standardized reports. Spend less time on busywork and more time delivering value.</p>
+    <p>DataPingo was created to build applications that make businesses more efficient. Our apps plug straight into Jira and Confluence, cutting out the manual work so your team can focus on what actually matters. Try free on the Atlassian Marketplace.</p>
     <div style="text-align: center; margin-top: 32px;">
       <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" class="hero-cta" style="display: inline-block;">Try Now</a>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="section">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2>About DataPingo</h2>
-      <p style="color: #4b5563; line-height: 1.8; margin-bottom: 20px;">DataPingo builds productivity apps for teams that live inside Atlassian tools. We started with a simple observation: the most painful parts of working in Confluence aren't the hard problems — they're the repetitive ones. Creating the same page structure for every new project. Copying documentation frameworks for every new client. Duplicating sprint templates for every new sprint. These tasks are mechanical, time-consuming, and error-prone when done manually.</p>
-      <p style="color: #4b5563; line-height: 1.8; margin-bottom: 20px;">Our apps are designed to automate those repetitive workflows so your team can focus on the work that actually requires human creativity and judgment. Bulk Page Cloner for Confluence is our first published product on the Atlassian Marketplace, and it's just the beginning. We're actively developing new apps to cover more of the workflows that slow Confluence and Jira users down every day.</p>
-      <p style="color: #4b5563; line-height: 1.8;">All DataPingo apps are built on Atlassian Forge, meaning they run securely in Atlassian's cloud infrastructure. Your data never leaves Atlassian's environment, so you can maintain compliance and data sovereignty even as you automate more of your workflows. <a href="/resources/documentation/" style="color: #8B5CF6; font-weight: 600;">Browse our product documentation</a> to get started with any DataPingo app.</p>
     </div>
   </section>
 

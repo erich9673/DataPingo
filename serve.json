@@ -1,7 +1,24 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
+  "directoryListing": false,
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+
+    { "source": "/products/handoff", "destination": "/products/handoff/index.html" },
+    { "source": "/products/handoff/", "destination": "/products/handoff/index.html" },
+
+    { "source": "/products/bulk-page-cloner", "destination": "/products/bulk-page-cloner/index.html" },
+    { "source": "/products/bulk-page-cloner/", "destination": "/products/bulk-page-cloner/index.html" },
+    { "source": "/products/bulk-report-generator", "destination": "/products/bulk-report-generator/index.html" },
+    { "source": "/products/bulk-report-generator/", "destination": "/products/bulk-report-generator/index.html" },
+    { "source": "/products/bulkpagecloner", "destination": "/products/bulkpagecloner/index.html" },
+    { "source": "/products/bulkpagecloner/", "destination": "/products/bulkpagecloner/index.html" },
+
+    { "source": "/resources/documentation/bulkpagecloner", "destination": "/resources/documentation/bulkpagecloner/index.html" },
+    { "source": "/resources/documentation/bulkpagecloner/", "destination": "/resources/documentation/bulkpagecloner/index.html" },
+    { "source": "/resources/documentation/bulk-report-generator", "destination": "/resources/documentation/bulk-report-generator/index.html" },
+    { "source": "/resources/documentation/bulk-report-generator/", "destination": "/resources/documentation/bulk-report-generator/index.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/security", "destination": "/security.html" },
@@ -21,6 +38,8 @@
     { "source": "/partners/find-a-partner", "destination": "/partners/find-a-partner.html" },
 
     { "source": "/resources/blog", "destination": "/resources/blog.html" },
+    { "source": "/resources/blog/introducing-bulk-page-cloner", "destination": "/resources/blog/introducing-bulk-page-cloner/index.html" },
+    { "source": "/resources/blog/introducing-bulk-page-cloner/", "destination": "/resources/blog/introducing-bulk-page-cloner/index.html" },
     { "source": "/resources/use-cases", "destination": "/resources/use-cases.html" },
 
     { "source": "/mobile/company/about-us", "destination": "/mobile/company/about-us.html" },

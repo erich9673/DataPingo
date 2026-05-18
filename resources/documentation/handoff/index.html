@@ -295,7 +295,7 @@ _iub.csConfiguration = {
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
           <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
-          <a href="/products/bulk-report-generator/">Bulk Report Generator for Confluence</a>
+          <a href="/products/handoff/">Handoff for Jira</a>
         </div>
       </div>
       <div class="dropdown">
@@ -316,7 +316,7 @@ _iub.csConfiguration = {
       <div class="dropdown">
         <a href="#" class="nav-link" tabindex="0">Resources &#x25BE;</a>
         <div class="dropdown-content">
-          <a href="/resources/blog" style="color: #333 !important;">Blog</a>
+          <a href="/resources/blog" style="color: #333 !important;">Updates & Blogs</a>
           <a href="/resources/use-cases" style="color: #333 !important;">Use Cases</a>
           <a href="/resources/documentation/" style="color: #333 !important;">Documentation</a>
         </div>
@@ -476,7 +476,7 @@ _iub.csConfiguration = {
             <div class="feature-card">
               <div class="feature-icon">🚫</div>
               <h3>Blocker Alert</h3>
-              <p>Flag blocked tickets, assign responsible people, and surface blockers to the whole team.</p>
+              <p>Select blocked and blocking tickets, assign team members, leave a comment — auto-posted on each ticket.</p>
             </div>
             <div class="feature-card">
               <div class="feature-icon">👥</div>
@@ -586,21 +586,25 @@ _iub.csConfiguration = {
         <!-- Blocker Alert -->
         <section id="blocker-alert" class="section">
           <h2>🚫 Blocker Alert</h2>
-          <p>Surface blocked tickets to the whole team and track resolution — no more blockers buried in someone's DMs.</p>
+          <p>When work is stuck, fire a Blocker Alert. It surfaces the blocked work to the whole team and posts a timestamped comment directly on the Jira ticket — no more blockers buried in someone's DMs.</p>
 
           <h3>Creating a Blocker Alert</h3>
           <ol>
-            <li>Select the <strong>blocked ticket(s)</strong> (up to 5) and the <strong>blocking ticket(s)</strong> (up to 5) — separate fields for each.</li>
-            <li>Assign <strong>responsible people</strong> — each gets an alert card in their Inbox.</li>
-            <li>Toggle <strong>📣 / 🔇</strong> per ticket to post or suppress Jira comments on both the blocked and blocking tickets.</li>
+            <li>Select the <strong>blocked ticket(s)</strong> — the tickets that are stuck (up to 5).</li>
+            <li>Select the <strong>blocking ticket(s)</strong> — the tickets causing the block (up to 5).</li>
+            <li>Select the <strong>team members</strong> responsible — each gets an alert card in their Inbox.</li>
+            <li>Leave a <strong>comment</strong> with context — automatically posted on the Jira ticket.</li>
             <li>Submit — the blocker is added to a <strong>shared global list</strong> visible to everyone on the instance.</li>
           </ol>
 
           <h3>Resolving a Blocker</h3>
-          <ul>
-            <li><strong>Resolve Blocker modal</strong> — Batch-resolve multiple blocked tickets, optionally notify people, add a resolution note, and post "✅ Blocker resolved" Jira comments.</li>
-            <li><strong>Quick Resolve (⚡)</strong> — One-tap resolution directly from the ticket row's actions menu.</li>
-          </ul>
+          <p>When you want to resolve the blocker, add the tickets involved, along with the people, then leave a comment — it updates the Jira ticket automatically.</p>
+          <ol>
+            <li>Open the <strong>Resolve Blocker</strong> modal from the active blocker list.</li>
+            <li>Add the <strong>tickets involved</strong> in the resolution.</li>
+            <li>Add the <strong>people</strong> to notify — they receive a resolution card in their Inbox.</li>
+            <li>Leave a <strong>resolution comment</strong> — a "✅ Blocker resolved" comment is auto-posted on the Jira ticket.</li>
+          </ol>
 
           <div class="tip">
             <strong>💡 Resolution notifications:</strong> When a blocker is resolved, notified users receive a confirmation card in their Inbox.

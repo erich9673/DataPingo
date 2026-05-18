@@ -16,17 +16,17 @@ _iub.csConfiguration = {
     "backgroundColor": "#6366F1",
     "textColor": "#ffffff",
     "acceptButtonDisplay": true,
-    "acceptButtonColor": "#8B5CF6",
+    "acceptButtonColor": "#4f46e5",
     "acceptButtonCaptionColor": "#ffffff",
     "rejectButtonDisplay": true,
     "rejectButtonColor": "#ffffff",
-    "rejectButtonCaptionColor": "#6366F1",
+    "rejectButtonCaptionColor": "#4f46e5",
     "closeButtonDisplay": false,
     "customizeButtonDisplay": true,
     "customizeButtonColor": "#ffffff",
-    "customizeButtonCaptionColor": "#6366F1",
+    "customizeButtonCaptionColor": "#4f46e5",
     "fontSize": "14px",
-    "content": "We (datapingo.com) and selected third parties (7) collect personal information as specified in the privacy policy and use cookies or similar technologies for technical purposes and, with your consent, for experience, measurement and \"marketing (personalized ads)\" as specified in the cookie policy.<br><br>You can freely give, deny, or withdraw your consent at any time by accessing the preferences panel. Denying consent may make related features unavailable.<br><br>Use the \"Accept all\" button to consent. Use the \"Reject all\" button to continue without accepting."
+    "content": "We (datapingo.com) and selected third parties use cookies or similar technologies for technical purposes and, with your consent, for experience and measurement. Use the \"Accept all\" button to consent or \"Reject all\" to continue without accepting."
   }
 };
   </script>
@@ -41,94 +41,33 @@ _iub.csConfiguration = {
   <!-- End Google Tag Manager -->
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    // Lightweight gtag() shim so existing onclick handlers keep working
-    // without loading gtag.js directly (GA4 + conversions should be configured in GTM).
     function gtag(command, nameOrId, params) {
-      if (command === 'event') {
-        window.dataLayer.push({
-          event: nameOrId,
-          ...(params || {})
-        });
-        return;
-      }
-
-      window.dataLayer.push({
-        event: 'gtag_call',
-        command: command,
-        nameOrId: nameOrId,
-        params: params || {}
-      });
+      if (command === 'event') { window.dataLayer.push({ event: nameOrId, ...(params || {}) }); return; }
+      window.dataLayer.push({ event: 'gtag_call', command: command, nameOrId: nameOrId, params: params || {} });
     }
-
-    // Enhanced Event Tracking for Bulk Page Cloner
-    function trackEvent(eventName, parameters) {
-      gtag('event', eventName, parameters);
-    }
-
-    // Track CTA clicks
+    function trackEvent(eventName, parameters) { gtag('event', eventName, parameters); }
     function trackCTAClick(buttonName, section) {
-      trackEvent('cta_click', {
-        button_name: buttonName,
-        section: section,
-        page: 'bulk_page_cloner'
-      });
+      trackEvent('cta_click', { button_name: buttonName, section: section, page: 'handoff_for_jira' });
     }
-
-    // Track template category interactions
-    function trackTemplateInteraction(categoryName, action) {
-      trackEvent('template_interaction', {
-        category: categoryName,
-        action: action,
-        page: 'bulk_page_cloner'
-      });
-    }
-
-    // Track lightbox interactions
     function trackLightboxView(imageName) {
-      trackEvent('lightbox_view', {
-        image_name: imageName,
-        page: 'bulk_page_cloner'
-      });
+      trackEvent('lightbox_view', { image_name: imageName, page: 'handoff_for_jira' });
     }
-
-    // Track TOC navigation
     function trackTOCNavigation(section) {
-      trackEvent('toc_navigation', {
-        section: section,
-        page: 'bulk_page_cloner'
-      });
-    }
-
-    // Track pricing calculator usage
-    function trackPricingCalculator(action, value) {
-      trackEvent('pricing_calculator', {
-        action: action,
-        value: value,
-        page: 'bulk_page_cloner'
-      });
+      trackEvent('toc_navigation', { section: section, page: 'handoff_for_jira' });
     }
   </script>
-  <title>Bulk Page Cloner for Confluence | DataPingo</title>
-  <meta name="description" content="Bulk Page Cloner for Confluence lets you instantly clone pages in bulk with preserved structure, hierarchy, and labels. Officially approved on the Atlassian Marketplace. Install free.">
+  <title>Handoff for Jira | DataPingo</title>
+  <meta name="description" content="Handoff for Jira — personal ticket queues, structured handoffs, blocker alerts, and team views, all inside Jira Cloud. Built on Atlassian Forge.">
+  <link rel="canonical" href="https://datapingo.com/products/handoff/">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <style>
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
+      0%   { transform: scale(1);    box-shadow: 0 0 0 0   rgba(139,92,246,0.7); }
+      50%  { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(139,92,246,0); }
+      100% { transform: scale(1);    box-shadow: 0 0 0 0   rgba(139,92,246,0); }
     }
 
     /* Scroll-reveal */
@@ -158,14 +97,12 @@ _iub.csConfiguration = {
     details.wf-step[open] > summary .wf-chev { transform: rotate(90deg); }
     .wf-body { padding: 0 24px 24px; }
   </style>
-
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  
+
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-menu" id="navMenu">
@@ -207,15 +144,12 @@ _iub.csConfiguration = {
   </nav>
 
   <script>
-    // Mobile menu toggle
     document.getElementById('mobileMenuToggle').addEventListener('click', function() {
       const navMenu = document.getElementById('navMenu');
       const isActive = navMenu.classList.toggle('mobile-active');
       this.textContent = isActive ? '✕' : '☰';
       document.body.style.overflow = isActive ? 'hidden' : '';
     });
-    
-    // Close menu when clicking a link
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
@@ -234,18 +168,16 @@ _iub.csConfiguration = {
     <div class="hero-content">
       <div class="hero-text">
         <div style="text-align: center; margin-bottom: 30px;">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence Logo" style="width: 120px; height: 120px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
+          <img src="/assets/img/Handoff%20for%20Jira%20Assets/Handoff%20for%20Jira%20(128%20x%20128%20px).png" alt="Handoff for Jira Logo" style="width: 120px; height: 120px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);" />
         </div>
-        <h1>Bulk Page Cloner for Confluence</h1>
-        <p>Instantly duplicate pages in bulk with preserved structure. Skip manual copy-paste with our officially approved Confluence macro.</p>
+        <h1>Handoff for Jira</h1>
+        <p>Personal ticket queues, structured handoffs, blocker alerts, and team views — all inside Jira Cloud with no external tools needed.</p>
         <div class="hero-buttons">
-          <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" 
+          <a href="https://marketplace.atlassian.com/apps/2024223472" target="_blank"
              style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin-right: 15px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
              onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
              onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'"
-             onclick="trackCTAClick('Install from Marketplace', 'hero_section'); gtag('event', 'conversion_event_purchase_3', {
-               'send_to': 'AW-16746113716'
-             });">
+             onclick="trackCTAClick('Install from Marketplace', 'hero_section');">
              🚀 Install from Marketplace
           </a>
         </div>
@@ -256,29 +188,29 @@ _iub.csConfiguration = {
   <!-- WHY CHOOSE SECTION -->
   <section style="background: #f8fafc; padding: 80px 0; scroll-margin-top: 80px;" id="benefits">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-      <h2 style="margin-bottom: 24px; font-size: 2.5rem; font-weight: 700; color: #8B5CF6;">About Bulk Page Cloner</h2>
+      <h2 style="margin-bottom: 24px; font-size: 2.5rem; font-weight: 700; color: #8B5CF6;">About Handoff for Jira</h2>
       <div style="max-width: 780px; margin: 0 auto 48px; text-align: left;">
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
           <li style="display: flex; gap: 12px; align-items: flex-start;">
-            <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">⏱️</span>
-            <div><strong style="color: #1f2937; font-size: 0.97rem;">Bulk clone up to 25 pages at once</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Pick a template page, set titles, and create — all in one step.</span></div>
-          </li>
-          <li style="display: flex; gap: 12px; align-items: flex-start;">
             <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">📋</span>
-            <div><strong style="color: #1f2937; font-size: 0.97rem;">Structure preserved exactly</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Content, formatting, macros, and labels copied identically.</span></div>
+            <div><strong style="color: #1f2937; font-size: 0.97rem;">Personal work queue</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Up to 25 active Jira tickets, drag-to-prioritize, across any project.</span></div>
           </li>
           <li style="display: flex; gap: 12px; align-items: flex-start;">
-            <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">📍</span>
-            <div><strong style="color: #1f2937; font-size: 0.97rem;">Flexible destination control</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Place clones as child pages, parent pages, or parent &amp; child — across any space.</span></div>
+            <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">🔀</span>
+            <div><strong style="color: #1f2937; font-size: 0.97rem;">Structured ticket handoffs</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Transfer ownership with a note — auto-posts a permanent ADF comment on the Jira issue.</span></div>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">👥</span>
+            <div><strong style="color: #1f2937; font-size: 0.97rem;">Team &amp; manager visibility</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Shared queues in Team View, instance-wide blockers, every handoff lands in the recipient's Inbox.</span></div>
           </li>
           <li style="display: flex; gap: 12px; align-items: flex-start;">
             <span style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;">🔒</span>
-            <div><strong style="color: #1f2937; font-size: 0.97rem;">Secure &amp; Atlassian-approved</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Built on Atlassian Forge — no external servers, no third-party data transfers.</span></div>
+            <div><strong style="color: #1f2937; font-size: 0.97rem;">Secure by design</strong><br><span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Built on Atlassian Forge — all data stays inside Atlassian's infrastructure. No external servers.</span></div>
           </li>
         </ul>
       </div>
       <style>
-        .bpc-cards {
+        .hj-cards {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
@@ -288,11 +220,9 @@ _iub.csConfiguration = {
           margin-right: auto;
         }
         @media (max-width: 640px) {
-          .bpc-cards {
-            grid-template-columns: 1fr;
-          }
+          .hj-cards { grid-template-columns: 1fr; }
         }
-        .bpc-card {
+        .hj-card {
           background: white;
           padding: 24px 20px;
           border-radius: 16px;
@@ -300,32 +230,26 @@ _iub.csConfiguration = {
           text-align: center;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .bpc-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
+        .hj-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
         @media (max-width: 640px) {
-          .bpc-card:hover {
-            transform: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-          }
+          .hj-card:hover { transform: none; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         }
       </style>
-      <div class="bpc-cards">
-        <div class="bpc-card">
-          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">⏱️</div>
-          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Save Time</h3>
-          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Clone entire pages in minutes instead of manual copy-paste.</p>
+      <div class="hj-cards">
+        <div class="hj-card">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">📋</div>
+          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Stay Organized</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Your personal queue of up to 25 tickets, drag-to-prioritize, visible only to the right people.</p>
         </div>
-        <div class="bpc-card">
-          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #DBEAFE 0%, #3B82F6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">📋</div>
-          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Keep Structure Intact</h3>
-          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Preserve hierarchy, labels, and page relationships every time.</p>
+        <div class="hj-card">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #DBEAFE 0%, #3B82F6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">🔀</div>
+          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Smooth Handoffs</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Transfer ownership with a note — auto-posts a permanent audit trail on the Jira issue. No Slack required.</p>
         </div>
-        <div class="bpc-card">
-          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #E0E7FF 0%, #8B5CF6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">🔧</div>
-          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Configuration</h3>
-          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Control page naming and destination — exactly where you need it.</p>
+        <div class="hj-card">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #E0E7FF 0%, #8B5CF6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.8rem;">👥</div>
+          <h3 style="margin-bottom: 8px; font-size: 1.15rem; font-weight: 700; color: #1f2937;">Team Visibility</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 0; font-size: 0.92rem;">Managers see shared queues, blockers are instance-wide, and every handoff lands in the recipient's Inbox.</p>
         </div>
       </div>
     </div>
@@ -334,19 +258,11 @@ _iub.csConfiguration = {
   <!-- HOW IT WORKS SECTION -->
   <section class="section bg-light" id="workflow" style="scroll-margin-top: 80px;">
     <h2>How It Works</h2>
-    <p style="text-align: center; margin-bottom: 48px; color: #666; font-size: 1.1rem;">Open Bulk Page Cloner from Apps, the /bulkpages macro, or the ••• menu, then follow these four steps.</p>
+    <p style="text-align: center; margin-bottom: 48px; color: #666; font-size: 1.1rem;">Locate Handoff for Jira under <strong>Your Apps</strong> on the left side of Jira. Click on it to open the app and dive straight into My Queue.</p>
 
     <div style="max-width: 900px; margin: 0 auto;">
 
-      <nav style="display: none;">
-        <p style="font-size: 0.72rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 10px 10px;">Steps</p>
-        <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px;">
-          <li><button class="wf-tab wf-active" data-target="wf-step-1" onclick="wfScrollTo('wf-step-1')">1. Select a Template</button></li>
-          <li><button class="wf-tab" data-target="wf-step-2" onclick="wfScrollTo('wf-step-2')">2. Bulk Cloning</button></li>
-          <li><button class="wf-tab" data-target="wf-step-3" onclick="wfScrollTo('wf-step-3')">3. Pick Location</button></li>
-          <li><button class="wf-tab" data-target="wf-step-4" onclick="wfScrollTo('wf-step-4')">4. Confirm &amp; Go Live</button></li>
-        </ol>
-      </nav>
+      <nav style="display: none;"></nav>
 
       <div style="display: flex; justify-content: flex-end; margin-bottom: 16px;">
         <button id="wf-toggle-all-btn" data-expanded="false" onclick="const exp=this.dataset.expanded!=='true';toggleAllWfSections(exp);" style="background:none;border:1px solid #d1d5db;border-radius:6px;padding:6px 14px;font-size:0.85rem;color:#6b7280;cursor:pointer;font-family:inherit;">Expand All</button>
@@ -354,61 +270,113 @@ _iub.csConfiguration = {
 
       <div style="display: flex; flex-direction: column; gap: 24px;">
 
+        <!-- Section 1: My Queue -->
         <details class="wf-step" id="wf-step-1">
           <summary>
             <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">1</div>
-            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Select a Page as a Template</h3>
+            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">My Queue</h3>
             <span class="wf-chev">›</span>
           </summary>
           <div class="wf-body">
-          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Search for any Confluence page or paste the URL of the page you want to clone.</p>
-          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer; margin-bottom: 16px;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Select%20a%20Page%20as%20Template%20(1840%20x%20900%20px).png" alt="Step 1: Browse & Search" style="width: 100%; display: block;" />
+          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Create your personal, prioritized list of up to 25 active Jira tickets across any project. Drag rows to reorder.</p>
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer; margin-bottom: 24px;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/My%20Queue%20(1840%20x%20900%20px).png" alt="My Queue — personal prioritized ticket queue in Handoff for Jira" style="width: 100%; display: block;" loading="lazy" />
           </div>
+          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Add tickets directly from the <strong>•••</strong> menu on any Jira issue, or use the Browse &amp; Add tab and add any Jira ticket with a single click — they land in your queue instantly.</p>
           <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Paste%20URL%20(1840%20x%20900%20px).png" alt="Step 1: Paste URL" style="width: 100%; display: block;" />
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Add%20to%20My%20Queue%20(1840x900%20px).png" alt="Add to My Queue — add a ticket directly from the Jira issue action menu" style="width: 100%; display: block;" loading="lazy" />
           </div>
           </div><!-- /wf-body-1 -->
         </details>
 
+        <!-- Section 2: Browse & Add -->
         <details class="wf-step" id="wf-step-2">
           <summary>
             <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">2</div>
-            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Bulk Cloning</h3>
+            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Browse &amp; Add</h3>
             <span class="wf-chev">›</span>
           </summary>
           <div class="wf-body">
-          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Using the slider choose from 1–25 pages then add the titles to the cloned pages.</p>
+          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Search across all your Jira projects by key or keyword. Color-coded row highlights show which tickets are already in your queue, currently blocking others, or blocked. Hit <strong>+</strong> to add any ticket instantly.</p>
           <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Cloning%20(1840%20x%20900%20px).png" alt="Step 2: Bulk Cloning" style="width: 100%; display: block;" />
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Browse%20%26%20Add%20(1840x900%20px).png" alt="Browse & Add — search and add tickets from across all your Jira projects" style="width: 100%; display: block;" loading="lazy" />
           </div>
           </div><!-- /wf-body-2 -->
         </details>
 
+        <!-- Section 3: Inbox, Handoffs & Blockers -->
         <details class="wf-step" id="wf-step-3">
           <summary>
             <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">3</div>
-            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Pick Location</h3>
+            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Inbox, Handoffs &amp; Blockers</h3>
             <span class="wf-chev">›</span>
           </summary>
           <div class="wf-body">
-          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Select a Confluence space, then choose Create Child Page, Create Parent Page, or Create Parent &amp; Child to place your clones.</p>
-          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20(1840%20x%20900%20px).png" alt="Step 3: Location" style="width: 100%; display: block;" />
+
+          <!-- 3a: Inbox -->
+          <div style="margin-bottom: 40px;">
+            <h4 style="margin: 0 0 12px 0; color: #374151; font-size: 1.1rem; font-weight: 700;">Inbox</h4>
+            <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">Everything in one place. Send and receive handoffs, blockers and team alerts. Recipients get an Inbox notification and a formatted comment is auto-posted on each Jira ticket.</p>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+              <img src="/assets/img/Handoff%20for%20Jira%20Assets/Inbox%20(1840x900%20px).png" alt="Inbox — receive handoffs and blocker alerts, accept or decline" style="width: 100%; display: block;" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- 3b: Handoffs -->
+          <div style="margin-bottom: 40px;">
+            <h4 style="margin: 0 0 12px 0; color: #374151; font-size: 1.1rem; font-weight: 700;">Handoffs</h4>
+            <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">Send structured handoffs — select tickets from your queue, set priority, pick recipients, add a note, and hit <strong>Send</strong>.</p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/New%20Handoff%20(1840x900%20px).png" alt="New Handoff — select tickets, set priority, pick recipients and add a note" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Handoff%20Jira%20Comment%20(1840x900%20px).png" alt="Handoff Jira Comment — structured handoff comment auto-posted on the ticket" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3c: Blockers -->
+          <div>
+            <h4 style="margin: 0 0 12px 0; color: #374151; font-size: 1.1rem; font-weight: 700;">Blockers</h4>
+            <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">When work is stuck, fire a Blocker Alert. Select the blocked ticket(s), the blocking ticket(s), the team members then leave a comment.</p>
+            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Blocker%20Alert%20(1840x900%20px).png" alt="Blocker Alert — flag blocked tickets and notify responsible teammates" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Blocker%20Comment%20on%20Jira%20Ticket%20(1840x900%20px).png" alt="Blocker comment auto-posted on the Jira ticket" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3d: Resolve -->
+          <div>
+            <h4 style="margin: 0 0 12px 0; color: #374151; font-size: 1.1rem; font-weight: 700;">Resolve</h4>
+            <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">When you want to resolve the blocker, add the tickets involved, along with the people then leave a comment which updates the ticket.</p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Resolve%20Blocker%20(1840x900%20px).png" alt="Resolve Blocker — select unblocked tickets, notify teammates, add resolution note" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+              <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                <img src="/assets/img/Handoff%20for%20Jira%20Assets/Blocker%20Resolved%20%20Jira%20Comment%20(1840x900%20px).png" alt="Blocker resolved comment auto-posted on the Jira ticket" style="width: 100%; display: block;" loading="lazy" />
+              </div>
+            </div>
           </div>
           </div><!-- /wf-body-3 -->
         </details>
 
+        <!-- Section 4: Team View -->
         <details class="wf-step" id="wf-step-4">
           <summary>
             <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">4</div>
-            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Confirm &amp; Go Live</h3>
+            <h3 style="margin: 0; color: #1f2937; font-size: 1.4rem; font-weight: 700; flex: 1;">Team View</h3>
             <span class="wf-chev">›</span>
           </summary>
           <div class="wf-body">
-          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">Review the success page to see every generated link so you can jump straight into your new pages.</p>
+          <p style="color: #6b7280; font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">See every team member's shared queue side by side. Managers can instantly spot who's overloaded, check ticket priorities, and see blockers — all without leaving Jira. Queues marked Private stay hidden.</p>
           <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); cursor: pointer;" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Success%20(1840%20x%20900%20px).png" alt="Step 4: Success" style="width: 100%; display: block;" />
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Team%20View%20(1840x900%20px).png" alt="Team View — see all team members' shared queues side by side" style="width: 100%; display: block;" loading="lazy" />
           </div>
           </div><!-- /wf-body-4 -->
         </details>
@@ -421,34 +389,34 @@ _iub.csConfiguration = {
   <section class="section bg-light" id="pricing" style="scroll-margin-top: 80px;">
     <h2>Pricing</h2>
     <p style="text-align: center; margin-bottom: 40px; color: #666;">Enter your team size to see exact pricing.</p>
-    
+
     <!-- Pricing Calculator -->
     <div style="max-width: 600px; margin: 0 auto 40px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
       <h3 style="text-align: center; margin-bottom: 20px;">Get an estimate for your team</h3>
-      
+
       <div style="margin-bottom: 20px;">
         <label style="display: block; margin-bottom: 12px; font-weight: 600;">Atlassian app billing cycle:</label>
         <div style="display: flex; gap: 20px;">
           <label style="display: flex; align-items: center; cursor: pointer;">
-            <input type="radio" name="billingCycle" value="monthly" checked onchange="calculatePricing()" 
+            <input type="radio" name="billingCycle" value="monthly" checked onchange="calculatePricing()"
                    style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
             <span style="font-size: 1rem;">Monthly</span>
           </label>
           <label style="display: flex; align-items: center; cursor: pointer;">
-            <input type="radio" name="billingCycle" value="annual" onchange="calculatePricing()" 
+            <input type="radio" name="billingCycle" value="annual" onchange="calculatePricing()"
                    style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
             <span style="font-size: 1rem;">Annual</span>
           </label>
         </div>
       </div>
-      
+
       <div style="margin-bottom: 20px;">
         <label for="userCount" style="display: block; margin-bottom: 8px; font-weight: 600;">Number of users in your Atlassian app instance</label>
-        <input type="number" id="userCount" placeholder="10" min="1" max="150000" 
-               style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem;" 
+        <input type="number" id="userCount" placeholder="10" min="1" max="150000"
+               style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem;"
                oninput="calculatePricing()">
       </div>
-      
+
       <div id="pricingResult" style="display: none; text-align: center; padding: 25px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8B5CF6;">
         <div style="color: #6b7280; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;">App cost</div>
         <div id="totalPrice" style="font-size: 2.5rem; font-weight: 700; color: #1f2937; margin-bottom: 5px;"></div>
@@ -456,13 +424,10 @@ _iub.csConfiguration = {
         <div id="pricePerUser" style="color: #6b7280; margin-bottom: 15px; font-size: 0.9rem;"></div>
         <div id="userTierInfo" style="color: #6b7280; margin-bottom: 15px; font-size: 0.85rem;"></div>
         <div id="freeTrialInfo" style="color: #059669; font-weight: 600; margin-bottom: 15px;"></div>
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" 
+        <a href="https://marketplace.atlassian.com/apps/2024223472" target="_blank"
            style="background: #0052CC; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; transition: all 0.3s ease;"
-           onmouseover="this.style.background='#0747A6'" 
-           onmouseout="this.style.background='#0052CC'"
-           onclick="gtag('event', 'conversion_event_purchase_3', {
-             'send_to': 'AW-16746113716'
-           });">
+           onmouseover="this.style.background='#0747A6'"
+           onmouseout="this.style.background='#0052CC'">
            Start free trial
         </a>
       </div>
@@ -479,13 +444,12 @@ _iub.csConfiguration = {
       const pricePerUserDiv = document.getElementById('pricePerUser');
       const userTierDiv = document.getElementById('userTierInfo');
       const freeTrialDiv = document.getElementById('freeTrialInfo');
-      
+
       if (!userCount || userCount < 1) {
         resultDiv.style.display = 'none';
         return;
       }
-      
-      // Pricing tiers based on Atlassian Marketplace (tiered pricing - single instance)
+
       const priceTiers = [
         { min: 1, max: 100, price: 0.5 },
         { min: 101, max: 250, price: 0.45 },
@@ -507,36 +471,23 @@ _iub.csConfiguration = {
         { min: 70001, max: 80000, price: 0.17 },
         { min: 80001, max: 90000, price: 0.17 },
         { min: 90001, max: 100000, price: 0.17 },
-        { min: 100001, max: 110000, price: 0.17 },
-        { min: 110001, max: 120000, price: 0.17 },
-        { min: 120001, max: 130000, price: 0.17 },
-        { min: 130001, max: 140000, price: 0.17 },
-        { min: 140001, max: 150000, price: 0.17 }
+        { min: 100001, max: 150000, price: 0.17 }
       ];
-      
-      // Calculate monthly tiered pricing
+
       let monthlyTotal = 0;
-      
-      // Up to 10 users is free, beyond that you pay for all users
       if (userCount > 10) {
         for (const tier of priceTiers) {
           if (userCount >= tier.min) {
-            // Calculate how many users fall in this tier
             const usersInTier = Math.min(userCount, tier.max) - tier.min + 1;
             monthlyTotal += usersInTier * tier.price;
           }
-          if (userCount <= tier.max) {
-            break;
-          }
+          if (userCount <= tier.max) break;
         }
       }
-      
-      // Calculate final price based on billing cycle
-      // Annual pricing is 10x monthly according to Atlassian
+
       const finalTotal = billingCycle === 'annual' ? monthlyTotal * 10 : monthlyTotal;
       const averagePricePerUser = userCount > 0 ? finalTotal / userCount : 0;
-      
-      // Determine user tier range
+
       let userTierRange = '';
       for (const tier of priceTiers) {
         if (userCount >= tier.min && userCount <= tier.max) {
@@ -544,10 +495,7 @@ _iub.csConfiguration = {
           break;
         }
       }
-      
-      // Track pricing calculator usage
-      trackPricingCalculator('calculate', userCount);
-      
+
       if (userCount <= 10) {
         totalPriceDiv.textContent = 'USD 0.00';
         billingPeriodDiv.textContent = billingCycle === 'annual' ? 'per year' : 'per month';
@@ -561,7 +509,7 @@ _iub.csConfiguration = {
         userTierDiv.textContent = `User tier: ${userTierRange}`;
         freeTrialDiv.textContent = '';
       }
-      
+
       resultDiv.style.display = 'block';
     }
   </script>
@@ -569,16 +517,16 @@ _iub.csConfiguration = {
   <!-- SUPPORT SECTION -->
   <section class="section" id="support" style="scroll-margin-top: 80px;">
     <div style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
-      <h2 style="margin-bottom: 16px; font-size: 2.2rem; font-weight: 700; color: #1f2937;">Support & Contact</h2>
+      <h2 style="margin-bottom: 16px; font-size: 2.2rem; font-weight: 700; color: #1f2937;">Support &amp; Contact</h2>
       <p style="color: #4b5563; margin-bottom: 24px; font-size: 1rem;">Questions? Reach us anytime.</p>
       <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a href="/resources/documentation/bulkpagecloner/" 
-           style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2); transition: all 0.3s ease;"
-           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(139, 92, 246, 0.3)'"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(139, 92, 246, 0.2)'">
+        <a href="/resources/documentation/handoff"
+           style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(139,92,246,0.2); transition: all 0.3s ease;"
+           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(139,92,246,0.3)'"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(139,92,246,0.2)'">
           📚 Browse Documentation
         </a>
-        <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" 
+        <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank"
            style="background: white; color: #8B5CF6; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; border: 2px solid #8B5CF6; transition: all 0.3s ease;"
            onmouseover="this.style.background='#f3f4f6'"
            onmouseout="this.style.background='white'">
@@ -589,62 +537,62 @@ _iub.csConfiguration = {
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
   <!-- FAQ SECTION -->
-  <section class="section bg-light" id="faq">
+  <section class="section bg-light" id="faq" style="scroll-margin-top: 80px;">
     <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
       <h2 style="text-align: center; margin-bottom: 40px; font-size: 2.2rem; font-weight: 700; color: #1f2937;">Frequently Asked Questions</h2>
       <div style="display: flex; flex-direction: column; gap: 12px;">
 
         <div class="faq-item" style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;">
           <button onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 24px 28px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">How many pages can I clone at once?</span>
+            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">How many tickets can I add to My Queue?</span>
             <span class="faq-chevron" style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s ease;">&#9660;</span>
           </button>
           <div class="faq-answer" style="display: none; padding: 0 28px 24px;">
-            <p style="color: #4b5563; line-height: 1.7; margin: 0;">You can clone up to 25 pages in a single operation. Use the slider to select the number of pages, assign titles, choose the destination space and parent page, and click Create. All clones are generated instantly with the same content and structure as the original template page.</p>
+            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Each user can hold up to 25 tickets in their personal queue. Tickets in done or closed statuses are automatically pruned to keep your queue focused on active work.</p>
           </div>
         </div>
 
         <div class="faq-item" style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;">
           <button onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 24px 28px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">Is Bulk Page Cloner really free?</span>
+            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">Does my data leave Atlassian's cloud?</span>
             <span class="faq-chevron" style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s ease;">&#9660;</span>
           </button>
           <div class="faq-answer" style="display: none; padding: 0 28px 24px;">
-            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Yes — Bulk Page Cloner is completely free for Confluence instances with up to 10 users. For larger teams, pricing is based on your total Atlassian user count and is very affordable at approximately $0.50 per user per month. Use the pricing calculator above to get your exact estimate before installing.</p>
+            <p style="color: #4b5563; line-height: 1.7; margin: 0;">No. All data is stored in Atlassian Forge KV Storage. There are no external servers, no third-party APIs, and no data stored outside your Jira instance. The app is entirely sandboxed within Atlassian's Forge platform.</p>
           </div>
         </div>
 
         <div class="faq-item" style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;">
           <button onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 24px 28px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">Can I clone pages to a different Confluence space?</span>
+            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">What Jira permissions does the app require?</span>
             <span class="faq-chevron" style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s ease;">&#9660;</span>
           </button>
           <div class="faq-answer" style="display: none; padding: 0 28px 24px;">
-            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Yes. When selecting the destination, you can choose any Confluence space you have access to — including spaces other than where the template page lives. This makes it easy to replicate documentation structures, project templates, or sprint frameworks across multiple teams and spaces within your Confluence instance.</p>
+            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Handoff for Jira requests only 4 scopes: <code style="background:#f3f4f6; padding: 2px 6px; border-radius: 4px;">read:jira-work</code> (read issues), <code style="background:#f3f4f6; padding: 2px 6px; border-radius: 4px;">write:jira-work</code> (post ADF comments only — no issue edits), <code style="background:#f3f4f6; padding: 2px 6px; border-radius: 4px;">read:jira-user</code> (display names), and <code style="background:#f3f4f6; padding: 2px 6px; border-radius: 4px;">storage:app</code> (Forge KV Storage).</p>
           </div>
         </div>
 
         <div class="faq-item" style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;">
           <button onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 24px 28px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">Is my Confluence data secure?</span>
+            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">Can managers see their team's tickets?</span>
             <span class="faq-chevron" style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s ease;">&#9660;</span>
           </button>
           <div class="faq-answer" style="display: none; padding: 0 28px 24px;">
-            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Absolutely. Bulk Page Cloner is built on the Atlassian Forge platform, which means your data never leaves Atlassian's infrastructure. There are no external servers, no third-party API calls, and no data stored outside your Confluence instance. The app is officially approved by Atlassian and meets all Forge security and data privacy requirements for enterprise environments.</p>
+            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Yes. Team members can set their queue visibility to shared with specific teams. Anyone in that team can then view their queue in Team View. Each user controls their own visibility — it's always opt-in.</p>
           </div>
         </div>
 
         <div class="faq-item" style="background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;">
           <button onclick="toggleFaq(this)" style="width: 100%; text-align: left; padding: 24px 28px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">What does "preserved structure" mean?</span>
+            <span style="color: #1f2937; font-size: 1.1rem; font-weight: 600;">What is the Blocker Alert feature?</span>
             <span class="faq-chevron" style="color: #8B5CF6; font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s ease;">&#9660;</span>
           </button>
           <div class="faq-answer" style="display: none; padding: 0 28px 24px;">
-            <p style="color: #4b5563; line-height: 1.7; margin: 0;">When you clone a page, the app copies the full content including page body, formatting, macros, labels, and page metadata. The resulting clones are identical to your template page and ready to edit independently. Any Confluence page — including pages with complex layouts and Confluence macros — can be used as a template source.</p>
+            <p style="color: #4b5563; line-height: 1.7; margin: 0;">Blocker Alert lets you mark any ticket as blocked and tag responsible teammates. Blocker records are stored instance-wide so the whole team can see what's stuck, who owns the blocker, and when it's resolved — all without leaving Jira.</p>
           </div>
-          </div><!-- /wf-body-4 -->
-        </details>
+        </div>
 
       </div>
     </div>
@@ -669,16 +617,14 @@ _iub.csConfiguration = {
   <!-- CTA SECTION -->
   <section class="section bg-primary text-white" id="cta" style="scroll-margin-top: 80px; padding: 48px 40px;">
     <div class="cta-content">
-      <h2 style="margin-bottom: 16px;">Start Cloning Confluence Pages in Minutes</h2>
-      <p>Install Bulk Page Cloner free from the Atlassian Marketplace and eliminate manual page duplication forever.</p>
+      <h2 style="margin-bottom: 16px;">Start Managing Jira Work Your Way</h2>
+      <p>Install Handoff for Jira from the Atlassian Marketplace and bring structure to how your team manages, prioritizes, and transfers Jira tickets.</p>
       <div class="cta-buttons" style="text-align: center;">
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" 
+        <a href="https://marketplace.atlassian.com/apps/2024223472" target="_blank"
            style="background: #2563eb; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin: 0 10px 10px 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);"
            onmouseover="this.style.background='#1d4ed8'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 99, 235, 0.4)'"
            onmouseout="this.style.background='#2563eb'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)'"
-           onclick="trackCTAClick('Install from Marketplace', 'bottom_cta'); gtag('event', 'conversion_event_purchase_3', {
-             'send_to': 'AW-16746113716'
-           });">
+           onclick="trackCTAClick('Install from Marketplace', 'bottom_cta');">
            🚀 Install from Marketplace
         </a>
       </div>
@@ -688,8 +634,6 @@ _iub.csConfiguration = {
   <!-- FOOTER -->
   <footer>
     <div class="footer-content" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; max-width: 1200px; margin: 0 auto;">
-      
-      <!-- Left: Company Logo & Address -->
       <div class="footer-company-info" style="flex: 1; max-width: 300px;">
         <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" style="height: 80px; margin-bottom: 20px;">
         <p style="color: #9CA3AF; font-size: 14px; line-height: 1.6; margin: 0;">
@@ -697,8 +641,6 @@ _iub.csConfiguration = {
           Matawan, New Jersey, 07747, USA
         </p>
       </div>
-      
-      <!-- Middle: LinkedIn -->
       <div class="footer-social" style="flex: 0 0 auto; text-align: center; padding-top: 10px;">
         <a href="https://www.linkedin.com/company/datapingo/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #8B5CF6; text-decoration: none; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#6366F1'" onmouseout="this.style.color='#8B5CF6'">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -707,56 +649,20 @@ _iub.csConfiguration = {
           LinkedIn
         </a>
       </div>
-      
-      <!-- Right: Email Signup Form -->
       <div class="footer-newsletter" style="flex: 1; max-width: 400px;">
         <h4 style="color: #8B5CF6; font-size: 16px; font-weight: 600; margin-bottom: 12px;">Lets keep in Touch</h4>
-        <p style="color: #9CA3AF; font-size: 14px; margin-bottom: 20px;">Get monthly product updates, practical tips, and company news delivered to your inbox. Stay informed about current products and upcoming DataPingo apps.</p>
-        
+        <p style="color: #9CA3AF; font-size: 14px; margin-bottom: 20px;">Get monthly product updates, practical tips, and company news delivered to your inbox.</p>
         <form action="https://formspree.io/f/mjgarwpg" method="POST" id="footer-email-form" style="margin: 0;">
-          
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Your email address" 
-            required
-            style="
-              width: 100%;
-              background: rgba(255,255,255,0.1);
-              border: 1px solid rgba(255,255,255,0.2);
-              color: #fff;
-              padding: 12px;
-              border-radius: 6px;
-              font-size: 14px;
-              margin-bottom: 10px;
-              font-family: inherit;
-            "
-          >
-          
-          <button 
-            type="submit"
-            style="
-              background: #8B5CF6;
-              color: white;
-              border: none;
-              padding: 12px 24px;
-              border-radius: 6px;
-              font-weight: 600;
-              cursor: pointer;
-              font-size: 14px;
-              transition: background 0.3s;
-              font-family: inherit;
-            "
-            onmouseover="this.style.background='#6366F1'"
-            onmouseout="this.style.background='#8B5CF6'"
-          >
+          <input type="email" name="email" placeholder="Your email address" required
+            style="width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; margin-bottom: 10px; font-family: inherit;">
+          <button type="submit"
+            style="background: #8B5CF6; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px; transition: background 0.3s; font-family: inherit;"
+            onmouseover="this.style.background='#6366F1'" onmouseout="this.style.background='#8B5CF6'">
             Subscribe
           </button>
-          
           <div id="form-message" style="color: #9CA3AF; font-size: 12px; margin-top: 8px;"></div>
         </form>
       </div>
-      
     </div>
     <div class="footer-bottom">
       <p><a href="https://www.iubenda.com/privacy-policy/47551801" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a></p>
@@ -770,18 +676,18 @@ _iub.csConfiguration = {
   <div id="sticky-toc" style="position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 20px; width: 200px; z-index: 1000; opacity: 1; visibility: visible;">
     <h4 style="margin: 0 0 15px 0; font-size: 1rem; font-weight: 600; color: #1f2937; text-align: center;">Quick Navigation</h4>
     <nav style="list-style: none; padding: 0; margin: 0;">
-      <a href="#hero" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="hero">🏠 Overview</a>
+      <a href="#hero"     class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="hero">🏠 Overview</a>
       <a href="#benefits" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="benefits">✨ Why Choose</a>
       <a href="#workflow" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 2px; transition: all 0.2s ease;" data-section="workflow">⚡ How It Works</a>
       <div id="wf-steps-nav" style="display: none; padding: 2px 0 6px 10px; border-left: 2px solid #e5e7eb; margin-left: 10px; margin-bottom: 4px;">
-        <a onclick="wfScrollTo('wf-step-1')" class="wf-toc" id="wf-toc-1">1. Select a Template</a>
-        <a onclick="wfScrollTo('wf-step-2')" class="wf-toc" id="wf-toc-2">2. Bulk Cloning</a>
-        <a onclick="wfScrollTo('wf-step-3')" class="wf-toc" id="wf-toc-3">3. Pick Location</a>
-        <a onclick="wfScrollTo('wf-step-4')" class="wf-toc" id="wf-toc-4">4. Confirm &amp; Go Live</a>
+        <a onclick="wfScrollTo('wf-step-1')" class="wf-toc" id="wf-toc-1">1. My Queue</a>
+        <a onclick="wfScrollTo('wf-step-2')" class="wf-toc" id="wf-toc-2">2. Browse &amp; Add</a>
+        <a onclick="wfScrollTo('wf-step-3')" class="wf-toc" id="wf-toc-3">3. Inbox &amp; Handoffs</a>
+        <a onclick="wfScrollTo('wf-step-4')" class="wf-toc" id="wf-toc-4">4. Team View</a>
       </div>
-      <a href="#pricing" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="pricing">💰 Pricing</a>
-      <a href="#support" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="support">💬 Support & Contact</a>
-      <a href="#cta" class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="cta">🚀 Get Started</a>
+      <a href="#pricing"  class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="pricing">💰 Pricing</a>
+      <a href="#support"  class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="support">💬 Support</a>
+      <a href="#cta"      class="toc-link" style="display: block; padding: 8px 12px; text-decoration: none; color: #6b7280; font-size: 0.9rem; border-radius: 6px; margin-bottom: 4px; transition: all 0.2s ease;" data-section="cta">🚀 Get Started</a>
     </nav>
   </div>
 
@@ -797,80 +703,47 @@ _iub.csConfiguration = {
   </div>
 
   <script>
+    // Lightbox
     function openLightbox(src, alt) {
       const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const caption = document.getElementById('lightbox-caption');
-      
-      img.src = src;
-      img.alt = alt;
-      caption.textContent = alt;
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-img').alt = alt;
+      document.getElementById('lightbox-caption').textContent = alt;
       lightbox.style.display = 'flex';
-      
-      // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
-      
-      // Track lightbox view
       trackLightboxView(alt);
     }
-
     function closeLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.style.display = 'none';
-      
-      // Restore body scroll
+      document.getElementById('lightbox').style.display = 'none';
       document.body.style.overflow = 'auto';
     }
-
-    // Close lightbox when clicking outside the image
     document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeLightbox();
-      }
+      if (e.target === this) closeLightbox();
     });
-
-    // Close lightbox with Escape key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeLightbox();
-      }
+      if (e.key === 'Escape') closeLightbox();
     });
 
-    // TOC Functionality
-    let tocVisible = true; // Start with TOC visible
-
+    // TOC
+    let tocVisible = true;
     function toggleTOC() {
       const toc = document.getElementById('sticky-toc');
       const toggle = document.getElementById('toc-toggle');
-      
       tocVisible = !tocVisible;
-      
       if (tocVisible) {
-        toc.style.opacity = '1';
-        toc.style.visibility = 'visible';
-        toggle.style.opacity = '0';
-        toggle.style.visibility = 'hidden';
+        toc.style.opacity = '1'; toc.style.visibility = 'visible';
+        toggle.style.opacity = '0'; toggle.style.visibility = 'hidden';
       } else {
-        toc.style.opacity = '0';
-        toc.style.visibility = 'hidden';
-        toggle.style.opacity = '1';
-        toggle.style.visibility = 'visible';
+        toc.style.opacity = '0'; toc.style.visibility = 'hidden';
+        toggle.style.opacity = '1'; toggle.style.visibility = 'visible';
       }
     }
-
-    // Initialize TOC as visible on page load
     window.addEventListener('DOMContentLoaded', function() {
       const toc = document.getElementById('sticky-toc');
       const toggle = document.getElementById('toc-toggle');
-      
-      // Show TOC immediately
-      toc.style.opacity = '1';
-      toc.style.visibility = 'visible';
-      toggle.style.opacity = '0';
-      toggle.style.visibility = 'hidden';
+      toc.style.opacity = '1'; toc.style.visibility = 'visible';
+      toggle.style.opacity = '0'; toggle.style.visibility = 'hidden';
     });
-
-    // Smooth scroll to sections
     document.querySelectorAll('.toc-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -881,25 +754,18 @@ _iub.csConfiguration = {
       });
     });
 
-    // Highlight current section
+    // Highlight active TOC link on scroll
     function updateTOCHighlight() {
       const sections = ['hero', 'benefits', 'workflow', 'pricing', 'support', 'cta'];
       const scrollPosition = window.scrollY + 100;
-      
       let currentSection = 'hero';
-      
-      sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section && scrollPosition >= section.offsetTop) {
-          currentSection = sectionId;
-        }
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && scrollPosition >= el.offsetTop) currentSection = id;
       });
-      
-      // Update active link
       document.querySelectorAll('.toc-link').forEach(link => {
         link.style.background = 'transparent';
         link.style.color = '#6b7280';
-        
         if (link.getAttribute('data-section') === currentSection) {
           link.style.background = '#8B5CF6';
           link.style.color = 'white';
@@ -909,73 +775,47 @@ _iub.csConfiguration = {
       const wfStepsNav = document.getElementById('wf-steps-nav');
       if (wfStepsNav) wfStepsNav.style.display = currentSection === 'workflow' ? 'block' : 'none';
     }
-
-    // Add hover effects
     document.querySelectorAll('.toc-link').forEach(link => {
-      link.addEventListener('mouseenter', function() {
+      link.addEventListener('mouseover', function() {
         if (this.style.background !== 'rgb(139, 92, 246)') {
-          this.style.background = '#f3f4f6';
-          this.style.color = '#1f2937';
+          this.style.background = '#F5F3FF';
+          this.style.color = '#8B5CF6';
         }
       });
-      
-      link.addEventListener('mouseleave', function() {
+      link.addEventListener('mouseout', function() {
         if (this.style.background !== 'rgb(139, 92, 246)') {
           this.style.background = 'transparent';
           this.style.color = '#6b7280';
         }
       });
     });
-
-    // Update on scroll
     window.addEventListener('scroll', updateTOCHighlight);
-    
-    // Initial highlight
-    updateTOCHighlight();
-  </script>
 
-  <script>
-    // Handle footer email form submission without page redirect
+    // Footer form
     document.getElementById('footer-email-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      
       const form = e.target;
       const formData = new FormData(form);
       const messageDiv = document.getElementById('form-message');
       const submitButton = form.querySelector('button[type="submit"]');
       const emailInput = form.querySelector('input[type="email"]');
-      
-      // Disable button and show loading state
       submitButton.disabled = true;
       submitButton.textContent = 'Subscribing...';
       messageDiv.textContent = '';
-      
-      // Submit form via fetch
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => {
-        if (!response.ok) throw new Error('Submission failed');
-        // Show success message
-        messageDiv.style.color = '#10B981';
-        messageDiv.textContent = '✓ Thanks for subscribing!';
-        emailInput.value = '';
-        
-        // Reset button after delay
-        setTimeout(() => {
+      fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+        .then(response => {
+          if (!response.ok) throw new Error('Submission failed');
+          messageDiv.style.color = '#10B981';
+          messageDiv.textContent = 'Thanks for subscribing!';
+          emailInput.value = '';
+          setTimeout(() => { submitButton.disabled = false; submitButton.textContent = 'Subscribe'; }, 3000);
+        })
+        .catch(() => {
+          messageDiv.style.color = '#EF4444';
+          messageDiv.textContent = 'Something went wrong. Please try again.';
           submitButton.disabled = false;
           submitButton.textContent = 'Subscribe';
-        }, 3000);
-      })
-      .catch(error => {
-        // Show error message
-        messageDiv.style.color = '#EF4444';
-        messageDiv.textContent = 'Something went wrong. Please try again.';
-        submitButton.disabled = false;
-        submitButton.textContent = 'Subscribe';
-      });
+        });
     });
   </script>
 
@@ -990,15 +830,24 @@ _iub.csConfiguration = {
       });
     }, { threshold: 0.1 });
 
+    // Auto-target major elements
+    const revealSelectors = [
+      '.workflow-step',
+      '.faq-item',
+      '#benefits h2, #benefits > div > div > div',
+      '#pricing h2, #pricing > div',
+      '#support > div',
+      '#cta .cta-content',
+    ];
     document.querySelectorAll(
       '.workflow-step, .faq-item, #benefits h2, #workflow h2, #pricing h2, #support > div'
-    ).forEach((el) => {
+    ).forEach((el, i) => {
       el.classList.add('reveal');
       revealObserver.observe(el);
     });
 
     // Feature cards with staggered delay
-    document.querySelectorAll('#benefits [style*="border-radius: 16px"]').forEach((el, i) => {
+    document.querySelectorAll('#benefits .reveal, #benefits [style*="border-radius: 16px"]').forEach((el, i) => {
       el.classList.add('reveal');
       if (i % 3 === 1) el.classList.add('reveal-delay-1');
       if (i % 3 === 2) el.classList.add('reveal-delay-2');
@@ -1030,6 +879,5 @@ _iub.csConfiguration = {
 
     document.querySelectorAll('.wf-step').forEach(el => wfStepObserver.observe(el));
   </script>
-
 </body>
 </html>
