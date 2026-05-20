@@ -89,6 +89,9 @@ _iub.csConfiguration = {
     body {
       text-align: center;
     }
+    .section {
+      scroll-margin-top: 120px;
+    }
     .section,
     .section h2,
     .section h3,
@@ -357,40 +360,19 @@ _iub.csConfiguration = {
           <span class="badge">v3.3</span>
           <span class="badge">Atlassian Forge</span>
           <span class="badge">Jira Cloud</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">✅ LIVE</span>
         </div>
         <div class="hero-actions">
-          <a href="#quick-start" class="btn btn-primary">🚀 Quick Start</a>
-          <a href="#features" class="btn btn-secondary">📋 Features</a>
+          <a href="#overview" class="btn btn-secondary">📋 Overview</a>
+          <a href="#full-guide" class="btn btn-primary">🚀 Full Guide</a>
           <a href="#technical" class="btn btn-secondary">🔧 Technical Specs</a>
-          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="btn btn-secondary">💬 Support</a>
+          <a href="#privacy-security" class="btn btn-secondary">🔒 Privacy &amp; Security</a>
+          <a href="#support" class="btn btn-secondary">💬 Support &amp; Contact</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Table of Contents -->
-  <section class="toc-section">
-    <div class="container">
-      <nav class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#quick-start">Quick Start</a></li>
-          <li><a href="#features">Core Features</a></li>
-          <li><a href="#my-queue">My Queue</a></li>
-          <li><a href="#browse">Browse &amp; Add</a></li>
-          <li><a href="#handoff">Handoff</a></li>
-          <li><a href="#blocker-alert">Blocker Alert</a></li>
-          <li><a href="#team-view">Team View</a></li>
-          <li><a href="#inbox">Inbox</a></li>
-          <li><a href="#technical">Technical Specifications</a></li>
-          <li><a href="#privacy-security">Privacy &amp; Security</a></li>
-          <li><a href="#support">Support &amp; Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+
 
   <!-- Main Content -->
   <div class="main-content">
@@ -404,6 +386,39 @@ _iub.csConfiguration = {
 
           <div class="tip">
             <strong>💡 No context switching:</strong> Everything lives inside Jira. No Slack threads, no spreadsheets, no DMs. Handoffs, blocker alerts, and queue updates post rich ADF comments so the history lives on the ticket.
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">📋</div>
+              <h3>My Queue</h3>
+              <p>Personal priority-ordered ticket list. Drag to reorder. Set visibility: private, team, or all.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔍</div>
+              <h3>Browse &amp; Add</h3>
+              <p>Search all open Jira tickets by key, keyword, or project. Filter by type or status, then add to your queue.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔀</div>
+              <h3>Handoff</h3>
+              <p>Notify teammates which tickets to focus on — send up to 10 tickets with suggested priority, notes, and optional Jira comments.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🚫</div>
+              <h3>Blocker Alert</h3>
+              <p>Select blocked and blocking tickets, assign team members, leave a comment — auto-posted on each ticket.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">👥</div>
+              <h3>Team View</h3>
+              <p>Create named teams, add members, and use teams for queue visibility sharing.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📬</div>
+              <h3>Inbox</h3>
+              <p>Receive handoffs, blocker alerts, and team notifications with accept/decline/archive actions.</p>
+            </div>
           </div>
 
           <div class="limits-grid">
@@ -426,11 +441,11 @@ _iub.csConfiguration = {
           </div>
         </section>
 
-        <!-- Quick Start -->
-        <section id="quick-start" class="section">
-          <h2>🚀 Quick Start</h2>
+        <!-- Full Guide -->
+        <section id="full-guide" class="section">
+          <h2>📘 Full Guide</h2>
 
-          <h3>Installing Handoff for Jira</h3>
+          <h3>Installing the App</h3>
           <ol>
             <li>Go to the <strong>Atlassian Marketplace</strong> and search for <strong>Handoff for Jira</strong>.</li>
             <li>Click <strong>Get it now</strong> and select your Jira Cloud site.</li>
@@ -438,65 +453,16 @@ _iub.csConfiguration = {
             <li>Once installed, open any Jira project and find <strong>Handoff for Jira</strong> in the left-side Apps menu.</li>
           </ol>
 
-          <h3>Opening the App</h3>
-          <p>Handoff for Jira opens as a <strong>full-page Forge app</strong> within Jira. Access it from:</p>
-          <ul>
-            <li>The <strong>Apps</strong> section in the left-side Jira navigation</li>
-            <li>The <strong>Issue Actions</strong> menu on any Jira ticket (to add that ticket directly to your queue)</li>
-          </ul>
-
           <div class="tip">
             <strong>💡 Add to Queue instantly:</strong> On any Jira issue, open the issue actions menu (•••) and click <strong>"Add to My Queue in Handoff"</strong>. A 2-second confirmation modal confirms the ticket was added.
           </div>
 
           <div class="card" style="margin-top: 24px;">
-            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Add%20to%20My%20Queue%20in%20Handoff%20(1840%20x%20900%20px).png" alt="Add to My Queue in Handoff — issue action menu" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Add%20to%20My%20Queue%20(1840x900%20px).png" alt="Add to My Queue in Handoff — issue action menu" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
           </div>
-        </section>
 
-        <!-- Core Features Overview -->
-        <section id="features" class="section">
-          <h2>📦 Core Features</h2>
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="feature-icon">📋</div>
-              <h3>My Queue</h3>
-              <p>Personal priority-ordered ticket list. Drag to reorder. Set visibility: private, team, or all.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔍</div>
-              <h3>Browse &amp; Add</h3>
-              <p>Search all open Jira tickets by key, keyword, or project. Filter by type or status, then add to your queue.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔀</div>
-              <h3>Handoff</h3>
-              <p>Send up to 10 tickets to teammates with priority order, notes, and optional Jira comments.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🚫</div>
-              <h3>Blocker Alert</h3>
-              <p>Select blocked and blocking tickets, assign team members, leave a comment — auto-posted on each ticket.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">👥</div>
-              <h3>Team View</h3>
-              <p>Create named teams, add members, and use teams for queue visibility sharing.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">📬</div>
-              <h3>Inbox</h3>
-              <p>Receive handoffs, blocker alerts, and team notifications with accept/decline/archive actions.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- My Queue -->
-        <section id="my-queue" class="section">
-          <h2>📋 My Queue</h2>
+          <h3>My Queue</h3>
           <p>Every user has a personal ordered list of up to <strong>25 Jira tickets</strong> that serves as their daily work list.</p>
-
-          <h3>What Each Ticket Row Shows</h3>
           <ul>
             <li><strong>Issue Key</strong> — Clickable link that opens the Jira ticket</li>
             <li><strong>Type Badge</strong> — Bug / Story / Epic / Task / Sub-task</li>
@@ -504,11 +470,9 @@ _iub.csConfiguration = {
             <li><strong>Status Badge</strong> — Current Jira status of the ticket</li>
             <li><strong>Assignee</strong> — Avatar and display name</li>
           </ul>
-
-          <h3>Blocked &amp; Blocking Indicators</h3>
           <p>Tickets that are blocked (🚫) or blocking another ticket (🔗) show an inline expand icon. Click to reveal the related ticket details without leaving the queue.</p>
 
-          <h3>Queue Visibility Settings</h3>
+          <h4>Queue Visibility Settings</h4>
           <ul>
             <li><strong>Private</strong> (default) — Only you can see your queue</li>
             <li><strong>Shared with specific teams</strong> — Select which teams can view your queue</li>
@@ -522,14 +486,9 @@ _iub.csConfiguration = {
           <div class="card" style="margin-top: 24px;">
             <img src="/assets/img/Handoff%20for%20Jira%20Assets/My%20Queue%20(1840%20x%20900%20px).png" alt="My Queue — personal ticket list inside Jira" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
           </div>
-        </section>
 
-        <!-- Browse & Add -->
-        <section id="browse" class="section">
-          <h2>🔍 Browse &amp; Add</h2>
+          <h3>Browse &amp; Add</h3>
           <p>Search across all open Jira tickets in your instance and add them to your queue directly from the browse table.</p>
-
-          <h3>Search Options</h3>
           <ul>
             <li>Search by <strong>issue key</strong> (e.g., PROJ-123), <strong>keyword</strong>, or <strong>project prefix</strong></li>
             <li>Filter by <strong>issue type</strong>: Bug, Story, Epic, Task, Sub-task</li>
@@ -537,23 +496,21 @@ _iub.csConfiguration = {
             <li>Sort by <strong>issue key</strong> or <strong>last updated</strong></li>
           </ul>
 
-          <h3>Visual Row Highlights</h3>
+          <h4>Visual Row Highlights</h4>
           <ul>
             <li><span style="color: #dc2626; font-weight: 600;">Red row</span> — Ticket is blocked</li>
             <li><span style="color: #d97706; font-weight: 600;">Yellow row</span> — Ticket is blocking another ticket</li>
             <li><span style="color: #2563eb; font-weight: 600;">Blue row</span> — Ticket is already in your queue</li>
           </ul>
 
-          <h3>Pagination</h3>
-          <p>Results are paginated with cursor-based Prev/Next controls. Add or remove any ticket directly from the table row.</p>
-        </section>
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Browse%20%26%20Add%20(1840x900%20px).png" alt="Browse &amp; Add — search and add Jira tickets to your queue" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
 
-        <!-- Handoff -->
-        <section id="handoff" class="section">
-          <h2>🔀 Handoff</h2>
-          <p>Transfer ownership of up to <strong>10 tickets</strong> to one or more teammates in a single structured handoff.</p>
+          <h3>Handoff</h3>
+          <p>Let one or more teammates know which tickets to focus on — send up to <strong>10 tickets</strong> in a single structured handoff. Recipients can then add some or all of those tickets to their personal queue.</p>
 
-          <h3>Sending a Handoff</h3>
+          <h4>Sending a Handoff</h4>
           <ol>
             <li>Select up to 10 tickets from your queue or the browse view.</li>
             <li>Drag ticket chips to set the priority order for the recipient.</li>
@@ -563,32 +520,29 @@ _iub.csConfiguration = {
             <li>Send — recipients get a <strong>NEW-badged card</strong> in their Inbox.</li>
           </ol>
 
-          <h3>Receiving a Handoff</h3>
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/New%20Handoff%20(1840x900%20px).png" alt="New Handoff — send tickets to teammates" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h4>Receiving a Handoff</h4>
           <ul>
-            <li><strong>Accept</strong> — Tickets are added to your queue in the priority order set by the sender. A "✓ accepted this handoff" comment is posted on the first Jira ticket.</li>
+            <li><strong>Accept</strong> — Choose to add some or all of the tickets to your personal queue, in the priority order suggested by the sender. A "✓ accepted this handoff" comment is posted on the first Jira ticket.</li>
             <li><strong>Decline</strong> — The handoff is rejected; the sender is notified.</li>
             <li><strong>Archive</strong> — Move the handoff to your archive/history without accepting.</li>
           </ul>
 
-          <h3>Delivery Status (Sender View)</h3>
-          <ul>
-            <li>✓ Accepted</li>
-            <li>✗ Declined</li>
-            <li>⏳ Pending</li>
-          </ul>
-          <p>When all recipients have decided, the handoff auto-archives from the Sent tab.</p>
-
           <div class="tip">
             <strong>💡 Audit trail:</strong> Every accepted handoff posts a rich ADF comment (with @mentions and hyperlinks) directly on the Jira ticket — so the handoff history lives on the ticket, not in a chat tool.
           </div>
-        </section>
 
-        <!-- Blocker Alert -->
-        <section id="blocker-alert" class="section">
-          <h2>🚫 Blocker Alert</h2>
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Handoff%20Jira%20Comment%20(1840x900%20px).png" alt="Handoff comment posted on Jira ticket" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h3>Blocker Alert</h3>
           <p>When work is stuck, fire a Blocker Alert. It surfaces the blocked work to the whole team and posts a timestamped comment directly on the Jira ticket — no more blockers buried in someone's DMs.</p>
 
-          <h3>Creating a Blocker Alert</h3>
+          <h4>Creating a Blocker Alert</h4>
           <ol>
             <li>Select the <strong>blocked ticket(s)</strong> — the tickets that are stuck (up to 5).</li>
             <li>Select the <strong>blocking ticket(s)</strong> — the tickets causing the block (up to 5).</li>
@@ -597,7 +551,11 @@ _iub.csConfiguration = {
             <li>Submit — the blocker is added to a <strong>shared global list</strong> visible to everyone on the instance.</li>
           </ol>
 
-          <h3>Resolving a Blocker</h3>
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Blocker%20Alert%20(1840x900%20px).png" alt="Blocker Alert — flag blocked work and notify teammates" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
+
+          <h4>Resolving a Blocker</h4>
           <p>When you want to resolve the blocker, add the tickets involved, along with the people, then leave a comment — it updates the Jira ticket automatically.</p>
           <ol>
             <li>Open the <strong>Resolve Blocker</strong> modal from the active blocker list.</li>
@@ -606,37 +564,27 @@ _iub.csConfiguration = {
             <li>Leave a <strong>resolution comment</strong> — a "✅ Blocker resolved" comment is auto-posted on the Jira ticket.</li>
           </ol>
 
-          <div class="tip">
-            <strong>💡 Resolution notifications:</strong> When a blocker is resolved, notified users receive a confirmation card in their Inbox.
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Resolve%20Blocker%20(1840x900%20px).png" alt="Resolve Blocker — mark blockers as resolved" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
           </div>
-        </section>
 
-        <!-- Team View -->
-        <section id="team-view" class="section">
-          <h2>👥 Team View</h2>
+          <h3>Team View</h3>
           <p>Organize your Jira users into named teams for queue visibility sharing and collaboration.</p>
-
-          <h3>Creating &amp; Managing Teams</h3>
           <ul>
             <li>Create a team with any name and add members by <strong>user search</strong> (no invite step — members are added directly).</li>
             <li>Added members receive a <strong>"Got it" notification card</strong> in their Inbox.</li>
             <li>Creators can <strong>delete their team</strong>; admins and creators can manage membership.</li>
           </ul>
-
-          <h3>Using Teams for Queue Sharing</h3>
           <p>In My Queue, set your visibility to <strong>"Shared with specific teams"</strong> and select which teams can view your queue. Managers and teammates can then see your workload without you needing to share anything manually.</p>
 
           <div class="card" style="margin-top: 24px;">
-            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Team%20View%20(1840%20x%20900%20px).png" alt="Team View — see teammates' queues and manage teams" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Team%20View%20(1840x900%20px).png" alt="Team View — see teammates' queues and manage teams" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
           </div>
-        </section>
 
-        <!-- Inbox -->
-        <section id="inbox" class="section">
-          <h2>📬 Inbox</h2>
+          <h3>Inbox</h3>
           <p>The Inbox is your central notification hub for everything happening in Handoff for Jira.</p>
 
-          <h3>What Lands in Your Inbox</h3>
+          <h4>What Lands in Your Inbox</h4>
           <ul>
             <li>📥 Incoming handoffs from teammates</li>
             <li>🚫 Blocker alerts where you are assigned as responsible</li>
@@ -644,15 +592,18 @@ _iub.csConfiguration = {
             <li>👥 Team membership notifications</li>
           </ul>
 
-          <h3>Inbox Tabs</h3>
+          <h4>Inbox Tabs</h4>
           <ul>
             <li><strong>Received</strong> — Active incoming cards awaiting action</li>
             <li><strong>Sent</strong> — Handoffs you sent and their delivery status</li>
             <li><strong>Archive (History)</strong> — All past handoffs and notifications</li>
           </ul>
 
-          <h3>Card Details</h3>
           <p>Each Inbox card shows: sender avatar (initials), timestamp, ticket list, note, and action buttons (Accept / Decline / Archive). Unread cards display a badge count on the Inbox tab that clears when you open it.</p>
+
+          <div class="card" style="margin-top: 24px;">
+            <img src="/assets/img/Handoff%20for%20Jira%20Assets/Inbox%20(1840x900%20px).png" alt="Inbox — manage handoffs, alerts, and notifications" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
+          </div>
         </section>
 
         <!-- Technical Specifications -->
@@ -678,10 +629,6 @@ _iub.csConfiguration = {
               <tr>
                 <td><strong>Installation</strong></td>
                 <td>Atlassian Marketplace</td>
-              </tr>
-              <tr>
-                <td><strong>App ID</strong></td>
-                <td>b64e8d8a-a3f6-4692-8c1b-279f0c30b74b</td>
               </tr>
               <tr>
                 <td><strong>Licensing</strong></td>
@@ -714,6 +661,14 @@ _iub.csConfiguration = {
               <tr>
                 <td><strong>GDPR</strong></td>
                 <td>Personal data reported weekly to Atlassian's Personal Data Reporting API</td>
+              </tr>
+              <tr>
+                <td><strong>Current Version</strong></td>
+                <td>3.3</td>
+              </tr>
+              <tr>
+                <td><strong>Last Updated</strong></td>
+                <td>May 2026</td>
               </tr>
             </tbody>
           </table>

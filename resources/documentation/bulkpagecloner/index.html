@@ -52,6 +52,9 @@ _iub.csConfiguration = {
     body {
       text-align: center;
     }
+    .section {
+      scroll-margin-top: 120px;
+    }
     .section,
     .section h2,
     .section h3,
@@ -87,6 +90,47 @@ _iub.csConfiguration = {
     }
     .card {
       text-align: center;
+    }
+    .spec-table {
+      width: 100%;
+      max-width: 720px;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .spec-table thead {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: white;
+    }
+    .spec-table th,
+    .spec-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    .spec-table th {
+      font-weight: 600;
+    }
+    .spec-table tbody tr:hover {
+      background: #f0fdf4;
+    }
+    .spec-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-free {
+      background: #d1fae5;
+      color: #065f46;
     }
     footer {
       text-align: left;
@@ -264,34 +308,19 @@ _iub.csConfiguration = {
           <span class="badge">v3.0</span>
           <span class="badge">Atlassian Forge</span>
           <span class="badge">Confluence Cloud</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">✅ LIVE</span>
         </div>
         <div class="hero-actions">
-          <a href="#quick-start" class="btn btn-primary">🚀 Quick Start</a>
-          <a href="#full-guide" class="btn btn-secondary">📘 Full Guide</a>
-          <a href="https://www.youtube.com/watch?v=Ew8wpqPWk1M" target="_blank" class="btn btn-secondary">▶️ YouTube</a>
-          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" class="btn btn-secondary">💬 Support</a>
+          <a href="#overview" class="btn btn-secondary">📋 Overview</a>
+          <a href="#full-guide" class="btn btn-primary">📘 Full Guide</a>
+          <a href="#technical" class="btn btn-secondary">🧰 Technical Specifications</a>
+          <a href="#privacy-security" class="btn btn-secondary">🔐 Privacy &amp; Security</a>
+          <a href="#support" class="btn btn-secondary">💬 Support &amp; Contact</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Table of Contents -->
-  <section class="toc-section">
-    <div class="container">
-      <nav class="toc">
-        <h2>Table of Contents</h2>
-          <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#full-guide">Full Guide</a></li>
-            <li><a href="#technical">Technical Specifications</a></li>
-            <li><a href="#version-info">Version Information</a></li>
-            <li><a href="#privacy-security">Privacy & Security</a></li>
-            <li><a href="#support">Support & Contact</a></li>
-          </ul>
-      </nav>
-    </div>
-  </section>
+
 
   <!-- Main Content -->
   <div class="main-content">
@@ -314,6 +343,7 @@ _iub.csConfiguration = {
         <!-- Full Guide -->
         <section id="full-guide" class="section">
           <h2>📘 Full Guide</h2>
+
           <h3>Open the App (3 ways)</h3>
           <ol>
             <li>Click <strong>Bulk Page Cloner for Confluence</strong> under Apps on the left side of your screen.</li>
@@ -373,103 +403,86 @@ _iub.csConfiguration = {
           <div class="card">
             <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Success%20(1840%20x%20900%20px).png" alt="Success step" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" decoding="async" />
           </div>
+
+          <h3>▶️ Watch the Full Tutorial</h3>
+          <p>Watch our full YouTube video to learn how to use Bulk Page Cloner for Confluence.</p>
+          <div class="card" style="margin-top: 16px; padding: 0; overflow: hidden;">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/Ew8wpqPWk1M" title="Bulk Page Cloner for Confluence — Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: block; border-radius: 8px;"></iframe>
+          </div>
         </section>
 
         <!-- Technical Specifications -->
         <section id="technical" class="section">
           <h2>🧰 Technical Specifications</h2>
-          
+
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Detail</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Platform</strong></td>
+                <td>Atlassian Forge (Cloud only)</td>
+              </tr>
+              <tr>
+                <td><strong>Product</strong></td>
+                <td>Confluence Cloud</td>
+              </tr>
+              <tr>
+                <td><strong>Installation</strong></td>
+                <td>Atlassian Marketplace</td>
+              </tr>
+              <tr>
+                <td><strong>Licensing</strong></td>
+                <td><span class="badge-pill badge-free">Free — No Charge</span></td>
+              </tr>
+              <tr>
+                <td><strong>Page Batch Limit</strong></td>
+                <td>Up to 25 pages per batch</td>
+              </tr>
+              <tr>
+                <td><strong>Template Search Limit</strong></td>
+                <td>Up to 5,000 Confluence pages</td>
+              </tr>
+              <tr>
+                <td><strong>Data Storage</strong></td>
+                <td>Forge storage — no external servers, data stays in Atlassian cloud</td>
+              </tr>
+              <tr>
+                <td><strong>GDPR</strong></td>
+                <td>Personal data reported weekly to Atlassian's Personal Data Reporting API</td>
+              </tr>
+              <tr>
+                <td><strong>Current Version</strong></td>
+                <td>3.0.0</td>
+              </tr>
+              <tr>
+                <td><strong>Last Updated</strong></td>
+                <td>February 2026</td>
+              </tr>
+            </tbody>
+          </table>
+
           <h3>System Requirements</h3>
           <ul>
-            <li>Confluence Cloud instance</li>
+            <li>Active Confluence Cloud instance</li>
             <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
             <li>Active internet connection</li>
             <li>Appropriate Confluence permissions</li>
           </ul>
 
-          <h3>Compatibility</h3>
-          <ul>
-            <li><strong>Atlassian Product:</strong> Confluence Cloud</li>
-            <li><strong>Supported Versions:</strong> All current Confluence Cloud versions</li>
-            <li><strong>Forward Compatibility:</strong> Automatically compatible with future Cloud updates</li>
-          </ul>
-
-          <h3>Performance</h3>
-          <ul>
-            <li>Optimized for bulk operations</li>
-            <li>Handles up to 5000 pages per batch via browser interface</li>
-            <li>URL-based fallback for larger operations</li>
-            <li>Minimal impact on Confluence performance</li>
-          </ul>
-
           <h3>Permissions Required</h3>
           <ul>
+            <li>Read and write Confluence pages (to load templates and create pages)</li>
             <li>Space administration rights (for space-level operations)</li>
-            <li>Page creation permissions</li>
-            <li>Template access rights</li>
-            <li>Read/write access to target spaces</li>
-          </ul>
-          <h3>Troubleshooting</h3>
-          <h4>Pages Not Creating</h4>
-          <ul>
-            <li>Verify you have page creation permissions in the target space</li>
-            <li>Check that the selected template is available</li>
-            <li>Ensure page titles don't contain invalid characters</li>
           </ul>
 
-          <h4>Template Not Loading</h4>
-          <ul>
-            <li>Confirm the template exists and is accessible</li>
-            <li>Check space-level template permissions</li>
-            <li>Refresh the app interface and try again</li>
-          </ul>
-
-          <h4>Slow Performance</h4>
-          <ul>
-            <li>Reduce batch size for better performance</li>
-            <li>Check network connection stability</li>
-            <li>Consider creating pages in smaller batches</li>
-          </ul>
-
-          <h4>Access Denied Errors</h4>
-          <ul>
-            <li>Verify Confluence space permissions</li>
-            <li>Contact your Confluence administrator for access rights</li>
-            <li>Ensure the app has proper permissions in your instance</li>
-          </ul>
-
-          <h3>Best Practices</h3>
-
-          <h4>Planning Your Page Structure</h4>
-          <ul>
-            <li>Plan your page hierarchy before bulk creation</li>
-            <li>Use consistent naming conventions</li>
-            <li>Consider future organization needs</li>
-          </ul>
-
-          <h4>Template Selection</h4>
-          <ul>
-            <li>Choose appropriate templates for your content type</li>
-            <li>Test with a small batch before large operations</li>
-            <li>Ensure templates meet your formatting requirements</li>
-          </ul>
-
-          <h4>Performance Optimization</h4>
-          <ul>
-            <li>Create pages in batches of 50-100 for optimal performance</li>
-            <li>Avoid special characters in page titles</li>
-            <li>Use numbered sequences for systematic organization</li>
-          </ul>
-        </section>
-
-        <section id="version-info" class="section">
-          <h2>📌 Version Information</h2>
-          <ul>
-            <li><strong>Current Version:</strong> 3.0.0</li>
-            <li><strong>Release Type:</strong> Initial Release</li>
-            <li><strong>Last Updated:</strong> February 2026</li>
-            <li><strong>License:</strong> Commercial - No Charge</li>
-          </ul>
+          <div class="warning">
+            <strong>⚠️ Cloud only:</strong> Bulk Page Cloner is built on Atlassian Forge and runs exclusively on Confluence Cloud. Confluence Server and Data Center are not supported.
+          </div>
         </section>
 
         <section id="privacy-security" class="section">
