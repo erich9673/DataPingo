@@ -58,7 +58,6 @@ _iub.csConfiguration = {
   </script>
   <title>Handoff for Jira | DataPingo</title>
   <meta name="description" content="Handoff for Jira — personal ticket queues, structured handoffs, blocker alerts, and team views, all inside Jira Cloud. Built on Atlassian Forge.">
-  <meta http-equiv="refresh" content="0; url=/">
   <link rel="canonical" href="https://datapingo.com/products/handoff/">
   <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
   <link rel="stylesheet" href="/css/styles.css">
@@ -115,6 +114,7 @@ _iub.csConfiguration = {
         <a href="#" class="nav-link" tabindex="0">Products &#x25BE;</a>
         <div class="dropdown-content">
           <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
+          <a href="/products/handoff/">Handoff for Jira</a>
         </div>
       </div>
       <div class="dropdown">
@@ -265,7 +265,7 @@ _iub.csConfiguration = {
       <nav style="display: none;"></nav>
 
       <div style="display: flex; justify-content: flex-end; margin-bottom: 16px;">
-        <button id="wf-toggle-all-btn" data-expanded="false" onclick="const exp=this.dataset.expanded!=='true';toggleAllWfSections(exp);" style="background:none;border:1px solid #d1d5db;border-radius:6px;padding:6px 14px;font-size:0.85rem;color:#6b7280;cursor:pointer;font-family:inherit;">Expand All</button>
+        <button id="wf-toggle-all-btn" data-expanded="true" onclick="const exp=this.dataset.expanded!=='true';toggleAllWfSections(exp);" style="background:none;border:1px solid #d1d5db;border-radius:6px;padding:6px 14px;font-size:0.85rem;color:#6b7280;cursor:pointer;font-family:inherit;">Collapse All</button>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 24px;">
@@ -395,6 +395,22 @@ _iub.csConfiguration = {
       <h3 style="text-align: center; margin-bottom: 20px;">Get an estimate for your team</h3>
 
       <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 12px; font-weight: 600;">License type:</label>
+        <div style="display: flex; gap: 20px;">
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="radio" name="licenseType" value="standard" checked onchange="calculatePricing()"
+                   style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
+            <span style="font-size: 1rem;">Standard</span>
+          </label>
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="radio" name="licenseType" value="multiInstance" onchange="calculatePricing()"
+                   style="width: 18px; height: 18px; margin-right: 8px; cursor: pointer;">
+            <span style="font-size: 1rem;">Multi-Instance</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
         <label style="display: block; margin-bottom: 12px; font-weight: 600;">Atlassian app billing cycle:</label>
         <div style="display: flex; gap: 20px;">
           <label style="display: flex; align-items: center; cursor: pointer;">
@@ -412,7 +428,7 @@ _iub.csConfiguration = {
 
       <div style="margin-bottom: 20px;">
         <label for="userCount" style="display: block; margin-bottom: 8px; font-weight: 600;">Number of users in your Atlassian app instance</label>
-        <input type="number" id="userCount" placeholder="10" min="1" max="150000"
+        <input type="number" id="userCount" placeholder="10" min="1" max="100000"
                style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem;"
                oninput="calculatePricing()">
       </div>
@@ -438,6 +454,7 @@ _iub.csConfiguration = {
     function calculatePricing() {
       const userCount = parseInt(document.getElementById('userCount').value);
       const billingCycle = document.querySelector('input[name="billingCycle"]:checked').value;
+      const licenseType = document.querySelector('input[name="licenseType"]:checked').value;
       const resultDiv = document.getElementById('pricingResult');
       const totalPriceDiv = document.getElementById('totalPrice');
       const billingPeriodDiv = document.getElementById('billingPeriod');
@@ -450,29 +467,53 @@ _iub.csConfiguration = {
         return;
       }
 
-      const priceTiers = [
-        { min: 1, max: 100, price: 0.5 },
-        { min: 101, max: 250, price: 0.45 },
-        { min: 251, max: 1000, price: 0.35 },
-        { min: 1001, max: 2500, price: 0.25 },
-        { min: 2501, max: 5000, price: 0.25 },
-        { min: 5001, max: 7500, price: 0.2 },
-        { min: 7501, max: 10000, price: 0.2 },
-        { min: 10001, max: 15000, price: 0.17 },
-        { min: 15001, max: 20000, price: 0.17 },
-        { min: 20001, max: 25000, price: 0.17 },
-        { min: 25001, max: 30000, price: 0.17 },
-        { min: 30001, max: 35000, price: 0.17 },
-        { min: 35001, max: 40000, price: 0.17 },
-        { min: 40001, max: 45000, price: 0.17 },
-        { min: 45001, max: 50000, price: 0.17 },
-        { min: 50001, max: 60000, price: 0.17 },
-        { min: 60001, max: 70000, price: 0.17 },
-        { min: 70001, max: 80000, price: 0.17 },
-        { min: 80001, max: 90000, price: 0.17 },
-        { min: 90001, max: 100000, price: 0.17 },
-        { min: 100001, max: 150000, price: 0.17 }
+      const standardTiers = [
+        { min: 1,     max: 100,   price: 0.75 },
+        { min: 101,   max: 250,   price: 0.65 },
+        { min: 251,   max: 1000,  price: 0.50 },
+        { min: 1001,  max: 2500,  price: 0.38 },
+        { min: 2501,  max: 5000,  price: 0.35 },
+        { min: 5001,  max: 7500,  price: 0.30 },
+        { min: 7501,  max: 10000, price: 0.28 },
+        { min: 10001, max: 15000, price: 0.25 },
+        { min: 15001, max: 20000, price: 0.23 },
+        { min: 20001, max: 25000, price: 0.22 },
+        { min: 25001, max: 30000, price: 0.22 },
+        { min: 30001, max: 35000, price: 0.20 },
+        { min: 35001, max: 40000, price: 0.20 },
+        { min: 40001, max: 45000, price: 0.20 },
+        { min: 45001, max: 50000, price: 0.20 },
+        { min: 50001, max: 60000, price: 0.20 },
+        { min: 60001, max: 70000, price: 0.20 },
+        { min: 70001, max: 80000, price: 0.20 },
+        { min: 80001, max: 90000, price: 0.20 },
+        { min: 90001, max: 100000, price: 0.20 }
       ];
+
+      const multiInstanceTiers = [
+        { min: 1,     max: 100,   price: 0.78 },
+        { min: 101,   max: 250,   price: 0.68 },
+        { min: 251,   max: 1000,  price: 0.53 },
+        { min: 1001,  max: 2500,  price: 0.41 },
+        { min: 2501,  max: 5000,  price: 0.38 },
+        { min: 5001,  max: 7500,  price: 0.33 },
+        { min: 7501,  max: 10000, price: 0.31 },
+        { min: 10001, max: 15000, price: 0.28 },
+        { min: 15001, max: 20000, price: 0.26 },
+        { min: 20001, max: 25000, price: 0.25 },
+        { min: 25001, max: 30000, price: 0.25 },
+        { min: 30001, max: 35000, price: 0.23 },
+        { min: 35001, max: 40000, price: 0.23 },
+        { min: 40001, max: 45000, price: 0.23 },
+        { min: 45001, max: 50000, price: 0.23 },
+        { min: 50001, max: 60000, price: 0.23 },
+        { min: 60001, max: 70000, price: 0.23 },
+        { min: 70001, max: 80000, price: 0.23 },
+        { min: 80001, max: 90000, price: 0.23 },
+        { min: 90001, max: 100000, price: 0.23 }
+      ];
+
+      const priceTiers = licenseType === 'multiInstance' ? multiInstanceTiers : standardTiers;
 
       let monthlyTotal = 0;
       if (userCount > 10) {
@@ -491,7 +532,7 @@ _iub.csConfiguration = {
       let userTierRange = '';
       for (const tier of priceTiers) {
         if (userCount >= tier.min && userCount <= tier.max) {
-          userTierRange = `${tier.min.toLocaleString()}-${tier.max.toLocaleString()}`;
+          userTierRange = `${tier.min.toLocaleString()}–${tier.max.toLocaleString()}`;
           break;
         }
       }
@@ -500,13 +541,13 @@ _iub.csConfiguration = {
         totalPriceDiv.textContent = 'USD 0.00';
         billingPeriodDiv.textContent = billingCycle === 'annual' ? 'per year' : 'per month';
         pricePerUserDiv.textContent = 'Free for up to 10 users';
-        userTierDiv.textContent = 'User tier: Up to 10';
+        userTierDiv.textContent = 'User tier: 0–10';
         freeTrialDiv.textContent = '🎉 Your team qualifies for our free tier!';
       } else {
         totalPriceDiv.textContent = `USD ${finalTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         billingPeriodDiv.textContent = billingCycle === 'annual' ? 'per year' : 'per month';
         pricePerUserDiv.textContent = `USD ${averagePricePerUser.toFixed(2)} per user (average)`;
-        userTierDiv.textContent = `User tier: ${userTierRange}`;
+        userTierDiv.textContent = userTierRange ? `User tier: ${userTierRange}` : '';
         freeTrialDiv.textContent = '';
       }
 
@@ -878,6 +919,7 @@ _iub.csConfiguration = {
     }, { rootMargin: '-20% 0px -60% 0px' });
 
     document.querySelectorAll('.wf-step').forEach(el => wfStepObserver.observe(el));
+    toggleAllWfSections(true);
   </script>
 </body>
 </html>
