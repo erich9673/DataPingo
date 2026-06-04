@@ -342,20 +342,35 @@ _iub.csConfiguration = {
             <h3>5.3 Handoff for Jira — Data Handling</h3>
             <p>Handoff for Jira is built with a security-first, zero-external-server approach:</p>
             <ul>
-                <li><strong>Storage:</strong> All app data (queues, handoffs, blocker alerts, inbox, sent records, and team data) is stored exclusively in Atlassian Forge KV Storage — no data leaves Atlassian's cloud infrastructure</li>
+                <li><strong>Storage:</strong> All app data (queues, handoffs, and team data) is stored exclusively in Atlassian Forge KV Storage — no data leaves Atlassian's cloud infrastructure</li>
                 <li><strong>Minimum Permissions:</strong> Only four scopes are requested, each with a specific purpose:
                     <ul style="margin-top: 8px;">
                         <li><code>read:jira-work</code> — read Jira issues and project data for queue browsing and handoff workflows</li>
-                        <li><code>write:jira-work</code> — post ADF comments to Jira issues for handoff and blocker audit trails only; the app does not create, edit, or delete issues</li>
+                        <li><code>write:jira-work</code> — post ADF comments to Jira issues for handoff audit trails only; the app does not create, edit, or delete issues</li>
                         <li><code>read:jira-user</code> — fetch user display names for sender attribution in handoff records and @mentions in comments</li>
                         <li><code>storage:app</code> — read and write Forge KV Storage for all app state</li>
                     </ul>
                 </li>
-                <li><strong>Audit Trail:</strong> Handoff and blocker alert events post rich ADF comments (with @mentions and hyperlinks) directly to Jira tickets, keeping a full history on the issue itself with no external log storage</li>
+                <li><strong>Audit Trail:</strong> Handoff events post rich ADF comments (with @mentions and hyperlinks) directly to Jira tickets, keeping a full history on the issue itself with no external log storage</li>
                 <li><strong>GDPR Compliance:</strong> Sender display names stored in handoff records are tracked in a personal data index. A weekly Forge scheduled trigger reports all stored account IDs to Atlassian's Personal Data Reporting API — handling automatic erasure when an account is closed and display name refresh when a user updates their profile</li>
                 <li><strong>Licensing:</strong> Access is gated through Atlassian Marketplace licensing — only licensed Jira Cloud users on an active subscription can access the app</li>
                 <li><strong>Runtime:</strong> nodejs24.x on arm64, 256 MB memory — fully managed and sandboxed by Atlassian Forge</li>
                 <li><strong>App ID:</strong> b64e8d8a-a3f6-4692-8c1b-279f0c30b74b</li>
+            </ul>
+
+            <h3>5.4 Bulk Page Cloner for Confluence — Data Handling</h3>
+            <p>Bulk Page Cloner is built on the same zero-external-server approach:</p>
+            <ul>
+                <li><strong>Read scope only:</strong> The app reads the selected template page's content, formatting, macros, and labels in order to generate clones. No page data is stored by the app — it is read from Confluence, used to create the clones, and immediately discarded</li>
+                <li><strong>Permissions:</strong>
+                    <ul>
+                        <li><code>read:confluence-content.all</code> — read the selected template page to copy its content, formatting, macros, and labels</li>
+                        <li><code>write:confluence-content</code> — create the cloned pages in the chosen Confluence space</li>
+                        <li><code>storage:app</code> — read and write Forge KV Storage for app state</li>
+                    </ul>
+                </li>
+                <li><strong>No personal data stored:</strong> The app does not store any Confluence page content, user data, or metadata on external servers</li>
+                <li><strong>Licensing:</strong> Access is gated through Atlassian Marketplace licensing — only licensed Confluence Cloud users on an active subscription can access the app</li>
             </ul>
 
             <h2>6. Incident Response and Business Continuity</h2>
@@ -379,60 +394,25 @@ _iub.csConfiguration = {
                 <li>Regular disaster recovery testing</li>
             </ul>
 
-            <h2>7. Compliance and Certifications</h2>
-            <table class="compliance-table">
-                <thead>
-                    <tr>
-                        <th>Standard/Regulation</th>
-                        <th>Status</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>SOC 2 Type II</strong></td>
-                        <td>Compliant</td>
-                        <td>Security, availability, and confidentiality controls</td>
-                    </tr>
-                    <tr>
-                        <td><strong>GDPR</strong></td>
-                        <td>Compliant</td>
-                        <td>European Union data protection regulation</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CCPA</strong></td>
-                        <td>Compliant</td>
-                        <td>California Consumer Privacy Act</td>
-                    </tr>
-                    <tr>
-                        <td><strong>ISO 27001</strong></td>
-                        <td>In Progress</td>
-                        <td>Information security management systems</td>
-                    </tr>
-                </tbody>
-            </table>
 
-            <h2>8. Vulnerability Management</h2>
-            <h3>8.1 Vulnerability Assessment</h3>
+            <h2>7. Vulnerability Management</h2>
+            <h3>7.1 Vulnerability Assessment</h3>
             <p>DataPingo conducts regular security assessments:</p>
             <ul>
-                <li>Quarterly penetration testing by certified security firms</li>
-                <li>Continuous vulnerability scanning of infrastructure</li>
                 <li>Regular security code reviews</li>
-                <li>Bug bounty program for responsible disclosure</li>
+                <li>Dependency and library vulnerability monitoring</li>
             </ul>
 
-            <h3>8.2 Patch Management</h3>
-            <p>We maintain a comprehensive patch management program:</p>
+            <h3>7.2 Patch Management</h3>
+            <p>We maintain an active patch management practice:</p>
             <ul>
-                <li>Critical security patches applied within 24 hours</li>
-                <li>Regular security updates for all systems and dependencies</li>
-                <li>Automated vulnerability scanning and alerting</li>
+                <li>Security patches applied promptly upon release</li>
+                <li>Regular updates for all dependencies</li>
                 <li>Change management processes for security updates</li>
             </ul>
 
-            <h2>9. Employee Security</h2>
-            <h3>9.1 Security Awareness Training</h3>
+            <h2>8. Employee Security</h2>
+            <h3>8.1 Security Awareness Training</h3>
             <p>All DataPingo employees receive comprehensive security training:</p>
             <ul>
                 <li>Initial security orientation for new employees</li>
@@ -441,13 +421,13 @@ _iub.csConfiguration = {
                 <li>Incident response training for relevant personnel</li>
             </ul>
 
-            <h3>9.2 Background Checks</h3>
+            <h3>8.2 Background Checks</h3>
             <p>
                 All employees with access to customer data undergo background verification appropriate to their role and local regulations.
             </p>
 
-            <h2>10. Data Breach Notification</h2>
-            <h3>10.1 Notification Timeline</h3>
+            <h2>9. Data Breach Notification</h2>
+            <h3>9.1 Notification Timeline</h3>
             <p>In the event of a security incident affecting customer data:</p>
             <ul>
                 <li><strong>Internal notification:</strong> Immediate (within 1 hour)</li>
@@ -456,7 +436,7 @@ _iub.csConfiguration = {
                 <li><strong>Public disclosure:</strong> As legally required or appropriate</li>
             </ul>
 
-            <h3>10.2 Notification Content</h3>
+            <h3>9.2 Notification Content</h3>
             <p>Security incident notifications will include:</p>
             <ul>
                 <li>Nature and scope of the incident</li>
@@ -477,7 +457,7 @@ _iub.csConfiguration = {
                 </ul>
             </div>
 
-            <h2>11. Third-Party Security</h2>
+            <h2>10. Third-Party Security</h2>
             <h3>11.1 Vendor Risk Management</h3>
             <p>DataPingo evaluates and monitors the security practices of all third-party vendors:</p>
             <ul>
@@ -487,7 +467,7 @@ _iub.csConfiguration = {
                 <li>Business associate agreements where applicable</li>
             </ul>
 
-            <h2>12. Policy Updates and Review</h2>
+            <h2>11. Policy Updates and Review</h2>
             <p>
                 This Security Policy is reviewed annually and updated as necessary to reflect changes in our security practices, regulatory requirements, and industry standards. Customers will be notified of material changes through our website and direct communication.
             </p>
