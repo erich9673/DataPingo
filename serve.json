@@ -41,6 +41,8 @@
     { "source": "/resources/blog/introducing-bulk-page-cloner", "destination": "/resources/blog/introducing-bulk-page-cloner/index.html" },
     { "source": "/resources/blog/introducing-bulk-page-cloner/", "destination": "/resources/blog/introducing-bulk-page-cloner/index.html" },
     { "source": "/resources/use-cases", "destination": "/resources/use-cases.html" },
+    { "source": "/resources/use-cases/recurring-confluence-pages", "destination": "/resources/use-cases/recurring-confluence-pages/index.html" },
+    { "source": "/resources/use-cases/recurring-confluence-pages/", "destination": "/resources/use-cases/recurring-confluence-pages/index.html" },
 
     { "source": "/mobile/company/about-us", "destination": "/mobile/company/about-us.html" },
     { "source": "/mobile/company/careers", "destination": "/mobile/company/careers.html" },

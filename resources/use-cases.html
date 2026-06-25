@@ -82,11 +82,237 @@
     });
   </script>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>DataPingo Use Cases</h1>
-    <p>Coming soon</p>
+  <style>
+    /* ── Use Cases Index ── */
+    .uc-index-hero {
+      background: linear-gradient(135deg, #1e1344 0%, #3b1fa8 50%, #0d9488 100%);
+      padding: 80px 40px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .uc-index-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(139,92,246,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(20,184,166,0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .uc-index-hero h1 {
+      color: #fff;
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin: 0 0 16px;
+      position: relative;
+    }
+    .uc-index-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+    .uc-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .uc-filter-btn {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85);
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .uc-filter-btn:hover,
+    .uc-filter-btn.active {
+      background: #8B5CF6;
+      border-color: #8B5CF6;
+      color: #fff;
+    }
+
+    /* Card grid */
+    .uc-grid-section {
+      padding: 56px 40px 80px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .uc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .uc-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: box-shadow 0.25s, transform 0.25s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .uc-card:hover {
+      box-shadow: 0 12px 32px rgba(139,92,246,0.15);
+      transform: translateY(-4px);
+    }
+    /* Visual header area */
+    .uc-card-visual {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .uc-card-visual.confluence {
+      background: linear-gradient(135deg, #3b1fa8 0%, #6D28D9 50%, #8B5CF6 100%);
+    }
+    .uc-card-visual.jira {
+      background: linear-gradient(135deg, #0d6efd 0%, #0891b2 100%);
+    }
+    /* Decorative shapes */
+    .uc-card-visual::before,
+    .uc-card-visual::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+    }
+    .uc-card-visual::before {
+      width: 180px; height: 180px;
+      background: #fff;
+      top: -60px; right: -40px;
+    }
+    .uc-card-visual::after {
+      width: 120px; height: 120px;
+      background: #fff;
+      bottom: -50px; left: -20px;
+    }
+    .uc-card-visual-icon {
+      font-size: 3rem;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+    }
+    .uc-card-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Card body */
+    .uc-card-body {
+      padding: 24px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .uc-tag {
+      display: inline-block;
+      background: #f5f3ff;
+      color: #7C3AED;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .uc-card-body h2 {
+      color: #1f2937;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+    .uc-card-body p {
+      color: #6b7280;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      flex: 1;
+      margin: 0 0 20px;
+    }
+    .uc-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #7C3AED;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: gap 0.2s;
+    }
+    .uc-card:hover .uc-card-cta {
+      gap: 10px;
+    }
+
+    /* Hidden cards for filter */
+    .uc-card-wrap.hidden { display: none; }
+
+    @media (max-width: 700px) {
+      .uc-index-hero h1 { font-size: 1.8rem; }
+      .uc-index-hero { padding: 56px 24px 64px; }
+      .uc-grid-section { padding: 36px 20px 60px; }
+      .uc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- HERO -->
+  <section class="uc-index-hero">
+    <h1>Use Cases</h1>
+    <p>Real-world workflows teams use to save time on repetitive documentation tasks</p>
+    <div class="uc-filter-bar">
+      <button class="uc-filter-btn active" onclick="filterUC('all', this)">All</button>
+      <button class="uc-filter-btn" onclick="filterUC('confluence', this)">Confluence</button>
+      <button class="uc-filter-btn" onclick="filterUC('jira', this)">Jira</button>
+    </div>
   </section>
+
+  <!-- CARD GRID -->
+  <div class="uc-grid-section">
+    <div class="uc-grid" id="uc-grid">
+
+      <div class="uc-card-wrap" data-tags="confluence">
+        <a href="/resources/use-cases/recurring-confluence-pages/" class="uc-card">
+          <div class="uc-card-visual confluence">
+            <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:80px;height:80px;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.25));">
+          </div>
+          <div class="uc-card-body">
+            <span class="uc-tag">Confluence</span>
+            <h2>Recurring Confluence Page Creation</h2>
+            <p>A practical workflow for teams that repeatedly create the same page structure — sprint retros, monthly reports, onboarding docs, and more.</p>
+            <span class="uc-card-cta">See how it works →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Add more cards here following the same pattern -->
+
+    </div>
+  </div>
+
+  <script>
+    function filterUC(tag, btn) {
+      document.querySelectorAll('.uc-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.uc-card-wrap').forEach(card => {
+        const tags = card.dataset.tags || '';
+        card.classList.toggle('hidden', tag !== 'all' && !tags.includes(tag));
+      });
+    }
+  </script>
 
   <!-- FOOTER -->
   <footer>
