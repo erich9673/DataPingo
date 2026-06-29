@@ -1,482 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <!-- iubenda Cookie Solution -->
-    <script type="text/javascript">
-var _iub = _iub || [];
-_iub.csConfiguration = {
-  "siteId": 47551801,
-  "cookiePolicyId": 47551801,
-  "lang": "en",
-  "banner": {
-    "position": "bottom",
-    "backgroundColor": "#6366F1",
-    "textColor": "#ffffff",
-    "acceptButtonDisplay": true,
-    "acceptButtonColor": "#8B5CF6",
-    "acceptButtonCaptionColor": "#ffffff",
-    "rejectButtonDisplay": true,
-    "rejectButtonColor": "#ffffff",
-    "rejectButtonCaptionColor": "#6366F1",
-    "closeButtonDisplay": false,
-    "customizeButtonDisplay": true,
-    "customizeButtonColor": "#ffffff",
-    "customizeButtonCaptionColor": "#6366F1",
-    "fontSize": "14px",
-    "content": "We (datapingo.com) and selected third parties (7) collect personal information as specified in the privacy policy and use cookies or similar technologies for technical purposes and, with your consent, for experience, measurement and \"marketing (personalized ads)\" as specified in the cookie policy.<br><br>You can freely give, deny, or withdraw your consent at any time by accessing the preferences panel. Denying consent may make related features unavailable.<br><br>Use the \"Accept all\" button to consent. Use the \"Reject all\" button to continue without accepting."
-  }
-};
-    </script>
-    <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-    <!-- End iubenda Cookie Solution -->
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
-    <!-- End Google Tag Manager -->
-    <meta name="description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence and Jira apps.">
-    <title>Security Policy - DataPingo</title>
-    <link rel="icon" type="image/png" href="/assets/img/DataPingo logo_LOGO A3.png">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="/assets/css/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/assets/css/theme.css"></noscript>
-    <style>
-        .terms-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        .terms-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #007bff;
-        }
-        .terms-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-        .terms-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin: 0;
-        }
-        .terms-meta {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #007bff;
-        }
-        .terms-meta p {
-            margin: 5px 0;
-            font-size: 0.95rem;
-        }
-        .terms-content h2 {
-            color: #007bff;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .terms-content h3 {
-            color: #495057;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .terms-content h4 {
-            color: #495057;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 25px;
-            margin-bottom: 12px;
-        }
-        .terms-content p {
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-        .terms-content ul, .terms-content ol {
-            margin-bottom: 20px;
-            padding-left: 25px;
-        }
-        .terms-content li {
-            margin-bottom: 8px;
-        }
-        .terms-content strong {
-            color: #007bff;
-            font-weight: 600;
-        }
-        .security-highlight {
-            background: #e7f3ff;
-            border: 1px solid #007bff;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 25px 0;
-        }
-        .security-highlight h3 {
-            color: #007bff;
-            margin-top: 0;
-        }
-        .contact-section {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 4px solid #dc3545;
-        }
-        .contact-section h3 {
-            color: #dc3545;
-            margin-top: 0;
-        }
-        .update-notice {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .compliance-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .compliance-table thead {
-            background: #007bff;
-            color: white;
-        }
-        .compliance-table th,
-        .compliance-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        .compliance-table th {
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .compliance-table tbody tr:hover {
-            background: #f8f9fa;
-        }
-        .compliance-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-        @media (max-width: 768px) {
-            .terms-container {
-                padding: 20px 15px;
-            }
-            .terms-title {
-                font-size: 2rem;
-            }
-            .terms-content h2 {
-                font-size: 1.5rem;
-            }
-            .compliance-table {
-                font-size: 14px;
-            }
-            .compliance-table th,
-            .compliance-table td {
-                padding: 8px 12px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Policy | DataPingo</title>
+  <meta name="description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence and Jira apps.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.datapingo.com/security.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.datapingo.com/security.html">
+  <meta property="og:title" content="Security Policy | DataPingo">
+  <meta property="og:description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence and Jira apps.">
+  <meta property="og:site_name" content="DataPingo">
+  <link rel="icon" type="image/jpeg" href="assets/img/favicon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/aurora.css">
+  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
 
-    <div class="terms-container">
-        <a href="/" class="back-link">← Back to Home</a>
-        
-        <header class="terms-header">
-            <h1 class="terms-title">🔒 Security Policy</h1>
-            <p class="terms-subtitle">Our commitment to protecting your data and maintaining security standards</p>
-        </header>
-
-        <div class="terms-meta">
-            <p><strong>Effective Date:</strong> January 1, 2025</p>
-            <p><strong>Last Updated:</strong> May 12, 2026</p>
-            <p><strong>Company:</strong> DataPingo</p>
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-page-cloner/" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/handoff/" role="menuitem">Handoff for Jira</a>
+          </div>
         </div>
-
-        <div class="security-highlight">
-            <h3>🛡️ Security at a Glance</h3>
-            <p>DataPingo is committed to maintaining the highest standards of security and data protection for our Atlassian Marketplace applications. Built on Atlassian's secure Forge platform, our applications benefit from enterprise-grade security while maintaining our own rigorous security practices for customer data protection.</p>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
         </div>
-
-        <div class="terms-content">
-            <h2>1. Information Security Framework</h2>
-            <h3>1.1 Security Governance</h3>
-            <p>
-                DataPingo maintains a comprehensive information security program based on industry best practices and regulatory requirements. Our security framework is continuously reviewed and updated to address emerging threats and maintain compliance with relevant standards.
-            </p>
-
-            <h3>1.2 Security Policies and Procedures</h3>
-            <p>We maintain documented security policies covering:</p>
-            <ul>
-                <li>Data classification and handling procedures</li>
-                <li>Access control and identity management</li>
-                <li>Incident response and business continuity</li>
-                <li>Vendor risk management</li>
-                <li>Security awareness and training</li>
-            </ul>
-
-            <h2>2. Data Protection and Privacy</h2>
-            <h3>2.1 Data Encryption</h3>
-            <p>All customer data is protected using industry-standard encryption:</p>
-            <ul>
-                <li><strong>Data in Transit:</strong> TLS 1.3 encryption for all data transmission</li>
-                <li><strong>Data at Rest:</strong> AES-256 encryption for stored data</li>
-                <li><strong>API Communications:</strong> HTTPS with certificate pinning</li>
-                <li><strong>Database Encryption:</strong> Encrypted database storage with key rotation</li>
-            </ul>
-
-            <h3>2.2 Data Minimization</h3>
-            <p>
-                DataPingo follows the principle of data minimization, collecting and processing only the data necessary to provide our services. We implement automated data retention policies and secure data disposal procedures.
-            </p>
-
-            <h3>2.3 Privacy Compliance</h3>
-            <p>Our data handling practices comply with major privacy regulations:</p>
-            <ul>
-                <li><strong>GDPR</strong> (General Data Protection Regulation)</li>
-                <li><strong>CCPA</strong> (California Consumer Privacy Act)</li>
-                <li><strong>PIPEDA</strong> (Personal Information Protection and Electronic Documents Act)</li>
-                <li><strong>SOC 2 Type II</strong> compliance framework</li>
-            </ul>
-
-            <h2>3. Infrastructure Security</h2>
-            <h3>3.1 Cloud Security</h3>
-            <p>
-                DataPingo leverages enterprise-grade cloud infrastructure with multiple layers of security controls:
-            </p>
-            <ul>
-                <li>Multi-factor authentication for all administrative access</li>
-                <li>Network segmentation and micro-segmentation</li>
-                <li>Distributed Denial of Service (DDoS) protection</li>
-                <li>Real-time security monitoring and threat detection</li>
-                <li>Regular security assessments and penetration testing</li>
-            </ul>
-
-            <h3>3.2 Access Controls</h3>
-            <p>We implement comprehensive access control measures:</p>
-            <ul>
-                <li><strong>Role-Based Access Control (RBAC):</strong> Principle of least privilege</li>
-                <li><strong>Multi-Factor Authentication:</strong> Required for all system access</li>
-                <li><strong>Session Management:</strong> Automatic session timeouts and secure tokens</li>
-                <li><strong>Audit Logging:</strong> Comprehensive logging of all access and actions</li>
-            </ul>
-
-            <h2>4. Application Security</h2>
-            <h3>4.1 Secure Development Lifecycle</h3>
-            <p>DataPingo follows secure coding practices and implements security throughout the development lifecycle:</p>
-            <ul>
-                <li>Security code reviews and static analysis</li>
-                <li>Dynamic application security testing (DAST)</li>
-                <li>Dependency vulnerability scanning</li>
-                <li>Regular security updates and patch management</li>
-            </ul>
-
-            <h3>4.2 API Security</h3>
-            <p>Our APIs are secured using industry best practices:</p>
-            <ul>
-                <li>OAuth 2.0 and OpenID Connect authentication</li>
-                <li>Rate limiting and throttling</li>
-                <li>Input validation and sanitization</li>
-                <li>API versioning and deprecation policies</li>
-            </ul>
-
-            <h2>5. Third-Party Integrations</h2>
-            <h3>5.1 Atlassian Marketplace Security</h3>
-            <p>
-                DataPingo apps in the Atlassian Marketplace undergo rigorous security reviews and comply with Atlassian's security requirements:
-            </p>
-            <ul>
-                <li>Secure data handling for Jira, Confluence, and other Atlassian products</li>
-                <li>Compliance with Atlassian's data residency requirements</li>
-                <li>Regular security assessments and updates</li>
-                <li>Transparent data usage and permissions</li>
-            </ul>
-
-            <h3>5.2 Atlassian Forge Platform Security</h3>
-            <p>Our applications are built on and hosted by Atlassian's secure Forge platform:</p>
-            <ul>
-                <li>Leverages Atlassian's enterprise-grade infrastructure security</li>
-                <li>Automatic security updates and patches through Forge platform</li>
-                <li>Isolated execution environment for enhanced security</li>
-                <li>Secure API access using Atlassian's authentication mechanisms</li>
-                <li>Compliance with Atlassian's security and privacy requirements</li>
-            </ul>
-
-            <h3>5.3 Handoff for Jira — Data Handling</h3>
-            <p>Handoff for Jira is built with a security-first, zero-external-server approach:</p>
-            <ul>
-                <li><strong>Storage:</strong> All app data (queues, handoffs, and team data) is stored exclusively in Atlassian Forge KV Storage — no data leaves Atlassian's cloud infrastructure</li>
-                <li><strong>Minimum Permissions:</strong> Only four scopes are requested, each with a specific purpose:
-                    <ul style="margin-top: 8px;">
-                        <li><code>read:jira-work</code> — read Jira issues and project data for queue browsing and handoff workflows</li>
-                        <li><code>write:jira-work</code> — post ADF comments to Jira issues for handoff audit trails only; the app does not create, edit, or delete issues</li>
-                        <li><code>read:jira-user</code> — fetch user display names for sender attribution in handoff records and @mentions in comments</li>
-                        <li><code>storage:app</code> — read and write Forge KV Storage for all app state</li>
-                    </ul>
-                </li>
-                <li><strong>Audit Trail:</strong> Handoff events post rich ADF comments (with @mentions and hyperlinks) directly to Jira tickets, keeping a full history on the issue itself with no external log storage</li>
-                <li><strong>GDPR Compliance:</strong> Sender display names stored in handoff records are tracked in a personal data index. A weekly Forge scheduled trigger reports all stored account IDs to Atlassian's Personal Data Reporting API — handling automatic erasure when an account is closed and display name refresh when a user updates their profile</li>
-                <li><strong>Licensing:</strong> Access is gated through Atlassian Marketplace licensing — only licensed Jira Cloud users on an active subscription can access the app</li>
-                <li><strong>Runtime:</strong> nodejs24.x on arm64, 256 MB memory — fully managed and sandboxed by Atlassian Forge</li>
-                <li><strong>App ID:</strong> b64e8d8a-a3f6-4692-8c1b-279f0c30b74b</li>
-            </ul>
-
-            <h3>5.4 Bulk Page Cloner for Confluence — Data Handling</h3>
-            <p>Bulk Page Cloner is built on the same zero-external-server approach:</p>
-            <ul>
-                <li><strong>Read scope only:</strong> The app reads the selected template page's content, formatting, macros, and labels in order to generate clones. No page data is stored by the app — it is read from Confluence, used to create the clones, and immediately discarded</li>
-                <li><strong>Permissions:</strong>
-                    <ul>
-                        <li><code>read:confluence-content.all</code> — read the selected template page to copy its content, formatting, macros, and labels</li>
-                        <li><code>write:confluence-content</code> — create the cloned pages in the chosen Confluence space</li>
-                        <li><code>storage:app</code> — read and write Forge KV Storage for app state</li>
-                    </ul>
-                </li>
-                <li><strong>No personal data stored:</strong> The app does not store any Confluence page content, user data, or metadata on external servers</li>
-                <li><strong>Licensing:</strong> Access is gated through Atlassian Marketplace licensing — only licensed Confluence Cloud users on an active subscription can access the app</li>
-            </ul>
-
-            <h2>6. Incident Response and Business Continuity</h2>
-            <h3>6.1 Security Incident Response</h3>
-            <p>DataPingo maintains a comprehensive incident response plan:</p>
-            <ul>
-                <li><strong>Detection:</strong> 24/7 security monitoring and alerting</li>
-                <li><strong>Response:</strong> Defined escalation procedures and response team</li>
-                <li><strong>Containment:</strong> Immediate isolation and mitigation procedures</li>
-                <li><strong>Recovery:</strong> Systematic restoration and validation processes</li>
-                <li><strong>Communication:</strong> Timely notification to affected customers</li>
-            </ul>
-
-            <h3>6.2 Business Continuity</h3>
-            <p>We maintain robust business continuity measures:</p>
-            <ul>
-                <li>Automated backup systems with 99.9% durability</li>
-                <li>Disaster recovery sites in multiple geographic regions</li>
-                <li>Recovery Time Objective (RTO): 4 hours</li>
-                <li>Recovery Point Objective (RPO): 1 hour</li>
-                <li>Regular disaster recovery testing</li>
-            </ul>
-
-
-            <h2>7. Vulnerability Management</h2>
-            <h3>7.1 Vulnerability Assessment</h3>
-            <p>DataPingo conducts regular security assessments:</p>
-            <ul>
-                <li>Regular security code reviews</li>
-                <li>Dependency and library vulnerability monitoring</li>
-            </ul>
-
-            <h3>7.2 Patch Management</h3>
-            <p>We maintain an active patch management practice:</p>
-            <ul>
-                <li>Security patches applied promptly upon release</li>
-                <li>Regular updates for all dependencies</li>
-                <li>Change management processes for security updates</li>
-            </ul>
-
-            <h2>8. Employee Security</h2>
-            <h3>8.1 Security Awareness Training</h3>
-            <p>All DataPingo employees receive comprehensive security training:</p>
-            <ul>
-                <li>Initial security orientation for new employees</li>
-                <li>Annual security awareness training</li>
-                <li>Phishing simulation exercises</li>
-                <li>Incident response training for relevant personnel</li>
-            </ul>
-
-            <h3>8.2 Background Checks</h3>
-            <p>
-                All employees with access to customer data undergo background verification appropriate to their role and local regulations.
-            </p>
-
-            <h2>9. Data Breach Notification</h2>
-            <h3>9.1 Notification Timeline</h3>
-            <p>In the event of a security incident affecting customer data:</p>
-            <ul>
-                <li><strong>Internal notification:</strong> Immediate (within 1 hour)</li>
-                <li><strong>Customer notification:</strong> Within 72 hours of confirmation</li>
-                <li><strong>Regulatory notification:</strong> As required by applicable laws</li>
-                <li><strong>Public disclosure:</strong> As legally required or appropriate</li>
-            </ul>
-
-            <h3>9.2 Notification Content</h3>
-            <p>Security incident notifications will include:</p>
-            <ul>
-                <li>Nature and scope of the incident</li>
-                <li>Types of data potentially affected</li>
-                <li>Steps taken to contain and remediate the incident</li>
-                <li>Recommended actions for affected customers</li>
-                <li>Contact information for questions and support</li>
-            </ul>
-
-            <div class="contact-section">
-                <h3>🚨 Security Contact Information</h3>
-                <p>For security-related inquiries, vulnerability reports, or incident notifications:</p>
-                <ul>
-                    <li><strong>Email:</strong> <a href="mailto:contact@datapingo.com">contact@datapingo.com</a></li>
-                    <li><strong>Website:</strong> <a href="https://datapingo.com">datapingo.com</a></li>
-                    <li><strong>Response Time:</strong> We respond to security reports within 24-48 hours</li>
-                    <li><strong>Legal:</strong> <a href="https://www.iubenda.com/privacy-policy/47551801" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a> | <a href="/terms">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <h2>10. Third-Party Security</h2>
-            <h3>11.1 Vendor Risk Management</h3>
-            <p>DataPingo evaluates and monitors the security practices of all third-party vendors:</p>
-            <ul>
-                <li>Security questionnaires and assessments</li>
-                <li>Contractual security requirements</li>
-                <li>Regular vendor security reviews</li>
-                <li>Business associate agreements where applicable</li>
-            </ul>
-
-            <h2>11. Policy Updates and Review</h2>
-            <p>
-                This Security Policy is reviewed annually and updated as necessary to reflect changes in our security practices, regulatory requirements, and industry standards. Customers will be notified of material changes through our website and direct communication.
-            </p>
-
-            <div class="update-notice">
-                <p><em>This Security Policy was last updated on February 16, 2026. For the most current version, please visit <a href="https://datapingo.com/security">datapingo.com/security</a></em></p>
-            </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
+            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+          </div>
         </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blog</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation/" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Get on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
     </div>
-    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+  <nav>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-page-cloner/" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/handoff/" class="mobile-nav-link">Handoff for Jira</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
+      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blog</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation/" class="mobile-nav-link">Documentation</a>
+    </div>
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      Get on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </nav>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow">Legal</p>
+      <h1>Security <span class="grad-text">Policy</span></h1>
+      <p class="hero-sub">Our commitment to protecting your data and maintaining security standards.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="section-wrap page-content-max">
+
+      <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> June 29, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+      </div>
+
+      <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
+        <h3 style="color:var(--teal);margin-top:0;margin-bottom:12px;">Security at a Glance</h3>
+        <p style="color:var(--slate);margin:0;">DataPingo builds exclusively on Atlassian's Forge platform. All infrastructure, hosting, encryption, and runtime security is provided and managed by Atlassian. DataPingo does not operate independent servers, databases, or cloud infrastructure. We do not hold any third-party security certifications (such as SOC 2, ISO 27001, or PCI-DSS) independently — our security posture is inherited from and governed by Atlassian's platform.</p>
+      </div>
+
+      <h2>1. Platform &amp; Infrastructure</h2>
+      <h3>1.1 Atlassian Forge</h3>
+      <p>All DataPingo apps are built on <a href="https://developer.atlassian.com/platform/forge/" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Forge</a> — Atlassian's hosted serverless platform. This means:</p>
+      <ul>
+        <li><strong>No external servers:</strong> DataPingo does not run or manage any servers, databases, or cloud infrastructure outside of Atlassian.</li>
+        <li><strong>No data egress:</strong> App code runs inside Atlassian's infrastructure. Data never leaves Atlassian's environment to reach DataPingo systems.</li>
+        <li><strong>Atlassian-managed security:</strong> Encryption, network security, runtime isolation, and infrastructure hardening are all handled by Atlassian.</li>
+        <li><strong>Automatic updates:</strong> The Forge runtime receives security patches from Atlassian automatically.</li>
+      </ul>
+      <p>For full details on Atlassian's infrastructure security, see <a href="https://www.atlassian.com/trust/security" target="_blank" rel="noopener" style="color:var(--teal);">atlassian.com/trust/security</a>.</p>
+
+      <h2>2. Data Handling</h2>
+      <h3>2.1 What Data Each App Accesses</h3>
+
+      <h4>Bulk Page Cloner for Confluence</h4>
+      <ul>
+        <li><strong>Read scope:</strong> Reads the selected template page (content, formatting, macros, labels) only at the moment of cloning. No page data is retained by the app after the operation completes.</li>
+        <li><strong>Write scope:</strong> Creates new Confluence pages in the destination space/parent chosen by the user.</li>
+        <li><strong>App storage:</strong> Uses Forge KV Storage for app state (e.g. UI preferences). This storage is isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
+        <li><strong>No personal data stored:</strong> The app does not collect, log, or store Confluence page content, user identifiers, or metadata on any external system.</li>
+      </ul>
+
+      <h4>Handoff for Jira</h4>
+      <ul>
+        <li><strong>Read scope:</strong> Reads Jira issue details (summary, status, assignee) to populate the queue and handoff views.</li>
+        <li><strong>Write scope:</strong> Posts ADF comments on Jira issues to record handoff history, and writes queue state to Forge storage.</li>
+        <li><strong>App storage:</strong> Queue order and handoff records are stored in Forge KV Storage — isolated within your Atlassian tenant.</li>
+        <li><strong>No external transmission:</strong> No Jira issue data, user names, or queue contents are sent to DataPingo or any third party.</li>
+      </ul>
+
+      <h3>2.2 Data Minimization</h3>
+      <p>Both apps request only the Atlassian API scopes necessary to deliver their core functionality. Scopes are listed in each app's Marketplace listing under the Privacy &amp; Security tab.</p>
+
+      <h3>2.3 GDPR &amp; Personal Data</h3>
+      <p>DataPingo reports personal data usage to Atlassian's Personal Data Reporting API as required for Marketplace apps. This includes declaring what categories of personal data (e.g. Atlassian account IDs) each app processes and for what purpose. No personal data is stored outside of Atlassian's infrastructure.</p>
+
+      <h2>3. Atlassian Marketplace Trust &amp; Compliance</h2>
+      <p>All DataPingo apps are reviewed and listed on the Atlassian Marketplace. By listing on the Marketplace, apps must comply with:</p>
+      <ul>
+        <li><a href="https://developer.atlassian.com/platform/marketplace/partner-program-agreement/" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace Partner Agreement</a></li>
+        <li><a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Privacy Policy</a></li>
+        <li>Atlassian's data residency, security, and personal data reporting requirements</li>
+      </ul>
+      <p>DataPingo does not hold independent certifications such as SOC 2 Type II, ISO 27001, or PCI-DSS. Security assurances are provided through Atlassian's platform compliance.</p>
+
+      <h2>4. Access &amp; Permissions</h2>
+      <p>DataPingo team members do not have access to your Atlassian data. App code runs in an isolated Forge sandbox within Atlassian's infrastructure — DataPingo cannot query or extract tenant data outside of what the app surfaces to the authenticated user.</p>
+
+      <h2>5. Incident Response</h2>
+      <p>If you discover a security vulnerability or data concern related to a DataPingo app:</p>
+      <ul>
+        <li>Email <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a> with a description of the issue.</li>
+        <li>We aim to acknowledge reports within 2 business days and provide a resolution timeline.</li>
+        <li>For platform-level security issues (Forge infrastructure, Atlassian APIs), please also report to <a href="https://www.atlassian.com/trust/security/security-bug-bounty-program" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian's bug bounty program</a>.</li>
+      </ul>
+
+      <h2>6. Policy Updates</h2>
+      <p>This page is updated when DataPingo's data handling practices change. Material changes will be announced via our website. Continued use of our apps constitutes acceptance of the current policy.</p>
+
+      <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px;">
+        <h3 style="color:var(--white);margin-top:0;margin-bottom:16px;">Contact</h3>
+        <ul style="color:var(--slate);margin:0;">
+          <li><strong style="color:var(--white);">Email:</strong> <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a></li>
+          <li><strong style="color:var(--white);">Support:</strong> <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Support portal</a></li>
+          <li><strong style="color:var(--white);">Legal:</strong> <a href="/privacy.html" style="color:var(--teal);">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms.html" style="color:var(--teal);">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: June 29, 2026</em></p>
+
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://formspree.io/f/mjgarwpg" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <a href="/products/bulk-page-cloner/">Bulk Page Cloner for Confluence</a>
+        <a href="/products/handoff/">Handoff for Jira</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-partner">Become a Partner</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/resources/blog">Updates &amp; Blog</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation/">Documentation</a>
+        <a href="/support.html">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo, Inc. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/security.html">Security</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+  const mobileMenu = document.getElementById('mobileMenu');
+  const toggle = document.getElementById('mobileMenuToggle');
+  const closeBtn = document.getElementById('mobileMenuClose');
+  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
+  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
+  toggle.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('footer-email-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    const msg = document.getElementById('form-message');
+    const input = this.querySelector('input[type=email]');
+    if (!input.checkValidity()) { msg.style.color='#F87171'; msg.textContent='Please enter a valid email.'; return; }
+    btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
+    fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} })
+      .then(r => { if (!r.ok) throw 0; msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
+      .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
+  });
+</script>
 </body>
 </html>
