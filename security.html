@@ -39,7 +39,7 @@
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
-            <a href="/products/handoff" role="menuitem">Handoff for Jira</a>
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -83,7 +83,7 @@
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
-      <a href="/products/handoff" class="mobile-nav-link">Handoff for Jira</a>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -122,7 +122,7 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> June 29, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 3, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
@@ -152,12 +152,12 @@
         <li><strong>No personal data stored:</strong> The app does not collect, log, or store Confluence page content, user identifiers, or metadata on any external system.</li>
       </ul>
 
-      <h4>Handoff for Jira</h4>
+      <h4>Bulk Comments for Jira</h4>
       <ul>
-        <li><strong>Read scope:</strong> Reads Jira issue details (summary, status, assignee) to populate the queue and handoff views.</li>
-        <li><strong>Write scope:</strong> Posts ADF comments on Jira issues to record handoff history, and writes queue state to Forge storage.</li>
-        <li><strong>App storage:</strong> Queue order and handoff records are stored in Forge KV Storage — isolated within your Atlassian tenant.</li>
-        <li><strong>No external transmission:</strong> No Jira issue data, user names, or queue contents are sent to DataPingo or any third party.</li>
+        <li><strong>Read scope:</strong> Reads Jira issue and comment details — including existing comment content and media — to populate ticket search results and the Replicate source comment.</li>
+        <li><strong>Write scope:</strong> Posts new comments to selected Jira issues in Compose and Replicate modes, copying comment text and media directly between tickets via Atlassian's APIs.</li>
+        <li><strong>App storage:</strong> Per-ticket job status for the Replicate media-copy queue is stored in Forge storage — isolated within your Atlassian tenant.</li>
+        <li><strong>No external transmission:</strong> No Jira issue data, comment content, or media are sent to DataPingo or any third party.</li>
       </ul>
 
       <h3>2.2 Data Minimization</h3>
@@ -198,7 +198,7 @@
         </ul>
       </div>
 
-      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: June 29, 2026</em></p>
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 3, 2026</em></p>
 
     </div>
   </section>
