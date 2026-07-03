@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "datapingo",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "port": 8000
+    },
+    {
+      "name": "datapingo-clean-urls",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["clean-server.js"],
+      "port": 5501
+    }
+  ]
+}

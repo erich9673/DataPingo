@@ -22,42 +22,49 @@ const mimeTypes = {
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  let pathname = parsedUrl.pathname;
-  
-  // Remove trailing slash except for root
-  if (pathname !== '/' && pathname.endsWith('/')) {
-    pathname = pathname.slice(0, -1);
-  }
+  let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  // If it's root, serve index.html
+  // Root
   if (pathname === '/') {
-    pathname = '/index.html';
+    serveFile(path.join(__dirname, 'index.html'), res);
+    return;
   }
 
-  let filePath = path.join(__dirname, pathname);
+  // Trailing slash means "this is a directory URL" - go straight to its index.html,
+  // mirroring GitHub Pages, which does not strip the slash and re-check extensions.
+  if (pathname.endsWith('/')) {
+    const indexPath = path.join(__dirname, pathname, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      serveFile(indexPath, res);
+      return;
+    }
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.end('<h1>404 - File Not Found</h1>');
+    return;
+  }
 
-  // Check if file exists as-is first
+  const filePath = path.join(__dirname, pathname);
+
+  // Exact file match
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     serveFile(filePath, res);
     return;
   }
 
-  // If it's a directory, try to serve index.html from that directory
-  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-    const indexPath = path.join(filePath, 'index.html');
-    if (fs.existsSync(indexPath)) {
-      serveFile(indexPath, res);
-      return;
-    }
-  }
-
-  // If no extension, try adding .html
+  // No extension: try adding .html (matches GitHub Pages priority)
   if (!path.extname(pathname)) {
     const htmlFilePath = filePath + '.html';
     if (fs.existsSync(htmlFilePath)) {
       serveFile(htmlFilePath, res);
       return;
     }
+  }
+
+  // Directory without trailing slash: GitHub Pages 301-redirects to add the slash
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory() && fs.existsSync(path.join(filePath, 'index.html'))) {
+    res.writeHead(301, { Location: pathname + '/' });
+    res.end();
+    return;
   }
 
   // File not found

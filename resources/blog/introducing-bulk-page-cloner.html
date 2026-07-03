@@ -3,24 +3,159 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support | DataPingo</title>
-  <meta name="description" content="DataPingo Support Center — get help with our Atlassian apps, view response times, FAQs, and contact our support team.">
+  <title>Re-introducing Bulk Page Cloner for Confluence | DataPingo Blog</title>
+  <meta name="description" content="Bulk duplicate Confluence pages with custom naming and clean organization — built for teams who create the same page structure over and over.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.datapingo.com/support">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.datapingo.com/support">
-  <meta property="og:title" content="Support | DataPingo">
-  <meta property="og:description" content="DataPingo Support Center — get help with our Atlassian apps, view response times, FAQs, and contact our support team.">
+  <link rel="canonical" href="https://www.datapingo.com/resources/blog/introducing-bulk-page-cloner">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.datapingo.com/resources/blog/introducing-bulk-page-cloner">
+  <meta property="og:title" content="Re-introducing Bulk Page Cloner for Confluence | DataPingo Blog">
+  <meta property="og:description" content="Bulk duplicate Confluence pages with custom naming and clean organization.">
   <meta property="og:site_name" content="DataPingo">
-  <link rel="icon" type="image/jpeg" href="assets/img/favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="/assets/img/favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="css/aurora.css">
+  <link rel="stylesheet" href="/css/aurora.css">
   <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
   <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
   <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
+  <style>
+    .blog-post-header {
+      background: var(--black-2);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 48px 40px;
+    }
+    .blog-post-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .blog-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--teal);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 28px;
+      letter-spacing: 0.01em;
+    }
+    .blog-back-link:hover { opacity: 0.8; }
+    .blog-post-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .blog-app-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #C4B5FD;
+      text-decoration: none;
+    }
+    .blog-category-tag {
+      background: rgba(124,77,204,0.15);
+      border: 1px solid rgba(124,77,204,0.3);
+      color: #C4B5FD;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .blog-post-header h1 {
+      color: var(--white);
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.22;
+      margin: 0 0 22px;
+      letter-spacing: -0.01em;
+    }
+    .blog-post-byline {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .blog-post-byline strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+    .blog-post-byline span { color: rgba(255,255,255,0.2); }
+
+    /* Article body */
+    .blog-article-body {
+      padding: 52px 48px 80px;
+    }
+    .page-content-max {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .blog-article-body p {
+      color: var(--white);
+      line-height: 1.85;
+      margin-bottom: 22px;
+      font-size: 1rem;
+    }
+    .blog-article-body h2 {
+      color: var(--teal);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 36px 0 16px;
+      scroll-margin-top: 100px;
+    }
+    .blog-article-body ol, .blog-article-body ul {
+      color: var(--white);
+      line-height: 1.9;
+      padding-left: 22px;
+      margin-bottom: 28px;
+      font-size: 0.97rem;
+    }
+    .blog-article-body li { margin-bottom: 8px; }
+    .blog-article-body ul li { color: #C4B5FD; }
+    .blog-article-body strong { color: #C4B5FD; }
+    .blog-callout {
+      border-left: 3px solid var(--purple);
+      padding: 16px 22px;
+      margin-bottom: 36px;
+      background: rgba(124,77,204,0.08);
+      border-radius: 0 10px 10px 0;
+    }
+    .blog-callout p { margin: 0; color: #C4B5FD; font-size: 0.91rem; line-height: 1.75; }
+    .blog-callout a { color: var(--purple); font-weight: 600; text-decoration: none; }
+    .blog-callout a:hover { text-decoration: underline; }
+    .blog-cta-box {
+      background: rgba(124,77,204,0.1);
+      border: 1px solid rgba(124,77,204,0.3);
+      border-radius: 14px;
+      padding: 28px 32px;
+    }
+    .blog-cta-box-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .blog-cta-box-header p { margin: 0; font-weight: 700; color: var(--white); font-size: 1rem; }
+    .blog-cta-box a {
+      display: block;
+      color: var(--purple);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .blog-cta-box a:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .blog-post-header { padding: 40px 24px 32px; }
+      .blog-post-header h1 { font-size: 1.5rem; }
+      .blog-article-body { padding: 40px 24px 60px; }
+    }
+  </style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -31,7 +166,7 @@
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
       <a href="/" class="logo-link" aria-label="DataPingo home">
-        <img src="assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo">
         <span class="logo-wordmark">DataPingo</span>
       </a>
       <div class="nav-links" role="menubar">
@@ -110,117 +245,70 @@
 </div>
 
 <main>
-  <section class="page-hero">
-    <div class="section-wrap">
-      <p class="section-tag page-hero-eyebrow">Help &amp; Support</p>
-      <h1>Support <span class="grad-text">Center</span></h1>
-      <p class="hero-sub">We're here to help you succeed with DataPingo.</p>
+  <!-- Blog post header -->
+  <div class="blog-post-header">
+    <div class="blog-post-header-inner">
+      <a href="/resources/blog" class="blog-back-link">&larr; Back to Updates &amp; Blog</a>
+      <div class="blog-post-meta-row">
+        <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner" style="width:34px;height:34px;border-radius:8px;flex-shrink:0;">
+        <a href="/products/bulk-page-cloner" class="blog-app-tag">Bulk Page Cloner for Confluence</a>
+        <span class="blog-category-tag">Confluence</span>
+      </div>
+      <h1>Re-introducing Bulk Page Cloner for Confluence</h1>
+      <div class="blog-post-byline">
+        <span>By <strong>Eric Huang</strong></span>
+        <span>&middot;</span>
+        <span>May 18, 2026</span>
+        <span>&middot;</span>
+        <span>2 min read</span>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="page-section">
-    <div class="section-wrap page-content-max">
+  <!-- Article body -->
+  <div class="blog-article-body">
+    <div class="page-content-max">
 
-      <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:16px;padding:32px;text-align:center;margin-bottom:48px;">
-        <h3 style="color:var(--teal);margin-top:0;margin-bottom:12px;">Get Help Now</h3>
-        <p style="color:var(--slate);margin-bottom:16px;">For technical support, billing questions, or general inquiries:</p>
-        <a href="mailto:support@datapingo.com" style="color:var(--teal);font-size:1.1rem;font-weight:700;text-decoration:none;">support@datapingo.com</a>
-        <p style="color:var(--slate);font-size:0.85rem;margin-top:12px;margin-bottom:0;">We typically respond within 24 hours during business days</p>
-      </div>
+      <p>Confluence makes it easy to create one page. But if you need ten, twenty, or twenty-five — all named differently and placed in the right spot — you're stuck clicking duplicate, renaming, moving, and repeating.</p>
 
-      <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:48px;text-align:center;">
-        <h3 style="color:var(--white);margin-top:0;margin-bottom:16px;">Support Hours</h3>
-        <p style="color:var(--slate);margin-bottom:6px;"><strong style="color:var(--white);">Monday - Friday:</strong> 9:00 AM - 6:00 PM (PST)</p>
-        <p style="color:var(--slate);margin-bottom:6px;"><strong style="color:var(--white);">Weekend:</strong> Limited support for critical issues</p>
-        <p style="color:var(--slate);margin-bottom:0;"><strong style="color:var(--white);">Emergency Support:</strong> Available 24/7 for critical service outages</p>
-      </div>
+      <p><strong>Bulk Page Cloner</strong> was built to fix exactly that. It's a Confluence Cloud app that lets you pick any existing page, set all the titles up front, choose where they go, and generate the whole batch at once.</p>
 
-      <h2>Support Response Times</h2>
-      <p style="color:var(--slate);margin-bottom:24px;">We're committed to providing timely support based on the priority of your request:</p>
+      <h2 id="how-it-works">How it works</h2>
+      <ol>
+        <li><strong>Pick a source page</strong> — any existing Confluence page becomes the template</li>
+        <li><strong>Name your copies up front</strong> — no more renaming after the fact</li>
+        <li><strong>Choose a destination</strong> — select the space and where in the page tree they should land</li>
+        <li><strong>Generate</strong> — all pages are created and ready to open immediately</li>
+      </ol>
 
-      <div style="overflow-x:auto;margin-bottom:48px;">
-        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
-          <thead>
-            <tr style="background:var(--black-3);border-bottom:1px solid var(--border);">
-              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Priority Level</th>
-              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Description</th>
-              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Response Time</th>
-              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Resolution Target</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:14px 16px;color:var(--white);font-weight:600;">Critical</td>
-              <td style="padding:14px 16px;color:var(--slate);">Service completely unavailable or security breach</td>
-              <td style="padding:14px 16px;color:var(--slate);">1 hour</td>
-              <td style="padding:14px 16px;color:var(--slate);">4 hours</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:14px 16px;color:var(--white);font-weight:600;">High</td>
-              <td style="padding:14px 16px;color:var(--slate);">Major functionality impaired</td>
-              <td style="padding:14px 16px;color:var(--slate);">4 hours</td>
-              <td style="padding:14px 16px;color:var(--slate);">24 hours</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:14px 16px;color:var(--white);font-weight:600;">Medium</td>
-              <td style="padding:14px 16px;color:var(--slate);">Minor functionality issues</td>
-              <td style="padding:14px 16px;color:var(--slate);">1 business day</td>
-              <td style="padding:14px 16px;color:var(--slate);">3 business days</td>
-            </tr>
-            <tr>
-              <td style="padding:14px 16px;color:var(--white);font-weight:600;">Low</td>
-              <td style="padding:14px 16px;color:var(--slate);">General inquiries and feature requests</td>
-              <td style="padding:14px 16px;color:var(--slate);">2 business days</td>
-              <td style="padding:14px 16px;color:var(--slate);">5 business days</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Frequently Asked Questions</h2>
-
-      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px;">
-        <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">How do I get started with Bulk Page Cloner for Confluence?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Getting started is easy! Visit our <a href="/resources/documentation/bulkpagecloner" style="color:var(--teal);">comprehensive documentation</a> for step-by-step installation and usage guides. You can install the app directly from the <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace</a>.</p>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">What information should I include in my support request?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Please include: your product version, steps to reproduce the issue, expected vs. actual behavior, screenshots if applicable, and your system information (browser, OS, etc.).</p>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">Do you offer phone support?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Currently, we provide support primarily through email at <a href="mailto:support@datapingo.com" style="color:var(--teal);">support@datapingo.com</a>. For enterprise customers, phone support may be available upon request.</p>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">How can I request a new feature or enhancement?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">We love hearing your ideas! Send feature requests to <a href="mailto:support@datapingo.com" style="color:var(--teal);">support@datapingo.com</a> with the subject line "Feature Request" and we'll review it for future releases.</p>
-        </div>
-        <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">Is there a knowledge base or documentation available?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Yes! Visit our <a href="/resources/documentation" style="color:var(--teal);">Documentation page</a> for detailed guides, tutorials, and troubleshooting tips.</p>
-        </div>
-      </div>
-
-      <h2>Additional Resources</h2>
-      <ul style="color:var(--slate);line-height:2;">
-        <li><strong style="color:var(--white);"><a href="/resources/documentation" style="color:var(--teal);text-decoration:none;">Documentation</a></strong> — Comprehensive guides and tutorials</li>
-        <li><strong style="color:var(--white);"><a href="/resources/use-cases" style="color:var(--teal);text-decoration:none;">Use Cases</a></strong> — Real-world examples and best practices</li>
-        <li><strong style="color:var(--white);"><a href="/sla.html" style="color:var(--teal);text-decoration:none;">Service Level Agreement</a></strong> — Our commitment to service quality</li>
-        <li><strong style="color:var(--white);"><a href="/company/about-us" style="color:var(--teal);text-decoration:none;">About Us</a></strong> — Learn more about the DataPingo team</li>
+      <h2 id="quick-example">A quick example</h2>
+      <p>Say you run monthly product reports. Instead of duplicating and renaming one page at a time, you open Bulk Page Cloner, set your titles, and walk away with:</p>
+      <ul>
+        <li>Product Report — Mar 2026</li>
+        <li>Product Report — Apr 2026</li>
+        <li>Product Report — May 2026</li>
+        <li>Product Report — June 2026</li>
       </ul>
+      <p>All under the right parent page, consistently named, in seconds.</p>
+      <p>The same pattern works for onboarding docs, project kickoff pages, sprint templates, client folders — anything you find yourself recreating on a schedule.</p>
 
-      <h2>Enterprise Support</h2>
-      <p style="color:var(--slate);">For enterprise customers with special requirements, custom integrations, or dedicated support needs, please contact us at <a href="mailto:support@datapingo.com" style="color:var(--teal);">support@datapingo.com</a> with "Enterprise Support" in the subject line.</p>
+      <!-- Community callout -->
+      <div class="blog-callout">
+        <p>Want the full backstory on why this was built? I wrote about it on the Atlassian Community — including the questions that shaped the design. <a href="https://community.atlassian.com/forums/App-Central-discussions/How-to-duplicate-multiple-Confluence-pages-instead-of-manually/td-p/3194762" target="_blank" rel="noopener">Read the community post &rarr;</a></p>
+      </div>
 
-      <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:16px;padding:32px;text-align:center;margin-top:40px;">
-        <h3 style="color:var(--white);margin-top:0;margin-bottom:12px;">Still Need Help?</h3>
-        <p style="color:var(--slate);margin-bottom:24px;">Don't hesitate to reach out — we're here to ensure your success with DataPingo!</p>
-        <a href="mailto:support@datapingo.com?subject=Support Request" class="btn-primary">Contact Support</a>
+      <!-- CTA box -->
+      <div class="blog-cta-box" id="try-it">
+        <div class="blog-cta-box-header">
+          <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner" style="width:38px;height:38px;border-radius:8px;">
+          <p>Try Bulk Page Cloner</p>
+        </div>
+        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener">Atlassian Marketplace: Bulk Page Cloner for Confluence &rarr;</a>
+        <a href="https://www.youtube.com/watch?v=Ew8wpqPWk1M" target="_blank" rel="noopener">Demo video: Watch on YouTube &rarr;</a>
       </div>
 
     </div>
-  </section>
+  </div>
 </main>
 
 <!-- FOOTER -->
@@ -229,7 +317,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-logo-row" aria-label="DataPingo home">
-          <img src="assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy">
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>

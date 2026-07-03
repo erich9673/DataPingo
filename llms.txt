@@ -6,7 +6,7 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 
 ## Products
 
-- [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner/): Clone individual pages or entire page hierarchies in Confluence with a single click. Supports template reuse across projects, spaces, and teams.
+- [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner): Clone individual pages or entire page hierarchies in Confluence with a single click. Supports template reuse across projects, spaces, and teams.
 - [Bulk Report Generator for Confluence](https://datapingo.com/products/bulk-report-generator/): Automatically generate reports across multiple Confluence spaces and pages. Export and share documentation insights at scale.
 
 ## Company
@@ -17,7 +17,7 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 
 ## Resources
 
-- [Documentation](https://datapingo.com/resources/documentation/): Getting started guides, feature documentation, and how-to articles for all DataPingo products.
+- [Documentation](https://datapingo.com/resources/documentation): Getting started guides, feature documentation, and how-to articles for all DataPingo products.
 - [Blog](https://datapingo.com/resources/blog): Product updates, tips, and insights for Confluence teams.
 - [Use Cases](https://datapingo.com/resources/use-cases): Real-world scenarios showing how teams use DataPingo to automate Confluence workflows.
 
@@ -28,6 +28,6 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 
 ## Legal
 
-- [Privacy Policy](https://datapingo.com/privacy.html): How DataPingo collects and handles user data.
-- [Terms of Service](https://datapingo.com/terms.html): Terms governing use of DataPingo products and website.
-- [Security](https://datapingo.com/security.html): DataPingo's security practices and commitments.
+- [Privacy Policy](https://datapingo.com/privacy): How DataPingo collects and handles user data.
+- [Terms of Service](https://datapingo.com/terms): Terms governing use of DataPingo products and website.
+- [Security](https://datapingo.com/security): DataPingo's security practices and commitments.
