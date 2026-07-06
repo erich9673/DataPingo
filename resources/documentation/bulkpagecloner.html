@@ -315,9 +315,9 @@
         <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(5,206,240,0.2);">
       </div>
       <h1 style="text-align:center;">Bulk Page Cloner for Confluence</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Create multiple Confluence pages simultaneously to streamline documentation workflows and project setup.</p>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Duplicate up to 25 Confluence pages in one guided flow — with a live clone summary and full light &amp; dark mode.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v7.0 ✦ Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v7.1 ✦ Latest</span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Confluence Cloud</span>
       </div>
@@ -351,7 +351,7 @@
 
       <section id="overview" style="scroll-margin-top:100px;">
         <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
-        <p>Bulk Page Cloner is a powerful Atlassian Forge app designed for Confluence Cloud that enables users to create multiple pages simultaneously from a template. Each clone is an exact copy of the template — including page content, formatting, macros, and labels — ready to edit independently.</p>
+        <p>Bulk Page Cloner is an Atlassian Forge app for Confluence Cloud that duplicates up to 25 pages from a single template in one guided flow. Each clone is an exact copy — content, formatting, images, video, macros, labels, and attachments included — ready to edit independently. A live clone summary builds as you go, and the whole app supports full light and dark mode matched to your Confluence theme.</p>
         <div class="doc-tip">
           <p><strong>Pro Tip:</strong> This tool is perfect for teams that need to maintain consistency across multiple Confluence spaces or quickly replicate content structures for new projects.</p>
         </div>
@@ -363,61 +363,69 @@
         <h3>Open the App (3 ways)</h3>
         <ol>
           <li>Click <strong>Bulk Page Cloner for Confluence</strong> under Apps on the left side of your screen.</li>
-          <li>Type <strong>/bulkpages</strong> in any Confluence page and select <strong>Bulk Page Cloner for Confluence</strong>.</li>
-          <li>Open the app under the <strong>&bull;&bull;&bull;</strong> menu in a parent page and select <strong>Create Bulk Page(s)</strong>.</li>
+          <li>Type <strong>/bulkpage</strong> in any Confluence page and select <strong>Bulk Page Cloner for Confluence</strong>.</li>
+          <li>Open the <strong>&bull;&bull;&bull;</strong> menu on any page and select <strong>Create Bulk Pages</strong>.</li>
         </ol>
 
-        <h3>Step 1 — Select a Page as a Template</h3>
-        <p>Pick exactly which Confluence page you will use to create multiple copies.</p>
+        <p>The app walks you through a four-step flow — <strong>Source</strong>, <strong>Copies</strong>, <strong>Location</strong>, <strong>Done</strong> — with a progress bar at the top. From the Copies step onward, a live <strong>clone summary</strong> shows your source, copy count, and destination, updating as you go so you can review everything before anything is created.</p>
+
+        <h3>Step 1 — Source</h3>
+        <p>Choose the page you want to clone.</p>
         <ul>
-          <li>Use the search bar to find any Confluence page within your environment and select it.</li>
-          <li>If you can't find it, use the <strong>Paste URL</strong> option and paste the desired Confluence link.</li>
-          <li>You can also use the <strong>Space</strong> filter to locate your page.</li>
-          <li><strong style="color:#F87171;">This will load up to 5,000 Confluence Pages.</strong></li>
+          <li>Search page titles to find any page in your Confluence instance, then click <strong>Select</strong>.</li>
+          <li>Use the <strong>Filter by space</strong> dropdown to narrow the list.</li>
+          <li>Have a link? Use <strong>Paste a page URL</strong> to jump straight to a specific page.</li>
         </ul>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Select%20a%20Page%20as%20Template%20(1840%20x%20900%20px).png" alt="Step 1: Select a Page as Template" loading="lazy">
-        </div>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Paste%20URL%20(1840%20x%20900%20px).png" alt="Step 1: Paste URL" loading="lazy">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).png" alt="Step 1: Source — choose a page to clone" loading="lazy">
         </div>
 
-        <h3>Step 2 — Bulk Cloning</h3>
-        <p>Choose how many pages to create and what to name them. Each clone will be an exact copy of the template — content, formatting, macros, and labels included.</p>
+        <h3>Step 2 — Copies</h3>
+        <p>Decide how many copies to make and what each one is called. Every copy is an exact duplicate of the source — content, formatting, images, video, macros, labels, and attachments included.</p>
         <ol>
-          <li>Use the red slider and choose from 1–25 pages.</li>
-          <li>Write the names of the new page(s).</li>
+          <li>Set the <strong>Number of copies</strong> (1–25) with the slider or the input box.</li>
+          <li>Name each copy in the title fields.</li>
         </ol>
-        <h4>Features</h4>
+        <h4>Shortcuts</h4>
         <ul>
-          <li><strong>Copy First Title to All</strong> — Quickly duplicate the first title across all fields.</li>
-          <li><strong>Clear All</strong> — Deletes all title fields.</li>
-          <li><strong>Autofill</strong> — If you name a page "Report1", it will prompt to auto-populate "Report2", etc. Works for weekly/monthly date patterns too.</li>
+          <li><strong>Auto-number</strong> — Name one page (e.g. "Report 1") and the rest fill in sequentially. Recognizes weekly and monthly date patterns too.</li>
+          <li><strong>Copy first to all</strong> — Duplicate the first title across every field.</li>
+          <li><strong>Clear all</strong> — Empty all title fields at once.</li>
         </ul>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Cloning%20(1840%20x%20900%20px).png" alt="Step 2: Bulk Cloning" loading="lazy">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).png" alt="Step 2: Copies — name the copies with a live clone summary" loading="lazy">
+        </div>
+        <div class="doc-warning">
+          <p><strong>Heads-up before you create:</strong> the app warns you when a source page @mentions people (each copy notifies them again), for large batches of 10+ pages, and for duplicate titles before Confluence auto-numbers them.</p>
         </div>
 
         <h3>Step 3 — Location</h3>
-        <p>Choose where to place your pages.</p>
+        <p>Choose where the copies are created.</p>
         <ol>
-          <li><strong>Select Confluence Space</strong> — Select a Space.</li>
-          <li><strong>Page Creation Options</strong>:
+          <li>Pick the destination <strong>Space</strong>.</li>
+          <li>Choose how they're organized:
             <ul>
-              <li><strong>Create Child Page</strong> — Add reports as child pages under an existing parent page.</li>
-              <li><strong>Create Parent Page</strong> — Create a new parent page for organizing your reports.</li>
-              <li><strong>Create Parent &amp; Child</strong> — Create both a new parent page and child pages structure.</li>
+              <li><strong>As a child of an existing page</strong> — Copies become child pages under a parent you pick.</li>
+              <li><strong>As parent pages in [Space]</strong> — Copies have no child; they sit at the space root.</li>
+              <li><strong>As child pages of a new parent</strong> — Create a new parent page, then add the copies beneath it.</li>
             </ul>
           </li>
         </ol>
+        <p>The clone summary now shows the full destination path. When it looks right, click <strong>Create pages</strong>.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20(1840%20x%20900%20px).png" alt="Step 3: Location" loading="lazy">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).png" alt="Step 3: Location — set where the copies are created" loading="lazy">
         </div>
 
-        <h3>Step 4 — Success Page</h3>
-        <p>You will see the generated pages with links to each one.</p>
+        <h3>Step 4 — Done</h3>
+        <p>A confirmation screen lists every created page with a direct <strong>Open</strong> link, so you can jump straight in to start editing — or clone more pages in one click.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Success%20(1840%20x%20900%20px).png" alt="Step 4: Success" loading="lazy">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).png" alt="Step 4: Done — every created page with a direct link" loading="lazy">
+        </div>
+
+        <h3>Light &amp; Dark Mode</h3>
+        <p>Bulk Page Cloner has full light and dark theme support that matches your Confluence theme and switches live — no reload needed. Here's the same flow in dark mode:</p>
+        <div class="doc-img-card">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).png" alt="Bulk Page Cloner in dark mode" loading="lazy">
         </div>
 
         <h3>Watch the Full Tutorial</h3>
@@ -436,12 +444,14 @@
       </section>
 
       <section id="whats-new" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>What's New in v7.0</h2>
-        <p>Version 7.0.0 (released June 22, 2026) is the biggest update yet:</p>
+        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>What's New in v7.1</h2>
+        <p>Version 7.1.0 (released July 6, 2026) is a ground-up redesign:</p>
         <ul>
-          <li><strong>Copies videos &amp; attachments</strong> — Clones now include all file attachments and embedded videos from the template page, not just text and macros.</li>
-          <li><strong>Searchable parent picker</strong> — The destination parent page selector now has a full-text search so you can find any parent page instantly, even in large spaces.</li>
-          <li><strong>Speed boosts</strong> — Significant performance improvements across the full cloning pipeline — faster page loads, faster bulk creation.</li>
+          <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
+          <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
+          <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
+          <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
+          <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
         </ul>
 
         <h3>Version History</h3>
@@ -450,7 +460,8 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>7.0.0</strong></td><td>Jun 22, 2026</td><td>Copies videos &amp; attachments + searchable parent picker &amp; speed boosts</td></tr>
+            <tr><td><strong>7.1.0</strong></td><td>Jul 6, 2026</td><td>Ground-up redesign: guided 4-step flow, dark mode, live clone summary, and safety warnings</td></tr>
+            <tr><td>7.0.0</td><td>Jun 22, 2026</td><td>Copies videos &amp; attachments + searchable parent picker &amp; speed boosts</td></tr>
             <tr><td>6.0.0</td><td>Jun 3, 2026</td><td>Improved bulk page cloning UX and updated Confluence Cloud permission scopes</td></tr>
             <tr><td>5.0.0</td><td>Jun 3, 2026</td><td>Required scopes changed</td></tr>
             <tr><td>4.0.0</td><td>May 1, 2026</td><td>Minor version update</td></tr>
@@ -475,9 +486,10 @@
             <tr><td><strong>Page Batch Limit</strong></td><td>Up to 25 pages per batch</td></tr>
             <tr><td><strong>Template Search Limit</strong></td><td>Up to 5,000 Confluence pages</td></tr>
             <tr><td><strong>Data Storage</strong></td><td>Forge storage — no external servers, data stays in Atlassian cloud</td></tr>
+            <tr><td><strong>Themes</strong></td><td>Light &amp; dark, matched to your Confluence theme</td></tr>
             <tr><td><strong>GDPR</strong></td><td>Personal data reported weekly to Atlassian's Personal Data Reporting API</td></tr>
-            <tr><td><strong>Current Version</strong></td><td>7.0.0</td></tr>
-            <tr><td><strong>Last Updated</strong></td><td>June 2026</td></tr>
+            <tr><td><strong>Current Version</strong></td><td>7.1.0</td></tr>
+            <tr><td><strong>Last Updated</strong></td><td>July 2026</td></tr>
           </tbody>
         </table>
 

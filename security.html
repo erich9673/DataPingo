@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Security Policy | DataPingo</title>
-  <meta name="description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence and Jira apps.">
+  <meta name="description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence app.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.datapingo.com/security">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.datapingo.com/security">
   <meta property="og:title" content="Security Policy | DataPingo">
-  <meta property="og:description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence and Jira apps.">
+  <meta property="og:description" content="DataPingo Security Policy - Learn about our security practices and how we protect your data with industry-standard controls for our Atlassian Confluence app.">
   <meta property="og:site_name" content="DataPingo">
   <link rel="icon" type="image/jpeg" href="assets/img/favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,6 @@
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
-            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -83,7 +82,6 @@
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
-      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -122,7 +120,7 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 3, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 6, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
@@ -142,26 +140,18 @@
       <p>For full details on Atlassian's infrastructure security, see <a href="https://www.atlassian.com/trust/security" target="_blank" rel="noopener" style="color:var(--teal);">atlassian.com/trust/security</a>.</p>
 
       <h2>2. Data Handling</h2>
-      <h3>2.1 What Data Each App Accesses</h3>
+      <h3>2.1 What Data the App Accesses</h3>
 
       <h4>Bulk Page Cloner for Confluence</h4>
       <ul>
-        <li><strong>Read scope:</strong> Reads the selected template page (content, formatting, macros, labels) only at the moment of cloning. No page data is retained by the app after the operation completes.</li>
+        <li><strong>Read scope:</strong> Reads the selected template page (content, formatting, images, video, macros, labels, and attachments) only at the moment of cloning. No page data is retained by the app after the operation completes.</li>
         <li><strong>Write scope:</strong> Creates new Confluence pages in the destination space/parent chosen by the user.</li>
         <li><strong>App storage:</strong> Uses Forge KV Storage for app state (e.g. UI preferences). This storage is isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
         <li><strong>No personal data stored:</strong> The app does not collect, log, or store Confluence page content, user identifiers, or metadata on any external system.</li>
       </ul>
 
-      <h4>Bulk Comments for Jira</h4>
-      <ul>
-        <li><strong>Read scope:</strong> Reads Jira issue and comment details — including existing comment content and media — to populate ticket search results and the Replicate source comment.</li>
-        <li><strong>Write scope:</strong> Posts new comments to selected Jira issues in Compose and Replicate modes, copying comment text and media directly between tickets via Atlassian's APIs.</li>
-        <li><strong>App storage:</strong> Per-ticket job status for the Replicate media-copy queue is stored in Forge storage — isolated within your Atlassian tenant.</li>
-        <li><strong>No external transmission:</strong> No Jira issue data, comment content, or media are sent to DataPingo or any third party.</li>
-      </ul>
-
       <h3>2.2 Data Minimization</h3>
-      <p>Both apps request only the Atlassian API scopes necessary to deliver their core functionality. Scopes are listed in each app's Marketplace listing under the Privacy &amp; Security tab.</p>
+      <p>The app requests only the Atlassian API scopes necessary to deliver its core functionality. Scopes are listed in the app's Marketplace listing under the Privacy &amp; Security tab.</p>
 
       <h3>2.3 GDPR &amp; Personal Data</h3>
       <p>DataPingo reports personal data usage to Atlassian's Personal Data Reporting API as required for Marketplace apps. This includes declaring what categories of personal data (e.g. Atlassian account IDs) each app processes and for what purpose. No personal data is stored outside of Atlassian's infrastructure.</p>
@@ -187,7 +177,7 @@
       </ul>
 
       <h2>6. Policy Updates</h2>
-      <p>This page is updated when DataPingo's data handling practices change. Material changes will be announced via our website. Continued use of our apps constitutes acceptance of the current policy.</p>
+      <p>This page is updated when DataPingo's data handling practices change. Material changes will be announced via our website. Continued use of our app constitutes acceptance of the current policy.</p>
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px;">
         <h3 style="color:var(--white);margin-top:0;margin-bottom:16px;">Contact</h3>
@@ -198,7 +188,7 @@
         </ul>
       </div>
 
-      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 3, 2026</em></p>
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 6, 2026</em></p>
 
     </div>
   </section>
@@ -233,7 +223,6 @@
       <div class="footer-col">
         <h5>Products</h5>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
-        <a href="/products/handoff">Handoff for Jira</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
