@@ -72,105 +72,77 @@
       display: flex; gap: 12px; flex-wrap: wrap;
     }
 
-    /* BPC Clone Diagram */
-    .bpc-diagram {
-      position: relative; display: flex; flex-direction: column;
-      align-items: center; gap: 0; padding: 16px 0;
+    /* BPC — clone console (hero signature) */
+    .bpc-clone {
+      position: relative; display: flex; flex-direction: column; gap: 14px;
+      max-width: 468px; margin-left: auto; user-select: none;
     }
-    .bpc-page-card {
-      background: var(--black-3);
-      border: 1px solid rgba(5,206,240,0.35);
-      border-radius: 12px; padding: 16px 18px;
-      width: 220px;
-      box-shadow: 0 0 28px rgba(5,206,240,0.12), 0 0 0 1px rgba(5,206,240,0.08);
-      position: relative; z-index: 2;
+    .bpc-src {
+      background: var(--black-3); border: 1px solid rgba(5,206,240,0.32);
+      border-radius: 14px; padding: 16px 18px; box-shadow: 0 0 30px rgba(5,206,240,0.09);
     }
-    .bpc-page-card.source {
-      animation: pulseGlow 2.8s ease-in-out infinite;
+    .bpc-src-top { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+    .bpc-src-ic { width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(5,206,240,0.12); color: var(--teal); }
+    .bpc-src-ic svg { width: 15px; height: 15px; }
+    .bpc-src-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal); }
+    .bpc-src-title { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .bpc-src-lines { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; }
+    .bpc-src-lines span { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.06); }
+    .bpc-src-lines span.a { width: 92%; } .bpc-src-lines span.b { width: 70%; } .bpc-src-lines span.c { width: 84%; }
+    .bpc-src-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .bpc-tag { font-size: 0.64rem; font-weight: 600; color: #A5EAF6;
+      background: rgba(5,206,240,0.09); border: 1px solid rgba(5,206,240,0.2);
+      border-radius: 20px; padding: 2px 9px; }
+    .bpc-create {
+      width: 100%; border: none; cursor: pointer; font-family: inherit;
+      font-size: 0.82rem; font-weight: 700; color: var(--black);
+      background: linear-gradient(135deg, #05CEF0, #05A8C6); border-radius: 10px; padding: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity 0.2s, box-shadow 0.15s, transform 0.12s;
     }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(5,206,240,0.12), 0 0 0 1px rgba(5,206,240,0.08); }
-      50% { box-shadow: 0 0 40px rgba(5,206,240,0.24), 0 0 0 1px rgba(5,206,240,0.2); }
-    }
-    .bpc-card-label {
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
-    }
-    .bpc-card-line {
-      height: 6px; border-radius: 4px; background: rgba(255,255,255,0.06);
-      margin-bottom: 6px;
-    }
-    .bpc-card-line.w80 { width: 80%; }
-    .bpc-card-line.w60 { width: 60%; }
-    .bpc-card-line.w70 { width: 70%; }
-    .bpc-card-line.teal { background: rgba(5,206,240,0.3); width: 40%; }
+    .bpc-create:hover { opacity: 0.9; }
+    .bpc-create svg { color: var(--black); }
+    .bpc-create.pressed { transform: scale(0.97); box-shadow: 0 0 22px rgba(5,206,240,0.45); }
 
-    /* Connector lines */
-    .bpc-connector {
-      display: flex; flex-direction: column; align-items: center;
-      height: 40px; position: relative;
+    .bpc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .bpc-tile {
+      position: relative; height: 46px; border-radius: 9px;
+      background: var(--black-3); border: 1px solid var(--border);
+      padding: 0 9px; display: flex; align-items: center; gap: 7px;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
-    .bpc-connector-vert {
-      width: 1px; height: 20px;
-      background: linear-gradient(180deg, rgba(5,206,240,0.5) 0%, rgba(5,206,240,0.2) 100%);
-    }
-    .bpc-connector-spread {
-      display: flex; align-items: flex-start; width: 100%;
-      height: 20px; position: relative; justify-content: center;
-    }
-    .bpc-connector-spread::before {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 160px; height: 1px;
-      background: rgba(5,206,240,0.25);
-    }
-    .bpc-connector-spread::after {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 1px; height: 20px;
-      background: rgba(5,206,240,0.25);
-    }
-    .bpc-spread-left, .bpc-spread-right {
-      position: absolute; top: 0; width: 1px; height: 20px;
-      background: rgba(5,206,240,0.25);
-    }
-    .bpc-spread-left { left: calc(50% - 80px); }
-    .bpc-spread-right { right: calc(50% - 80px); }
+    .bpc-tile .doc { flex-shrink: 0; opacity: 0.45; transition: opacity 0.15s ease; }
+    .bpc-tile .doc svg { width: 13px; height: 15px; color: var(--slate); display: block; transition: color 0.15s ease; }
+    .bpc-tile .nm { flex: 1; height: 4px; border-radius: 3px; background: rgba(255,255,255,0.08); transition: background 0.15s ease; }
+    .bpc-tile .badge { position: absolute; top: 6px; right: 6px; width: 12px; height: 12px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s ease; }
+    .bpc-tile .badge svg { width: 8px; height: 8px; color: var(--black); }
+    .bpc-tile.done { background: rgba(5,206,240,0.13); border-color: rgba(5,206,240,0.5); }
+    .bpc-tile.done .doc { opacity: 1; }
+    .bpc-tile.done .doc svg { color: var(--teal); }
+    .bpc-tile.done .nm { background: rgba(103,232,249,0.5); }
+    .bpc-tile.done .badge { opacity: 1; }
 
-    .bpc-clones {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 10px; width: 100%;
-    }
-    .bpc-clone-card {
-      background: var(--black-3);
-      border: 1px solid rgba(5,206,240,0.15);
-      border-radius: 10px; padding: 12px 14px;
-      animation: fadeInUp 0.5s ease forwards;
-      opacity: 0;
-    }
-    .bpc-clone-card:nth-child(1) { animation-delay: 0.2s; }
-    .bpc-clone-card:nth-child(2) { animation-delay: 0.4s; }
-    .bpc-clone-card:nth-child(3) { animation-delay: 0.6s; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .bpc-clone-label {
-      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(5,206,240,0.5); margin-bottom: 8px;
-    }
-    .bpc-diagram-footer {
-      margin-top: 16px; text-align: center;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(5,206,240,0.5);
-    }
-    .bpc-diagram-footer span {
-      color: var(--teal);
-    }
+    .bpc-cursor { position: absolute; top: 0; left: 0; width: 20px; height: 20px; z-index: 6; opacity: 0;
+      transition: transform 0.7s cubic-bezier(0.45,0,0.25,1), opacity 0.25s ease; pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .bpc-cursor svg { width: 20px; height: 20px; display: block; transition: transform 0.12s ease; }
+    .bpc-cursor.tap svg { transform: scale(0.78); }
 
+    .bpc-count { text-align: center; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(103,232,249,0.7); }
+    .bpc-count span { color: var(--teal); font-variant-numeric: tabular-nums; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bpc-tile { transition: none; }
+      .bpc-cursor { display: none; }
+    }
     @media (max-width: 900px) {
       .product-hero-inner { grid-template-columns: 1fr; }
-      .bpc-diagram { display: none; }
+      .bpc-clone { max-width: 520px; margin: 8px auto 0; }
     }
 
     /* Teal primary button */
@@ -493,6 +465,7 @@
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -506,8 +479,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
-            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -520,7 +493,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary">Install Free</a>
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -540,6 +513,7 @@
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -549,8 +523,8 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Partners</div>
-      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
-      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
@@ -561,8 +535,8 @@
     </div>
     <div class="mobile-menu-footer">
   
-    <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="mobile-cta">
-      Install Free
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     </div>
@@ -593,46 +567,24 @@
         </div>
       </div>
 
-      <!-- BPC Clone Diagram -->
-      <div class="bpc-diagram" aria-hidden="true">
-        <!-- Source card -->
-        <div class="bpc-page-card source">
-          <div class="bpc-card-label">Source Template</div>
-          <div class="bpc-card-line teal"></div>
-          <div class="bpc-card-line w80"></div>
-          <div class="bpc-card-line w60"></div>
-          <div class="bpc-card-line w70"></div>
+      <!-- Clone console: one source page → 25 copies -->
+      <div class="bpc-clone" aria-label="Cloning one Confluence page into 25 copies">
+        <div class="bpc-src">
+          <div class="bpc-src-top">
+            <span class="bpc-src-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+            <span class="bpc-src-label">Source page</span>
+          </div>
+          <div class="bpc-src-title">Q3 Report — Project A</div>
+          <div class="bpc-src-lines"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+          <div class="bpc-src-chips"><span class="bpc-tag">3 labels</span><span class="bpc-tag">2 macros</span><span class="bpc-tag">4 attachments</span></div>
+          <button type="button" class="bpc-create" id="bpcCreate">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Create 25 pages
+          </button>
         </div>
-
-        <!-- Vertical line down -->
-        <div class="bpc-connector">
-          <div class="bpc-connector-vert"></div>
-          <div class="bpc-connector-spread">
-            <div class="bpc-spread-left"></div>
-            <div class="bpc-spread-right"></div>
-          </div>
-        </div>
-
-        <!-- Three clones -->
-        <div class="bpc-clones">
-          <div class="bpc-clone-card">
-            <div class="bpc-clone-label">Clone 1</div>
-            <div class="bpc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bpc-card-line w60"></div>
-          </div>
-          <div class="bpc-clone-card">
-            <div class="bpc-clone-label">Clone 2</div>
-            <div class="bpc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bpc-card-line w60"></div>
-          </div>
-          <div class="bpc-clone-card">
-            <div class="bpc-clone-label">Clone 3</div>
-            <div class="bpc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bpc-card-line w60"></div>
-          </div>
-        </div>
-
-        <div class="bpc-diagram-footer">×<span id="clone-counter" style="display:inline-block;min-width:1.2ch;transition:opacity 0.25s ease,transform 0.25s ease;">25</span> pages cloned in seconds</div>
+        <div class="bpc-grid" id="bpcGrid" aria-hidden="true"></div>
+        <div class="bpc-count"><span id="bpcCount">0</span> / 25 pages created</div>
+        <div class="bpc-cursor" id="bpcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
       </div>
     </div>
   </section>
@@ -978,20 +930,22 @@
       <div class="footer-col">
         <h5>Products</h5>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
-        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
-        <a href="/support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
     </div>
     <hr class="footer-divider">
@@ -1024,22 +978,59 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Clone counter animation: cycles 1 → 3 → 5 → 10 → 25
+  // Clone console: source page → click Create → 25 page tiles fill in (fade, no expand)
   (function() {
-    const el = document.getElementById('clone-counter');
-    if (!el) return;
-    const steps = [1, 3, 5, 10, 25];
-    let i = steps.length - 1; // start at 25
-    setInterval(function() {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(-6px)';
-      setTimeout(function() {
-        i = (i + 1) % steps.length;
-        el.textContent = steps[i];
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 260);
-    }, 1400);
+    const root = document.querySelector('.bpc-clone');
+    if (!root) return;
+    const grid = root.querySelector('#bpcGrid');
+    const countEl = root.querySelector('#bpcCount');
+    const createBtn = root.querySelector('#bpcCreate');
+    const cursor = root.querySelector('#bpcCursor');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const N = 25;
+    const doc = '<span class="doc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>';
+    const badge = '<span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
+    const tiles = [];
+    for (let i = 0; i < N; i++) { const t = document.createElement('div'); t.className = 'bpc-tile'; t.innerHTML = doc + '<span class="nm"></span>' + badge; grid.appendChild(t); tiles.push(t); }
+
+    let timers = [];
+    const clr = () => { timers.forEach(clearTimeout); timers = []; };
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+
+    function moveCursor() {
+      const cr = root.getBoundingClientRect();
+      const br = createBtn.getBoundingClientRect();
+      const x = br.left - cr.left + br.width * 0.6;
+      const y = br.top - cr.top + br.height * 0.5 - 2;
+      cursor.style.transition = 'none';
+      cursor.style.transform = 'translate(' + (x + 30) + 'px,' + (y + 48) + 'px)';
+      void cursor.offsetWidth;
+      cursor.style.transition = '';
+      cursor.style.opacity = '1';
+      cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    }
+
+    function play() {
+      clr();
+      tiles.forEach(t => t.classList.remove('done'));
+      countEl.textContent = '0';
+      cursor.style.opacity = '0'; cursor.classList.remove('tap'); createBtn.classList.remove('pressed');
+
+      if (reduce) { tiles.forEach(t => t.classList.add('done')); countEl.textContent = String(N); return; }
+
+      const ready = 1000;
+      at(ready, moveCursor);
+      at(ready + 820, () => { cursor.classList.add('tap'); createBtn.classList.add('pressed'); });
+      at(ready + 980, () => { cursor.classList.remove('tap'); createBtn.classList.remove('pressed'); cursor.style.opacity = '0'; });
+
+      const cStart = ready + 1050;
+      for (let k = 0; k < N; k++) at(cStart + k * 50, () => { tiles[k].classList.add('done'); countEl.textContent = String(k + 1); });
+
+      at(cStart + N * 50 + 1700, play);
+    }
+
+    createBtn.addEventListener('click', play);
+    setTimeout(play, 80);
   })();
 
   document.getElementById('footer-email-form').addEventListener('submit', function(e) {
@@ -1065,16 +1056,14 @@
 
   // ── Pricing Calculator ──
   const calcState = {
-    bpc:     { licenseType: 'standard', billingCycle: 'monthly' },
-    handoff: { licenseType: 'standard', billingCycle: 'monthly' }
+    bpc:     { licenseType: 'standard', billingCycle: 'monthly' }
   };
 
   // Flat-tier pricing: find the tier that contains userCount, price = userCount × tier.price
   const PRICING_TIERS = {
     bpc: {
       standard: [
-        { min:1,    max:10,     price:0    },
-        { min:11,   max:100,   price:0.70 },
+        { min:1,    max:100,   price:0.70 },
         { min:101,  max:250,   price:0.60 },
         { min:251,  max:1000,  price:0.45 },
         { min:1001, max:2500,  price:0.35 },
@@ -1087,8 +1076,7 @@
         { min:35001,max:250000,price:0.14 }
       ],
       multiInstance: [
-        { min:1,    max:10,     price:0    },
-        { min:11,   max:100,   price:0.75 },
+        { min:1,    max:100,   price:0.75 },
         { min:101,  max:250,   price:0.64 },
         { min:251,  max:1000,  price:0.48 },
         { min:1001, max:2500,  price:0.37 },
@@ -1099,36 +1087,6 @@
         { min:15001,max:20000, price:0.17 },
         { min:20001,max:35000, price:0.16 },
         { min:35001,max:250000,price:0.15 }
-      ]
-    },
-    handoff: {
-      standard: [
-        { min:1,    max:10,     price:0    },
-        { min:11,   max:100,   price:1.00 },
-        { min:101,  max:250,   price:0.85 },
-        { min:251,  max:1000,  price:0.65 },
-        { min:1001, max:2500,  price:0.50 },
-        { min:2501, max:5000,  price:0.45 },
-        { min:5001, max:7500,  price:0.38 },
-        { min:7501, max:10000, price:0.35 },
-        { min:10001,max:15000, price:0.30 },
-        { min:15001,max:20000, price:0.28 },
-        { min:20001,max:30000, price:0.26 },
-        { min:30001,max:100000,price:0.24 }
-      ],
-      multiInstance: [
-        { min:1,    max:10,     price:0    },
-        { min:11,   max:100,   price:1.07 },
-        { min:101,  max:250,   price:0.91 },
-        { min:251,  max:1000,  price:0.70 },
-        { min:1001, max:2500,  price:0.54 },
-        { min:2501, max:5000,  price:0.48 },
-        { min:5001, max:7500,  price:0.41 },
-        { min:7501, max:10000, price:0.38 },
-        { min:10001,max:15000, price:0.32 },
-        { min:15001,max:20000, price:0.30 },
-        { min:20001,max:30000, price:0.28 },
-        { min:30001,max:100000,price:0.26 }
       ]
     }
   };
@@ -1154,45 +1112,51 @@
     const bodyEl = document.getElementById(productId + '-estimate-body');
     if (!bodyEl || !tiers) return;
 
-    const mktLink = productId === 'handoff'
-      ? 'https://marketplace.atlassian.com/apps/2024223472'
-      : 'https://marketplace.atlassian.com/apps/2754913942';
-    const accentColor = productId === 'handoff' ? '#A78BFA' : 'var(--teal)';
+    const mktLink = 'https://marketplace.atlassian.com/apps/2754913942';
+    const accentColor = 'var(--teal)';
 
     if (!userCount || userCount < 1) {
       bodyEl.innerHTML = '<div class="calc-empty"><p>Adjust the slider to see<br>your live cost estimate.</p></div>';
       return;
     }
 
-    // Flat-tier: find tier that contains userCount → total = userCount × tier.price
-    const tier = tiers.find(t => userCount >= t.min && userCount <= t.max)
-                 || tiers[tiers.length - 1]; // fallback: highest tier
-    const monthlyTotal = tier.price * userCount;
+    // Atlassian pricing: teams of 10 or fewer are free (the "up to 10" flat tier).
+    // Above 10, every user is billed — graduated across bands from user 1, each band at
+    // its own rate — matching the Marketplace's "USD X per user (average)" model.
+    const FREE_LIMIT = 10;
+    const isFree = userCount <= FREE_LIMIT;
+    let monthlyTotal = 0;
+    if (!isFree) {
+      let lower = 0;
+      for (const t of tiers) {
+        if (userCount <= lower) break;
+        const inBand = Math.min(userCount, t.max) - lower; // users falling within this band
+        monthlyTotal += inBand * t.price;
+        lower = t.max;
+      }
+    }
     const isAnnual = billingCycle === 'annual';
     // Atlassian annual = 10× monthly (equivalent to 2 months free)
     const finalTotal = isAnnual ? monthlyTotal * 10 : monthlyTotal;
-    const isFree = tier.price === 0;
+    const avgPerUser = isFree ? 0 : monthlyTotal / userCount; // blended monthly rate across tiers
     const period = isAnnual ? 'per year' : 'per month';
     const fmtUSD = n => 'USD ' + n.toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 });
-    const tierLabel = `${tier.min.toLocaleString()}–${tier.max.toLocaleString()} users`;
 
     let html = '';
     if (isFree) {
       html += `<div class="calc-free-badge" style="background:rgba(124,77,204,0.08);border-color:${accentColor}33;color:${accentColor}">&#127881; Free for teams up to 10 users!</div>`;
       html += `<div class="calc-line-item"><span class="calc-line-label">Users</span><span class="calc-line-val">${userCount.toLocaleString()}</span></div>`;
-      html += `<div class="calc-line-item"><span class="calc-line-label">Tier</span><span class="calc-line-val">0–10</span></div>`;
       html += `<div class="calc-line-item"><span class="calc-line-label">App cost</span><span class="calc-line-val" style="color:${accentColor}">Free</span></div>`;
       html += `<hr class="calc-divider">`;
       html += `<div class="calc-total-row"><span class="calc-total-label">Total</span><span class="calc-total-price" style="color:${accentColor}">$0.00</span></div>`;
       html += `<p class="calc-total-period">${period}</p>`;
     } else {
       html += `<div class="calc-line-item"><span class="calc-line-label">Users</span><span class="calc-line-val">${userCount.toLocaleString()}</span></div>`;
-      html += `<div class="calc-line-item"><span class="calc-line-label">Tier</span><span class="calc-line-val">${tierLabel}</span></div>`;
-      html += `<div class="calc-line-item"><span class="calc-line-label">Rate per user</span><span class="calc-line-val">${fmtUSD(tier.price)}/mo</span></div>`;
+      html += `<div class="calc-line-item"><span class="calc-line-label">Avg per user</span><span class="calc-line-val">${fmtUSD(avgPerUser)}/mo</span></div>`;
       if (isAnnual) html += `<div class="calc-line-item"><span class="calc-line-label">Annual saving</span><span class="calc-line-val" style="color:${accentColor}">${fmtUSD(monthlyTotal * 2)} off</span></div>`;
       html += `<hr class="calc-divider">`;
       html += `<div class="calc-total-row"><span class="calc-total-label">Total</span><span class="calc-total-price">${fmtUSD(finalTotal)}</span></div>`;
-      html += `<p class="calc-total-period">${period} &bull; ${fmtUSD(tier.price)} per user</p>`;
+      html += `<p class="calc-total-period">${period} &bull; ${fmtUSD(avgPerUser)} per user (average)</p>`;
     }
     html += `<a href="${mktLink}" target="_blank" rel="noopener" class="calc-cta-btn">Start free trial &rarr;</a>`;
     bodyEl.innerHTML = html;

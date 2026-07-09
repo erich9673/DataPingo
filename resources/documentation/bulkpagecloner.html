@@ -236,6 +236,7 @@
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -249,8 +250,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
-            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -263,7 +264,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Get on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -279,6 +280,7 @@
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -288,8 +290,8 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Partners</div>
-      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
-      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
@@ -298,7 +300,7 @@
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
     <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
-      Get on Marketplace
+      Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </nav>
@@ -322,8 +324,10 @@
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;">
         <a href="#overview" class="btn-secondary btn-secondary--purple">Overview</a>
         <a href="#full-guide" class="btn-secondary btn-secondary--purple">Full Guide</a>
-        <a href="#technical" class="btn-secondary btn-secondary--purple">Technical Specs</a>
-        <a href="#support" class="btn-secondary btn-secondary--purple">Support</a>
+        <a href="#version-history" class="btn-secondary btn-secondary--purple">Version History</a>
+        <a href="#technical" class="btn-secondary btn-secondary--purple">Technical Specifications</a>
+        <a href="#privacy-security" class="btn-secondary btn-secondary--purple">Privacy &amp; Security</a>
+        <a href="#support" class="btn-secondary btn-secondary--purple">Support &amp; Contact</a>
       </div>
     </div>
   </section>
@@ -337,7 +341,7 @@
       <nav class="doc-toc">
         <a href="#overview">Overview</a>
         <a href="#full-guide">Full Guide</a>
-        <a href="#whats-new">What's New</a>
+        <a href="#version-history">Version History</a>
         <a href="#technical">Technical Specifications</a>
         <a href="#privacy-security">Privacy &amp; Security</a>
         <a href="#support">Support &amp; Contact</a>
@@ -441,18 +445,8 @@
         </div>
       </section>
 
-      <section id="whats-new" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>What's New in v7.1</h2>
-        <p>Version 7.1.0 (released July 6, 2026) is a ground-up redesign:</p>
-        <ul>
-          <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
-          <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
-          <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
-          <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
-          <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
-        </ul>
-
-        <h3>Version History</h3>
+      <section id="version-history" style="scroll-margin-top:100px;">
+        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Version History</h2>
         <table class="spec-table">
           <thead>
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
@@ -467,6 +461,16 @@
             <tr><td>2.5.0</td><td>Feb 3, 2026</td><td>Initial release — streamlined bulk page creation for Confluence Cloud</td></tr>
           </tbody>
         </table>
+
+        <h3 style="margin-top:36px;">Latest Updates in v7.1.0</h3>
+        <p>Version 7.1.0 (released July 6, 2026) is a ground-up redesign:</p>
+        <ul>
+          <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
+          <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
+          <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
+          <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
+          <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
+        </ul>
       </section>
 
       <section id="technical" style="scroll-margin-top:100px;">
@@ -581,20 +585,22 @@
       <div class="footer-col">
         <h5>Products</h5>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
-        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
-        <a href="/support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
     </div>
     <hr class="footer-divider">

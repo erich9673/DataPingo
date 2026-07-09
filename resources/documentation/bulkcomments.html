@@ -240,8 +240,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
-            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -254,7 +254,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -280,8 +280,8 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Partners</div>
-      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
-      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
@@ -290,7 +290,7 @@
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
     <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
-      View on Marketplace
+      Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </nav>
@@ -314,9 +314,10 @@
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;">
         <a href="#overview" class="btn-secondary">Overview</a>
         <a href="#full-guide" class="btn-secondary">Full Guide</a>
-        <a href="#technical" class="btn-secondary">Technical Specs</a>
+        <a href="#version-history" class="btn-secondary">Version History</a>
+        <a href="#technical" class="btn-secondary">Technical Specifications</a>
         <a href="#privacy-security" class="btn-secondary">Privacy &amp; Security</a>
-        <a href="#support" class="btn-secondary">Support</a>
+        <a href="#support" class="btn-secondary">Support &amp; Contact</a>
       </div>
     </div>
   </section>
@@ -330,6 +331,7 @@
       <nav class="doc-toc">
         <a href="#overview">Overview</a>
         <a href="#full-guide">Full Guide</a>
+        <a href="#version-history">Version History</a>
         <a href="#technical">Technical Specifications</a>
         <a href="#privacy-security">Privacy &amp; Security</a>
         <a href="#support">Support &amp; Contact</a>
@@ -382,16 +384,16 @@
         </div>
 
         <h3>Replicate Mode</h3>
-        <p>Instead of writing something new, Replicate mode copies a comment that already exists — including any images, videos and file attachments on it — onto other tickets exactly as-is.</p>
-        <div class="doc-tip">
-          <p><strong>Getting the comment link:</strong> Open the source comment's &bull;&bull;&bull; menu on the Jira issue and choose <strong>Copy link</strong>, then paste it into Bulk Comments for Jira's Replicate field.</p>
-        </div>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Copy%20Link%20(846x354%20px).png" alt="Copying a comment link from a Jira issue to use with Replicate mode" loading="lazy">
-        </div>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Replicate%20Mode%20(1840x900%20px).png" alt="Replicate Mode — copy an existing comment, media included, onto other tickets" loading="lazy">
-        </div>
+        <p>Instead of writing something new, Replicate mode copies a comment that already exists — including any images, videos and file attachments on it — onto other tickets exactly as-is. The <strong>Source</strong> step walks you through it in three parts:</p>
+        <ol>
+          <li><strong>Open the ticket &amp; copy the link</strong> — Go to the Jira issue, hover over the comment, then click the link icon next to the author's name to copy its link.
+            <div class="doc-img-card" style="margin-top:14px;">
+              <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Copy%20Link%20(846x354%20px).png" alt="Copying a comment link from a Jira issue — hover the comment and click the link icon next to the author's name" loading="lazy">
+            </div>
+          </li>
+          <li><strong>Check it's a valid comment link</strong> — A comment link ends in <code>?focusedCommentId=&hellip;</code> — that's the part that points to the exact comment (for example, <code>https://your-site.atlassian.net/browse/KAN-6?focusedCommentId=10842</code>). A plain issue link without that parameter won't work.</li>
+          <li><strong>Paste it below</strong> — Paste the link into the field, then continue on to pick your recipients and send.</li>
+        </ol>
 
         <h3>Selecting Tickets</h3>
         <p>Search by keyword or issue key, filter by project, or use advanced JQL to build a precise target list. Select up to 25 tickets, then send. Per-ticket progress is tracked live, and any failures can be retried in one click.</p>
@@ -401,6 +403,19 @@
 
         <h3>Jumping In From an Issue</h3>
         <p>You don't need to start from the global page. Open any issue's &bull;&bull;&bull; actions menu and choose <strong>Bulk Comment</strong>, or switch to the <strong>Bulk Comments for Jira</strong> tab in the issue's Activity panel — both auto-select that ticket's most recent comment so you can jump straight into Replicate mode.</p>
+      </section>
+
+      <section id="version-history" style="scroll-margin-top:100px;">
+        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Version History</h2>
+        <p>Release history for Bulk Comments for Jira on the Atlassian Marketplace.</p>
+        <table class="spec-table">
+          <thead>
+            <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>3.3.0</strong></td><td>Jul 9, 2026</td><td>Initial public release — compose a comment once and post it to up to 25 Jira issues, plus Replicate mode to copy an existing comment with its images, videos, and file attachments.</td></tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="technical" style="scroll-margin-top:100px;">
@@ -516,20 +531,22 @@
       <div class="footer-col">
         <h5>Products</h5>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
-        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
-        <a href="/support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
     </div>
     <hr class="footer-divider">

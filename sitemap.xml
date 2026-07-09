@@ -13,6 +13,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://datapingo.com/products/bulk-comments</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://datapingo.com/company/about-us</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -49,14 +55,14 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://datapingo.com/partners/become-a-partner</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://datapingo.com/partners/become-a-solution-partner</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://datapingo.com/partners/find-a-partner</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://datapingo.com/partners/become-a-marketing-partner</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

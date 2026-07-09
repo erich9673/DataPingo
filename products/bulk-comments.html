@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bulk Comments for Jira | DataPingo</title>
   <meta name="description" content="Bulk Comments for Jira lets you compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos and files included — across many tickets.">
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.datapingo.com/products/bulk-comments">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.datapingo.com/products/bulk-comments">
@@ -72,102 +72,116 @@
       display: flex; gap: 12px; flex-wrap: wrap;
     }
 
-    /* Bulk Comments fan-out diagram */
-    .bc-diagram {
-      position: relative; display: flex; flex-direction: column;
-      align-items: center; gap: 0; padding: 16px 0;
+    /* Bulk Comments — broadcast console (hero signature) */
+    .bc-broadcast {
+      position: relative; display: flex; flex-direction: column; gap: 14px;
+      max-width: 468px; margin-left: auto; user-select: none;
     }
-    .bc-comment-card {
-      background: var(--black-3);
-      border: 1px solid rgba(99,102,241,0.4);
-      border-radius: 12px; padding: 16px 18px;
-      width: 220px;
-      box-shadow: 0 0 28px rgba(99,102,241,0.14), 0 0 0 1px rgba(99,102,241,0.1);
-      position: relative; z-index: 2;
-      animation: bcPulseGlow 2.8s ease-in-out infinite;
+    .bc-modes {
+      display: inline-flex; gap: 4px; padding: 4px; align-self: flex-start;
+      background: var(--black-3); border: 1px solid var(--border); border-radius: 99px;
     }
-    @keyframes bcPulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.14), 0 0 0 1px rgba(99,102,241,0.1); }
-      50% { box-shadow: 0 0 40px rgba(99,102,241,0.28), 0 0 0 1px rgba(99,102,241,0.22); }
+    .bc-mode {
+      border: none; background: none; cursor: pointer; font-family: inherit;
+      font-size: 0.78rem; font-weight: 600; color: var(--slate);
+      padding: 6px 16px; border-radius: 99px; transition: background 0.2s, color 0.2s;
     }
-    .bc-card-label {
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #A5B4FC; margin-bottom: 10px;
-    }
-    .bc-card-line {
-      height: 6px; border-radius: 4px; background: rgba(255,255,255,0.06);
-      margin-bottom: 6px;
-    }
-    .bc-card-line.w80 { width: 80%; }
-    .bc-card-line.w60 { width: 60%; }
-    .bc-card-line.w70 { width: 70%; }
-    .bc-card-line.indigo { background: rgba(99,102,241,0.35); width: 40%; }
+    .bc-mode:hover { color: var(--white); }
+    .bc-mode.active { background: #6366F1; color: #fff; }
 
-    .bc-connector {
-      display: flex; flex-direction: column; align-items: center;
-      height: 40px; position: relative;
+    .bc-source {
+      background: var(--black-3); border: 1px solid rgba(99,102,241,0.35);
+      border-radius: 14px; padding: 16px 18px;
+      box-shadow: 0 0 30px rgba(99,102,241,0.10);
     }
-    .bc-connector-vert {
-      width: 1px; height: 20px;
-      background: linear-gradient(180deg, rgba(99,102,241,0.55) 0%, rgba(99,102,241,0.2) 100%);
-    }
-    .bc-connector-spread {
-      display: flex; align-items: flex-start; width: 100%;
-      height: 20px; position: relative; justify-content: center;
-    }
-    .bc-connector-spread::before {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 160px; height: 1px;
-      background: rgba(99,102,241,0.28);
-    }
-    .bc-connector-spread::after {
-      content: ''; position: absolute; top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 1px; height: 20px;
-      background: rgba(99,102,241,0.28);
-    }
-    .bc-spread-left, .bc-spread-right {
-      position: absolute; top: 0; width: 1px; height: 20px;
-      background: rgba(99,102,241,0.28);
-    }
-    .bc-spread-left { left: calc(50% - 80px); }
-    .bc-spread-right { right: calc(50% - 80px); }
+    .bc-source-top { display: flex; align-items: center; gap: 9px; margin-bottom: 11px; }
+    .bc-avatar { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #6366F1, #7C3AED); }
+    .bc-source-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #A5B4FC; }
+    /* fixed height so Compose and Replicate are identical in size */
+    .bc-source-body { height: 150px; overflow: hidden; font-size: 0.83rem; color: var(--white); line-height: 1.5; }
+    .bc-body-text { display: block; }
+    .bc-caret { display: inline-block; width: 2px; height: 1em; background: #A5B4FC;
+      vertical-align: -2px; margin-left: 1px; animation: bcCaret 0.9s step-end infinite; }
+    @keyframes bcCaret { 50% { opacity: 0; } }
+    .bc-mention { color: #A5B4FC; font-weight: 600; background: rgba(99,102,241,0.16);
+      border-radius: 4px; padding: 0 4px; }
 
-    .bc-tickets {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 10px; width: 100%;
+    @keyframes bcAppear { from { opacity: 0; } to { opacity: 1; } }
+    .bc-table { width: 100%; border-collapse: collapse; margin-top: 11px; font-size: 0.72rem;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; animation: bcAppear 0.35s ease both; }
+    .bc-table th, .bc-table td { text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--border); }
+    .bc-table th { color: var(--slate); font-weight: 600; background: rgba(255,255,255,0.03);
+      text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6rem; }
+    .bc-table tr:last-child td { border-bottom: none; }
+    .bc-table td { color: var(--white); }
+    .bc-pill { font-size: 0.6rem; font-weight: 700; padding: 1px 8px; border-radius: 20px; }
+    .bc-pill.ok { color: #34D399; background: rgba(52,211,153,0.14); }
+    .bc-pill.wait { color: #FBBF24; background: rgba(251,191,36,0.14); }
+
+    .bc-attach { display: flex; align-items: center; gap: 10px; margin-top: 9px; padding: 8px 10px;
+      background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: 9px;
+      animation: bcAppear 0.35s ease both; }
+    .bc-attach-ic { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; }
+    .bc-attach-ic.pdf { background: rgba(248,113,113,0.14); color: #F87171; }
+    .bc-attach-ic.vid { background: rgba(99,102,241,0.16); color: #A5B4FC; }
+    .bc-attach-meta { min-width: 0; }
+    .bc-attach-name { font-size: 0.75rem; color: var(--white); font-weight: 600;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bc-attach-sub { font-size: 0.64rem; color: var(--slate); margin-top: 1px; }
+
+    .bc-send {
+      margin-top: 14px; width: 100%; border: none; cursor: pointer; font-family: inherit;
+      font-size: 0.82rem; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, #6366F1, #7C3AED); border-radius: 10px; padding: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity 0.2s, box-shadow 0.15s, transform 0.12s;
     }
-    .bc-ticket-card {
-      background: var(--black-3);
-      border: 1px solid rgba(99,102,241,0.18);
-      border-radius: 10px; padding: 12px 14px;
-      animation: bcFadeInUp 0.5s ease forwards;
-      opacity: 0;
+    .bc-send:hover { opacity: 0.9; }
+    .bc-send.pressed { transform: scale(0.97); box-shadow: 0 0 22px rgba(99,102,241,0.45); }
+
+    /* fake cursor for the "click Post" moment */
+    .bc-cursor { position: absolute; top: 0; left: 0; width: 20px; height: 20px; z-index: 6; opacity: 0;
+      transition: transform 0.7s cubic-bezier(0.45,0,0.25,1), opacity 0.25s ease; pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .bc-cursor svg { width: 20px; height: 20px; display: block; transition: transform 0.12s ease; }
+    .bc-cursor.tap svg { transform: scale(0.78); }
+
+    .bc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    /* Tiles fill in sequence on post — fade only, no scale/expand */
+    .bc-chip {
+      position: relative; height: 44px; border-radius: 9px;
+      background: var(--black-3); border: 1px solid var(--border);
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
-    .bc-ticket-card:nth-child(1) { animation-delay: 0.2s; }
-    .bc-ticket-card:nth-child(2) { animation-delay: 0.4s; }
-    .bc-ticket-card:nth-child(3) { animation-delay: 0.6s; }
-    @keyframes bcFadeInUp {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .bc-chip::before {
+      content: ''; position: absolute; top: 9px; left: 9px; width: 54%; height: 4px;
+      border-radius: 3px; background: rgba(255,255,255,0.07); transition: background 0.15s ease;
     }
-    .bc-ticket-label {
-      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(165,180,252,0.6); margin-bottom: 8px;
+    .bc-chip .bc-check {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.15s ease;
     }
-    .bc-diagram-footer {
-      margin-top: 16px; text-align: center;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(165,180,252,0.6);
-    }
-    .bc-diagram-footer span {
-      color: #A5B4FC;
+    .bc-chip .bc-check svg { width: 15px; height: 15px; color: #fff; }
+    .bc-chip.lit { background: rgba(99,102,241,0.16); border-color: rgba(99,102,241,0.6); }
+    .bc-chip.lit::before { background: rgba(165,180,252,0.5); }
+    .bc-chip.lit .bc-check { opacity: 1; }
+
+    .bc-count { text-align: center; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(165,180,252,0.65); margin-top: 2px; }
+    .bc-count span { color: #A5B4FC; font-variant-numeric: tabular-nums; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bc-caret, .bc-table, .bc-attach { animation: none; }
+      .bc-chip { transition: none; }
+      .bc-cursor { display: none; }
     }
 
     @media (max-width: 900px) {
       .product-hero-inner { grid-template-columns: 1fr; }
-      .bc-diagram { display: none; }
+      .bc-broadcast { max-width: 520px; margin: 8px auto 0; }
     }
 
     /* Indigo primary button */
@@ -264,14 +278,101 @@
     .hiw-panel.active { opacity: 1; pointer-events: auto; }
     .hiw-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* Pricing placeholder */
+    /* Pricing calculator */
     .pricing-section { padding: 96px 0; border-top: 1px solid var(--border); }
-    .pricing-placeholder {
-      max-width: 640px; margin: 48px auto 0; text-align: center;
+    .pricing-calculator { margin-top: 48px; }
+    .calc-card {
+      display: grid; grid-template-columns: 1fr 340px;
       background: var(--black-2); border: 1px solid var(--border);
-      border-radius: 20px; padding: 48px 40px;
+      border-radius: 20px; overflow: hidden; max-width: 900px; margin: 0 auto;
     }
-    .pricing-placeholder p { color: var(--slate); font-size: 0.95rem; line-height: 1.8; margin: 0 0 24px; }
+    .calc-inputs { padding: 40px 40px 40px; border-right: 1px solid var(--border); }
+    .calc-inputs-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--white); margin: 0 0 28px;
+    }
+    .calc-group { margin-bottom: 24px; }
+    .calc-label {
+      display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--slate); margin-bottom: 10px;
+    }
+    .calc-pill-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .calc-pill {
+      padding: 8px 18px; border-radius: 99px;
+      border: 1px solid var(--border); background: none;
+      color: var(--slate); font-size: 0.85rem; font-weight: 500;
+      cursor: pointer; font-family: inherit; transition: all 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .calc-pill:hover { border-color: rgba(99,102,241,0.5); color: var(--white); }
+    .calc-pill.active { border-color: #6366F1; background: rgba(99,102,241,0.12); color: var(--white); }
+    .calc-save-badge {
+      font-size: 0.68rem; font-weight: 700; padding: 2px 7px;
+      border-radius: 99px; background: rgba(99,102,241,0.18);
+      color: #A5B4FC; letter-spacing: 0.04em;
+    }
+    .calc-hint { font-size: 0.78rem; color: var(--slate); margin: 8px 0 0; line-height: 1.5; }
+    .calc-slider-row { display: flex; align-items: center; gap: 14px; }
+    .calc-slider {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #6366F1; cursor: pointer;
+      box-shadow: 0 0 8px rgba(99,102,241,0.5);
+    }
+    .calc-slider::-moz-range-thumb {
+      width: 18px; height: 18px; border-radius: 50%; border: none;
+      background: #6366F1; cursor: pointer;
+      box-shadow: 0 0 8px rgba(99,102,241,0.5);
+    }
+    .calc-input {
+      width: 110px; padding: 10px 12px; background: var(--black-3);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--white); font-size: 0.95rem; font-family: inherit; text-align: right;
+    }
+    .calc-input:focus { outline: none; border-color: rgba(99,102,241,0.5); }
+    /* Estimate panel */
+    .calc-panel {
+      padding: 40px 36px; display: flex; flex-direction: column;
+      background: linear-gradient(160deg, rgba(99,102,241,0.06) 0%, transparent 60%);
+    }
+    .calc-panel-title {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--slate); margin-bottom: 28px;
+    }
+    .calc-line-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+    .calc-line-label { font-size: 0.83rem; color: var(--slate); }
+    .calc-line-val { font-size: 0.88rem; color: var(--white); font-weight: 600; }
+    .calc-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0 20px; }
+    .calc-total-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px; }
+    .calc-total-label { font-size: 0.88rem; color: var(--white); font-weight: 700; }
+    .calc-total-price { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; }
+    .calc-total-period { font-size: 0.78rem; color: var(--slate); margin-bottom: 24px; }
+    .calc-free-badge {
+      padding: 8px 14px; border-radius: 8px; text-align: center;
+      background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25);
+      color: #A5B4FC; font-size: 0.82rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .calc-empty {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 0;
+    }
+    .calc-empty p { color: var(--slate); font-size: 0.88rem; line-height: 1.7; }
+    .calc-cta-btn {
+      display: block; text-align: center; padding: 12px;
+      border-radius: 10px; font-weight: 700; font-size: 0.9rem;
+      background: linear-gradient(135deg, #6366F1 0%, #7C3AED 100%);
+      color: #fff; text-decoration: none; margin-top: auto;
+      transition: opacity 0.2s;
+    }
+    .calc-cta-btn:hover { opacity: 0.9; }
+    @media (max-width: 720px) {
+      .calc-card { grid-template-columns: 1fr; }
+      .calc-inputs { border-right: none; border-bottom: 1px solid var(--border); }
+    }
 
     /* FAQ */
     .faq-section { padding: 96px 0; border-top: 1px solid var(--border); }
@@ -333,7 +434,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
 
-<!-- NAVBAR (staged: Products dropdown previews the post-launch lineup — Handoff dropped, Bulk Comments added — since this page is not yet linked from anywhere else on the site) -->
+<!-- NAVBAR -->
 <header>
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
@@ -360,8 +461,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
-            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -374,7 +475,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -404,8 +505,8 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Partners</div>
-      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
-      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
@@ -416,7 +517,7 @@
     </div>
     <div class="mobile-menu-footer">
     <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
-      View on Marketplace
+      Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     </div>
@@ -434,9 +535,9 @@
           <span class="product-hero-tag">Jira App</span>
         </div>
         <h1>Bulk Comments for Jira</h1>
-        <p class="product-hero-sub">Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos and files included — across many tickets. Skip the copy-paste, comment once.</p>
+        <p class="product-hero-sub">Compose a comment once and post it to as many as 25 Jira tickets — or replicate an existing one, images, videos and files included. Skip the copy-paste, comment once.</p>
         <div class="product-hero-actions">
-          <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
+          <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Install on Atlassian Marketplace
           </a>
@@ -447,43 +548,26 @@
         </div>
       </div>
 
-      <!-- Fan-out diagram: one comment → many Jira tickets -->
-      <div class="bc-diagram" aria-hidden="true">
-        <div class="bc-comment-card">
-          <div class="bc-card-label">Comment</div>
-          <div class="bc-card-line indigo"></div>
-          <div class="bc-card-line w80"></div>
-          <div class="bc-card-line w60"></div>
-          <div class="bc-card-line w70"></div>
+      <!-- Broadcast console: one comment → 25 Jira tickets at once -->
+      <div class="bc-broadcast" aria-label="Posting one comment to 25 Jira tickets at once">
+        <div class="bc-modes" role="group" aria-label="Comment mode">
+          <button type="button" class="bc-mode active" data-mode="compose" aria-pressed="true">Compose</button>
+          <button type="button" class="bc-mode" data-mode="replicate" aria-pressed="false">Replicate</button>
         </div>
-
-        <div class="bc-connector">
-          <div class="bc-connector-vert"></div>
-          <div class="bc-connector-spread">
-            <div class="bc-spread-left"></div>
-            <div class="bc-spread-right"></div>
+        <div class="bc-source">
+          <div class="bc-source-top">
+            <span class="bc-avatar" aria-hidden="true"></span>
+            <span class="bc-source-label" id="bcSourceLabel">New comment</span>
           </div>
+          <div class="bc-source-body" id="bcSourceBody"></div>
+          <button type="button" class="bc-send" id="bcSend">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Post to 25 tickets
+          </button>
         </div>
-
-        <div class="bc-tickets">
-          <div class="bc-ticket-card">
-            <div class="bc-ticket-label">Issue 1</div>
-            <div class="bc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bc-card-line w60"></div>
-          </div>
-          <div class="bc-ticket-card">
-            <div class="bc-ticket-label">Issue 2</div>
-            <div class="bc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bc-card-line w60"></div>
-          </div>
-          <div class="bc-ticket-card">
-            <div class="bc-ticket-label">Issue 3</div>
-            <div class="bc-card-line w80" style="margin-bottom:5px;"></div>
-            <div class="bc-card-line w60"></div>
-          </div>
-        </div>
-
-        <div class="bc-diagram-footer">&times;<span id="comment-counter" style="display:inline-block;min-width:1.2ch;transition:opacity 0.25s ease,transform 0.25s ease;">25</span> issues updated in seconds</div>
+        <div class="bc-grid" id="bcGrid" aria-hidden="true"></div>
+        <div class="bc-count"><span id="bcCount">0</span> / 25 tickets updated</div>
+        <div class="bc-cursor" id="bcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
       </div>
     </div>
   </section>
@@ -585,12 +669,53 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>Pricing</span></p>
-        <h2 class="section-title" id="pricing-heading">Pricing</h2>
-        <p class="section-desc">Final pricing will be confirmed at launch.</p>
+        <h2 class="section-title" id="pricing-heading">Simple, <span style="background:linear-gradient(135deg,#818CF8 0%,#A78BFA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">usage-based pricing</span></h2>
+        <p class="section-desc">Free for teams up to 10 users. Enter your team size to see your estimate.</p>
       </header>
-      <div class="pricing-placeholder reveal">
-        <p>Bulk Comments for Jira is paid via the Atlassian Marketplace. Pricing tiers will be published here once the listing goes live — check the Marketplace listing for current rates.</p>
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">View on Marketplace</a>
+
+      <div class="pricing-calculator reveal">
+        <div class="calc-card" data-calc-id="bc">
+          <!-- Inputs -->
+          <div class="calc-inputs">
+            <p class="calc-inputs-title">Estimate your cost</p>
+
+            <div class="calc-group">
+              <label class="calc-label">License Type</label>
+              <div class="calc-pill-row" data-field="licenseType">
+                <button class="calc-pill active" data-val="standard" onclick="setPill(this,'bc')">Standard</button>
+                <button class="calc-pill" data-val="multiInstance" onclick="setPill(this,'bc')">Multi-Instance</button>
+              </div>
+              <p class="calc-hint" id="bc-license-hint">Best for single Jira instance</p>
+            </div>
+
+            <div class="calc-group">
+              <label class="calc-label">Billing Cycle</label>
+              <div class="calc-pill-row" data-field="billingCycle">
+                <button class="calc-pill active" data-val="monthly" onclick="setPill(this,'bc')">Monthly</button>
+                <button class="calc-pill" data-val="annual" onclick="setPill(this,'bc')">Annual <span class="calc-save-badge">Save 17%</span></button>
+              </div>
+            </div>
+
+            <div class="calc-group">
+              <label class="calc-label" for="bc-user-count">Users in your Jira instance</label>
+              <div class="calc-slider-row">
+                <input type="range" class="calc-slider" min="1" max="1000" value="50" id="bc-user-slider"
+                  oninput="document.getElementById('bc-user-count').value=this.value;recalcPricing('bc')">
+                <input type="number" id="bc-user-count" class="calc-input" value="50" min="1" max="100000"
+                  oninput="const s=document.getElementById('bc-user-slider');s.value=Math.min(this.value,1000);recalcPricing('bc')">
+              </div>
+              <p class="calc-hint">Free for teams up to 10 users &mdash; no credit card needed.</p>
+            </div>
+          </div>
+
+          <!-- Estimate panel -->
+          <div class="calc-panel" id="bc-calc-panel">
+            <p class="calc-panel-title">Monthly Estimate</p>
+            <div id="bc-estimate-body" style="flex:1;display:flex;flex-direction:column;">
+              <div class="calc-empty"><p>Adjust the slider to see<br>your live cost estimate.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -670,7 +795,7 @@
         <h2 class="cta-title" id="cta-heading">Start bulk commenting on Jira issues in minutes.</h2>
         <p class="cta-desc">Install from the Atlassian Marketplace — built on Forge, with all your data staying inside Jira.</p>
         <div class="cta-actions">
-          <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
+          <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Install on Atlassian Marketplace
           </a>
@@ -686,7 +811,7 @@
 </div>
 </main>
 
-<!-- FOOTER (staged: Products list drops Handoff, adds Bulk Comments — matches the header dropdown on this page) -->
+<!-- FOOTER -->
 <footer>
   <div class="section-wrap">
     <div class="footer-grid">
@@ -722,14 +847,15 @@
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
-        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
-        <a href="/support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
     </div>
     <hr class="footer-divider">
@@ -762,22 +888,87 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Comment counter animation: cycles 1 → 3 → 5 → 10 → 25
+  // Broadcast console: type a comment, click Post, then 25 tickets check off in a wave
   (function() {
-    const el = document.getElementById('comment-counter');
-    if (!el) return;
-    const steps = [1, 3, 5, 10, 25];
-    let i = steps.length - 1; // start at 25
-    setInterval(function() {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(-6px)';
-      setTimeout(function() {
-        i = (i + 1) % steps.length;
-        el.textContent = steps[i];
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 260);
-    }, 1400);
+    const root = document.querySelector('.bc-broadcast');
+    if (!root) return;
+    const grid = root.querySelector('#bcGrid');
+    const body = root.querySelector('#bcSourceBody');
+    const label = root.querySelector('#bcSourceLabel');
+    const countEl = root.querySelector('#bcCount');
+    const sendBtn = root.querySelector('#bcSend');
+    const cursor = root.querySelector('#bcCursor');
+    const modeBtns = Array.from(root.querySelectorAll('.bc-mode'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const N = 25;
+
+    const check = '<span class="bc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
+    const chips = [];
+    for (let i = 0; i < N; i++) { const c = document.createElement('div'); c.className = 'bc-chip'; c.innerHTML = check; grid.appendChild(c); chips.push(c); }
+
+    const table = '<table class="bc-table"><thead><tr><th>Environment</th><th>Status</th></tr></thead><tbody>'
+      + '<tr><td>Staging</td><td><span class="bc-pill ok">Ready</span></td></tr>'
+      + '<tr><td>Production</td><td><span class="bc-pill wait">Pending</span></td></tr></tbody></table>';
+    const attach = '<div class="bc-attach"><div class="bc-attach-ic pdf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><div class="bc-attach-meta"><div class="bc-attach-name">Q3-release-report.pdf</div><div class="bc-attach-sub">PDF &middot; 2.4 MB</div></div></div>'
+      + '<div class="bc-attach"><div class="bc-attach-ic vid"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div><div class="bc-attach-meta"><div class="bc-attach-name">sprint-review.mp4</div><div class="bc-attach-sub">Recording &middot; 18:42</div></div></div>';
+
+    const data = {
+      compose: {
+        label: 'New comment',
+        typed: 'Migration window confirmed for Fri 9pm PT. @sarah.kim can you confirm the DB snapshot?',
+        full: '<span class="bc-body-text">Migration window confirmed for Fri 9pm PT. <span class="bc-mention">@sarah.kim</span> can you confirm the DB snapshot?</span>' + table
+      },
+      replicate: {
+        label: 'Existing comment',
+        full: '<span class="bc-body-text">Copied from PROJ-102 — sharing the Q3 report and sprint recording.</span>' + attach
+      }
+    };
+
+    let mode = 'compose';
+    let timers = [];
+    const clr = () => { timers.forEach(clearTimeout); timers = []; };
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const setActive = (m) => modeBtns.forEach(b => { const on = b.dataset.mode === m; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on); });
+
+    function moveCursorToSend() {
+      const cr = root.getBoundingClientRect();
+      const br = sendBtn.getBoundingClientRect();
+      const x = br.left - cr.left + br.width * 0.6;
+      const y = br.top - cr.top + br.height * 0.5 - 2;
+      cursor.style.transition = 'none';
+      cursor.style.transform = 'translate(' + (x + 30) + 'px,' + (y + 48) + 'px)';
+      void cursor.offsetWidth;
+      cursor.style.transition = '';
+      cursor.style.opacity = '1';
+      cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    }
+
+    function play(m) {
+      clr(); mode = m; setActive(m);
+      chips.forEach(c => c.classList.remove('lit'));
+      countEl.textContent = '0';
+      cursor.style.opacity = '0'; cursor.classList.remove('tap'); sendBtn.classList.remove('pressed');
+      label.textContent = data[m].label;
+
+      if (reduce) { body.innerHTML = data[m].full; chips.forEach(c => c.classList.add('lit')); countEl.textContent = String(N); return; }
+
+      // Both modes render their content immediately (no typing / expand)
+      body.innerHTML = data[m].full;
+      const ready = 1050;
+
+      at(ready, moveCursorToSend);
+      at(ready + 820, () => { cursor.classList.add('tap'); sendBtn.classList.add('pressed'); });
+      at(ready + 980, () => { cursor.classList.remove('tap'); sendBtn.classList.remove('pressed'); cursor.style.opacity = '0'; });
+
+      const cStart = ready + 1050;
+      for (let k = 0; k < N; k++) at(cStart + k * 50, () => { chips[k].classList.add('lit'); countEl.textContent = String(k + 1); });
+
+      at(cStart + N * 50 + 1600, () => play(m === 'compose' ? 'replicate' : 'compose'));
+    }
+
+    modeBtns.forEach(b => b.addEventListener('click', () => play(b.dataset.mode)));
+    setTimeout(() => play('compose'), 80);
   })();
 
   document.getElementById('footer-email-form').addEventListener('submit', function(e) {
@@ -873,6 +1064,122 @@
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   })();
+
+  // ── Pricing Calculator ──
+  const calcState = {
+    bc: { licenseType: 'standard', billingCycle: 'monthly' }
+  };
+
+  // Flat-tier pricing: find the tier that contains userCount, price = userCount × tier.price
+  const PRICING_TIERS = {
+    bc: {
+      standard: [
+        { min:1,     max:100,    price:1.10 },
+        { min:101,   max:250,    price:0.95 },
+        { min:251,   max:1000,   price:0.78 },
+        { min:1001,  max:2500,   price:0.62 },
+        { min:2501,  max:5000,   price:0.50 },
+        { min:5001,  max:7500,   price:0.42 },
+        { min:7501,  max:10000,  price:0.34 },
+        { min:10001, max:15000,  price:0.27 },
+        { min:15001, max:20000,  price:0.22 },
+        { min:20001, max:25000,  price:0.19 },
+        { min:25001, max:30000,  price:0.17 },
+        { min:30001, max:100000, price:0.15 }
+      ],
+      multiInstance: [
+        { min:1,     max:100,    price:1.30 },
+        { min:101,   max:250,    price:1.12 },
+        { min:251,   max:1000,   price:0.92 },
+        { min:1001,  max:2500,   price:0.74 },
+        { min:2501,  max:5000,   price:0.60 },
+        { min:5001,  max:7500,   price:0.50 },
+        { min:7501,  max:10000,  price:0.41 },
+        { min:10001, max:15000,  price:0.32 },
+        { min:15001, max:20000,  price:0.26 },
+        { min:20001, max:25000,  price:0.23 },
+        { min:25001, max:30000,  price:0.21 },
+        { min:30001, max:100000, price:0.18 }
+      ]
+    }
+  };
+
+  function setPill(btn, productId) {
+    const row = btn.closest('.calc-pill-row');
+    row.querySelectorAll('.calc-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const field = row.dataset.field;
+    calcState[productId][field] = btn.dataset.val;
+    if (field === 'licenseType') {
+      const hint = document.getElementById(productId + '-license-hint');
+      if (hint) hint.textContent = btn.dataset.val === 'standard' ? 'Best for single Jira instance' : 'For multiple Atlassian instances';
+    }
+    recalcPricing(productId);
+  }
+
+  function recalcPricing(productId) {
+    const inputEl = document.getElementById(productId + '-user-count');
+    const userCount = parseInt(inputEl ? inputEl.value : 0) || 0;
+    const { licenseType, billingCycle } = calcState[productId];
+    const tiers = PRICING_TIERS[productId] && PRICING_TIERS[productId][licenseType];
+    const bodyEl = document.getElementById(productId + '-estimate-body');
+    if (!bodyEl || !tiers) return;
+
+    const mktLink = 'https://marketplace.atlassian.com/apps/2184917707';
+    const accentColor = '#A5B4FC';
+
+    if (!userCount || userCount < 1) {
+      bodyEl.innerHTML = '<div class="calc-empty"><p>Adjust the slider to see<br>your live cost estimate.</p></div>';
+      return;
+    }
+
+    // Atlassian pricing: teams of 10 or fewer are free (the "up to 10" flat tier).
+    // Above 10, every user is billed — graduated across bands from user 1, each band at
+    // its own rate — matching the Marketplace's "USD X per user (average)" model.
+    const FREE_LIMIT = 10;
+    const isFree = userCount <= FREE_LIMIT;
+    let monthlyTotal = 0;
+    if (!isFree) {
+      let lower = 0;
+      for (const t of tiers) {
+        if (userCount <= lower) break;
+        const inBand = Math.min(userCount, t.max) - lower; // users falling within this band
+        monthlyTotal += inBand * t.price;
+        lower = t.max;
+      }
+    }
+    const isAnnual = billingCycle === 'annual';
+    // Atlassian annual = 10× monthly (equivalent to 2 months free)
+    const finalTotal = isAnnual ? monthlyTotal * 10 : monthlyTotal;
+    const avgPerUser = monthlyTotal / userCount; // blended monthly rate across tiers
+    const period = isAnnual ? 'per year' : 'per month';
+    const fmtUSD = n => 'USD ' + n.toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 });
+
+    let html = '';
+    if (isFree) {
+      html += `<div class="calc-free-badge">&#127881; Free for teams up to 10 users!</div>`;
+      html += `<div class="calc-line-item"><span class="calc-line-label">Users</span><span class="calc-line-val">${userCount.toLocaleString()}</span></div>`;
+      html += `<div class="calc-line-item"><span class="calc-line-label">App cost</span><span class="calc-line-val" style="color:${accentColor}">Free</span></div>`;
+      html += `<hr class="calc-divider">`;
+      html += `<div class="calc-total-row"><span class="calc-total-label">Total</span><span class="calc-total-price" style="color:${accentColor}">$0.00</span></div>`;
+      html += `<p class="calc-total-period">${period}</p>`;
+    } else {
+      html += `<div class="calc-line-item"><span class="calc-line-label">Users</span><span class="calc-line-val">${userCount.toLocaleString()}</span></div>`;
+      html += `<div class="calc-line-item"><span class="calc-line-label">Avg per user</span><span class="calc-line-val">${fmtUSD(avgPerUser)}/mo</span></div>`;
+      if (isAnnual) html += `<div class="calc-line-item"><span class="calc-line-label">Annual saving</span><span class="calc-line-val" style="color:${accentColor}">${fmtUSD(monthlyTotal * 2)} off</span></div>`;
+      html += `<hr class="calc-divider">`;
+      html += `<div class="calc-total-row"><span class="calc-total-label">Total</span><span class="calc-total-price">${fmtUSD(finalTotal)}</span></div>`;
+      html += `<p class="calc-total-period">${period} &bull; ${fmtUSD(avgPerUser)} per user (average)</p>`;
+    }
+    html += `<a href="${mktLink}" target="_blank" rel="noopener" class="calc-cta-btn">Start free trial &rarr;</a>`;
+    bodyEl.innerHTML = html;
+  }
+
+  // Init on load
+  document.querySelectorAll('[data-calc-id]').forEach(card => {
+    const id = card.dataset.calcId;
+    if (document.getElementById(id + '-user-count')) recalcPricing(id);
+  });
 </script>
 </body>
 </html>

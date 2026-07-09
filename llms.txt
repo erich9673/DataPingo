@@ -1,13 +1,13 @@
 # DataPingo
 
-> DataPingo builds productivity apps for Confluence teams on the Atlassian Marketplace. Our tools automate bulk operations, content management, and reporting — helping teams save hours of manual work.
+> DataPingo builds productivity apps for Confluence and Jira teams on the Atlassian Marketplace. Our tools automate bulk operations and content management — helping teams save hours of manual work.
 
-DataPingo specializes in Atlassian Forge apps that integrate natively with Confluence Cloud. Products are trusted by teams for project template management, client onboarding automation, sprint documentation, and cross-space reporting.
+DataPingo specializes in Atlassian Forge apps that integrate natively with Confluence Cloud and Jira Cloud. Products are trusted by teams for project template management, client onboarding automation, sprint documentation, and bulk commenting across Jira issues.
 
 ## Products
 
 - [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner): Clone individual pages or entire page hierarchies in Confluence with a single click. Supports template reuse across projects, spaces, and teams.
-- [Bulk Report Generator for Confluence](https://datapingo.com/products/bulk-report-generator/): Automatically generate reports across multiple Confluence spaces and pages. Export and share documentation insights at scale.
+- [Bulk Comments for Jira](https://datapingo.com/products/bulk-comments): Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos, and files included — across many tickets.
 
 ## Company
 
@@ -23,8 +23,8 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 
 ## Partners
 
-- [Become a Partner](https://datapingo.com/partners/become-a-partner): Join the DataPingo partner program to resell, refer, or integrate our apps.
-- [Find a Partner](https://datapingo.com/partners/find-a-partner): Browse certified DataPingo partners for implementation and support.
+- [Become a Solution Partner](https://datapingo.com/partners/become-a-solution-partner): Recommend or resell DataPingo apps to your clients and earn recurring commission.
+- [Become a Marketing Partner](https://datapingo.com/partners/become-a-marketing-partner): Co-market with DataPingo through content, campaigns, and joint promotion.
 
 ## Legal
 

@@ -39,6 +39,7 @@
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -52,8 +53,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/partners/become-a-partner" role="menuitem">Become a Partner</a>
-            <a href="/partners/find-a-partner" role="menuitem">Find a Partner</a>
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -66,7 +67,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Get on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -86,6 +87,7 @@
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -95,8 +97,8 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Partners</div>
-      <a href="/partners/become-a-partner" class="mobile-nav-link">Become a Partner</a>
-      <a href="/partners/find-a-partner" class="mobile-nav-link">Find a Partner</a>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
@@ -108,7 +110,7 @@
     <div class="mobile-menu-footer">
   
     <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
-      Get on Marketplace
+      Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     </div>
@@ -160,11 +162,11 @@
 }
 .doc-product-card.bpc:hover { box-shadow: 0 16px 48px rgba(5,206,240,0.12); }
 
-.doc-product-card.handoff {
+.doc-product-card.bc {
   background: rgba(124,77,204,0.06);
   border: 1px solid rgba(124,77,204,0.28);
 }
-.doc-product-card.handoff:hover { box-shadow: 0 16px 48px rgba(124,77,204,0.15); }
+.doc-product-card.bc:hover { box-shadow: 0 16px 48px rgba(124,77,204,0.15); }
 
 .doc-card-top {
   padding: 32px 32px 24px;
@@ -201,7 +203,7 @@
   border: 1px solid rgba(5,206,240,0.3);
   color: var(--teal);
 }
-.handoff .doc-version-badge {
+.bc .doc-version-badge {
   background: rgba(167,139,250,0.12);
   border: 1px solid rgba(167,139,250,0.3);
   color: #A78BFA;
@@ -261,7 +263,7 @@
   border: 1px solid rgba(5,206,240,0.3);
   color: var(--teal);
 }
-.handoff .doc-cta-primary {
+.bc .doc-cta-primary {
   background: rgba(167,139,250,0.12);
   border: 1px solid rgba(167,139,250,0.3);
   color: #A78BFA;
@@ -344,21 +346,21 @@
           </div>
           <p class="doc-card-desc">Guides for cloning pages, managing templates, configuring naming patterns, and understanding pricing.</p>
           <div class="doc-quick-links">
-            <a href="/resources/documentation/bulkpagecloner#installation" class="doc-quick-link">
+            <a href="/resources/documentation/bulkpagecloner#overview" class="doc-quick-link">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Installation &amp; setup
+              Overview
             </a>
-            <a href="/resources/documentation/bulkpagecloner#how-it-works" class="doc-quick-link">
+            <a href="/resources/documentation/bulkpagecloner#full-guide" class="doc-quick-link">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              How it works
+              Full Guide
             </a>
-            <a href="/resources/documentation/bulkpagecloner#pricing" class="doc-quick-link">
+            <a href="/resources/documentation/bulkpagecloner#technical" class="doc-quick-link">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Pricing &amp; billing
+              Technical Specification
             </a>
-            <a href="/resources/documentation/bulkpagecloner#whats-new" class="doc-quick-link">
+            <a href="/resources/documentation/bulkpagecloner#support" class="doc-quick-link">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              What's new in v7.1
+              Support &amp; Contact
             </a>
           </div>
           <div class="doc-card-cta-row">
@@ -366,6 +368,44 @@
               Browse docs &rarr;
             </a>
             <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="doc-cta-secondary">
+              Marketplace &nearr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Bulk Comments -->
+        <div class="doc-product-card bc">
+          <div class="doc-card-top">
+            <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy">
+            <div class="doc-card-top-meta">
+              <h3>Bulk Comments for Jira</h3>
+              <span class="doc-version-badge">v3.3.0 &mdash; Initial Release</span>
+            </div>
+          </div>
+          <p class="doc-card-desc">Guides for composing and replicating comments, selecting issues, and understanding the app's data handling.</p>
+          <div class="doc-quick-links">
+            <a href="/resources/documentation/bulkcomments#overview" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Overview
+            </a>
+            <a href="/resources/documentation/bulkcomments#full-guide" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Full Guide
+            </a>
+            <a href="/resources/documentation/bulkcomments#technical" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Technical Specification
+            </a>
+            <a href="/resources/documentation/bulkcomments#support" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Support &amp; Contact
+            </a>
+          </div>
+          <div class="doc-card-cta-row">
+            <a href="/resources/documentation/bulkcomments" class="doc-cta-primary">
+              Browse docs &rarr;
+            </a>
+            <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="doc-cta-secondary">
               Marketplace &nearr;
             </a>
           </div>
@@ -431,20 +471,22 @@
       <div class="footer-col">
         <h5>Products</h5>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
-        <a href="/partners/become-a-partner">Become a Partner</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
-        <a href="/support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
     </div>
     <hr class="footer-divider">
