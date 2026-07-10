@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Page not found | DataPingo</title>
+  <meta name="description" content="That page doesn't exist. Find DataPingo's apps for Confluence and Jira, documentation, and partner programs.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/jpeg" href="/assets/img/favicon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <style>
+    .nf {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .nf-bg { position: absolute; inset: 0; pointer-events: none; }
+    .nf-orb { position: absolute; border-radius: 50%; }
+    .nf-orb-1 {
+      width: 720px; height: 720px; top: -280px; right: -180px; filter: blur(110px);
+      background: radial-gradient(circle, rgba(5,206,240,0.20) 0%, transparent 65%);
+    }
+    .nf-orb-2 {
+      width: 520px; height: 520px; bottom: -200px; left: -160px; filter: blur(100px);
+      background: radial-gradient(circle, rgba(124,77,204,0.30) 0%, transparent 65%);
+    }
+    .nf-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(5,206,240,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5,206,240,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+    .nf-inner { position: relative; max-width: 640px; text-align: center; }
+    .nf-code {
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.82rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate);
+      margin-bottom: 22px;
+    }
+    .nf h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.1;
+      letter-spacing: -0.035em; color: var(--white); margin: 0 0 20px;
+    }
+    .nf h1 .grad-text {
+      background: var(--grad-text);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nf p {
+      color: var(--slate); font-size: 1.06rem; line-height: 1.7;
+      margin: 0 auto 40px; max-width: 480px;
+    }
+    .nf-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+    .nf-links {
+      border-top: 1px solid var(--border); padding-top: 32px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 28px;
+      text-align: left;
+    }
+    .nf-link {
+      display: block; padding: 12px 14px; border-radius: 10px;
+      color: var(--white); text-decoration: none;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500;
+      transition: background 0.2s ease;
+    }
+    .nf-link span { display: block; color: var(--slate); font-size: 0.83rem; font-weight: 400; margin-top: 3px; }
+    .nf-link:hover, .nf-link:focus-visible { background: rgba(255,255,255,0.04); }
+    @media (prefers-reduced-motion: reduce) { .nf-link { transition: none; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">Visit Us On Marketplace</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="nf">
+    <div class="nf-bg" aria-hidden="true">
+      <div class="nf-orb nf-orb-1"></div>
+      <div class="nf-orb nf-orb-2"></div>
+      <div class="nf-grid"></div>
+    </div>
+
+    <div class="nf-inner">
+      <div class="nf-code">Error 404</div>
+      <h1>This page <span class="grad-text">doesn't exist</span></h1>
+      <p>The link may be out of date, or the page has moved. Everything below still works.</p>
+
+      <div class="nf-ctas">
+        <a href="/" class="btn-primary">Go to the homepage</a>
+        <a href="/support" class="btn-secondary">Contact support</a>
+      </div>
+
+      <div class="nf-links">
+        <a class="nf-link" href="/products/bulk-page-cloner">Bulk Page Cloner<span>Clone a Confluence page up to 25 times</span></a>
+        <a class="nf-link" href="/products/bulk-comments">Bulk Comments<span>Comment once, post to 25 Jira issues</span></a>
+        <a class="nf-link" href="/resources/documentation">Documentation<span>Setup guides for both apps</span></a>
+        <a class="nf-link" href="/partners/become-a-solution-partner">Become a Solution Partner<span>Earn on every renewal</span></a>
+        <a class="nf-link" href="/partners/become-a-marketing-partner">Become a Marketing Partner<span>Co-market with DataPingo</span></a>
+        <a class="nf-link" href="/company/contact">Contact<span>Questions, support, or partnerships</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
