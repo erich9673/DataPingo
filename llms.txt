@@ -6,7 +6,7 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 
 ## Products
 
-- [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner): Clone individual pages or entire page hierarchies in Confluence with a single click. Supports template reuse across projects, spaces, and teams.
+- [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner): Select one Confluence page and clone it into as many as 25 exact copies in a single guided flow — content, formatting, images, video, macros, labels, and attachments all carried over. Name each copy and choose where they land in the page tree. Free for teams up to 10 users.
 - [Bulk Comments for Jira](https://datapingo.com/products/bulk-comments): Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos, and files included — across many tickets.
 
 ## Company

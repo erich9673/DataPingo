@@ -6,9 +6,9 @@
   <title>Bulk Page Cloner for Confluence — Documentation | DataPingo</title>
   <meta name="description" content="Complete documentation for Bulk Page Cloner for Confluence — automate page cloning, space management, and content duplication on Atlassian Forge.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.datapingo.com/resources/documentation/bulkpagecloner">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkpagecloner">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.datapingo.com/resources/documentation/bulkpagecloner">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkpagecloner">
   <meta property="og:title" content="Bulk Page Cloner for Confluence — Documentation | DataPingo">
   <meta property="og:description" content="Complete documentation for Bulk Page Cloner for Confluence.">
   <meta property="og:site_name" content="DataPingo">
@@ -110,6 +110,35 @@
       margin: 16px 0;
       cursor: zoom-in;
       transition: border-color 0.2s;
+    }
+
+    /* Tutorial video — click-to-load. No YouTube request until the reader presses play,
+       which also keeps the cookie autoblocker from replacing the embed with a blank frame. */
+    .doc-video { position: relative; aspect-ratio: 16 / 9; height: auto; padding: 0; cursor: default; }
+    .doc-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .doc-video-play {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      background: linear-gradient(160deg, rgba(5,206,240,0.09) 0%, var(--black-3) 62%);
+      border: 0; cursor: pointer; font-family: inherit; color: var(--white);
+      transition: background 0.25s;
+    }
+    .doc-video-play:hover { background: linear-gradient(160deg, rgba(5,206,240,0.15) 0%, var(--black-3) 62%); }
+    .doc-video-play:focus-visible { outline: 2px solid var(--teal); outline-offset: -4px; }
+    .doc-video-ring {
+      width: 66px; height: 66px; border-radius: 50%;
+      background: var(--teal); color: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 40px rgba(5,206,240,0.35);
+      transition: transform 0.2s;
+    }
+    .doc-video-play:hover .doc-video-ring { transform: scale(1.06); }
+    .doc-video-label { font-size: 0.92rem; font-weight: 600; }
+    .doc-video-sub { font-size: 0.76rem; color: var(--slate); }
+    .doc-video-fallback { font-size: 0.86rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .doc-video-play, .doc-video-ring { transition: none; }
+      .doc-video-play:hover .doc-video-ring { transform: none; }
     }
     .doc-img-card:hover { border-color: rgba(5,206,240,0.35); }
     .doc-img-card img {
@@ -317,7 +346,7 @@
       <h1 style="text-align:center;">Bulk Page Cloner for Confluence</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Duplicate up to 25 Confluence pages in one guided flow — with a live clone summary and full light &amp; dark mode.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v7.1 ✦ Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v7.1.0 &mdash; Latest</span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Confluence Cloud</span>
       </div>
@@ -432,17 +461,16 @@
 
         <h3>Watch the Full Tutorial</h3>
         <p>Watch our full walkthrough to see Bulk Page Cloner in action — from selecting a template to bulk-creating 25 pages in seconds.</p>
-        <div class="doc-img-card" style="padding:0;overflow:hidden;position:relative;aspect-ratio:16/9;height:auto;">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/Ew8wpqPWk1M?rel=0&modestbranding=1"
-            title="Bulk Page Cloner for Confluence — Tutorial"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-            style="position:absolute;inset:0;width:100%;height:100%;display:block;border:0;"
-          ></iframe>
+        <div class="doc-img-card doc-video" id="bpcVideo">
+          <button type="button" class="doc-video-play" id="bpcVideoPlay" aria-label="Play the Bulk Page Cloner tutorial video">
+            <span class="doc-video-ring" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="doc-video-label">Bulk Page Cloner &mdash; full walkthrough</span>
+            <span class="doc-video-sub">Loads YouTube only when you press play</span>
+          </button>
         </div>
+        <p class="doc-video-fallback">Prefer to watch it there? <a href="https://youtu.be/Ew8wpqPWk1M" target="_blank" rel="noopener">Open the tutorial on YouTube &#8599;</a></p>
       </section>
 
       <section id="version-history" style="scroll-margin-top:100px;">
@@ -529,7 +557,7 @@
         <p>For technical support, feature requests, or general questions:</p>
         <ul>
           <li><strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
-          <li><strong>Response Time:</strong> 24–48 hours for technical issues</li>
+          <li><strong>Response Time:</strong> Within one business day</li>
           <li><strong>Support Scope:</strong> App functionality and technical issues</li>
         </ul>
 
@@ -610,6 +638,7 @@
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
       </nav>
     </div>
   </div>
@@ -654,6 +683,23 @@
   }
   window.addEventListener('scroll', updateTOC, { passive: true });
   updateTOC();
+
+  // Tutorial video: swap the poster for the real embed on click. Injecting the iframe
+  // after load also sidesteps the cookie autoblocker, which only rewrites embeds
+  // present in the initial HTML.
+  (function() {
+    const play = document.getElementById('bpcVideoPlay');
+    if (!play) return;
+    play.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/Ew8wpqPWk1M?autoplay=1&rel=0&modestbranding=1';
+      frame.title = 'Bulk Page Cloner for Confluence — Tutorial';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      document.getElementById('bpcVideo').replaceChildren(frame);
+      frame.focus();
+    });
+  })();
 
   // Lightbox
   const lb = document.getElementById('docLightbox');

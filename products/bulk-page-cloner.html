@@ -6,12 +6,20 @@
   <title>Bulk Page Cloner for Confluence | DataPingo</title>
   <meta name="description" content="Bulk Page Cloner for Confluence lets you instantly clone pages in bulk with preserved structure, hierarchy, and labels. Officially approved on the Atlassian Marketplace.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.datapingo.com/products/bulk-page-cloner">
+  <link rel="canonical" href="https://datapingo.com/products/bulk-page-cloner">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.datapingo.com/products/bulk-page-cloner">
+  <meta property="og:url" content="https://datapingo.com/products/bulk-page-cloner">
   <meta property="og:title" content="Bulk Page Cloner for Confluence | DataPingo">
   <meta property="og:description" content="Instantly clone Confluence pages in bulk with preserved structure, hierarchy, and labels.">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bulk Page Cloner for Confluence — one page becomes twenty-five.">
   <meta property="og:site_name" content="DataPingo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulk Page Cloner for Confluence | DataPingo">
+  <meta name="twitter:description" content="One page becomes twenty-five. Clone up to 25 Confluence pages in one guided flow.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
   <link rel="icon" type="image/jpeg" href="/assets/img/favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +83,7 @@
     /* BPC — clone console (hero signature) */
     .bpc-clone {
       position: relative; display: flex; flex-direction: column; gap: 14px;
-      max-width: 468px; margin-left: auto; user-select: none;
+      width: 100%; max-width: 468px; margin-left: auto; user-select: none;
     }
     .bpc-src {
       background: var(--black-3); border: 1px solid rgba(5,206,240,0.32);
@@ -89,9 +97,17 @@
     .bpc-src-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--teal); }
     .bpc-src-title { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-    .bpc-src-lines { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; }
-    .bpc-src-lines span { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.06); }
-    .bpc-src-lines span.a { width: 92%; } .bpc-src-lines span.b { width: 70%; } .bpc-src-lines span.c { width: 84%; }
+    .bpc-src-body { font-size: 0.83rem; color: var(--white); line-height: 1.5; margin-bottom: 13px; }
+    .bpc-table { width: 100%; border-collapse: collapse; margin-top: 11px; font-size: 0.72rem;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .bpc-table th, .bpc-table td { text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--border); }
+    .bpc-table th { color: var(--slate); font-weight: 600; background: rgba(255,255,255,0.03);
+      text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6rem; }
+    .bpc-table tr:last-child td { border-bottom: none; }
+    .bpc-table td { color: var(--white); }
+    .bpc-pill { font-size: 0.6rem; font-weight: 700; padding: 1px 8px; border-radius: 20px; }
+    .bpc-pill.ok { color: #34D399; background: rgba(52,211,153,0.14); }
+    .bpc-pill.wait { color: #FBBF24; background: rgba(251,191,36,0.14); }
     .bpc-src-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
     .bpc-tag { font-size: 0.64rem; font-weight: 600; color: #A5EAF6;
       background: rgba(5,206,240,0.09); border: 1px solid rgba(5,206,240,0.2);
@@ -109,7 +125,7 @@
 
     .bpc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
     .bpc-tile {
-      position: relative; height: 46px; border-radius: 9px;
+      position: relative; height: 44px; border-radius: 9px;
       background: var(--black-3); border: 1px solid var(--border);
       padding: 0 9px; display: flex; align-items: center; gap: 7px;
       transition: background 0.15s ease, border-color 0.15s ease;
@@ -409,6 +425,7 @@
     }
     .highlight-card-media { background: var(--black-3); border-right: 1px solid var(--border); }
     .highlight-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .highlight-card-media svg { width: 100%; height: 100%; display: block; }
     .highlight-card-copy {
       padding: 44px 46px; display: flex; flex-direction: column; justify-content: center;
     }
@@ -575,7 +592,17 @@
             <span class="bpc-src-label">Source page</span>
           </div>
           <div class="bpc-src-title">Q3 Report — Project A</div>
-          <div class="bpc-src-lines"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+          <div class="bpc-src-body">
+            Project A closed Q3 with 3 of 4 milestones shipped. Rollout begins Oct 14, pending the security review.
+            <table class="bpc-table">
+              <thead><tr><th>Milestone</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Discovery</td><td><span class="bpc-pill ok">Complete</span></td></tr>
+                <tr><td>Build &amp; QA</td><td><span class="bpc-pill ok">Complete</span></td></tr>
+                <tr><td>Rollout</td><td><span class="bpc-pill wait">In review</span></td></tr>
+              </tbody>
+            </table>
+          </div>
           <div class="bpc-src-chips"><span class="bpc-tag">3 labels</span><span class="bpc-tag">2 macros</span><span class="bpc-tag">4 attachments</span></div>
           <button type="button" class="bpc-create" id="bpcCreate">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -647,10 +674,63 @@
       <div class="highlight-stack">
         <div class="highlight-card reveal">
           <div class="highlight-card-media">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Concept%20-%20Bulk%20Clone%20(1840%20x%20900%20px).png" alt="One source page branching into a set of named copies" loading="lazy">
+            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="One source page branching through a times-twenty-five node into a set of cloned pages">
+              <defs>
+                <pattern id="bpc1Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
+                <linearGradient id="bpc1Bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
+                <linearGradient id="bpc1Node" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
+                <linearGradient id="bpc1Line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
+              </defs>
+              <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc1Dots)"/>
+              <circle cx="36" cy="34" r="4" fill="#2563EB"/>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#2563EB">BULK CLONE</text>
+
+              <text x="112" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">SOURCE</text>
+              <rect x="110" y="126" width="152" height="180" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+              <rect x="126" y="142" width="82" height="11" rx="5.5" fill="url(#bpc1Bar)"/>
+              <rect x="126" y="166" width="120" height="7" rx="3.5" fill="#E2E8F0"/>
+              <rect x="126" y="180" width="104" height="7" rx="3.5" fill="#E2E8F0"/>
+              <rect x="126" y="194" width="112" height="7" rx="3.5" fill="#E2E8F0"/>
+              <rect x="126" y="208" width="86" height="7" rx="3.5" fill="#E2E8F0"/>
+              <g font-family="Inter,sans-serif" font-size="11" font-weight="600">
+                <rect x="126" y="226" width="46" height="20" rx="6" fill="#E8F1FE"/><text x="149" y="240" text-anchor="middle" fill="#2563EB">label</text>
+                <rect x="178" y="226" width="54" height="20" rx="6" fill="#E1F5FA"/><text x="205" y="240" text-anchor="middle" fill="#0E7490">macro</text>
+              </g>
+
+              <g stroke="url(#bpc1Line)" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M430 208 C 468 198, 480 180, 516 178"/>
+                <path d="M430 226 C 468 238, 480 292, 516 294"/>
+              </g>
+              <circle cx="392" cy="216" r="38" fill="url(#bpc1Node)"/>
+              <text x="392" y="223" text-anchor="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">&#215;25</text>
+
+              <text x="518" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">CLONES</text>
+              <rect x="664" y="112" width="116" height="104" rx="9" fill="#FFFFFF" opacity="0.45" stroke="#E2E8F0"/>
+              <rect x="664" y="228" width="116" height="104" rx="9" fill="#FFFFFF" opacity="0.45" stroke="#E2E8F0"/>
+              <g>
+                <rect x="516" y="126" width="116" height="104" rx="9" fill="#FFFFFF" stroke="#2563EB"/>
+                <rect x="530" y="142" width="58" height="9" rx="4.5" fill="url(#bpc1Bar)"/>
+                <rect x="530" y="164" width="88" height="6" rx="3" fill="#E2E8F0"/><rect x="530" y="176" width="72" height="6" rx="3" fill="#E2E8F0"/><rect x="530" y="188" width="80" height="6" rx="3" fill="#E2E8F0"/>
+              </g>
+              <g>
+                <rect x="648" y="126" width="116" height="104" rx="9" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <rect x="662" y="142" width="58" height="9" rx="4.5" fill="#CBD5E1"/>
+                <rect x="662" y="164" width="88" height="6" rx="3" fill="#E2E8F0"/><rect x="662" y="176" width="72" height="6" rx="3" fill="#E2E8F0"/><rect x="662" y="188" width="80" height="6" rx="3" fill="#E2E8F0"/>
+              </g>
+              <g>
+                <rect x="516" y="242" width="116" height="104" rx="9" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <rect x="530" y="258" width="58" height="9" rx="4.5" fill="#CBD5E1"/>
+                <rect x="530" y="280" width="88" height="6" rx="3" fill="#E2E8F0"/><rect x="530" y="292" width="72" height="6" rx="3" fill="#E2E8F0"/><rect x="530" y="304" width="80" height="6" rx="3" fill="#E2E8F0"/>
+              </g>
+              <g>
+                <rect x="648" y="242" width="116" height="104" rx="9" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <rect x="662" y="258" width="58" height="9" rx="4.5" fill="#CBD5E1"/>
+                <rect x="662" y="280" width="88" height="6" rx="3" fill="#E2E8F0"/><rect x="662" y="292" width="72" height="6" rx="3" fill="#E2E8F0"/><rect x="662" y="304" width="80" height="6" rx="3" fill="#E2E8F0"/>
+              </g>
+            </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">In one pass</p>
+            <p class="highlight-num">Bulk Clone</p>
             <h3>One page becomes twenty-five</h3>
             <p>Point at a page you already trust and spin off as many as 25 named copies in a single run. The work that used to eat an afternoon — this quarter's reports, each sprint's board, every new hire's runbook — is done before your coffee cools.</p>
           </div>
@@ -658,10 +738,65 @@
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Concept%20-%20Full%20Fidelity%20(1840%20x%20900%20px).png" alt="A source page and its copy shown to match down to macros, media, and labels" loading="lazy">
+            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A source page and its exact copy, matching down to media, macros, labels and attachments">
+              <defs>
+                <pattern id="bpc2Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
+                <linearGradient id="bpc2Bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
+                <linearGradient id="bpc2Node" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
+              </defs>
+              <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc2Dots)"/>
+              <circle cx="36" cy="34" r="4" fill="#2563EB"/>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#2563EB">FULL FIDELITY</text>
+
+              <text x="100" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">SOURCE</text>
+              <g font-family="Inter,sans-serif">
+                <rect x="98" y="126" width="172" height="214" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <rect x="114" y="142" width="92" height="11" rx="5.5" fill="url(#bpc2Bar)"/>
+                <rect x="114" y="166" width="140" height="6" rx="3" fill="#E2E8F0"/><rect x="114" y="178" width="124" height="6" rx="3" fill="#E2E8F0"/>
+                <rect x="114" y="194" width="140" height="54" rx="6" fill="#E8F0FE"/>
+                <path d="M177 212 l16 9 l-16 9 z" fill="#2563EB"/>
+                <g font-size="11" font-weight="600">
+                  <rect x="114" y="258" width="42" height="19" rx="6" fill="#E8F1FE"/><text x="135" y="271" text-anchor="middle" fill="#2563EB">label</text>
+                  <rect x="162" y="258" width="42" height="19" rx="6" fill="#E8F1FE"/><text x="183" y="271" text-anchor="middle" fill="#2563EB">team</text>
+                  <rect x="210" y="258" width="48" height="19" rx="6" fill="#E1F5FA"/><text x="234" y="271" text-anchor="middle" fill="#0E7490">macro</text>
+                </g>
+                <rect x="114" y="286" width="140" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <text x="126" y="303" font-family="ui-monospace,monospace" font-size="11" fill="#64748B">&#60;/&#62; macro</text>
+              </g>
+
+              <circle cx="310" cy="228" r="30" fill="url(#bpc2Node)"/>
+              <rect x="301" y="219" width="12" height="12" rx="2.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+              <rect x="306" y="224" width="12" height="12" rx="2.5" fill="#2C7BEA" stroke="#FFFFFF" stroke-width="1.8"/>
+
+              <text x="352" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">EXACT COPY</text>
+              <g font-family="Inter,sans-serif">
+                <rect x="350" y="126" width="172" height="214" rx="10" fill="#FFFFFF" stroke="#2563EB"/>
+                <rect x="366" y="142" width="92" height="11" rx="5.5" fill="url(#bpc2Bar)"/>
+                <rect x="366" y="166" width="140" height="6" rx="3" fill="#E2E8F0"/><rect x="366" y="178" width="124" height="6" rx="3" fill="#E2E8F0"/>
+                <rect x="366" y="194" width="140" height="54" rx="6" fill="#E8F0FE"/>
+                <path d="M429 212 l16 9 l-16 9 z" fill="#2563EB"/>
+                <g font-size="11" font-weight="600">
+                  <rect x="366" y="258" width="42" height="19" rx="6" fill="#E8F1FE"/><text x="387" y="271" text-anchor="middle" fill="#2563EB">label</text>
+                  <rect x="414" y="258" width="42" height="19" rx="6" fill="#E8F1FE"/><text x="435" y="271" text-anchor="middle" fill="#2563EB">team</text>
+                  <rect x="462" y="258" width="48" height="19" rx="6" fill="#E1F5FA"/><text x="486" y="271" text-anchor="middle" fill="#0E7490">macro</text>
+                </g>
+                <rect x="366" y="286" width="140" height="26" rx="6" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <text x="378" y="303" font-family="ui-monospace,monospace" font-size="11" fill="#64748B">&#60;/&#62; macro</text>
+              </g>
+
+              <text x="566" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">COPIED EXACTLY</text>
+              <g font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1E293B">
+                <circle cx="574" cy="144" r="9" fill="#DCFCE7"/><path d="M569.5 144 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="148">Content</text>
+                <circle cx="574" cy="182" r="9" fill="#DCFCE7"/><path d="M569.5 182 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="186">Formatting</text>
+                <circle cx="574" cy="220" r="9" fill="#DCFCE7"/><path d="M569.5 220 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="224">Images &amp; video</text>
+                <circle cx="574" cy="258" r="9" fill="#DCFCE7"/><path d="M569.5 258 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="262">Macros</text>
+                <circle cx="574" cy="296" r="9" fill="#DCFCE7"/><path d="M569.5 296 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="300">Labels</text>
+                <circle cx="574" cy="334" r="9" fill="#DCFCE7"/><path d="M569.5 334 l3 3 l5.5 -6" stroke="#16A34A" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="594" y="338">Attachments</text>
+              </g>
+            </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">True to the original</p>
+            <p class="highlight-num">Full Fidelity</p>
             <h3>Every copy is the real thing</h3>
             <p>Layouts, embedded images and video, macros, labels, and attachments all carry over intact — nothing flattened, nothing quietly dropped. Each copy opens ready to work in, not ready to fix.</p>
           </div>
@@ -669,10 +804,57 @@
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media">
-            <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Concept%20-%20Smart%20Placement%20(1840%20x%20900%20px).png" alt="Placement options for where cloned pages land in the page tree" loading="lazy">
+            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A Confluence page tree beside the three ways cloned pages can be placed">
+              <defs><pattern id="bpc3Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
+              <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc3Dots)"/>
+              <circle cx="36" cy="34" r="4" fill="#2563EB"/>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#2563EB">SMART PLACEMENT</text>
+
+              <rect x="64" y="110" width="372" height="252" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+              <g font-family="Inter,sans-serif">
+                <text x="88" y="142" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">YOUR PAGE TREE</text>
+                <path d="M88 160 h5 l2 2.5 h9 v10 a1.6 1.6 0 0 1 -1.6 1.6 h-12.8 a1.6 1.6 0 0 1 -1.6 -1.6 v-10.9 a1.6 1.6 0 0 1 1.6 -1.6 z" fill="none" stroke="#64748B" stroke-width="1.5"/>
+                <text x="112" y="174" font-size="14" font-weight="700" fill="#1E293B">Marketing</text>
+                <text x="190" y="174" font-size="12" fill="#94A3B8">space</text>
+                <path d="M112 191 h6 l4 4 v9 h-10 z" fill="none" stroke="#64748B" stroke-width="1.4"/>
+                <text x="132" y="204" font-size="13" font-weight="700" fill="#1E293B">Templates</text>
+                <text x="208" y="204" font-size="11" fill="#94A3B8">parent</text>
+                <path d="M120 212 V 332" stroke="#E2E8F0" stroke-width="1.5" fill="none"/>
+                <g stroke="#E2E8F0" stroke-width="1.5"><path d="M120 230 h16"/><path d="M120 266 h16"/><path d="M120 302 h16"/><path d="M120 332 h16"/></g>
+                <g font-size="12" font-weight="600" fill="#2563EB">
+                  <rect x="136" y="216" width="196" height="28" rx="7" fill="#EBF2FE" stroke="#93C5FD"/>
+                  <path d="M150 223 h6 l4 4 v9 h-10 z" fill="none" stroke="#2563EB" stroke-width="1.3"/>
+                  <text x="170" y="234">Q3 Report &#8212; East</text>
+                  <rect x="136" y="252" width="196" height="28" rx="7" fill="#EBF2FE" stroke="#93C5FD"/>
+                  <path d="M150 259 h6 l4 4 v9 h-10 z" fill="none" stroke="#2563EB" stroke-width="1.3"/>
+                  <text x="170" y="270">Q3 Report &#8212; West</text>
+                  <rect x="136" y="288" width="196" height="28" rx="7" fill="#EBF2FE" stroke="#93C5FD"/>
+                  <path d="M150 295 h6 l4 4 v9 h-10 z" fill="none" stroke="#2563EB" stroke-width="1.3"/>
+                  <text x="170" y="306">Q3 Report &#8212; North</text>
+                </g>
+              </g>
+
+              <text x="472" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">PLACE THEM ANY WAY</text>
+              <g font-family="Inter,sans-serif">
+                <rect x="470" y="124" width="404" height="72" rx="10" fill="#FFFFFF" stroke="#2563EB"/>
+                <rect x="490" y="149" width="22" height="18" rx="3" fill="none" stroke="#2563EB" stroke-width="1.7"/><path d="M498 149 V 167" stroke="#2563EB" stroke-width="1.7"/>
+                <text x="526" y="154" font-size="13" font-weight="700" fill="#1E293B">As a child of an existing page</text>
+                <text x="526" y="174" font-size="11" fill="#64748B">Copies become child pages under a parent you pick.</text>
+
+                <rect x="470" y="206" width="404" height="72" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <g fill="#94A3B8"><rect x="490" y="231" width="22" height="5" rx="2"/><rect x="490" y="239" width="22" height="5" rx="2"/><rect x="490" y="247" width="22" height="5" rx="2"/></g>
+                <text x="526" y="236" font-size="13" font-weight="700" fill="#1E293B">As parent pages in Marketing</text>
+                <text x="526" y="256" font-size="11" fill="#64748B">Copies have no child &#8212; they sit at the space root.</text>
+
+                <rect x="470" y="288" width="404" height="72" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+                <g stroke="#94A3B8" stroke-width="1.6" fill="none"><rect x="495" y="311" width="12" height="9" rx="1.5"/><path d="M501 320 v6 M493 326 h16 M493 326 v4 M509 326 v4"/></g>
+                <text x="526" y="318" font-size="13" font-weight="700" fill="#1E293B">As child pages of a new parent</text>
+                <text x="526" y="338" font-size="11" fill="#64748B">Create a new parent page, then add child pages to new parent.</text>
+              </g>
+            </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Land them anywhere</p>
+            <p class="highlight-num">Smart Placement</p>
             <h3>They arrive exactly where they belong</h3>
             <p>Tuck the batch under a parent you choose, set it loose at a space's top level, or spin up a fresh parent to hold it — in any space you can reach. Your page tree stays readable no matter how high the count climbs.</p>
           </div>
@@ -955,6 +1137,7 @@
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
       </nav>
     </div>
   </div>

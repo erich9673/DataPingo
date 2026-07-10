@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bulk Comments for Jira — Documentation | DataPingo</title>
   <meta name="description" content="Complete documentation for Bulk Comments for Jira — compose a comment once and post it to up to 25 Jira issues, or replicate an existing comment with media included.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://www.datapingo.com/resources/documentation/bulkcomments">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.datapingo.com/resources/documentation/bulkcomments">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkcomments">
   <meta property="og:title" content="Bulk Comments for Jira — Documentation | DataPingo">
   <meta property="og:description" content="Complete documentation for Bulk Comments for Jira.">
   <meta property="og:site_name" content="DataPingo">
@@ -117,6 +117,9 @@
       height: auto;
       display: block;
     }
+    /* Inline-SVG figure: no lightbox, so no zoom affordance */
+    .doc-img-card--static { cursor: default; }
+    .doc-img-card--static svg { width: 100%; height: auto; display: block; }
     .doc-tip {
       background: rgba(99,102,241,0.07);
       border-left: 3px solid #6366F1;
@@ -307,7 +310,7 @@
       <h1 style="text-align:center;">Bulk Comments for Jira</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos and files included — across many tickets.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">Pre-Release</span>
+        <span class="doc-hero-badge">v3.3.0 &mdash; Initial Release</span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Jira Cloud</span>
       </div>
@@ -380,29 +383,63 @@
         <h3>Compose Mode</h3>
         <p>Write a new comment with rich-text formatting — bold, italics, lists, and @mentions — and choose the issues to post it to. The comment is posted individually to each selected ticket.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20(1840x900%20px).png" alt="Compose Mode — write a new rich-text comment for bulk posting" loading="lazy">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20Light%20(1840x900%20px).png" alt="Compose Mode — write a new rich-text comment for bulk posting" loading="lazy">
         </div>
 
         <h3>Replicate Mode</h3>
         <p>Instead of writing something new, Replicate mode copies a comment that already exists — including any images, videos and file attachments on it — onto other tickets exactly as-is. The <strong>Source</strong> step walks you through it in three parts:</p>
         <ol>
           <li><strong>Open the ticket &amp; copy the link</strong> — Go to the Jira issue, hover over the comment, then click the link icon next to the author's name to copy its link.
-            <div class="doc-img-card" style="margin-top:14px;">
-              <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Copy%20Link%20(846x354%20px).png" alt="Copying a comment link from a Jira issue — hover the comment and click the link icon next to the author's name" loading="lazy">
+            <div class="doc-img-card doc-img-card--static" style="margin-top:14px;">
+              <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Jira comment with the link icon beside the author's name highlighted, and a tooltip reading Copy link to comment">
+                <rect width="720" height="300" fill="#FFFFFF"/>
+                <rect x="118" y="24" width="212" height="36" rx="8" fill="#172B4D"/>
+                <path d="M217 60 l7 10 l7 -10 z" fill="#172B4D"/>
+                <text x="224" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">Copy link to comment</text>
+
+                <circle cx="62" cy="118" r="22" fill="#E9EAFE"/>
+                <text x="62" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#5A5FC7">AR</text>
+                <text x="98" y="112" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#172B4D">Alex Rivera</text>
+                <text x="98" y="139" font-family="Inter,sans-serif" font-size="13" fill="#6B778C">now</text>
+
+                <circle cx="224" cy="105" r="17" fill="none" stroke="#E24B4A" stroke-width="2.2"/>
+                <g transform="translate(216.9 96.5) scale(0.82)" stroke="#5A5FC7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </g>
+                <path d="M304 134 C 286 134, 266 124, 251 115" stroke="#E24B4A" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M242 109 L253.8 111.1 L248.8 118.8 Z" fill="#E24B4A"/>
+
+                <text x="98" y="188" font-family="Inter,sans-serif" font-size="17" fill="#172B4D">Copy this comment.</text>
+
+                <g stroke="#6B778C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M108 228 l-8 7 l8 7"/><path d="M100 235 h12 a9 9 0 0 1 9 9 v2"/>
+                  <path d="M154 244 v-9 h4 l5 -8 a3 3 0 0 1 3 4 l-1 4 h6 a2 2 0 0 1 2 3 l-2 6 h-17 z"/>
+                  <circle cx="210" cy="238" r="10"/><circle cx="206" cy="235" r="0.9" fill="#6B778C"/><circle cx="214" cy="235" r="0.9" fill="#6B778C"/><path d="M205 241 a6 6 0 0 0 10 0"/>
+                  <path d="M252 246 h6 l14 -14 a3 3 0 0 0 -5 -5 l-14 14 z"/>
+                </g>
+                <g fill="#6B778C"><circle cx="300" cy="238" r="2"/><circle cx="309" cy="238" r="2"/><circle cx="318" cy="238" r="2"/></g>
+              </svg>
             </div>
           </li>
           <li><strong>Check it's a valid comment link</strong> — A comment link ends in <code>?focusedCommentId=&hellip;</code> — that's the part that points to the exact comment (for example, <code>https://your-site.atlassian.net/browse/KAN-6?focusedCommentId=10842</code>). A plain issue link without that parameter won't work.</li>
           <li><strong>Paste it below</strong> — Paste the link into the field, then continue on to pick your recipients and send.</li>
         </ol>
 
-        <h3>Selecting Tickets</h3>
-        <p>Search by keyword or issue key, filter by project, or use advanced JQL to build a precise target list. Select up to 25 tickets, then send. Per-ticket progress is tracked live, and any failures can be retried in one click.</p>
+        <h3>Choosing Recipients</h3>
+        <p>In the <strong>Recipients</strong> step, search by keyword or issue key, filter by project, or use advanced JQL to build a precise target list. Select up to 25 tickets, then continue to send.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20(1840x900%20px).png" alt="Selecting up to 25 target tickets by keyword, project filter, or JQL" loading="lazy">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20Light%20(1840x900%20px).png" alt="Choosing recipients — search, filter by project, or use JQL, and select up to 25 tickets" loading="lazy">
+        </div>
+
+        <h3>Sending &amp; Delivery</h3>
+        <p>The <strong>Send</strong> step tracks every ticket individually. Each one moves through <strong>Sending</strong> to <strong>Delivered</strong>, with a running count of delivered, sending, and failed. Every delivered ticket gets a direct link so you can jump straight to the comment, and anything that fails can be retried in one click.</p>
+        <div class="doc-img-card">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Comment%20Posted%20Light%20(1840x900%20px).png" alt="The Send step showing per-ticket delivery status with counts for delivered, sending and failed" loading="lazy">
         </div>
 
         <h3>Jumping In From an Issue</h3>
-        <p>You don't need to start from the global page. Open any issue's &bull;&bull;&bull; actions menu and choose <strong>Bulk Comment</strong>, or switch to the <strong>Bulk Comments for Jira</strong> tab in the issue's Activity panel — both auto-select that ticket's most recent comment so you can jump straight into Replicate mode.</p>
+        <p>You don't need to start from the global page. Open any issue's &bull;&bull;&bull; actions menu and choose <strong>Bulk Comment</strong>, or switch to the <strong>Bulk Comments</strong> tab in the issue's Activity panel — both auto-select that ticket's most recent comment so you can jump straight into Replicate mode.</p>
       </section>
 
       <section id="version-history" style="scroll-margin-top:100px;">
@@ -429,14 +466,14 @@
             <tr><td><strong>Platform</strong></td><td>Atlassian Forge (Cloud only)</td></tr>
             <tr><td><strong>Product</strong></td><td>Jira Software &amp; Jira Work Management</td></tr>
             <tr><td><strong>Installation</strong></td><td>Atlassian Marketplace</td></tr>
-            <tr><td><strong>Licensing</strong></td><td>Paid — Marketplace Licensing</td></tr>
+            <tr><td><strong>Licensing</strong></td><td>Free for teams up to 10 users; paid tiers above, billed through the Atlassian Marketplace</td></tr>
             <tr><td><strong>Issue Limit</strong></td><td>Up to 25 issues per Compose or Replicate action</td></tr>
             <tr><td><strong>Media Support</strong></td><td>Images, videos, and file attachments copied automatically in Replicate mode</td></tr>
             <tr><td><strong>Large Media Handling</strong></td><td>Copied asynchronously per ticket, so large videos never time out</td></tr>
             <tr><td><strong>Data Storage</strong></td><td>Atlassian Forge Storage — no external servers, data stays in Atlassian cloud</td></tr>
             <tr><td><strong>Jira Permissions</strong></td><td>Read &amp; write Jira work items; read Jira user profiles</td></tr>
             <tr><td><strong>Access Points</strong></td><td>Global page, issue Activity panel tab, issue &bull;&bull;&bull; actions menu</td></tr>
-            <tr><td><strong>Status</strong></td><td>Pre-release — not yet published to the Atlassian Marketplace</td></tr>
+            <tr><td><strong>Status</strong></td><td>Published — live on the <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">Atlassian Marketplace</a></td></tr>
           </tbody>
         </table>
 
@@ -475,7 +512,7 @@
         <p>For technical support, feature requests, or general questions about Bulk Comments for Jira:</p>
         <ul>
           <li><strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
-          <li><strong>Response Time:</strong> 24–48 hours for technical issues</li>
+          <li><strong>Response Time:</strong> Within one business day</li>
           <li><strong>Support Scope:</strong> App functionality, configuration, and technical issues</li>
         </ul>
 
@@ -556,6 +593,7 @@
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
       </nav>
     </div>
   </div>

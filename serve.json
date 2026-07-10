@@ -7,8 +7,6 @@
 
     { "source": "/products/bulk-page-cloner", "destination": "/products/bulk-page-cloner/index.html" },
     { "source": "/products/bulk-page-cloner/", "destination": "/products/bulk-page-cloner/index.html" },
-    { "source": "/products/bulkpagecloner", "destination": "/products/bulkpagecloner/index.html" },
-    { "source": "/products/bulkpagecloner/", "destination": "/products/bulkpagecloner/index.html" },
 
     { "source": "/resources/documentation/bulkpagecloner", "destination": "/resources/documentation/bulkpagecloner/index.html" },
     { "source": "/resources/documentation/bulkpagecloner/", "destination": "/resources/documentation/bulkpagecloner/index.html" },
@@ -29,14 +27,6 @@
     { "source": "/resources/blog/introducing-bulk-page-cloner/", "destination": "/resources/blog/introducing-bulk-page-cloner/index.html" },
     { "source": "/resources/use-cases", "destination": "/resources/use-cases.html" },
     { "source": "/resources/use-cases/recurring-confluence-pages", "destination": "/resources/use-cases/recurring-confluence-pages/index.html" },
-    { "source": "/resources/use-cases/recurring-confluence-pages/", "destination": "/resources/use-cases/recurring-confluence-pages/index.html" },
-
-    { "source": "/mobile/company/about-us", "destination": "/mobile/company/about-us.html" },
-    { "source": "/mobile/company/careers", "destination": "/mobile/company/careers.html" },
-    { "source": "/mobile/company/contact", "destination": "/mobile/company/contact.html" },
-
-    { "source": "/mobile/resources/blog", "destination": "/mobile/resources/blog.html" },
-    { "source": "/mobile/resources/use-cases", "destination": "/mobile/resources/use-cases.html" },
-    { "source": "/mobile/resources/documentation", "destination": "/mobile/resources/documentation/index.html" }
+    { "source": "/resources/use-cases/recurring-confluence-pages/", "destination": "/resources/use-cases/recurring-confluence-pages/index.html" }
   ]
 }

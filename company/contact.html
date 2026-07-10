@@ -6,9 +6,9 @@
   <title>Contact Us | DataPingo</title>
   <meta name="description" content="Contact DataPingo for support, partnerships, or general inquiries.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.datapingo.com/company/contact">
+  <link rel="canonical" href="https://datapingo.com/company/contact">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.datapingo.com/company/contact">
+  <meta property="og:url" content="https://datapingo.com/company/contact">
   <meta property="og:title" content="Contact Us | DataPingo">
   <meta property="og:description" content="Contact DataPingo for support, partnerships, or general inquiries.">
   <meta property="og:site_name" content="DataPingo">
@@ -397,6 +397,7 @@
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
       </nav>
     </div>
   </div>
@@ -425,7 +426,7 @@
     btn.textContent = 'Sending…'; btn.disabled = true;
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
       .then(function(r) { return r.ok ? r : Promise.reject(); })
-      .then(function() { msg.style.color = '#67E8F9'; msg.textContent = 'Message sent! We\'ll get back to you within 24 hours.'; form.reset(); btn.textContent = 'Send Message'; btn.disabled = false; })
+      .then(function() { msg.style.color = '#67E8F9'; msg.textContent = 'Message sent! We\'ll get back to you within one business day.'; form.reset(); btn.textContent = 'Send Message'; btn.disabled = false; })
       .catch(function() { msg.style.color = '#F87171'; msg.textContent = 'Something went wrong. Please email contact@datapingo.com directly.'; btn.textContent = 'Send Message'; btn.disabled = false; });
   });
 
