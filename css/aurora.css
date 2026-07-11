@@ -144,7 +144,9 @@ a  { color: inherit; }
 .mobile-menu-toggle {
   display: none; background: none;
   border: 1px solid var(--border); border-radius: 7px;
-  color: var(--white); cursor: pointer; padding: 7px 9px; line-height: 1;
+  color: var(--white); cursor: pointer; line-height: 1;
+  min-width: 44px; min-height: 44px;
+  align-items: center; justify-content: center;
   transition: border-color 0.2s ease;
 }
 .mobile-menu-toggle:hover { border-color: var(--teal-border); }
