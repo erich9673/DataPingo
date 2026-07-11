@@ -305,7 +305,75 @@
     <div class="section-wrap about-hero-inner">
       <p class="section-tag" style="margin-bottom:20px;">Founded in 2025</p>
       <h1 class="reveal">Built by someone who got<br><span class="grad-text">tired of repetitive work.</span></h1>
-      <p class="hero-sub reveal" style="margin-top:20px;">DataPingo makes apps for Atlassian teams — each one built around a recognizable problem: automating manual work, smoothing out a clunky workflow, or doing in bulk what Jira and Confluence make you repeat one item at a time. Every app is a drop — the <em>pingo</em> in DataPingo — that solves it completely and stays out of your way.</p>
+      <p class="hero-sub reveal" style="margin-top:20px;">DataPingo provides solutions for Jira and Confluence that help teams save time and improve their workflows. We build apps for the &ldquo;I wish I could just do this instantly&rdquo; moments — turning slow, repetitive tasks into a few clicks.</p>
+    </div>
+  </section>
+
+  <!-- ORIGIN / NAME STORY -->
+  <style>
+    .orig-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+    .orig-word{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.03em;color:var(--white)}
+    .orig-pron{font-size:.9rem;color:var(--slate);margin-top:12px;letter-spacing:.01em}
+    .orig-pron span{font-style:italic;margin-right:8px;opacity:.85}
+    .orig-rule{width:44px;height:2px;background:var(--grad-brand);border-radius:2px;margin:20px 0 16px}
+    .orig-def{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:-.01em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+    .orig-story{margin-top:22px;max-width:440px;color:var(--slate);font-size:1.02rem;line-height:1.72}
+    .orig-story b{color:var(--white);font-weight:600}
+    .orig-viz{display:flex;align-items:center;justify-content:center;min-height:320px}
+    .orig-viz svg{width:320px;height:320px;overflow:visible}
+    .orig-drop-fall{transform-box:fill-box;transform-origin:center;animation:origFall 4.2s cubic-bezier(.5,0,.9,.42) infinite both}
+    @keyframes origFall{0%{transform:translateY(-84px);opacity:0}7%{opacity:1}19%{transform:translateY(0);opacity:1}22%{transform:translateY(2px);opacity:0}100%{transform:translateY(2px);opacity:0}}
+    .orig-splash{transform-box:fill-box;transform-origin:center;animation:origSplash 4.2s ease-out infinite both}
+    @keyframes origSplash{0%,17%{transform:scale(0);opacity:0}22%{transform:scale(1.35);opacity:1}30%{transform:scale(1);opacity:1}84%{transform:scale(1);opacity:.9}100%{transform:scale(.85);opacity:0}}
+    .orig-ring{transform-box:fill-box;transform-origin:center}
+    .orig-r1{animation:origRip 4.2s ease-out infinite both}
+    .orig-r2{animation:origRip 4.2s ease-out infinite both;animation-delay:.3s}
+    .orig-r3{animation:origRip 4.2s ease-out infinite both;animation-delay:.6s}
+    @keyframes origRip{0%,20%{transform:scale(.16);opacity:0}27%{opacity:.75}100%{transform:scale(1);opacity:0}}
+    @media(prefers-reduced-motion:reduce){.orig-drop-fall{animation:none;opacity:0}.orig-ring{animation:none;opacity:0}.orig-splash{animation:none;opacity:1;transform:none}}
+    @media(max-width:820px){.orig-wrap{grid-template-columns:1fr;gap:8px}.orig-viz{order:-1;min-height:250px}.orig-viz svg{width:250px;height:250px}}
+  </style>
+  <section class="page-section" style="background:var(--black-2);">
+    <div class="section-wrap reveal">
+      <div class="orig-wrap">
+        <div class="orig-copy">
+          <p class="section-tag" style="margin-bottom:22px;">Why we&rsquo;re called DataPingo</p>
+          <div class="orig-word">pingo</div>
+          <div class="orig-pron"><span>noun</span> /ˈpɪŋ.ɡoʊ/</div>
+          <div class="orig-rule"></div>
+          <div class="orig-def">a drop of water.</div>
+          <p class="orig-story">Every app we build is one drop — small, precise, aimed at a single problem. Drop it in the right place and the effect <b>ripples outward</b> across your team&rsquo;s work. Not one tool that tries to do everything — the right small thing, done completely.</p>
+        </div>
+        <div class="orig-viz" aria-hidden="true">
+          <svg viewBox="0 0 320 320">
+            <defs>
+              <linearGradient id="origGr" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#05CEF0"/><stop offset=".55" stop-color="#818CF8"/><stop offset="1" stop-color="#7C4DCC"/>
+              </linearGradient>
+              <radialGradient id="origDrop" cx=".42" cy=".36" r=".7">
+                <stop offset="0" stop-color="#CFF7FF"/><stop offset=".45" stop-color="#05CEF0"/><stop offset="1" stop-color="#3B7BF6"/>
+              </radialGradient>
+              <filter id="origGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- faint static structure -->
+            <circle cx="160" cy="160" r="60"  fill="none" stroke="url(#origGr)" stroke-width="1.2" opacity=".16"/>
+            <circle cx="160" cy="160" r="112" fill="none" stroke="url(#origGr)" stroke-width="1"   opacity=".11"/>
+            <circle cx="160" cy="160" r="158" fill="none" stroke="url(#origGr)" stroke-width=".8"  opacity=".07"/>
+            <!-- ripples emanating from the impact -->
+            <circle class="orig-ring orig-r1" cx="160" cy="160" r="150" fill="none" stroke="url(#origGr)" stroke-width="1.7"/>
+            <circle class="orig-ring orig-r2" cx="160" cy="160" r="150" fill="none" stroke="url(#origGr)" stroke-width="1.4"/>
+            <circle class="orig-ring orig-r3" cx="160" cy="160" r="150" fill="none" stroke="url(#origGr)" stroke-width="1.2"/>
+            <!-- the drop lands, then splashes -->
+            <g class="orig-splash">
+              <circle cx="160" cy="160" r="16" fill="url(#origDrop)" filter="url(#origGlow)"/>
+              <ellipse cx="155" cy="155" rx="4.5" ry="3" fill="#EAFBFF" opacity=".9"/>
+            </g>
+            <path class="orig-drop-fall" d="M160 138 C166 148 166 154 160 157 C154 153 154 148 160 138 Z" fill="url(#origDrop)"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </section>
 
