@@ -951,3 +951,15 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--teal-dim); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(5,206,240,0.18); }
+
+/* ---- Inline partner/application form (posts to DataPingo marketing app) ---- */
+.dp-partner-form { max-width: 520px; margin: 8px auto 0; text-align: left; }
+.dp-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.dp-field label { font-size: 0.8rem; font-weight: 600; color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase; }
+.dp-field input, .dp-field textarea {
+  width: 100%; padding: 13px 16px; background: var(--black-2); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--white); font-size: 0.95rem; font-family: inherit;
+  box-sizing: border-box; transition: border-color 0.15s; -webkit-appearance: none;
+}
+.dp-field input:focus, .dp-field textarea:focus { outline: none; border-color: var(--teal); }
+.dp-form-msg { font-size: 13px; margin-top: 12px; }

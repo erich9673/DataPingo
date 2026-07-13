@@ -188,7 +188,7 @@
       <h1 class="reveal">Reach more Atlassian teams —<br><span class="grad-text">together.</span></h1>
       <p class="hero-sub reveal" style="margin-top:20px;max-width:640px;">Team up with DataPingo on content, campaigns, and cross-promotion. If your audience overlaps with ours, we help each other grow — no reselling, no commission, just shared reach.</p>
       <div style="margin-top:32px;" class="reveal">
-        <a href="https://forms.gle/2s1MijGo7AQKhz3t8" target="_blank" rel="noopener" class="btn-primary">Propose a collaboration &rarr;</a>
+        <a href="#apply" class="btn-primary">Propose a collaboration &rarr;</a>
       </div>
     </div>
   </section>
@@ -312,10 +312,18 @@
   <!-- CTA -->
   <section class="page-section" style="background:var(--black-2);">
     <div class="section-wrap reveal">
-      <div class="partner-cta-box">
+      <div class="partner-cta-box" id="apply">
         <h2>Let's co-market.</h2>
         <p>Tell us about your audience and what you're working on. We'll find a collaboration that's worth both our while.</p>
-        <a href="https://forms.gle/2s1MijGo7AQKhz3t8" target="_blank" rel="noopener" class="btn-primary">Propose a collaboration &rarr;</a>
+        <form id="partner-form" class="dp-partner-form">
+          <div class="dp-field"><label for="pf-name">Full name</label><input id="pf-name" name="name" type="text" required></div>
+          <div class="dp-field"><label for="pf-email">Email address</label><input id="pf-email" name="email" type="email" required placeholder="you@company.com"></div>
+          <div class="dp-field"><label for="pf-company">Company</label><input id="pf-company" name="company" type="text"></div>
+          <div class="dp-field"><label for="pf-phone">Phone number</label><input id="pf-phone" name="phone" type="text"></div>
+          <div class="dp-field"><label for="pf-info">Products or additional information</label><textarea id="pf-info" name="info" rows="3"></textarea></div>
+          <button type="submit" class="btn-primary" style="margin-top:8px;">Propose a collaboration &rarr;</button>
+          <div id="partner-form-msg" class="dp-form-msg" aria-live="polite"></div>
+        </form>
       </div>
     </div>
   </section>
@@ -335,7 +343,7 @@
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
         <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
-        <form action="https://formspree.io/f/mjgarwpg" method="POST" id="footer-email-form" novalidate>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
             <label for="footer-email" class="sr-only">Email address</label>
             <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
@@ -411,6 +419,19 @@
       .then(r => { if (!r.ok) throw 0; msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
       .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
   });
+</script>
+<script>
+(function(){
+  var f = document.getElementById('partner-form'); if (!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = f.querySelector('button[type=submit]'), msg = document.getElementById('partner-form-msg'), t = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
+    fetch('https://dpmt-dpmt.vercel.app/api/forms/cmrig6z6z0004kioxjh3102r3/submit', { method:'POST', body:new FormData(f), headers:{Accept:'application/json'} })
+      .then(function(r){ if(!r.ok) throw 0; msg.style.color='#67E8F9'; msg.textContent="Thanks — we'll be in touch soon."; f.reset(); btn.textContent=t; btn.disabled=false; })
+      .catch(function(){ msg.style.color='#F87171'; msg.textContent='Something went wrong — please try again.'; btn.textContent=t; btn.disabled=false; });
+  });
+})();
 </script>
 </body>
 </html>
