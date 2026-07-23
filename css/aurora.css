@@ -963,3 +963,21 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
 }
 .dp-field input:focus, .dp-field textarea:focus { outline: none; border-color: var(--teal); }
 .dp-form-msg { font-size: 13px; margin-top: 12px; }
+
+/* ── Runs on Atlassian badge (matches the documentation hero badge) ── */
+.roa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(87,157,255,0.10);
+  border: 1px solid rgba(87,157,255,0.32);
+  color: #579DFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.roa-badge svg { fill: currentColor; flex-shrink: 0; }
+.product-tag-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }

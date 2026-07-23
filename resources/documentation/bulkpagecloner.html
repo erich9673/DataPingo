@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
   <style>
     /* Doc page layout */
@@ -196,6 +196,57 @@
       margin: 16px 0;
     }
     .doc-warning p { color: var(--white); margin: 0; font-size: 0.9rem; }
+    /* Collapsible release notes */
+    .release-note {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+      margin: 10px 0;
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+    .release-note > summary {
+      cursor: pointer;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--white);
+      list-style: none;
+      transition: background 0.15s ease;
+    }
+    .release-note > summary::-webkit-details-marker { display: none; }
+    .release-note > summary:hover { background: rgba(255,255,255,0.03); }
+    .release-note > summary:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+    .release-note .rn-chevron {
+      flex-shrink: 0;
+      color: var(--teal);
+      transition: transform 0.2s ease;
+    }
+    .release-note[open] .rn-chevron { transform: rotate(90deg); }
+    .release-note .rn-date {
+      margin-left: auto;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+    }
+    .release-note .rn-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(5,206,240,0.15);
+      border: 1px solid rgba(5,206,240,0.3);
+      color: var(--teal);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .release-note .rn-body { padding: 0 18px 16px 18px; }
+    .release-note .rn-body p { margin-top: 0; }
+    .release-note .rn-body ul { margin-bottom: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .release-note .rn-chevron, .release-note > summary { transition: none; }
+    }
     .spec-table {
       width: 100%;
       border-collapse: collapse;
@@ -245,6 +296,18 @@
       border-radius: 20px;
       margin-right: 6px;
       margin-bottom: 4px;
+    }
+    /* Runs on Atlassian — Atlassian's own trust signal, so it carries Atlassian's mark and
+       Atlassian's blue rather than a colour of ours. #579DFF is the dark-theme value of their
+       --ds-icon-brand token; the #0C66E4 the Marketplace uses is tuned for a white page and
+       goes muddy on this background. */
+    /* Filled, not stroked like the other badge icons. flex-shrink is not optional: the badge is
+       a flex row, so without it the glyph squashes to ~7px wide and the layers skew. */
+    .doc-hero-badge--roa svg { fill: currentColor; flex-shrink: 0; }
+    .doc-hero-badge--roa {
+      background: rgba(87,157,255,0.10);
+      border-color: rgba(87,157,255,0.32);
+      color: #579DFF;
     }
     @media (max-width: 820px) {
       .doc-layout { grid-template-columns: 1fr; padding: 36px 24px 60px; gap: 0; }
@@ -376,7 +439,11 @@
       <h1 style="text-align:center;">Bulk Page Cloner for Confluence</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Duplicate up to 25 Confluence pages in one guided flow — with a live clone summary and full light &amp; dark mode.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v7.1.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.0.0 &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Confluence Cloud</span>
       </div>
@@ -386,6 +453,7 @@
         <a href="#version-history" class="btn-secondary btn-secondary--purple">Version History</a>
         <a href="#technical" class="btn-secondary btn-secondary--purple">Technical Specifications</a>
         <a href="#privacy-security" class="btn-secondary btn-secondary--purple">Privacy &amp; Security</a>
+        <a href="#installation" class="btn-secondary btn-secondary--purple">Installation</a>
         <a href="#support" class="btn-secondary btn-secondary--purple">Support &amp; Contact</a>
       </div>
     </div>
@@ -403,6 +471,7 @@
         <a href="#version-history">Version History</a>
         <a href="#technical">Technical Specifications</a>
         <a href="#privacy-security">Privacy &amp; Security</a>
+        <a href="#installation">Installation</a>
         <a href="#support">Support &amp; Contact</a>
       </nav>
     </aside>
@@ -510,7 +579,9 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>7.1.0</strong></td><td>Jul 6, 2026</td><td>Ground-up redesign: guided 4-step flow, dark mode, live clone summary, and safety warnings</td></tr>
+            <tr><td><strong>10.0.0</strong></td><td>Jul 23, 2026</td><td>Removed the unused search permission — no functional changes</td></tr>
+            <tr><td>9.0.0</td><td>Jul 19, 2026</td><td>Maintenance release — reduced permissions, no functional changes</td></tr>
+            <tr><td>7.1.0</td><td>Jul 6, 2026</td><td>Ground-up redesign: guided 4-step flow, dark mode, live clone summary, and safety warnings</td></tr>
             <tr><td>7.0.0</td><td>Jun 22, 2026</td><td>Copies videos &amp; attachments + searchable parent picker &amp; speed boosts</td></tr>
             <tr><td>6.0.0</td><td>Jun 3, 2026</td><td>Improved bulk page cloning UX and updated Confluence Cloud permission scopes</td></tr>
             <tr><td>5.0.0</td><td>Jun 3, 2026</td><td>Required scopes changed</td></tr>
@@ -520,15 +591,82 @@
           </tbody>
         </table>
 
-        <h3 style="margin-top:36px;">Latest Updates in v7.1.0</h3>
-        <p>Version 7.1.0 (released July 6, 2026) is a ground-up redesign:</p>
-        <ul>
-          <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
-          <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
-          <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
-          <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
-          <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
-        </ul>
+        <h3 style="margin-top:36px;">Release Notes</h3>
+
+        <details class="release-note" open>
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v10.0.0
+            <span class="rn-tag">Latest</span>
+            <span class="rn-date">July 23, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A permissions-only release. Cloning, the interface and data handling are identical to 9.0.0.</p>
+            <ul>
+              <li><strong>One fewer permission</strong> &mdash; <code>search:confluence</code> has been removed. The app never called Confluence&rsquo;s search API, so the scope was never needed.</li>
+              <li><strong>The searchable parent picker still works</strong> &mdash; it loads the pages in your space and filters them in your browser, which never used the search permission.</li>
+              <li><strong>No functional changes</strong> &mdash; cloning, the template picker, labels, attachments, macros and page properties all behave exactly as before.</li>
+              <li><strong>Runs on Atlassian preserved</strong> &mdash; still no external network access, and no data leaves your Confluence instance.</li>
+            </ul>
+            <div class="doc-tip">
+              <p><strong>Your admin may need to approve the upgrade.</strong> Because the required permissions changed, Confluence may ask a site admin to confirm before the new version installs.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v9.0.0
+            <span class="rn-date">July 19, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A maintenance release. Cloning behaviour, the interface and data handling are identical to 7.1.0 &mdash; this release only reduces what the app asks for.</p>
+            <ul>
+              <li><strong>Fewer permissions</strong> — the app no longer requests the email-address scope.</li>
+              <li><strong>No external network access</strong> — every operation runs on Atlassian infrastructure, and no data leaves your Confluence instance.</li>
+              <li><strong>Runs on Atlassian verified</strong> — the app meets Atlassian's criteria for the Runs on Atlassian badge.</li>
+              <li><strong>No functional changes</strong> — nothing to relearn, and no action needed on your side.</li>
+            </ul>
+            <div class="doc-tip">
+              <p><strong>Where did 8.0.0 go?</strong> Version 8.0.0 was withdrawn shortly after release and never became generally available. Version 9.0.0 supersedes it.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v7.1.0
+            <span class="rn-tag" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#A78BFA;">Feature release</span>
+            <span class="rn-date">July 6, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A ground-up redesign of the cloning experience:</p>
+            <ul>
+              <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
+              <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
+              <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
+              <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
+              <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v7.0.0
+            <span class="rn-date">June 22, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <ul>
+              <li><strong>Attachments &amp; video now copy</strong> — Copies are made through Confluence's own copy API, so images, files and embedded video come across intact instead of showing "Preview unavailable".</li>
+              <li><strong>Searchable parent picker</strong> — Pick any page in the space as the parent, with search across the full page list.</li>
+              <li><strong>Speed boosts</strong> — Faster page loading across large spaces.</li>
+            </ul>
+          </div>
+        </details>
       </section>
 
       <section id="technical" style="scroll-margin-top:100px;">
@@ -545,10 +683,11 @@
             <tr><td><strong>Licensing</strong></td><td>Free for teams up to 10 users &middot; from $0.70/user/month (11–100 users)</td></tr>
             <tr><td><strong>Page Batch Limit</strong></td><td>Up to 25 pages per batch</td></tr>
             <tr><td><strong>Template Search</strong></td><td>No fixed limit — spaces and pages load via pagination</td></tr>
+            <tr><td><strong>Runs on Atlassian</strong></td><td>Yes — verified by Atlassian. The app runs entirely on Atlassian infrastructure with no external data egress.</td></tr>
             <tr><td><strong>Data Storage</strong></td><td>Forge storage — no external servers, data stays in Atlassian cloud</td></tr>
             <tr><td><strong>Themes</strong></td><td>Light &amp; dark, matched to your Confluence theme</td></tr>
             <tr><td><strong>GDPR</strong></td><td>Personal data reported weekly to Atlassian's Personal Data Reporting API</td></tr>
-            <tr><td><strong>Current Version</strong></td><td>7.1.0</td></tr>
+            <tr><td><strong>Current Version</strong></td><td>10.0.0</td></tr>
             <tr><td><strong>Last Updated</strong></td><td>July 2026</td></tr>
           </tbody>
         </table>
@@ -561,11 +700,19 @@
           <li>Appropriate Confluence permissions</li>
         </ul>
 
-        <h3>Permissions Required</h3>
+        <h3 id="permissions" style="scroll-margin-top:100px;">Permissions Required</h3>
+        <p>Six scopes, and no others:</p>
         <ul>
-          <li>Read and write Confluence pages (to load templates and create pages)</li>
-          <li>Space administration rights (for space-level operations)</li>
+          <li><code>read:page:confluence</code> — read the page you pick as a source, so it can be listed, previewed and copied.</li>
+          <li><code>read:space:confluence</code> — list the spaces you can already see, so you can choose where copies land.</li>
+          <li><code>write:page:confluence</code> — create the new pages.</li>
+          <li><code>read:label:confluence</code> — read the source page's labels so they carry across to every copy.</li>
+          <li><code>write:confluence-content</code> — used by Confluence's own copy API, which duplicates attachments, macros and page properties server-side.</li>
+          <li><code>storage:app</code> — the app's own storage on Atlassian's platform. Holds your saved template snapshots and a short-lived cache of your page list (5-minute expiry). It stays inside Atlassian — nothing is sent to DataPingo.</li>
         </ul>
+        <div class="doc-tip">
+          <p><strong>No admin rights needed.</strong> The app acts as you and can only ever see and create pages you already have access to. It does not request space administration or site administration permissions.</p>
+        </div>
 
         <div class="doc-warning">
           <p><strong>Cloud only:</strong> Bulk Page Cloner is built on Atlassian Forge and runs exclusively on Confluence Cloud. Confluence Server and Data Center are not supported.</p>
@@ -580,6 +727,21 @@
           <li><strong>Data Handling:</strong> No user data stored outside of Confluence</li>
           <li><strong>Compliance:</strong> Follows Atlassian security standards</li>
         </ul>
+      </section>
+
+      <section id="installation" style="scroll-margin-top:100px;">
+        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Installation</h2>
+        <p>Installing takes about a minute and needs a Confluence Cloud site admin, since apps are installed site-wide.</p>
+        <ol>
+          <li>Open <a href="https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence" target="_blank" rel="noopener">Bulk Page Cloner for Confluence</a> on the Atlassian Marketplace, or search for it from <strong>Apps &rarr; Explore more apps</strong> inside Confluence.</li>
+          <li>Click <strong>Try it free</strong> and choose your Confluence Cloud site.</li>
+          <li>Accept the permissions it asks for: read and write Confluence pages, read spaces and labels, and app storage. Nothing else is requested — see <a href="#permissions">Permissions Required</a> for what each one does.</li>
+          <li>Open it from <strong>Apps</strong> in the left sidebar, from any page's <strong>&bull;&bull;&bull;</strong> actions menu, or by typing <code>/bulkpage</code> in the editor.</li>
+        </ol>
+        <div class="doc-tip">
+          <p><strong>Free for teams of 10 or fewer.</strong> Above that, paid tiers are billed through the Atlassian Marketplace on your existing Atlassian invoice — there is no separate DataPingo account to create and no card to enter with us.</p>
+        </div>
+        <p>Removing the app is just as clean. Uninstalling from <strong>Apps &rarr; Manage apps</strong> deletes everything it stored, and pages you already created stay in Confluence as ordinary pages.</p>
       </section>
 
       <section id="support" style="scroll-margin-top:100px;">
@@ -669,6 +831,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>

@@ -1,6 +1,16 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "site", "runtimeExecutable": "npx", "runtimeArgs": ["serve", "-s", ".", "-l", "8123"], "port": 8123 }
+    {
+      "name": "site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "serve",
+        ".",
+        "-l",
+        "8000"
+      ],
+      "port": 8000
+    }
   ]
 }

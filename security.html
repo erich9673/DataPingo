@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
 </head>
 <body>
@@ -126,11 +126,11 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 9, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 23, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
-        <h3 style="color:var(--teal);margin-top:0;margin-bottom:12px;">Security at a Glance</h3>
+        <h2 style="color:var(--teal);margin-top:0;margin-bottom:12px;font-size:1.05rem;">Security at a Glance</h2>
         <p style="color:var(--slate);margin:0;">DataPingo builds exclusively on Atlassian's Forge platform. All infrastructure, hosting, encryption, and runtime security is provided and managed by Atlassian. DataPingo does not operate independent servers, databases, or cloud infrastructure. We do not hold any third-party security certifications (such as SOC 2, ISO 27001, or PCI-DSS) independently — our security posture is inherited from and governed by Atlassian's platform.</p>
       </div>
 
@@ -158,9 +158,12 @@
 
       <h4>Bulk Comments for Jira</h4>
       <ul>
-        <li><strong>Read scope:</strong> Reads Jira issue and comment details — including existing comment content and media — to populate ticket search results and the source comment being replicated.</li>
-        <li><strong>Write scope:</strong> Posts new comments to the Jira issues you select, copying comment text and media directly between tickets via Atlassian's APIs.</li>
-        <li><strong>App storage:</strong> Stores only per-ticket job status for the media-copy queue in Forge storage — isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
+        <li><strong>Scopes requested:</strong> <code>read:jira-work</code>, <code>write:jira-work</code>, <code>read:jira-user</code> and <code>storage:app</code>. No others.</li>
+        <li><strong>Read scope:</strong> Reads Jira issue and comment details — including existing comment content and media — to populate ticket search results and the source comment being copied.</li>
+        <li><strong>Write scope:</strong> Posts comments to the Jira issues you select and uploads their attachments. Comment text and media move between tickets entirely inside Atlassian's infrastructure.</li>
+        <li><strong>Acts as you, not as itself:</strong> The two Jira scopes are granted with impersonation, so every comment and file is created under your own Atlassian account and is subject to your existing Jira permissions. The app cannot reach an issue you could not reach yourself.</li>
+        <li><strong>Attachment staging:</strong> Files you attach are uploaded to Atlassian's Forge Object Store, copied into each selected issue, and deleted. Uploads that are never sent expire automatically within one hour. Object Store is Atlassian infrastructure, isolated per Atlassian site.</li>
+        <li><strong>App storage:</strong> Apart from those staged files, stores only per-ticket job status for the send queue in Forge storage — isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
         <li><strong>No external transmission:</strong> No Jira issue data, comment content, or media is sent to DataPingo or any third party.</li>
       </ul>
 
@@ -173,7 +176,7 @@
       <h2>3. Atlassian Marketplace Trust &amp; Compliance</h2>
       <p>All DataPingo apps are reviewed and listed on the Atlassian Marketplace. By listing on the Marketplace, apps must comply with:</p>
       <ul>
-        <li><a href="https://developer.atlassian.com/platform/marketplace/partner-program-agreement/" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace Partner Agreement</a></li>
+        <li><a href="https://www.atlassian.com/licensing/marketplace/partneragreement" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace Partner Agreement</a></li>
         <li><a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Privacy Policy</a></li>
         <li>Atlassian's data residency, security, and personal data reporting requirements</li>
       </ul>
@@ -185,9 +188,10 @@
       <h2>5. Incident Response</h2>
       <p>If you discover a security vulnerability or data concern related to a DataPingo app:</p>
       <ul>
-        <li>Email <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a> with a description of the issue.</li>
-        <li>We aim to acknowledge reports within 2 business days and provide a resolution timeline.</li>
-        <li>For platform-level security issues (Forge infrastructure, Atlassian APIs), please also report to <a href="https://www.atlassian.com/trust/security/security-bug-bounty-program" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian's bug bounty program</a>.</li>
+        <li>Email <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> with a description of the issue. Please do not open a public ticket or post details anywhere public until we have had a chance to fix it.</li>
+        <li>A confirmed security issue is treated as <strong style="color:var(--white);">Critical</strong>, so you will hear from a person within <strong style="color:var(--white);">1 business day</strong> and we will give you a resolution timeline then. Response targets live in one place &mdash; the table in our <a href="/sla" style="color:var(--teal);">Service Level Agreement</a>.</li>
+        <li>For platform-level security issues (Forge infrastructure, Atlassian APIs), please also report to <a href="https://www.atlassian.com/trust/security/report-a-vulnerability" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian's bug bounty program</a>.</li>
+        <li>Not sure whether something is a security issue? <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Raise a ticket on the support portal</a> and we will route it. If it turns out to be a vulnerability, please move the conversation to <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> rather than leaving details in a portal ticket.</li>
       </ul>
 
       <h2>6. Policy Updates</h2>
@@ -196,13 +200,14 @@
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px;">
         <h3 style="color:var(--white);margin-top:0;margin-bottom:16px;">Contact</h3>
         <ul style="color:var(--slate);margin:0;">
-          <li><strong style="color:var(--white);">Email:</strong> <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a></li>
-          <li><strong style="color:var(--white);">Support:</strong> <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Support portal</a></li>
+          <li><strong style="color:var(--white);">Questions about this policy:</strong> <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a></li>
+          <li><strong style="color:var(--white);">Vulnerability reports &amp; security incidents:</strong> <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a></li>
+          <li><strong style="color:var(--white);">Support portal:</strong> <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Raise a ticket</a></li>
           <li><strong style="color:var(--white);">Legal:</strong> <a href="/privacy" style="color:var(--teal);">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms" style="color:var(--teal);">Terms of Service</a></li>
         </ul>
       </div>
 
-      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 9, 2026</em></p>
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 23, 2026</em></p>
 
     </div>
   </section>
@@ -263,6 +268,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>

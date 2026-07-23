@@ -29,9 +29,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
 
   <style>
@@ -52,13 +52,20 @@
     .product-hero-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 48px;
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center;
+      gap: 64px;
+      /* `start`, not `center`. With center, whichever column is taller sets the row
+         height and the other floats to the middle — and the demo panels differ in
+         height between product pages, so the copy sat 70px lower on one than the
+         other. Pinning the text to the top lands every H1 at the same y. */
+      align-items: start;
     }
+    /* The demo still centres against the copy block. */
+    .product-hero-inner > :last-child { align-self: center; }
     .product-hero-text {
       display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
     }
     .product-hero-meta {
-      display: flex; align-items: center; gap: 16px;
+      display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap;
     }
     .product-hero-icon {
       width: 72px; height: 72px; border-radius: 18px;
@@ -471,7 +478,7 @@
   "name": "Bulk Page Cloner for Confluence",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Atlassian Confluence Cloud",
-  "softwareVersion": "7.1.0",
+  "softwareVersion": "10.0.0",
   "url": "https://datapingo.com/products/bulk-page-cloner",
   "description": "Select one Confluence page and clone it into as many as 25 exact copies in a single guided flow — content, formatting, images, video, macros, labels, and attachments all carried over.",
   "image": "https://datapingo.com/assets/img/og-bulk-page-cloner.png",
@@ -616,6 +623,7 @@
         <div class="product-hero-meta">
           <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence icon" class="product-hero-icon">
           <span class="product-hero-tag">Confluence App</span>
+          <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
         </div>
         <h1>Bulk Page Cloner for Confluence</h1>
         <p class="product-hero-sub">Duplicate up to 25 Confluence pages in one guided flow — content, formatting, images, video, macros, labels, and attachments copied exactly. A live clone summary builds as you go, so 30-minute jobs finish in under 60 seconds.</p>
@@ -1184,6 +1192,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>

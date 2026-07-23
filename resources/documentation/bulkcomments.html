@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira — Documentation | DataPingo</title>
-  <meta name="description" content="Complete documentation for Bulk Comments for Jira — compose a comment once and post it to up to 25 Jira issues, or replicate an existing comment with media included.">
+  <meta name="description" content="Complete documentation for Bulk Comments for Jira — bulk comment on up to 25 Jira issues, a different comment for each, or copy an existing comment with attachments up to 150 MB each.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments">
   <meta property="og:type" content="website">
@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
   <style>
     /* Doc page layout */
@@ -104,6 +104,42 @@
     }
     .doc-content li { margin-bottom: 6px; }
     .doc-content strong { color: var(--white); }
+    .doc-content code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.85em;
+      background: rgba(99,102,241,0.10);
+      border: 1px solid rgba(99,102,241,0.18);
+      border-radius: 4px;
+      padding: 1px 5px;
+      color: #C7D2FE;
+    }
+    /* A modifier on a scope, not a scope itself — tinted apart from <code> so the
+       scope name stays the thing you read first. */
+    .doc-content .scope-flag {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.78em;
+      font-weight: 600;
+      background: rgba(87,157,255,0.10);
+      border: 1px solid rgba(87,157,255,0.26);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: #93C5FD;
+      white-space: nowrap;
+    }
+    /* Shortcut keys. Deliberately not <code>: a keystroke is a thing you press,
+       not a string you type, and the two should not look alike in a reference table. */
+    .doc-content kbd {
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-bottom-width: 2px;
+      border-radius: 5px;
+      padding: 2px 7px;
+      color: var(--white);
+      white-space: nowrap;
+    }
     .doc-content a { color: #A5B4FC; text-decoration: none; }
     .doc-content a:hover { text-decoration: underline; }
     .doc-img-card {
@@ -190,6 +226,18 @@
       margin-right: 6px;
       margin-bottom: 4px;
     }
+    /* Runs on Atlassian — Atlassian's own trust signal, so it carries Atlassian's mark and
+       Atlassian's blue rather than a colour of ours. #579DFF is the dark-theme value of their
+       --ds-icon-brand token; the #0C66E4 the Marketplace uses is tuned for a white page and
+       goes muddy on this background. */
+    .doc-hero-badge--roa {
+      background: rgba(87,157,255,0.10);
+      border-color: rgba(87,157,255,0.32);
+      color: #579DFF;
+    }
+    /* Filled, not stroked like the other badge icons. flex-shrink is not optional: the badge is
+       a flex row, so without it the glyph squashes to ~7px wide and the layers skew. */
+    .doc-hero-badge--roa svg { fill: currentColor; flex-shrink: 0; }
     /* Lightbox */
     .doc-lb {
       display: none; position: fixed; inset: 0; z-index: 1000;
@@ -338,9 +386,13 @@
         <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="Bulk Comments for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(99,102,241,0.25);">
       </div>
       <h1 style="text-align:center;">Bulk Comments for Jira</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos and files included — across many tickets.</p>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Post one comment to up to 25 Jira issues at once, give any ticket a different comment, or copy an existing comment, images, videos and files included, across many tickets.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v3.3.0 &mdash; Initial Release</span>
+        <span class="doc-hero-badge">v4.0.0 &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Jira Cloud</span>
       </div>
@@ -350,6 +402,7 @@
         <a href="#version-history" class="btn-secondary">Version History</a>
         <a href="#technical" class="btn-secondary">Technical Specifications</a>
         <a href="#privacy-security" class="btn-secondary">Privacy &amp; Security</a>
+        <a href="#installation" class="btn-secondary">Installation</a>
         <a href="#support" class="btn-secondary">Support &amp; Contact</a>
       </div>
     </div>
@@ -367,6 +420,7 @@
         <a href="#version-history">Version History</a>
         <a href="#technical">Technical Specifications</a>
         <a href="#privacy-security">Privacy &amp; Security</a>
+        <a href="#installation">Installation</a>
         <a href="#support">Support &amp; Contact</a>
       </nav>
     </aside>
@@ -376,25 +430,31 @@
 
       <section id="overview" style="scroll-margin-top:100px;">
         <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
-        <p>Bulk Comments for Jira is an Atlassian Forge app installed directly inside Jira Cloud. It lets you compose a rich-text comment once and post it to up to 25 issues at once, or replicate an existing comment — including its images, videos and file attachments — onto multiple tickets exactly as-is.</p>
+        <p>Bulk Comments for Jira is an Atlassian Forge app installed directly inside Jira Cloud. It lets you write a rich-text comment and post it to up to 25 issues at once, write a different comment for any individual ticket in the same send, and attach images, videos and files of up to 150&nbsp;MB each — or copy a comment that already exists, media and all, onto other tickets exactly as-is.</p>
         <div class="doc-tip">
-          <p><strong>No context switching:</strong> Everything happens inside Jira. There's no external server in the data path for Compose or Replicate — comments and media move directly between Jira tickets through Atlassian's own infrastructure.</p>
+          <p><strong>No context switching:</strong> Everything happens inside Jira. There's no external server in the data path — comments and media move between Jira tickets through Atlassian's own infrastructure.</p>
         </div>
 
-        <h3>Compose</h3>
-        <p>Write a new rich-text comment — bold, lists, @mentions — and post it to up to 25 Jira issues in one action.</p>
+        <h3>Write a comment</h3>
+        <p>The editor is the one you already know from Jira: headings, bold, italics, underline, strikethrough, text colour, bullet, numbered and task lists, quotes, dividers, tables, code blocks with syntax highlighting, emoji, @mentions and slash commands. <a href="#comment-editor">The comment editor</a> below is the full reference.</p>
+        <p>By default one comment goes to every selected ticket. Click any ticket in the list to write that issue a different comment — the list shows at a glance which tickets share the comment and which have their own, and only tickets that actually have a comment get posted. So a single send can carry one shared update to twenty tickets and a specific note to five others.</p>
 
-        <h3>Replicate</h3>
-        <p>Paste the link to an existing comment and copy it exactly as-is onto other tickets. Images, videos and file attachments are copied automatically.</p>
+        <h3>Attach images, videos and files</h3>
+        <p>Drag a file into the editor, paste a screenshot straight from your clipboard, or pick one from the toolbar. Each file can be up to <strong>150&nbsp;MB</strong> — or your site's own Jira attachment limit, whichever is lower — and a comment can carry as many files as you need.</p>
+        <p>Uploading starts the moment you attach, not when you press Send, so by the time you have finished writing the file is usually already staged and the send is near-instant. Images and video preview inline, can be aligned left, centre or right, and resize by dragging their edge; PDFs and other documents post as file cards. Large files are copied to each ticket in the background, so a long video never stalls the batch.</p>
 
-        <h3>Three Entry Points</h3>
-        <p>Open the app from the global page in the left sidebar, the "Bulk Comments for Jira" tab in any issue's Activity panel, or the "Bulk Comment" option in an issue's &bull;&bull;&bull; actions menu. The latter two auto-select that ticket's most recent comment for a fast copy.</p>
+        <h3>Copy a comment</h3>
+        <p>Paste the link to an existing comment and copy it exactly as-is onto other tickets. Images, videos and file attachments come along automatically.</p>
+
+        <h3>Three entry points</h3>
+        <p>Open the full app from the global page in the left sidebar, or start right from an issue: the <strong>Bulk Comments</strong> option in an issue's &bull;&bull;&bull; actions menu opens the comment editor already seeded with that ticket, and the <strong>Bulk Comments</strong> tab in the issue's Activity panel auto-selects the most recent comment to copy to other tickets.</p>
 
         <table class="spec-table" style="margin-top:24px;">
           <tbody>
-            <tr><td><strong>25 Issues per action</strong></td><td>Compose or Replicate to up to 25 tickets at once</td></tr>
-            <tr><td><strong>3 Entry points</strong></td><td>Global page, issue Activity tab, or issue actions menu</td></tr>
-            <tr><td><strong>0 External servers</strong></td><td>Built on Atlassian Forge — data stays inside your Jira instance</td></tr>
+            <tr><td><strong>25 issues per send</strong></td><td>Write or copy to up to 25 tickets at once</td></tr>
+            <tr><td><strong>150 MB per attachment</strong></td><td>Images, video and files, with no limit on how many</td></tr>
+            <tr><td><strong>3 entry points</strong></td><td>Global page, issue Activity tab, or issue actions menu</td></tr>
+            <tr><td><strong>0 external servers</strong></td><td>Built on Atlassian Forge — data stays inside your Jira instance</td></tr>
           </tbody>
         </table>
       </section>
@@ -402,74 +462,617 @@
       <section id="full-guide" style="scroll-margin-top:100px;">
         <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Full Guide</h2>
 
-        <h3>Installing the App</h3>
-        <ol>
-          <li>Go to the <strong>Atlassian Marketplace</strong> and search for <strong>Bulk Comments for Jira</strong>.</li>
-          <li>Click <strong>Get it now</strong> and select your Jira Cloud site.</li>
-          <li>Accept the required permissions: read &amp; write Jira work items, read Jira user profiles.</li>
-          <li>Once installed, find <strong>Bulk Comments for Jira</strong> in the left-side Apps menu, or look for it on any issue's Activity panel and &bull;&bull;&bull; actions menu.</li>
-        </ol>
+        <h3>Writing a comment</h3>
+        <p>Writing a comment walks through three steps — <strong>Tickets</strong>, <strong>Comment</strong>, then <strong>Send</strong>. Pick your issues first (up to 25), then write with rich-text formatting — bold, italics, lists, and @mentions. Each comment is posted individually to its ticket.</p>
+        <p>On the Write step, choose how you want to comment:</p>
+        <ul>
+          <li><strong>One comment for all</strong> — write it once and post the identical text to every selected ticket.</li>
+          <li><strong>A different comment</strong> — click any ticket in the list to write it something else, without leaving the page. The list shows which tickets share the comment and which have their own.</li>
+        </ul>
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 736 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Comment step. A Write a comment / Copy a comment toggle sits above two panels. The left panel groups the three selected tickets under two headings — SELECTED TICKETS holds the two that share the comment, HAS ITS OWN COMMENT holds DTB-8, marked with a green tick. The right panel is headed 'Writing DTB-8 only' with a button to use the shared comment instead. The footer reads '1 ready, 2 skipped' beside a Post 1 comment button.">
+            <rect width="736" height="460" fill="#FFFFFF" rx="8"/>
 
-        <h3>Compose Mode</h3>
-        <p>Write a new comment with rich-text formatting — bold, italics, lists, and @mentions — and choose the issues to post it to. The comment is posted individually to each selected ticket.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20Light%20(1840x900%20px).jpg" alt="Compose Mode — write a new rich-text comment for bulk posting" loading="lazy">
+            <!-- Step rail -->
+            <g font-family="Inter,sans-serif">
+              <circle cx="30" cy="26" r="11" fill="#FFFFFF" stroke="#4f52e6" stroke-width="1.6"/>
+              <path d="M25.5 26l3 3 6-6.4" fill="none" stroke="#4f52e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="48" y="30" font-size="12" fill="#586178">Tickets</text>
+              <path d="M100 26h30" stroke="#e5e7ee" stroke-width="1.6"/>
+              <circle cx="146" cy="26" r="11" fill="#4f52e6"/>
+              <text x="146" y="30" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+              <text x="164" y="30" font-size="12" font-weight="600" fill="#1b2333">Comment</text>
+              <path d="M240 26h30" stroke="#e5e7ee" stroke-width="1.6"/>
+              <circle cx="286" cy="26" r="11" fill="#FFFFFF" stroke="#e5e7ee" stroke-width="1.6"/>
+              <text x="286" y="30" font-size="11" font-weight="600" fill="#8b93a7" text-anchor="middle">3</text>
+              <text x="304" y="30" font-size="12" fill="#586178">Send</text>
+            </g>
+
+            <!-- Mode toggle -->
+            <rect x="16" y="56" width="284" height="36" rx="8" fill="#f8f9fb" stroke="#e5e7ee"/>
+            <rect x="20" y="60" width="140" height="28" rx="6" fill="#4f52e6"/>
+            <g fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(32,67) scale(.46)">
+              <path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/>
+            </g>
+            <text x="52" y="78" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Write a comment</text>
+            <g fill="none" stroke="#586178" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(172,67) scale(.46)">
+              <rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>
+            </g>
+            <text x="192" y="78" font-family="Inter,sans-serif" font-size="12" fill="#586178">Copy a comment</text>
+
+            <text x="318" y="78" font-family="Inter,sans-serif" font-size="12" fill="#586178">&#8592; 3 tickets &middot; <tspan fill="#4f52e6" font-weight="600">change</tspan></text>
+            <text x="720" y="78" font-family="Inter,sans-serif" font-size="11" fill="#8b93a7" text-anchor="end">Only tickets with a comment are posted</text>
+
+            <!-- Left panel -->
+            <rect x="16" y="104" width="236" height="300" rx="8" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <text x="28" y="130" font-family="Inter,sans-serif" font-size="11" fill="#586178"><tspan font-weight="700" fill="#1b2333">3</tspan> tickets &middot; <tspan font-weight="700" fill="#1b2333">1</tspan> ready</text>
+            <rect x="180" y="116" width="60" height="22" rx="5" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="210" y="131" font-family="Inter,sans-serif" font-size="10.5" fill="#586178" text-anchor="middle">Clear all</text>
+
+            <rect x="28" y="148" width="212" height="54" rx="8" fill="#f8f9fb" stroke="#e5e7ee"/>
+            <g fill="none" stroke="#8b93a7" stroke-width="1.9" stroke-linecap="round" transform="translate(38,166) scale(.6)">
+              <path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/>
+            </g>
+            <g font-family="Inter,sans-serif">
+              <text x="58" y="167" font-size="10.5" font-weight="700" fill="#1b2333">Write one comment for the</text>
+              <text x="58" y="180" font-size="10.5" font-weight="700" fill="#1b2333">tickets below</text>
+              <text x="58" y="194" font-size="9.5" fill="#8b93a7">2 of 3 tickets</text>
+            </g>
+
+            <text x="28" y="222" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="0.06em" fill="#8b93a7">SELECTED TICKETS</text>
+
+            <g font-family="Inter,sans-serif">
+              <rect x="28" y="232" width="44" height="16" rx="4" fill="#eeeefc"/>
+              <text x="50" y="243.5" font-size="9.5" font-weight="700" fill="#3134bd" text-anchor="middle">DTB-4</text>
+              <rect x="78" y="232" width="42" height="16" rx="4" fill="#f1f2f6"/>
+              <text x="99" y="243.5" font-size="8.5" font-weight="700" fill="#586178" text-anchor="middle">TO DO</text>
+              <path d="M232 237l8 8M240 237l-8 8" stroke="#8b93a7" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="28" y="262" font-size="10.5" font-weight="600" fill="#1b2333">Set up automated database</text>
+              <text x="28" y="275" font-size="10.5" font-weight="600" fill="#1b2333">backups with 30-day retention</text>
+              <path d="M28 288h212" stroke="#f1f2f6"/>
+
+              <rect x="28" y="298" width="44" height="16" rx="4" fill="#eeeefc"/>
+              <text x="50" y="309.5" font-size="9.5" font-weight="700" fill="#3134bd" text-anchor="middle">TP3-1</text>
+              <rect x="78" y="298" width="42" height="16" rx="4" fill="#f1f2f6"/>
+              <text x="99" y="309.5" font-size="8.5" font-weight="700" fill="#586178" text-anchor="middle">TO DO</text>
+              <path d="M232 303l8 8M240 303l-8 8" stroke="#8b93a7" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="28" y="328" font-size="10.5" font-weight="600" fill="#1b2333">Set up CI/CD pipeline</text>
+              <path d="M28 341h212" stroke="#f1f2f6"/>
+            </g>
+
+            <text x="28" y="360" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="0.06em" fill="#8b93a7">HAS ITS OWN COMMENT</text>
+
+            <g font-family="Inter,sans-serif">
+              <rect x="17" y="368" width="234" height="35" fill="#eeeefc"/>
+              <rect x="17" y="368" width="3" height="35" fill="#4f52e6"/>
+              <rect x="28" y="374" width="44" height="16" rx="4" fill="#4f52e6"/>
+              <text x="50" y="385.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">DTB-8</text>
+              <rect x="78" y="374" width="42" height="16" rx="4" fill="#FFFFFF"/>
+              <text x="99" y="385.5" font-size="8.5" font-weight="700" fill="#586178" text-anchor="middle">TO DO</text>
+              <circle cx="134" cy="382" r="8" fill="#16915c"/>
+              <path d="M130.5 382l2.4 2.4 4.6-5" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M232 377l5 5-5 5" fill="none" stroke="#4f52e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="28" y="401" font-size="10.5" font-weight="600" fill="#1b2333">Refactor authentication service</text>
+            </g>
+
+            <!-- Right panel -->
+            <rect x="264" y="104" width="456" height="300" rx="8" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <path d="M264 112a8 8 0 0 1 8-8h440a8 8 0 0 1 8 8v32H264z" fill="#f8f9fb"/>
+            <path d="M264 144h456" stroke="#e5e7ee"/>
+            <text x="278" y="129" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">Writing <tspan font-weight="700" fill="#1b2333">DTB-8</tspan> only</text>
+            <rect x="518" y="112" width="190" height="24" rx="5" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="613" y="128" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#586178" text-anchor="middle">Use the shared comment instead</text>
+
+            <!-- Compact toolbar -->
+            <rect x="278" y="156" width="76" height="22" rx="3" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="286" y="171" font-family="Inter,sans-serif" font-size="10" fill="#586178">Normal text</text>
+            <path d="M342 165l3.5 4.5 3.5-4.5z" fill="#586178"/>
+            <g font-family="Inter,sans-serif" text-anchor="middle" fill="#586178">
+              <text x="370" y="172" font-size="12" font-weight="700">B</text>
+              <text x="390" y="172" font-size="12" font-weight="700" font-style="italic">I</text>
+              <text x="410" y="171" font-size="11">U</text>
+              <text x="430" y="171" font-size="11">S</text>
+            </g>
+            <path d="M405 174h10" stroke="#586178" stroke-width="1.2"/>
+            <g fill="none" stroke="#586178" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="translate(444,159) scale(.55)"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="#586178" stroke="none"/></g>
+              <g transform="translate(464,159) scale(.55)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g>
+              <g transform="translate(484,159) scale(.55)"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/></g>
+              <g transform="translate(504,159) scale(.55)"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/></g>
+            </g>
+            <text x="706" y="171" font-family="Inter,sans-serif" font-size="10" fill="#8b93a7" text-anchor="end">5 words &middot; @ to mention</text>
+            <path d="M264 188h456" stroke="#e5e7ee"/>
+
+            <!-- Comment body -->
+            <g fill="#d9dce6">
+              <rect x="278" y="206" width="300" height="8" rx="4"/>
+              <rect x="278" y="226" width="212" height="8" rx="4"/>
+              <rect x="278" y="246" width="128" height="8" rx="4"/>
+            </g>
+            <g fill="none" stroke="#e5e7ee">
+              <rect x="278" y="274" width="428" height="96" fill="#FFFFFF"/>
+              <rect x="278" y="274" width="428" height="32" fill="#f8f9fb"/>
+              <path d="M278 306h428M278 338h428M421 274v96M564 274v96"/>
+            </g>
+
+            <!-- Footer -->
+            <text x="16" y="432" font-family="Inter,sans-serif" font-size="11.5" fill="#586178"><tspan font-weight="700" fill="#1b2333">1 ready</tspan> &middot; 2 skipped</text>
+            <rect x="564" y="414" width="156" height="32" rx="6" fill="#4f52e6"/>
+            <text x="632" y="435" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">Post 1 comment</text>
+            <g fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(686,422) scale(.6)">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>
+            </g>
+          </svg>
         </div>
 
-        <h3>Replicate Mode</h3>
-        <p>Instead of writing something new, Replicate mode copies a comment that already exists — including any images, videos and file attachments on it — onto other tickets exactly as-is. The <strong>Source</strong> step walks you through it in three parts:</p>
-        <ol>
-          <li><strong>Open the ticket &amp; copy the link</strong> — Go to the Jira issue, hover over the comment, then click the link icon next to the author's name to copy its link.
-            <div class="doc-img-card doc-img-card--static" style="margin-top:14px;">
-              <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Jira comment with the link icon beside the author's name highlighted, and a tooltip reading Copy link to comment">
-                <rect width="720" height="300" fill="#FFFFFF"/>
-                <rect x="118" y="24" width="212" height="36" rx="8" fill="#172B4D"/>
-                <path d="M217 60 l7 10 l7 -10 z" fill="#172B4D"/>
-                <text x="224" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">Copy link to comment</text>
+        <h3 id="comment-editor" style="scroll-margin-top:100px;">The comment editor</h3>
+        <p>Everything you write is posted as native Jira formatting, so a comment sent from here is indistinguishable from one typed into Jira itself — same headings, same tables, same code blocks, same file cards. The toolbar and the keyboard shortcuts deliberately mirror Jira's own editor, so there is nothing new to learn.</p>
+        <div class="doc-tip">
+          <p><strong>Shortcuts below are written in Mac notation.</strong> On Windows and Linux read <kbd>&#8984;</kbd> as <kbd>Ctrl</kbd>, <kbd>&#8679;</kbd> as <kbd>Shift</kbd> and <kbd>&#8997;</kbd> as <kbd>Alt</kbd>. The app detects your machine and shows the right one in every tooltip.</p>
+        </div>
 
-                <circle cx="62" cy="118" r="22" fill="#E9EAFE"/>
-                <text x="62" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#5A5FC7">AR</text>
-                <text x="98" y="112" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#172B4D">Alex Rivera</text>
-                <text x="98" y="139" font-family="Inter,sans-serif" font-size="13" fill="#6B778C">now</text>
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 736 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The comment editor toolbar, left to right: a block-type dropdown; bold, italic, underline, strikethrough, subscript, superscript and text colour; bullet, numbered and task lists; quote and code block; table, emoji and attach file; undo and redo.">
+            <rect width="736" height="128" fill="#FFFFFF" rx="8"/>
+            <rect x="8" y="8" width="720" height="44" rx="6" fill="#f8f9fb" stroke="#e5e7ee"/>
 
-                <circle cx="224" cy="105" r="17" fill="none" stroke="#E24B4A" stroke-width="2.2"/>
-                <g transform="translate(216.9 96.5) scale(0.82)" stroke="#5A5FC7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                </g>
-                <path d="M304 134 C 286 134, 266 124, 251 115" stroke="#E24B4A" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M242 109 L253.8 111.1 L248.8 118.8 Z" fill="#E24B4A"/>
+            <!-- Block type -->
+            <rect x="20" y="18" width="88" height="24" rx="3" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="29" y="34" font-family="Inter,sans-serif" font-size="11" fill="#586178">Normal text</text>
+            <path d="M94 28l4 5 4-5z" fill="#586178"/>
 
-                <text x="98" y="188" font-family="Inter,sans-serif" font-size="17" fill="#172B4D">Copy this comment.</text>
+            <g stroke="#e5e7ee" stroke-width="1"><path d="M116 20v20M280 20v20M356 20v20M410 20v20M486 20v20"/></g>
 
-                <g stroke="#6B778C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M108 228 l-8 7 l8 7"/><path d="M100 235 h12 a9 9 0 0 1 9 9 v2"/>
-                  <path d="M154 244 v-9 h4 l5 -8 a3 3 0 0 1 3 4 l-1 4 h6 a2 2 0 0 1 2 3 l-2 6 h-17 z"/>
-                  <circle cx="210" cy="238" r="10"/><circle cx="206" cy="235" r="0.9" fill="#6B778C"/><circle cx="214" cy="235" r="0.9" fill="#6B778C"/><path d="M205 241 a6 6 0 0 0 10 0"/>
-                  <path d="M252 246 h6 l14 -14 a3 3 0 0 0 -5 -5 l-14 14 z"/>
-                </g>
-                <g fill="#6B778C"><circle cx="300" cy="238" r="2"/><circle cx="309" cy="238" r="2"/><circle cx="318" cy="238" r="2"/></g>
-              </svg>
-            </div>
-          </li>
-          <li><strong>Check it's a valid comment link</strong> — A comment link ends in <code>?focusedCommentId=&hellip;</code> — that's the part that points to the exact comment (for example, <code>https://your-site.atlassian.net/browse/KAN-6?focusedCommentId=10842</code>). A plain issue link without that parameter won't work.</li>
-          <li><strong>Paste it below</strong> — Paste the link into the field, then continue on to pick your recipients and send.</li>
-        </ol>
+            <!-- Text formatting -->
+            <g font-family="Inter,sans-serif" text-anchor="middle" fill="#586178">
+              <text x="128" y="36" font-size="14" font-weight="700">B</text>
+              <text x="150" y="36" font-size="14" font-weight="700" font-style="italic">I</text>
+              <text x="172" y="35" font-size="13">U</text>
+              <text x="194" y="35" font-size="13">S</text>
+              <text x="213" y="35" font-size="13">X</text><text x="222" y="38" font-size="9">2</text>
+              <text x="235" y="35" font-size="13">X</text><text x="244" y="29" font-size="9">2</text>
+              <text x="260" y="32" font-size="12" font-weight="700">A</text>
+            </g>
+            <path d="M166 39h12M188 30h12" stroke="#586178" stroke-width="1.4"/>
+            <rect x="254" y="35" width="12" height="3" rx="1.5" fill="#4f52e6"/>
 
-        <h3>Choosing Recipients</h3>
-        <p>In the <strong>Recipients</strong> step, search by keyword or issue key, filter by project, or use advanced JQL to build a precise target list. Select up to 25 tickets, then continue to send.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20Light%20(1840x900%20px).jpg" alt="Choosing recipients — search, filter by project, or use JQL, and select up to 25 tickets" loading="lazy">
+            <!-- Icon controls -->
+            <g fill="none" stroke="#586178" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="translate(284,22) scale(.667)">
+                <path d="M8 6h13M8 12h13M8 18h13"/>
+                <circle cx="3.5" cy="6" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="#586178" stroke="none"/>
+              </g>
+              <g transform="translate(306,22) scale(.667)">
+                <path d="M9 6h12M9 12h12M9 18h12"/>
+                <g fill="#586178" stroke="none" font-family="Inter,sans-serif" font-size="8" font-weight="700"><text x="1" y="9">1</text><text x="1" y="15">2</text><text x="1" y="21">3</text></g>
+              </g>
+              <g transform="translate(328,22) scale(.667)">
+                <rect x="2" y="4" width="6" height="6" rx="1.4"/><path d="M3.4 7l1.4 1.4 2.4-2.6"/>
+                <rect x="2" y="14" width="6" height="6" rx="1.4"/>
+                <path d="M12 7h9M12 17h9"/>
+              </g>
+              <g transform="translate(360,22) scale(.667)">
+                <rect x="3" y="4" width="2.6" height="16" rx="1.3" fill="#586178" stroke="none"/>
+                <path d="M11 8h10M11 13h10M11 18h7"/>
+              </g>
+              <g transform="translate(382,22) scale(.667)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g>
+              <g transform="translate(414,22) scale(.667)">
+                <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/>
+              </g>
+              <g transform="translate(436,22) scale(.667)">
+                <circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0"/>
+                <circle cx="9" cy="10" r="1.1" fill="#586178" stroke="none"/><circle cx="15" cy="10" r="1.1" fill="#586178" stroke="none"/>
+              </g>
+              <g transform="translate(458,22) scale(.667)">
+                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/>
+              </g>
+              <g transform="translate(490,22) scale(.667)"><path d="M3 8h10a5 5 0 0 1 0 10H7"/><path d="M6.5 4.5L3 8l3.5 3.5"/></g>
+              <g transform="translate(512,22) scale(.667)"><path d="M21 8H11a5 5 0 0 0 0 10h6"/><path d="M17.5 4.5L21 8l-3.5 3.5"/></g>
+            </g>
+
+            <text x="716" y="34" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#8b93a7">0 words &middot; @ to mention</text>
+
+            <!-- Group brackets -->
+            <g stroke="#c3c9d6" stroke-width="1.1" fill="none">
+              <path d="M20 62v4h88v-4M118 62v4h154v-4M282 62v4h66v-4M358 62v4h44v-4M412 62v4h66v-4M488 62v4h44v-4"/>
+              <path d="M64 66v10M315 66v10M445 66v10"/>
+              <path d="M195 66v30M380 66v30M510 66v30"/>
+            </g>
+            <g font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#586178" text-anchor="middle">
+              <text x="64" y="88">Block type</text>
+              <text x="315" y="88">Lists</text>
+              <text x="445" y="88">Table, emoji, file</text>
+              <text x="195" y="108">Text formatting &amp; colour</text>
+              <text x="380" y="108">Quote &amp; code</text>
+              <text x="510" y="108">Undo / redo</text>
+            </g>
+          </svg>
+        </div>
+
+        <h4>Headings</h4>
+        <p>The dropdown at the far left of the toolbar sets the current block. It shows what you are currently in, so you can always tell whether the cursor is inside a heading.</p>
+        <table class="spec-table">
+          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td>Normal text</td><td><kbd>&#8984;&#8997;0</kbd></td></tr>
+            <tr><td>Heading 1 through Heading 6</td><td><kbd>&#8984;&#8997;1</kbd> &hellip; <kbd>&#8984;&#8997;6</kbd></td></tr>
+          </tbody>
+        </table>
+
+        <h4>Text formatting</h4>
+        <table class="spec-table">
+          <thead><tr><th>Control</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bold</strong></td><td><kbd>&#8984;B</kbd></td></tr>
+            <tr><td><em>Italic</em></td><td><kbd>&#8984;I</kbd></td></tr>
+            <tr><td>Underline</td><td><kbd>&#8984;U</kbd></td></tr>
+            <tr><td>Strikethrough</td><td><kbd>&#8984;&#8679;S</kbd></td></tr>
+            <tr><td>Subscript</td><td><kbd>&#8984;,</kbd></td></tr>
+            <tr><td>Superscript</td><td><kbd>&#8984;.</kbd></td></tr>
+            <tr><td>Inline <code>code</code></td><td><kbd>&#8984;&#8679;M</kbd></td></tr>
+            <tr><td>Text colour &mdash; 28 Atlassian palette colours, plus <strong>Remove colour</strong></td><td>Toolbar <strong>A</strong> button</td></tr>
+            <tr><td>Undo / Redo</td><td><kbd>&#8984;Z</kbd> / <kbd>&#8984;Y</kbd></td></tr>
+          </tbody>
+        </table>
+
+        <h4>Lists, quotes and dividers</h4>
+        <table class="spec-table">
+          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td>Bullet list</td><td><kbd>&#8984;&#8679;8</kbd></td></tr>
+            <tr><td>Numbered list</td><td><kbd>&#8984;&#8679;7</kbd></td></tr>
+            <tr><td>Task list &mdash; checkboxes your team can tick off on the ticket, and they nest</td><td><kbd>&#8984;&#8679;6</kbd></td></tr>
+            <tr><td>Quote</td><td><kbd>&#8984;&#8679;B</kbd></td></tr>
+            <tr><td>Divider</td><td>Type <code>/divider</code></td></tr>
+          </tbody>
+        </table>
+
+        <h4>Tables</h4>
+        <p>The table button opens a size grid — drag across it to choose how many rows and columns you want. Once the cursor is inside a table, a second row of controls appears with everything you need to reshape it:</p>
+        <ul>
+          <li><strong>Header row</strong> and <strong>Header col</strong> — toggle either independently, so a table can have a header row, a header column, both, or neither.</li>
+          <li><strong>Add columns</strong> before or after the current one, and <strong>add rows</strong> above or below.</li>
+          <li><strong>Delete table</strong> to remove the whole thing in one click.</li>
+        </ul>
+
+        <h4>Code blocks</h4>
+        <p>A code block keeps your indentation and monospacing intact, and carries a language selector with <strong>42 languages</strong> — Bash, C, C++, C#, CSS, Dart, Go, GraphQL, Groovy, Haskell, HTML, Java, JavaScript, JSON, Kotlin, Python, Ruby, Rust, SQL, TypeScript, YAML and more, plus <code>(None)</code> for plain text. The language travels with the comment, so Jira highlights it correctly on every ticket you post to.</p>
+
+        <h4>Slash commands</h4>
+        <p>Type <code>/</code> anywhere in the editor to open a command palette, exactly like Jira's. Keep typing to filter the list, move with the arrow keys, and press Enter to insert. Twelve commands are available, so you never have to reach for the toolbar mid-sentence:</p>
+        <table class="spec-table">
+          <thead><tr><th>Command</th><th>What it inserts</th></tr></thead>
+          <tbody>
+            <tr><td><code>/image</code> &middot; Image, video, or file</td><td>Attach a file to this comment</td></tr>
+            <tr><td><code>/heading 1</code></td><td>Large section heading</td></tr>
+            <tr><td><code>/heading 2</code></td><td>Medium section heading</td></tr>
+            <tr><td><code>/heading 3</code></td><td>Small section heading</td></tr>
+            <tr><td><code>/bullet list</code></td><td>Unordered list</td></tr>
+            <tr><td><code>/numbered list</code></td><td>Ordered list</td></tr>
+            <tr><td><code>/task list</code></td><td>Action items with checkboxes</td></tr>
+            <tr><td><code>/quote</code></td><td>Blockquote</td></tr>
+            <tr><td><code>/divider</code></td><td>Horizontal rule</td></tr>
+            <tr><td><code>/code block</code></td><td>Code snippet with language selector</td></tr>
+            <tr><td><code>/table</code></td><td>Opens the size picker</td></tr>
+            <tr><td><code>/emoji</code></td><td>Opens the emoji browser</td></tr>
+          </tbody>
+        </table>
+        <div class="doc-tip">
+          <p><strong>It matches on synonyms, not just labels.</strong> The attachment command is called &ldquo;Image, video, or file&rdquo;, but <code>/screenshot</code>, <code>/upload</code>, <code>/photo</code> and <code>/media</code> all find it too.</p>
+        </div>
+
+        <h4>Mentions, links and emoji</h4>
+        <ul>
+          <li><strong>@mentions</strong> — type <code>@</code> and search your Jira users. Mentioned people are notified on <em>every</em> ticket the comment lands on, which is why a send containing a mention always asks you to confirm first.</li>
+          <li><strong>Smart links</strong> — paste a Jira or Confluence URL and it converts into a live link card showing the item's title, status, priority and assignee, fetched fresh rather than frozen at paste time.</li>
+          <li><strong>Emoji</strong> — browse from the toolbar or type <code>/emoji</code>.</li>
+        </ul>
+
+        <h4>Attachments</h4>
+        <p>Attach files three ways: drag them into the editor, paste a screenshot straight from the clipboard, or use the toolbar button. Dropping a file places it where your pointer is, not where the cursor happened to be.</p>
+        <ul>
+          <li><strong>Up to 150 MB per file</strong>, with no limit on how many files one comment can carry. If your Jira site sets a lower attachment limit, that one wins — the app reads the site's real limit and checks against it the moment you attach, so an oversized file is refused immediately rather than after you have written the comment.</li>
+          <li><strong>Uploading starts on attach, not on Send.</strong> The file moves while you are still typing, so the send itself is usually near-instant. Nothing is visible on any ticket until you actually send, and anything you attach and then delete is discarded.</li>
+          <li><strong>Images and video preview inline</strong>, align left, centre or right, and resize by dragging the edge — the same handles Jira gives you. PDFs and other documents post as file cards.</li>
+          <li><strong>Large files are copied per ticket in the background</strong>, so a long video posting to 25 tickets never stalls or times out the batch.</li>
+        </ul>
+
+        <h3>Copying a comment</h3>
+        <p>Instead of writing something new, this copies a comment that already exists — including any images, videos and file attachments on it — onto other tickets exactly as-is.</p>
+        <p>You need two things: the tickets that should receive it, and a link to the comment being copied. <strong>The order is up to you.</strong> Grab the link from the source ticket first and then open the app, or open the app, pick your tickets, and fetch the link from another tab when you get to it.</p>
+        <p>Either way it lands in the same place: select the tickets in the <strong>Tickets</strong> step, then on the <strong>Comment</strong> step switch from <strong>Write a comment</strong> to <strong>Copy a comment</strong> and paste the link there. <strong>Send</strong> behaves exactly as it does for a comment you wrote.</p>
+        <p>You don’t have to memorise any of this. Switching to <strong>Copy a comment</strong> puts the whole procedure on screen, worked example included &mdash; and the <strong>Copy to <em>n</em> tickets</strong> button stays disabled until what you paste is actually a comment link:</p>
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 736 546" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Copy a comment panel. The mode toggle at the top has Copy a comment selected. A three-step guide follows: step one shows a mock Jira comment with the 'Copy link to comment' icon beside the author's name; step two shows a worked example of a valid link, with the site and issue part greyed out and the focusedCommentId query highlighted as the required part; step three says to paste it below. Underneath is the link field and a Copy to 3 tickets button, disabled until the link is valid.">
+            <rect width="736" height="546" fill="#FFFFFF" rx="8"/>
+
+            <!-- Mode toggle, Copy selected -->
+            <rect x="8" y="8" width="290" height="36" rx="8" fill="#f8f9fb" stroke="#e5e7ee"/>
+            <g fill="none" stroke="#586178" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(22,19) scale(.46)">
+              <path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/>
+            </g>
+            <text x="42" y="30" font-family="Inter,sans-serif" font-size="12" fill="#586178">Write a comment</text>
+            <rect x="150" y="12" width="144" height="28" rx="6" fill="#4f52e6"/>
+            <g fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(162,19) scale(.46)">
+              <rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>
+            </g>
+            <text x="182" y="30" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Copy a comment</text>
+            <text x="728" y="30" font-family="Inter,sans-serif" font-size="11" fill="#8b93a7" text-anchor="end">Copies an existing comment &mdash; media included</text>
+
+            <!-- Panel header -->
+            <text x="8" y="72" font-family="Inter,sans-serif" font-size="12.5" fill="#1b2333">Paste a link to the comment you want to copy</text>
+            <text x="710" y="72" font-family="Inter,sans-serif" font-size="11.5" fill="#4f52e6" text-anchor="end">How to copy a comment link</text>
+            <g fill="none" stroke="#4f52e6" stroke-width="1.8" transform="translate(716,61) scale(.55)">
+              <circle cx="10" cy="10" r="9"/><path d="M7.6 7.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 1.9-2.4 3.4" stroke-linecap="round"/><circle cx="10" cy="15.4" r="0.9" fill="#4f52e6" stroke="none"/>
+            </g>
+
+            <!-- Guide panel -->
+            <rect x="8" y="84" width="720" height="352" rx="10" fill="#f6f6fd" stroke="#e6e6f8"/>
+
+            <!-- Step 1 -->
+            <circle cx="34" cy="114" r="13" fill="#4f52e6"/>
+            <text x="34" y="118.5" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+            <text x="60" y="110" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1b2333">Open the ticket &amp; copy the link</text>
+            <text x="60" y="128" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">Go to the Jira issue, hover the comment, then click the link icon next to the author&rsquo;s name.</text>
+
+            <rect x="60" y="140" width="420" height="88" rx="8" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <circle cx="86" cy="166" r="15" fill="#eeeefc"/>
+            <text x="86" y="170.5" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#3134bd" text-anchor="middle">AR</text>
+            <text x="112" y="170" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1b2333">Alex Rivera</text>
+            <g fill="none" stroke="#4f52e6" stroke-width="2" stroke-linecap="round" transform="translate(192,158) scale(.62)">
+              <path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8.5 12h7"/>
+            </g>
+            <text x="216" y="170" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">Copy link to comment</text>
+            <text x="112" y="188" font-family="Inter,sans-serif" font-size="10.5" fill="#8b93a7">now</text>
+            <text x="112" y="212" font-family="Inter,sans-serif" font-size="12" fill="#1b2333">Copy this comment.</text>
+
+            <!-- Step 2 -->
+            <circle cx="34" cy="254" r="13" fill="#4f52e6"/>
+            <text x="34" y="258.5" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+            <text x="60" y="250" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1b2333">Check it&rsquo;s a valid comment link</text>
+            <text x="60" y="268" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">A comment link ends in ?focusedCommentId=&hellip; &mdash; that&rsquo;s the part that points to the exact comment.</text>
+
+            <rect x="60" y="280" width="620" height="100" rx="8" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <g fill="none" stroke="#16915c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(74,290) scale(.6)">
+              <path d="M4 11l4.5 4.5L18 5"/>
+            </g>
+            <text x="94" y="302" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#1b2333">What a valid link looks like</text>
+            <path d="M60 312h620" stroke="#eef0f4"/>
+            <rect x="410" y="326" width="170" height="19" rx="3" fill="#eeeefc"/>
+            <text x="76" y="340" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12.5"><tspan fill="#8b93a7">https://your-site.atlassian.net</tspan><tspan fill="#1b2333">/browse/KAN-6</tspan><tspan fill="#8b93a7">?</tspan><tspan fill="#3134bd" font-weight="600">focusedCommentId=10842</tspan></text>
+            <circle cx="80" cy="364" r="4" fill="#c3c9d6"/>
+            <text x="92" y="368" font-family="Inter,sans-serif" font-size="11" fill="#586178">the ticket it lives on</text>
+            <circle cx="230" cy="364" r="4" fill="#4f52e6"/>
+            <text x="242" y="368" font-family="Inter,sans-serif" font-size="11" fill="#586178">the exact comment &mdash; required</text>
+
+            <!-- Step 3 -->
+            <circle cx="34" cy="404" r="13" fill="#4f52e6"/>
+            <text x="34" y="408.5" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+            <text x="60" y="400" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1b2333">Paste it below</text>
+            <text x="60" y="418" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">Paste the link into the field, pick recipients, then send.</text>
+
+            <!-- Link field -->
+            <rect x="8" y="450" width="720" height="40" rx="8" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <g fill="none" stroke="#8b93a7" stroke-width="2" stroke-linecap="round" transform="translate(26,462) scale(.62)">
+              <path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8.5 12h7"/>
+            </g>
+            <text x="52" y="475" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" fill="#a7aebd">https://your-site.atlassian.net/browse/KAN-6?focusedCommentId=&hellip;</text>
+
+            <!-- Footer -->
+            <text x="556" y="522" font-family="Inter,sans-serif" font-size="11.5" fill="#586178" text-anchor="end">Paste a valid comment link to continue</text>
+            <rect x="568" y="504" width="160" height="32" rx="6" fill="#f1f2f6"/>
+            <text x="636" y="524" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#a7aebd" text-anchor="middle">Copy to 3 tickets</text>
+            <g fill="none" stroke="#a7aebd" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(694,512) scale(.6)">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>
+            </g>
+          </svg>
+        </div>
+
+        <p>The only part that happens outside the app is step 1. The link icon appears when you hover a comment in Jira, tucked beside the author&rsquo;s name &mdash; it is easy to miss:</p>
+        <div class="doc-img-card doc-img-card--static" style="margin-top:14px;">
+          <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Jira comment with the link icon beside the author's name highlighted, and a tooltip reading Copy link to comment">
+            <rect width="720" height="300" fill="#FFFFFF"/>
+            <rect x="118" y="24" width="212" height="36" rx="8" fill="#172B4D"/>
+            <path d="M217 60 l7 10 l7 -10 z" fill="#172B4D"/>
+            <text x="224" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">Copy link to comment</text>
+
+            <circle cx="62" cy="118" r="22" fill="#E9EAFE"/>
+            <text x="62" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#5A5FC7">AR</text>
+            <text x="98" y="112" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#172B4D">Alex Rivera</text>
+            <text x="98" y="139" font-family="Inter,sans-serif" font-size="13" fill="#6B778C">now</text>
+
+            <circle cx="224" cy="105" r="17" fill="none" stroke="#E24B4A" stroke-width="2.2"/>
+            <g transform="translate(216.9 96.5) scale(0.82)" stroke="#5A5FC7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </g>
+            <path d="M304 134 C 286 134, 266 124, 251 115" stroke="#E24B4A" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M242 109 L253.8 111.1 L248.8 118.8 Z" fill="#E24B4A"/>
+
+            <text x="98" y="188" font-family="Inter,sans-serif" font-size="17" fill="#172B4D">Copy this comment.</text>
+
+            <g stroke="#6B778C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M108 228 l-8 7 l8 7"/><path d="M100 235 h12 a9 9 0 0 1 9 9 v2"/>
+              <path d="M154 244 v-9 h4 l5 -8 a3 3 0 0 1 3 4 l-1 4 h6 a2 2 0 0 1 2 3 l-2 6 h-17 z"/>
+              <circle cx="210" cy="238" r="10"/><circle cx="206" cy="235" r="0.9" fill="#6B778C"/><circle cx="214" cy="235" r="0.9" fill="#6B778C"/><path d="M205 241 a6 6 0 0 0 10 0"/>
+              <path d="M252 246 h6 l14 -14 a3 3 0 0 0 -5 -5 l-14 14 z"/>
+            </g>
+            <g fill="#6B778C"><circle cx="300" cy="238" r="2"/><circle cx="309" cy="238" r="2"/><circle cx="318" cy="238" r="2"/></g>
+          </svg>
+        </div>
+        <div class="doc-warning">
+          <p><strong>A plain issue link will not work.</strong> <code>&hellip;/browse/KAN-6</code> points at the ticket, not at a comment on it. The link has to carry <code>?focusedCommentId=</code> &mdash; that parameter is the only thing identifying <em>which</em> comment to copy.</p>
+        </div>
+
+        <h3>Choosing Tickets</h3>
+        <p>In the <strong>Tickets</strong> step, search by keyword or issue key, filter by project, or use advanced JQL to build a precise target list. Select up to 25 tickets. This is always the first step, whether you go on to write a comment or copy one.</p>
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 736 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Tickets step. A search field, a project filter and a JQL toggle sit above a list of issues with checkboxes; three of four rows are selected and a counter reads 3 of 25 selected.">
+            <rect width="736" height="296" fill="#FFFFFF" rx="8"/>
+
+            <!-- Controls -->
+            <rect x="16" y="16" width="392" height="34" rx="5" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <g fill="none" stroke="#8b93a7" stroke-width="1.8" stroke-linecap="round"><circle cx="34" cy="32" r="5.4"/><path d="M38 36l3.4 3.4"/></g>
+            <text x="52" y="36" font-family="Inter,sans-serif" font-size="11.5" fill="#8b93a7">Search by keyword or issue key&hellip;</text>
+
+            <rect x="418" y="16" width="112" height="34" rx="5" fill="#FFFFFF" stroke="#e5e7ee"/>
+            <text x="432" y="36" font-family="Inter,sans-serif" font-size="11.5" fill="#586178">All projects</text>
+            <path d="M512 30l4 5 4-5z" fill="#586178"/>
+
+            <rect x="540" y="16" width="62" height="34" rx="5" fill="#eeeefc" stroke="#bfc0f4"/>
+            <text x="571" y="36" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#4f52e6" text-anchor="middle">JQL</text>
+
+            <text x="720" y="36" font-family="Inter,sans-serif" font-size="11" fill="#586178" text-anchor="end"><tspan font-weight="700" fill="#1b2333">3</tspan> of 25 selected</text>
+
+            <!-- Rows -->
+            <g font-family="Inter,sans-serif">
+              <g>
+                <rect x="16" y="70" width="704" height="44" rx="5" fill="#eeeefc"/>
+                <rect x="30" y="84" width="16" height="16" rx="3" fill="#4f52e6"/>
+                <path d="M34 92l3 3 5-5.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="84" width="44" height="16" rx="3" fill="#4f52e6"/>
+                <text x="82" y="95.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">DTB-8</text>
+                <text x="118" y="96" font-size="11.5" fill="#1b2333">Refactor authentication service to support OAuth 2.0</text>
+                <rect x="632" y="84" width="72" height="16" rx="3" fill="#e5e7ee"/>
+                <text x="668" y="95.5" font-size="9" font-weight="700" fill="#586178" text-anchor="middle">TO DO</text>
+              </g>
+              <g>
+                <rect x="16" y="118" width="704" height="44" rx="5" fill="#eeeefc"/>
+                <rect x="30" y="132" width="16" height="16" rx="3" fill="#4f52e6"/>
+                <path d="M34 140l3 3 5-5.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="132" width="44" height="16" rx="3" fill="#4f52e6"/>
+                <text x="82" y="143.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">DTB-4</text>
+                <text x="118" y="144" font-size="11.5" fill="#1b2333">Set up automated database backups with 30-day retention</text>
+                <rect x="632" y="132" width="72" height="16" rx="3" fill="#eeeefc"/>
+                <text x="668" y="143.5" font-size="9" font-weight="700" fill="#3134bd" text-anchor="middle">IN PROGRESS</text>
+              </g>
+              <g>
+                <rect x="16" y="166" width="704" height="44" rx="5" fill="#eeeefc"/>
+                <rect x="30" y="180" width="16" height="16" rx="3" fill="#4f52e6"/>
+                <path d="M34 188l3 3 5-5.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="180" width="44" height="16" rx="3" fill="#4f52e6"/>
+                <text x="82" y="191.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">TP3-1</text>
+                <text x="118" y="192" font-size="11.5" fill="#1b2333">Set up CI/CD pipeline</text>
+                <rect x="632" y="180" width="72" height="16" rx="3" fill="#e5e7ee"/>
+                <text x="668" y="191.5" font-size="9" font-weight="700" fill="#586178" text-anchor="middle">TO DO</text>
+              </g>
+              <g>
+                <rect x="30" y="228" width="16" height="16" rx="3" fill="#FFFFFF" stroke="#8b93a7" stroke-width="1.6"/>
+                <rect x="60" y="228" width="44" height="16" rx="3" fill="#f1f2f6"/>
+                <text x="82" y="239.5" font-size="9.5" font-weight="700" fill="#586178" text-anchor="middle">TP3-7</text>
+                <text x="118" y="240" font-size="11.5" fill="#1b2333">Add rate limiting to the public API</text>
+                <rect x="632" y="228" width="72" height="16" rx="3" fill="#e6f4ec"/>
+                <text x="668" y="239.5" font-size="9" font-weight="700" fill="#0e6b43" text-anchor="middle">DONE</text>
+              </g>
+            </g>
+
+            <rect x="596" y="258" width="124" height="30" rx="5" fill="#4f52e6"/>
+            <text x="658" y="277" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">Continue</text>
+          </svg>
         </div>
 
         <h3>Sending &amp; Delivery</h3>
-        <p>The <strong>Send</strong> step tracks every ticket individually. Each one moves through <strong>Sending</strong> to <strong>Delivered</strong>, with a running count of delivered, sending, and failed. Every delivered ticket gets a direct link so you can jump straight to the comment, and anything that fails can be retried in one click.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Comment%20Posted%20Light%20(1840x900%20px).jpg" alt="The Send step showing per-ticket delivery status with counts for delivered, sending and failed" loading="lazy">
+        <p>The <strong>Send</strong> step tracks every ticket individually and posts them in parallel, so a batch of 25 goes out together rather than one after another. Three counters — <strong>Delivered</strong>, <strong>Sending</strong>, <strong>Failed</strong> — update live above a row for every ticket, and each row links straight to the comment on its issue. When the run finishes the heading changes to <strong>Comments posted</strong> and tells you how long it took.</p>
+        <p>Anything that fails gets a <strong>Retry <em>n</em> failed</strong> button that re-runs only those tickets, leaving the delivered ones untouched.</p>
+        <div class="doc-tip">
+          <p><strong>Undo is there if you need it.</strong> <strong>Undo &mdash; delete comments and files</strong> removes the comments that send posted and the files it uploaded, freeing that storage again. Files that were already on a ticket beforehand are left alone.</p>
+        </div>
+        <div class="doc-tip">
+          <p><strong>Heads-up before a big send:</strong> posting to 10 or more tickets — or any comment that @mentions someone — shows a quick confirmation first, since every ticket notifies its watchers and mentioned users.</p>
+        </div>
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 652 496" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The finished Send screen. A fan-out graphic shows one comment branching to three tickets, beside the heading 'Comments posted' and the line '3 of 3 delivered, took 8 seconds'. Three stat cards read 3 Delivered, 0 Sending, 0 Failed. Each ticket has a row with a green tick, its key, its summary, the word Delivered and a button to open it in Jira. The footer has a Done button and a quieter 'Undo — delete comments and files' button.">
+            <rect width="652" height="496" fill="#FFFFFF" rx="8"/>
+
+            <!-- Fan-out signature: one source, three delivered targets -->
+            <g transform="translate(16,8) scale(0.947)">
+              <g stroke="#4f52e6" stroke-width="1.5" fill="none" opacity="0.5">
+                <path d="M40 75C95 75 120 16 165 16"/><path d="M40 75C95 75 120 75 165 75"/><path d="M40 75C95 75 120 134 165 134"/>
+              </g>
+              <circle cx="26" cy="75" r="17" fill="#eeeefc" stroke="#4f52e6" stroke-width="1.5"/>
+              <path d="M20 75h12M26 69v12" stroke="#4f52e6" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="167" cy="16" r="6" fill="#16915c"/><circle cx="167" cy="75" r="6" fill="#16915c"/><circle cx="167" cy="134" r="6" fill="#16915c"/>
+            </g>
+
+            <!-- Headline -->
+            <rect x="204" y="52" width="34" height="34" rx="10" fill="#e6f4ec"/>
+            <path d="M214.5 69.5l3.6 3.6 8-8.6" fill="none" stroke="#16915c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="250" y="76" font-family="Inter,sans-serif" font-size="19" font-weight="700" fill="#1b2333">Comments posted</text>
+            <text x="204" y="104" font-family="Inter,sans-serif" font-size="13" fill="#586178"><tspan font-weight="700" fill="#1b2333">3</tspan> of 3 delivered &middot; took 8s.</text>
+
+            <!-- Summary stats -->
+            <g font-family="Inter,sans-serif">
+              <rect x="16" y="172" width="200" height="62" rx="11" fill="#f8f9fb" stroke="#e5e7ee"/>
+              <text x="30" y="203" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="#16915c">3</text>
+              <text x="30" y="222" font-size="12" fill="#8b93a7">Delivered</text>
+
+              <rect x="226" y="172" width="200" height="62" rx="11" fill="#f8f9fb" stroke="#e5e7ee"/>
+              <text x="240" y="203" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="#4f52e6">0</text>
+              <text x="240" y="222" font-size="12" fill="#8b93a7">Sending</text>
+
+              <rect x="436" y="172" width="200" height="62" rx="11" fill="#f8f9fb" stroke="#e5e7ee"/>
+              <text x="450" y="203" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="#8b93a7">0</text>
+              <text x="450" y="222" font-size="12" fill="#8b93a7">Failed</text>
+            </g>
+
+            <!-- Per-ticket rows -->
+            <g font-family="Inter,sans-serif">
+              <g>
+                <rect x="16" y="254" width="620" height="40" rx="10" fill="#FFFFFF" stroke="#e5e7ee"/>
+                <circle cx="38" cy="274" r="10" fill="#e6f4ec"/>
+                <path d="M33.5 274l3 3 5.5-6" fill="none" stroke="#16915c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="265" width="48" height="18" rx="6" fill="#eeeefc"/>
+                <text x="84" y="278" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="#3134bd" text-anchor="middle">DTB-8</text>
+                <text x="120" y="279" font-size="13" fill="#1b2333">Refactor authentication service to support OAuth 2.0</text>
+                <text x="590" y="279" font-size="12" font-weight="500" fill="#0e6b43" text-anchor="end">Delivered</text>
+                <g transform="translate(604,267) scale(.583)" fill="none" stroke="#8b93a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+                </g>
+              </g>
+              <g>
+                <rect x="16" y="301" width="620" height="40" rx="10" fill="#FFFFFF" stroke="#e5e7ee"/>
+                <circle cx="38" cy="321" r="10" fill="#e6f4ec"/>
+                <path d="M33.5 321l3 3 5.5-6" fill="none" stroke="#16915c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="312" width="48" height="18" rx="6" fill="#eeeefc"/>
+                <text x="84" y="325" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="#3134bd" text-anchor="middle">DTB-4</text>
+                <text x="120" y="326" font-size="13" fill="#1b2333">Set up automated database backups with 30-day retention</text>
+                <text x="590" y="326" font-size="12" font-weight="500" fill="#0e6b43" text-anchor="end">Delivered</text>
+                <g transform="translate(604,314) scale(.583)" fill="none" stroke="#8b93a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+                </g>
+              </g>
+              <g>
+                <rect x="16" y="348" width="620" height="40" rx="10" fill="#FFFFFF" stroke="#e5e7ee"/>
+                <circle cx="38" cy="368" r="10" fill="#e6f4ec"/>
+                <path d="M33.5 368l3 3 5.5-6" fill="none" stroke="#16915c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="60" y="359" width="48" height="18" rx="6" fill="#eeeefc"/>
+                <text x="84" y="372" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="#3134bd" text-anchor="middle">TP3-1</text>
+                <text x="120" y="373" font-size="13" fill="#1b2333">Set up CI/CD pipeline</text>
+                <text x="590" y="373" font-size="12" font-weight="500" fill="#0e6b43" text-anchor="end">Delivered</text>
+                <g transform="translate(604,361) scale(.583)" fill="none" stroke="#8b93a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- Footer -->
+            <rect x="16" y="408" width="78" height="36" rx="9" fill="#4f52e6"/>
+            <text x="55" y="431" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Done</text>
+            <rect x="383" y="408" width="253" height="36" rx="9" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="509" y="431" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#1b2333" text-anchor="middle">Undo &mdash; delete comments and files</text>
+            <g font-family="Inter,sans-serif" font-size="12" fill="#8b93a7">
+              <text x="16" y="466">Undo removes the comments this send posted and the files it uploaded, freeing that</text>
+              <text x="16" y="482">storage. Files that were already on a ticket are left alone.</text>
+            </g>
+          </svg>
         </div>
 
         <h3>Jumping In From an Issue</h3>
-        <p>You don't need to start from the global page. Open any issue's &bull;&bull;&bull; actions menu and choose <strong>Bulk Comment</strong>, or switch to the <strong>Bulk Comments</strong> tab in the issue's Activity panel — both auto-select that ticket's most recent comment so you can jump straight into Replicate mode.</p>
+        <p>You don't need to start from the global page. Two in-context surfaces let you act without leaving the ticket you're on:</p>
+        <ul>
+          <li><strong>&bull;&bull;&bull; actions menu &rarr; Bulk Comments</strong> — opens the comment editor already seeded with the current ticket, so you can write a comment and add more tickets to post it to.</li>
+          <li><strong>Activity panel &rarr; Bulk Comments tab</strong> — auto-selects that ticket's most recent comment so you can copy it, media and all, onto other tickets.</li>
+        </ul>
       </section>
 
       <section id="version-history" style="scroll-margin-top:100px;">
@@ -480,7 +1083,10 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>3.3.0</strong></td><td>Jul 9, 2026</td><td>Initial public release — compose a comment once and post it to up to 25 Jira issues, plus Replicate mode to copy an existing comment with its images, videos, and file attachments.</td></tr>
+            <tr><td><strong>4.0.0</strong></td><td>Jul 22, 2026</td><td><strong>One page to write</strong> — one comment for every selected ticket, and a different comment for any ticket that needs one. <strong>Attachments up to 150&nbsp;MB</strong> each, uploading while you write so they are ready the moment you send. <strong>Undo</strong> on every screen, removing the comments a send posted and the files it uploaded. Send progress now shows upload speed, elapsed time and a Cancel button. Files copied with <strong>Copy a comment</strong> are recorded under your own name.</td></tr>
+            <tr><td><strong>3.7.0</strong></td><td>Jul 17, 2026</td><td><strong>A different note per ticket</strong> — write a separate comment for each selected issue. Write or copy in context from an issue's &bull;&bull;&bull; actions menu and Activity tab. Comments now post in parallel for faster large batches, with a confirmation before sending to 10+ tickets or posting an @mention.</td></tr>
+            <tr><td><strong>3.4.0 &ndash; 3.6.0</strong></td><td>Jul 16, 2026</td><td>Performance and reliability improvements — parallel comment posting, faster editor loading, and per-ticket draft autosave — along with the refreshed in-app icon.</td></tr>
+            <tr><td><strong>3.3.0</strong></td><td>Jul 9, 2026</td><td>Initial public release — write a comment once and post it to up to 25 Jira issues, plus copying an existing comment with its images, videos, and file attachments.</td></tr>
           </tbody>
         </table>
       </section>
@@ -494,14 +1100,18 @@
           </thead>
           <tbody>
             <tr><td><strong>Platform</strong></td><td>Atlassian Forge (Cloud only)</td></tr>
-            <tr><td><strong>Product</strong></td><td>Jira Software &amp; Jira Work Management</td></tr>
+            <tr><td><strong>Product</strong></td><td>Jira Cloud</td></tr>
             <tr><td><strong>Installation</strong></td><td>Atlassian Marketplace</td></tr>
             <tr><td><strong>Licensing</strong></td><td>Free for teams up to 10 users; paid tiers above, billed through the Atlassian Marketplace</td></tr>
-            <tr><td><strong>Issue Limit</strong></td><td>Up to 25 issues per Compose or Replicate action</td></tr>
-            <tr><td><strong>Media Support</strong></td><td>Images, videos, and file attachments copied automatically in Replicate mode</td></tr>
+            <tr><td><strong>Issue Limit</strong></td><td>Up to 25 issues per send</td></tr>
+            <tr><td><strong>Per-ticket comments</strong></td><td>One comment for every ticket, or a different comment for any of them</td></tr>
+            <tr><td><strong>Delivery</strong></td><td>Comments posted in parallel per ticket, with live delivered / sending / failed status and one-click retry</td></tr>
+            <tr><td><strong>Large-batch Confirmation</strong></td><td>A confirmation step before posting to 10+ tickets or sending a comment that @mentions someone</td></tr>
+            <tr><td><strong>Media Support</strong></td><td>Images, videos and file attachments up to 150 MB each, copied automatically</td></tr>
             <tr><td><strong>Large Media Handling</strong></td><td>Copied asynchronously per ticket, so large videos never time out</td></tr>
+            <tr><td><strong>Runs on Atlassian</strong></td><td>Yes — verified by Atlassian. The app runs entirely on Atlassian infrastructure with no external data egress.</td></tr>
             <tr><td><strong>Data Storage</strong></td><td>Atlassian Forge Storage — no external servers, data stays in Atlassian cloud</td></tr>
-            <tr><td><strong>Jira Permissions</strong></td><td>Read &amp; write Jira work items; read Jira user profiles</td></tr>
+            <tr><td><strong>Permissions</strong></td><td>Read &amp; write Jira work items (with impersonation, so you are the author); read Jira user profiles; app storage</td></tr>
             <tr><td><strong>Access Points</strong></td><td>Global page, issue Activity panel tab, issue &bull;&bull;&bull; actions menu</td></tr>
             <tr><td><strong>Status</strong></td><td>Published — live on the <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">Atlassian Marketplace</a></td></tr>
           </tbody>
@@ -509,17 +1119,21 @@
 
         <h3>System Requirements</h3>
         <ul>
-          <li>Active Jira Cloud instance (Jira Software or Jira Work Management)</li>
+          <li>Active Jira Cloud instance</li>
           <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
           <li>Active internet connection</li>
           <li>Appropriate Atlassian Marketplace license</li>
         </ul>
 
-        <h3>Permissions Required</h3>
+        <h3 id="permissions" style="scroll-margin-top:100px;">Permissions Required</h3>
+        <p>Four scopes, and no others:</p>
         <ul>
-          <li>Read and write Jira work items (to fetch tickets and post comments)</li>
-          <li>Read Jira user profiles (for @mentions and issue metadata)</li>
+          <li><code>read:jira-work</code> <span class="scope-flag">allowImpersonation</span> — read the issues and comments you select, so they can be listed, previewed and copied.</li>
+          <li><code>write:jira-work</code> <span class="scope-flag">allowImpersonation</span> — post the comments and upload their attachments.</li>
+          <li><code>read:jira-user</code> — resolve names for @mentions and show who authored a comment.</li>
+          <li><code>storage:app</code> — the app's own storage on Atlassian's platform, used to hold per-ticket job status while a send runs and to stage attachments on their way to Jira. No issue content is kept there.</li>
         </ul>
+        <p>The two Jira scopes are granted with <strong>impersonation</strong>, which is what lets the app act as you rather than as itself. It is the reason comments and files show <em>your</em> name as the author on every ticket, including the large attachments that finish uploading in the background after you have moved on.</p>
 
         <div class="doc-warning">
           <p><strong>Cloud only:</strong> Bulk Comments for Jira is built on Atlassian Forge and runs exclusively on Jira Cloud. Jira Server and Jira Data Center are not supported.</p>
@@ -535,6 +1149,21 @@
           <li><strong>Media Handling:</strong> Images, videos and files are copied directly between Jira tickets through Atlassian's infrastructure — never through an external server DataPingo operates</li>
           <li><strong>Compliance:</strong> Follows Atlassian security standards and the Forge platform security framework</li>
         </ul>
+      </section>
+
+      <section id="installation" style="scroll-margin-top:100px;">
+        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Installation</h2>
+        <p>Installing takes about a minute and needs a Jira Cloud site admin, since apps are installed site-wide.</p>
+        <ol>
+          <li>Open <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">Bulk Comments for Jira</a> on the Atlassian Marketplace, or search for it from <strong>Apps &rarr; Explore more apps</strong> inside Jira.</li>
+          <li>Click <strong>Try it free</strong> and choose your Jira Cloud site.</li>
+          <li>Accept the permissions it asks for: read and write Jira work items, read Jira user profiles, and app storage. Nothing else is requested — see <a href="#permissions">Permissions Required</a> for what each one does.</li>
+          <li>Open it from <strong>Apps</strong> in the left sidebar, or from any issue's <strong>&bull;&bull;&bull;</strong> actions menu and Activity panel.</li>
+        </ol>
+        <div class="doc-tip">
+          <p><strong>Free for teams of 10 or fewer.</strong> Above that, paid tiers are billed through the Atlassian Marketplace on your existing Atlassian invoice — there is no separate DataPingo account to create and no card to enter with us.</p>
+        </div>
+        <p>Removing the app is just as clean. Uninstalling from <strong>Apps &rarr; Manage apps</strong> deletes everything it stored, and comments already posted stay on their tickets as ordinary Jira comments.</p>
       </section>
 
       <section id="support" style="scroll-margin-top:100px;">
@@ -624,6 +1253,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>

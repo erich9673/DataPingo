@@ -21,9 +21,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
 </head>
 <body>
@@ -126,11 +126,11 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 14, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 23, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
-        <h3 style="color:var(--teal);margin-top:0;margin-bottom:12px;">Privacy Summary</h3>
+        <h2 style="color:var(--teal);margin-top:0;margin-bottom:12px;font-size:1.05rem;">Privacy Summary</h2>
         <p style="color:var(--slate);margin:0;">DataPingo builds productivity apps for Atlassian Confluence and Jira. Our apps run entirely inside Atlassian's infrastructure — we do not operate external servers or databases that store your app data. This policy explains what limited information we do collect and how it is used.</p>
       </div>
 
@@ -139,10 +139,12 @@
       <h3>1.1 Atlassian Forge App Data</h3>
       <p>Our apps are built on the <strong>Atlassian Forge</strong> platform. All app data is stored exclusively in <strong>Atlassian Forge storage</strong> — it never leaves Atlassian's cloud infrastructure and DataPingo has no direct access to it.</p>
       <p><strong>Bulk Page Cloner for Confluence</strong> reads the selected template page's content, formatting, images, video, macros, labels, and attachments in order to create the requested clones. No page data is stored by the app — it is read from Confluence, used to create the clones, and discarded. Clones are created directly in your Confluence instance via the Atlassian Forge API.</p>
-      <p><strong>Bulk Comments for Jira</strong> reads Jira issue and comment details — including existing comment content and media — to post a new comment, or replicate an existing comment, across the issues you select. Comment text and media are copied directly between Jira issues via Atlassian's APIs; no issue or comment data is stored on external DataPingo servers. The app stores only per-ticket job status for the media-copy queue in Atlassian Forge storage.</p>
+      <p><strong>Bulk Comments for Jira</strong> reads Jira issue and comment details — including existing comment content and media — to post a new comment, or copy an existing comment, across the issues you select. Comment text and media move between Jira issues entirely inside Atlassian's own infrastructure; no issue or comment data is stored on external DataPingo servers.</p>
+      <p>Files you attach to a comment are uploaded to <strong>Atlassian's Forge Object Store</strong>, held there while the comment is being written, copied into each issue you selected, and then deleted. An upload that is never sent expires automatically within one hour. Forge Object Store is Atlassian infrastructure, isolated per Atlassian site; the files are not readable by DataPingo and are never transmitted to any DataPingo system or third party. Apart from those staged files, the app stores only per-ticket job status for the send queue in Atlassian Forge storage.</p>
 
-      <h3>1.2 Website Analytics</h3>
-      <p>When you visit <strong>datapingo.com</strong>, we use Google Tag Manager to collect standard web analytics including pages visited, browser type, and general geographic region. This data is aggregated and used only to understand how visitors use our site. No personally identifiable information is sold or shared with third parties for marketing purposes.</p>
+      <h3>1.2 Website Analytics and Advertising</h3>
+      <p>When you visit <strong>datapingo.com</strong>, we use Google Tag Manager and Google Analytics to collect standard web analytics including pages visited, browser type, and general geographic region. This is used to understand how visitors use our site.</p>
+      <p>If you allow the <strong>Marketing</strong> category in our cookie banner, we also use advertising technologies including Google Ads to measure our advertising and to show DataPingo ads to people who have visited this site. We never sell your personal information, and nothing is shared for advertising unless you have allowed it &mdash; see <a href="#cookies">section 8</a>.</p>
 
       <h3>1.3 Support Communications</h3>
       <p>If you contact us by email, we retain the content of that communication to respond to your inquiry and for record-keeping.</p>
@@ -172,21 +174,44 @@
 
       <h2>5. Data Retention</h2>
       <p>App data stored in Atlassian Forge is retained for as long as the app is installed on your Atlassian site. Uninstalling the app removes the app's access; data deletion follows Atlassian's Forge data lifecycle policies. Support email communications are retained until the matter is resolved.</p>
+      <p>Files staged for a Bulk Comments for Jira send are the exception: they are deleted as soon as the send completes, and any file that is uploaded but never sent expires automatically within one hour. They are not retained for the life of the installation.</p>
 
       <h2>6. Your Privacy Rights</h2>
-      <p>You may contact us at any time to:</p>
+      <h3>6.1 Why we are allowed to hold your email address</h3>
+      <p>The only personal data DataPingo holds directly is contact information: the technical contact for an installation, obtained through Atlassian's licensing APIs, and anything you send us by email. We rely on <strong>legitimate interests</strong> — communicating with the business that installed our software about that software — rather than on consent. Installing an app is not by itself consent to be emailed, so every non-transactional message we send carries a one-click unsubscribe, and we stop immediately when you use it.</p>
+      <h3>6.2 What you can ask us to do</h3>
       <ul>
-        <li>Request information about what data is stored by our apps</li>
-        <li>Request deletion of personal data we hold (e.g., support emails)</li>
-        <li>Ask questions about our privacy practices</li>
+        <li><strong>Access</strong> — get a copy of the personal data we hold about you</li>
+        <li><strong>Rectification</strong> — have inaccurate details corrected</li>
+        <li><strong>Erasure</strong> — have your details deleted</li>
+        <li><strong>Restriction</strong> — have us pause processing while a question is resolved</li>
+        <li><strong>Portability</strong> — receive your data in a portable format</li>
+        <li><strong>Objection</strong> — object to processing based on legitimate interests, including any marketing contact, at any time and for any reason</li>
       </ul>
-      <p>For data stored within Atlassian Forge, your primary controls are through your Atlassian account and site admin settings.</p>
+      <p>Email <a href="mailto:contact@datapingo.com">contact@datapingo.com</a> and we will respond within 30 days. We do not charge for this and will not ask you to justify the request.</p>
+      <h3>6.3 Complaints</h3>
+      <p>If you are in the UK, EU, or EEA and believe we have handled your data improperly, you may complain to your national data protection supervisory authority. We would rather you told us first so we can put it right.</p>
+      <h3>6.4 Data inside your Atlassian site</h3>
+      <p>Issue, comment, and page content processed by our apps stays inside Atlassian and is controlled by you, not by us. For that data your controls are your Atlassian account and site admin settings; DataPingo cannot access it and therefore cannot export or delete it on your behalf.</p>
 
       <h2>7. Children's Privacy</h2>
-      <p>Our services are not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+      <p>Our services are business tools sold to organisations and are not intended for anyone under 16. We do not knowingly collect personal information from anyone under 16. If you believe we hold such information, email <a href="mailto:contact@datapingo.com">contact@datapingo.com</a> and we will delete it.</p>
 
-      <h2>8. Cookies</h2>
-      <p>Our website uses cookies via Google Tag Manager for analytics purposes. You can control or disable cookies through your browser settings. Our Atlassian Forge apps do not set cookies.</p>
+      <h2 id="cookies" style="scroll-margin-top:100px;">8. Cookies</h2>
+      <p>datapingo.com uses a consent manager, which asks your permission before any non-essential cookie is set. Nothing beyond the strictly necessary category loads until you choose.</p>
+      <h3>8.1 What we use</h3>
+      <ul>
+        <li><strong>Strictly necessary</strong> — needed for the site to work and to remember your cookie choices. These carry no tracking and are always on.</li>
+        <li><strong>Measurement</strong> — Google Tag Manager and Google Analytics, used in aggregate to see which pages people visit. Set only if you allow them, and you can withdraw that permission at any time.</li>
+        <li><strong>Marketing</strong> — advertising and remarketing technologies, including Google Ads. We use these to measure our advertising and to show DataPingo ads to people who have visited this site. They are set <em>only</em> if you allow the Marketing category, and never before.</li>
+      </ul>
+      <h3>8.2 Selling and sharing</h3>
+      <p><strong>DataPingo does not sell your personal information.</strong> We have never accepted, and do not accept, money or other value in exchange for your data, and we do not disclose personal information to data brokers.</p>
+      <p><strong>We may share personal information for advertising.</strong> When you allow the Marketing category, advertising technologies including Google Ads may receive information about your visit, so that we can measure our advertising and show DataPingo ads to people who have been here before. Under the California Consumer Privacy Act as amended by the CPRA, and comparable US state privacy laws, this counts as <strong>&ldquo;sharing&rdquo; for cross-context behavioural advertising</strong> even though no money changes hands.</p>
+      <p><strong>You can opt out at any time.</strong> Decline the Marketing category, or switch it off later in the cookie preferences panel — reachable from the <strong>Cookie Preferences</strong> link in the footer of every page. Nothing is shared for advertising unless you have allowed it.</p>
+      <h3>8.3 Changing your mind</h3>
+      <p>You can change or withdraw your cookie choices at any time through the consent banner's preferences panel, or by clearing cookies in your browser. Withdrawing consent does not affect the lawfulness of anything done before you withdrew it.</p>
+      <p>Our Atlassian Forge apps set no cookies at all. They run inside your Atlassian site and are not part of this website's analytics.</p>
 
       <h2>9. Privacy Policy Updates</h2>
       <p>We may update this Privacy Policy periodically. Continued use of our services after changes constitutes acceptance of the updated policy. The effective date at the top of this page reflects the most recent revision.</p>
@@ -265,6 +290,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>

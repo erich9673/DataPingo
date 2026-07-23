@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira | DataPingo</title>
-  <meta name="description" content="Bulk Comments for Jira lets you compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — images, videos and files included — across many tickets.">
+  <meta name="description" content="Bulk comment on multiple Jira issues at once. Write one comment for up to 25 tickets, a different comment for each, or copy an existing comment with its images, videos and files up to 150 MB each.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/products/bulk-comments">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/products/bulk-comments">
   <meta property="og:title" content="Bulk Comments for Jira | DataPingo">
-  <meta property="og:description" content="Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — media included.">
+  <meta property="og:description" content="Bulk comment on up to 25 Jira issues at once. Write one comment, give any ticket its own, or copy an existing comment with attachments included.">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="DataPingo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bulk Comments for Jira | DataPingo">
-  <meta name="twitter:description" content="Comment once. Post to 25 tickets — images, video and files included.">
+  <meta name="twitter:description" content="Bulk comment on up to 25 Jira tickets. Write one, override any, or copy an existing comment with its attachments.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
@@ -29,9 +29,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
-  <script type="text/javascript">var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
-  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <script>var _iub=_iub||[];_iub.csConfiguration={"siteId":3709065,"cookiePolicyId":97434706,"lang":"en","storage":{"useSiteId":true}};</script>
+  <script src="https://cs.iubenda.com/autoblocking/3709065.js"></script>
+  <script src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');</script>
 
   <style>
@@ -52,14 +52,22 @@
     .product-hero-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 48px;
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center;
+      gap: 64px;
+      /* `start`, not `center`. With center, whichever column is taller sets the row
+         height and the other floats to the middle — and the demo panels differ in
+         height between product pages, so the copy sat 70px lower on one than the
+         other. Pinning the text to the top lands every H1 at the same y. */
+      align-items: start;
     }
+    /* The demo still centres against the copy block. */
+    .product-hero-inner > :last-child { align-self: center; }
     .product-hero-text {
       display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
     }
     .product-hero-meta {
-      display: flex; align-items: center; gap: 16px;
+      display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap;
     }
+
     .product-hero-icon {
       width: 72px; height: 72px; border-radius: 18px;
       box-shadow: 0 0 32px rgba(99,102,241,0.3);
@@ -84,116 +92,122 @@
       display: flex; gap: 12px; flex-wrap: wrap;
     }
 
-    /* Bulk Comments — broadcast console (hero signature) */
-    .bc-broadcast {
-      position: relative; display: flex; flex-direction: column; gap: 14px;
-      max-width: 468px; margin-left: auto; user-select: none;
+    /* Bulk Comments — guided flow (hero signature). Fixed-size stage: it never resizes.
+       `width`, not just `max-width` — with max-width alone the card shrink-wraps its
+       content, so the Copy view (25-cell grid) rendered ~80px wider than the Write view
+       and the whole card jumped every time the mode changed. */
+    .hv {
+      width: 480px; max-width: 100%; margin-left: auto;
+      background: rgba(17,19,29,0.92); border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px); user-select: none;
     }
-    .bc-modes {
-      display: inline-flex; gap: 4px; padding: 4px; align-self: flex-start;
-      background: var(--black-3); border: 1px solid var(--border); border-radius: 99px;
+    .hv-head { margin-bottom: 14px; }
+    /* Segmented control, mirroring the toggle the app itself ships. Both modes are
+       always on screen, and the 1fr 1fr grid makes them exactly equal halves — the
+       previous header showed the ACTIVE mode as a title and the OTHER mode as a
+       button, so the two were never comparable and neither was clearly selected. */
+    .hv-seg {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+      padding: 4px; background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.22); border-radius: 12px;
     }
-    .bc-mode {
-      border: none; background: none; cursor: pointer; font-family: inherit;
-      font-size: 0.78rem; font-weight: 600; color: var(--slate);
-      padding: 6px 16px; border-radius: 99px; transition: background 0.2s, color 0.2s;
+    .hv-seg-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      height: 34px; padding: 0 6px; border: none; border-radius: 8px; cursor: pointer;
+      background: transparent; color: var(--slate); font-family: inherit;
+      font-size: 0.73rem; font-weight: 700; white-space: nowrap;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.12s;
     }
-    .bc-mode:hover { color: var(--white); }
-    .bc-mode.active { background: #6366F1; color: #fff; }
+    .hv-seg-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .hv-seg-btn:hover:not(.is-on) { color: #C7D2FE; background: rgba(99,102,241,0.10); }
+    .hv-seg-btn:focus-visible { outline: 2px solid #A5B4FC; outline-offset: 2px; }
+    .hv-seg-btn.is-on { background: #6366F1; color: #fff; box-shadow: 0 2px 12px rgba(99,102,241,0.45); }
+    /* Telegraphs the auto-switch a beat before it happens, on the option being moved to. */
+    .hv-seg-btn.ping { background: rgba(99,102,241,0.34); color: #fff; box-shadow: 0 0 20px rgba(99,102,241,0.55); }
+    .hv-seg-btn.tap { transform: scale(0.94); }
+    .hv-sub { font-size: 0.68rem; font-weight: 500; color: var(--slate); margin: 11px 0 0; text-align: center; }
 
-    .bc-source {
-      background: var(--black-3); border: 1px solid rgba(99,102,241,0.35);
-      border-radius: 14px; padding: 16px 18px;
-      box-shadow: 0 0 30px rgba(99,102,241,0.10);
+    .hv-body { position: relative; height: 326px; }
+    /* Per-ticket media. Attachments belong to the comment they were written with,
+       not to the batch, so each one hangs off its own row — an image on one ticket,
+       a video on another, a table on a third. A single band at the bottom implied
+       every ticket got the same file, which is not what the app does. */
+    .hv-row--media { margin-top: -4px; }
+    .hv-media {
+      flex: 1; min-width: 0; display: inline-flex; align-items: center; gap: 6px;
+      height: 26px; padding: 0 9px; border-radius: 7px;
+      background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.22);
+      font-size: 0.62rem; color: var(--slate);
+      opacity: 0; transform: translateY(3px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    .bc-source-top { display: flex; align-items: center; gap: 9px; margin-bottom: 11px; }
-    .bc-avatar { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, #6366F1, #7C3AED); }
-    .bc-source-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #A5B4FC; }
-    /* fixed height so Compose and Replicate are identical in size */
-    .bc-source-body { height: 150px; overflow: hidden; font-size: 0.83rem; color: var(--white); line-height: 1.5; }
-    .bc-body-text { display: block; }
-    .bc-caret { display: inline-block; width: 2px; height: 1em; background: #A5B4FC;
-      vertical-align: -2px; margin-left: 1px; animation: bcCaret 0.9s step-end infinite; }
-    @keyframes bcCaret { 50% { opacity: 0; } }
-    .bc-mention { color: #A5B4FC; font-weight: 600; background: rgba(99,102,241,0.16);
-      border-radius: 4px; padding: 0 4px; }
+    .hv-media.in { opacity: 1; transform: none; }
+    .hv-media svg { width: 12px; height: 12px; color: #A5B4FC; flex-shrink: 0; }
+    .hv-media .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hv-media b { margin-left: auto; color: #C7D2FE; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .hv-view { position: absolute; inset: 0; display: none; }
+    .hv-view.on { display: block; }
+    .hv-eyebrow { display: flex; align-items: center; gap: 7px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #A5B4FC; margin-bottom: 13px; }
+    .hv-eyebrow svg { width: 12px; height: 12px; }
 
-    @keyframes bcAppear { from { opacity: 0; } to { opacity: 1; } }
-    .bc-table { width: 100%; border-collapse: collapse; margin-top: 11px; font-size: 0.72rem;
-      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; animation: bcAppear 0.35s ease both; }
-    .bc-table th, .bc-table td { text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--border); }
-    .bc-table th { color: var(--slate); font-weight: 600; background: rgba(255,255,255,0.03);
-      text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6rem; }
-    .bc-table tr:last-child td { border-bottom: none; }
-    .bc-table td { color: var(--white); }
-    .bc-pill { font-size: 0.6rem; font-weight: 700; padding: 1px 8px; border-radius: 20px; }
-    .bc-pill.ok { color: #34D399; background: rgba(52,211,153,0.14); }
-    .bc-pill.wait { color: #FBBF24; background: rgba(251,191,36,0.14); }
+    .hv-rows { display: flex; flex-direction: column; gap: 9px; }
+    .hv-row { display: flex; align-items: center; gap: 10px; }
+    .hv-key { flex-shrink: 0; width: 60px; text-align: center; font-size: 0.56rem; font-weight: 700; color: #A5B4FC;
+      background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.26); border-radius: 6px; padding: 5px 0; font-variant-numeric: tabular-nums; }
+    .hv-field { flex: 1; position: relative; display: flex; align-items: center; height: 42px; border: 1px solid var(--border);
+      border-radius: 9px; padding: 0 32px 0 12px; font-size: 0.76rem; color: var(--white); transition: border-color 0.25s, background 0.25s; }
+    .hv-field .ph { color: #667085; }
+    .hv-field .txt { position: absolute; left: 12px; right: 34px; opacity: 0; transition: opacity 0.3s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .hv-caret { display: none; width: 2px; height: 15px; background: #A5B4FC; border-radius: 1px; animation: hvCaret 0.9s step-end infinite; }
+    @keyframes hvCaret { 50% { opacity: 0; } }
+    .hv-ck { position: absolute; right: 10px; width: 16px; height: 16px; border-radius: 50%; background: rgba(99,102,241,0.22);
+      display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.6); transition: opacity 0.25s, transform 0.25s; }
+    .hv-ck svg { width: 10px; height: 10px; color: #C7D2FE; }
+    .hv-field.writing { border-color: #6366F1; background: rgba(99,102,241,0.05); }
+    .hv-field.writing .ph { display: none; }
+    .hv-field.writing .hv-caret { display: inline-block; }
+    .hv-field.filled { border-color: rgba(99,102,241,0.28); background: rgba(99,102,241,0.06); }
+    .hv-field.filled .ph { display: none; }
+    .hv-field.filled .txt { opacity: 1; }
+    .hv-field.filled .hv-ck { opacity: 1; transform: scale(1); }
 
-    .bc-attach { display: flex; align-items: center; gap: 10px; margin-top: 9px; padding: 8px 10px;
-      background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: 9px;
-      animation: bcAppear 0.35s ease both; }
-    .bc-attach-ic { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; }
-    .bc-attach-ic.pdf { background: rgba(248,113,113,0.14); color: #F87171; }
-    .bc-attach-ic.vid { background: rgba(99,102,241,0.16); color: #A5B4FC; }
-    .bc-attach-meta { min-width: 0; }
-    .bc-attach-name { font-size: 0.75rem; color: var(--white); font-weight: 600;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .bc-attach-sub { font-size: 0.64rem; color: var(--slate); margin-top: 1px; }
+    .hv-link { display: flex; align-items: center; gap: 9px; height: 44px; border: 1px solid rgba(99,102,241,0.34); border-radius: 10px;
+      padding: 0 12px; background: rgba(99,102,241,0.05); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.68rem;
+      color: var(--white); margin-bottom: 16px; overflow: hidden; }
+    .hv-link svg { width: 14px; height: 14px; color: #A5B4FC; flex-shrink: 0; }
+    .hv-link .hv-caret { display: inline-block; }
+    .hv-link.typed .hv-caret { display: none; }
+    .hv-link .lk { white-space: nowrap; overflow: hidden; opacity: 0; transition: opacity 0.3s; }
+    .hv-link .lk.show { opacity: 1; }
+    .hv-link .lk .foc { color: #A5B4FC; }
+    .hv-sendlabel { display: flex; align-items: center; justify-content: space-between; font-size: 0.64rem; font-weight: 700; color: var(--slate); margin-bottom: 11px; }
+    .hv-sendlabel b { color: #A5B4FC; font-variant-numeric: tabular-nums; }
+    .hv-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
+    .hv-cell { height: 28px; border-radius: 6px; background: var(--black-3); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
+    .hv-cell svg { width: 12px; height: 12px; color: #C7D2FE; opacity: 0; transition: opacity 0.15s; }
+    .hv-cell.lit { background: rgba(99,102,241,0.22); border-color: rgba(99,102,241,0.55); }
+    .hv-cell.lit svg { opacity: 1; }
 
-    .bc-send {
-      margin-top: 14px; width: 100%; border: none; cursor: pointer; font-family: inherit;
-      font-size: 0.82rem; font-weight: 700; color: #fff;
-      background: linear-gradient(135deg, #6366F1, #7C3AED); border-radius: 10px; padding: 10px;
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      transition: opacity 0.2s, box-shadow 0.15s, transform 0.12s;
-    }
-    .bc-send:hover { opacity: 0.9; }
-    .bc-send.pressed { transform: scale(0.97); box-shadow: 0 0 22px rgba(99,102,241,0.45); }
-
-    /* fake cursor for the "click Post" moment */
-    .bc-cursor { position: absolute; top: 0; left: 0; width: 20px; height: 20px; z-index: 6; opacity: 0;
-      transition: transform 0.7s cubic-bezier(0.45,0,0.25,1), opacity 0.25s ease; pointer-events: none;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
-    .bc-cursor svg { width: 20px; height: 20px; display: block; transition: transform 0.12s ease; }
-    .bc-cursor.tap svg { transform: scale(0.78); }
-
-    .bc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-    /* Tiles fill in sequence on post — fade only, no scale/expand */
-    .bc-chip {
-      position: relative; height: 44px; border-radius: 9px;
-      background: var(--black-3); border: 1px solid var(--border);
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .bc-chip::before {
-      content: ''; position: absolute; top: 9px; left: 9px; width: 54%; height: 4px;
-      border-radius: 3px; background: rgba(255,255,255,0.07); transition: background 0.15s ease;
-    }
-    .bc-chip .bc-check {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.15s ease;
-    }
-    .bc-chip .bc-check svg { width: 15px; height: 15px; color: #fff; }
-    .bc-chip.lit { background: rgba(99,102,241,0.16); border-color: rgba(99,102,241,0.6); }
-    .bc-chip.lit::before { background: rgba(165,180,252,0.5); }
-    .bc-chip.lit .bc-check { opacity: 1; }
-
-    .bc-count { text-align: center; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(165,180,252,0.65); margin-top: 2px; }
-    .bc-count span { color: #A5B4FC; font-variant-numeric: tabular-nums; }
+    .hv-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+    .hv-stat { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
+    .hv-stat b { color: #A5B4FC; }
+    .hv-post { border: none; cursor: pointer; font-family: inherit; font-size: 0.76rem; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, #6366F1, #7C3AED); border-radius: 9px; padding: 9px 16px; display: inline-flex;
+      align-items: center; gap: 7px; white-space: nowrap; transition: box-shadow 0.15s, transform 0.12s; }
+    .hv-post.pressed { transform: scale(0.97); box-shadow: 0 0 24px rgba(99,102,241,0.5); }
+    .hv-post svg { width: 12px; height: 12px; }
 
     @media (prefers-reduced-motion: reduce) {
-      .bc-caret, .bc-table, .bc-attach { animation: none; }
-      .bc-chip { transition: none; }
-      .bc-cursor { display: none; }
+      .hv-view, .hv-field, .hv-ck, .hv-cell, .hv-link .lk, .hv-media, .hv-seg-btn { transition: none; }
+      .hv-media { transform: none; }
+      .hv-caret { animation: none; }
     }
-
     @media (max-width: 900px) {
       .product-hero-inner { grid-template-columns: 1fr; }
-      .bc-broadcast { max-width: 520px; margin: 8px auto 0; }
+      .hv { margin: 6px auto 0; }
     }
 
     /* Indigo primary button */
@@ -280,7 +294,6 @@
       border: 1px solid var(--border); background: var(--black-3);
       aspect-ratio: 1840 / 900;
       box-shadow: 0 0 40px rgba(99,102,241,0.1);
-      cursor: zoom-in;
     }
     .hiw-panel-wrap { position: relative; width: 100%; height: 100%; }
     .hiw-panel {
@@ -289,6 +302,23 @@
     }
     .hiw-panel.active { opacity: 1; pointer-events: auto; }
     .hiw-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hiw-panel svg { width: 100%; height: 100%; display: block; }
+    /* Figure palette — the app's own tokens, so the light/dark switch shows the
+       real thing in both modes rather than two exported screenshots. */
+    .hiw-preview {
+      --f-base:#eef0f4; --f-panel:#ffffff; --f-elev:#f8f9fb;
+      --f-border:#e5e7ee; --f-border2:#d3d7e2; --f-hover:#f1f2f6;
+      --f-ink:#1b2333; --f-ink2:#586178; --f-muted:#8b93a7;
+      --f-accent:#4f52e6; --f-accent-ink:#3134bd; --f-tint:#eeeefc;
+      --f-ok:#16915c; --f-ok-tint:#e6f4ec; --f-ok-ink:#0e6b43;
+    }
+    .hiw-preview[data-theme="dark"] {
+      --f-base:#0e1017; --f-panel:#171a24; --f-elev:#1e222e;
+      --f-border:#282d3b; --f-border2:#333a4d; --f-hover:#232838;
+      --f-ink:#e7eaf2; --f-ink2:#9aa3ba; --f-muted:#6b7488;
+      --f-accent:#7c7ef4; --f-accent-ink:#b4b5fb; --f-tint:#20223a;
+      --f-ok:#3fbc86; --f-ok-tint:#122a20; --f-ok-ink:#7fd8b1;
+    }
 
     /* Theme toggle for How It Works preview */
     .hiw-theme-toggle {
@@ -503,9 +533,9 @@
   "name": "Bulk Comments for Jira",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Atlassian Jira Cloud",
-  "softwareVersion": "3.3.0",
+  "softwareVersion": "4.0.0",
   "url": "https://datapingo.com/products/bulk-comments",
-  "description": "Compose a comment once and post it to up to 25 Jira issues at once, or replicate an existing comment — media included.",
+  "description": "Bulk comment on multiple Jira issues at once. Write one comment for up to 25 tickets, a different comment for each, or copy an existing comment with its images, videos and files.",
   "image": "https://datapingo.com/assets/img/og-bulk-comments.png",
   "installUrl": "https://marketplace.atlassian.com/apps/2184917707",
   "downloadUrl": "https://marketplace.atlassian.com/apps/2184917707",
@@ -647,9 +677,10 @@
         <div class="product-hero-meta">
           <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-hero-icon">
           <span class="product-hero-tag">Jira App</span>
+          <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
         </div>
         <h1>Bulk Comments for Jira</h1>
-        <p class="product-hero-sub">Compose a comment once and post it to as many as 25 Jira tickets — or replicate an existing one, images, videos and files included. Skip the copy-paste, comment once.</p>
+        <p class="product-hero-sub">Write one comment and post it to up to 25 Jira issues at once — or a different comment for each ticket, on the same page. Copy an existing comment across too, images, videos and files included. Skip the copy-paste.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -662,27 +693,56 @@
         </div>
       </div>
 
-      <!-- Broadcast console: one comment → 25 Jira tickets at once -->
-      <div class="bc-broadcast" aria-label="Posting one comment to 25 Jira tickets at once">
-        <div class="bc-modes" role="group" aria-label="Comment mode">
-          <button type="button" class="bc-mode active" data-mode="compose" aria-pressed="true">Compose</button>
-          <button type="button" class="bc-mode" data-mode="replicate" aria-pressed="false">Replicate</button>
-        </div>
-        <div class="bc-source">
-          <div class="bc-source-top">
-            <span class="bc-avatar" aria-hidden="true"></span>
-            <span class="bc-source-label" id="bcSourceLabel">New comment</span>
+      <!-- Guided flow: write per-ticket in Compose, switch (top-right) to Replicate, paste a link, send to up to 25 -->
+      <div class="hv" aria-label="Bulk Comments for Jira: write one comment for many tickets, then copy an existing comment to up to 25 tickets">
+        <div class="hv-head">
+          <div class="hv-seg" role="tablist" aria-label="Comment mode">
+            <button type="button" class="hv-seg-btn is-on" id="hvSegWrite" role="tab" aria-selected="true" aria-controls="hvCompose">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>
+              Write a comment
+            </button>
+            <button type="button" class="hv-seg-btn" id="hvSegCopy" role="tab" aria-selected="false" aria-controls="hvReplicate">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy a comment
+            </button>
           </div>
-          <div class="bc-source-body" id="bcSourceBody"></div>
-          <button type="button" class="bc-send" id="bcSend">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Post to 25 tickets
-          </button>
+          <p class="hv-sub" id="hvSub">One for all, or its own for any</p>
         </div>
-        <div class="bc-grid" id="bcGrid" aria-hidden="true"></div>
-        <div class="bc-count"><span id="bcCount">0</span> / 25 tickets updated</div>
-        <div class="bc-cursor" id="bcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
+        <div class="hv-body">
+          <div class="hv-view compose on" id="hvCompose">
+            <div class="hv-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>4 tickets selected &middot; a note per ticket</div>
+            <div class="hv-rows">
+              <div class="hv-row"><span class="hv-key">PAY-412</span><div class="hv-field"><span class="txt">Verified — deploying tonight.</span><span class="ph">Add a comment…</span><span class="hv-caret"></span><span class="hv-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
+              <div class="hv-row hv-row--media"><span class="hv-key"></span><span class="hv-media" data-row="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <span class="nm">rollout-check.png</span><b>3.1 MB</b></span></div>
+
+              <div class="hv-row"><span class="hv-key">PAY-418</span><div class="hv-field"><span class="txt">Merged behind a feature flag.</span><span class="ph">Add a comment…</span><span class="hv-caret"></span><span class="hv-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
+
+              <div class="hv-row"><span class="hv-key">PAY-423</span><div class="hv-field"><span class="txt">Blocked on Stripe sandbox.</span><span class="ph">Add a comment…</span><span class="hv-caret"></span><span class="hv-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
+              <div class="hv-row hv-row--media"><span class="hv-key"></span><span class="hv-media" data-row="2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+                <span class="nm">stripe-sandbox-repro.mp4</span><b>48.2 MB</b></span></div>
+
+              <div class="hv-row"><span class="hv-key">PAY-431</span><div class="hv-field"><span class="txt">Deployed. Watching errors.</span><span class="ph">Add a comment…</span><span class="hv-caret"></span><span class="hv-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
+              <div class="hv-row hv-row--media"><span class="hv-key"></span><span class="hv-media" data-row="3">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/></svg>
+                <span class="nm">error-budget table</span><b>3 × 4</b></span></div>
+            </div>
+          </div>
+          <div class="hv-view replicate" id="hvReplicate">
+            <div class="hv-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Paste a comment link — media comes with it</div>
+            <div class="hv-link" id="hvLinkWrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg><span class="lk" id="hvLink">your-site.atlassian.net/browse/PAY-412?<span class="foc">focusedCommentId=10842</span></span><span class="hv-caret"></span></div>
+            <div class="hv-sendlabel"><span>Copying to every selected ticket</span><span><b id="hvCount">0</b> / 25</span></div>
+            <div class="hv-grid" id="hvGrid" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="hv-foot">
+          <div class="hv-stat" id="hvStat"><b>4</b> tickets &middot; files up to 150 MB</div>
+          <button type="button" class="hv-post" id="hvPost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="hvPostLabel">Post 4 comments</span></button>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -700,15 +760,15 @@
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M9 9h6M9 13h4"/></svg>
           </div>
-          <h3>Compose Once, Post to 25 Issues</h3>
-          <p>Write a rich-text comment — bold, lists, @mentions — and post it to up to 25 Jira issues at once. No more opening each ticket individually.</p>
+          <h3>One Comment, or One Per Ticket</h3>
+          <p>Post the same rich-text comment — bold, lists, @mentions — to every issue, or write a different note per ticket in one screen. Either way, send to up to 25 tickets at once; blank rows are skipped.</p>
         </div>
 
         <div class="feature-tile reveal delay-1">
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
           </div>
-          <h3>Replicate Comments Exactly, Media Included</h3>
+          <h3>Copy a Comment Exactly, Attachments Included</h3>
           <p>Paste the link to an existing comment and copy it exactly as-is onto multiple tickets — images, videos and file attachments are copied automatically, with no manual re-uploading.</p>
         </div>
 
@@ -744,11 +804,71 @@
       <div class="highlight-stack">
         <div class="highlight-card reveal">
           <div class="highlight-card-media">
+            <svg viewBox="0 0 920 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A different comment written on each of several Jira tickets in one screen">
+              <defs><pattern id="hlDotsPT" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
+              <rect width="920" height="480" fill="#F8FAFC"/><rect width="920" height="480" fill="url(#hlDotsPT)"/>
+              <circle cx="36" cy="34" r="4" fill="#6366F1"/>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">PER-TICKET OVERRIDE</text>
+              <rect x="60" y="72" width="800" height="372" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+              <g font-family="Inter,sans-serif">
+                <rect x="84" y="96" width="176" height="32" rx="9" fill="#6366F1"/>
+                <text x="172" y="117" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Different per ticket</text>
+                <rect x="268" y="96" width="128" height="32" rx="9" fill="#F1F5F9"/>
+                <text x="332" y="117" text-anchor="middle" font-size="13" font-weight="600" fill="#94A3B8">Same for all</text>
+
+                <!-- Row 1 — note + screenshot -->
+                <rect x="170" y="144" width="590" height="42" rx="10" fill="#F5F3FF" stroke="#E4DEFA"/>
+                <rect x="84" y="155" width="66" height="22" rx="6" fill="#EEF0FE"/><text x="91" y="170" font-size="11" font-weight="700" fill="#6366F1">ENG-142</text>
+                <rect x="184" y="155" width="3" height="20" rx="1.5" fill="#6366F1"/>
+                <text x="200" y="170" font-size="13" fill="#334155">Deploying the hotfix now &#8212; validating on staging.</text>
+                <circle cx="736" cy="165" r="11" fill="#DCFCE7"/><path d="M731 165 l3.2 3.2 l6 -6.6" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="170" y="190" width="286" height="24" rx="7" fill="#EEF0FE" stroke="#DDD9F7"/>
+                <g transform="translate(180,196) scale(.5)" fill="none" stroke="#6366F1" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></g>
+                <text x="200" y="206" font-size="11" fill="#64748B">staging-green.png</text>
+                <text x="446" y="206" font-size="11" font-weight="600" fill="#6366F1" text-anchor="end">2.4 MB</text>
+
+                <!-- Row 2 — note only -->
+                <rect x="170" y="224" width="590" height="42" rx="10" fill="#F5F3FF" stroke="#E4DEFA"/>
+                <rect x="84" y="235" width="66" height="22" rx="6" fill="#EEF0FE"/><text x="91" y="250" font-size="11" font-weight="700" fill="#6366F1">OPS-31</text>
+                <rect x="184" y="235" width="3" height="20" rx="1.5" fill="#6366F1"/>
+                <text x="200" y="250" font-size="13" fill="#334155">Added retry with backoff, capped at 5 attempts.</text>
+                <circle cx="736" cy="245" r="11" fill="#DCFCE7"/><path d="M731 245 l3.2 3.2 l6 -6.6" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Row 3 — note + video -->
+                <rect x="170" y="276" width="590" height="42" rx="10" fill="#F5F3FF" stroke="#E4DEFA"/>
+                <rect x="84" y="287" width="66" height="22" rx="6" fill="#EEF0FE"/><text x="91" y="302" font-size="11" font-weight="700" fill="#6366F1">DES-19</text>
+                <rect x="184" y="287" width="3" height="20" rx="1.5" fill="#6366F1"/>
+                <text x="200" y="302" font-size="13" fill="#334155">Green on staging &#8212; recording attached.</text>
+                <circle cx="736" cy="297" r="11" fill="#DCFCE7"/><path d="M731 297 l3.2 3.2 l6 -6.6" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="170" y="322" width="286" height="24" rx="7" fill="#EEF0FE" stroke="#DDD9F7"/>
+                <g transform="translate(180,328) scale(.5)" fill="none" stroke="#6366F1" stroke-width="2.4"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></g>
+                <text x="200" y="338" font-size="11" fill="#64748B">walkthrough.mp4</text>
+                <text x="446" y="338" font-size="11" font-weight="600" fill="#6366F1" text-anchor="end">48.2 MB</text>
+
+                <!-- Row 4 — active/typing -->
+                <rect x="170" y="356" width="590" height="42" rx="10" fill="#FFFFFF" stroke="#6366F1" stroke-width="2"/>
+                <rect x="84" y="367" width="66" height="22" rx="6" fill="#EEF0FE"/><text x="91" y="382" font-size="11" font-weight="700" fill="#6366F1">ENG-160</text>
+                <text x="188" y="382" font-size="13" fill="#334155">Rolling the change forward</text>
+                <rect x="352" y="371" width="2" height="16" fill="#6366F1"/>
+
+                <text x="84" y="424" font-size="12.5" fill="#94A3B8">3 ready &#183; 1 in progress &#183; 2 files attached &#183; blank rows are skipped</text>
+              </g>
+            </svg>
+          </div>
+          <div class="highlight-card-copy">
+            <p class="highlight-num">Write · Per-ticket override</p>
+            <h3>A different comment on every ticket</h3>
+            <p>Working through a whole project? Write one comment for every ticket, then click any single issue to write it a different comment — formatting, @mentions and all — without leaving the page. Everything posts in one send.</p>
+          </div>
+        </div>
+
+        <div class="highlight-card reveal">
+          <div class="highlight-card-media">
             <svg viewBox="0 0 920 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="One composed comment fanning out to twenty-five Jira tickets">
               <defs><pattern id="hlDotsA" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
               <rect width="920" height="480" fill="#F8FAFC"/><rect width="920" height="480" fill="url(#hlDotsA)"/>
               <circle cx="36" cy="34" r="4" fill="#6366F1"/>
-              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">COMPOSE</text>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">WRITE A COMMENT</text>
               <text x="62" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#94A3B8">NEW COMMENT</text>
               <rect x="60" y="128" width="262" height="222" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
               <rect x="80" y="148" width="20" height="12" rx="3" fill="#E2E8F0"/><rect x="108" y="148" width="12" height="12" rx="3" fill="#E2E8F0"/><rect x="128" y="148" width="12" height="12" rx="3" fill="#E2E8F0"/><rect x="152" y="148" width="12" height="12" rx="3" fill="#E2E8F0"/>
@@ -779,9 +899,9 @@
             </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Compose</p>
+            <p class="highlight-num">Write · One for all</p>
             <h3>Write it once, post it twenty-five times</h3>
-            <p>Draft a rich-text comment — bold, lists, @mentions — and send it to as many as 25 tickets in one pass. The update that used to mean twenty-five tabs and twenty-five pastes goes out in a single click, worded identically every time.</p>
+            <p>Draft a rich-text comment — bold, lists, @mentions — and send it to as many as 25 tickets in one go. The update that used to mean twenty-five tabs and twenty-five pastes goes out in a single click, worded identically every time.</p>
           </div>
         </div>
 
@@ -791,7 +911,7 @@
               <defs><pattern id="hlDotsB" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
               <rect width="920" height="480" fill="#F8FAFC"/><rect width="920" height="480" fill="url(#hlDotsB)"/>
               <circle cx="36" cy="34" r="4" fill="#6366F1"/>
-              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">REPLICATE</text>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">COPY A COMMENT</text>
               <text x="60" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#94A3B8">SOURCE COMMENT</text>
               <g font-family="Inter,sans-serif">
                 <rect x="58" y="128" width="250" height="240" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
@@ -829,71 +949,14 @@
             </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Replicate</p>
+            <p class="highlight-num">Copy a comment</p>
             <h3>Copy a comment, media and all</h3>
             <p>Point at a comment that already exists and duplicate it exactly — text, formatting, images, video, and file attachments all carry across. Media moves directly between tickets, so nothing is re-uploaded and nothing is quietly left behind.</p>
           </div>
         </div>
 
-        <div class="highlight-card reveal">
-          <div class="highlight-card-media">
-            <svg viewBox="0 0 920 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Three ways to open the app inside Jira: the sidebar, a ticket's actions menu, and the Activity panel tab">
-              <defs>
-                <pattern id="hlDotsC" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
-                <clipPath id="hlWin"><rect x="60" y="100" width="800" height="300" rx="14"/></clipPath>
-              </defs>
-              <rect width="920" height="480" fill="#F8FAFC"/><rect width="920" height="480" fill="url(#hlDotsC)"/>
-              <circle cx="36" cy="34" r="4" fill="#6366F1"/>
-              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#6366F1">IN CONTEXT</text>
-              <rect x="60" y="100" width="800" height="300" rx="14" fill="#FFFFFF" stroke="#E2E8F0"/>
-              <g clip-path="url(#hlWin)" font-family="Inter,sans-serif">
-                <rect x="60" y="100" width="800" height="40" fill="#F8FAFC"/>
-                <line x1="60" y1="140" x2="860" y2="140" stroke="#E2E8F0" stroke-width="1.5"/>
-                <circle cx="84" cy="120" r="4.5" fill="#E2E8F0"/><circle cx="102" cy="120" r="4.5" fill="#E2E8F0"/><circle cx="120" cy="120" r="4.5" fill="#E2E8F0"/>
-                <rect x="380" y="111" width="160" height="18" rx="9" fill="#EEF2F7"/>
-                <rect x="60" y="140" width="190" height="260" fill="#F8FAFC"/>
-                <line x1="250" y1="140" x2="250" y2="400" stroke="#E2E8F0" stroke-width="1.5"/>
-                <rect x="78" y="160" width="86" height="9" rx="4.5" fill="#E2E8F0"/>
-                <rect x="74" y="186" width="162" height="34" rx="8" fill="#EEF0FE" stroke="#C7D2FE"/>
-                <rect x="86" y="196" width="14" height="14" rx="3" fill="#6366F1"/>
-                <text x="108" y="208" font-size="12" font-weight="600" fill="#6366F1">Bulk Comments</text>
-                <rect x="78" y="238" width="110" height="9" rx="4.5" fill="#E2E8F0"/>
-                <rect x="78" y="260" width="88" height="9" rx="4.5" fill="#E2E8F0"/>
-                <rect x="78" y="282" width="124" height="9" rx="4.5" fill="#E2E8F0"/>
-                <rect x="278" y="164" width="62" height="18" rx="4" fill="#EEF0FE"/>
-                <text x="285" y="177" font-size="11" font-weight="700" fill="#6366F1">ENG-142</text>
-                <rect x="278" y="198" width="300" height="12" rx="6" fill="#334155"/>
-                <rect x="278" y="226" width="420" height="8" rx="4" fill="#E2E8F0"/>
-                <rect x="278" y="244" width="360" height="8" rx="4" fill="#E2E8F0"/>
-                <rect x="786" y="163" width="44" height="22" rx="6" fill="#EEF0FE" stroke="#C7D2FE"/>
-                <circle cx="798" cy="174" r="1.9" fill="#6366F1"/><circle cx="806" cy="174" r="1.9" fill="#6366F1"/><circle cx="814" cy="174" r="1.9" fill="#6366F1"/>
-                <rect x="278" y="296" width="86" height="26" rx="6" fill="#F1F5F9"/>
-                <text x="321" y="313" text-anchor="middle" font-size="11" fill="#94A3B8">Comments</text>
-                <rect x="374" y="296" width="130" height="26" rx="6" fill="#EEF0FE" stroke="#C7D2FE"/>
-                <text x="439" y="313" text-anchor="middle" font-size="11" font-weight="600" fill="#6366F1">Bulk Comments</text>
-                <rect x="278" y="340" width="460" height="8" rx="4" fill="#E2E8F0"/>
-                <rect x="278" y="358" width="380" height="8" rx="4" fill="#E2E8F0"/>
-              </g>
-              <g font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">
-                <circle cx="228" cy="203" r="10" fill="#6366F1"/><text x="228" y="207" text-anchor="middle">1</text>
-                <circle cx="768" cy="174" r="10" fill="#6366F1"/><text x="768" y="178" text-anchor="middle">2</text>
-                <circle cx="522" cy="309" r="10" fill="#6366F1"/><text x="522" y="313" text-anchor="middle">3</text>
-              </g>
-              <g font-family="Inter,sans-serif" font-size="13" fill="#475569">
-                <circle cx="70" cy="436" r="10" fill="#6366F1"/><text x="70" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">1</text><text x="90" y="441">Left sidebar</text>
-                <circle cx="300" cy="436" r="10" fill="#6366F1"/><text x="300" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">2</text><text x="320" y="441">Ticket actions menu</text>
-                <circle cx="600" cy="436" r="10" fill="#6366F1"/><text x="600" y="440" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">3</text><text x="620" y="441">Activity panel tab</text>
-              </g>
-            </svg>
-          </div>
-          <div class="highlight-card-copy">
-            <p class="highlight-num">In Context</p>
-            <h3>You never leave Jira</h3>
-            <p>Reach it from the left sidebar, a ticket's &bull;&bull;&bull; actions menu, or the Activity panel tab. Everything runs inside Jira on Atlassian Forge — no external server sits in the data path, and nobody has to learn a second tool.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      </div><!-- /.highlight-stack -->
+    </div><!-- /.section-wrap -->
   </section>
 
   <!-- HOW IT WORKS -->
@@ -901,8 +964,8 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>How It Works</span></p>
-        <h2 class="section-title" id="hiw-heading">Two ways in. <span class="grad-text" style="background:linear-gradient(135deg,#6366F1 0%,#7C3AED 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Done in seconds.</span></h2>
-        <p class="section-desc">Compose a new comment or replicate an existing one, pick your tickets, then send. Open it from the left sidebar, any ticket's &bull;&bull;&bull; actions menu, or the Activity panel — in light or dark, matched to your Jira theme.</p>
+        <h2 class="section-title" id="hiw-heading">Two ways in. <span class="grad-text" style="background:linear-gradient(135deg,#6366F1 0%,#7C3AED 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">One page to write.</span></h2>
+        <p class="section-desc">Three steps: pick your tickets, write the comment, send. Open it from the sidebar, any ticket's &bull;&bull;&bull; menu, or the Activity panel — in light or dark, matched to Jira.</p>
         <div class="hiw-theme-toggle reveal" role="group" aria-label="Preview theme">
           <button type="button" class="hiw-theme-btn active" data-theme="light" onclick="setHiwTheme('light')" aria-pressed="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -918,42 +981,119 @@
         <div class="hiw-tab-list" role="tablist" aria-label="Steps">
           <button class="hiw-tab-btn active" role="tab" aria-selected="true" aria-controls="hiw-panel-0" data-index="0">
             <span class="hiw-tab-num">01</span>
-            <div class="hiw-tab-title">Compose</div>
-            <p class="hiw-tab-desc">In the Source step, write a new rich-text comment — bold, lists, and @mentions — ready to post to every ticket you choose.</p>
+            <div class="hiw-tab-title">Tickets</div>
+            <p class="hiw-tab-desc">Search by keyword or issue key, filter by project, or use advanced JQL. Select up to 25 tickets in one pass — always the first step.</p>
             <div class="hiw-tab-progress"></div>
           </button>
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-1" data-index="1">
             <span class="hiw-tab-num">02</span>
-            <div class="hiw-tab-title">Replicate</div>
-            <p class="hiw-tab-desc">Or, in that same Source step, paste an existing comment's link to copy it exactly as-is — images, video and files included.</p>
+            <div class="hiw-tab-title">A different comment per ticket</div>
+            <p class="hiw-tab-desc">Click any issue in the list and write it something of its own — formatting, @mentions and files included. Blank rows are skipped.</p>
             <div class="hiw-tab-progress"></div>
           </button>
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-2" data-index="2">
             <span class="hiw-tab-num">03</span>
-            <div class="hiw-tab-title">Recipients</div>
-            <p class="hiw-tab-desc">Search by keyword or issue key, filter by project, or use advanced JQL. Select up to 25 tickets in one pass.</p>
+            <div class="hiw-tab-title">One comment for all</div>
+            <p class="hiw-tab-desc">Or write once into the shared comment and every selected ticket gets it — same text, same attachments, one send.</p>
             <div class="hiw-tab-progress"></div>
           </button>
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-3" data-index="3">
             <span class="hiw-tab-num">04</span>
+            <div class="hiw-tab-title">Copy a comment</div>
+            <p class="hiw-tab-desc">Or paste the link to a comment that already exists and copy it across exactly as-is — images, video and file attachments included.</p>
+            <div class="hiw-tab-progress"></div>
+          </button>
+          <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-4" data-index="4">
+            <span class="hiw-tab-num">05</span>
             <div class="hiw-tab-title">Send</div>
-            <p class="hiw-tab-desc">Watch per-ticket delivery live — Delivered, Sending, Failed — with a direct link to each ticket and one-click retry on any failure.</p>
+            <p class="hiw-tab-desc">Per-ticket delivery live — Delivered, Sending, Failed — with a link to each ticket, one-click retry on failures, and undo for the whole send.</p>
             <div class="hiw-tab-progress"></div>
           </button>
         </div>
         <div class="hiw-preview" role="tabpanel">
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
-              <img data-light="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20Light%20(1840x900%20px).jpg" data-dark="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20Dark%20(1840x900%20px).jpg" src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Compose%20Mode%20Light%20(1840x900%20px).jpg" alt="Step 1 — Compose: write a new rich-text comment with formatting and @mentions" loading="lazy">
+              <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Tickets step: search by keyword or issue key, filter by project or switch to JQL, then select up to 25 issues. Three of the four rows shown are selected."><rect width="920" height="450" fill="var(--f-base)"/><g font-family="Inter,sans-serif"><circle cx="44" cy="30" r="12" fill="var(--f-accent)"/><text x="44" y="34.5" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">1</text><text x="64" y="34" font-size="12.5" font-weight="600" fill="var(--f-ink)">Tickets</text><circle cx="172" cy="30" r="12" fill="none" stroke="var(--f-border2)" stroke-width="1.6"/><text x="172" y="34.5" font-size="11" font-weight="600" fill="var(--f-muted)" text-anchor="middle">2</text><text x="192" y="34" font-size="12.5" fill="var(--f-ink2)">Comment</text><circle cx="312" cy="30" r="12" fill="none" stroke="var(--f-border2)" stroke-width="1.6"/><text x="312" y="34.5" font-size="11" font-weight="600" fill="var(--f-muted)" text-anchor="middle">3</text><text x="332" y="34" font-size="12.5" fill="var(--f-ink2)">Send</text><path d="M124 30h32M264 30h32" stroke="var(--f-border2)" stroke-width="1.6"/></g><g font-family="Inter,sans-serif"><rect x="28" y="66" width="480" height="38" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/><g fill="none" stroke="var(--f-muted)" stroke-width="1.9" stroke-linecap="round"><circle cx="50" cy="84" r="5.6"/><path d="M54.2 88.2l3.6 3.6"/></g><text x="70" y="89" font-size="12.5" fill="var(--f-muted)">Search by keyword or issue key&#8230;</text><rect x="520" y="66" width="134" height="38" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/><text x="538" y="89" font-size="12.5" fill="var(--f-ink2)">All projects</text><path d="M626 82l4.5 5.5 4.5-5.5z" fill="var(--f-ink2)"/><rect x="666" y="66" width="66" height="38" rx="6" fill="var(--f-tint)" stroke="var(--f-accent)" stroke-opacity="0.45"/><text x="699" y="89" font-size="12.5" font-weight="600" fill="var(--f-accent)" text-anchor="middle">JQL</text><text x="892" y="89" font-size="12" fill="var(--f-ink2)" text-anchor="end"><tspan font-weight="700" fill="var(--f-ink)">3</tspan> of 25 selected</text><rect x="28" y="124" width="864" height="48" rx="8" fill="var(--f-tint)"/><rect x="46" y="140" width="16" height="16" rx="4" fill="var(--f-accent)"/><path d="M50 148l3 3 5.5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="78" y="139" width="54" height="18" rx="4" fill="var(--f-accent)"/><text x="105" y="152" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">DTB-8</text><text x="146" y="153" font-size="13" fill="var(--f-ink)">Refactor authentication service to support OAuth 2.0</text><rect x="786" y="139" width="82" height="18" rx="4" fill="var(--f-hover)"/><text x="827" y="152" font-size="9.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text><rect x="28" y="180" width="864" height="48" rx="8" fill="var(--f-tint)"/><rect x="46" y="196" width="16" height="16" rx="4" fill="var(--f-accent)"/><path d="M50 204l3 3 5.5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="78" y="195" width="54" height="18" rx="4" fill="var(--f-accent)"/><text x="105" y="208" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">DTB-4</text><text x="146" y="209" font-size="13" fill="var(--f-ink)">Set up automated database backups with 30-day retention</text><rect x="786" y="195" width="82" height="18" rx="4" fill="var(--f-tint)"/><text x="827" y="208" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">IN PROGRESS</text><rect x="28" y="236" width="864" height="48" rx="8" fill="var(--f-tint)"/><rect x="46" y="252" width="16" height="16" rx="4" fill="var(--f-accent)"/><path d="M50 260l3 3 5.5-6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="78" y="251" width="54" height="18" rx="4" fill="var(--f-accent)"/><text x="105" y="264" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">TP3-1</text><text x="146" y="265" font-size="13" fill="var(--f-ink)">Set up CI/CD pipeline</text><rect x="786" y="251" width="82" height="18" rx="4" fill="var(--f-hover)"/><text x="827" y="264" font-size="9.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text><rect x="46" y="308" width="16" height="16" rx="4" fill="var(--f-panel)" stroke="var(--f-muted)" stroke-width="1.6"/><rect x="78" y="307" width="54" height="18" rx="4" fill="var(--f-hover)"/><text x="105" y="320" font-size="10.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TP3-7</text><text x="146" y="321" font-size="13" fill="var(--f-ink)">Add rate limiting to the public API</text><rect x="786" y="307" width="82" height="18" rx="4" fill="var(--f-ok-tint)"/><text x="827" y="320" font-size="9.5" font-weight="700" fill="var(--f-ok-ink)" text-anchor="middle">DONE</text><rect x="752" y="380" width="140" height="40" rx="8" fill="var(--f-accent)"/><text x="822" y="405" font-size="13" font-weight="600" fill="#fff" text-anchor="middle">Continue</text></g></svg>
             </div>
             <div class="hiw-panel" id="hiw-panel-1">
-              <img data-light="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Replicate%20Mode%20Light%20(1840x900%20px).jpg" data-dark="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Replicate%20Mode%20Dark%20(1840x900%20px).jpg" src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Replicate%20Mode%20Light%20(1840x900%20px).jpg" alt="Step 2 — Replicate: paste a comment link to copy it, media included" loading="lazy">
+              <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Comment step with Write a comment selected. The ticket list on the left is grouped: SELECTED TICKETS share one comment, while DTB-8 sits under HAS ITS OWN COMMENT with a green tick. The editor on the right is headed Writing DTB-8 only, with a button to use the shared comment instead. The footer reads 1 ready, 2 skipped beside Post 1 comment."><rect width="920" height="450" fill="var(--f-base)"/><g font-family="Inter,sans-serif"><circle cx="44" cy="30" r="12" fill="none" stroke="var(--f-accent)" stroke-width="1.7"/><path d="M39 30l3.2 3.2 6.4-7" fill="none" stroke="var(--f-accent)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><text x="64" y="34" font-size="12.5" fill="var(--f-ink2)">Tickets</text><circle cx="172" cy="30" r="12" fill="var(--f-accent)"/><text x="172" y="34.5" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">2</text><text x="192" y="34" font-size="12.5" font-weight="600" fill="var(--f-ink)">Comment</text><circle cx="312" cy="30" r="12" fill="none" stroke="var(--f-border2)" stroke-width="1.6"/><text x="312" y="34.5" font-size="11" font-weight="600" fill="var(--f-muted)" text-anchor="middle">3</text><text x="332" y="34" font-size="12.5" fill="var(--f-ink2)">Send</text><path d="M124 30h32M264 30h32" stroke="var(--f-border2)" stroke-width="1.6"/></g><g font-family="Inter,sans-serif"><rect x="28" y="58" width="296" height="36" rx="8" fill="var(--f-elev)" stroke="var(--f-border)"/><rect x="32" y="62" width="148" height="28" rx="6" fill="var(--f-accent)"/><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(44,69) scale(.46)"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></g><text x="64" y="80" font-size="12" font-weight="600" fill="#fff">Write a comment</text><g fill="none" stroke="var(--f-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(192,69) scale(.46)"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></g><text x="212" y="80" font-size="12" fill="var(--f-ink2)">Copy a comment</text><text x="344" y="80" font-size="12" fill="var(--f-ink2)">&#8592; 3 tickets &#183; <tspan fill="var(--f-accent)" font-weight="600">change</tspan></text><text x="892" y="80" font-size="11" fill="var(--f-muted)" text-anchor="end">Only tickets with a comment are posted</text><rect x="28" y="108" width="264" height="284" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/><text x="42" y="132" font-size="11.5" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">3</tspan> tickets &#183; <tspan font-weight="700" fill="var(--f-ink)">1</tspan> ready</text><rect x="216" y="119" width="62" height="22" rx="5" fill="var(--f-panel)" stroke="var(--f-border2)"/><text x="247" y="134" font-size="10.5" fill="var(--f-ink2)" text-anchor="middle">Clear all</text><rect x="42" y="148" width="236" height="54" rx="8" fill="var(--f-elev)" stroke="var(--f-border)"/><g fill="none" stroke="var(--f-muted)" stroke-width="1.9" stroke-linecap="round" transform="translate(52,166) scale(.58)"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></g><text x="72" y="167" font-size="10.5" font-weight="700" fill="var(--f-ink)">Write one comment for the</text><text x="72" y="180" font-size="10.5" font-weight="700" fill="var(--f-ink)">tickets below</text><text x="72" y="194" font-size="9.5" fill="var(--f-muted)">2 of 3 tickets</text><text x="42" y="222" font-size="9" font-weight="700" letter-spacing="0.06em" fill="var(--f-muted)">SELECTED TICKETS</text><rect x="42" y="232" width="48" height="16" rx="4" fill="var(--f-tint)"/><text x="66" y="243.5" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">DTB-4</text><rect x="96" y="232" width="44" height="16" rx="4" fill="var(--f-hover)"/><text x="118" y="243.5" font-size="8.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text><path d="M264 235l9 9M273 235l-9 9" stroke="var(--f-muted)" stroke-width="1.5" stroke-linecap="round"/><text x="42" y="262" font-size="10.5" font-weight="600" fill="var(--f-ink)">Set up automated database</text><text x="42" y="275" font-size="10.5" font-weight="600" fill="var(--f-ink)">backups with 30-day retention</text><rect x="42" y="296" width="48" height="16" rx="4" fill="var(--f-tint)"/><text x="66" y="307.5" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">TP3-1</text><rect x="96" y="296" width="44" height="16" rx="4" fill="var(--f-hover)"/><text x="118" y="307.5" font-size="8.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text><path d="M264 299l9 9M273 299l-9 9" stroke="var(--f-muted)" stroke-width="1.5" stroke-linecap="round"/><text x="42" y="326" font-size="10.5" font-weight="600" fill="var(--f-ink)">Set up CI/CD pipeline</text><path d="M42 284h236M42 336h236" stroke="var(--f-hover)"/><text x="42" y="354" font-size="9" font-weight="700" letter-spacing="0.06em" fill="var(--f-muted)">HAS ITS OWN COMMENT</text><rect x="29" y="362" width="262" height="30" fill="var(--f-tint)"/><rect x="29" y="362" width="3" height="30" fill="var(--f-accent)"/><rect x="42" y="366" width="48" height="16" rx="4" fill="var(--f-accent)"/><text x="66" y="377.5" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">DTB-8</text><circle cx="106" cy="374" r="8" fill="var(--f-ok)"/><path d="M102.5 374l2.4 2.4 4.6-5" fill="none" stroke="var(--f-panel)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><text x="124" y="378" font-size="10.5" font-weight="600" fill="var(--f-ink)">Refactor authentication</text><path d="M268 369l5 5-5 5" fill="none" stroke="var(--f-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="304" y="108" width="588" height="284" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/><path d="M304 116a8 8 0 0 1 8-8h572a8 8 0 0 1 8 8v30H304z" fill="var(--f-elev)"/><path d="M304 146h588" stroke="var(--f-border)"/><text x="320" y="131" font-size="11.5" fill="var(--f-ink2)">Writing <tspan font-weight="700" fill="var(--f-ink)">DTB-8</tspan> only</text><rect x="686" y="116" width="192" height="24" rx="5" fill="var(--f-panel)" stroke="var(--f-border2)"/><text x="782" y="132" font-size="10" font-weight="600" fill="var(--f-ink2)" text-anchor="middle">Use the shared comment instead</text><rect x="320" y="156" width="80" height="22" rx="3" fill="var(--f-panel)" stroke="var(--f-border2)"/><text x="329" y="171" font-size="10" fill="var(--f-ink2)">Normal text</text><path d="M386 165l3.5 4.5 3.5-4.5z" fill="var(--f-ink2)"/><g font-family="Inter,sans-serif" text-anchor="middle" fill="var(--f-ink2)"><text x="418" y="172" font-size="12" font-weight="700">B</text><text x="438" y="172" font-size="12" font-weight="700" font-style="italic">I</text><text x="458" y="171" font-size="11">U</text><text x="478" y="171" font-size="11">S</text></g><path d="M453 174h10" stroke="var(--f-ink2)" stroke-width="1.2"/><g fill="none" stroke="var(--f-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(496,160) scale(.58)"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.5" fill="var(--f-ink2)" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="var(--f-ink2)" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="var(--f-ink2)" stroke="none"/></g><g transform="translate(516,160) scale(.58)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g><g transform="translate(536,160) scale(.58)"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/></g><g transform="translate(556,160) scale(.58)"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/></g></g><text x="878" y="171" font-size="10" fill="var(--f-muted)" text-anchor="end">5 words &#183; @ to mention</text><path d="M304 188h588" stroke="var(--f-border)"/><g fill="var(--f-border2)"><rect x="320" y="206" width="330" height="8" rx="4"/><rect x="320" y="226" width="238" height="8" rx="4"/><rect x="320" y="246" width="142" height="8" rx="4"/></g><rect x="320" y="272" width="556" height="96" fill="var(--f-panel)" stroke="var(--f-border)"/><rect x="320" y="272" width="556" height="32" fill="var(--f-elev)"/><g stroke="var(--f-border)" fill="none"><path d="M320 304h556M320 336h556M505 272v96M690 272v96"/></g><text x="28" y="430" font-size="12" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">1 ready</tspan> &#183; 2 skipped</text><rect x="740" y="402" width="152" height="36" rx="8" fill="var(--f-accent)"/><text x="806" y="425" font-size="12.5" font-weight="600" fill="#fff" text-anchor="middle">Post 1 comment</text><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(856,412) scale(.6)"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></g></g></svg>
             </div>
             <div class="hiw-panel" id="hiw-panel-2">
-              <img data-light="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20Light%20(1840x900%20px).jpg" data-dark="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20Dark%20(1840x900%20px).jpg" src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Select%20Tickets%20Light%20(1840x900%20px).jpg" alt="Step 3 — Recipients: search, filter by project or JQL, and select up to 25 tickets" loading="lazy">
+              <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Comment step writing one shared comment. The left panel highlights the card reading Write one comment for the tickets below, 3 of 3 tickets, with all three issues listed under SELECTED TICKETS and none holding its own comment. The editor on the right is headed Writing the comment for 3 tickets. The footer reads 3 ready, 0 skipped beside Post 3 comments."><rect width="920" height="450" fill="var(--f-base)"/>
+<g font-family="Inter,sans-serif">
+<circle cx="44" cy="30" r="12" fill="none" stroke="var(--f-accent)" stroke-width="1.7"/><path d="M39 30l3.2 3.2 6.4-7" fill="none" stroke="var(--f-accent)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="64" y="34" font-size="12.5" fill="var(--f-ink2)">Tickets</text>
+<circle cx="172" cy="30" r="12" fill="var(--f-accent)"/><text x="172" y="34.5" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="192" y="34" font-size="12.5" font-weight="600" fill="var(--f-ink)">Comment</text>
+<circle cx="312" cy="30" r="12" fill="none" stroke="var(--f-border2)" stroke-width="1.6"/><text x="312" y="34.5" font-size="11" font-weight="600" fill="var(--f-muted)" text-anchor="middle">3</text>
+<text x="332" y="34" font-size="12.5" fill="var(--f-ink2)">Send</text>
+<path d="M124 30h32M264 30h32" stroke="var(--f-border2)" stroke-width="1.6"/>
+
+<rect x="28" y="58" width="296" height="36" rx="8" fill="var(--f-elev)" stroke="var(--f-border)"/>
+<rect x="32" y="62" width="148" height="28" rx="6" fill="var(--f-accent)"/>
+<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(44,69) scale(.46)"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></g>
+<text x="64" y="80" font-size="12" font-weight="600" fill="#fff">Write a comment</text>
+<g fill="none" stroke="var(--f-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(192,69) scale(.46)"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></g>
+<text x="212" y="80" font-size="12" fill="var(--f-ink2)">Copy a comment</text>
+<text x="344" y="80" font-size="12" fill="var(--f-ink2)">&#8592; 3 tickets &#183; <tspan fill="var(--f-accent)" font-weight="600">change</tspan></text>
+<text x="892" y="80" font-size="11" fill="var(--f-muted)" text-anchor="end">Only tickets with a comment are posted</text>
+
+<rect x="28" y="108" width="264" height="284" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
+<text x="42" y="132" font-size="11" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">3</tspan> tickets &#183; <tspan font-weight="700" fill="var(--f-ink)">3</tspan> ready</text>
+<rect x="216" y="119" width="62" height="22" rx="5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
+<text x="247" y="134" font-size="10.5" fill="var(--f-ink2)" text-anchor="middle">Clear all</text>
+
+<rect x="42" y="148" width="236" height="54" rx="8" fill="var(--f-tint)" stroke="var(--f-accent)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--f-accent)" stroke-width="1.9" stroke-linecap="round" transform="translate(52,166) scale(.6)"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></g>
+<text x="72" y="167" font-size="10.5" font-weight="700" fill="var(--f-ink)">Write one comment for the</text>
+<text x="72" y="180" font-size="10.5" font-weight="700" fill="var(--f-ink)">tickets below</text>
+<text x="72" y="194" font-size="9.5" font-weight="600" fill="var(--f-accent-ink)">3 of 3 tickets</text>
+
+<text x="42" y="222" font-size="9" font-weight="700" letter-spacing="0.06em" fill="var(--f-muted)">SELECTED TICKETS</text>
+<rect x="42" y="232" width="48" height="16" rx="4" fill="var(--f-tint)"/><text x="66" y="243.5" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">DTB-8</text>
+<rect x="96" y="232" width="44" height="16" rx="4" fill="var(--f-hover)"/><text x="118" y="243.5" font-size="8.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text>
+<text x="42" y="262" font-size="10.5" font-weight="600" fill="var(--f-ink)">Refactor authentication service</text>
+<path d="M42 274h236" stroke="var(--f-hover)"/>
+<rect x="42" y="284" width="48" height="16" rx="4" fill="var(--f-tint)"/><text x="66" y="295.5" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">DTB-4</text>
+<rect x="96" y="284" width="44" height="16" rx="4" fill="var(--f-hover)"/><text x="118" y="295.5" font-size="8.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text>
+<text x="42" y="314" font-size="10.5" font-weight="600" fill="var(--f-ink)">Automate database backups</text>
+<path d="M42 326h236" stroke="var(--f-hover)"/>
+<rect x="42" y="336" width="48" height="16" rx="4" fill="var(--f-tint)"/><text x="66" y="347.5" font-size="9.5" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">TP3-1</text>
+<rect x="96" y="336" width="44" height="16" rx="4" fill="var(--f-hover)"/><text x="118" y="347.5" font-size="8.5" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">TO DO</text>
+<text x="42" y="366" font-size="10.5" font-weight="600" fill="var(--f-ink)">Set up CI/CD pipeline</text>
+
+<rect x="304" y="108" width="588" height="284" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
+<path d="M304 116a8 8 0 0 1 8-8h572a8 8 0 0 1 8 8v30H304z" fill="var(--f-elev)"/><path d="M304 146h588" stroke="var(--f-border)"/>
+<text x="320" y="131" font-size="11.5" fill="var(--f-ink2)">Writing the comment for <tspan font-weight="700" fill="var(--f-ink)">3</tspan> tickets</text>
+<rect x="320" y="156" width="80" height="22" rx="3" fill="var(--f-panel)" stroke="var(--f-border2)"/>
+<text x="329" y="171" font-size="10" fill="var(--f-ink2)">Normal text</text><path d="M386 165l3.5 4.5 3.5-4.5z" fill="var(--f-ink2)"/>
+<g text-anchor="middle" fill="var(--f-ink2)"><text x="418" y="172" font-size="12" font-weight="700">B</text><text x="438" y="172" font-size="12" font-weight="700" font-style="italic">I</text><text x="458" y="171" font-size="11">U</text><text x="478" y="171" font-size="11">S</text></g>
+<path d="M453 174h10" stroke="var(--f-ink2)" stroke-width="1.2"/>
+<g fill="none" stroke="var(--f-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<g transform="translate(496,160) scale(.58)"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.5" fill="var(--f-ink2)" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="var(--f-ink2)" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="var(--f-ink2)" stroke="none"/></g>
+<g transform="translate(516,160) scale(.58)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g>
+<g transform="translate(536,160) scale(.58)"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/></g>
+<g transform="translate(556,160) scale(.58)"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/></g></g>
+<text x="878" y="171" font-size="10" fill="var(--f-muted)" text-anchor="end">24 words &#183; @ to mention</text>
+<path d="M304 188h588" stroke="var(--f-border)"/>
+<g fill="var(--f-border2)"><rect x="320" y="206" width="404" height="8" rx="4"/><rect x="320" y="226" width="452" height="8" rx="4"/><rect x="320" y="246" width="286" height="8" rx="4"/></g>
+<rect x="320" y="274" width="240" height="26" rx="7" fill="var(--f-tint)" stroke="var(--f-border)"/>
+<g fill="none" stroke="var(--f-accent)" stroke-width="2" transform="translate(330,280) scale(.5)"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></g>
+<text x="350" y="291" font-size="10.5" fill="var(--f-ink2)">release-notes.png</text>
+<text x="550" y="291" font-size="10.5" font-weight="600" fill="var(--f-accent-ink)" text-anchor="end">2.4 MB</text>
+<text x="320" y="330" font-size="10.5" fill="var(--f-muted)">Everyone gets this comment, and this file, on every selected ticket.</text>
+
+<text x="28" y="430" font-size="12" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">3 ready</tspan> &#183; 0 skipped</text>
+<rect x="740" y="402" width="152" height="36" rx="8" fill="var(--f-accent)"/>
+<text x="806" y="425" font-size="12.5" font-weight="600" fill="#fff" text-anchor="middle">Post 3 comments</text>
+<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(856,412) scale(.6)"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></g>
+</g></svg>
             </div>
             <div class="hiw-panel" id="hiw-panel-3">
-              <img data-light="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Comment%20Posted%20Light%20(1840x900%20px).jpg" data-dark="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Comment%20Posted%20Dark%20(1840x900%20px).jpg" src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Comment%20Posted%20Light%20(1840x900%20px).jpg" alt="Step 4 — Send: per-ticket delivery status with retry on failure" loading="lazy">
+              <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The Comment step with Copy a comment selected. A three-step guide: open the source ticket and click the link icon beside the author name; check the link is a comment link, shown by a worked example where the focusedCommentId query is highlighted as the required part; then paste it below. The Copy to 3 tickets button stays disabled until the link is valid."><rect width="920" height="450" fill="var(--f-base)"/><g font-family="Inter,sans-serif"><rect x="28" y="8" width="300" height="36" rx="8" fill="var(--f-elev)" stroke="var(--f-border)"/><g fill="none" stroke="var(--f-ink2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(42,19) scale(.46)"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></g><text x="62" y="30" font-size="12" fill="var(--f-ink2)">Write a comment</text><rect x="176" y="12" width="148" height="28" rx="6" fill="var(--f-accent)"/><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(188,19) scale(.46)"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></g><text x="208" y="30" font-size="12" font-weight="600" fill="#fff">Copy a comment</text><text x="892" y="30" font-size="11" fill="var(--f-muted)" text-anchor="end">Copies an existing comment &#8212; media included</text><text x="28" y="70" font-size="12.5" fill="var(--f-ink)">Paste a link to the comment you want to copy</text><text x="866" y="70" font-size="11.5" fill="var(--f-accent)" text-anchor="end">How to copy a comment link</text><g fill="none" stroke="var(--f-accent)" stroke-width="1.8" transform="translate(872,59) scale(.55)"><circle cx="10" cy="10" r="9"/><path d="M7.6 7.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 1.9-2.4 3.4" stroke-linecap="round"/><circle cx="10" cy="15.4" r="0.9" fill="var(--f-accent)" stroke="none"/></g><rect x="28" y="82" width="864" height="268" rx="10" fill="var(--f-tint)" stroke="var(--f-border)"/><circle cx="54" cy="108" r="13" fill="var(--f-accent)"/><text x="54" y="112.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text><text x="80" y="104" font-size="13" font-weight="700" fill="var(--f-ink)">Open the ticket &amp; copy the link</text><text x="80" y="124" font-size="11.5" fill="var(--f-ink2)">Hover the comment in Jira, then click the</text><text x="80" y="140" font-size="11.5" fill="var(--f-ink2)">link icon beside the author&#8217;s name.</text><rect x="430" y="90" width="440" height="88" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/><circle cx="456" cy="116" r="15" fill="var(--f-tint)"/><text x="456" y="120.5" font-size="11" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">AR</text><text x="482" y="120" font-size="13" font-weight="700" fill="var(--f-ink)">Alex Rivera</text><g fill="none" stroke="var(--f-accent)" stroke-width="2" stroke-linecap="round" transform="translate(562,108) scale(.62)"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8.5 12h7"/></g><text x="586" y="120" font-size="11.5" fill="var(--f-ink2)">Copy link to comment</text><text x="482" y="138" font-size="10.5" fill="var(--f-muted)">now</text><text x="482" y="162" font-size="12" fill="var(--f-ink)">Copy this comment.</text><circle cx="54" cy="208" r="13" fill="var(--f-accent)"/><text x="54" y="212.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text><text x="80" y="204" font-size="13" font-weight="700" fill="var(--f-ink)">Check it&#8217;s a valid comment link</text><text x="80" y="224" font-size="11.5" fill="var(--f-ink2)">It has to end in ?focusedCommentId= &#8212;</text><text x="80" y="240" font-size="11.5" fill="var(--f-ink2)">that is what points at the exact comment.</text><rect x="430" y="192" width="440" height="98" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/><g fill="none" stroke="var(--f-ok)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(444,202) scale(.6)"><path d="M4 11l4.5 4.5L18 5"/></g><text x="464" y="214" font-size="11.5" font-weight="600" fill="var(--f-ink)">What a valid link looks like</text><path d="M430 224h440" stroke="var(--f-hover)"/><rect x="676" y="238" width="140" height="17" rx="3" fill="var(--f-tint)"/><text x="444" y="251" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10.5"><tspan fill="var(--f-muted)">https://your-site.atlassian.net</tspan><tspan fill="var(--f-ink)">/browse/KAN-6</tspan><tspan fill="var(--f-muted)">?</tspan><tspan fill="var(--f-accent-ink)" font-weight="600">focusedCommentId=10842</tspan></text><circle cx="448" cy="274" r="4" fill="var(--f-border2)"/><text x="460" y="278" font-size="11" fill="var(--f-ink2)">the ticket it lives on</text><circle cx="592" cy="274" r="4" fill="var(--f-accent)"/><text x="604" y="278" font-size="11" fill="var(--f-ink2)">the exact comment &#8212; required</text><circle cx="54" cy="308" r="13" fill="var(--f-accent)"/><text x="54" y="312.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text><text x="80" y="304" font-size="13" font-weight="700" fill="var(--f-ink)">Paste it below</text><text x="80" y="324" font-size="11.5" fill="var(--f-ink2)">Paste the link into the field, then send.</text><rect x="28" y="362" width="864" height="38" rx="8" fill="var(--f-panel)" stroke="var(--f-border2)"/><g fill="none" stroke="var(--f-muted)" stroke-width="2" stroke-linecap="round" transform="translate(46,373) scale(.62)"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8.5 12h7"/></g><text x="72" y="386" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="11" fill="var(--f-muted)">https://your-site.atlassian.net/browse/KAN-6?focusedCommentId=&#8230;</text><text x="726" y="431" font-size="11.5" fill="var(--f-ink2)" text-anchor="end">Paste a valid comment link to continue</text><rect x="740" y="412" width="152" height="34" rx="8" fill="var(--f-hover)"/><text x="806" y="434" font-size="12" font-weight="600" fill="var(--f-muted)" text-anchor="middle">Copy to 3 tickets</text></g></svg>
+            </div>
+            <div class="hiw-panel" id="hiw-panel-4">
+              <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The finished Send screen. A fan-out graphic shows one comment branching to three tickets, beside the heading Comments posted and the line 3 of 3 delivered, took 8 seconds. Three stat cards read 3 Delivered, 0 Sending, 0 Failed. Each ticket has a row with a green tick and an open-in-Jira button. The footer has Done and a quieter Undo, delete comments and files."><rect width="920" height="450" fill="var(--f-base)"/><g transform="translate(28,24) scale(0.947)"><g stroke="var(--f-accent)" stroke-width="1.5" fill="none" opacity="0.5"><path d="M40 75C95 75 120 16 165 16"/><path d="M40 75C95 75 120 75 165 75"/><path d="M40 75C95 75 120 134 165 134"/></g><circle cx="26" cy="75" r="17" fill="var(--f-tint)" stroke="var(--f-accent)" stroke-width="1.5"/><path d="M20 75h12M26 69v12" stroke="var(--f-accent)" stroke-width="2.5" stroke-linecap="round"/><circle cx="167" cy="16" r="6" fill="var(--f-ok)"/><circle cx="167" cy="75" r="6" fill="var(--f-ok)"/><circle cx="167" cy="134" r="6" fill="var(--f-ok)"/></g><g font-family="Inter,sans-serif"><rect x="224" y="76" width="36" height="36" rx="10" fill="var(--f-ok-tint)"/><path d="M235 94l3.8 3.8 8.4-9" fill="none" stroke="var(--f-ok)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="274" y="103" font-size="20" font-weight="700" fill="var(--f-ink)">Comments posted</text><text x="224" y="134" font-size="13" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">3</tspan> of 3 delivered &#183; took 8s.</text><rect x="28" y="182" width="278" height="62" rx="11" fill="var(--f-elev)" stroke="var(--f-border)"/><text x="44" y="213" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="var(--f-ok)">3</text><text x="44" y="232" font-size="12" fill="var(--f-muted)">Delivered</text><rect x="321" y="182" width="278" height="62" rx="11" fill="var(--f-elev)" stroke="var(--f-border)"/><text x="337" y="213" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="var(--f-accent)">0</text><text x="337" y="232" font-size="12" fill="var(--f-muted)">Sending</text><rect x="614" y="182" width="278" height="62" rx="11" fill="var(--f-elev)" stroke="var(--f-border)"/><text x="630" y="213" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="22" font-weight="600" fill="var(--f-muted)">0</text><text x="630" y="232" font-size="12" fill="var(--f-muted)">Failed</text><rect x="28" y="258" width="864" height="40" rx="10" fill="var(--f-panel)" stroke="var(--f-border)"/><circle cx="52" cy="278" r="10" fill="var(--f-ok-tint)"/><path d="M47.5 278l3 3 5.5-6" fill="none" stroke="var(--f-ok)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="269" width="52" height="18" rx="6" fill="var(--f-tint)"/><text x="102" y="282" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="var(--f-accent-ink)" text-anchor="middle">DTB-8</text><text x="142" y="283" font-size="13" fill="var(--f-ink)">Refactor authentication service to support OAuth 2.0</text><text x="812" y="283" font-size="12" fill="var(--f-ok-ink)" text-anchor="end">Delivered</text><g transform="translate(830,271) scale(.583)" fill="none" stroke="var(--f-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></g><rect x="28" y="302" width="864" height="40" rx="10" fill="var(--f-panel)" stroke="var(--f-border)"/><circle cx="52" cy="322" r="10" fill="var(--f-ok-tint)"/><path d="M47.5 322l3 3 5.5-6" fill="none" stroke="var(--f-ok)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="313" width="52" height="18" rx="6" fill="var(--f-tint)"/><text x="102" y="326" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="var(--f-accent-ink)" text-anchor="middle">DTB-4</text><text x="142" y="327" font-size="13" fill="var(--f-ink)">Set up automated database backups with 30-day retention</text><text x="812" y="327" font-size="12" fill="var(--f-ok-ink)" text-anchor="end">Delivered</text><g transform="translate(830,315) scale(.583)" fill="none" stroke="var(--f-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></g><rect x="28" y="346" width="864" height="40" rx="10" fill="var(--f-panel)" stroke="var(--f-border)"/><circle cx="52" cy="366" r="10" fill="var(--f-ok-tint)"/><path d="M47.5 366l3 3 5.5-6" fill="none" stroke="var(--f-ok)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="76" y="357" width="52" height="18" rx="6" fill="var(--f-tint)"/><text x="102" y="370" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="12" font-weight="600" fill="var(--f-accent-ink)" text-anchor="middle">TP3-1</text><text x="142" y="371" font-size="13" fill="var(--f-ink)">Set up CI/CD pipeline</text><text x="812" y="371" font-size="12" fill="var(--f-ok-ink)" text-anchor="end">Delivered</text><g transform="translate(830,359) scale(.583)" fill="none" stroke="var(--f-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/></g><rect x="28" y="400" width="82" height="36" rx="9" fill="var(--f-accent)"/><text x="69" y="423" font-size="13" font-weight="600" fill="#fff" text-anchor="middle">Done</text><rect x="632" y="400" width="260" height="36" rx="9" fill="var(--f-panel)" stroke="var(--f-border2)"/><text x="762" y="423" font-size="13" font-weight="600" fill="var(--f-ink)" text-anchor="middle">Undo &#8212; delete comments and files</text></g></svg>
             </div>
           </div>
         </div>
@@ -1036,15 +1176,23 @@
 
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">What's the difference between Compose and Replicate?</span>
+            <span class="faq-btn-text">What's the difference between writing and copying a comment?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Compose lets you write a new rich-text comment — with formatting, lists and @mentions — and post it to multiple issues. Replicate copies an existing comment, including its images, videos and file attachments, onto other tickets exactly as-is.</div>
+          <div class="faq-answer"><strong>Write a comment</strong> creates a new rich-text comment — formatting, lists and @mentions — and posts it to every selected issue, and any single ticket can have a different comment instead. <strong>Copy a comment</strong> takes one that already exists, including its images, videos and file attachments, onto other tickets exactly as-is.</div>
         </div>
 
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Can Replicate really copy images, videos and files?</span>
+            <span class="faq-btn-text">Can I post a different comment to each ticket?</span>
+            <span class="faq-chevron">&#x25BE;</span>
+          </button>
+          <div class="faq-answer">Yes. Write one comment for every selected ticket, then click any ticket in the list to write it a different comment instead. The list shows at a glance which tickets share the comment and which have their own, and only tickets with a comment are posted.</div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Can it really copy images, videos and files?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
           <div class="faq-answer">Yes. Paste the link to a comment that includes attachments, and Bulk Comments for Jira copies the media directly between tickets — no manual downloading or re-uploading required.</div>
@@ -1163,6 +1311,8 @@
         <a href="/terms">Terms of Service</a>
         <a href="/security">Security</a>
         <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
       </nav>
     </div>
   </div>
@@ -1186,87 +1336,94 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Broadcast console: type a comment, click Post, then 25 tickets check off in a wave
+  // Guided flow: write per-ticket in Compose -> top-right switch -> Replicate a link -> send to up to 25 (fixed-size stage)
   (function() {
-    const root = document.querySelector('.bc-broadcast');
-    if (!root) return;
-    const grid = root.querySelector('#bcGrid');
-    const body = root.querySelector('#bcSourceBody');
-    const label = root.querySelector('#bcSourceLabel');
-    const countEl = root.querySelector('#bcCount');
-    const sendBtn = root.querySelector('#bcSend');
-    const cursor = root.querySelector('#bcCursor');
-    const modeBtns = Array.from(root.querySelectorAll('.bc-mode'));
+    const hv = document.querySelector('.hv');
+    if (!hv) return;
+    const sub = hv.querySelector('#hvSub');
+    const segWrite = hv.querySelector('#hvSegWrite'), segCopy = hv.querySelector('#hvSegCopy');
+    const vCompose = hv.querySelector('#hvCompose'), vRep = hv.querySelector('#hvReplicate');
+    const fields = Array.from(vCompose.querySelectorAll('.hv-field'));
+    const media = Array.from(vCompose.querySelectorAll('.hv-media'));
+    const link = hv.querySelector('#hvLink'), linkWrap = hv.querySelector('#hvLinkWrap');
+    const countEl = hv.querySelector('#hvCount'), grid = hv.querySelector('#hvGrid');
+    const stat = hv.querySelector('#hvStat'), post = hv.querySelector('#hvPost'), postLabel = hv.querySelector('#hvPostLabel');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const N = 25;
 
-    const check = '<span class="bc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
-    const chips = [];
-    for (let i = 0; i < N; i++) { const c = document.createElement('div'); c.className = 'bc-chip'; c.innerHTML = check; grid.appendChild(c); chips.push(c); }
+    const CK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>';
+    const cells = [];
+    for (let i = 0; i < 25; i++) { const c = document.createElement('div'); c.className = 'hv-cell'; c.innerHTML = CK; grid.appendChild(c); cells.push(c); }
 
-    const table = '<table class="bc-table"><thead><tr><th>Environment</th><th>Status</th></tr></thead><tbody>'
-      + '<tr><td>Staging</td><td><span class="bc-pill ok">Ready</span></td></tr>'
-      + '<tr><td>Production</td><td><span class="bc-pill wait">Pending</span></td></tr></tbody></table>';
-    const attach = '<div class="bc-attach"><div class="bc-attach-ic pdf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><div class="bc-attach-meta"><div class="bc-attach-name">Q3-release-report.pdf</div><div class="bc-attach-sub">PDF &middot; 2.4 MB</div></div></div>'
-      + '<div class="bc-attach"><div class="bc-attach-ic vid"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div><div class="bc-attach-meta"><div class="bc-attach-name">sprint-review.mp4</div><div class="bc-attach-sub">Recording &middot; 18:42</div></div></div>';
-
-    const data = {
-      compose: {
-        label: 'New comment',
-        typed: 'Migration window confirmed for Fri 9pm PT. @sarah.kim can you confirm the DB snapshot?',
-        full: '<span class="bc-body-text">Migration window confirmed for Fri 9pm PT. <span class="bc-mention">@sarah.kim</span> can you confirm the DB snapshot?</span>' + table
-      },
-      replicate: {
-        label: 'Existing comment',
-        full: '<span class="bc-body-text">Copied from PROJ-102 — sharing the Q3 report and sprint recording.</span>' + attach
-      }
-    };
-
-    let mode = 'compose';
     let timers = [];
     const clr = () => { timers.forEach(clearTimeout); timers = []; };
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
-    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    const setActive = (m) => modeBtns.forEach(b => { const on = b.dataset.mode === m; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on); });
 
-    function moveCursorToSend() {
-      const cr = root.getBoundingClientRect();
-      const br = sendBtn.getBoundingClientRect();
-      const x = br.left - cr.left + br.width * 0.6;
-      const y = br.top - cr.top + br.height * 0.5 - 2;
-      cursor.style.transition = 'none';
-      cursor.style.transform = 'translate(' + (x + 30) + 'px,' + (y + 48) + 'px)';
-      void cursor.offsetWidth;
-      cursor.style.transition = '';
-      cursor.style.opacity = '1';
-      cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    function setMode(m) {
+      const write = m === 'compose';
+      segWrite.classList.toggle('is-on', write);
+      segCopy.classList.toggle('is-on', !write);
+      segWrite.setAttribute('aria-selected', String(write));
+      segCopy.setAttribute('aria-selected', String(!write));
+      if (write) {
+        sub.textContent = 'One for all, or its own for any';
+        vCompose.classList.add('on'); vRep.classList.remove('on');
+        stat.innerHTML = '<b>4</b> tickets \u00b7 files up to 150 MB'; postLabel.textContent = 'Post 4 comments';
+      } else {
+        sub.textContent = 'Copy an existing comment to many tickets';
+        vRep.classList.add('on'); vCompose.classList.remove('on');
+        stat.innerHTML = '1 comment \u00b7 media included'; postLabel.textContent = 'Post to 25 tickets';
+      }
+      segWrite.classList.remove('ping', 'tap');
+      segCopy.classList.remove('ping', 'tap');
+      post.classList.remove('pressed');
     }
 
-    function play(m) {
-      clr(); mode = m; setActive(m);
-      chips.forEach(c => c.classList.remove('lit'));
-      countEl.textContent = '0';
-      cursor.style.opacity = '0'; cursor.classList.remove('tap'); sendBtn.classList.remove('pressed');
-      label.textContent = data[m].label;
-
-      if (reduce) { body.innerHTML = data[m].full; chips.forEach(c => c.classList.add('lit')); countEl.textContent = String(N); return; }
-
-      // Both modes render their content immediately (no typing / expand)
-      body.innerHTML = data[m].full;
-      const ready = 1050;
-
-      at(ready, moveCursorToSend);
-      at(ready + 820, () => { cursor.classList.add('tap'); sendBtn.classList.add('pressed'); });
-      at(ready + 980, () => { cursor.classList.remove('tap'); sendBtn.classList.remove('pressed'); cursor.style.opacity = '0'; });
-
-      const cStart = ready + 1050;
-      for (let k = 0; k < N; k++) at(cStart + k * 50, () => { chips[k].classList.add('lit'); countEl.textContent = String(k + 1); });
-
-      at(cStart + N * 50 + 1600, () => play(m === 'compose' ? 'replicate' : 'compose'));
+    function playCompose() {
+      clr(); setMode('compose');
+      fields.forEach(f => f.classList.remove('writing', 'filled'));
+      media.forEach(m => m.classList.remove('in'));
+      if (reduce) { fields.forEach(f => f.classList.add('filled')); media.forEach(m => m.classList.add('in')); return; }
+      const base = 500, step = 560;
+      fields.forEach((f, i) => {
+        at(base + i * step, () => f.classList.add('writing'));
+        at(base + i * step + 340, () => { f.classList.remove('writing'); f.classList.add('filled'); });
+      });
+      // Each file lands right after the note it belongs to, so the attachment reads
+      // as part of that ticket's comment rather than a batch-wide extra.
+      media.forEach((m) => {
+        const i = Number(m.dataset.row);
+        at(base + i * step + 470, () => m.classList.add('in'));
+      });
+      const done = base + fields.length * step + 300;
+      at(done, () => post.classList.add('pressed'));
+      at(done + 200, () => post.classList.remove('pressed'));
+      at(done + 1200, () => segCopy.classList.add('ping'));
+      at(done + 1750, () => segCopy.classList.add('tap'));
+      at(done + 1950, () => playReplicate());
     }
 
-    modeBtns.forEach(b => b.addEventListener('click', () => play(b.dataset.mode)));
-    setTimeout(() => play('compose'), 80);
+    function playReplicate() {
+      clr(); setMode('replicate');
+      link.classList.remove('show'); linkWrap.classList.remove('typed');
+      cells.forEach(c => c.classList.remove('lit')); countEl.textContent = '0';
+      if (reduce) { link.classList.add('show'); linkWrap.classList.add('typed'); cells.forEach(c => c.classList.add('lit')); countEl.textContent = '25'; return; }
+      at(700, () => { link.classList.add('show'); linkWrap.classList.add('typed'); });
+      at(1600, () => post.classList.add('pressed'));
+      at(1800, () => post.classList.remove('pressed'));
+      const gstart = 1950, gstep = 48;
+      cells.forEach((c, i) => at(gstart + i * gstep, () => { c.classList.add('lit'); countEl.textContent = String(i + 1); }));
+      const gdone = gstart + cells.length * gstep;
+      at(gdone + 1300, () => segWrite.classList.add('ping'));
+      at(gdone + 1850, () => segWrite.classList.add('tap'));
+      at(gdone + 2050, () => playCompose());
+    }
+
+    // Each half selects its own mode. Clicking the one already on would restart its
+    // animation mid-play, which reads as a glitch rather than a response.
+    segWrite.addEventListener('click', () => { if (!vCompose.classList.contains('on')) playCompose(); });
+    segCopy.addEventListener('click', () => { if (!vRep.classList.contains('on')) playReplicate(); });
+    setMode('compose');
+    setTimeout(playCompose, 300);
   })();
 
   document.getElementById('footer-email-form').addEventListener('submit', function(e) {
@@ -1312,10 +1469,9 @@
   });
 
   function setHiwTheme(theme) {
-    document.querySelectorAll('.hiw-panel img').forEach(img => {
-      const next = img.getAttribute('data-' + theme);
-      if (next) img.src = next;
-    });
+    // The figures are inline SVG painted from CSS custom properties, so one
+    // attribute repaints all four — no second set of assets to keep in sync.
+    document.querySelector('.hiw-preview').dataset.theme = theme;
     document.querySelectorAll('.hiw-theme-btn').forEach(btn => {
       const active = btn.dataset.theme === theme;
       btn.classList.toggle('active', active);
