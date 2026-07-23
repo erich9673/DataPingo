@@ -693,15 +693,15 @@
         </div>
       </div>
 
-      <!-- Guided flow: write per-ticket in Compose, switch (top-right) to Replicate, paste a link, send to up to 25 -->
+      <!-- Guided flow: write per-ticket, switch to Copy a comment, paste a link, send to up to 25 -->
       <div class="hv" aria-label="Bulk Comments for Jira: write one comment for many tickets, then copy an existing comment to up to 25 tickets">
         <div class="hv-head">
           <div class="hv-seg" role="tablist" aria-label="Comment mode">
-            <button type="button" class="hv-seg-btn is-on" id="hvSegWrite" role="tab" aria-selected="true" aria-controls="hvCompose">
+            <button type="button" class="hv-seg-btn is-on" id="hvSegWrite" role="tab" aria-selected="true" aria-controls="hvWrite">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>
               Write a comment
             </button>
-            <button type="button" class="hv-seg-btn" id="hvSegCopy" role="tab" aria-selected="false" aria-controls="hvReplicate">
+            <button type="button" class="hv-seg-btn" id="hvSegCopy" role="tab" aria-selected="false" aria-controls="hvCopy">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
               Copy a comment
             </button>
@@ -709,7 +709,7 @@
           <p class="hv-sub" id="hvSub">One for all, or its own for any</p>
         </div>
         <div class="hv-body">
-          <div class="hv-view compose on" id="hvCompose">
+          <div class="hv-view write on" id="hvWrite">
             <div class="hv-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>4 tickets selected &middot; a note per ticket</div>
             <div class="hv-rows">
               <div class="hv-row"><span class="hv-key">PAY-412</span><div class="hv-field"><span class="txt">Verified — deploying tonight.</span><span class="ph">Add a comment…</span><span class="hv-caret"></span><span class="hv-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
@@ -730,7 +730,7 @@
                 <span class="nm">error-budget table</span><b>3 × 4</b></span></div>
             </div>
           </div>
-          <div class="hv-view replicate" id="hvReplicate">
+          <div class="hv-view copy" id="hvCopy">
             <div class="hv-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Paste a comment link — media comes with it</div>
             <div class="hv-link" id="hvLinkWrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg><span class="lk" id="hvLink">your-site.atlassian.net/browse/PAY-412?<span class="foc">focusedCommentId=10842</span></span><span class="hv-caret"></span></div>
             <div class="hv-sendlabel"><span>Copying to every selected ticket</span><span><b id="hvCount">0</b> / 25</span></div>
@@ -864,7 +864,7 @@
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media">
-            <svg viewBox="0 0 920 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="One composed comment fanning out to twenty-five Jira tickets">
+            <svg viewBox="0 0 920 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="One comment fanning out to twenty-five Jira tickets">
               <defs><pattern id="hlDotsA" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
               <rect width="920" height="480" fill="#F8FAFC"/><rect width="920" height="480" fill="url(#hlDotsA)"/>
               <circle cx="36" cy="34" r="4" fill="#6366F1"/>
@@ -1336,15 +1336,15 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Guided flow: write per-ticket in Compose -> top-right switch -> Replicate a link -> send to up to 25 (fixed-size stage)
+  // Guided flow: write per-ticket -> switch -> copy a comment link -> send to up to 25 (fixed-size stage)
   (function() {
     const hv = document.querySelector('.hv');
     if (!hv) return;
     const sub = hv.querySelector('#hvSub');
     const segWrite = hv.querySelector('#hvSegWrite'), segCopy = hv.querySelector('#hvSegCopy');
-    const vCompose = hv.querySelector('#hvCompose'), vRep = hv.querySelector('#hvReplicate');
-    const fields = Array.from(vCompose.querySelectorAll('.hv-field'));
-    const media = Array.from(vCompose.querySelectorAll('.hv-media'));
+    const vWrite = hv.querySelector('#hvWrite'), vCopy = hv.querySelector('#hvCopy');
+    const fields = Array.from(vWrite.querySelectorAll('.hv-field'));
+    const media = Array.from(vWrite.querySelectorAll('.hv-media'));
     const link = hv.querySelector('#hvLink'), linkWrap = hv.querySelector('#hvLinkWrap');
     const countEl = hv.querySelector('#hvCount'), grid = hv.querySelector('#hvGrid');
     const stat = hv.querySelector('#hvStat'), post = hv.querySelector('#hvPost'), postLabel = hv.querySelector('#hvPostLabel');
@@ -1359,18 +1359,18 @@
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
 
     function setMode(m) {
-      const write = m === 'compose';
+      const write = m === 'write';
       segWrite.classList.toggle('is-on', write);
       segCopy.classList.toggle('is-on', !write);
       segWrite.setAttribute('aria-selected', String(write));
       segCopy.setAttribute('aria-selected', String(!write));
       if (write) {
         sub.textContent = 'One for all, or its own for any';
-        vCompose.classList.add('on'); vRep.classList.remove('on');
+        vWrite.classList.add('on'); vCopy.classList.remove('on');
         stat.innerHTML = '<b>4</b> tickets \u00b7 files up to 150 MB'; postLabel.textContent = 'Post 4 comments';
       } else {
         sub.textContent = 'Copy an existing comment to many tickets';
-        vRep.classList.add('on'); vCompose.classList.remove('on');
+        vCopy.classList.add('on'); vWrite.classList.remove('on');
         stat.innerHTML = '1 comment \u00b7 media included'; postLabel.textContent = 'Post to 25 tickets';
       }
       segWrite.classList.remove('ping', 'tap');
@@ -1378,8 +1378,8 @@
       post.classList.remove('pressed');
     }
 
-    function playCompose() {
-      clr(); setMode('compose');
+    function playWrite() {
+      clr(); setMode('write');
       fields.forEach(f => f.classList.remove('writing', 'filled'));
       media.forEach(m => m.classList.remove('in'));
       if (reduce) { fields.forEach(f => f.classList.add('filled')); media.forEach(m => m.classList.add('in')); return; }
@@ -1399,11 +1399,11 @@
       at(done + 200, () => post.classList.remove('pressed'));
       at(done + 1200, () => segCopy.classList.add('ping'));
       at(done + 1750, () => segCopy.classList.add('tap'));
-      at(done + 1950, () => playReplicate());
+      at(done + 1950, () => playCopy());
     }
 
-    function playReplicate() {
-      clr(); setMode('replicate');
+    function playCopy() {
+      clr(); setMode('copy');
       link.classList.remove('show'); linkWrap.classList.remove('typed');
       cells.forEach(c => c.classList.remove('lit')); countEl.textContent = '0';
       if (reduce) { link.classList.add('show'); linkWrap.classList.add('typed'); cells.forEach(c => c.classList.add('lit')); countEl.textContent = '25'; return; }
@@ -1415,15 +1415,15 @@
       const gdone = gstart + cells.length * gstep;
       at(gdone + 1300, () => segWrite.classList.add('ping'));
       at(gdone + 1850, () => segWrite.classList.add('tap'));
-      at(gdone + 2050, () => playCompose());
+      at(gdone + 2050, () => playWrite());
     }
 
     // Each half selects its own mode. Clicking the one already on would restart its
     // animation mid-play, which reads as a glitch rather than a response.
-    segWrite.addEventListener('click', () => { if (!vCompose.classList.contains('on')) playCompose(); });
-    segCopy.addEventListener('click', () => { if (!vRep.classList.contains('on')) playReplicate(); });
-    setMode('compose');
-    setTimeout(playCompose, 300);
+    segWrite.addEventListener('click', () => { if (!vWrite.classList.contains('on')) playWrite(); });
+    segCopy.addEventListener('click', () => { if (!vCopy.classList.contains('on')) playCopy(); });
+    setMode('write');
+    setTimeout(playWrite, 300);
   })();
 
   document.getElementById('footer-email-form').addEventListener('submit', function(e) {
