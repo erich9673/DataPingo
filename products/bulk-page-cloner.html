@@ -67,6 +67,11 @@
     .product-hero-meta {
       display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap;
     }
+    /* Badges travel together so they can stack beside the icon on narrow
+       screens instead of one of them claiming a whole row. */
+    .product-hero-badges {
+      display: flex; align-items: center; gap: 10px 12px; flex-wrap: wrap;
+    }
     .product-hero-icon {
       width: 72px; height: 72px; border-radius: 18px;
       box-shadow: 0 0 32px rgba(5,206,240,0.25);
@@ -164,8 +169,24 @@
       .bpc-cursor { display: none; }
     }
     @media (max-width: 900px) {
-      .product-hero-inner { grid-template-columns: 1fr; }
-      .bpc-clone { max-width: 520px; margin: 8px auto 0; }
+      /* Stack, and slot the demo between the H1 and the description.
+         The demo is a sibling of .product-hero-text, so display:contents
+         flattens that wrapper and lets all five pieces be ordered together.
+         The wrapper's gap goes with it, hence the explicit margins. */
+      .product-hero-inner {
+        display: flex; flex-direction: column; align-items: stretch; gap: 0;
+      }
+      .product-hero-text { display: contents; }
+      .product-hero-meta    { order: 1; margin-bottom: 22px; flex-wrap: nowrap; }
+      /* Three across needs 396px but only 382px is free at 430w — and far
+         less at 375w. Stack the badges beside the icon instead, so neither
+         one takes a full row. */
+      .product-hero-badges  { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .product-hero h1      { order: 2; margin-bottom: 26px; }
+      .bpc-clone            { order: 3; width: 100%; max-width: 520px;
+                              margin: 0 auto 28px; align-self: center; }
+      .product-hero-sub     { order: 4; margin-bottom: 28px; }
+      .product-hero-actions { order: 5; }
     }
 
     /* Teal primary button */
@@ -243,9 +264,9 @@
     .hiw-tab-progress {
       position: absolute; bottom: 0; left: 0; height: 2px;
       background: linear-gradient(90deg, var(--teal), #05A8C6);
-      width: 0%; transition: none;
+      width: 0%; transition: width 0.3s ease;
     }
-    .hiw-tab-btn.active .hiw-tab-progress.running { transition: width var(--hiw-duration, 4s) linear; width: 100%; }
+    .hiw-tab-btn.active .hiw-tab-progress { width: 100%; }
     .hiw-preview {
       position: sticky; top: 100px;
       border-radius: 14px; overflow: hidden;
@@ -624,11 +645,13 @@
       <div class="product-hero-text">
         <div class="product-hero-meta">
           <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence icon" class="product-hero-icon">
-          <span class="product-hero-tag">Confluence App</span>
-          <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
+          <div class="product-hero-badges">
+            <span class="product-hero-tag">Confluence App</span>
+            <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
+          </div>
         </div>
         <h1>Bulk Page Cloner for Confluence</h1>
-        <p class="product-hero-sub">Duplicate up to 25 Confluence pages in one guided flow — content, formatting, images, video, macros, labels, and attachments copied exactly. A live clone summary builds as you go, so 30-minute jobs finish in under 60 seconds.</p>
+        <p class="product-hero-sub">Duplicate up to 25 Confluence pages in one guided flow — content, formatting, images, video, macros, labels, and attachments copied exactly. Name every copy and choose where each one lands, then create them all in one pass. A full 25 takes a minute or two; fewer pages, seconds.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -668,52 +691,6 @@
         <div class="bpc-grid" id="bpcGrid" aria-hidden="true"></div>
         <div class="bpc-count"><span id="bpcCount">0</span> / 25 pages created</div>
         <div class="bpc-cursor" id="bpcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features-section" aria-labelledby="features-heading">
-    <div class="section-wrap">
-      <header class="section-header reveal">
-        <p class="eyebrow"><span>Features</span></p>
-        <h2 class="section-title" id="features-heading">Everything you need to <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">clone at scale</span></h2>
-        <p class="section-desc">Built on Atlassian Forge — no external servers, no data leaving your Confluence instance.</p>
-      </header>
-      <div class="features-grid">
-
-        <div class="feature-tile reveal">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M2 9h6M2 14h6"/></svg>
-          </div>
-          <h3>Bulk Clone Up to 25 Pages at Once</h3>
-          <p>Pick a template page, name every copy up front, and create them all in one guided operation. 30-minute jobs done in under 60 seconds.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-1">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h3>Full Fidelity — Nothing Lost</h3>
-          <p>Content, formatting, images, video, macros, labels, and attachments are copied byte for byte. Every clone is ready to edit immediately.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-1">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>Guided Flow with Live Summary</h3>
-          <p>A clear 4-step flow — Source, Copies, Location, Done — with a clone summary that builds as you go, so you review everything before you create.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-2">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Dark Mode &amp; Smart Warnings</h3>
-          <p>A full light/dark theme that matches Confluence and switches live. Heads-up when a page @mentions people, plus large-batch and duplicate-title warnings.</p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -984,6 +961,52 @@
     </div>
   </section>
 
+  <!-- FEATURES -->
+  <section class="features-section" aria-labelledby="features-heading">
+    <div class="section-wrap">
+      <header class="section-header reveal">
+        <p class="eyebrow"><span>Features</span></p>
+        <h2 class="section-title" id="features-heading">Everything you need to <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">clone at scale</span></h2>
+        <p class="section-desc">Built on Atlassian Forge — no external servers, no data leaving your Confluence instance.</p>
+      </header>
+      <div class="features-grid">
+
+        <div class="feature-tile reveal">
+          <div class="feature-tile-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M2 9h6M2 14h6"/></svg>
+          </div>
+          <h3>Bulk Clone Up to 25 Pages at Once</h3>
+          <p>Pick a template page, name every copy up front, and create them all in one guided operation. A full 25 runs in a minute or two — fewer pages, seconds.</p>
+        </div>
+
+        <div class="feature-tile reveal delay-1">
+          <div class="feature-tile-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Full Fidelity — Nothing Lost</h3>
+          <p>Content, formatting, images, video, macros, labels, and attachments are copied byte for byte. Every clone is ready to edit immediately.</p>
+        </div>
+
+        <div class="feature-tile reveal delay-1">
+          <div class="feature-tile-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Guided Flow with Live Summary</h3>
+          <p>A clear 4-step flow — Source, Copies, Location, Done — with a clone summary that builds as you go, so you review everything before you create.</p>
+        </div>
+
+        <div class="feature-tile reveal delay-2">
+          <div class="feature-tile-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Dark Mode &amp; Smart Warnings</h3>
+          <p>A full light/dark theme that matches Confluence and switches live. Heads-up when a page @mentions people, plus large-batch and duplicate-title warnings.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="pricing-section" aria-labelledby="pricing-heading">
     <div class="section-wrap">
@@ -1054,7 +1077,7 @@
             <span class="faq-btn-text">How many pages can I clone at once?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">You can clone up to 25 pages in a single operation. A guided 4-step flow — Source, Copies, Location, Done — walks you through picking a template, naming every copy, and choosing where they land, with a live clone summary so you can review everything before you create. 30-minute jobs finish in under 60 seconds.</div>
+          <div class="faq-answer">You can clone up to 25 pages in a single operation. A guided 4-step flow — Source, Copies, Location, Done — walks you through picking a template, naming every copy, and choosing where they land, with a live clone summary so you can review everything before you create. A full 25-page run usually finishes in a minute or two; smaller batches take seconds.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1418,62 +1441,26 @@
   });
 
   // ── Interactive How It Works ──
-  const hiwTimers = {};
-  const HIW_DURATION = 4000;
-
-  function hiwSelect(btn, idx, id) {
+  // Tab-driven only. No autoplay: it looped forever, and the hover pause
+  // that was meant to stop it does nothing on touch devices.
+  function hiwSelect(btn, idx) {
     const section = btn.closest('.hiw-interactive');
     const tabs = section.querySelectorAll('.hiw-tab-btn');
     const panels = section.querySelectorAll('.hiw-panel');
     tabs.forEach((t, i) => {
       t.classList.toggle('active', i === idx);
       t.setAttribute('aria-selected', i === idx);
-      const bar = t.querySelector('.hiw-tab-progress');
-      bar.classList.remove('running');
-      bar.style.transition = 'none';
-      bar.style.width = i === idx ? '0%' : (i < idx ? '100%' : '0%');
     });
     panels.forEach((p, i) => p.classList.toggle('active', i === idx));
-    // start progress bar
-    clearTimeout(hiwTimers[id]);
-    const bar = tabs[idx].querySelector('.hiw-tab-progress');
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      bar.classList.add('running');
-    }));
-    hiwTimers[id] = setTimeout(() => {
-      const next = (idx + 1) % tabs.length;
-      hiwSelect(tabs[next], next, id);
-    }, HIW_DURATION);
   }
 
-  // init all hiw-interactive sections
   document.querySelectorAll('.hiw-interactive').forEach(section => {
-    const id = section.closest('section').id || ('hiw' + Math.random());
-    section.setAttribute('data-hiwid', id);
-    const firstBtn = section.querySelector('.hiw-tab-btn');
-    if (firstBtn) {
-      const idx = parseInt(firstBtn.dataset.index || '0');
-      // patch onclick to use correct id
-      section.querySelectorAll('.hiw-tab-btn').forEach(b => {
-        const i = parseInt(b.dataset.index);
-        b.onclick = () => hiwSelect(b, i, id);
-      });
-      // kick off autoplay
-      setTimeout(() => hiwSelect(firstBtn, idx, id), 400);
-    }
-    // pause on hover
-    section.addEventListener('mouseenter', () => clearTimeout(hiwTimers[id]));
-    section.addEventListener('mouseleave', () => {
-      const active = section.querySelector('.hiw-tab-btn.active');
-      if (active) {
-        const i = parseInt(active.dataset.index);
-        hiwTimers[id] = setTimeout(() => {
-          const tabs = section.querySelectorAll('.hiw-tab-btn');
-          const next = (i + 1) % tabs.length;
-          hiwSelect(tabs[next], next, id);
-        }, HIW_DURATION / 2);
-      }
+    const tabs = section.querySelectorAll('.hiw-tab-btn');
+    tabs.forEach(b => {
+      const i = parseInt(b.dataset.index);
+      b.onclick = () => hiwSelect(b, i);
     });
+    if (tabs[0]) hiwSelect(tabs[0], parseInt(tabs[0].dataset.index || '0'));
   });
 
   // ── How It Works theme toggle (light/dark preview) ──
