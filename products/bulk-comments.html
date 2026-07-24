@@ -206,8 +206,13 @@
       .hv-caret { animation: none; }
     }
     @media (max-width: 900px) {
-      .product-hero-inner { grid-template-columns: 1fr; }
-      .hv { margin: 6px auto 0; }
+      /* minmax(0,1fr) stops the column expanding to the 480px art and blowing out the grid */
+      .product-hero-inner { grid-template-columns: minmax(0, 1fr); }
+      .product-hero-text { width: 100%; max-width: 100%; }
+      .hv { width: 100%; max-width: 100%; margin: 6px auto 0; }
+      /* flex children need min-width:0 to shrink below their nowrap content */
+      .hv-link { max-width: 100%; }
+      .hv-link .lk { min-width: 0; text-overflow: ellipsis; }
     }
 
     /* Indigo primary button */
@@ -428,8 +433,10 @@
     }
     .calc-cta-btn:hover { opacity: 0.9; }
     @media (max-width: 720px) {
-      .calc-card { grid-template-columns: 1fr; }
-      .calc-inputs { border-right: none; border-bottom: 1px solid var(--border); }
+      .calc-card { grid-template-columns: minmax(0, 1fr); }
+      .calc-inputs { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
+      .calc-panel { padding: 28px 20px; }
+      .calc-pill-row { flex-wrap: wrap; }
     }
 
     /* FAQ */

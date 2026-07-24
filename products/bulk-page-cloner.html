@@ -353,8 +353,10 @@
     }
     .calc-cta-btn:hover { opacity: 0.88; }
     @media (max-width: 720px) {
-      .calc-card { grid-template-columns: 1fr; }
-      .calc-inputs { border-right: none; border-bottom: 1px solid var(--border); }
+      .calc-card { grid-template-columns: minmax(0, 1fr); }
+      .calc-inputs { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px; }
+      .calc-panel { padding: 28px 20px; }
+      .calc-pill-row { flex-wrap: wrap; }
     }
 
     /* FAQ */

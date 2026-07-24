@@ -597,8 +597,14 @@
     new ResizeObserver(resize).observe(canvas.parentElement);
     resize();
     if (!reduced) {
+      let onScreen = true;
+      const start = () => { cancelAnimationFrame(raf); if (onScreen && !document.hidden) draw(); };
       draw();
-      document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else draw(); });
+      document.addEventListener('visibilitychange', start);
+      // Stop the loop once the hero scrolls away — otherwise it keeps repainting
+      // the whole time someone reads the rest of the page.
+      new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; start(); },
+                               { threshold: 0 }).observe(canvas);
     }
   })();
 
