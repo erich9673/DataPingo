@@ -217,8 +217,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
-  <nav>
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
@@ -241,10 +245,13 @@
       <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
+    </div>
+    <div class="mobile-menu-footer">
     <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
       Visit Us On Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
+    </div>
   </nav>
 </div>
 
