@@ -236,7 +236,7 @@ a  { color: inherit; }
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 100px 48px 80px; overflow: hidden;
+  padding: 100px 48px 132px; overflow: hidden;
 }
 
 .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -408,33 +408,16 @@ a  { color: inherit; }
   50%{transform:translateX(-50%) translateY(10px);}
 }
 
-/* ── TRUST BAR ──────────────────────────────── */
-.trust-bar {
-  position: relative; z-index: 3;
-  background: rgba(6,14,28,0.85); border-top: 1px solid var(--teal-border);
-  border-bottom: 1px solid var(--border); padding: 15px 48px;
-  backdrop-filter: blur(12px);
-  display: flex; align-items: center; justify-content: center;
-  gap: 48px; flex-wrap: wrap;
-}
-.trust-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--teal);
-}
-.trust-items { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding: 0; list-style: none; }
-.trust-item { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 500; color: var(--slate); }
-.trust-item svg { color: var(--teal); flex-shrink: 0; }
-
 /* ── PLATFORMS ── (Deel "runs inside" pattern) ─ */
+/* Lives inside the hero now — stay transparent so the aurora shows through */
 .platforms-section {
-  padding: 32px 0;
-  background: var(--black-2); border-bottom: 1px solid var(--border);
+  padding: 28px 0 4px;
+  background: none; border-bottom: none;
 }
 .platforms-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 48px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 20px;
+  max-width: 1280px; margin: 0 auto; padding: 0;
+  display: flex; flex-direction: column; align-items: flex-start;
+  flex-wrap: wrap; gap: 12px;
 }
 .platforms-label {
   font-family: 'Inter', sans-serif;
@@ -452,53 +435,6 @@ a  { color: inherit; }
 .platform-badge:hover { border-color: var(--teal-border); background: var(--teal-dim); }
 .platform-badge-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .platform-badge span { font-family: 'Inter', sans-serif; font-size: 0.79rem; font-weight: 600; color: var(--white); }
-
-/* ── BENEFITS ── (Datadog 3-column metric grid) ─ */
-.benefits-section { padding: 120px 0; }
-
-.benefits-intro { text-align: center; margin-bottom: 60px; }
-.benefits-intro h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
-  color: var(--white); letter-spacing: -0.04em; line-height: 1.12;
-}
-
-.benefits-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
-  background: var(--border);
-}
-.benefit-card {
-  background: var(--black-3); padding: 52px 44px;
-  position: relative; overflow: hidden; transition: background 0.3s ease;
-}
-.benefit-card + .benefit-card { border-left: 1px solid var(--border); }
-.benefit-card:hover { background: rgba(5,206,240,0.025); }
-.benefit-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--grad-brand); opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.benefit-card:hover::before { opacity: 1; }
-
-.benefit-metric {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 3.2rem; font-weight: 800; letter-spacing: -0.05em;
-  background: var(--grad-text);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; line-height: 1; margin-bottom: 18px;
-}
-.benefit-metric--svg {
-  background: none; -webkit-text-fill-color: initial;
-  display: flex; align-items: center;
-}
-
-.benefit-card h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.0rem; font-weight: 700; color: var(--white);
-  letter-spacing: -0.01em; margin-bottom: 10px;
-}
-.benefit-card p { font-size: 0.875rem; color: var(--slate); line-height: 1.8; }
 
 /* ── SECTION UTILITIES ──────────────────────── */
 .section-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
@@ -891,7 +827,7 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .mobile-menu-toggle { display: flex; margin-left: auto; }
   .nav-container { padding: 0 20px; gap: 12px; }
 
-  .hero { padding: 88px 24px 72px; min-height: 100svh; }
+  .hero { padding: 88px 24px 124px; min-height: 100svh; }
   .hero h1 { font-size: clamp(2.3rem, 9vw, 3.2rem); max-width: 100%; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
@@ -905,19 +841,12 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-bottom: none; }
   .stat-label { white-space: normal; }
 
-  .trust-bar { padding: 13px 20px; overflow-x: auto; justify-content: flex-start; flex-wrap: nowrap; gap: 24px; }
-  .trust-label { display: none; }
-
-  .platforms-inner { padding: 0 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .platforms-inner { padding: 0; flex-direction: column; align-items: flex-start; gap: 12px; }
   .platforms-row { gap: 7px; }
 
   .section-wrap { padding: 0 24px; }
-  .benefits-section, .products-section, .how-section, .credentials-section, .cta-section { padding: 72px 0; }
+  .products-section, .how-section, .credentials-section, .cta-section { padding: 72px 0; }
   .section-header { margin-bottom: 44px; }
-
-  .benefits-grid { grid-template-columns: 1fr; }
-  .benefit-card + .benefit-card { border-left: none; border-top: 1px solid var(--border); }
-  .benefit-card { padding: 40px 28px; }
 
   .product-card { padding: 28px 22px; gap: 24px; }
   .product-name { font-size: 1.4rem; }
@@ -963,7 +892,6 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
     backdrop-filter: none; -webkit-backdrop-filter: none;
     background: rgba(2,9,17,0.92);
   }
-  .trust-bar { backdrop-filter: none; -webkit-backdrop-filter: none; }
   .hero-orb   { animation: none; }
   .hero-orb-1 { width: 520px; height: 520px; filter: blur(70px); }
   .hero-orb-2 { width: 400px; height: 400px; filter: blur(64px); }
