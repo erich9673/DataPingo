@@ -1,7 +1,7 @@
 {
   "name": "datapingo-website",
   "version": "1.0.0",
-  "description": "DataPingo website - Real-time alerts for Google Sheets",
+  "description": "DataPingo website - Atlassian Marketplace apps for Confluence and Jira",
   "main": "index.html",
   "scripts": {
     "serve": "serve . -l 8000",
