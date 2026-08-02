@@ -2,7 +2,7 @@
 
 > DataPingo builds productivity apps for Confluence and Jira teams on the Atlassian Marketplace. Our tools automate bulk operations and content management — helping teams save hours of manual work.
 
-DataPingo specializes in Atlassian Forge apps that integrate natively with Confluence Cloud and Jira Cloud. Products are trusted by teams for project template management, client onboarding automation, sprint documentation, and bulk commenting across Jira issues.
+DataPingo builds Atlassian Forge apps that run natively inside Confluence Cloud and Jira Cloud. They handle repetitive work such as recreating page templates, standing up onboarding or sprint documentation, and commenting across many Jira issues at once.
 
 ## Products
 
@@ -18,8 +18,16 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 ## Resources
 
 - [Documentation](https://datapingo.com/resources/documentation): Getting started guides, feature documentation, and how-to articles for all DataPingo products.
+- [Bulk Page Cloner — Documentation](https://datapingo.com/resources/documentation/bulkpagecloner): Full setup and usage guide for Bulk Page Cloner for Confluence, including the four-step flow, version history, and technical specifications.
+- [Bulk Comments — Documentation](https://datapingo.com/resources/documentation/bulkcomments): Full setup and usage guide for Bulk Comments for Jira, covering Compose mode, Replicate mode, choosing recipients, and sending.
+- [Bulk Page Cloner documentation](https://datapingo.com/resources/documentation/bulkpagecloner): Full guide, version history, technical specifications, and support for Bulk Page Cloner for Confluence.
+- [Bulk Comments documentation](https://datapingo.com/resources/documentation/bulkcomments): Full guide, version history, technical specifications, and support for Bulk Comments for Jira.
 - [Blog](https://datapingo.com/resources/blog): Product updates, tips, and insights for Confluence teams.
-- [Use Cases](https://datapingo.com/resources/use-cases): Real-world scenarios showing how teams use DataPingo to automate Confluence workflows.
+- [Introducing Bulk Page Cloner](https://datapingo.com/resources/blog/introducing-bulk-page-cloner): Launch post explaining why Bulk Page Cloner was built and what it does.
+- [Introducing Bulk Page Cloner](https://datapingo.com/resources/blog/introducing-bulk-page-cloner): Why we built Bulk Page Cloner and what it does.
+- [Use Cases](https://datapingo.com/resources/use-cases): Scenarios showing how DataPingo apps fit real Confluence and Jira workflows.
+- [Recurring Confluence pages](https://datapingo.com/resources/use-cases/recurring-confluence-pages): Creating the same page or page tree on a repeating schedule without rebuilding it by hand.
+- [Support](https://datapingo.com/support): Contact support, response times, and FAQs.
 
 ## Partners
 
@@ -31,3 +39,5 @@ DataPingo specializes in Atlassian Forge apps that integrate natively with Confl
 - [Privacy Policy](https://datapingo.com/privacy): How DataPingo collects and handles user data.
 - [Terms of Service](https://datapingo.com/terms): Terms governing use of DataPingo products and website.
 - [Security](https://datapingo.com/security): DataPingo's security practices and commitments.
+- [Service Level Agreement](https://datapingo.com/sla): Support response times, service commitments, and exclusions for both apps.
+- [Service Level Agreement](https://datapingo.com/sla): Support response times, availability, and service commitments.

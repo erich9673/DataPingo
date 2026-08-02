@@ -1,61 +1,60 @@
 # DataPingo Website
 
-A modern website for DataPingo - focused on data analytics and business intelligence solutions.
+Marketing site for [datapingo.com](https://datapingo.com) — DataPingo builds productivity
+apps for Atlassian Jira and Confluence.
 
-## Project Structure
+Static HTML/CSS. No build step, no framework. Deployed from `main` via GitHub Pages.
 
-- `index.html` - Main landing page
-- `css/` - Stylesheets and design assets
-- `js/` - JavaScript functionality
-- `assets/` - Images, icons, and static assets
-- `about us/` - About page content
-- `products/` - Product information pages
-- `partners/` - Partners section
-- `resources/` - Resources and documentation
+## Products
 
-## Development
+| App | Platform | Marketplace |
+|---|---|---|
+| Bulk Page Cloner | Confluence | [apps/2754913942](https://marketplace.atlassian.com/apps/2754913942) |
+| Bulk Comments | Jira | [apps/2184917707](https://marketplace.atlassian.com/apps/2184917707) |
 
-### Getting Started
+## Local development
 
-1. Clone the repository
-2. Open the project in VS Code
-3. Use the Live Server extension to serve the website locally
-4. Or run the "Serve Website" task from VS Code's Command Palette
+```bash
+npm run dev
+```
 
-### Available Tasks
+Serves on `http://localhost:8000` using `serve.json`, which rewrites the extensionless
+"clean" URLs (`/products/bulk-comments`) that GitHub Pages resolves natively in production.
+Use this rather than a plain static file server — otherwise clean URLs 404 locally.
 
-- **Serve Website**: Starts a local development server on port 8000
+## Structure
 
-### Technology Stack
+```
+index.html              homepage
+products/               product pages
+company/  partners/     about, careers, contact, partner programs
+resources/              blog, use cases, documentation
+privacy · terms · security · sla · support · 404
+css/aurora.css          the entire shared stylesheet (dark "aurora" theme)
+assets/                 images; brand marks live in "assets/Company Logo/"
+```
 
-- HTML5
-- CSS3 (Flexbox/Grid layouts)
-- Vanilla JavaScript
-- Responsive design
-
-### Development Guidelines
-
-- Follow semantic HTML structure
-- Use responsive design principles
-- Maintain consistent styling
-- Optimize for performance and accessibility
-- Follow SEO best practices
+Page-scoped CSS and JS are inlined per page; only shared styles live in `css/aurora.css`.
 
 ## Deployment
 
-The website is hosted on GitHub Pages at: https://erich9673.github.io/DataPingo/
+Pushing to `main` publishes automatically. `CNAME` pins the custom domain and `.nojekyll`
+stops GitHub from running Jekyll over the files.
 
-## Contributing
+### Load-bearing — don't delete
 
-1. Make your changes locally
-2. Test across different browsers and devices
-3. Commit your changes
-4. Push to the repository
+- **`assets/Company Logo/DataPingo logo_LOGO A3.png`** — the nav/footer logo, referenced by
+  every page. An unused file with the *same name* once sat under `assets/img/`; don't confuse them.
+- **Legacy redirect stubs** (`products/bulk-page-cloner/index.html` and four others) keep
+  previously-indexed trailing-slash URLs alive. Deleting one 404s a real URL.
+- **`site.webmanifest`** references `assets/img/favicon-192.png` and `favicon-512.png`, so
+  those are in use even though no HTML links them.
 
-## Browser Support
+### Conventions
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+- Canonical URLs use the apex host — no `www`, no `.html`.
+- Images carry intrinsic `width`/`height` so the browser reserves space (avoids layout shift);
+  CSS still controls the rendered size.
+- Screenshots are JPEG q=82; brand/product icons are PNG sized to ~2× their display box.
+- Referenced image paths are URL-encoded (`%20` for spaces) — grep for both forms when
+  checking whether an asset is used.
