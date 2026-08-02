@@ -12,7 +12,7 @@
   --teal:    #05CEF0;
   --purple:  #7C4DCC;
   --white:   #E8F4FF;
-  --slate:   #5E7A9A;
+  --slate:   #6B86A4;
 
   --black-2:       #060E1C;
   --black-3:       #0A1628;
@@ -941,3 +941,29 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
 }
 .roa-badge svg { fill: currentColor; flex-shrink: 0; }
 .product-tag-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+
+/* ── Cookie banner touch targets ─────────────
+   iubenda injects its banner into our DOM with 36px buttons and a 32px close.
+   It is the first thing a mobile visitor taps, so bring it up to the same 44px
+   floor as the rest of the site. iubenda's own rules carry !important, so these
+   are scoped through #iubenda-cs-banner to win on specificity. */
+@media (max-width: 768px) {
+  #iubenda-cs-banner .iubenda-cs-opt-group button,
+  #iubenda-cs-banner .iubenda-cs-accept-btn,
+  #iubenda-cs-banner .iubenda-cs-reject-btn,
+  #iubenda-cs-banner .iubenda-cs-customize-btn {
+    min-height: 44px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  /* the close control sets explicit width/height, so match on those */
+  #iubenda-cs-banner button.iubenda-cs-close-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
