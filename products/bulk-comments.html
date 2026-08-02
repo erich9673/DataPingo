@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira | DataPingo</title>
-  <meta name="description" content="Bulk comment on multiple Jira issues at once. Write one comment for up to 25 tickets, a different comment for each, or copy an existing comment with its images, videos and files up to 150 MB each.">
+  <meta name="description" content="Bulk comment on Jira issues. Post one comment to up to 25 tickets, a different comment for each, or copy an existing comment with its media.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/products/bulk-comments">
   <meta property="og:type" content="website">
@@ -27,7 +27,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
@@ -147,7 +147,7 @@
     .hv-media.in { opacity: 1; transform: none; }
     .hv-media svg { width: 12px; height: 12px; color: #A5B4FC; flex-shrink: 0; }
     .hv-media .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .hv-media b { margin-left: auto; color: #C7D2FE; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .hv-media b { font-weight: 700; margin-left: auto; color: #C7D2FE; font-variant-numeric: tabular-nums; flex-shrink: 0; }
     .hv-view { position: absolute; inset: 0; display: none; }
     .hv-view.on { display: block; }
     .hv-eyebrow { display: flex; align-items: center; gap: 7px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em;
@@ -185,7 +185,7 @@
     .hv-link .lk.show { opacity: 1; }
     .hv-link .lk .foc { color: #A5B4FC; }
     .hv-sendlabel { display: flex; align-items: center; justify-content: space-between; font-size: 0.64rem; font-weight: 700; color: var(--slate); margin-bottom: 11px; }
-    .hv-sendlabel b { color: #A5B4FC; font-variant-numeric: tabular-nums; }
+    .hv-sendlabel b { font-weight: 700; color: #A5B4FC; font-variant-numeric: tabular-nums; }
     .hv-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; }
     .hv-cell { height: 28px; border-radius: 6px; background: var(--black-3); border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
@@ -195,7 +195,7 @@
 
     .hv-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
     .hv-stat { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
-    .hv-stat b { color: #A5B4FC; }
+    .hv-stat b { font-weight: 700; color: #A5B4FC; }
     .hv-post { border: none; cursor: pointer; font-family: inherit; font-size: 0.76rem; font-weight: 700; color: #fff;
       background: linear-gradient(135deg, #6366F1, #7C3AED); border-radius: 9px; padding: 9px 16px; display: inline-flex;
       align-items: center; gap: 7px; white-space: nowrap; transition: box-shadow 0.15s, transform 0.12s; }
@@ -289,7 +289,7 @@
     .hiw-tab-btn:hover { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.05); }
     .hiw-tab-btn.active { border-color: rgba(99,102,241,0.6); background: rgba(99,102,241,0.07); }
     .hiw-tab-num {
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: #A5B4FC; margin-bottom: 6px; display: block;
     }
     .hiw-tab-title {
@@ -422,7 +422,7 @@
     .calc-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0 20px; }
     .calc-total-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px; }
     .calc-total-label { font-size: 0.88rem; color: var(--white); font-weight: 700; }
-    .calc-total-price { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; }
+    .calc-total-price { font-size: 2rem; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; color: var(--white); line-height: 1; }
     .calc-total-period { font-size: 0.78rem; color: var(--slate); margin-bottom: 24px; }
     .calc-free-badge {
       padding: 8px 14px; border-radius: 8px; text-align: center;
@@ -600,7 +600,7 @@
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
       <a href="/" class="logo-link" aria-label="DataPingo home">
-        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
         <span class="logo-wordmark">DataPingo</span>
       </a>
       <div class="nav-links" role="menubar">
@@ -692,7 +692,7 @@
     <div class="product-hero-inner">
       <div class="product-hero-text">
         <div class="product-hero-meta">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-hero-icon">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-hero-icon" width="192" height="192">
           <div class="product-hero-badges">
             <span class="product-hero-tag">Jira App</span>
             <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
@@ -1120,7 +1120,7 @@
     </div>
   </section>
 
-  <!-- PRICING (placeholder — no confirmed Marketplace tiers yet) -->
+  <!-- PRICING -->
   <section class="pricing-section" aria-labelledby="pricing-heading">
     <div class="section-wrap">
       <header class="section-header reveal">
@@ -1281,7 +1281,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-logo-row" aria-label="DataPingo home">
-          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
