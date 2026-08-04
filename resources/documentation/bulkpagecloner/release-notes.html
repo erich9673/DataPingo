@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>Bulk Page Cloner — Documentation & How-To Guide</title>
-  <meta name="description" content="Complete documentation for Bulk Page Cloner for Confluence — automate page cloning, space management, and content duplication on Atlassian Forge.">
+  <title>Bulk Page Cloner — Release Notes & Changelog</title>
+  <meta name="description" content="Release history for Bulk Page Cloner for Confluence — every version, what changed and when.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkpagecloner">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkpagecloner/release-notes">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkpagecloner">
-  <meta property="og:title" content="Bulk Page Cloner — Documentation & How-To Guide">
+  <meta property="og:title" content="Bulk Page Cloner — Release Notes & Changelog">
   <meta property="og:description" content="Complete documentation for Bulk Page Cloner for Confluence.">
   <meta property="og:site_name" content="DataPingo">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Bulk Page Cloner for Confluence — documentation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bulk Page Cloner — Documentation & How-To Guide">
+  <meta name="twitter:title" content="Bulk Page Cloner — Release Notes & Changelog">
   <meta name="twitter:description" content="Complete documentation for Bulk Page Cloner for Confluence.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -488,8 +488,8 @@
       <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
         <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(5,206,240,0.2);" width="80" height="80">
       </div>
-      <h1 style="text-align:center;">Bulk Page Cloner for Confluence</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Duplicate up to 25 Confluence pages in one guided flow — with a live clone summary and full light &amp; dark mode.</p>
+      <h1 style="text-align:center;">Release notes</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every released version of Bulk Page Cloner for Confluence, newest first &mdash; what changed and when.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
         <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.0.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
@@ -500,14 +500,8 @@
         <span class="doc-hero-badge">Confluence Cloud</span>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;">
-        <a href="#overview" class="btn-secondary btn-secondary--purple">Overview</a>
-        <a href="#limits" class="btn-secondary btn-secondary--purple">Limits</a>
-        <a href="#full-guide" class="btn-secondary btn-secondary--purple">Full Guide</a>
-        <a href="/resources/documentation/bulkpagecloner/release-notes" class="btn-secondary btn-secondary--purple">Release notes</a>
-        <a href="/resources/documentation/bulkpagecloner/troubleshooting" class="btn-secondary btn-secondary--purple">Troubleshooting</a>
-        <a href="/resources/documentation/bulkpagecloner/specs" class="btn-secondary btn-secondary--purple">Specs &amp; security</a>
-        <a href="#installation" class="btn-secondary btn-secondary--purple">Installation</a>
-        <a href="#support" class="btn-secondary btn-secondary--purple">Support &amp; Contact</a>
+        <a href="/resources/documentation/bulkpagecloner" class="btn-secondary">&larr; Back to the guide</a>
+
       </div>
     </div>
   </section>
@@ -515,202 +509,113 @@
   <!-- Two-column doc layout -->
   <div class="doc-layout">
 
-    <!-- Sidebar TOC -->
     <aside class="doc-sidebar">
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
-        <a href="/resources/documentation/bulkpagecloner" class="is-current">Guide</a>
-        <a href="/resources/documentation/bulkpagecloner/release-notes">Release notes</a>
+        <a href="/resources/documentation/bulkpagecloner">Guide</a>
+        <a href="/resources/documentation/bulkpagecloner/release-notes" class="is-current">Release notes</a>
         <a href="/resources/documentation/bulkpagecloner/troubleshooting">Troubleshooting</a>
         <a href="/resources/documentation/bulkpagecloner/specs">Specs &amp; security</a>
       </nav>
-      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
-      <nav class="doc-toc">
-        <a href="#installation">Installation</a>
-        <a href="#overview">Overview</a>
-        <a href="#limits">Limits</a>
-        <a href="#full-guide">Full Guide</a>
-        <a href="#support">Support &amp; Contact</a>
-      </nav>
     </aside>
 
-    <!-- Content -->
     <div class="doc-content">
 
-      <section id="installation" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Installation</h2>
-        <p>Installing takes about a minute and needs a Confluence Cloud site admin, since apps are installed site-wide.</p>
-        <ol>
-          <li>Open <a href="https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence" target="_blank" rel="noopener">Bulk Page Cloner for Confluence</a> on the Atlassian Marketplace, or search for it from <strong>Apps &rarr; Explore more apps</strong> inside Confluence.</li>
-          <li>Click <strong>Try it free</strong> and choose your Confluence Cloud site.</li>
-          <li>Accept the permissions it asks for: read and write Confluence pages, read spaces and labels, and app storage. Nothing else is requested — see <a href="/resources/documentation/bulkpagecloner/specs#permissions">Permissions Required</a> for what each one does.</li>
-          <li>Open it from <strong>Apps</strong> in the left sidebar, from any page's <strong>&bull;&bull;&bull;</strong> actions menu, or by typing <code>/bulkpage</code> in the editor.</li>
-        </ol>
-        <div class="doc-tip">
-          <p><strong>Free for teams of 10 or fewer.</strong> Above that, paid tiers are billed through the Atlassian Marketplace on your existing Atlassian invoice — there is no separate DataPingo account to create and no card to enter with us.</p>
-        </div>
-        <p>Removing the app is just as clean. Uninstalling from <strong>Apps &rarr; Manage apps</strong> deletes everything it stored, and pages you already created stay in Confluence as ordinary pages.</p>
-      </section>
-
-      <section id="overview" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
-        <p>Bulk Page Cloner is an Atlassian Forge app for Confluence Cloud that duplicates up to 25 pages from a single template in one guided flow. Each clone is an exact copy — content, formatting, images, video, macros, labels, and attachments included — ready to edit independently. A live clone summary builds as you go, and the whole app supports full light and dark mode matched to your Confluence theme.</p>
-        <div class="doc-tip">
-          <p><strong>Pro Tip:</strong> This tool is perfect for teams that need to maintain consistency across multiple Confluence spaces or quickly replicate content structures for new projects.</p>
-        </div>
-      </section>
-
-      <section id="limits" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>Limits</h2>
-        <p>Two numbers bound a single clone, and one that belongs to Confluence rather than the app.</p>
-
-        <table class="spec-table" style="margin-top:20px;">
+<section id="version-history" style="scroll-margin-top:100px;">
+        <h2 id="all-releases"><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Version History</h2>
+        <table class="spec-table">
           <thead>
-            <tr><th>Limit</th><th>Value</th><th>Counted how</th></tr>
+            <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Copies per clone</strong></td><td>25</td><td>Per run. The slider stops at 25, and typing a larger number into the box snaps back to it.</td></tr>
-            <tr><td><strong>Source pages per clone</strong></td><td>1</td><td>Every copy comes from the one page you picked in Step&nbsp;1. To clone from a second template, run the flow again.</td></tr>
-            <tr><td><strong>Confluence storage</strong></td><td>Your plan&rsquo;s quota</td><td>Not the app&rsquo;s limit and not visible to it &mdash; see below.</td></tr>
+            <tr><td><strong>10.0.0</strong></td><td>Jul 23, 2026</td><td>Removed the unused search permission — no functional changes</td></tr>
+            <tr><td>9.0.0</td><td>Jul 19, 2026</td><td>Maintenance release — reduced permissions, no functional changes</td></tr>
+            <tr><td>7.1.0</td><td>Jul 6, 2026</td><td>Ground-up redesign: guided 4-step flow, dark mode, live clone summary, and safety warnings</td></tr>
+            <tr><td>7.0.0</td><td>Jun 22, 2026</td><td>Copies videos &amp; attachments + searchable parent picker &amp; speed boosts</td></tr>
+            <tr><td>6.0.0</td><td>Jun 3, 2026</td><td>Improved bulk page cloning UX and updated Confluence Cloud permission scopes</td></tr>
+            <tr><td>5.0.0</td><td>Jun 3, 2026</td><td>Required scopes changed</td></tr>
+            <tr><td>4.0.0</td><td>May 1, 2026</td><td>Minor version update</td></tr>
+            <tr><td>3.0.0</td><td>Feb 11, 2026</td><td>Payment model changed</td></tr>
+            <tr><td>2.5.0</td><td>Feb 3, 2026</td><td>Initial release — streamlined bulk page creation for Confluence Cloud</td></tr>
           </tbody>
         </table>
 
-        <h3>Cloning costs storage, because attachments are copied too</h3>
-        <p>A copy is a real duplicate, not a link to the original. Attachments come with it, which is what makes embedded video and images render on the copy instead of breaking &mdash; but it means the files are written again for every page you create. Clone a page carrying a 50&nbsp;MB video 25 times and Confluence stores roughly <strong>1.25&nbsp;GB</strong>, not 50&nbsp;MB.</p>
+        <h3 style="margin-top:36px;">Release Notes</h3>
 
-        <div class="doc-warning">
-          <p><strong>Confluence enforces its own quota, and the app cannot see it.</strong> If your site is at its storage limit, Confluence blocks new content with a banner like &ldquo;<em>You can&rsquo;t edit or create new content in Confluence until you upgrade for more storage or delete files</em>&rdquo;, and a clone will fail for that reason rather than anything the app did. Free space in Confluence or upgrade the plan, then run the clone again. A page with no attachments costs almost nothing to duplicate, so this only bites on media-heavy templates.</p>
-        </div>
-
-        <p>There is no per-file size limit in the app itself. Copying is performed by Confluence&rsquo;s own server-side copy operation, so whatever the source page can hold, a copy can hold too.</p>
-      </section>
-
-      <section id="full-guide" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Full Guide</h2>
-
-        <h3>Open the App (3 ways)</h3>
-        <ol>
-          <li>Click <strong>Bulk Page Cloner for Confluence</strong> under Apps on the left side of your screen.</li>
-          <li>Type <strong>/bulkpage</strong> in any Confluence page and select <strong>Bulk Page Cloner for Confluence</strong>.</li>
-          <li>Open the <strong>&bull;&bull;&bull;</strong> menu on any page and select <strong>Create Bulk Pages</strong>.</li>
-        </ol>
-
-        <p>The app walks you through a four-step flow — <strong>Source</strong>, <strong>Copies</strong>, <strong>Location</strong>, <strong>Done</strong> — with a progress bar at the top. From the Copies step onward, a live <strong>clone summary</strong> shows your source, copy count, and destination, updating as you go so you can review everything before anything is created.</p>
-
-        <h3>Step 1 — Source</h3>
-        <p>Pick the one page every copy will be made from. The list is instance-wide rather than scoped to the space you happen to be in, so you can clone a template out of one space into another without leaving the app.</p>
-        <ul>
-          <li><strong>Search page titles</strong> — matches across every space you have permission to read. The count above the table (&ldquo;566 pages&rdquo;) tells you how much is currently in scope, so you can see whether a filter is doing anything.</li>
-          <li><strong>Filter by space</strong> — narrow to a single space, or leave it on <strong>All Spaces</strong>. Useful when a title like &ldquo;Onboarding&rdquo; exists in four different spaces.</li>
-          <li><strong>Have a link? Paste a page URL</strong> — if the page is already open in another tab, paste its URL and skip searching entirely. This is the reliable route when several pages share a name, because a URL identifies exactly one page.</li>
-        </ul>
-        <p>Each row shows the page title, the <strong>space</strong> it lives in and when it was <strong>modified</strong> — enough to tell two similarly named pages apart before you commit. Click <span class="ui">Select</span> on the row you want and the app moves straight to Step 2.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 1: Source — choose a page to clone" loading="lazy" width="1280" height="626">
-        </div>
-
-        <h3>Step 2 — Copies</h3>
-        <p>How many, and what each one is called. Every copy is a full duplicate of the source — content, formatting, images, video, macros, labels and attachments included.</p>
-        <ol>
-          <li>Set the <strong>Number of copies</strong> by dragging the slider or typing into the box beside it. The range is <strong>1&ndash;25</strong> whichever way you set it; typing a bigger number snaps back to 25 rather than erroring.</li>
-          <li>Give each copy a title. One numbered field appears per copy, and the <span class="ui">Continue to location</span> button stays disabled until every field has something in it.</li>
-        </ol>
-
-        <h4>Naming shortcuts</h4>
-        <p>Three shortcuts sit above the title fields, and it is worth knowing exactly what each does before you rely on it:</p>
-        <ul>
-          <li><strong>Auto-number</strong> — rewrites <em>every</em> field as a numbered series: &ldquo;Vacation Policy 1&rdquo;, &ldquo;Vacation Policy 2&rdquo;, and so on. It takes the stem from the first title field if you have typed one, and falls back to the source page&rsquo;s own title if you have not. It is a plain sequence — there is no date or weekday logic.</li>
-          <li><strong>Copy first to all</strong> — fills every field with whatever is in the first one. It does nothing if the first field is still empty.</li>
-          <li><strong>Clear all</strong> — empties every title field in one click, leaving the copy count alone.</li>
-        </ul>
-
-        <h4>Duplicate titles</h4>
-        <p>Confluence requires page titles to be unique within a space. If two of your titles match, the app says so before you continue &mdash; <em>&ldquo;Some titles match. Confluence auto-numbers duplicate page titles in a space.&rdquo;</em> &mdash; and <strong>Auto-number</strong> is the one-click fix. If you go ahead anyway nothing breaks: the app de-duplicates on the way out, appending <code>(1)</code>, <code>(2)</code> and so on, which is the same thing Confluence would do to you.</p>
-
-        <h4>The clone summary</h4>
-        <p>The panel on the right updates as you work, so the whole job is visible before any of it happens: the <strong>source</strong> page, how many titles you have filled in (&ldquo;0 of 3 named&rdquo;), the <strong>destination</strong> once you have set one in Step&nbsp;3, and the count of pages that will be created. Nothing is written to Confluence until you press the button on Step&nbsp;3.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 2: Copies — name the copies with a live clone summary" loading="lazy" width="1280" height="626">
-        </div>
-        <div class="doc-warning">
-          <p><strong>Heads-up before you create:</strong> the app warns you when a source page @mentions people (each copy notifies them again), for large batches of 10+ pages, and for duplicate titles before Confluence auto-numbers them.</p>
-        </div>
-
-        <h3>Step 3 — Location</h3>
-        <p>Where the copies land. The destination space does <em>not</em> have to be the space the source page lives in — cloning a template out of one space into another is the normal case, not an edge case.</p>
-        <ol>
-          <li>Pick the destination <strong>Space</strong>.</li>
-          <li>Choose how the copies are organised. There are three options, and the difference is where they sit in the page tree:
+        <details class="release-note" open>
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v10.0.0
+            <span class="rn-tag">Latest</span>
+            <span class="rn-date">July 23, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A permissions-only release. Cloning, the interface and data handling are identical to 9.0.0.</p>
             <ul>
-              <li><strong>As a child of an existing page</strong> — copies become child pages under a parent you pick. A <span class="ui">Parent page</span> search appears below; the parent has to already exist.</li>
-              <li><strong>As parent pages in [Space]</strong> — copies sit at the space root with no parent above them. Use this when each copy is a top-level document in its own right.</li>
-              <li><strong>As child pages of a new parent</strong> — the app creates one new parent page first, then files every copy underneath it. You give the parent its own title in <span class="ui">New parent page title</span>. This is the tidiest option for a batch that belongs together, because it leaves the space root untouched.</li>
+              <li><strong>One fewer permission</strong> &mdash; <code>search:confluence</code> has been removed. The app never called Confluence&rsquo;s search API, so the scope was never needed.</li>
+              <li><strong>The searchable parent picker still works</strong> &mdash; it loads the pages in your space and filters them in your browser, which never used the search permission.</li>
+              <li><strong>No functional changes</strong> &mdash; cloning, the template picker, labels, attachments, macros and page properties all behave exactly as before.</li>
+              <li><strong>Runs on Atlassian preserved</strong> &mdash; still no external network access, and no data leaves your Confluence instance.</li>
             </ul>
-          </li>
-        </ol>
-        <p>The clone summary now shows the full destination. When it reads correctly, click <span class="ui">Create <em>n</em> pages</span> — the button names the number, so you get one last chance to notice if it says 25 when you meant 3.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 3: Location — set where the copies are created" loading="lazy" width="1280" height="626">
-        </div>
-
-        <h3>Step 4 — Done</h3>
-        <p>A confirmation screen lists every created page with a direct <strong>Open</strong> link, so you can jump straight in to start editing — or clone more pages in one click.</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 4: Done — every created page with a direct link" loading="lazy" width="1280" height="626">
-        </div>
-
-        <h3>Light &amp; Dark Mode</h3>
-        <p>Bulk Page Cloner has full light and dark theme support that matches your Confluence theme and switches live — no reload needed. Here's the same flow in dark mode:</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).jpg" alt="Bulk Page Cloner in dark mode" loading="lazy" width="1280" height="626">
-        </div>
-
-        <h3>Watch the Full Tutorial</h3>
-        <p>Watch our full walkthrough to see Bulk Page Cloner in action — from selecting a template to bulk-creating 25 pages in seconds.</p>
-        <div class="doc-img-card doc-video" id="bpcVideo">
-          <button type="button" class="doc-video-play" id="bpcVideoPlay" aria-label="Play the Bulk Page Cloner tutorial video">
-            <span class="doc-video-ring" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-            <span class="doc-video-label">Bulk Page Cloner &mdash; full walkthrough</span>
-            <span class="doc-video-sub">Loads YouTube only when you press play</span>
-          </button>
-        </div>
-        <p class="doc-video-fallback">Prefer to watch it there? <a href="https://youtu.be/Ew8wpqPWk1M" target="_blank" rel="noopener">Open the tutorial on YouTube &#8599;</a></p>
-      </section>
-
-      
-
-      
-
-      
-
-      <section id="support" style="scroll-margin-top:100px;">
-        <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--teal)" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Support &amp; Contact</h2>
-        <p>For technical support, feature requests, or general questions:</p>
-        <ul>
-          <li><strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
-          <li><strong>Response Time:</strong> Within one business day</li>
-          <li><strong>Support Scope:</strong> App functionality and technical issues</li>
-        </ul>
-
-        <div class="doc-support-grid">
-          <div class="doc-support-card">
-            <h3>Documentation</h3>
-            <p>Updated regularly with new features</p>
-            <a href="/resources/documentation">Browse Docs &rarr;</a>
+            <div class="doc-tip">
+              <p><strong>Your admin may need to approve the upgrade.</strong> Because the required permissions changed, Confluence may ask a site admin to confirm before the new version installs.</p>
+            </div>
           </div>
-          <div class="doc-support-card">
-            <h3>Support Portal</h3>
-            <p>Submit tickets and track issues</p>
-            <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">Open Ticket &rarr;</a>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v9.0.0
+            <span class="rn-date">July 19, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A maintenance release. Cloning behaviour, the interface and data handling are identical to 7.1.0 &mdash; this release only reduces what the app asks for.</p>
+            <ul>
+              <li><strong>Fewer permissions</strong> — the app no longer requests the email-address scope.</li>
+              <li><strong>No external network access</strong> — every operation runs on Atlassian infrastructure, and no data leaves your Confluence instance.</li>
+              <li><strong>Runs on Atlassian verified</strong> — the app meets Atlassian's criteria for the Runs on Atlassian badge.</li>
+              <li><strong>No functional changes</strong> — nothing to relearn, and no action needed on your side.</li>
+            </ul>
+            <div class="doc-tip">
+              <p><strong>Where did 8.0.0 go?</strong> Version 8.0.0 was withdrawn shortly after release and never became generally available. Version 9.0.0 supersedes it.</p>
+            </div>
           </div>
-          <div class="doc-support-card">
-            <h3>Community</h3>
-            <p>Join discussions in Atlassian Community</p>
-            <a href="https://community.atlassian.com/" target="_blank" rel="noopener">Visit Community &rarr;</a>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v7.1.0
+            <span class="rn-tag" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#A78BFA;">Feature release</span>
+            <span class="rn-date">July 6, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A ground-up redesign of the cloning experience:</p>
+            <ul>
+              <li><strong>Guided 4-step flow</strong> — A clear Source → Copies → Location → Done flow with a progress bar and a live clone summary that builds as you go, so you review everything before you create.</li>
+              <li><strong>Full dark mode</strong> — Light and dark theme support that matches your Confluence theme and switches live, no reload needed.</li>
+              <li><strong>Smarter &amp; safer</strong> — A heads-up when a source page @mentions people (each copy notifies them again), plus warnings for large batches (10+ pages) and duplicate titles before Confluence auto-numbers them.</li>
+              <li><strong>Search-first picking</strong> — A searchable space and parent-page selector that loads every page in the space, an editable copy count, and clearer wording using Confluence's own parent/child terms.</li>
+              <li><strong>Faster under the hood</strong> — Caching and rendering improvements across the cloning pipeline.</li>
+            </ul>
           </div>
-        </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v7.0.0
+            <span class="rn-date">June 22, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <ul>
+              <li><strong>Attachments &amp; video now copy</strong> — Copies are made through Confluence's own copy API, so images, files and embedded video come across intact instead of showing "Preview unavailable".</li>
+              <li><strong>Searchable parent picker</strong> — Pick any page in the space as the parent, with search across the full page list.</li>
+              <li><strong>Speed boosts</strong> — Faster page loading across large spaces.</li>
+            </ul>
+          </div>
+        </details>
       </section>
 
     </div>

@@ -122,6 +122,54 @@
     {
       "source": "/support/",
       "destination": "/support.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes",
+      "destination": "/resources/documentation/bulkcomments/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/",
+      "destination": "/resources/documentation/bulkcomments/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/troubleshooting",
+      "destination": "/resources/documentation/bulkcomments/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/troubleshooting/",
+      "destination": "/resources/documentation/bulkcomments/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/troubleshooting",
+      "destination": "/resources/documentation/bulkpagecloner/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/troubleshooting/",
+      "destination": "/resources/documentation/bulkpagecloner/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/specs",
+      "destination": "/resources/documentation/bulkcomments/specs.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/specs/",
+      "destination": "/resources/documentation/bulkcomments/specs.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/specs",
+      "destination": "/resources/documentation/bulkpagecloner/specs.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/specs/",
+      "destination": "/resources/documentation/bulkpagecloner/specs.html"
     }
   ]
 }
