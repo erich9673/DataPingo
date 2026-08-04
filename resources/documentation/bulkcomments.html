@@ -178,7 +178,10 @@
       width: 100%; height: auto; display: block;
       border-radius: 10px; border: 1px solid var(--border);
       box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      /* Opens in the lightbox, same as .doc-img-card — the affordance has to say so */
+      cursor: zoom-in; transition: border-color 0.2s;
     }
+    .doc-figure img:hover { border-color: rgba(99,102,241,0.4); }
     .doc-figure figcaption {
       margin-top: 11px; font-size: 0.84rem; color: var(--slate); line-height: 1.65;
     }
@@ -870,6 +873,18 @@
           <p><strong>2&nbsp;GB is the ceiling for one send.</strong> That is the total across every ticket, added together rather than multiplied out per ticket &mdash; one ticket at 700&nbsp;MB, another at 1&nbsp;GB and a third at 300&nbsp;MB comes to 2&nbsp;GB and still goes. Past that the send stops before it starts and asks you to revise the comments or work in smaller batches, rather than failing halfway through and leaving some tickets done and some not. The per-file limit of 150&nbsp;MB applies separately and is checked the moment you attach.</p>
         </div>
 
+        <h3>Light and dark</h3>
+        <p>There is no theme setting to find, because the app does not have a theme of its own. It renders in whichever colour scheme Jira hands it, so it is light when your Jira is light and dark when your Jira is dark &mdash; including the comment editor, the status lozenges and the readiness badges, which are tinted for each scheme rather than inverted.</p>
+        <p>Every screen in this guide looks like this in dark:</p>
+        <figure class="doc-figure">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-dark.webp" alt="The Comment step in dark mode: the shared comment card above a list of tickets, each with its status lozenge and a Ready badge, and the open ticket's panel on the right holding its description, details, attachments, a status change and its own comment editor." width="1680" height="910" loading="lazy" decoding="async">
+          <figcaption>Writing a per-ticket comment in dark mode. The same two panes, the same badges &mdash; <span class="ui">Ready &mdash; own</span> and <span class="ui">Not written</span> stay legible against the dark surface instead of being washed out.</figcaption>
+        </figure>
+        <figure class="doc-figure">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-03-send-dark.webp" alt="The Send step in dark mode: counters for updated, sending and failed, a row per ticket showing its status transition, and the buttons for Done and for undoing the send." width="1680" height="910" loading="lazy" decoding="async">
+          <figcaption>The Send step in dark mode, with the same live counters and the same one-click undo.</figcaption>
+        </figure>
+
       </section>
 
       
@@ -972,6 +987,11 @@
   </div>
 </footer>
 
+<!-- Lightbox -->
+<div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
+  <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
+  <img id="docLbImg" src="" alt="">
+</div>
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
@@ -1016,7 +1036,7 @@
   const lb = document.getElementById('docLightbox');
   const lbImg = document.getElementById('docLbImg');
   const lbClose = document.getElementById('docLbClose');
-  document.querySelectorAll('.doc-img-card img').forEach(img => {
+  document.querySelectorAll('.doc-img-card img, .doc-figure img').forEach(img => {
     img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
   });
   const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
@@ -1024,11 +1044,6 @@
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 </script>
-<!-- Lightbox -->
-<div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
-  <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
-</div>
 
 </body>
 </html>

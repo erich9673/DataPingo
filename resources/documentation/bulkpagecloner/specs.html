@@ -629,6 +629,11 @@
   </div>
 </footer>
 
+<!-- Lightbox -->
+<div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
+  <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
+  <img id="docLbImg" src="" alt="">
+</div>
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
@@ -698,11 +703,6 @@
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 </script>
-<!-- Lightbox -->
-<div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
-  <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
-</div>
 
 </body>
 </html>

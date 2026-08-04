@@ -39,6 +39,13 @@
     /* Hero */
     .product-hero {
       padding: 140px 0 100px;
+      /* Own the first screen. This page already cleared the fold on a 1280x800
+         laptop, but only because the 25-tile grid happens to be tall — on a taller
+         monitor the Highlights eyebrow crept back in. Stated outright so both
+         product pages behave the same at every window height.
+         Content stays top-aligned, so the slack lands as extra room at the foot of
+         the hero rather than shifting the H1 off the shared baseline. */
+      min-height: 100vh; min-height: 100dvh;
       position: relative; overflow: hidden;
     }
     .product-hero::before {
@@ -59,6 +66,21 @@
     }
     /* The demo still centres against the copy block. */
     .product-hero-inner > :last-child { align-self: center; }
+
+    /* Centre the hero's content in whatever slack min-height:100vh creates, so a
+       tall monitor gets balanced air above and below rather than a 460px void at
+       the foot of the hero.
+       width:100% is load-bearing: as a flex item .product-hero-inner's auto
+       horizontal margins suppress stretch, and shrink-to-fit sizing of a grid with
+       a minmax(0,1fr) track is not worth leaving to chance.
+       min-height pins the grid row to the taller of the two demos (618px on Bulk
+       Page Cloner vs 506 here), so the centring offset works out identical on both
+       product pages and the H1s still share a baseline — the same reason the row
+       uses align-items:start. */
+    @media (min-width: 901px) {
+      .product-hero { display: flex; flex-direction: column; justify-content: center; }
+      .product-hero-inner { width: 100%; min-height: 620px; }
+    }
     .product-hero-text {
       display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
     }
@@ -175,12 +197,20 @@
         display: flex; flex-direction: column; align-items: stretch; gap: 0;
       }
       .product-hero-text { display: contents; }
-      .product-hero-meta    { order: 1; margin-bottom: 22px; flex-wrap: nowrap; }
+      /* The 140px desktop top pad left ~70px of dead air under the 69px fixed
+         navbar once the title led the page. Pulled in so the title sits just
+         below the bar rather than floating a third of the way down the screen. */
+      .product-hero { padding-top: 104px; }
+      /* Title first once the layout stacks: it names the page, so it should be the
+         first thing read. The icon and badges follow it rather than pushing it
+         down the screen. Desktop keeps the meta row on top, where it sits beside
+         the demo instead of above the fold on its own. */
+      .product-hero h1      { order: 1; margin-bottom: 22px; }
+      .product-hero-meta    { order: 2; margin-bottom: 26px; flex-wrap: nowrap; }
       /* Three across needs 396px but only 382px is free at 430w — and far
          less at 375w. Stack the badges beside the icon instead, so neither
          one takes a full row. */
       .product-hero-badges  { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .product-hero h1      { order: 2; margin-bottom: 26px; }
       .bpc-clone            { order: 3; width: 100%; max-width: 520px;
                               margin: 0 auto 28px; align-self: center; }
       .product-hero-sub     { order: 4; margin-bottom: 28px; }
