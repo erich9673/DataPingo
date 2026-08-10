@@ -491,7 +491,7 @@
       <h1 style="text-align:center;">Release notes</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every released version of Bulk Page Cloner for Confluence, newest first &mdash; what changed and when.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.0.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.1.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -528,6 +528,7 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
+            <tr><td><strong>10.1.0</strong></td><td>Aug&nbsp;7, 2026</td><td>Runs report what didn&rsquo;t carry over; page titles no longer logged</td></tr>
             <tr><td><strong>10.0.0</strong></td><td>Jul 23, 2026</td><td>Removed the unused search permission — no functional changes</td></tr>
             <tr><td>9.0.0</td><td>Jul 19, 2026</td><td>Maintenance release — reduced permissions, no functional changes</td></tr>
             <tr><td>7.1.0</td><td>Jul 6, 2026</td><td>Ground-up redesign: guided 4-step flow, dark mode, live clone summary, and safety warnings</td></tr>
@@ -545,8 +546,27 @@
         <details class="release-note" open>
           <summary>
             <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            v10.0.0
+            v10.1.0
             <span class="rn-tag">Latest</span>
+            <span class="rn-date">August 7, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>Mostly about telling you the truth. A run used to report every page as created successfully even when parts of it had quietly failed.</p>
+            <ul>
+              <li><strong>Runs say what didn&rsquo;t carry over</strong> &mdash; if pages could not be placed in order, or the template&rsquo;s labels could not be applied, the results screen now says so and marks exactly which pages were affected. Previously the run reported complete success and only the app&rsquo;s own logs knew otherwise.</li>
+              <li><strong>Page titles are no longer written to logs</strong> &mdash; titles, space names and pasted URLs used to appear in the app&rsquo;s diagnostic logs. A page title alone can be sensitive, and we never needed it, so it is no longer recorded.</li>
+              <li><strong>Template snapshots are deleted after each run</strong> &mdash; the copy of your template taken at the start of a job is removed when the job finishes instead of being retained.</li>
+              <li><strong>Part-finished batches no longer mislabel pages</strong> &mdash; a batch that failed partway used to list pages it had actually created as failures, which led people to re-run and end up with duplicates.</li>
+              <li><strong>Ordering no longer anchors to a stale page</strong> &mdash; after a failed batch the next batch could place its pages after the wrong one, interleaving copies from different batches.</li>
+              <li><strong>Licence checked when you create pages</strong> &mdash; only an expired or cancelled licence is refused. Free and trial sites are unaffected, and browsing and picking a template keep working either way.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v10.0.0
             <span class="rn-date">July 23, 2026</span>
           </summary>
           <div class="rn-body">
@@ -687,7 +707,7 @@
 <!-- Lightbox -->
 <div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
   <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
+  <img id="docLbImg" alt="">
 </div>
 <script>
   const navbar = document.getElementById('navbar');
@@ -751,7 +771,7 @@
   const lbImg = document.getElementById('docLbImg');
   const lbClose = document.getElementById('docLbClose');
   document.querySelectorAll('.doc-img-card img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
   });
   const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
   lbClose.addEventListener('click', closeLb);

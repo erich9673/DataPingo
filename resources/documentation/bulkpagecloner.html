@@ -491,7 +491,7 @@
       <h1 style="text-align:center;">Bulk Page Cloner for Confluence</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Duplicate up to 25 Confluence pages in one guided flow — with a live clone summary and full light &amp; dark mode.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.0.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.1.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -782,7 +782,7 @@
 <!-- Lightbox -->
 <div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
   <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
+  <img id="docLbImg" alt="">
 </div>
 <script>
   const navbar = document.getElementById('navbar');
@@ -846,7 +846,7 @@
   const lbImg = document.getElementById('docLbImg');
   const lbClose = document.getElementById('docLbClose');
   document.querySelectorAll('.doc-img-card img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
   });
   const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
   lbClose.addEventListener('click', closeLb);

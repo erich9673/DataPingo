@@ -491,7 +491,7 @@
       <h1 style="text-align:center;">Troubleshooting</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.0.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.1.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -504,6 +504,8 @@
         <a href="#source" class="btn-secondary">The template page</a>
         <a href="#naming" class="btn-secondary">Naming the copies</a>
         <a href="#location" class="btn-secondary">Where copies land</a>
+        <a href="#results" class="btn-secondary">Results</a>
+        <a href="#licence" class="btn-secondary">Licence</a>
         <a href="#running" class="btn-secondary">Running the clone</a>
       </div>
     </div>
@@ -525,6 +527,8 @@
         <a href="#source">The template page</a>
         <a href="#naming">Naming the copies</a>
         <a href="#location">Where copies land</a>
+        <a href="#results">Results</a>
+        <a href="#licence">Licence</a>
         <a href="#running">Running the clone</a>
       </nav>
     </aside>
@@ -611,6 +615,37 @@
         </div>
       </section>
 
+      <section id="results" style="scroll-margin-top:100px;">
+        <h2>Results that are not quite complete</h2>
+        <p>A run can create every page and still not manage everything it set out to do. Rather than report plain success, the results screen names what did not carry over and marks the pages affected.</p>
+        <div class="ts-item">
+          <p class="ts-msg">N pages could not be placed in order; they were still created. Drag them in the page tree to reorder.</p>
+          <p class="ts-cause">The pages exist and their content is correct &mdash; only their position failed. Confluence refused the reorder call, most often because the app is running an older version on this site that lacks the permission that call needs.</p>
+          <p class="ts-fix">Reorder them by dragging in the Confluence page tree; nothing needs recreating. To stop it recurring, ask a site admin to update the app: <span class="ui">Apps &rarr; Manage apps &rarr; Bulk Page Cloner</span>, then update. Major updates are not installed automatically, so a site can sit several versions behind without anyone noticing.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg">N pages did not receive the template&rsquo;s labels; the page content was still copied.</p>
+          <p class="ts-cause">The same cause as ordering above. The pages and their content are intact; only the labels are missing.</p>
+          <p class="ts-fix">Add the labels by hand, or update the app and clone again. Affected pages are marked <span class="ui">no labels</span> in the results list, so you do not have to guess which.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg">N pages were created without attachments; page content was still copied.</p>
+          <p class="ts-cause">The app fell back to rebuilding the page from a stored copy instead of using Confluence&rsquo;s native copy, which is the step that carries attachments across. Usually the template was captured in a way that left no source page to copy from.</p>
+          <p class="ts-fix">Attach the files to the new pages yourself, or re-pick the template from the page list &mdash; rather than by pasting a URL &mdash; and clone again.</p>
+        </div>
+      </section>
+
+      <section id="licence" style="scroll-margin-top:100px;">
+        <h2>Licence</h2>
+        <p>The licence is checked when you create pages. Browsing, picking a template and naming copies all work either way.</p>
+        <div class="ts-item">
+          <p class="ts-msg">This site&rsquo;s licence for Bulk Page Cloner is no longer active. Renew it in Manage apps to start creating pages again.</p>
+          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your Confluence permissions &mdash; creating pages is unavailable for everyone on the site until it is renewed.</p>
+          <p class="ts-fix">A site admin renews from <span class="ui">Apps &rarr; Manage apps</span> in Confluence. Your chosen template and typed titles stay on screen, so the same run goes through afterwards with nothing to redo.</p>
+        </div>
+      </section>
+
+
 
 
     </div>
@@ -682,7 +717,7 @@
 <!-- Lightbox -->
 <div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
   <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
+  <img id="docLbImg" alt="">
 </div>
 <script>
   const navbar = document.getElementById('navbar');
@@ -746,7 +781,7 @@
   const lbImg = document.getElementById('docLbImg');
   const lbClose = document.getElementById('docLbClose');
   document.querySelectorAll('.doc-img-card img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
   });
   const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
   lbClose.addEventListener('click', closeLb);

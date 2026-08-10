@@ -460,7 +460,7 @@
       <h1 style="text-align:center;">Troubleshooting</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.1.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.2.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -475,6 +475,7 @@
         <a href="#permissions" class="btn-secondary">Permissions</a>
         <a href="#statuses" class="btn-secondary">Status changes</a>
         <a href="#sending" class="btn-secondary">Sending</a>
+        <a href="#licence" class="btn-secondary">Licence</a>
       </div>
     </div>
   </section>
@@ -497,6 +498,7 @@
         <a href="#permissions">Permissions</a>
         <a href="#statuses">Status changes</a>
         <a href="#sending">Sending</a>
+        <a href="#licence">Licence</a>
       </nav>
     </aside>
 
@@ -602,6 +604,22 @@
         </div>
       </section>
 
+      <section id="licence" style="scroll-margin-top:100px;">
+        <h2>Licence</h2>
+        <p>The licence is checked at the moment you send. Everything else &mdash; browsing tickets, writing, copying a comment link, undoing an earlier send &mdash; keeps working either way.</p>
+        <div class="ts-item">
+          <p class="ts-msg">This site&rsquo;s licence for Bulk Comments is no longer active. Renew it on the Atlassian Marketplace to start sending again.</p>
+          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your own Jira permissions &mdash; sending is unavailable for everyone on the site until it is renewed.</p>
+          <p class="ts-fix">A site admin renews the subscription from <span class="ui">Apps &rarr; Manage apps</span> in Jira, or from the Marketplace listing. Nothing you have written is lost &mdash; drafts survive &mdash; and the app re-checks when you come back to the tab, so the same send goes through with nothing to retype.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg">The send button is greyed out, with &ldquo;This site&rsquo;s licence is no longer active&rdquo; beside it.</p>
+          <p class="ts-cause">The same thing, said before you start rather than after. The button is disabled deliberately so you do not pick 25 tickets and write 25 comments only to be refused at the end.</p>
+          <p class="ts-fix">Renew, then return to this tab. If it is still disabled, reload once. Undo, delete and cancel are never blocked, so a send made before the lapse can still be rolled back in full.</p>
+        </div>
+      </section>
+
+
 
 
     </div>
@@ -673,7 +691,7 @@
 <!-- Lightbox -->
 <div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
   <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" src="" alt="">
+  <img id="docLbImg" alt="">
 </div>
 <script>
   const navbar = document.getElementById('navbar');
@@ -720,7 +738,7 @@
   const lbImg = document.getElementById('docLbImg');
   const lbClose = document.getElementById('docLbClose');
   document.querySelectorAll('.doc-img-card img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
   });
   const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
   lbClose.addEventListener('click', closeLb);
