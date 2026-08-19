@@ -209,6 +209,15 @@
   object-fit: contain;
   filter: drop-shadow(0 8px 32px rgba(5,206,240,0.25));
 }
+.blog-featured-visual.has-image {
+  background: var(--black-2);
+}
+.blog-featured-visual.has-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
 .blog-featured-badge {
   position: absolute;
   top: 16px;
@@ -282,7 +291,7 @@
   background: var(--black-2);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -293,6 +302,33 @@
   border-color: var(--teal-border);
   transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(5,206,240,0.08);
+}
+.blog-card-visual {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, rgba(5,206,240,0.1) 0%, rgba(5,206,240,0.02) 100%);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.blog-card-visual img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 20px rgba(5,206,240,0.2));
+}
+.blog-card-visual.has-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
+.blog-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .blog-card-tag {
   display: inline-block;
@@ -363,7 +399,7 @@
         <a href="/resources/blog/bulk-copy-confluence-pages-guide" class="blog-featured" id="blog-featured">
           <div class="blog-featured-visual has-image">
             <span class="blog-featured-badge">Latest</span>
-            <img src="/resources/blog/images/bulk-copy-confluence-pages-guide/1.jpg" alt="" loading="lazy">
+            <img src="/resources/blog/images/bulk-copy-confluence-pages-guide/4.svg" alt="" loading="lazy">
           </div>
           <div class="blog-featured-body">
             <span class="blog-featured-tag">Confluence</span>

@@ -1,0 +1,90 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="wash" cx="30%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="22" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#020911"/>
+  <rect width="1600" height="900" fill="url(#wash)"/>
+
+  <!-- ambient glow behind the source card -->
+  <rect x="260" y="260" width="230" height="330" rx="18" fill="#05CEF0" opacity="0.14" filter="url(#glow)"/>
+
+  <!-- ===== the six cards: JUL (real, solid) then AUG..DEC (generated, fading, teal->purple) ===== -->
+
+  <!-- DEC -->
+  <g opacity="0.36">
+    <rect x="910" y="170" width="230" height="330" rx="18" fill="#0A1628" stroke="#7C4DCC" stroke-opacity="0.55" stroke-width="1.5"/>
+    <rect x="946" y="212" width="120" height="10" rx="5" fill="#7C4DCC" opacity="0.55"/>
+    <rect x="946" y="238" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.4"/>
+    <rect x="946" y="256" width="130" height="7" rx="3.5" fill="#6B86A4" opacity="0.4"/>
+    <rect x="946" y="274" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.4"/>
+    <rect x="946" y="446" width="66" height="26" rx="13" fill="#7C4DCC" opacity="0.16" stroke="#7C4DCC" stroke-opacity="0.45"/>
+    <text x="979" y="463" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="1" fill="#7C4DCC">DEC</text>
+  </g>
+
+  <!-- NOV -->
+  <g opacity="0.46">
+    <rect x="780" y="188" width="230" height="330" rx="18" fill="#0A1628" stroke="#6467D3" stroke-opacity="0.55" stroke-width="1.5"/>
+    <rect x="816" y="230" width="120" height="10" rx="5" fill="#6467D3" opacity="0.6"/>
+    <rect x="816" y="256" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.45"/>
+    <rect x="816" y="274" width="130" height="7" rx="3.5" fill="#6B86A4" opacity="0.45"/>
+    <rect x="816" y="292" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.45"/>
+    <rect x="816" y="464" width="66" height="26" rx="13" fill="#6467D3" opacity="0.18" stroke="#6467D3" stroke-opacity="0.5"/>
+    <text x="849" y="481" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="1" fill="#9C9BE8">NOV</text>
+  </g>
+
+  <!-- OCT -->
+  <g opacity="0.58">
+    <rect x="650" y="206" width="230" height="330" rx="18" fill="#0A1628" stroke="#4C81DA" stroke-opacity="0.6" stroke-width="1.5"/>
+    <rect x="686" y="248" width="120" height="10" rx="5" fill="#4C81DA" opacity="0.65"/>
+    <rect x="686" y="274" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.5"/>
+    <rect x="686" y="292" width="130" height="7" rx="3.5" fill="#6B86A4" opacity="0.5"/>
+    <rect x="686" y="310" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.5"/>
+    <rect x="686" y="482" width="66" height="26" rx="13" fill="#4C81DA" opacity="0.2" stroke="#4C81DA" stroke-opacity="0.55"/>
+    <text x="719" y="499" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="1" fill="#A9C4EE">OCT</text>
+  </g>
+
+  <!-- SEP -->
+  <g opacity="0.7">
+    <rect x="520" y="224" width="230" height="330" rx="18" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="556" y="266" width="120" height="10" rx="5" fill="#359AE2" opacity="0.7"/>
+    <rect x="556" y="292" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.55"/>
+    <rect x="556" y="310" width="130" height="7" rx="3.5" fill="#6B86A4" opacity="0.55"/>
+    <rect x="556" y="328" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.55"/>
+    <rect x="556" y="500" width="66" height="26" rx="13" fill="#359AE2" opacity="0.22" stroke="#359AE2" stroke-opacity="0.6"/>
+    <text x="589" y="517" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="1" fill="#B7DFF6">SEP</text>
+  </g>
+
+  <!-- AUG -->
+  <g opacity="0.85">
+    <rect x="390" y="242" width="230" height="330" rx="18" fill="#0A1628" stroke="#1DB4E9" stroke-opacity="0.7" stroke-width="1.5"/>
+    <rect x="426" y="284" width="120" height="10" rx="5" fill="#1DB4E9" opacity="0.8"/>
+    <rect x="426" y="310" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.6"/>
+    <rect x="426" y="328" width="130" height="7" rx="3.5" fill="#6B86A4" opacity="0.6"/>
+    <rect x="426" y="346" width="150" height="7" rx="3.5" fill="#6B86A4" opacity="0.6"/>
+    <rect x="426" y="518" width="66" height="26" rx="13" fill="#1DB4E9" opacity="0.24" stroke="#1DB4E9" stroke-opacity="0.65"/>
+    <text x="459" y="535" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="600" letter-spacing="1" fill="#CFEFFB">AUG</text>
+  </g>
+
+  <!-- JUL — the real, solid source page -->
+  <g>
+    <rect x="260" y="260" width="230" height="330" rx="18" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.85" stroke-width="2"/>
+    <rect x="296" y="302" width="130" height="11" rx="5.5" fill="#E8F4FF"/>
+    <rect x="296" y="330" width="158" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <rect x="296" y="350" width="140" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <rect x="296" y="370" width="158" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <rect x="296" y="390" width="110" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <rect x="296" y="536" width="70" height="28" rx="14" fill="#05CEF0" opacity="0.14" stroke="#05CEF0" stroke-opacity="0.7"/>
+    <text x="331" y="554" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" font-weight="700" letter-spacing="1" fill="#05CEF0">JUL</text>
+  </g>
+</svg>
