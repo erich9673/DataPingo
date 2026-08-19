@@ -1,0 +1,74 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="washTree" cx="50%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.09"/>
+      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glowTree" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#020911"/>
+  <rect width="1600" height="900" fill="url(#washTree)"/>
+
+  <!-- glow behind the source page -->
+  <rect x="755" y="110" width="90" height="120" rx="10" fill="#05CEF0" opacity="0.16" filter="url(#glowTree)"/>
+  <!-- soft glow under the child row -->
+  <ellipse cx="800" cy="560" rx="420" ry="90" fill="#7C4DCC" opacity="0.06" filter="url(#glowTree)"/>
+
+  <!-- branch curves: source -> each child, colored toward its destination -->
+  <path d="M800,236 C800,350 500,350 500,514" fill="none" stroke="#17BBEB" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M800,236 C800,350 700,350 700,514" fill="none" stroke="#359AE2" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M800,236 C800,350 900,350 900,514" fill="none" stroke="#527AD9" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M800,236 C800,350 1100,350 1100,514" fill="none" stroke="#705AD0" stroke-opacity="0.45" stroke-width="2"/>
+
+  <!-- origin node -->
+  <circle cx="800" cy="234" r="4" fill="#05CEF0"/>
+
+  <!-- child page glyphs (page-with-folded-corner icon; solid, equally "real" — these are placed pages, not fading generations) -->
+  <g>
+    <path d="M470,520 L519,520 L530,531 L530,598 L470,598 Z" fill="#0A1628" stroke="#17BBEB" stroke-opacity="0.85" stroke-width="1.75"/>
+    <path d="M519,520 L519,531 L530,531 Z" fill="#17BBEB" fill-opacity="0.35"/>
+    <rect x="482" y="548" width="36" height="5.5" rx="2.75" fill="#17BBEB" opacity="0.8"/>
+    <rect x="482" y="561" width="28" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <rect x="482" y="574" width="32" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <circle cx="500" cy="514" r="3.5" fill="#17BBEB"/>
+  </g>
+  <g>
+    <path d="M670,520 L719,520 L730,531 L730,598 L670,598 Z" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="1.75"/>
+    <path d="M719,520 L719,531 L730,531 Z" fill="#359AE2" fill-opacity="0.35"/>
+    <rect x="682" y="548" width="36" height="5.5" rx="2.75" fill="#359AE2" opacity="0.8"/>
+    <rect x="682" y="561" width="28" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <rect x="682" y="574" width="32" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <circle cx="700" cy="514" r="3.5" fill="#359AE2"/>
+  </g>
+  <g>
+    <path d="M870,520 L919,520 L930,531 L930,598 L870,598 Z" fill="#0A1628" stroke="#527AD9" stroke-opacity="0.85" stroke-width="1.75"/>
+    <path d="M919,520 L919,531 L930,531 Z" fill="#527AD9" fill-opacity="0.35"/>
+    <rect x="882" y="548" width="36" height="5.5" rx="2.75" fill="#527AD9" opacity="0.8"/>
+    <rect x="882" y="561" width="28" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <rect x="882" y="574" width="32" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <circle cx="900" cy="514" r="3.5" fill="#527AD9"/>
+  </g>
+  <g>
+    <path d="M1070,520 L1119,520 L1130,531 L1130,598 L1070,598 Z" fill="#0A1628" stroke="#705AD0" stroke-opacity="0.85" stroke-width="1.75"/>
+    <path d="M1119,520 L1119,531 L1130,531 Z" fill="#705AD0" fill-opacity="0.35"/>
+    <rect x="1082" y="548" width="36" height="5.5" rx="2.75" fill="#705AD0" opacity="0.8"/>
+    <rect x="1082" y="561" width="28" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <rect x="1082" y="574" width="32" height="5.5" rx="2.75" fill="#6B86A4" opacity="0.7"/>
+    <circle cx="1100" cy="514" r="3.5" fill="#705AD0"/>
+  </g>
+
+  <!-- source page glyph — larger, brighter, the one real template -->
+  <g>
+    <path d="M755,110 L829,110 L845,126 L845,230 L755,230 Z" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.9" stroke-width="2.25"/>
+    <path d="M829,110 L829,126 L845,126 Z" fill="#05CEF0" fill-opacity="0.4"/>
+    <rect x="771" y="146" width="58" height="7" rx="3.5" fill="#E8F4FF"/>
+    <rect x="771" y="164" width="44" height="6" rx="3" fill="#6B86A4" opacity="0.85"/>
+    <rect x="771" y="180" width="50" height="6" rx="3" fill="#6B86A4" opacity="0.85"/>
+    <rect x="771" y="196" width="38" height="6" rx="3" fill="#6B86A4" opacity="0.85"/>
+  </g>
+</svg>
