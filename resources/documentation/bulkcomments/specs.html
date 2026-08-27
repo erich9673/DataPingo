@@ -430,7 +430,7 @@
       <h1 style="text-align:center;">Specs &amp; security</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">What Bulk Comments for Jira requires, what it can reach, and where your data goes.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.2.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -479,21 +479,22 @@
             <tr><td><strong>Installation</strong></td><td>Atlassian Marketplace</td></tr>
             <tr><td><strong>Licensing</strong></td><td>Free for teams up to 10 users; paid tiers above, billed through the Atlassian Marketplace. See the <a href="/products/bulk-comments#pricing-heading">pricing calculator</a> for current rates.</td></tr>
             <tr><td><strong>Issue Limit</strong></td><td>Up to 25 issues per send</td></tr>
-            <tr><td><strong>Per-ticket comments</strong></td><td>One comment for every ticket, or a different comment for any of them</td></tr>
+            <tr><td><strong>Per-ticket comments</strong></td><td>Every ticket gets its own independent comment, written and attached on its own card</td></tr>
             <tr><td><strong>Per-ticket status changes</strong></td><td>Move each ticket as you comment on it, chosen from that ticket&rsquo;s own workflow so only transitions Jira would accept are offered. A status change counts on its own &mdash; a ticket needs no comment to be included. Undo does not revert a status change.</td></tr>
             <tr><td><strong>Delivery</strong></td><td>Comments posted in parallel per ticket, with live delivered / sending / failed status and one-click retry</td></tr>
             <tr><td><strong>Large-batch Confirmation</strong></td><td>A confirmation step before posting to 10+ tickets, sending a comment that @mentions someone, or attaching 50&nbsp;MB or more</td></tr>
-            <tr><td><strong>Media Support</strong></td><td>Images, videos and file attachments up to 150 MB each, copied automatically</td></tr>
+            <tr><td><strong>Media Support</strong></td><td>Images, videos and file attachments up to 150 MB each. Images and video play or preview inline in the app; other files open in Jira.</td></tr>
             <tr><td><strong>Per-file Limit</strong></td><td><strong>150&nbsp;MB per file</strong> &mdash; the ceiling is per file, not per comment, and one comment can carry as many files as you need. Checked the moment you attach, not at send. If your Jira site sets a lower attachment limit, that one wins.</td></tr>
             <tr><td><strong>Per-send Limit</strong></td><td><strong>2&nbsp;GB written into Jira per send</strong>, totalled across every ticket in the batch &mdash; tickets are added together, not multiplied out. A larger send is refused before it starts, so nothing is posted; split it into smaller batches and the total resets per send.</td></tr>
             <tr><td><strong>Storage Estimate</strong></td><td>Shown before any large send. A file lands once on every ticket you send to, so the total written is file size &times; ticket count &mdash; 150&nbsp;MB across 9 tickets is 1350&nbsp;MB. Undo frees that storage again.</td></tr>
-            <tr><td><strong>Large Media Handling</strong></td><td>Copied asynchronously per ticket, so large videos never time out</td></tr>
+            <tr><td><strong>Large Media Handling</strong></td><td>Uploaded through an async queue for large files, so a big video never times out the send</td></tr>
+            <tr><td><strong>Comment History</strong></td><td>A ticket&rsquo;s panel shows its 25 most recent comments, in full &mdash; with images, video and files &mdash; not just a preview</td></tr>
             <tr><td><strong>Runs on Atlassian</strong></td><td>Yes — verified by Atlassian. The app runs entirely on Atlassian infrastructure with no external data egress.</td></tr>
             <tr><td><strong>Data Storage</strong></td><td>Atlassian Forge Storage — no external servers, data stays in Atlassian cloud</td></tr>
             <tr><td><strong>Personal data</strong></td><td>The app keeps no user records. Forge storage holds only per-send job status &mdash; state and timestamp &mdash; while a send is running; comments and attachments pass straight through to Jira and are not retained. No external egress is declared, so nothing reaches a DataPingo server, and uninstalling removes everything the app stored.</td></tr>
             <tr><td><strong>Permissions</strong></td><td>Read &amp; write Jira work items (with impersonation, so you are the author); read Jira user profiles; app storage</td></tr>
             <tr><td><strong>Themes</strong></td><td>Light &amp; dark, following the colour scheme Jira renders the app in</td></tr>
-            <tr><td><strong>Access Points</strong></td><td>Global page, issue Activity panel tab, issue &bull;&bull;&bull; actions menu</td></tr>
+            <tr><td><strong>Access Points</strong></td><td>Global page, or an issue&rsquo;s &bull;&bull;&bull; actions menu</td></tr>
             <tr><td><strong>Status</strong></td><td>Published — live on the <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">Atlassian Marketplace</a></td></tr>
           </tbody>
         </table>
@@ -509,7 +510,7 @@
         <h3 id="permissions" style="scroll-margin-top:100px;">Permissions Required</h3>
         <p>Four scopes, and no others:</p>
         <ul>
-          <li><code>read:jira-work</code> <span class="scope-flag">allowImpersonation</span> — read the issues and comments you select, so they can be listed, previewed and copied.</li>
+          <li><code>read:jira-work</code> <span class="scope-flag">allowImpersonation</span> — read the issues and comments you select, so they can be listed, searched and previewed with their full history and media.</li>
           <li><code>write:jira-work</code> <span class="scope-flag">allowImpersonation</span> — post the comments and upload their attachments.</li>
           <li><code>read:jira-user</code> — resolve names for @mentions and show who authored a comment.</li>
           <li><code>storage:app</code> — the app's own storage on Atlassian's platform, used to hold per-ticket job status while a send runs and to stage attachments on their way to Jira. No issue content is kept there.</li>
@@ -527,7 +528,7 @@
           <li><strong>Data Privacy:</strong> <a href="/privacy">DataPingo Privacy Policy</a></li>
           <li><strong>Security:</strong> <a href="/security">DataPingo Security Policy</a></li>
           <li><strong>Data Storage:</strong> All app data is stored in Atlassian Forge Storage — no data is sent to or stored on external DataPingo servers</li>
-          <li><strong>Media Handling:</strong> Images, videos and files are copied directly between Jira tickets through Atlassian's infrastructure — never through an external server DataPingo operates</li>
+          <li><strong>Media Handling:</strong> Images, videos and files move directly to Jira through Atlassian's infrastructure — never through an external server DataPingo operates</li>
           <li><strong>Customer information:</strong> We receive customer details only through the Atlassian Marketplace. We do not sell, distribute or share that information.</li>
           <li><strong>GDPR status:</strong> Atlassian has approved our declaration that DataPingo is <strong>neither a data controller nor a data processor</strong> under the GDPR with reference to this app. Verify it yourself on the <a href="https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira?tab=privacy-and-security" target="_blank" rel="noopener">Privacy &amp; Security tab</a> of the Marketplace listing.</li>
           <li><strong>Compliance:</strong> Follows Atlassian security standards and the Forge platform security framework</li>

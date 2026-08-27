@@ -519,7 +519,7 @@
       <h1 style="text-align:center;">Release notes</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every released version of Bulk Comments for Jira, newest first &mdash; what changed and when.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.2.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -558,6 +558,7 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
+            <tr><td><strong>4.3.0</strong></td><td>Aug&nbsp;26, 2026</td><td>One comment flow instead of three, inline video and images, and a faster comment history</td></tr>
             <tr><td><strong>4.2.0</strong></td><td>Aug&nbsp;6, 2026</td><td>Licence checks on send, and two reporting fixes</td></tr>
             <tr><td><strong>4.1.0</strong></td><td>Aug&nbsp;3, 2026</td><td>Per-ticket status changes, full issue context, and a storage check on send</td></tr>
             <tr><td><strong>4.0.0</strong></td><td>Jul 22, 2026</td><td>One comment page with per-ticket overrides, 150&nbsp;MB attachments, and undo</td></tr>
@@ -572,8 +573,27 @@
         <details class="release-note" open>
           <summary>
             <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            v4.2.0
+            v4.3.0
             <span class="rn-tag">Latest</span>
+            <span class="rn-date">August 26, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>Every ticket is now one card, start to finish &mdash; its own comment, its own attachments, its own status control, and its full detail a click away. Two long-standing modes are retired to make room for it.</p>
+            <ul>
+              <li><strong>One flow, not three</strong> &mdash; <span class="ui">Copy a comment</span> and <span class="ui">one comment for all</span> are retired. Every ticket always gets its own comment, its own attachments and its own status control, whether you are commenting on one ticket or twenty-five.</li>
+              <li><strong>Two ways in, not three</strong> &mdash; the issue Activity panel&rsquo;s Bulk Comments tab is gone. Open the app from the global page, or from an issue&rsquo;s &bull;&bull;&bull; actions menu.</li>
+              <li><strong>A ticket&rsquo;s full detail is always there</strong> &mdash; click a ticket&rsquo;s title and its description, fields, attachments and comment history open beside the editor, fully expanded. No settings to turn on first &mdash; the separate panel-settings menu is gone.</li>
+              <li><strong>Video and images play inline</strong> &mdash; a video attached to a comment, or already on the ticket, now plays right there with a thumbnail before you click; images open full-size in the app. Both used to only link out to Jira.</li>
+              <li><strong>Faster on a heavily-commented ticket</strong> &mdash; a ticket&rsquo;s comment text, images and video now load together in one request instead of one call per comment.</li>
+              <li><strong>Status colours match your workflow</strong> &mdash; the ticket picker now colours a status chip by its underlying category rather than its name, so a status your team renamed (&ldquo;Shipped&rdquo; instead of &ldquo;Done&rdquo;) always shows the right colour.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v4.2.0
             <span class="rn-date">August 6, 2026</span>
           </summary>
           <div class="rn-body">

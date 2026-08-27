@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira — Documentation & How-To Guide</title>
-  <meta name="description" content="Documentation for Bulk Comments for Jira — write a different comment per ticket, change ticket status, and copy existing comments with their media.">
+  <meta name="description" content="Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each. Full documentation for Bulk Comments for Jira.">>
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments">
   <meta property="og:type" content="website">
@@ -470,9 +470,9 @@
         <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="Bulk Comments for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(99,102,241,0.25);" width="192" height="192">
       </div>
       <h1 style="text-align:center;">Bulk Comments for Jira</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Write a different comment on each Jira ticket and change its status &mdash; up to 25 at once. Or send one comment to all of them, media included.</p>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Bulk-comment on multiple Jira issues &ndash; up to 25 at once, a different comment and status on each.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.2.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -525,7 +525,7 @@
           <li>Open <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">Bulk Comments for Jira</a> on the Atlassian Marketplace, or search for it from <span class="ui">Apps &rarr; Explore more apps</span> inside Jira.</li>
           <li>Click <span class="ui">Try it free</span> and choose your Jira Cloud site.</li>
           <li>Accept the permissions it asks for: read and write Jira work items, read Jira user profiles, and app storage. Nothing else is requested — see <a href="/resources/documentation/bulkcomments/specs#permissions">Permissions Required</a> for what each one does.</li>
-          <li>Open it from <span class="ui">Apps</span> in the left sidebar, or from any issue's <span class="ui">&bull;&bull;&bull;</span> actions menu and Activity panel.</li>
+          <li>Open it from <span class="ui">Apps</span> in the left sidebar, or from any issue's <span class="ui">&bull;&bull;&bull;</span> actions menu.</li>
         </ol>
         <div class="doc-tip">
           <p><strong>Free for teams of 10 or fewer.</strong> Above that, paid tiers are billed through the Atlassian Marketplace on your existing Atlassian invoice — there is no separate DataPingo account to create and no card to enter with us.</p>
@@ -535,17 +535,17 @@
 
       <section id="overview" style="scroll-margin-top:100px;">
         <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
-        <p>Bulk Comments for Jira is an Atlassian Forge app installed directly inside Jira Cloud. Pick up to 25 tickets, then give each one its own comment and its own status change &mdash; or write one comment that goes to all of them, or copy a comment that already exists onto every ticket, media and all. Everything happens on one page, in three steps.</p>
+        <p>Bulk Comments for Jira is an Atlassian Forge app installed directly inside Jira Cloud. Pick up to 25 tickets, then give each one its own comment, its own attachments and its own status change &mdash; all on one page, in three steps.</p>
         <p>The <a href="#full-guide">Full Guide</a> below walks through each step with screenshots.</p>
-        <p><strong>No context switching:</strong> Everything happens inside Jira. There's no external server in the data path — comments and media move between Jira tickets through Atlassian's own infrastructure.</p>
+        <p><strong>No context switching:</strong> Everything happens inside Jira. There's no external server in the data path — comments and media move straight to Jira through Atlassian's own infrastructure.</p>
 
         <table class="spec-table" style="margin-top:24px;">
           <tbody>
-            <tr><td><strong>25 issues per send</strong></td><td>Write or copy to up to 25 tickets at once</td></tr>
+            <tr><td><strong>25 issues per send</strong></td><td>Write to up to 25 tickets at once, each with its own comment</td></tr>
             <tr><td><strong>150 MB per attachment</strong></td><td>Images, video and files, with no limit on how many</td></tr>
             <tr><td><strong>2 GB per send</strong></td><td>The total across every ticket in one batch, with the storage arithmetic shown before it posts</td></tr>
             <tr><td><strong>Per-ticket status changes</strong></td><td>Move each ticket independently in the same send</td></tr>
-            <tr><td><strong>3 entry points</strong></td><td>Global page, issue Activity tab, or issue actions menu</td></tr>
+            <tr><td><strong>2 entry points</strong></td><td>Global page, or an issue's actions menu</td></tr>
             <tr><td><strong>0 external servers</strong></td><td>Built on Atlassian Forge — data stays inside your Jira instance</td></tr>
           </tbody>
         </table>
@@ -584,11 +584,10 @@
       <section id="full-guide" style="scroll-margin-top:100px;">
         <h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Full Guide</h2>
         <h3>Where to open it from</h3>
-        <p>Three places, doing deliberately different jobs:</p>
+        <p>Two places, doing deliberately different jobs:</p>
         <ul>
           <li><span class="ui">The left sidebar &rarr; Bulk Comments for Jira</span> &mdash; the full app, starting at the Tickets step with nothing selected.</li>
           <li><span class="ui">An issue&rsquo;s &bull;&bull;&bull; actions menu &rarr; Bulk Comments</span> &mdash; opens the full app at the Tickets step with that ticket already selected, so you carry on picking the rest. Everything the app can do is there.</li>
-          <li><span class="ui">An issue&rsquo;s Activity panel &rarr; Bulk Comments tab</span> &mdash; sits under the comment history and auto-selects that ticket&rsquo;s most recent comment, so you can copy it, media and all, onto other tickets without leaving the page.</li>
         </ul>
 
         <h3>Step 1 &mdash; Choosing tickets</h3>
@@ -596,102 +595,45 @@
         <p>Narrow what comes back with:</p>
         <ul>
           <li><span class="ui">Project</span> &mdash; one project, or all of them.</li>
-          <li><span class="ui">Status</span> &mdash; tick the statuses you want to see. The names are read from the projects in your results, so you get your own workflow&rsquo;s wording &mdash; &ldquo;In&nbsp;Review&rdquo;, &ldquo;To&nbsp;Doo&rdquo; &mdash; rather than generic categories. Done work is hidden by default; one tick brings it back.</li>
-          <li><span class="ui">Sort</span> &mdash; <span class="ui">Updated</span> (most recently changed), <span class="ui">Ticket key</span>, or <span class="ui">Summary</span> (alphabetical). The arrow beside it flips between ascending and descending.</li>
+          <li><span class="ui">Status</span> &mdash; tick the statuses you want to see. The names are read from the projects in your results, so you get your own workflow&rsquo;s wording &mdash; &ldquo;In&nbsp;Review&rdquo;, &ldquo;Awaiting&nbsp;QA&rdquo;, &ldquo;Blocked&rdquo; &mdash; rather than generic categories. Done work is hidden by default; one tick brings it back.</li>
+          <li><span class="ui">Assigned to me</span> &mdash; off by default, so you see everyone&rsquo;s tickets. One click narrows the list to just yours; click again to see everyone&rsquo;s.</li>
+          <li><span class="ui">Sort</span> &mdash; <span class="ui">Updated</span> (most recently changed), <span class="ui">Ticket key</span>, or <span class="ui">Summary</span> (alphabetical). The arrow beside it flips between ascending and descending. Picking a field takes its natural direction first &mdash; newest first for <span class="ui">Updated</span>, A&ndash;Z for <span class="ui">Ticket key</span> and <span class="ui">Summary</span>. Sorting is applied inside the query itself, so it reorders the whole result set rather than just the rows already on screen.</li>
         </ul>
         <p><span class="ui">Select all visible</span> ticks every ticket currently on screen, and pressing it again clears them. Select up to 25 in total.</p>
         <p>The tray along the bottom lists every ticket you have picked, no matter which search you found it in &mdash; so a selection built from three different queries is still visible in one place. Press the <span class="ui">&times;</span> on any chip to drop that ticket without going back to hunt for it.</p>
-        <p>This is always the first step, whether you go on to write a comment or copy one.</p>
+        <p>This is always the first step, whatever you write once you get to the tickets you picked.</p>
         <figure class="doc-figure">
           <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-01-tickets-light.webp" alt="The Tickets step: search or paste a key, Basic and JQL modes, filters for project and status, Select all visible, and a list of issues with checkboxes and status lozenges. A tray along the bottom lists every selected ticket." width="1680" height="910" loading="lazy" decoding="async">
         </figure>
         <h3>Step 2 &mdash; Writing a comment</h3>
-        <p>Two ways to fill the tickets you picked, both on the same page. Mix them freely &mdash; a shared comment on most tickets and its own on a few is still one send.</p>
+        <p>Every ticket you picked is its own card, always &mdash; its own comment, its own attachments, its own status control. There is nothing to choose before you start; you land on the list already able to write.</p>
 
-        <h4>One comment for all</h4>
-        <p>Write it once and every selected ticket gets it: same text, same formatting, same attachments, including images, videos and files of up to 150&nbsp;MB each.</p>
-        <figure class="doc-figure">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-shared-light.webp" alt="One comment for all. The panel on the right is headed One comment for all 5 tickets and explains that every ticket gets it unless one is opened and given its own; every ticket on the left reads Ready, shared." width="1680" height="910" loading="lazy" decoding="async">
-          <figcaption>Or write once into the shared comment — every ticket that has not been given its own receives it.</figcaption>
-        </figure>
-
-        <h4>A different comment per ticket</h4>
-        <p>Click any ticket in the list and it opens on the right with everything you need in order to write about it &mdash; its <span class="ui">description</span>, its <span class="ui">details</span>, its <span class="ui">attachments</span>, and every comment already on it. You are not writing blind into a key you half remember.</p>
-        <p>Images in those existing comments open inside the app. Videos and other files open the comment on its own ticket in a new tab instead, so you view them in Jira&rsquo;s own viewer rather than a lesser copy of it.</p>
-        <p>Attachments on the comment you are writing work the same as anywhere else, up to 150&nbsp;MB per file &mdash; see <a href="#comment-editor">The comment editor</a>.</p>
+        <p>Need the full picture on one before you write? Every card carries a <span class="ui">Details&nbsp;&rsaquo;</span> control beside its key &mdash; press it, or the ticket title, and a separate panel opens on the right with that ticket&rsquo;s <span class="ui">description</span>, its <span class="ui">details</span>, its <span class="ui">attachments</span> and its comment history. It is read-only and entirely apart from the card you are writing in: close it, or never open it, and nothing about what you have already written changes. Only one panel is open at a time.</p>
+        <p><strong>Opening the issue in Jira.</strong> On a card, the key is part of the <span class="ui">Details</span> control &mdash; it opens the panel, not Jira. To jump to the issue itself, use the key chip in the panel&rsquo;s own header: it carries an <span class="ui">&#8599;</span> and opens the ticket in a new browser tab, leaving everything you have written untouched. Subtasks, linked work items and individual comments listed in the panel open the same way.</p>
+        <p>That panel shows the <strong>25 most recent comments</strong> on the ticket, in full. A ticket with more than that reads <span class="ui">All comments &middot; 25+</span> and adds a note &mdash; <em>&ldquo;Showing the 25 most recent. Open in Jira for the full history.&rdquo;</em> &mdash; under the list, so you always know when you are looking at everything versus just the recent slice.</p>
+        <p>Images, video and files in that history play or preview right there in the panel &mdash; a video plays inline with a thumbnail before you click, and images open in a full-size viewer. Nothing here sends you out to Jira to see what a past comment actually attached.</p>
+        <p>Attachments on the comment you are writing work the same way, right there in the card, up to 150&nbsp;MB per file &mdash; see <a href="#comment-editor">The comment editor</a>.</p>
 
         <figure class="doc-figure">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-light.webp" alt="The Comment step. The ticket list on the left shows each issue with its status and whether its comment is ready; the panel on the right holds the open ticket’s description, details and attachments, its status change and its own comment editor." width="1680" height="910" loading="lazy" decoding="async">
-          <figcaption>Open a ticket on the left and it gets its own panel on the right — description, details, attachments, a status change and a comment of its own.</figcaption>
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-light.webp" alt="The Comment step. Each ticket in the list is already its own card with its own comment editor and status control, ready to write into immediately. A separate read-only panel, open here for one ticket, shows its full description, details, attachments and comment history." width="1680" height="910" loading="lazy" decoding="async">
+          <figcaption>Every ticket&rsquo;s card already has its own comment box and status control &mdash; nothing to open first. Click a ticket&rsquo;s key for a read-only panel with its full description, details, attachments and history, separate from what you&rsquo;re writing.</figcaption>
         </figure>
-        <h4>Settings &mdash; how the panel opens</h4>
-        <p>The <span class="ui">Settings</span> button in the top-right of the Comment step controls one thing: which of the ticket panel&rsquo;s collapsible sections are already expanded when you open a ticket.</p>
-        <ul>
-          <li><span class="ui">Description</span> &mdash; the ticket body.</li>
-          <li><span class="ui">Details</span> &mdash; people, dates, subtasks and custom fields.</li>
-          <li><span class="ui">Attachments</span> &mdash; loads previews when opened.</li>
-        </ul>
-        <p>All three start expanded. The right answer depends on the work: triaging bugs, you want the description every time; running a status sweep across 25 tickets you already know what they are, and you want the writing surface at the top instead. Collapse what you don&rsquo;t need and the choice sticks &mdash; it is remembered for every batch after, not just this one.</p>
 
         <h4>Ready, or skipped</h4>
-        <p>Every ticket in the list carries a badge, and it decides whether that ticket is part of the send. <span class="ui">Not written</span> means nothing has happened to it yet. Open it and give it a comment, an attachment or a status change and the badge flips to <span class="ui">Ready &mdash; own</span>; take the shared comment instead and it reads <span class="ui">Ready &mdash; shared</span>.</p>
-        <p>A ticket still reading <span class="ui">Not written</span> when you send is skipped &mdash; nothing is posted to it and nothing happens to it. The footer counts both, so <em>&ldquo;2 ready &middot; 3 skipped&rdquo;</em> tells you exactly what is about to go out before you press anything.</p>
+        <p>A ticket with a comment written on it carries a <span class="ui">Ready</span> badge; a ticket with only a status change queued and no comment reads <span class="ui">Status only</span>. A ticket with neither carries no badge at all &mdash; nothing has happened to it yet, so there is nothing to announce.</p>
+        <p>An untouched ticket is skipped when you send &mdash; nothing is posted to it and nothing happens to it. The footer counts everything, so <em>&ldquo;2 ready &middot; 3 skipped&rdquo;</em> tells you exactly what is about to go out before you press anything.</p>
 
         <h4>Changing a ticket&rsquo;s status</h4>
-        <p>Open any ticket in the list and you can move it at the same time as commenting on it &mdash; <span class="ui">Set DTB-8 from To&nbsp;Do to&hellip;</span> sits directly above its comment box. Each ticket moves independently: one to In&nbsp;Review, the next to Done, and the rest left alone. The options come from that ticket&rsquo;s own workflow, so you only ever see transitions Jira would accept.</p>
+        <p>Every card carries its current status as a dropdown in its header &mdash; <span class="ui">TO&nbsp;DO</span>, <span class="ui">IN&nbsp;REVIEW</span>, whatever the ticket is on right now. Click it and you get that ticket&rsquo;s own workflow transitions, so you only ever see moves Jira would accept. Pick one and the button switches to show where the ticket is heading; a small <span class="ui">&times;</span> clears it again. Each ticket moves independently: one to In&nbsp;Review, the next to Done, and the rest left alone.</p>
+        <p>Choosing a transition that lands on the status the ticket is already in is marked as such and quietly skipped at send time, so a redundant move never counts as work that happened.</p>
         <p>A status change can travel on its own. A ticket with a new status and no comment still counts as ready and is included in the send &mdash; it is not treated as a blank row and skipped.</p>
-        
 
         <h4>Starting over &mdash; Clear all</h4>
-        <p><span class="ui">Clear all</span> sits above the ticket list and wipes the work rather than the selection: every comment you have written, the shared one included, and every status change you have queued. It asks first &mdash; the button changes to <span class="ui">Clear comments &amp; statuses?</span> and needs a second click, so a stray press costs nothing.</p>
+        <p><span class="ui">Clear all</span> sits above the ticket list and wipes the work rather than the selection: every comment you have written and every status change you have queued. It asks first &mdash; the button changes to <span class="ui">Clear comments &amp; statuses?</span> and needs a second click, so a stray press costs nothing.</p>
         <p>What it deliberately does <em>not</em> do is send you back to the Tickets step. The tickets you picked stay picked, so this is the fast way to rewrite a batch from scratch without hunting down the same 25 issues a second time. Nothing has been posted to Jira at this point, so there is nothing to undo &mdash; clearing only affects what is on screen.</p>
 
         <p>Attachments work the same way here as anywhere else in the editor &mdash; see <a href="#comment-editor">The comment editor</a> for how files are attached, sized and uploaded.</p>
 
-        <h3>Step 2 &mdash; Or copy a comment that already exists</h3>
-        <p>Open the source ticket in another tab, copy the link to the comment you want, and paste it into the app. Every ticket in the list below gets a copy of it &mdash; text, formatting, images, video and file attachments, exactly as-is.</p>
-        <figure class="doc-figure">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-copy-light.webp" alt="Copy a comment. The panel confirms the pasted comment link as valid and previews the source — author, ticket, media count and total size — while every selected ticket on the left is marked Will receive." width="1680" height="910" loading="lazy" decoding="async">
-        </figure>
-
-        <p>You need two things: the tickets that should receive it, and a link to the comment being copied. <strong>The order is up to you.</strong> Grab the link from the source ticket first and then open the app, or open the app, pick your tickets, and fetch the link from another tab when you get to it.</p>
-        <p>Either way it lands in the same place: select the tickets in the <span class="ui">Tickets</span> step, then on the <span class="ui">Comment</span> step switch from <span class="ui">Write a comment</span> to <span class="ui">Copy a comment</span> and paste the link there. <span class="ui">Send</span> behaves exactly as it does for a comment you wrote.</p>
-        <p>You don’t have to memorise any of this. Switching to <span class="ui">Copy a comment</span> puts the whole procedure on screen, worked example included &mdash; and the <strong>Copy to <em>n</em> tickets</strong> button stays disabled until what you paste is actually a comment link:</p>
-        <p>The only part that happens outside the app is step 1. The link icon appears when you hover a comment in Jira, tucked beside the author&rsquo;s name &mdash; it is easy to miss:</p>
-        <div class="doc-img-card doc-img-card--static" style="margin-top:14px;">
-          <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A Jira comment with the link icon beside the author's name highlighted, and a tooltip reading Copy link to comment">
-            <rect width="720" height="300" fill="#FFFFFF"/>
-            <rect x="118" y="24" width="212" height="36" rx="8" fill="#172B4D"/>
-            <path d="M217 60 l7 10 l7 -10 z" fill="#172B4D"/>
-            <text x="224" y="47" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#FFFFFF">Copy link to comment</text>
-
-            <circle cx="62" cy="118" r="22" fill="#E9EAFE"/>
-            <text x="62" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#5A5FC7">AR</text>
-            <text x="98" y="112" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#172B4D">Alex Rivera</text>
-            <text x="98" y="139" font-family="Inter,sans-serif" font-size="13" fill="#6B778C">now</text>
-
-            <circle cx="224" cy="105" r="17" fill="none" stroke="#E24B4A" stroke-width="2.2"/>
-            <g transform="translate(216.9 96.5) scale(0.82)" stroke="#5A5FC7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-            </g>
-            <path d="M304 134 C 286 134, 266 124, 251 115" stroke="#E24B4A" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <path d="M242 109 L253.8 111.1 L248.8 118.8 Z" fill="#E24B4A"/>
-
-            <text x="98" y="188" font-family="Inter,sans-serif" font-size="17" fill="#172B4D">Copy this comment.</text>
-
-            <g stroke="#6B778C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M108 228 l-8 7 l8 7"/><path d="M100 235 h12 a9 9 0 0 1 9 9 v2"/>
-              <path d="M154 244 v-9 h4 l5 -8 a3 3 0 0 1 3 4 l-1 4 h6 a2 2 0 0 1 2 3 l-2 6 h-17 z"/>
-              <circle cx="210" cy="238" r="10"/><circle cx="206" cy="235" r="0.9" fill="#6B778C"/><circle cx="214" cy="235" r="0.9" fill="#6B778C"/><path d="M205 241 a6 6 0 0 0 10 0"/>
-              <path d="M252 246 h6 l14 -14 a3 3 0 0 0 -5 -5 l-14 14 z"/>
-            </g>
-            <g fill="#6B778C"><circle cx="300" cy="238" r="2"/><circle cx="309" cy="238" r="2"/><circle cx="318" cy="238" r="2"/></g>
-          </svg>
-        </div>
-        <div class="doc-warning">
-          <p><strong>A plain issue link will not work.</strong> <code>&hellip;/browse/KAN-6</code> points at the ticket, not at a comment on it. The link has to carry <code>?focusedCommentId=</code> &mdash; that parameter is the only thing identifying <em>which</em> comment to copy.</p>
-        </div>
         <h3 id="comment-editor" style="scroll-margin-top:100px;">The comment editor</h3>
         <p>Everything you write is posted as native Jira formatting, so a comment sent from here is indistinguishable from one typed into Jira itself — same headings, same tables, same code blocks, same file cards. The toolbar and the keyboard shortcuts deliberately mirror Jira's own editor, so there is nothing new to learn.</p>
         <p><strong>Shortcuts below are written in Mac notation.</strong> On Windows and Linux read <kbd>&#8984;</kbd> as <kbd>Ctrl</kbd>, <kbd>&#8679;</kbd> as <kbd>Shift</kbd> and <kbd>&#8997;</kbd> as <kbd>Alt</kbd>. The app detects your machine and shows the right one in every tooltip.</p>
@@ -857,16 +799,18 @@
           <li><strong>Up to 150 MB per file</strong>, with no limit on how many files one comment can carry. If your Jira site sets a lower attachment limit, that one wins — the app reads the site's real limit and checks against it the moment you attach, so an oversized file is refused immediately rather than after you have written the comment.</li>
           <li><strong>Uploading starts on attach, not on Send.</strong> The file moves while you are still typing, so the send itself is usually near-instant. Nothing is visible on any ticket until you actually send, and anything you attach and then delete is discarded.</li>
           <li><strong>Images and video preview inline</strong>, align left, centre or right, and resize by dragging the edge — the same handles Jira gives you. PDFs and other documents post as file cards.</li>
-          <li><strong>Large files are copied per ticket in the background</strong>, so a long video posting to 25 tickets never stalls or times out the batch.</li>
+          <li><strong>Large files upload through an async queue in the background</strong>, so a long video posting to 25 tickets never stalls or times out the batch.</li>
           <li><strong>A whole send is capped at 2&nbsp;GB</strong>, counted across every ticket in the batch rather than per ticket. That is a separate ceiling from the 150&nbsp;MB per file, so a batch can go over the total while every individual file sits well inside its own limit &mdash; four 120&nbsp;MB files going to 5 tickets is 2400&nbsp;MB and will not send. Nothing is posted when it trips; split the tickets across two sends and the total resets. See <a href="/resources/documentation/bulkcomments/troubleshooting#files">Files and uploads</a> in Troubleshooting.</li>
         </ul>
         <h3>Step 3 &mdash; Sending and delivery</h3>
-        <p>The <span class="ui">Send</span> step tracks every ticket individually and posts them in parallel, so a batch of 25 goes out together rather than one after another. Three counters — <span class="ui">Delivered</span>, <span class="ui">Sending</span>, <span class="ui">Failed</span> — update live above a row for every ticket, and each row links straight to the comment on its issue. When the run finishes the heading changes to <span class="ui">Comments posted</span> and tells you how long it took.</p>
+        <p>The <span class="ui">Send</span> step tracks every ticket individually and posts them in parallel, so a batch of 25 goes out together rather than one after another. Three counters &mdash; <span class="ui">Updated</span>, <span class="ui">Sending</span>, <span class="ui">Failed</span> &mdash; update live above a row for every ticket, and each row links straight to the comment on its issue. When the run finishes the heading changes to <span class="ui">Comments posted</span> and tells you how long it took.</p>
         <figure class="doc-figure">
           <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-03-send-light.webp" alt="The Send step after a run: counters for updated, sending and failed, a row per ticket showing the status change it received, a Done button and an Undo that deletes the comments and files." width="1680" height="910" loading="lazy" decoding="async">
         </figure>
 
-        <p>Anything that fails gets a <strong>Retry <em>n</em> failed</strong> button that re-runs only those tickets, leaving the delivered ones untouched.</p>
+        <p>Each row says what actually happened to that ticket: <span class="ui">Updated</span> when a comment posted, <span class="ui">Status changed</span> when the ticket only moved, <span class="ui">No change needed</span> when a queued move turned out to be redundant, or <span class="ui">Failed</span> with the reason Jira gave. While the run is in flight a row reads <span class="ui">Queued&hellip;</span> and then <span class="ui">Posting&hellip;</span>.</p>
+        <p>Anything that fails gets a <strong>Retry <em>n</em> failed</strong> button that re-runs only those tickets, leaving the ones that already landed untouched.</p>
+        <p>Most sends finish with nothing in the <span class="ui">Failed</span> column. When something does fail it is usually a permission change, or a ticket that was moved or deleted while the batch was running &mdash; and the row carries the reason Jira returned. If a retry keeps failing, send us that reason at <a href="mailto:support@datapingo.com">support@datapingo.com</a> and we will tell you what happened rather than leaving you to work it out.</p>
         <p>Every row opens its ticket: click the <span class="ui">ticket key</span> or the <span class="ui">&#8599;</span> on the right and it opens in a new tab &mdash; scroll to the bottom of the ticket to see the comment or the change that landed.</p>
         <p><strong>Undo is one click, and it undoes the whole run.</strong> <span class="ui">Undo &mdash; delete comments and files</span> removes the comments that send posted and the files it uploaded, freeing that storage again. Files that were already on a ticket beforehand are left alone.</p>
         <div class="doc-tip">
@@ -886,8 +830,8 @@
         <p>There is no theme setting to find, because the app does not have a theme of its own. It renders in whichever colour scheme Jira hands it, so it is light when your Jira is light and dark when your Jira is dark &mdash; including the comment editor, the status lozenges and the readiness badges, which are tinted for each scheme rather than inverted.</p>
         <p>Every screen in this guide looks like this in dark:</p>
         <figure class="doc-figure">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-dark.webp" alt="The Comment step in dark mode: the shared comment card above a list of tickets, each with its status lozenge and a Ready badge, and the open ticket's panel on the right holding its description, details, attachments, a status change and its own comment editor." width="1680" height="910" loading="lazy" decoding="async">
-          <figcaption>Writing a per-ticket comment in dark mode. The same two panes, the same badges &mdash; <span class="ui">Ready &mdash; own</span> and <span class="ui">Not written</span> stay legible against the dark surface instead of being washed out.</figcaption>
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-dark.webp" alt="The Comment step in dark mode: every selected ticket is its own card with its own comment editor, status control and readiness badge. A separate read-only panel on the right shows one ticket's description, details, attachments and comment history." width="1680" height="910" loading="lazy" decoding="async">
+          <figcaption>Writing a per-ticket comment in dark mode. The same two panes, the same badges &mdash; <span class="ui">Ready</span> and <span class="ui">Status only</span> stay legible against the dark surface instead of being washed out.</figcaption>
         </figure>
         <figure class="doc-figure">
           <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-03-send-dark.webp" alt="The Send step in dark mode: counters for updated, sending and failed, a row per ticket showing its status transition, and the buttons for Done and for undoing the send." width="1680" height="910" loading="lazy" decoding="async">

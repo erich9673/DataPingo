@@ -469,7 +469,7 @@
       <h1 style="text-align:center;">Troubleshooting</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.2.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -479,7 +479,6 @@
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;">
         <a href="/resources/documentation/bulkcomments" class="btn-secondary">&larr; Back to the guide</a>
-        <a href="#links" class="btn-secondary">Comment links</a>
         <a href="#files" class="btn-secondary">Files and uploads</a>
         <a href="#permissions" class="btn-secondary">Permissions</a>
         <a href="#statuses" class="btn-secondary">Status changes</a>
@@ -502,7 +501,6 @@
       </nav>
       <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
       <nav class="doc-toc">
-        <a href="#links">Comment links</a>
         <a href="#files">Files and uploads</a>
         <a href="#permissions">Permissions</a>
         <a href="#statuses">Status changes</a>
@@ -513,33 +511,13 @@
 
     <div class="doc-content">
 
-      <section id="links" style="scroll-margin-top:100px;">
-        <h2>Comment links</h2>
-        <p>These come up in <span class="ui">Copy a comment</span>, where the app needs a link that points at a specific comment rather than at the issue holding it.</p>
-        <div class="ts-item">
-          <p class="ts-msg">That link is missing a ticket key and focusedCommentId. Use the comment&rsquo;s &#8943; menu &rarr; &ldquo;Copy link&rdquo;.</p>
-          <p class="ts-cause">You pasted a plain issue link. <code>&hellip;/browse/KAN-6</code> points at the ticket; the app needs the one that points at a comment on it.</p>
-          <p class="ts-fix">In Jira, hover the comment you want, open its &#8943; menu and choose <span class="ui">Copy link</span>. The result carries <code>?focusedCommentId=</code> on the end &mdash; that fragment is what identifies the comment.</p>
-        </div>
-        <div class="ts-item">
-          <p class="ts-msg">You don&rsquo;t have permission to view that source comment.</p>
-          <p class="ts-cause">The link is valid but the comment sits on a project or an issue-security level your account cannot see.</p>
-          <p class="ts-fix">Open the link in Jira first. If it does not load for you there, it will not load here &mdash; ask whoever owns that project for access, or copy from a comment you can see.</p>
-        </div>
-        <div class="ts-item">
-          <p class="ts-msg">The source comment has no readable body.</p>
-          <p class="ts-cause">The comment exists but the app could not parse its content &mdash; usually a comment made entirely of an unsupported macro or embed.</p>
-          <p class="ts-fix">Copy a different comment, or write a new one in <span class="ui">Write a comment</span> and attach the media yourself.</p>
-        </div>
-      </section>
-
       <section id="files" style="scroll-margin-top:100px;">
         <h2>Files and uploads</h2>
         <p>Attachments are the slowest and most failure-prone part of a send, so most of the guardrails live here.</p>
         <div class="ts-item">
-          <p class="ts-msg">This app can attach files up to 150&nbsp;MB &mdash; attach it to one ticket in Jira directly, then use Copy a comment to put it on the rest.</p>
+          <p class="ts-msg">This app can attach files up to 150&nbsp;MB &mdash; attach it directly in Jira on each ticket that needs it.</p>
           <p class="ts-cause">One file is over the per-file ceiling. The limit is per file, not per comment &mdash; three 140&nbsp;MB files are fine, one 160&nbsp;MB file is not.</p>
-          <p class="ts-fix">Do exactly what the message says: put the big file on a single ticket in Jira, then copy that comment across. The copy path moves media between tickets without re-uploading it, so the size ceiling does not apply.</p>
+          <p class="ts-fix">Do exactly what the message says: attach that one file to each ticket directly in Jira, outside the app, then write the rest of the comment here as usual.</p>
         </div>
         <div class="ts-item">
           <p class="ts-msg">This send is over the 2&nbsp;GB limit for one send &mdash; revise your comments, or send in smaller batches.</p>
@@ -598,11 +576,11 @@
         <p>What the footer counts and what stops a send from starting.</p>
         <div class="ts-item">
           <p class="ts-msg">Add a comment or a status change to at least one ticket.</p>
-          <p class="ts-cause">Every selected ticket still reads <span class="ui">Not written</span>, so there is nothing to send.</p>
+          <p class="ts-cause">Every selected ticket still carries no badge, meaning nothing has been done to it yet, so there is nothing to send.</p>
           <p class="ts-fix">Open a ticket and give it a comment, an attachment or a status change. Any one of the three makes it ready; the footer count tells you how many are.</p>
         </div>
         <div class="ts-item">
-          <p class="ts-msg">Maximum 25 tickets per bulk post &nbsp;/&nbsp; Maximum 25 tickets per copy</p>
+          <p class="ts-msg">Maximum 25 tickets per bulk post</p>
           <p class="ts-cause">The selection is over the per-send ceiling.</p>
           <p class="ts-fix">Send in batches of 25. The tray along the bottom of the Tickets step lets you drop tickets with the &times; on each chip.</p>
         </div>
@@ -615,7 +593,7 @@
 
       <section id="licence" style="scroll-margin-top:100px;">
         <h2>Licence</h2>
-        <p>The licence is checked at the moment you send. Everything else &mdash; browsing tickets, writing, copying a comment link, undoing an earlier send &mdash; keeps working either way.</p>
+        <p>The licence is checked at the moment you send. Everything else &mdash; browsing tickets, writing, undoing an earlier send &mdash; keeps working either way.</p>
         <div class="ts-item">
           <p class="ts-msg">This site&rsquo;s licence for Bulk Comments is no longer active. Renew it on the Atlassian Marketplace to start sending again.</p>
           <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your own Jira permissions &mdash; sending is unavailable for everyone on the site until it is renewed.</p>
