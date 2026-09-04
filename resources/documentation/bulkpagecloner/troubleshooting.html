@@ -207,6 +207,10 @@
     .ts-item .ts-msg {
       color: var(--white); font-weight: 600; font-size: 0.92rem;
       line-height: 1.6; margin: 0 0 10px; max-width: none;
+      /* Error strings contain unbreakable paths (…/wiki/spaces/SPACEKEY/…).
+         Without this they set the grid track's min-content width and push
+         the whole page 6px past a 375px viewport. */
+      overflow-wrap: anywhere;
     }
     .ts-item .ts-cause,
     .ts-item .ts-fix { font-size: 0.89rem; line-height: 1.75; margin: 0 0 8px; max-width: none; }
@@ -500,7 +504,7 @@
       <h1 style="text-align:center;">Troubleshooting</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.1.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.2.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -514,7 +518,7 @@
         <a href="#naming" class="btn-secondary">Naming the copies</a>
         <a href="#location" class="btn-secondary">Where copies land</a>
         <a href="#results" class="btn-secondary">Results</a>
-        <a href="#licence" class="btn-secondary">Licence</a>
+        <a href="#license" class="btn-secondary">License</a>
         <a href="#running" class="btn-secondary">Running the clone</a>
       </div>
     </div>
@@ -537,7 +541,7 @@
         <a href="#naming">Naming the copies</a>
         <a href="#location">Where copies land</a>
         <a href="#results">Results</a>
-        <a href="#licence">Licence</a>
+        <a href="#license">License</a>
         <a href="#running">Running the clone</a>
       </nav>
     </aside>
@@ -644,13 +648,13 @@
         </div>
       </section>
 
-      <section id="licence" style="scroll-margin-top:100px;">
-        <h2>Licence</h2>
-        <p>The licence is checked when you create pages. Browsing, picking a template and naming copies all work either way.</p>
+      <section id="license" style="scroll-margin-top:100px;">
+        <h2>License</h2>
+        <p>The license is checked when you create pages. Browsing, picking a template and naming copies all work either way.</p>
         <div class="ts-item">
-          <p class="ts-msg">This site&rsquo;s licence for Bulk Page Cloner is no longer active. Renew it in Manage apps to start creating pages again.</p>
-          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your Confluence permissions &mdash; creating pages is unavailable for everyone on the site until it is renewed.</p>
-          <p class="ts-fix">A site admin renews from <span class="ui">Apps &rarr; Manage apps</span> in Confluence. Your chosen template and typed titles stay on screen, so the same run goes through afterwards with nothing to redo.</p>
+          <p class="ts-msg">This site&rsquo;s license is no longer active. Bulk Page Cloner is free for teams of 10 or fewer.</p>
+          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your Confluence permissions &mdash; creating pages is unavailable for everyone on the site until it is renewed. On a site of 10 users or fewer this usually means an evaluation ended: the free tier is a subscription of its own, and a trial does not roll into it automatically.</p>
+          <p class="ts-fix">Use <span class="ui">Renew on Marketplace &rarr;</span> in the message. It opens the listing&rsquo;s <span class="ui">Pricing</span> tab, where a site admin selects the tier and <span class="ui">Get it now</span> starts the subscription &mdash; at no cost for 10 users or fewer. <span class="ui">Apps &rarr; Manage apps</span> in Confluence will not help here: it lists what is installed and has no subscribe control. Your chosen template and typed titles stay on screen, so the same run goes through afterwards with nothing to redo.</p>
         </div>
       </section>
 
@@ -671,7 +675,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -688,12 +692,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -701,7 +705,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>

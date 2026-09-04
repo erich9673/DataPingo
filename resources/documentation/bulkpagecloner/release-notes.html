@@ -500,7 +500,7 @@
       <h1 style="text-align:center;">Release notes</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every released version of Bulk Page Cloner for Confluence, newest first &mdash; what changed and when.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.1.0 &mdash; Latest</span>
+        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.2.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -537,6 +537,7 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
+            <tr><td><strong>10.2.0</strong></td><td>Sep&nbsp;3, 2026</td><td>The expired-license notice names the free tier and links to the Pricing tab</td></tr>
             <tr><td><strong>10.1.0</strong></td><td>Aug&nbsp;7, 2026</td><td>Runs report what didn&rsquo;t carry over; page titles no longer logged</td></tr>
             <tr><td><strong>10.0.0</strong></td><td>Jul 23, 2026</td><td>Removed the unused search permission — no functional changes</td></tr>
             <tr><td>9.0.0</td><td>Jul 19, 2026</td><td>Maintenance release — reduced permissions, no functional changes</td></tr>
@@ -555,8 +556,28 @@
         <details class="release-note" open>
           <summary>
             <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            v10.1.0
+            v10.2.0
             <span class="rn-tag">Latest</span>
+            <span class="rn-date">September 3, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>One screen changed: the notice you see when a site&rsquo;s subscription has lapsed. It used to send you somewhere you could not act, and it never mentioned that most teams owe nothing.</p>
+            <ul>
+              <li><strong>The notice points somewhere you can actually subscribe</strong> &mdash; it used to read &ldquo;Renew it in Manage apps.&rdquo; <span class="ui">Manage apps</span> lists what is installed and has no subscribe control, so there was nothing to do once you got there. The link now opens the listing&rsquo;s <span class="ui">Pricing</span> tab, where <span class="ui">Get it now</span> is the button that creates the subscription.</li>
+              <li><strong>The free tier is named</strong> &mdash; a site of 10 users or fewer pays nothing, but an evaluation does not roll into the free tier on its own; it still has to be subscribed to. Nothing in the app said so. The notice now reads: &ldquo;This site&rsquo;s license is no longer active. Bulk Page Cloner is free for teams of 10 or fewer.&rdquo;</li>
+              <li><strong>The link is always there</strong> &mdash; the old one was built from your site&rsquo;s address and vanished whenever that could not be resolved, leaving the message with no way out at all. It is now a fixed link and always renders.</li>
+              <li><strong>&ldquo;License&rdquo; is spelled the American way</strong> &mdash; on-screen text only, matching Atlassian&rsquo;s own spelling.</li>
+            </ul>
+            <div class="doc-tip">
+              <p><strong>Nothing to approve.</strong> No permissions changed, so this installs automatically on sites already running 10.x.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v10.1.0
             <span class="rn-date">August 7, 2026</span>
           </summary>
           <div class="rn-body">
@@ -567,7 +588,7 @@
               <li><strong>Template snapshots are deleted after each run</strong> &mdash; the copy of your template taken at the start of a job is removed when the job finishes instead of being retained.</li>
               <li><strong>Part-finished batches no longer mislabel pages</strong> &mdash; a batch that failed partway used to list pages it had actually created as failures, which led people to re-run and end up with duplicates.</li>
               <li><strong>Ordering no longer anchors to a stale page</strong> &mdash; after a failed batch the next batch could place its pages after the wrong one, interleaving copies from different batches.</li>
-              <li><strong>Licence checked when you create pages</strong> &mdash; only an expired or cancelled licence is refused. Free and trial sites are unaffected, and browsing and picking a template keep working either way.</li>
+              <li><strong>License checked when you create pages</strong> &mdash; only an expired or cancelled license is refused. Free and trial sites are unaffected, and browsing and picking a template keep working either way.</li>
             </ul>
           </div>
         </details>
@@ -661,7 +682,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -678,12 +699,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -691,7 +712,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>

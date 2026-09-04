@@ -185,7 +185,6 @@
     /* Something you click or read in the app, as opposed to prose emphasis. Tinted
        and semibold rather than boxed — 46 chips would add noise, and the point here
        is to remove some. */
-    .doc-content .ui { font-weight: 600; color: #C3CBE8; }
 
     /* Two-level sidebar: the page set for this product, then anchors within the page
        you are on. Added when Version History and Troubleshooting became their own
@@ -207,6 +206,9 @@
     .ts-item .ts-msg {
       color: var(--white); font-weight: 600; font-size: 0.92rem;
       line-height: 1.6; margin: 0 0 10px; max-width: none;
+      /* Error strings contain unbreakable paths. Without this they set the grid
+         track's min-content width and push the page past a 375px viewport. */
+      overflow-wrap: anywhere;
     }
     .ts-item .ts-cause,
     .ts-item .ts-fix { font-size: 0.89rem; line-height: 1.75; margin: 0 0 8px; max-width: none; }
@@ -469,7 +471,7 @@
       <h1 style="text-align:center;">Troubleshooting</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.5.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -483,7 +485,7 @@
         <a href="#permissions" class="btn-secondary">Permissions</a>
         <a href="#statuses" class="btn-secondary">Status changes</a>
         <a href="#sending" class="btn-secondary">Sending</a>
-        <a href="#licence" class="btn-secondary">Licence</a>
+        <a href="#license" class="btn-secondary">License</a>
       </div>
     </div>
   </section>
@@ -505,7 +507,7 @@
         <a href="#permissions">Permissions</a>
         <a href="#statuses">Status changes</a>
         <a href="#sending">Sending</a>
-        <a href="#licence">Licence</a>
+        <a href="#license">License</a>
       </nav>
     </aside>
 
@@ -591,18 +593,18 @@
         </div>
       </section>
 
-      <section id="licence" style="scroll-margin-top:100px;">
-        <h2>Licence</h2>
-        <p>The licence is checked at the moment you send. Everything else &mdash; browsing tickets, writing, undoing an earlier send &mdash; keeps working either way.</p>
+      <section id="license" style="scroll-margin-top:100px;">
+        <h2>License</h2>
+        <p>The license is checked at the moment you send. Everything else &mdash; browsing tickets, writing, undoing an earlier send &mdash; keeps working either way.</p>
         <div class="ts-item">
-          <p class="ts-msg">This site&rsquo;s licence for Bulk Comments is no longer active. Renew it on the Atlassian Marketplace to start sending again.</p>
-          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your own Jira permissions &mdash; sending is unavailable for everyone on the site until it is renewed.</p>
-          <p class="ts-fix">A site admin renews the subscription from <span class="ui">Apps &rarr; Manage apps</span> in Jira, or from the Marketplace listing. Nothing you have written is lost &mdash; drafts survive &mdash; and the app re-checks when you come back to the tab, so the same send goes through with nothing to retype.</p>
+          <p class="ts-msg">This site&rsquo;s license is no longer active. Bulk Comments is free for teams of 10 or fewer &mdash; renew on the Atlassian Marketplace.</p>
+          <p class="ts-cause">Atlassian reports this site&rsquo;s subscription as expired or cancelled. It is not about your own Jira permissions &mdash; sending is unavailable for everyone on the site until it is renewed. On a site of 10 users or fewer this usually means an evaluation ended: the free tier is a subscription of its own, and a trial does not roll into it automatically.</p>
+          <p class="ts-fix">A site admin opens the listing&rsquo;s <span class="ui">Pricing</span> tab and uses <span class="ui">Get it now</span>, which starts the subscription &mdash; at no cost for 10 users or fewer. <span class="ui">Apps &rarr; Manage apps</span> in Jira will not help here: it lists what is installed and has no subscribe control. Nothing you have written is lost &mdash; drafts survive &mdash; and the app re-checks when you come back to the tab, so the same send goes through with nothing to retype.</p>
         </div>
         <div class="ts-item">
-          <p class="ts-msg">The send button is greyed out, with &ldquo;This site&rsquo;s licence is no longer active&rdquo; beside it.</p>
+          <p class="ts-msg">The send button is greyed out, with &ldquo;This site&rsquo;s license is no longer active&rdquo; beside it.</p>
           <p class="ts-cause">The same thing, said before you start rather than after. The button is disabled deliberately so you do not pick 25 tickets and write 25 comments only to be refused at the end.</p>
-          <p class="ts-fix">Renew, then return to this tab. If it is still disabled, reload once. Undo, delete and cancel are never blocked, so a send made before the lapse can still be rolled back in full.</p>
+          <p class="ts-fix">Use <span class="ui">Renew on Marketplace &rarr;</span> beside the message, then return to this tab. If it is still disabled, reload once. Undo, delete and cancel are never blocked, so a send made before the lapse can still be rolled back in full.</p>
         </div>
       </section>
 
@@ -623,7 +625,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -640,12 +642,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -653,7 +655,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>

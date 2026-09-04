@@ -88,6 +88,14 @@
       "destination": "/resources/blog/introducing-bulk-page-cloner.html"
     },
     {
+      "source": "/resources/blog/bulk-copy-confluence-pages-guide",
+      "destination": "/resources/blog/bulk-copy-confluence-pages-guide.html"
+    },
+    {
+      "source": "/resources/blog/bulk-copy-confluence-pages-guide/",
+      "destination": "/resources/blog/bulk-copy-confluence-pages-guide.html"
+    },
+    {
       "source": "/resources/use-cases",
       "destination": "/resources/use-cases.html"
     },

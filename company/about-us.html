@@ -181,7 +181,10 @@
   border-radius: 18px;
   padding: 32px;
 }
-.founder-card h3 {
+.founder-card h2 {
+  /* was an <h3>, which picked up .page-section h3's 28px top margin in
+     aurora.css; pinned here so the heading-level fix is visually invisible */
+  margin-top: 28px;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--white);
@@ -284,7 +287,7 @@
   color: var(--teal);
   margin-bottom: 10px;
 }
-.principle-item h4 {
+.principle-item h3 { margin-top: 0;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--white);
@@ -400,7 +403,7 @@
           "DataPingo started with my own repetitive workflows — they were taking up more time than I expected. I decided to look for alternatives but couldn't find any, so I started building them for myself. Turns out I'm not the only one with these repetitive workflow problems — so now my goal is to build Atlassian apps that help you save time and be more efficient."
         </div>
         <div class="founder-card">
-          <h3>Eric Huang</h3>
+          <h2>Eric Huang</h2>
           <p class="role">Founder &amp; CEO</p>
           <p class="bio">Eric has worked across marketing, product and engineering in the Atlassian ecosystem and started DataPingo to build the workflow tools he wished existed. He personally reviews every customer support ticket to ensure that our tools can solve their problems.</p>
           <div class="founder-links">
@@ -424,13 +427,13 @@
         <a href="/products/bulk-page-cloner" class="product-feature-card teal-card">
           <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner" loading="lazy" width="80" height="80">
           <h3>Bulk Page Cloner for Confluence</h3>
-          <p>Recreating the same Confluence page or page tree by hand, again and again. Now you clone it in one pass — hierarchy, labels, and attachments carried over.</p>
+          <p>Recreating the same Confluence page by hand, again and again. Now you make up to 25 named copies in one pass — content, macros, labels and attachments carried over exactly.</p>
           <span class="card-arrow">View product &rarr;</span>
         </a>
         <a href="/products/bulk-comments" class="product-feature-card purple-card">
           <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy" width="192" height="192">
           <h3>Bulk Comments for Jira</h3>
-          <p>Posting the same update across dozens of Jira issues, one ticket at a time. Now you send it to all of them at once — formatting and attachments carried over.</p>
+          <p>Updating Jira issues one at a time, each needing something slightly different. Now you write up to 25 on one page — every ticket with its own comment, status and attachments.</p>
           <span class="card-arrow">View product &rarr;</span>
         </a>
       </div>
@@ -445,17 +448,17 @@
       <div class="principles-row">
         <div class="principle-item">
           <div class="label">Security</div>
-          <h4>Forge-native, zero external servers</h4>
+          <h3>Forge-native, zero external servers</h3>
           <p>Our apps run entirely on Atlassian's Forge platform. We never store your data outside Atlassian's own infrastructure.</p>
         </div>
         <div class="principle-item">
           <div class="label">Simplicity</div>
-          <h4>Set up in under a minute</h4>
+          <h3>Set up in under a minute</h3>
           <p>No configuration wizards, no webhooks, no external accounts. Install from the Marketplace and start using it immediately.</p>
         </div>
         <div class="principle-item">
           <div class="label">Quality</div>
-          <h4>Built on real customer workflows</h4>
+          <h3>Built on real customer workflows</h3>
           <p>Every feature we ship is informed by feedback from teams using Jira and Confluence daily. We don't guess at requirements.</p>
         </div>
       </div>
@@ -485,7 +488,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -502,12 +505,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -515,7 +518,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>

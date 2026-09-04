@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>How to Bulk Copy Confluence Pages Without Losing Formatting, Labels, or Attachments | DataPingo Blog</title>
+  <title>Bulk Copy Confluence Pages Without Losing Formatting | DataPingo</title>
   <meta name="description" content="Confluence copies one page at a time. Here's the 4-step flow for cloning up to 25 pages at once, with formatting, labels, and attachments intact.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/blog/bulk-copy-confluence-pages-guide">
@@ -364,7 +364,7 @@
   <div class="blog-article-body">
     <div class="page-content-max">
 
-      <figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/4.svg" alt="One July report becoming five named, scheduled copies — August through December"><figcaption>One July report becoming five named, scheduled copies — August through December</figcaption></figure><div>Open any Confluence page, click the <b>···</b> menu, and choose <b>Copy</b> — Confluence makes exactly one duplicate. There's no field to set how many, no way to name each one before it exists, and no way to point a batch at a destination up front. For a single page, that's fine. For the pages every team ends up recreating on a cycle — monthly reports, sprint retros, onboarding docs, project kickoffs — one-at-a-time copying turns into <b>an afternoon of duplicate, rename, move, repeat</b>.</div>
+      <figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/4.svg" alt="One July report becoming five named, scheduled copies — August through December" width="1600" height="900"><figcaption>One July report becoming five named, scheduled copies — August through December</figcaption></figure><div>Open any Confluence page, click the <b>···</b> menu, and choose <b>Copy</b> — Confluence makes exactly one duplicate. There's no field to set how many, no way to name each one before it exists, and no way to point a batch at a destination up front. For a single page, that's fine. For the pages every team ends up recreating on a cycle — monthly reports, sprint retros, onboarding docs, project kickoffs — one-at-a-time copying turns into <b>an afternoon of duplicate, rename, move, repeat</b>.</div>
 
 <hr>
 <h2>What actually breaks when you copy pages one at a time</h2>
@@ -378,7 +378,7 @@
 <hr>
 <h2>The four-step flow for cloning a page in bulk</h2>
 <div>Bulk Page Cloner for Confluence replaces the repeat-twenty-times loop with <b>a single guided run</b>: pick a source, name every copy up front, choose where they land, and create up to 25 at once.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/1.jpg" alt="Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space"><figcaption>Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/1.jpg" alt="Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space</figcaption></figure>
 <ol>
 <li><b>Source.</b> Search by title, filter by space, or paste a page's URL directly — the screen above is the real picker, mid-scroll through a live Confluence instance.</li>
 <li><b>Copies.</b> Set how many you need, from 1 to 25, and type a title for each one before a single page is created. There's an auto-number shortcut for a numbered series, and a "copy first to all" shortcut when most titles share a pattern.</li>
@@ -391,13 +391,13 @@
 <hr>
 <h2>What actually gets copied</h2>
 <div>The mechanism matters here, not just the marketing claim. Bulk Page Cloner clones through Confluence's own <a href="https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content/">content copy API</a> rather than rebuilding a page from scratch, which is the reason the result is <b>a true duplicate and not an approximation</b>: formatting, embedded images and video, macros, labels, and file attachments all transfer with the page, not as a separate step.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/2.jpg" alt="A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports"><figcaption>A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/2.jpg" alt="A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports" width="1400" height="810" loading="lazy" decoding="async"><figcaption>A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports</figcaption></figure>
 <div>That distinction is worth being specific about, because it's also where a naive "recreate the page" approach falls down. A page rebuilt from stored HTML rather than copied natively can <b>lose attachments entirely</b> — video and files show up as "Preview unavailable" instead of playing. The native copy path doesn't have that failure mode, because the attachments move with the page instead of being reconstructed.</div>
 <div>One tradeoff worth knowing up front: a copy is <b>a real, independent duplicate</b>, not a link back to the original. Attachments get duplicated with every copy, so a 50 MB video cloned 25 times uses roughly <b>1.25 GB</b> of your Confluence storage — the same as attaching that file 25 separate times by hand, just faster to create.</div>
 <hr>
 <h2>A real example: a year of reports in one pass</h2>
 <div>The most common pattern is a page that repeats on a schedule. Take one finished report — July's, say — and generate the rest of the year from it in a single run: August through December, five names typed before any of them exist, all landing as children of the same "Monthly Performance Reports" parent the July page already lives under. That's the exact scenario in the four-step flow above, and it works the same way for sprint retros, per-client project pages, or any other page that gets rebuilt on a cycle.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/3.jpg" alt="Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action"><figcaption>Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/3.jpg" alt="Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action</figcaption></figure>
 <div>The app is reachable from inside the page you're already editing, too — type <code>/bulkpage</code> in the editor and it appears as a suggested action, no separate tab required.</div>
 <hr>
 <h2>What it costs</h2>
@@ -436,7 +436,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -453,12 +453,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -466,7 +466,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>

@@ -185,7 +185,6 @@
     /* Something you click or read in the app, as opposed to prose emphasis. Tinted
        and semibold rather than boxed — 46 chips would add noise, and the point here
        is to remove some. */
-    .doc-content .ui { font-weight: 600; color: #C3CBE8; }
 
     /* Two-level sidebar: the page set for this product, then anchors within the page
        you are on. Added when Version History and Troubleshooting became their own
@@ -519,7 +518,7 @@
       <h1 style="text-align:center;">Release notes</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every released version of Bulk Comments for Jira, newest first &mdash; what changed and when.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.3.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.5.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -558,8 +557,10 @@
             <tr><th>Version</th><th>Released</th><th>Summary</th></tr>
           </thead>
           <tbody>
+            <tr><td><strong>4.5.0</strong></td><td>Sep&nbsp;3, 2026</td><td>The blocked-send message carries its renewal link inline</td></tr>
+            <tr><td><strong>4.4.0</strong></td><td>Sep&nbsp;3, 2026</td><td>The expired-license notice names the free tier and links to the Pricing tab; singular wording for a one-ticket send</td></tr>
             <tr><td><strong>4.3.0</strong></td><td>Aug&nbsp;26, 2026</td><td>One comment flow instead of three, inline video and images, and a faster comment history</td></tr>
-            <tr><td><strong>4.2.0</strong></td><td>Aug&nbsp;6, 2026</td><td>Licence checks on send, and two reporting fixes</td></tr>
+            <tr><td><strong>4.2.0</strong></td><td>Aug&nbsp;6, 2026</td><td>License checks on send, and two reporting fixes</td></tr>
             <tr><td><strong>4.1.0</strong></td><td>Aug&nbsp;3, 2026</td><td>Per-ticket status changes, full issue context, and a storage check on send</td></tr>
             <tr><td><strong>4.0.0</strong></td><td>Jul 22, 2026</td><td>One comment page with per-ticket overrides, 150&nbsp;MB attachments, and undo</td></tr>
             <tr><td><strong>3.7.0</strong></td><td>Jul 17, 2026</td><td>A different note per ticket, in-context writing, and parallel posting</td></tr>
@@ -573,8 +574,39 @@
         <details class="release-note" open>
           <summary>
             <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            v4.3.0
+            v4.5.0
             <span class="rn-tag">Latest</span>
+            <span class="rn-date">September 3, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>A follow-up to 4.4.0 the same day. Rewording the expired-license notice had taken the renewal link out of one place that has no button beside it to make up for it.</p>
+            <ul>
+              <li><strong>The blocked-send message names the way out</strong> &mdash; when a send is refused, the message is returned on its own with no button next to it, so it has to carry the instruction itself. It now reads: &ldquo;This site&rsquo;s license is no longer active. Bulk Comments is free for teams of 10 or fewer &mdash; renew on the Atlassian Marketplace.&rdquo; The shorter notice on the compose screen is unchanged, because a <span class="ui">Renew on Marketplace</span> button sits beside it.</li>
+              <li><strong>&ldquo;License&rdquo; is spelled the American way</strong> &mdash; on-screen text only, matching Atlassian&rsquo;s own spelling.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v4.4.0
+            <span class="rn-date">September 3, 2026</span>
+          </summary>
+          <div class="rn-body">
+            <p>The notice shown when a site&rsquo;s subscription has lapsed used to send you to a page where you could not subscribe. Superseded the same day by 4.5.0.</p>
+            <ul>
+              <li><strong>Renewal opens the Pricing tab</strong> &mdash; <span class="ui">Renew on Marketplace</span> used to open the listing&rsquo;s Overview page, whose only button is <span class="ui">Try it free</span>. A site that has already used its evaluation cannot start a second one, so that button failed for exactly the person being shown the notice. It now opens <span class="ui">Pricing</span>, where <span class="ui">Get it now</span> creates the subscription.</li>
+              <li><strong>The free tier is named</strong> &mdash; 10 users or fewer costs nothing, but a trial does not roll into the free tier by itself and nothing said so. The wording now matches Bulk Page Cloner, so both apps read the same.</li>
+              <li><strong>A one-ticket send reads as one</strong> &mdash; sending a single comment reported &ldquo;Comments posted.&rdquo; It now says <span class="ui">Comment posted</span>, and likewise <span class="ui">Ticket updated</span> and <span class="ui">Status change applied</span> for a single ticket.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release-note">
+          <summary>
+            <svg class="rn-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            v4.3.0
             <span class="rn-date">August 26, 2026</span>
           </summary>
           <div class="rn-body">
@@ -597,12 +629,12 @@
             <span class="rn-date">August 6, 2026</span>
           </summary>
           <div class="rn-body">
-            <p>The app now checks your site&rsquo;s licence before it sends. If yours is active &mdash; including the free tier and a trial &mdash; nothing about this release is visible to you.</p>
+            <p>The app now checks your site&rsquo;s license before it sends. If yours is active &mdash; including the free tier and a trial &mdash; nothing about this release is visible to you.</p>
             <ul>
-              <li><strong>Licence checked at send</strong> &mdash; only an expired or cancelled licence is refused, and only for sending. Browsing tickets, writing drafts, copying a comment link and undoing a previous send all keep working, so nothing you have already written is lost and nothing you have already posted becomes unremovable.</li>
-              <li><strong>Free and trial sites are unaffected</strong> &mdash; a free licence is an active licence. Teams of 10 or fewer, and anyone inside a trial, send exactly as before.</li>
-              <li><strong>Attachments are checked first</strong> &mdash; the licence is confirmed before any file starts uploading rather than after, so a refused send cannot leave stray attachments behind on a ticket.</li>
-              <li><strong>Sends already running finish</strong> &mdash; if a licence lapses mid-run, the work in flight completes. A half-posted batch is worse than either outcome.</li>
+              <li><strong>License checked at send</strong> &mdash; only an expired or cancelled license is refused, and only for sending. Browsing tickets, writing drafts, copying a comment link and undoing a previous send all keep working, so nothing you have already written is lost and nothing you have already posted becomes unremovable.</li>
+              <li><strong>Free and trial sites are unaffected</strong> &mdash; a free license is an active license. Teams of 10 or fewer, and anyone inside a trial, send exactly as before.</li>
+              <li><strong>Attachments are checked first</strong> &mdash; the license is confirmed before any file starts uploading rather than after, so a refused send cannot leave stray attachments behind on a ticket.</li>
+              <li><strong>Sends already running finish</strong> &mdash; if a license lapses mid-run, the work in flight completes. A half-posted batch is worse than either outcome.</li>
               <li><strong>Undo no longer reports a text-only rollback as a failure</strong> &mdash; undoing a send with no attachments removed the comments correctly but announced an error.</li>
               <li><strong>Restored drafts say what they dropped</strong> &mdash; tickets that have since been deleted or moved out of reach are removed from a recovered draft, and named, instead of failing silently at send time.</li>
             </ul>
@@ -712,7 +744,7 @@
           <span class="footer-wordmark">DataPingo</span>
         </a>
         <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
-        <h5 class="footer-newsletter-heading">Stay in the Loop</h5>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
         <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
         <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
           <div class="newsletter-row">
@@ -729,12 +761,12 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h2>Products</h2>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h2>Company</h2>
         <a href="/company/about-us">About Us</a>
         <a href="/company/careers">Careers</a>
         <a href="/company/contact">Contact</a>
@@ -742,7 +774,7 @@
         <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <a href="/resources/blog">Updates &amp; Blog</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
