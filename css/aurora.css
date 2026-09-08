@@ -1139,6 +1139,19 @@ body.page-404 .nav-actions { display: block; }
   box-shadow: 0 0 0 6px rgba(2,9,17,0.92);
 }
 
+/* Skip link — 14 tab stops stand between the top of the page and <main> on
+   mobile, 18 on desktop. Off-screen until focused, then it drops into view. */
+.skip-link {
+  position: absolute; left: 12px; top: -72px; z-index: 2000;
+  display: inline-flex; align-items: center; min-height: 44px;
+  padding: 10px 20px;
+  background: var(--teal); color: var(--black);
+  font-family: inherit; font-size: 0.9rem; font-weight: 700;
+  text-decoration: none; border-radius: 0 0 10px 10px;
+  transition: top 0.16s ease;
+}
+.skip-link:focus { top: 0; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
   .reveal { opacity: 1; transform: none; }

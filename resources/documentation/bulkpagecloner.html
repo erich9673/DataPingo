@@ -259,7 +259,10 @@
     }
     .doc-support-card h3 { color: var(--white); font-size: 0.95rem; margin: 0 0 6px; }
     .doc-support-card p { color: var(--slate); font-size: 0.82rem; margin: 0 0 12px; }
-    .doc-support-card a { color: var(--teal); font-size: 0.84rem; font-weight: 600; text-decoration: none; }
+    .doc-support-card a { color: var(--teal); font-size: 0.84rem; font-weight: 600; text-decoration: none;
+      /* Was a bare 16px text link — the card's only action, and the
+         smallest tap target on the page. */
+      display: inline-flex; align-items: center; min-height: 44px; }
     .doc-hero-badge {
       display: inline-flex;
       align-items: center;
@@ -368,6 +371,7 @@
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
        listing, so a click on a Marketplace link is the last observable step.
@@ -470,7 +474,7 @@
   </nav>
 </div>
 
-<main>
+<main id="main">
   <!-- Hero -->
   <section class="page-hero">
     <div class="section-wrap">
@@ -547,7 +551,7 @@
         </ul>
         <p>Each row shows the page title, the <strong>space</strong> it lives in and when it was <strong>modified</strong> — enough to tell two similarly named pages apart before you commit. Click <span class="ui">Select</span> on the row you want and the app moves straight to Step 2.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 1: Source — choose a page to clone" loading="lazy" width="1280" height="626">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1: Source — choose a page to clone" loading="lazy" width="1280" height="626">
         </div>
 
         <h3>Step 2 — Copies</h3>
@@ -562,7 +566,7 @@
         <h4>The clone summary</h4>
         <p>The panel on the right updates as you work, so the whole job is visible before any of it happens: the <strong>source</strong> page, how many titles you have filled in (&ldquo;0 of 3 named&rdquo;), the <strong>destination</strong> once you have set one in Step&nbsp;3, and the count of pages that will be created. Nothing is written to Confluence until you press the button on Step&nbsp;3.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 2: Copies — name the copies with a live clone summary" loading="lazy" width="1280" height="626">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2: Copies — name the copies with a live clone summary" loading="lazy" width="1280" height="626">
         </div>
         <div class="doc-warning">
           <p><strong>Heads-up before you create:</strong> the app warns you when a source page @mentions people (each copy notifies them again), for large batches of 10+ pages, and for duplicate titles before Confluence auto-numbers them.</p>
@@ -576,19 +580,19 @@
         </ol>
         <p>The clone summary now shows the full destination. When it reads correctly, click <span class="ui">Create <em>n</em> pages</span> — the button names the number, so you get one last chance to notice if it says 25 when you meant 3.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 3: Location — set where the copies are created" loading="lazy" width="1280" height="626">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3: Location — set where the copies are created" loading="lazy" width="1280" height="626">
         </div>
 
         <h3>Step 4 — Done</h3>
         <p>A confirmation screen lists every created page with a direct <strong>Open</strong> link, so you can jump straight in to start editing — or clone more pages in one click.</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 4: Done — every created page with a direct link" loading="lazy" width="1280" height="626">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4: Done — every created page with a direct link" loading="lazy" width="1280" height="626">
         </div>
 
         <h3>Light &amp; Dark Mode</h3>
         <p>Bulk Page Cloner has full light and dark theme support that matches your Confluence theme and switches live — no reload needed. Here's the same flow in dark mode:</p>
         <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).jpg" alt="Bulk Page Cloner in dark mode" loading="lazy" width="1280" height="626">
+          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" alt="Bulk Page Cloner in dark mode" loading="lazy" width="1280" height="626">
         </div>
 
       </section>

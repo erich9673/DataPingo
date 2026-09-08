@@ -156,6 +156,15 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       transition: opacity 0.2s, box-shadow 0.15s, transform 0.12s;
     }
+    /* The button is drawn 36px tall because it is part of a scaled mockup of
+       the app, and stretching it to 44 distorts the illustration. It IS a real
+       control though (it replays the demo), so widen the hit area instead and
+       leave the painting alone. */
+    .bpc-create { position: relative; }
+    .bpc-create::after {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: 50%; transform: translateY(-50%); height: 44px;
+    }
     .bpc-create:hover { opacity: 0.9; }
     .bpc-create svg { color: var(--black); }
     .bpc-create.pressed { transform: scale(0.97); box-shadow: 0 0 22px rgba(5,206,240,0.45); }
@@ -687,6 +696,7 @@
   </script>
 </head>
 <body class="product-page">
+<a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
        listing, so a click on a Marketplace link is the last observable step.
@@ -790,7 +800,7 @@
   </nav>
 </div>
 
-<main>
+<main id="main">
 
   <!-- HERO -->
   <section class="product-hero">
@@ -1125,16 +1135,16 @@
           <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).jpg" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="1280" height="626">
             </div>
             <div class="hiw-panel" id="hiw-panel-1">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).jpg" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).jpg" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 2 — Copies: name the copies with a live clone summary" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2 — Copies: name the copies with a live clone summary" loading="lazy" width="1280" height="626">
             </div>
             <div class="hiw-panel" id="hiw-panel-2">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).jpg" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).jpg" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 3 — Location: set where the copies are created" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3 — Location: set where the copies are created" loading="lazy" width="1280" height="626">
             </div>
             <div class="hiw-panel" id="hiw-panel-3">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).jpg" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).jpg" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 4 — Done: every created page with a direct link" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4 — Done: every created page with a direct link" loading="lazy" width="1280" height="626">
             </div>
           </div>
         </div>

@@ -270,7 +270,10 @@
     }
     .doc-support-card h3 { color: var(--white); font-size: 0.95rem; margin: 0 0 6px; }
     .doc-support-card p { color: var(--slate); font-size: 0.82rem; margin: 0 0 12px; }
-    .doc-support-card a { color: #A5B4FC; font-size: 0.84rem; font-weight: 600; text-decoration: none; }
+    .doc-support-card a { color: #A5B4FC; font-size: 0.84rem; font-weight: 600; text-decoration: none;
+      /* Was a bare 16px text link — the card's only action, and the
+         smallest tap target on the page. */
+      display: inline-flex; align-items: center; min-height: 44px; }
     .doc-hero-badge {
       display: inline-flex;
       align-items: center;
@@ -380,6 +383,7 @@
   </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
        listing, so a click on a Marketplace link is the last observable step.
@@ -482,7 +486,7 @@
   </nav>
 </div>
 
-<main>
+<main id="main">
   <!-- Hero -->
   <section class="page-hero">
     <div class="section-wrap">
@@ -568,7 +572,7 @@
               <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:7px;color:#A5B4FC"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><strong>Lightning bolt</strong> &mdash; Jira Service Management</li>
               <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:7px;color:#A5B4FC"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><strong>Person</strong> &mdash; Customer Service Management</li>
               <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-right:7px;color:#A5B4FC"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 0 0-3.5 10.9c.5.4.8 1 .9 1.6l.1.5h5l.1-.5c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 2Z"/></svg><strong>Lightbulb</strong> &mdash; Jira Product Discovery</li>
-              <li><span aria-hidden="true" style="display:inline-block;width:15px;margin-right:7px;text-align:center;color:#6B7280;vertical-align:-2px">&mdash;</span><strong>No mark</strong> &mdash; Jira Software and Jira Work Management, the ordinary case</li>
+              <li><span aria-hidden="true" style="display:inline-block;width:15px;margin-right:7px;text-align:center;color:#7C8698;vertical-align:-2px">&mdash;</span><strong>No mark</strong> &mdash; Jira Software and Jira Work Management, the ordinary case</li>
             </ul>
             <p style="margin:10px 0 0">The mark matters because it tells you which issues will offer a <span class="ui">Reply to customer</span> choice on the next step. Only the first two ever do.</p>
           </li>
