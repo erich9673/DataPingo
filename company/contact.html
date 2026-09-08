@@ -43,7 +43,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -57,8 +57,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -105,8 +105,8 @@
     <div class="mobile-menu-body">
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -390,8 +390,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -431,12 +431,44 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
 
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));

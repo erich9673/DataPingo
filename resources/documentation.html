@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Documentation | DataPingo</title>
-  <meta name="description" content="Setup guides and help articles for DataPingo's Atlassian apps — Bulk Page Cloner for Confluence and Bulk Comments for Jira.">
+  <meta name="description" content="Setup guides and help articles for DataPingo's Atlassian apps — Bulk Comments for Jira and Bulk Page Cloner for Confluence.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation">
   <meta property="og:type" content="website">
@@ -43,7 +43,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -57,8 +57,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -105,8 +105,8 @@
     <div class="mobile-menu-body">
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -151,7 +151,7 @@
   line-height: 1.12;
   margin-bottom: 16px;
 }
-@media (max-width: 600px) { .docs-hero-wrap { padding: 80px 24px 40px; text-align: left; } }
+@media (max-width: 600px) { .docs-hero-wrap { padding: 72px 24px 20px; text-align: left; } }
 
 /* Two large product doc cards */
 .doc-product-grid {
@@ -337,6 +337,12 @@
   line-height: 1.55;
   margin: 0;
 }
+/* Touch targets — measured at 375px: quick links 251x36, CTAs 136x42 and 90x42. */
+@media (max-width: 768px) {
+  .doc-quick-link   { min-height: 44px; }
+  .doc-cta-primary,
+  .doc-cta-secondary { min-height: 44px; }
+}
 </style>
 
   <!-- HERO -->
@@ -353,6 +359,44 @@
     <div class="section-wrap reveal">
       <p class="section-tag" style="margin-bottom:24px;">Choose your product</p>
       <div class="doc-product-grid">
+
+        <!-- Bulk Comments -->
+        <div class="doc-product-card bc">
+          <div class="doc-card-top">
+            <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy" width="192" height="192">
+            <div class="doc-card-top-meta">
+              <h2>Bulk Comments for Jira</h2>
+              <span class="doc-version-badge">v4.6.0 &mdash; Latest</span>
+            </div>
+          </div>
+          <p class="doc-card-desc">Guides for writing a different comment per issue, changing issue statuses, attachments, copying an existing comment, and how the app handles your data.</p>
+          <div class="doc-quick-links">
+            <a href="/resources/documentation/bulkcomments#overview" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Overview
+            </a>
+            <a href="/resources/documentation/bulkcomments#full-guide" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Full Guide
+            </a>
+            <a href="/resources/documentation/bulkcomments/specs" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Technical Specification
+            </a>
+            <a href="/resources/documentation/bulkcomments#support" class="doc-quick-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Support &amp; Contact
+            </a>
+          </div>
+          <div class="doc-card-cta-row">
+            <a href="/resources/documentation/bulkcomments" class="doc-cta-primary">
+              Browse docs &rarr;
+            </a>
+            <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="doc-cta-secondary">
+              Marketplace &nearr;
+            </a>
+          </div>
+        </div>
 
         <!-- Bulk Page Cloner -->
         <div class="doc-product-card bpc">
@@ -387,44 +431,6 @@
               Browse docs &rarr;
             </a>
             <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="doc-cta-secondary">
-              Marketplace &nearr;
-            </a>
-          </div>
-        </div>
-
-        <!-- Bulk Comments -->
-        <div class="doc-product-card bc">
-          <div class="doc-card-top">
-            <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy" width="192" height="192">
-            <div class="doc-card-top-meta">
-              <h2>Bulk Comments for Jira</h2>
-              <span class="doc-version-badge">v4.5.0 &mdash; Latest</span>
-            </div>
-          </div>
-          <p class="doc-card-desc">Guides for writing a different comment per ticket, changing ticket statuses, attachments, copying an existing comment, and how the app handles your data.</p>
-          <div class="doc-quick-links">
-            <a href="/resources/documentation/bulkcomments#overview" class="doc-quick-link">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Overview
-            </a>
-            <a href="/resources/documentation/bulkcomments#full-guide" class="doc-quick-link">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Full Guide
-            </a>
-            <a href="/resources/documentation/bulkcomments/specs" class="doc-quick-link">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Technical Specification
-            </a>
-            <a href="/resources/documentation/bulkcomments#support" class="doc-quick-link">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              Support &amp; Contact
-            </a>
-          </div>
-          <div class="doc-card-cta-row">
-            <a href="/resources/documentation/bulkcomments" class="doc-cta-primary">
-              Browse docs &rarr;
-            </a>
-            <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="doc-cta-secondary">
               Marketplace &nearr;
             </a>
           </div>
@@ -489,8 +495,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -530,12 +536,44 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
 
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));

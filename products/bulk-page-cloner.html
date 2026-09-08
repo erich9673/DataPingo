@@ -314,11 +314,6 @@
     }
     .hiw-panel.active { opacity: 1; pointer-events: auto; }
     .hiw-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .screenshot-item {
-      border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--border); background: var(--black-3);
-    }
-    .screenshot-item img { width: 100%; display: block; object-fit: cover; }
 
     /* Pricing */
     .pricing-section { padding: 96px 0; border-top: 1px solid var(--border); }
@@ -358,16 +353,30 @@
     }
     .calc-hint { font-size: 0.78rem; color: var(--slate); margin: 8px 0 0; line-height: 1.5; }
     .calc-slider-row { display: flex; align-items: center; gap: 14px; }
+    /* The input's own box is the hit target, and at height:4px that was a 4px
+       tall grab area — the 18px thumb only overflows it visually. Measured 153x4
+       at 375px: not draggable with a thumb. The control is 44px tall now and the
+       visible 4px track is painted by the track pseudo-elements instead. */
     .calc-slider {
       flex: 1; -webkit-appearance: none; appearance: none;
-      height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer;
+      height: 44px; background: transparent; outline: none; cursor: pointer;
+    }
+    .calc-slider::-webkit-slider-runnable-track {
+      height: 4px; border-radius: 2px; background: var(--border);
+    }
+    .calc-slider::-moz-range-track {
+      height: 4px; border-radius: 2px; background: var(--border);
     }
     .calc-slider::-webkit-slider-thumb {
       -webkit-appearance: none; appearance: none;
       width: 18px; height: 18px; border-radius: 50%;
       background: var(--teal); cursor: pointer;
       box-shadow: 0 0 8px rgba(5,206,240,0.4);
+      margin-top: -7px; /* centre the 18px thumb on the 4px track */
     }
+    /* The slider had no focus indicator at all. */
+    .calc-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(5,206,240,0.6); }
+    .calc-slider:focus-visible::-moz-range-thumb     { box-shadow: 0 0 0 3px rgba(5,206,240,0.6); }
     .calc-input {
       width: 110px; padding: 10px 12px; background: var(--black-3);
       border: 1px solid var(--border); border-radius: 8px;
@@ -435,7 +444,6 @@
     .support-inner { max-width: 700px; margin: 0 auto; text-align: center; }
     .support-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
 
-
     /* Expand affordance — these figures are drawn 920 units wide and land at
        about a third of that on a phone, so opening one full-screen is the
        difference between a diagram and a smudge. A pointer reveals the chip on
@@ -457,6 +465,16 @@
     .zoom-btn:focus-visible { opacity: 1; transform: none; }
     .zoom-btn:hover { background: rgba(2,9,17,0.94); }
     @media (hover: none) { .zoom-btn { opacity: 1; transform: none; } }
+    /* The figure scales with the viewport; this button does not, so on a phone it
+       grew from 14% of the figure's width to 26% of it. Dropping the label makes it
+       a square icon at the same 14% ratio as desktop, and 44x44 also fixes a touch
+       target that was 33px tall. The accessible name lives in aria-label. */
+    @media (max-width: 768px) {
+      .zoom-btn-label { display: none; }
+      .zoom-btn { width: 44px; height: 44px; min-height: 44px; padding: 0;
+                  justify-content: center; gap: 0; top: 8px; right: 8px; }
+      .zoom-btn svg { width: 15px; height: 15px; }
+    }
 
     /* Lightbox */
     .hiw-preview { cursor: zoom-in; }
@@ -505,7 +523,10 @@
        near the size it was drawn, and the swipe is the zoom. */
     @media (max-width: 700px) {
       #hiw-lightbox { padding: 16px; }
-      #hiw-lightbox-close { top: 12px; right: 14px; }
+      /* 44x44, not the desktop 40: this is the overlay's main way out on a
+         phone, where there is no Escape key and a backdrop tap only counts
+         outside the figure. */
+      #hiw-lightbox-close { top: 12px; right: 14px; width: 44px; height: 44px; }
       /* Show the whole figure, not a slice of it. Sizing by height and panning
          sideways kept the type large, but everything past the first screen just
          read as cut off — so fit the width and let each figure's own viewBox
@@ -535,6 +556,25 @@
     }
     .hiw-theme-btn svg { width: 15px; height: 15px; }
     .hiw-theme-btn.active { background: var(--teal); color: var(--black); }
+
+
+    /* Touch targets — 44px floor on phones (iOS HIG / WCAG 2.5.8). Measured at
+       375px these were: theme toggle 82x28, calc pill 95x34, calc input 108x43.
+       Padding only, so the desktop proportions above are untouched. */
+    @media (max-width: 768px) {
+      .hiw-theme-btn { min-height: 44px; }
+      .calc-pill     { min-height: 44px; }
+      .calc-input    { min-height: 44px; }
+      /* #bpcCreate really is clickable (it replays the demo) but it is drawn
+         inside a product mockup at 284x36, and growing it would put the
+         illustration out of proportion. The pseudo-element gives it a 44px
+         hit area while the painted button keeps its size. */
+      .bpc-create { position: relative; }
+      .bpc-create::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 50%; transform: translateY(-50%); height: 44px;
+      }
+    }
 
     /* Highlights — stacked horizontal cards */
     .highlights-section { padding: 40px 0 56px; }
@@ -582,13 +622,19 @@
 
     @media (max-width: 960px) {
       .hiw-interactive { grid-template-columns: 1fr; }
-      .hiw-preview { position: static; aspect-ratio: 16/9; }
+      /* position:relative, not static. The element is `.hiw-preview zoomable`, and
+         `.zoomable { position: relative }` is the same specificity (0,1,0) as this
+         rule, so this one wins on source order — which removed the containing
+         block for the absolutely-positioned .zoom-btn and threw it 4035px up the
+         page (measured: button at y=-3720 against a preview at y=315).
+         `top: 0` is required: the base rule declares `top: 100px`, inert under
+         static but a 100px shove downward under relative. */
+      .hiw-preview { position: relative; top: 0; aspect-ratio: 16/9; }
     }
     @media (max-width: 768px) {
       .product-hero-inner { padding: 0 24px; }
       .product-hero h1 { font-size: 2rem; }
       .features-grid { grid-template-columns: 1fr; }
-
 
     }
   </style>
@@ -640,7 +686,7 @@
 }
   </script>
 </head>
-<body>
+<body class="product-page">
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
        listing, so a click on a Marketplace link is the last observable step.
@@ -651,7 +697,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -665,8 +711,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -713,8 +759,8 @@
     <div class="mobile-menu-body">
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -802,6 +848,30 @@
     </div>
   </section>
 
+
+  <!-- Collapsed section jump menu. Anchors point at the heading ids the sections
+       already declare through aria-labelledby, so there are no duplicate targets. -->
+  <nav class="prod-nav" aria-label="Page sections">
+    <div class="prod-nav-shell">
+      <div class="prod-nav-box">
+        <button type="button" class="prod-nav-toggle" id="prodNavToggle"
+                aria-expanded="false" aria-controls="prodNavList">
+          <span id="prodNavCurrent">Jump to section</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="prod-nav-list" id="prodNavList">
+          <a href="#highlights-heading">Highlights</a>
+          <a href="#hiw-heading">How it works</a>
+          <a href="#features-heading">Features</a>
+          <a href="#pricing-heading">Pricing</a>
+          <a href="#faq-heading">FAQ</a>
+          <a href="#support-heading">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- HIGHLIGHTS -->
   <section class="highlights-section" aria-labelledby="highlights-heading">
     <div class="section-wrap">
@@ -814,7 +884,7 @@
       <div class="highlight-stack">
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the bulk clone figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
+            <button type="button" class="zoom-btn" aria-label="Open the bulk clone figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
             <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One source page branching through a times-twenty-five node into a set of cloned pages">
               <defs>
                 <pattern id="bpc1Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
@@ -879,7 +949,7 @@
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the full fidelity figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
+            <button type="button" class="zoom-btn" aria-label="Open the full fidelity figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
             <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A source page and its exact copy, matching down to media, macros, labels and attachments">
               <defs>
                 <pattern id="bpc2Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
@@ -946,7 +1016,7 @@
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the smart placement figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
+            <button type="button" class="zoom-btn" aria-label="Open the smart placement figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
             <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A Confluence page tree beside the three ways cloned pages can be placed">
               <defs><pattern id="bpc3Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
               <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc3Dots)"/>
@@ -1052,7 +1122,7 @@
           </button>
         </div>
         <div class="hiw-preview zoomable" role="tabpanel">
-          <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
+          <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
               <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).jpg" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).jpg" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="1280" height="626">
@@ -1171,6 +1241,7 @@
               <label class="calc-label" for="bpc-user-count">Users in your Confluence instance</label>
               <div class="calc-slider-row">
                 <input type="range" class="calc-slider" min="1" max="1000" value="50" id="bpc-user-slider"
+                  aria-label="Number of users"
                   oninput="document.getElementById('bpc-user-count').value=this.value;recalcPricing('bpc')">
                 <input type="number" id="bpc-user-count" class="calc-input" value="50" min="1" max="250000"
                   oninput="const s=document.getElementById('bpc-user-slider');s.value=Math.min(this.value,1000);recalcPricing('bpc')">
@@ -1320,8 +1391,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -1361,10 +1432,41 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
   mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
@@ -1614,9 +1716,10 @@
     const lbClose = document.getElementById('hiw-lightbox-close');
 
     function openLb() {
+      if (lb.classList.contains('open')) return;
       lb.classList.add('open');
       lbFig.scrollLeft = 0;
-      document.body.style.overflow = 'hidden';
+      window.__scrollLock.on();
       lbClose.focus();
     }
 
@@ -1624,6 +1727,20 @@
     // captures and the highlight figures are drawn SVG, so the overlay has to
     // hold either — it used to hold only an <img>, which is why the highlight
     // figures could not be opened at all.
+  /* A tap opens the overlay; a drag must not. A bare click listener on a large
+     image counts any thumb-press that the browser did not turn into a scroll as
+     a tap, which is how you end up in a full-screen overlay you never asked for.
+     Comparing pointerdown to click position costs nothing and keeps tap-to-zoom,
+     which is what people expect from an image. */
+  function tapOnly(el, fn) {
+    let sx = null, sy = null;
+    el.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; }, { passive: true });
+    el.addEventListener('click', e => {
+      const dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
+      sx = null;
+      if (!dragged) fn(e);
+    });
+  }
     function showFigure(fig) {
       const vb = (fig.getAttribute('viewBox') || '0 0 920 413').trim().split(/\s+/);
       // Steps and highlight figures are not drawn to the same shape, so take
@@ -1653,7 +1770,7 @@
 
     // Walkthrough — one <img> per panel whose src the theme toggle swaps, so the
     // active panel already holds the correct theme's capture.
-    document.querySelector('.hiw-preview').addEventListener('click', () => {
+    tapOnly(document.querySelector('.hiw-preview'), () => {
       const activeImg = document.querySelector('.hiw-panel.active img');
       if (!activeImg) return;
       showImage(activeImg);
@@ -1664,7 +1781,7 @@
     // ones with no way in — which bites hardest on a phone, where the card
     // stacks and the drawing renders about a third of the size it was made at.
     document.querySelectorAll('.highlight-card-media.zoomable').forEach(media => {
-      media.addEventListener('click', () => {
+      tapOnly(media, () => {
         // Direct child only — the Expand chip carries an icon <svg> of its own,
         // and it comes first in the frame.
         const fig = media.querySelector(':scope > svg');
@@ -1674,11 +1791,72 @@
       });
     });
 
-    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    function closeLb() { lb.classList.remove('open'); scrollLock.off(); }
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   })();
 </script>
+<script>
+  // Collapsed jump menu. The button names whichever section you are in, so the
+  // control doubles as a position indicator without occupying a full-width bar.
+  (function () {
+    const nav = document.querySelector('.prod-nav');
+    if (!nav) return;
+    const btn = document.getElementById('prodNavToggle');
+    const list = document.getElementById('prodNavList');
+    const label = document.getElementById('prodNavCurrent');
+    const links = [...list.querySelectorAll('a')];
+    const targets = links
+      .map(a => ({ a, el: document.getElementById(a.getAttribute('href').slice(1)) }))
+      .filter(t => t.el);
+
+    let openedAt = 0;
+    const close = () => { list.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+    const open  = () => { list.classList.add('open');    btn.setAttribute('aria-expanded', 'true'); openedAt = window.scrollY; };
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      list.classList.contains('open') ? close() : open();
+    });
+    links.forEach(a => a.addEventListener('click', close));
+    document.addEventListener('click', e => { if (!nav.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && list.classList.contains('open')) { close(); btn.focus(); }
+    });
+
+    // The menu is position:fixed now, so it needs to be told when to appear.
+    // Threshold: the first section reaching the menu's own resting place —
+    // the same moment the sticky version used to slide into view.
+    const firstSection = targets.length ? (targets[0].el.closest('section') || targets[0].el) : null;
+
+    function spy() {
+      if (firstSection) {
+        const rest = parseFloat(getComputedStyle(nav).top) || 84;
+        nav.classList.toggle('is-visible', firstSection.getBoundingClientRect().top <= rest + 8);
+      }
+      let current = null;
+      for (const t of targets) {
+        // 190 tracks the 176/178px scroll-margin: a section counts as current
+        // once its heading reaches where an anchor jump parks it, so the label
+        // matches the section you just jumped to rather than the one above it.
+        if (t.el.getBoundingClientRect().top - 190 <= 0) current = t;
+      }
+      links.forEach(a => a.classList.toggle('active', current && a === current.a));
+      label.textContent = current ? current.a.textContent : 'Jump to section';
+    }
+    /* An open menu used to stay parked over the middle of the screen while the
+       page scrolled away underneath it. Closing on a 48px threshold rather than
+       any scroll at all, so a momentum drift on iOS does not snap it shut the
+       instant it opens. */
+    window.addEventListener('scroll', () => {
+      if (!list.classList.contains('open')) return;
+      if (Math.abs(window.scrollY - openedAt) > 48) close();
+    }, { passive: true });
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', spy, { passive: true });
+    spy();
+  })();
+  </script>
 </body>
 </html>

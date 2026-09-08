@@ -11,6 +11,10 @@
   --black:   #020911;
   --teal:    #05CEF0;
   --purple:  #7C4DCC;
+  /* #7C4DCC is 3.61:1 on the page background — fine as a border or fill, under
+     the 4.5:1 floor as body text. This is the same hue lightened to 4.57:1, for
+     text only; the brand purple above is unchanged. */
+  --purple-text: #8C62D2;
   --white:   #E8F4FF;
   --slate:   #6B86A4;
 
@@ -56,7 +60,16 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* `hidden` on one axis forces the other to compute to `auto`, which makes
+     BODY a scroll container — the usual source of mobile double-scroller and
+     sticky oddities. `clip` clips exactly the same way without creating one.
+     Both are declared on purpose: Safari below 16 ignores `clip` and keeps
+     `hidden`, so nothing regresses on older iOS.
+     Measured at 375px: every page already reports scrollWidth === clientWidth,
+     so neither value has anything to clip today — this is about not leaving a
+     scroll container lying around. */
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -122,7 +135,11 @@ a  { color: inherit; }
   box-shadow: var(--shadow-lg), 0 0 40px rgba(5,206,240,0.05);
   z-index: 100; animation: menuIn 0.14s var(--ease-expo);
 }
-.dropdown:hover .dropdown-content { display: block; }
+/* :focus-within as well as :hover — hover was the ONLY rule that ever opened a
+   submenu, so all 10 dropdown destinations were unreachable by keyboard on every
+   page. Inert at mobile widths, where .nav-links is display:none. */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content { display: block; }
 
 @keyframes menuIn {
   from { opacity: 0; transform: translateY(-8px) scale(0.97); }
@@ -165,6 +182,14 @@ a  { color: inherit; }
 .mobile-menu {
   display: block; position: fixed; inset: 0; z-index: 1100;
   pointer-events: none;
+  /* visibility, not pointer-events alone. The drawer is only translated off
+     screen, so without this its 12 links stay in the tab order on every page at
+     every width — a keyboard user tabs through a dozen invisible destinations
+     before reaching the page, and a screen reader announces them all. Measured:
+     12 focusable nodes still focusable with the menu closed, at 375 and 1280.
+     Delayed on the way out so the slide-out still plays, instant on the way in. */
+  visibility: hidden;
+  transition: visibility 0s linear 0.32s;
 }
 /* Backdrop */
 .mobile-menu::before {
@@ -172,7 +197,7 @@ a  { color: inherit; }
   background: rgba(0,0,0,0.6); backdrop-filter: blur(2px);
   opacity: 0; transition: opacity 0.3s ease;
 }
-.mobile-menu.open { pointer-events: auto; }
+.mobile-menu.open { pointer-events: auto; visibility: visible; transition-delay: 0s; }
 .mobile-menu.open::before { opacity: 1; }
 
 /* Drawer panel */
@@ -371,7 +396,11 @@ a  { color: inherit; }
   border-radius: 12px; overflow: hidden; max-width: 580px;
 }
 .hero-stat {
-  padding: 16px 28px; text-align: center;
+  /* flex:1 forces four identical cells, so the limit is the WIDEST single
+     label, not the total: at this padding each label gets ~100px. 22px not
+     28px because "Developer Support" needs 98 of it. See .stat-label for why
+     a longer label now wraps instead of being silently sliced off. */
+  padding: 16px 22px; text-align: center;
   border-right: 1px solid var(--teal-border); flex: 1;
   transition: background 0.2s ease;
 }
@@ -384,7 +413,10 @@ a  { color: inherit; }
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; line-height: 1; margin-bottom: 3px;
 }
-.stat-label { font-size: 0.68rem; font-weight: 500; color: var(--slate); white-space: nowrap; }
+/* No nowrap: .hero-stats has overflow:hidden, so a label wider than its cell
+   used to be clipped mid-word with no visual warning ("Support from the
+   Developer" lost ~40px this way). Wrapping makes an over-long label obvious. */
+.stat-label { font-size: 0.68rem; font-weight: 500; color: var(--slate); }
 
 .hero-scroll {
   position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
@@ -801,6 +833,49 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
 .footer-bottom-links a { font-size: 0.77rem; color: var(--slate); text-decoration: none; transition: color 0.15s ease; }
 .footer-bottom-links a:hover { color: var(--teal); }
 
+/* ── IMAGE LIGHTBOX ──────────────────────────
+   Tapping a screenshot has to actually enlarge it. Fitting one to the viewport
+   is close to useless on a phone: a 1680px capture shown at 92vw on a 375px
+   screen measured 345px against 322px inline — a 7% gain on something you
+   already could not read, at 21% of natural size. So this opens FITTED (whole
+   image, nothing looks cut off) and a tap switches to ACTUAL SIZE inside a
+   stage that pans in both axes. Escape, the close button and a backdrop tap
+   all dismiss it. */
+.dp-lb { display: none; position: fixed; inset: 0; z-index: 1200;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.dp-lb.open { display: block; }
+.dp-lb-stage {
+  position: absolute; inset: 0; overflow: auto; -webkit-overflow-scrolling: touch;
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.dp-lb-stage img {
+  display: block; border-radius: 10px; box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  max-width: 100%; max-height: calc(100vh - 32px);
+  object-fit: contain; cursor: zoom-in;
+}
+/* Actual size: drop the fit caps and let the stage scroll to it. */
+.dp-lb.zoomed .dp-lb-stage { display: block; }
+.dp-lb.zoomed .dp-lb-stage img {
+  max-width: none; max-height: none; width: auto; height: auto;
+  margin: auto; cursor: zoom-out; border-radius: 0;
+}
+.dp-lb-close {
+  position: fixed; top: 14px; right: 14px; z-index: 2;
+  min-width: 44px; min-height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(2,9,17,0.78); border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px; color: #fff; font-size: 1.15rem; line-height: 1;
+  cursor: pointer; font-family: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dp-lb-close:hover { border-color: var(--teal); background: rgba(2,9,17,0.92); }
+.dp-lb-hint {
+  position: fixed; left: 0; right: 0; bottom: 18px; z-index: 2; margin: 0;
+  text-align: center; font-size: 0.75rem; font-weight: 500;
+  color: rgba(255,255,255,0.66); pointer-events: none;
+}
+.dp-lb.zoomed .dp-lb-hint { display: none; }
+
 /* ── SCROLL REVEAL ──────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(26px) scale(0.98);
@@ -810,6 +885,86 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
 .delay-1{transition-delay:0.1s;} .delay-2{transition-delay:0.2s;}
 
 
+/* ── PRODUCT SECTION JUMP MENU ───────────────
+   The product pages run long, so they get a jump menu — but collapsed, not a
+   full-width strip across the page. It is a single pill that sits out of the
+   way and opens a list on click. Anchors point at the heading ids each section
+   already declares through aria-labelledby. */
+/* Fixed, not sticky, and that is a correctness fix rather than a preference.
+   A sticky element only reaches its 84px resting place once the page has
+   scrolled past where it sits in the flow. The FIRST jump target lands 13px
+   short of that threshold, so the menu was still sitting 14px lower and the
+   heading arrived 40px under it instead of 54px — every other target lands
+   far enough down to be stuck, which is why only the first jump looked off.
+   13px of margin is also thin enough that ordinary layout variation flips it:
+   the same page measured 803 and 829 for that landing in two runs.
+   Fixed makes the menu's position unconditional, so the scroll-margin-top
+   below is true for every section. The element is height:0 and paints nothing
+   of its own either way, so taking it out of flow reflows nothing. */
+.prod-nav {
+  position: fixed; top: 84px; left: 0; right: 0;
+  z-index: 900; height: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+/* Toggled by the page script once the first section reaches the menu's resting
+   place — it stays out of the way over the hero, as it did when it was sticky. */
+.prod-nav.is-visible { opacity: 1; visibility: visible; }
+.prod-nav-shell {
+  max-width: 1280px; margin: 0 auto; padding: 0 48px;
+  display: flex; justify-content: center;
+  /* The shell spans the full width but only the pill is meant to be hit.
+     Measured at 375px it was a 375x44 band pinned over the content, so taps
+     either side of the button landed on it instead of the page beneath. */
+  pointer-events: none;
+}
+.prod-nav-box { position: relative; pointer-events: auto; }
+.prod-nav-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 40px; padding: 9px 14px;
+  font-family: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--slate); cursor: pointer;
+  background: rgba(2,9,17,0.86); border: 1px solid var(--border); border-radius: 999px;
+  backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.prod-nav-toggle:hover { color: var(--white); border-color: var(--teal-border); }
+.prod-nav-toggle svg { width: 12px; height: 12px; transition: transform 0.2s ease; }
+.prod-nav-toggle[aria-expanded="true"] { color: var(--white); border-color: var(--teal-border); }
+.prod-nav-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.prod-nav-list {
+  /* Centred under the button, which is itself centred. */
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  min-width: 190px;
+  display: none; flex-direction: column; padding: 6px;
+  background: rgba(6,14,28,0.97); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.55);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+}
+.prod-nav-list.open { display: flex; }
+.prod-nav-list a {
+  padding: 9px 12px; border-radius: 8px; font-size: 0.83rem; font-weight: 500;
+  color: var(--slate); text-decoration: none; white-space: nowrap;
+  transition: color 0.12s ease, background 0.12s ease;
+}
+.prod-nav-list a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+.prod-nav-list a.active { color: var(--teal); }
+/* Clear BOTH the fixed navbar and the sticky jump menu that sits under it.
+   The menu spans 84->124px on desktop and 78->122px on mobile, so an offset
+   that only cleared the navbar (69px) dropped the heading behind the menu.
+   The id sits on the <h2>, but the eyebrow above it is part of the same section
+   header and belongs on screen too. Measured: the h2 sits exactly 40px inside
+   its header at every section and both viewports, so the offset is
+   menu bottom (124) + 14 breathing + 40 = 178. */
+.product-page [id$="-heading"] { scroll-margin-top: 178px; }
+@media (max-width: 768px) {
+  .prod-nav { top: 78px; }
+  .prod-nav-shell { padding: 0 16px; }
+  .prod-nav-toggle { min-height: 44px; }
+  /* menu bottom (122) + 14 + 40 */
+  .product-page [id$="-heading"] { scroll-margin-top: 176px; }
+}
+
 /* ── MOBILE ─────────────────────────────────── */
 @media (max-width: 1024px) {
   .products-stack { gap: 16px; }
@@ -818,11 +973,35 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 
-@media (max-width: 768px) {
+/* The header collapses at 880px, not 768px, because the desktop nav does not
+   FIT until ~865px of client width. Between 769 and 869 the hamburger was
+   already hidden while the full nav was still shown, so "Visit Us On
+   Marketplace" ran past the viewport edge: measured 93px cut off at 769,
+   42px at 820 (iPad Air portrait) and 28px at 834 (iPad Pro 11" portrait).
+   The navbar is position:fixed, so it contributes no scrollable overflow —
+   there was no scrollbar and no way to reach the clipped part.
+   Separate block from the 768px one below so the rest of the mobile layout
+   keeps its own breakpoint. */
+@media (max-width: 880px) {
   .nav-links, .nav-actions { display: none; }
   .mobile-menu-toggle { display: flex; margin-left: auto; }
   .nav-container { padding: 0 20px; gap: 12px; }
+}
+/* 404.html carries no hamburger and no drawer — only a logo and this CTA — so
+   collapsing .nav-actions there left the header with nothing but the logo at
+   every width below 880 (that was already true at 768). Its nav is 403px wide
+   and fits at 375, so it simply never collapses. */
+body.page-404 .nav-actions { display: block; }
+/* On 404 this CTA is the only header control at phone widths, so it has to meet
+   the touch floor there. It measured 192x40. Scoped to that page so the padding
+   of the normal desktop navbar is untouched. */
+@media (max-width: 880px) {
+  body.page-404 .btn-nav-primary {
+    display: inline-flex; align-items: center; min-height: 44px;
+  }
+}
 
+@media (max-width: 768px) {
   .hero { padding: 88px 24px 124px; min-height: 100svh; }
   .hero h1 { font-size: clamp(2.3rem, 9vw, 3.2rem); max-width: 100%; }
   .hero-sub { font-size: 0.95rem; max-width: 100%; }
@@ -835,7 +1014,6 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .hero-stat { border-right: none; border-bottom: 1px solid var(--teal-border); }
   .hero-stat:nth-child(odd)  { border-right: 1px solid var(--teal-border); }
   .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-bottom: none; }
-  .stat-label { white-space: normal; }
 
   .platforms-inner { padding: 0; flex-direction: column; align-items: flex-start; gap: 12px; }
   .platforms-row { gap: 7px; }
@@ -860,9 +1038,30 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .cta-inner { padding: 48px 24px; }
   .cta-actions { flex-direction: column; align-items: stretch; }
 
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .footer-bottom-links { justify-content: center; flex-wrap: wrap; gap: 14px; }
+  /* ── Condensed mobile footer ──────────────────
+     Stacked single-column, the footer measured 1349px on a 375px screen —
+     17.7% of the whole homepage, about 1.7 viewport-heights of nothing but
+     links. 594px of that was the 11 nav links: each one is a 44px touch
+     target (the accessibility floor, which stays) PLUS a 10px margin, and
+     that margin is what read as "way too big" — 54px of pitch for a 20px
+     line of text.
+
+     Every saving below comes from margin, gap and padding. No touch target
+     shrinks: the links are still 44px rows, now flush, which is the standard
+     phone list pattern. A two-column layout was measured and rejected — the
+     widest label ("Bulk Page Cloner for Confluence") is 210px against the
+     153px a column would get, so it would wrap to two lines and give the
+     height straight back. */
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 18px; }
+  .footer-col h2 { margin-bottom: 8px; }
+  .footer-col a { margin-bottom: 0; }
+  .footer-logo-row { margin-bottom: 8px; }
+  .footer-address { margin-bottom: 14px; }
+  .footer-newsletter-desc { margin-bottom: 10px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 10px; padding: 14px 0; }
+  .footer-bottom-links { justify-content: center; flex-wrap: wrap; gap: 8px; }
+
+  footer { padding-top: 40px; }
 
   /* Touch targets — 44x44 minimum (iOS HIG / WCAG 2.5.8) */
   .logo-link       { min-height: 44px; }
@@ -870,10 +1069,27 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .platform-badge  { min-height: 44px; }
   .footer-logo-row { min-height: 44px; }
   .footer-social a { width: 44px; height: 44px; }
-  .footer-col a { display: inline-flex; align-items: center; min-height: 44px; }
-  .footer-bottom-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 6px; }
+  /* flex, not inline-flex: these are stacked column links, and inline-flex made
+     them run together on one line. Keeps the 44px touch target either way. */
+  .footer-col a { display: flex; align-items: center; min-height: 44px; }
+  /* min-WIDTH as well as height: the short labels ("SLA") came out 35px wide,
+     so the target met the 44px floor on one axis only. */
+  .footer-bottom-links a { display: inline-flex; align-items: center; justify-content: center;
+                           min-height: 44px; min-width: 44px; padding: 0 6px; }
   .newsletter-input,
   .newsletter-btn  { min-height: 44px; }
+
+  /* 16px is iOS Safari's zoom threshold: focus a control whose font-size is
+     under it and Safari scales the whole page in, then never scales back out —
+     the user is left on a zoomed, sideways-scrolling page and has to pinch out
+     by hand. Measured across the site, every control was 12.8-15.2px, so every
+     form on every page did this. The :not()s keep the sliders, checkboxes and
+     radios out of it, where font-size is irrelevant and 16px would resize the
+     control. Specificity is (0,3,1), which clears the (0,1,0) class rules in
+     both this file and the per-page inline styles. */
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+  select:not([hidden]):not([disabled]),
+  textarea:not([hidden]):not([disabled]) { font-size: 16px; }
 
   /* Legibility floor */
   .stat-label { font-size: 0.75rem; }
@@ -892,10 +1108,26 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   .hero-orb-1 { width: 520px; height: 520px; filter: blur(70px); }
   .hero-orb-2 { width: 400px; height: 400px; filter: blur(64px); }
   .hero-orb-3 { display: none; }
+
+  /* Vertical rhythm. 72px between sections and a 36px trailing margin under
+     .hero-sub are desktop numbers; stacked on a 375px screen they left ~165px
+     of dead space between a hero and the first section. */
+  .page-section { padding: 44px 0; }
+  .hero-sub:last-child { margin-bottom: 0; }
 }
 
 /* ── ACCESSIBILITY ──────────────────────────── */
-:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+/* The teal ring alone measures ~1.8:1 against the light-themed screenshot
+   panels on the product pages, so on those surfaces the focus indicator all but
+   disappeared. The dark casing sits under the outline (0-6px, with the ring
+   painted over it at 3-5px), which is invisible against the site's own dark
+   background and gives the ring something to read against on a light one. */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px rgba(2,9,17,0.92);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }

@@ -32,10 +32,15 @@
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
   <style>
+    /* 118px top, not 48px. The navbar is position:fixed and 69px tall, so a 48px
+       top padding put the "Back to Updates & Blog" link underneath it: measured
+       at 375px the link sat at y=43 and a tap at its centre landed on the navbar
+       logo, i.e. "back to the blog" navigated to the home page. The site's own
+       .page-hero uses 130px for exactly this reason. */
     .blog-post-header {
       background: var(--black-2);
       border-bottom: 1px solid var(--border);
-      padding: 48px 48px 40px;
+      padding: 118px 48px 40px;
     }
     .blog-post-header-inner {
       max-width: 760px;
@@ -95,7 +100,9 @@
       color: rgba(255,255,255,0.45);
     }
     .blog-post-byline strong { color: rgba(255,255,255,0.8); font-weight: 600; }
-    .blog-post-byline span { color: rgba(255,255,255,0.2); }
+    /* was rgba(255,255,255,0.2) = 1.8:1 — the byline, date and read time were
+       barely visible against the header. 0.5 measures 5.2:1. */
+    .blog-post-byline span { color: rgba(255,255,255,0.5); }
 
     /* Article body */
     .blog-article-body {
@@ -122,25 +129,6 @@
       border: none;
       border-top: 1px solid var(--border);
       margin: 40px 0 0;
-    }
-    .blog-quote {
-      margin: 8px 0 34px;
-      padding: 22px 26px;
-      border-left: 3px solid var(--teal);
-      background: var(--teal-dim);
-      border-radius: 0 12px 12px 0;
-    }
-    .blog-quote > div:first-child {
-      color: var(--white);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      font-style: italic;
-    }
-    .blog-quote-cite {
-      margin-top: 13px;
-      font-size: 0.85rem;
-      color: var(--slate);
-      font-style: normal;
     }
     .blog-article-body ol, .blog-article-body ul {
       color: var(--white);
@@ -195,16 +183,6 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: 0;
     }
-    .blog-callout {
-      border-left: 3px solid var(--purple);
-      padding: 16px 22px;
-      margin-bottom: 36px;
-      background: rgba(124,77,204,0.08);
-      border-radius: 0 10px 10px 0;
-    }
-    .blog-callout p { margin: 0; color: #C4B5FD; font-size: 0.91rem; line-height: 1.75; }
-    .blog-callout a { color: var(--purple); font-weight: 600; text-decoration: none; }
-    .blog-callout a:hover { text-decoration: underline; }
     .blog-cta-box {
       background: rgba(124,77,204,0.1);
       border: 1px solid rgba(124,77,204,0.3);
@@ -220,7 +198,7 @@
     .blog-cta-box-header p { margin: 0; font-weight: 700; color: var(--white); font-size: 1rem; }
     .blog-cta-box a {
       display: block;
-      color: var(--purple);
+      color: var(--purple-text);
       font-weight: 600;
       text-decoration: none;
       margin-bottom: 8px;
@@ -228,12 +206,20 @@
     }
     .blog-cta-box a:hover { text-decoration: underline; }
     @media (max-width: 640px) {
-      .blog-post-header { padding: 40px 24px 32px; }
+      .blog-post-header { padding: 110px 24px 32px; } /* clears the 69px fixed navbar */
       .blog-post-header h1 { font-size: 1.5rem; }
       .blog-article-body { padding: 40px 24px 60px; }
     }
-  </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Bulk Copy Confluence Pages Without Losing Formatting, Labels, or Attachments","description":"Confluence copies one page at a time. Here's the 4-step flow for cloning up to 25 pages at once, with formatting, labels, and attachments intact.","image":"https://datapingo.com/assets/img/og-image.png","datePublished":"2026-08-19T19:13:08.808Z","author":{"@type":"Person","name":"Eric Huang"},"publisher":{"@type":"Organization","name":"DataPingo","logo":{"@type":"ImageObject","url":"https://datapingo.com/assets/Company Logo/DataPingo logo_LOGO A3.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://datapingo.com/resources/blog/bulk-copy-confluence-pages-guide"}}</script>
+  
+    /* Touch targets — both are standalone navigation links in the post header,
+       not inline prose, so the 44px floor applies. Measured 170x22 and 201x21.
+       Padding only, so the header keeps its look. */
+    @media (max-width: 768px) {
+      .blog-back-link { min-height: 44px; }
+      .blog-app-tag   { display: inline-flex; align-items: center; min-height: 44px; }
+    }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Bulk Copy Confluence Pages Without Losing Formatting, Labels, or Attachments","description":"Confluence copies one page at a time. Here's the 4-step flow for cloning up to 25 pages at once, with formatting, labels, and attachments intact.","image":"https://datapingo.com/assets/img/og-image.png","datePublished":"2026-08-19T19:13:08.808Z","author":{"@type":"Person","name":"Eric Huang"},"publisher":{"@type":"Organization","name":"DataPingo","logo":{"@type":"ImageObject","url":"https://datapingo.com/assets/Company%20Logo/DataPingo%20logo_LOGO%20A3.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://datapingo.com/resources/blog/bulk-copy-confluence-pages-guide"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many pages can I clone at once?","acceptedAnswer":{"@type":"Answer","text":"Up to 25 in a single run, each with its own title set before creation."}},{"@type":"Question","name":"Can I clone a page into a different space?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Location step lets you choose any space you have access to, independent of where the source page lives."}},{"@type":"Question","name":"Will formatting, macros, and attachments survive the copy?","acceptedAnswer":{"@type":"Answer","text":"Yes — cloning goes through Confluence's native copy API, which duplicates content, formatting, macros, labels, and attachments as part of the copy itself rather than reconstructing them afterward."}},{"@type":"Question","name":"Is it safe to use on a live production space?","acceptedAnswer":{"@type":"Answer","text":"The app runs on Atlassian Forge, which means it operates inside your existing Confluence infrastructure with no external servers involved — the same trust model as Atlassian's own built-in features. Ready to try it on your own instance? Bulk Page Cloner for Confluence is on the Atlassian Marketplace , with a free 30-day trial and no setup beyond installing it. New to Bulk Page Cloner? See what's new in the latest release ."}}]}</script>
 </head>
 <body>
@@ -247,7 +233,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -261,8 +247,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -309,8 +295,8 @@
       <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -378,7 +364,7 @@
 <hr>
 <h2>The four-step flow for cloning a page in bulk</h2>
 <div>Bulk Page Cloner for Confluence replaces the repeat-twenty-times loop with <b>a single guided run</b>: pick a source, name every copy up front, choose where they land, and create up to 25 at once.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/1.jpg" alt="Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/1.webp" alt="Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Bulk Page Cloner's Source step inside Confluence, showing a searchable list of pages across every accessible space</figcaption></figure>
 <ol>
 <li><b>Source.</b> Search by title, filter by space, or paste a page's URL directly — the screen above is the real picker, mid-scroll through a live Confluence instance.</li>
 <li><b>Copies.</b> Set how many you need, from 1 to 25, and type a title for each one before a single page is created. There's an auto-number shortcut for a numbered series, and a "copy first to all" shortcut when most titles share a pattern.</li>
@@ -391,13 +377,13 @@
 <hr>
 <h2>What actually gets copied</h2>
 <div>The mechanism matters here, not just the marketing claim. Bulk Page Cloner clones through Confluence's own <a href="https://developer.atlassian.com/cloud/confluence/rest/v1/api-group-content/">content copy API</a> rather than rebuilding a page from scratch, which is the reason the result is <b>a true duplicate and not an approximation</b>: formatting, embedded images and video, macros, labels, and file attachments all transfer with the page, not as a separate step.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/2.jpg" alt="A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports" width="1400" height="810" loading="lazy" decoding="async"><figcaption>A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/2.webp" alt="A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports" width="1400" height="810" loading="lazy" decoding="async"><figcaption>A real Confluence page — Monthly Performance Report for July 2026 — showing a data table and the sidebar list of prior months' reports</figcaption></figure>
 <div>That distinction is worth being specific about, because it's also where a naive "recreate the page" approach falls down. A page rebuilt from stored HTML rather than copied natively can <b>lose attachments entirely</b> — video and files show up as "Preview unavailable" instead of playing. The native copy path doesn't have that failure mode, because the attachments move with the page instead of being reconstructed.</div>
 <div>One tradeoff worth knowing up front: a copy is <b>a real, independent duplicate</b>, not a link back to the original. Attachments get duplicated with every copy, so a 50 MB video cloned 25 times uses roughly <b>1.25 GB</b> of your Confluence storage — the same as attaching that file 25 separate times by hand, just faster to create.</div>
 <hr>
 <h2>A real example: a year of reports in one pass</h2>
 <div>The most common pattern is a page that repeats on a schedule. Take one finished report — July's, say — and generate the rest of the year from it in a single run: August through December, five names typed before any of them exist, all landing as children of the same "Monthly Performance Reports" parent the July page already lives under. That's the exact scenario in the four-step flow above, and it works the same way for sprint retros, per-client project pages, or any other page that gets rebuilt on a cycle.</div>
-<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/3.jpg" alt="Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action</figcaption></figure>
+<figure class="blog-figure"><img src="/resources/blog/images/bulk-copy-confluence-pages-guide/3.webp" alt="Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action" width="1400" height="810" loading="lazy" decoding="async"><figcaption>Typing a slash command inside a Confluence page, with the Bulk Page Cloner for Confluence app appearing as a suggested action</figcaption></figure>
 <div>The app is reachable from inside the page you're already editing, too — type <code>/bulkpage</code> in the editor and it appears as a suggested action, no separate tab required.</div>
 <hr>
 <h2>What it costs</h2>
@@ -454,8 +440,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -495,12 +481,44 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
 
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
@@ -517,5 +535,68 @@
       .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
   });
 </script>
+
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('dpLightbox');
+  if (!lb) return;
+  var stage   = document.getElementById('dpLbStage');
+  var lbImg   = document.getElementById('dpLbImg');
+  var closeBtn= document.getElementById('dpLbClose');
+  var lock    = window.__scrollLock;
+
+  /* A tap opens it; a drag must not. Same guard the product pages use — a bare
+     click listener on a big image counts a thumb-swipe as a tap. */
+  function tapOnly(el, fn) {
+    var sx = null, sy = null;
+    el.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; }, { passive: true });
+    el.addEventListener('click', function (e) {
+      var dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
+      sx = null;
+      if (!dragged) fn(e);
+    });
+  }
+
+  function open(src) {
+    lbImg.src = src.currentSrc || src.src;
+    lbImg.alt = src.alt || '';
+    lb.classList.add('open');
+    lb.classList.remove('zoomed');
+    if (lock) lock.on();
+    closeBtn.focus();
+  }
+  function close() {
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open', 'zoomed');
+    if (lock) lock.off();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.blog-figure img'), function (img) {
+    img.style.cursor = 'zoom-in';
+    tapOnly(img, function () { open(img); });
+  });
+
+  /* Fitted -> actual size, centred on the middle of the image so the pan starts
+     somewhere useful rather than in the top-left corner. */
+  tapOnly(lbImg, function () {
+    var z = lb.classList.toggle('zoomed');
+    if (z) {
+      stage.scrollLeft = (stage.scrollWidth  - stage.clientWidth)  / 2;
+      stage.scrollTop  = (stage.scrollHeight - stage.clientHeight) / 2;
+    }
+  });
+
+  closeBtn.addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
+</script>
+
 </body>
 </html>

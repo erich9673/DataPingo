@@ -4,3 +4,7 @@ node_modules/
 .vscode/
 .claude/
 mobile-redesign.html
+
+# Superseded screenshot backups kept locally, never shipped
+_old-*/
+**/_old-*/

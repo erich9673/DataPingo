@@ -75,7 +75,7 @@
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -89,8 +89,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -137,8 +137,8 @@
     <div class="mobile-menu-body">
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -200,7 +200,7 @@
         <div class="hero-stat"><div class="stat-number">Forge</div><div class="stat-label">Hosted &amp; Certified</div></div>
         <div class="hero-stat"><div class="stat-number">Free</div><div class="stat-label">Trial Available</div></div>
         <div class="hero-stat"><div class="stat-number">Zero</div><div class="stat-label">Data Stored by Us</div></div>
-        <div class="hero-stat"><div class="stat-number">Direct</div><div class="stat-label">Support from the Developer</div></div>
+        <div class="hero-stat"><div class="stat-number">Direct</div><div class="stat-label">Developer Support</div></div>
       </div>
     </div>
   <!-- ③  PLATFORMS — "Runs natively inside" (Deel pattern) -->
@@ -252,7 +252,36 @@
       </header>
       <div class="products-stack">
 
-        <article class="product-card reveal">
+        <article class="product-card product-card--jira reveal">
+          <div class="product-info">
+            <div class="product-meta">
+              <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-icon" width="60" height="60" loading="lazy">
+              <div class="product-tag-row"><span class="product-tag product-tag--jira">Jira App</span><span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span></div>
+            </div>
+            <h3 class="product-name">Bulk Comments<br>for Jira</h3>
+            <p class="product-desc">All your comments on one page up to 25 issues at once &mdash; a different comment box for each issue. Works with Jira, JSM, CS, JPD.</p>
+            <div class="product-actions">
+              <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--jira">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Install from Marketplace
+              </a>
+              <a href="/products/bulk-comments" class="btn-secondary">
+                Learn More
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+          <aside class="feature-panel feature-panel--jira" aria-label="Key features">
+            <p class="feature-panel-title">Key Features</p>
+            <ul class="feature-list">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full issue context beside every comment — description, details &amp; attachments</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Move issue status and make a comment — plus images, video &amp; files up to 150 MB each</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Guided 3-step flow with live delivery, retry &amp; per-issue receipts</li>
+            </ul>
+          </aside>
+        </article>
+
+        <article class="product-card reveal delay-1">
           <div class="product-info">
             <div class="product-meta">
               <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence icon" class="product-icon" width="60" height="60" loading="lazy">
@@ -277,35 +306,6 @@
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Clone up to 25 pages in one pass</li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full fidelity — media, macros, labels &amp; attachments</li>
               <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Guided 4-step flow with live clone summary</li>
-            </ul>
-          </aside>
-        </article>
-
-        <article class="product-card product-card--jira reveal delay-1">
-          <div class="product-info">
-            <div class="product-meta">
-              <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-icon" width="60" height="60" loading="lazy">
-              <div class="product-tag-row"><span class="product-tag product-tag--jira">Jira App</span><span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span></div>
-            </div>
-            <h3 class="product-name">Bulk Comments<br>for Jira</h3>
-            <p class="product-desc">Write a different comment on each Jira ticket and change its status — up to 25 at once, with images, video and files on any of them.</p>
-            <div class="product-actions">
-              <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--jira">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Install from Marketplace
-              </a>
-              <a href="/products/bulk-comments" class="btn-secondary">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
-          </div>
-          <aside class="feature-panel feature-panel--jira" aria-label="Key features">
-            <p class="feature-panel-title">Key Features</p>
-            <ul class="feature-list">
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full ticket context beside every comment — description, details &amp; attachments</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Move ticket status and make a comment — plus images, video &amp; files up to 150 MB each</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Guided 3-step flow with live delivery, retry &amp; undo</li>
             </ul>
           </aside>
         </article>
@@ -477,8 +477,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -520,12 +520,44 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
 
   // Hero canvas — Aurora flowing curves
   (function() {

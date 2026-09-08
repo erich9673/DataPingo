@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkpagecloner/specs">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkpagecloner">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkpagecloner/specs">
   <meta property="og:title" content="Bulk Page Cloner — Specs, Permissions & Security">
   <meta property="og:description" content="Complete documentation for Bulk Page Cloner for Confluence.">
   <meta property="og:site_name" content="DataPingo">
@@ -136,30 +136,7 @@
     /* Tutorial video — click-to-load. No YouTube request until the reader presses play,
        which also keeps the cookie autoblocker from replacing the embed with a blank frame. */
     .doc-video { position: relative; aspect-ratio: 16 / 9; height: auto; padding: 0; cursor: default; }
-    .doc-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-    .doc-video-play {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
-      background: linear-gradient(160deg, rgba(5,206,240,0.09) 0%, var(--black-3) 62%);
-      border: 0; cursor: pointer; font-family: inherit; color: var(--white);
-      transition: background 0.25s;
-    }
-    .doc-video-play:hover { background: linear-gradient(160deg, rgba(5,206,240,0.15) 0%, var(--black-3) 62%); }
-    .doc-video-play:focus-visible { outline: 2px solid var(--teal); outline-offset: -4px; }
-    .doc-video-ring {
-      width: 66px; height: 66px; border-radius: 50%;
-      background: var(--teal); color: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 40px rgba(5,206,240,0.35);
-      transition: transform 0.2s;
-    }
-    .doc-video-play:hover .doc-video-ring { transform: scale(1.06); }
-    .doc-video-label { font-size: 0.92rem; font-weight: 600; }
-    .doc-video-sub { font-size: 0.76rem; color: var(--slate); }
-    .doc-video-fallback { font-size: 0.86rem; }
     @media (prefers-reduced-motion: reduce) {
-      .doc-video-play, .doc-video-ring { transition: none; }
-      .doc-video-play:hover .doc-video-ring { transform: none; }
     }
     .doc-img-card:hover { border-color: rgba(5,206,240,0.35); }
     .doc-img-card img {
@@ -172,31 +149,7 @@
       border-color: rgba(167,139,250,0.45) !important;
       color: #A78BFA !important;
     }
-    .btn-secondary--purple:hover {
-      background: rgba(167,139,250,0.1) !important;
-      border-color: #A78BFA !important;
-      color: #C4B5FD !important;
-    }
     /* Lightbox */
-    .doc-lb {
-      display: none; position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.88); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center; cursor: zoom-out;
-    }
-    .doc-lb.open { display: flex; }
-    .doc-lb img {
-      max-width: min(92vw, 1200px); max-height: 88vh;
-      border-radius: 10px; box-shadow: 0 24px 80px rgba(0,0,0,0.7);
-      object-fit: contain; display: block;
-    }
-    .doc-lb-close {
-      position: fixed; top: 20px; right: 24px;
-      background: none; border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px; color: rgba(255,255,255,0.7);
-      font-size: 1.1rem; cursor: pointer; padding: 6px 12px; line-height: 1;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .doc-lb-close:hover { border-color: var(--teal); color: var(--white); }
     .doc-tip {
       background: rgba(5,206,240,0.06);
       border-left: 3px solid var(--teal);
@@ -221,48 +174,7 @@
       background: rgba(255,255,255,0.02);
       overflow: hidden;
     }
-    .release-note > summary {
-      cursor: pointer;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      color: var(--white);
-      list-style: none;
-      transition: background 0.15s ease;
-    }
-    .release-note > summary::-webkit-details-marker { display: none; }
-    .release-note > summary:hover { background: rgba(255,255,255,0.03); }
-    .release-note > summary:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
-    .release-note .rn-chevron {
-      flex-shrink: 0;
-      color: var(--teal);
-      transition: transform 0.2s ease;
-    }
-    .release-note[open] .rn-chevron { transform: rotate(90deg); }
-    .release-note .rn-date {
-      margin-left: auto;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.45);
-    }
-    .release-note .rn-tag {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: rgba(5,206,240,0.15);
-      border: 1px solid rgba(5,206,240,0.3);
-      color: var(--teal);
-      padding: 2px 8px;
-      border-radius: 20px;
-    }
-    .release-note .rn-body { padding: 0 18px 16px 18px; }
-    .release-note .rn-body p { margin-top: 0; }
-    .release-note .rn-body ul { margin-bottom: 0; }
     @media (prefers-reduced-motion: reduce) {
-      .release-note .rn-chevron, .release-note > summary { transition: none; }
     }
     .spec-table {
       width: 100%;
@@ -284,22 +196,6 @@
       border-bottom: 1px solid var(--border);
     }
     .spec-table tbody tr:last-child td { border-bottom: none; }
-    .doc-support-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .doc-support-card {
-      background: var(--black-3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-    .doc-support-card h3 { color: var(--white); font-size: 0.95rem; margin: 0 0 6px; }
-    .doc-support-card p { color: var(--slate); font-size: 0.82rem; margin: 0 0 12px; }
-    .doc-support-card a { color: var(--teal); font-size: 0.84rem; font-weight: 600; text-decoration: none; }
     .doc-hero-badge {
       display: inline-flex;
       align-items: center;
@@ -328,7 +224,56 @@
     }
     @media (max-width: 820px) {
       .doc-layout { grid-template-columns: 1fr; padding: 36px 24px 60px; gap: 0; }
-      .doc-sidebar { position: static; display: none; }
+      /* The sidebar IS the mobile nav. It used to be hidden here and duplicated as
+         a row of pills in the hero, which drifted out of sync and read as clutter.
+         Static + block puts it in the flow above the content, keeping its two
+         labelled groups (Documentation / On this page) exactly as on desktop. */
+      /* Centred as a block, not as text: .doc-toc a carries a left rail that marks
+         the active item, so centring the text would strand the rail away from it.
+         align-items:center shrinks each group to its content width and centres
+         that, keeping rail and label together. Desktop is untouched. */
+      /* On a phone the sidebar becomes a chip set. A vertical rail of text links is
+         a desktop shape — it reads as a column because there IS a column beside it.
+         Standing alone above the content it just looked like orphaned text, so each
+         entry becomes a tappable chip instead.
+
+         The two groups are deliberately not the same weight. "Documentation" leaves
+         this page, so those chips are filled and carry the indigo the doc pages
+         already use for emphasis. "On this page" only jumps within it, so those are
+         hairline ghosts — quieter, because the destination is cheaper. Current page
+         gets the same #A5B4FC the desktop rail uses for .active, so the "you are
+         here" signal is identical in both layouts. */
+      .doc-sidebar { position: static; display: flex; flex-direction: column;
+                     align-items: center; margin-bottom: 34px;
+                     padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+      .doc-sidebar .doc-toc-heading { text-align: center; margin-bottom: 10px; }
+      .doc-sidebar .doc-toc {
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
+        width: 100%; max-width: 100%;
+      }
+      .doc-sidebar .doc-toc a {
+        display: inline-flex; align-items: center; justify-content: center;
+        min-height: 44px; padding: 10px 14px; margin-bottom: 0;
+        border: 1px solid var(--border); border-left: 1px solid var(--border);
+        border-radius: 9px; font-size: 0.78rem; line-height: 1.2;
+        background: transparent; white-space: nowrap;
+        transition: color 0.15s, border-color 0.15s, background 0.15s;
+      }
+      /* Group 1 — navigates away, so it carries more weight. */
+      .doc-sidebar .doc-toc--pages a {
+        background: rgba(99,102,241,0.09);
+        border-color: rgba(99,102,241,0.28);
+        color: #B9C2F0; font-weight: 600;
+      }
+      .doc-sidebar .doc-toc--pages a.is-current {
+        background: rgba(99,102,241,0.2);
+        border-color: #A5B4FC; color: #E8F4FF;
+      }
+      .doc-sidebar .doc-toc a:hover,
+      .doc-sidebar .doc-toc a.active {
+        color: #A5B4FC; border-color: rgba(165,180,252,0.5);
+        background: rgba(99,102,241,0.12);
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -369,7 +314,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -383,8 +328,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -431,8 +376,8 @@
       <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -479,11 +424,6 @@
         </span>
         <span class="doc-hero-badge">Atlassian Forge</span>
         <span class="doc-hero-badge">Confluence Cloud</span>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;">
-        <a href="/resources/documentation/bulkpagecloner" class="btn-secondary">&larr; Back to the guide</a>
-        <a href="#technical" class="btn-secondary">Technical Specifications</a>
-        <a href="#privacy-security" class="btn-secondary">Privacy &amp; Security</a>
       </div>
     </div>
   </section>
@@ -604,8 +544,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -639,9 +579,10 @@
 </footer>
 
 <!-- Lightbox -->
-<div class="doc-lb" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
-  <button class="doc-lb-close" id="docLbClose" aria-label="Close">&#x2715;</button>
-  <img id="docLbImg" alt="">
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
 </div>
 <script>
   const navbar = document.getElementById('navbar');
@@ -650,12 +591,59 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  /* A tap opens the overlay; a drag must not. A bare click listener on a large
+     image counts any thumb-press that the browser did not turn into a scroll as
+     a tap, which is how you end up in a full-screen overlay you never asked for.
+     Comparing pointerdown to click position costs nothing and keeps tap-to-zoom,
+     which is what people expect from an image. */
+  function tapOnly(el, fn) {
+    let sx = null, sy = null;
+    el.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; }, { passive: true });
+    el.addEventListener('click', e => {
+      const dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
+      sx = null;
+      if (!dragged) fn(e);
+    });
+  }
+
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
 
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
@@ -683,33 +671,36 @@
   window.addEventListener('scroll', updateTOC, { passive: true });
   updateTOC();
 
-  // Tutorial video: swap the poster for the real embed on click. Injecting the iframe
-  // after load also sidesteps the cookie autoblocker, which only rewrites embeds
-  // present in the initial HTML.
-  (function() {
-    const play = document.getElementById('bpcVideoPlay');
-    if (!play) return;
-    play.addEventListener('click', () => {
-      const frame = document.createElement('iframe');
-      frame.src = 'https://www.youtube-nocookie.com/embed/Ew8wpqPWk1M?autoplay=1&rel=0&modestbranding=1';
-      frame.title = 'Bulk Page Cloner for Confluence — Tutorial';
-      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      frame.allowFullscreen = true;
-      document.getElementById('bpcVideo').replaceChildren(frame);
-      frame.focus();
-    });
-  })();
 
   // Lightbox
-  const lb = document.getElementById('docLightbox');
-  const lbImg = document.getElementById('docLbImg');
-  const lbClose = document.getElementById('docLbClose');
-  document.querySelectorAll('.doc-img-card img').forEach(img => {
-    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  // Lightbox — shared .dp-lb component (css/aurora.css). These pages carry no
+  // screenshots today; the binding covers both wrapper classes so a figure added
+  // later gets the zoomable viewer rather than the old fit-to-screen one.
+  const lb = document.getElementById('dpLightbox');
+  const lbStage = document.getElementById('dpLbStage');
+  const lbImg = document.getElementById('dpLbImg');
+  const lbClose = document.getElementById('dpLbClose');
+  const openLb = src => {
+    lbImg.src = src.currentSrc || src.src; lbImg.alt = src.alt || '';
+    lb.classList.add('open'); lb.classList.remove('zoomed');
+    scrollLock.on(); lbClose.focus();
+  };
+  const closeLb = () => {
+    if (!lb.classList.contains('open')) return;
+    lb.classList.remove('open', 'zoomed'); scrollLock.off();
+  };
+  document.querySelectorAll('.doc-img-card img, .doc-figure img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    tapOnly(img, () => openLb(img));
   });
-  const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  tapOnly(lbImg, () => {
+    if (lb.classList.toggle('zoomed')) {
+      lbStage.scrollLeft = (lbStage.scrollWidth  - lbStage.clientWidth)  / 2;
+      lbStage.scrollTop  = (lbStage.scrollHeight - lbStage.clientHeight) / 2;
+    }
+  });
   lbClose.addEventListener('click', closeLb);
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === lbStage) closeLb(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 </script>
 

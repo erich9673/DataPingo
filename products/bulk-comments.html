@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira — Comment on Multiple Issues</title>
-  <meta name="description" content="Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each. Images, video and files included. Built on Atlassian Forge.">
+  <meta name="description" content="Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM. Images, video and files included. Built on Atlassian Forge.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/products/bulk-comments">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/products/bulk-comments">
   <meta property="og:title" content="Bulk Comments for Jira — Comment on Multiple Issues">
-  <meta property="og:description" content="Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each. Images, video and files included. Built on Atlassian Forge.">
+  <meta property="og:description" content="Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM. Images, video and files included. Built on Atlassian Forge.">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bulk Comments for Jira — a different comment on every ticket, up to 25 at once.">
+  <meta property="og:image:alt" content="Bulk Comments for Jira — a different comment on every issue, up to 25 at once.">
   <meta property="og:site_name" content="DataPingo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bulk Comments for Jira — Comment on Multiple Issues">
-  <meta name="twitter:description" content="Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each">.
+  <meta name="twitter:description" content="Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
@@ -147,16 +147,14 @@
       border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.55);
       backdrop-filter: blur(4px); user-select: none; position: relative;
     }
-    .hv-head { margin-bottom: 14px; }
-    .hv-sub { font-size: 0.68rem; font-weight: 500; color: var(--slate); margin: 0; text-align: center; }
 
     /* ── The stage, rebuilt to match the app ──────────────────────────────────
        This used to be a list-plus-side-panel: compact rows on the left, one
-       shared "open ticket" panel on the right carrying both its full detail AND
-       its comment editor. That is not how the app works. Every selected ticket
+       shared "open issue" panel on the right carrying both its full detail AND
+       its comment editor. That is not how the app works. Every selected issue
        is its OWN always-visible card, comment editor included, ready to type
        into immediately — there is nothing to click to start writing. Clicking a
-       ticket's key opens a separate READ-ONLY panel (description, details,
+       issue's key opens a separate READ-ONLY panel (description, details,
        attachments, comment history) — that panel has no editor in it at all,
        and it is not shown here; it gets its own highlight card further down
        this page. So the hero now renders what step 2 actually leads with: a
@@ -213,9 +211,8 @@
       padding: 2px 4px; margin-left: -2px; border-radius: 4px;
       transition: background 0.18s, color 0.18s; }
     .hv-details svg { width: 7px; height: 7px; }
-    .hv-details.armed { background: rgba(99,102,241,0.22); color: #DDE2FF; }
     .hv-cx { width: 11px; height: 11px; color: #667085; flex-shrink: 0; }
-    /* Its own line, and the heaviest type on the card — the ticket you are
+    /* Its own line, and the heaviest type on the card — the issue you are
        writing about is the thing you read first. */
     .hv-ctitle { font-size: 0.7rem; font-weight: 700; color: var(--white); line-height: 1.35;
       margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -230,18 +227,16 @@
       transition: background 0.3s, color 0.3s; }
     .hv-lz--todo { background: rgba(161,171,188,0.18); color: #B6C2CF; }
     .hv-lz--prog { background: rgba(38,132,255,0.22);  color: #85B8FF; }
-    .hv-lz--done { background: rgba(45,164,78,0.26);   color: #7EE2B8; }
     .hv-lz.bump { animation: hvPop 0.7s ease-out; }
     @keyframes hvPop {
       0%   { box-shadow: 0 0 0 0 rgba(199,210,254,0); }
       35%  { box-shadow: 0 0 0 4px rgba(199,210,254,0.22); }
       100% { box-shadow: 0 0 0 0 rgba(199,210,254,0); }
     }
-    .hv-clz { flex-shrink: 0; }
 
     /* Readiness badge — the app's own "Ready" pill, including the leading dot.
-       Hidden (not just empty) until a ticket has something written on it —
-       an untouched ticket carries no badge at all, matching the app exactly. */
+       Hidden (not just empty) until an issue has something written on it —
+       an untouched issue carries no badge at all, matching the app exactly. */
     .hv-badge { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; flex-shrink: 0;
       font-size: 0.5rem; font-weight: 700; border-radius: 5px; padding: 3px 7px;
       border: 1px solid var(--border); color: #7C8698; background: transparent;
@@ -252,9 +247,9 @@
     .hv-badge.ready i { background: currentColor; border-color: currentColor; }
 
     /* The status control lives right in the card header — one click on the
-       current status reveals the transitions Jira would accept for that ticket.
+       current status reveals the transitions Jira would accept for that issue.
        Compact by design: this is a supporting beat, not the headline (that's the
-       always-ready comment box below it), and per-ticket status changes get
+       always-ready comment box below it), and per-issue status changes get
        their own dedicated highlight further down this page. */
     .hv-pick { display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0;
       margin-left: auto; border-radius: 4px; position: relative; transition: box-shadow 0.2s; }
@@ -294,6 +289,29 @@
        recognise it, so the toolbar row is drawn rather than implied. */
     .hv-ced { border: 1px solid rgba(99,102,241,0.45); border-radius: 8px; overflow: hidden;
       background: rgba(99,102,241,0.04); }
+
+    /* ── Service-desk lanes (v4.6.0) ───────────────────────────────
+       A JSM/CSM request states who may read each comment. The segmented
+       control sits in the card header; when both lanes are open the card
+       carries two editors, the internal one first because that is the
+       order they post in. Amber marks the lane that leaves the building. */
+    .hv-vis { display: inline-flex; align-items: center; gap: 0; flex-shrink: 0;
+      border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .hv-vis span { display: inline-flex; align-items: center; gap: 3px;
+      font-size: 0.5rem; font-weight: 700; letter-spacing: 0.01em;
+      color: #8996AB; padding: 3px 6px; white-space: nowrap; }
+    .hv-vis span svg { width: 7px; height: 7px; }
+    .hv-vis span.on { background: rgba(99,102,241,0.22); color: #DDE2FF; }
+    .hv-vis span.on.cust { background: rgba(240,173,78,0.20); color: #F7C983; }
+
+    .hv-lane { display: flex; align-items: center; gap: 5px; margin: 7px 0 4px;
+      font-size: 0.52rem; font-weight: 700; color: #97A3B6; }
+    .hv-lane svg { width: 8px; height: 8px; flex-shrink: 0; }
+    .hv-lane em { font-style: normal; font-weight: 600; color: #6E7A8D; }
+    .hv-lane--cust { color: #F7C983; }
+    .hv-lane--cust em { color: #B08A4E; }
+    .hv-ced--cust { border-color: rgba(240,173,78,0.5); background: rgba(240,173,78,0.05); }
+    .hv-ced--cust .hv-tb { border-bottom-color: rgba(240,173,78,0.18); }
     .hv-tb { display: flex; align-items: center; gap: 5px; padding: 4px 6px;
       border-bottom: 1px solid rgba(255,255,255,0.07); }
     .hv-tb > svg { width: 9px; height: 9px; color: var(--slate); flex-shrink: 0; }
@@ -368,43 +386,6 @@
        opened or closed it. Absolute + top/bottom:0 means the panel can only ever
        be exactly as tall as the stage, never taller. */
     .hv-body { position: relative; min-height: 376px; }
-    #hvWrite { transition: padding-right 0.32s cubic-bezier(0.22,0.8,0.3,1.05); }
-    .hv-body.detail-open #hvWrite { padding-right: 272px; }
-    .hv-detail {
-      position: absolute; top: 0; right: 0; bottom: 0; width: 260px;
-      overflow: hidden; padding: 13px 14px;
-      background: rgba(15,17,26,0.98); border-left: 1px solid rgba(99,102,241,0.35);
-      box-shadow: -10px 0 32px rgba(0,0,0,0.5);
-      opacity: 0; pointer-events: none; transform: translateX(16px);
-      transition: opacity 0.26s ease, transform 0.32s cubic-bezier(0.22,0.8,0.3,1.05);
-    }
-    .hv-detail.open { opacity: 1; transform: none; pointer-events: auto; }
-    /* Pressing Details on a second ticket while the panel is already up swaps
-       its contents in place. A brief dip marks that as a change rather than
-       letting the new ticket's text appear to have been there all along. */
-    .hv-detail.swap { animation: hvPanelSwap 0.36s ease; }
-    @keyframes hvPanelSwap { 0% { opacity: 0.2; } 100% { opacity: 1; } }
-    /* The mention hint is the first thing to go when the cards narrow for the
-       panel — the live word count earns the space, a static hint does not. */
-    .hv-body.detail-open .hv-tb .mn { display: none; }
-    .hv-ph { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
-    .hv-ph .hv-tkey { padding: 4px 6px; }
-    .hv-ph-x { margin-left: auto; width: 11px; height: 11px; color: #667085; flex-shrink: 0; }
-    .hv-pt { font-size: 0.7rem; font-weight: 700; color: var(--white); line-height: 1.35; margin-bottom: 8px; }
-    .hv-acc { display: flex; align-items: center; gap: 6px; font-size: 0.6rem; font-weight: 600;
-      color: #C7D2FE; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .hv-acc svg { width: 9px; height: 9px; color: #667085; flex-shrink: 0; }
-    .hv-acc b { margin-left: auto; font-size: 0.55rem; font-weight: 700; color: #B6C2CF;
-      background: rgba(255,255,255,0.06); border-radius: 4px; padding: 1px 5px; }
-    .hv-dlabel { font-size: 0.58rem; font-weight: 700; color: var(--white); margin: 8px 0 2px; }
-    .hv-ddesc { font-size: 0.58rem; color: var(--slate); line-height: 1.55; padding: 0 0 4px; }
-    .hv-dlist { margin: 2px 0 4px; padding-left: 13px; font-size: 0.56rem;
-      color: var(--slate); line-height: 1.5; }
-    .hv-dlist li { margin-bottom: 3px; }
-    .hv-dlist li::marker { color: #6366F1; }
-    .hv-dgrid { display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; padding: 8px 0 4px; font-size: 0.56rem; }
-    .hv-dk { color: #7A8497; }
-    .hv-dv { color: var(--white); font-weight: 600; }
 
     .hv-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
     .hv-stat { font-size: 0.72rem; font-weight: 600; color: var(--slate); }
@@ -414,15 +395,6 @@
       align-items: center; gap: 7px; white-space: nowrap; transition: box-shadow 0.15s, transform 0.12s; }
     .hv-post.pressed { transform: scale(0.97); box-shadow: 0 0 24px rgba(99,102,241,0.5); }
     .hv-post svg { width: 12px; height: 12px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hv-card, .hv-lz, .hv-badge, .hv-badge i, .hv-att,
-      .hv-pick, .hv-cursor, .hv-menu, .hv-detail, #hvWrite { transition: none; }
-      .hv-cursor { display: none; }
-      .hv-cursor.click::after { animation: none; }
-      .hv-lz.bump { animation: none; }
-      .hv-caret { animation: none; }
-    }
     @media (max-width: 900px) {
       /* Stack, and slot the demo between the H1 and the description.
          display:contents flattens .product-hero-text so the meta, H1, demo,
@@ -447,6 +419,12 @@
       .hv-fit               { order: 3; width: 100%; max-width: 520px; margin: 0 auto 28px;
                               align-self: center; }
       .hv                   { margin: 0; }
+      /* The header carries six controls at desktop width; on a phone the whole
+         mockup has to be scaled to fit, and every control kept is a smaller
+         everything. Details and the close X are not part of what the demo
+         shows, so they go — which lets the natural width drop from 560 to 420
+         and the whole card render ~34% larger instead of 0.58 scale. */
+      .hv-details, .hv-cx   { display: none; }
       .product-hero-sub     { order: 4; margin-bottom: 28px; }
       .product-hero-actions { order: 5; }
     }
@@ -568,7 +546,7 @@
          drawing fits the shared 2.04:1 frame reads as part of the figure instead
          of two dark bars — and it follows the light/dark switch automatically. */
       border: 1px solid var(--border); background: var(--f-base);
-      aspect-ratio: 1840 / 900;
+      aspect-ratio: 1680 / 914;
       /* Same two-layer treatment as the hero's .hv card — an ambient colour bloom
          plus a tight dark drop shadow — so the walkthrough's screenshot frame and
          the hero demo read as one family instead of two different weights. */
@@ -584,11 +562,12 @@
     /* A drawn figure fills the frame the same way a capture does, and inherits
        the --f-* tokens below so one drawing serves both themes. */
     .hiw-panel .hiw-figure { width: 100%; height: 100%; display: block; }
-    /* Real captures of the app, one pair per step. Both themes ship because the
-       app genuinely has both and the toggle above the preview is the claim —
-       a re-tinted drawing would have been the website's idea of the product,
-       not the product. Only the light shot carries the alt text; the dark one is
-       the same screen, so announcing it twice is noise for a screen reader. */
+    /* Real captures of the app, one pair per step, straight from the same shots
+       the documentation uses. Both themes ship because the app genuinely has
+       both and the toggle above the preview is the claim - a re-tinted drawing
+       would have been the website's idea of the product, not the product. Only
+       the light shot carries the alt text; the dark one is the same screen, so
+       announcing it twice is noise for a screen reader. */
     /* Specificity, not preference: `.hiw-panel img` above is (0,1,1), so a bare
        `.hiw-shot` rule loses to it and both themes render on top of each other. */
     .hiw-panel img.hiw-shot { display: none; }
@@ -625,7 +604,19 @@
       transition: background 0.2s, color 0.2s;
     }
     .hiw-theme-btn svg { width: 15px; height: 15px; }
-    .hiw-theme-btn.active { background: #6366F1; color: #fff; }
+    /* #6366F1 put white text at 4.47:1, just under the 4.5 floor for this size.
+       #6265EF is the same indigo a shade deeper and measures 4.54:1. */
+    .hiw-theme-btn.active { background: #6265EF; color: #fff; }
+
+
+    /* Touch targets — 44px floor on phones (iOS HIG / WCAG 2.5.8). Measured at
+       375px these were: theme toggle 82x28, calc pill 95x34, calc input 108x43.
+       Padding only, so the desktop proportions above are untouched. */
+    @media (max-width: 768px) {
+      .hiw-theme-btn { min-height: 44px; }
+      .calc-pill     { min-height: 44px; }
+      .calc-input    { min-height: 44px; }
+    }
 
     /* Pricing calculator */
     .pricing-section { padding: 96px 0; border-top: 1px solid var(--border); }
@@ -662,16 +653,30 @@
     }
     .calc-hint { font-size: 0.78rem; color: var(--slate); margin: 8px 0 0; line-height: 1.5; }
     .calc-slider-row { display: flex; align-items: center; gap: 14px; }
+    /* The input's own box is the hit target, and at height:4px that was a 4px
+       tall grab area — the 18px thumb only overflows it visually. Measured 153x4
+       at 375px: not draggable with a thumb. The control is 44px tall now and the
+       visible 4px track is painted by the track pseudo-elements instead. */
     .calc-slider {
       flex: 1; -webkit-appearance: none; appearance: none;
-      height: 4px; border-radius: 2px; background: var(--border); outline: none; cursor: pointer;
+      height: 44px; background: transparent; outline: none; cursor: pointer;
+    }
+    .calc-slider::-webkit-slider-runnable-track {
+      height: 4px; border-radius: 2px; background: var(--border);
+    }
+    .calc-slider::-moz-range-track {
+      height: 4px; border-radius: 2px; background: var(--border);
     }
     .calc-slider::-webkit-slider-thumb {
       -webkit-appearance: none; appearance: none;
       width: 18px; height: 18px; border-radius: 50%;
       background: #6366F1; cursor: pointer;
       box-shadow: 0 0 8px rgba(99,102,241,0.5);
+      margin-top: -7px; /* centre the 18px thumb on the 4px track */
     }
+    /* The slider had no focus indicator at all. */
+    .calc-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px rgba(99,102,241,0.6); }
+    .calc-slider:focus-visible::-moz-range-thumb     { box-shadow: 0 0 0 3px rgba(99,102,241,0.6); }
     .calc-slider::-moz-range-thumb {
       width: 18px; height: 18px; border-radius: 50%; border: none;
       background: #6366F1; cursor: pointer;
@@ -772,6 +777,16 @@
     .zoom-btn:focus-visible { opacity: 1; transform: none; }
     .zoom-btn:hover { background: rgba(12,14,22,0.94); }
     @media (hover: none) { .zoom-btn { opacity: 1; transform: none; } }
+    /* The figure scales with the viewport; this button does not, so on a phone it
+       grew from 14% of the figure's width to 26% of it. Dropping the label makes it
+       a square icon at the same 14% ratio as desktop, and 44x44 also fixes a touch
+       target that was 33px tall. The accessible name lives in aria-label. */
+    @media (max-width: 768px) {
+      .zoom-btn-label { display: none; }
+      .zoom-btn { width: 44px; height: 44px; min-height: 44px; padding: 0;
+                  justify-content: center; gap: 0; top: 8px; right: 8px; }
+      .zoom-btn svg { width: 15px; height: 15px; }
+    }
 
     /* Lightbox */
     #hiw-lightbox {
@@ -819,7 +834,10 @@
        near the size it was drawn, and the swipe is the zoom. */
     @media (max-width: 700px) {
       #hiw-lightbox { padding: 16px; }
-      #hiw-lightbox-close { top: 12px; right: 14px; }
+      /* 44x44, not the desktop 40: this is the overlay's main way out on a
+         phone, where there is no Escape key and a backdrop tap only counts
+         outside the figure. */
+      #hiw-lightbox-close { top: 12px; right: 14px; width: 44px; height: 44px; }
       /* Show the whole figure, not a slice of it. Sizing by height and panning
          sideways kept the type large, but everything past the first screen just
          read as cut off — so fit the width and let each figure's own viewBox
@@ -885,7 +903,7 @@
 
     @media (max-width: 960px) {
       .hiw-interactive { grid-template-columns: 1fr; }
-      .hiw-preview { position: static; aspect-ratio: 16/9; }
+      .hiw-preview { position: static; aspect-ratio: 1680 / 914; }
     }
     @media (max-width: 768px) {
       .product-hero-inner { padding: 0 24px; }
@@ -900,9 +918,9 @@
   "name": "Bulk Comments for Jira",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Atlassian Jira Cloud",
-  "softwareVersion": "4.5.0",
+  "softwareVersion": "4.6.0",
   "url": "https://datapingo.com/products/bulk-comments",
-  "description": "Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each. Runs entirely on Atlassian Forge — no external servers.",
+  "description": "Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM. Runs entirely on Atlassian Forge — no external servers.",
   "image": "https://datapingo.com/assets/img/og-bulk-comments.png",
   "installUrl": "https://marketplace.atlassian.com/apps/2184917707",
   "downloadUrl": "https://marketplace.atlassian.com/apps/2184917707",
@@ -941,7 +959,7 @@
 }
   </script>
 </head>
-<body>
+<body class="product-page">
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
        listing, so a click on a Marketplace link is the last observable step.
@@ -952,7 +970,7 @@
        never delays the navigation it is measuring. -->
   <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}</style>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
 <!-- NAVBAR -->
 <header>
@@ -966,8 +984,8 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -1014,8 +1032,8 @@
     <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -1058,7 +1076,7 @@
           </div>
         </div>
         <h1>Bulk Comments for Jira</h1>
-        <p class="product-hero-sub">Bulk-comment on multiple Jira issues – up to 25 at once, a different comment and status on each.</p>
+        <p class="product-hero-sub">Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -1071,31 +1089,30 @@
         </div>
       </div>
 
-      <!-- Guided flow: pick tickets, write a comment per ticket, send -->
+      <!-- Guided flow: pick issues, write a comment per issue, send -->
       <!-- Scaled to fit on a narrow screen — see fitHero(). The wrapper carries
            the layout box; .hv keeps its full width inside it. -->
       <div class="hv-fit">
-      <div class="hv" aria-label="Bulk Comments for Jira: write a comment on each of up to 25 tickets, then send">
-          <div class="hv-head">
-            <p class="hv-sub" id="hvSub">A comment and a status per ticket</p>
-          </div>
+      <div class="hv" role="img" aria-label="Bulk Comments for Jira: write a comment on each of up to 25 issues — on a service desk request, an internal note and a customer reply — then send">
           <span class="hv-cursor" id="hvCursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 2l14 9-6.2 1.3L9.6 19z"/></svg></span>
           <div class="hv-body">
             <div class="hv-view write on" id="hvWrite">
-              <div class="hv-sect"><span class="hv-sect-l">2 tickets</span><span class="hv-sect-b">Clear all</span></div>
+              <div class="hv-sect"><span class="hv-sect-l">2 issues</span><span class="hv-sect-b">Clear all</span></div>
               <div class="hv-stack" id="hvStack">
   
                 <div class="hv-card" data-row="0">
                   <div class="hv-chead">
-                    <svg class="hv-ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#22A06B"/><path d="M8 6h8v12l-4-3.2L8 18z" fill="#fff"/></svg>
-                    <span class="hv-tkey">PAY-412</span>
+                    <svg class="hv-ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#1F845A"/><path d="M13.2 4.5L7.4 13.4h3.6l-.9 6.1 5.9-8.9h-3.7z" fill="#fff"/></svg>
+                    <span class="hv-tkey">SUP-241</span>
                     <span class="hv-details">Details<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg></span>
+                    <span class="hv-vis" aria-hidden="true"><span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Internal</span><span class="cust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19.5a6.5 6.5 0 0113 0"/></svg>Reply to customer</span></span>
                     <span class="hv-pick"><span class="pv hv-lz hv-lz--todo">To Do</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg><span class="hv-menu"><i data-opt="0">In Progress</i><i data-opt="1">In Review</i><i data-opt="2">Done</i></span></span>
                     <span class="hv-badge" style="visibility:hidden"><i></i><span class="bv"></span></span>
                     <svg class="hv-cx" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                   </div>
-                  <div class="hv-ctitle">Add Stripe webhook retry handling</div>
-                  <div class="hv-cmeta">Eric Huang &middot; last comment 2h ago</div>
+                  <div class="hv-ctitle">SSO login fails for contractors on Okta</div>
+                  <div class="hv-cmeta">Dana Whitfield &middot; via portal &middot; 2h ago</div>
+                  <div class="hv-lane"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Internal note <em>posted first</em></div>
                   <div class="hv-ced">
                     <div class="hv-tb"><span class="tbk">Normal text<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></span><i class="sep"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 4h8a4 4 0 010 8H6zM6 12h9a4 4 0 010 8H6z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 3v7a6 6 0 0012 0V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg><i class="sep"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="wc"><b class="wcn">0</b> words<span class="mn"> &middot; @ to mention</span></span></div>
                     <div class="hv-etext"><span class="ph">Write your comment&hellip;</span><span class="t"></span><span class="hv-caret"></span></div>
@@ -1106,6 +1123,11 @@
                       </span>
                       <span class="hv-attmeta"><b>rollout-check.png</b><span>3.1 MB &middot; uploaded</span></span>
                     </div>
+                  </div>
+                  <div class="hv-lane hv-lane--cust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19.5a6.5 6.5 0 0113 0"/></svg>Reply to customer <em>posted second</em></div>
+                  <div class="hv-ced hv-ced--cust">
+                    <div class="hv-tb"><span class="tbk">Normal text<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 4h7a4 4 0 010 8H6zM6 12h8a4 4 0 010 8H6z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg><span class="wc"><b class="wcn2">0</b> words<span class="mn"> &middot; @ to mention</span></span></div>
+                    <div class="hv-etext hv-etext2"><span class="ph">Write your comment&hellip;</span><span class="t2"></span><span class="hv-caret"></span></div>
                   </div>
                 </div>
   
@@ -1135,46 +1157,39 @@
   
               </div>
             </div>
-  
-            <!-- Read-only detail flyout — what "Details ›" opens. It sits BESIDE the
-                 cards (the list narrows, it is never covered) and carries no editor
-                 at all: description, fields, attachments and history only, the same
-                 shape as the app's own read-only panel. -->
-            <div class="hv-detail" id="hvDetail">
-              <div class="hv-ph">
-                <svg class="hv-ico" id="hvDIco" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#22A06B"/><path d="M8 6h8v12l-4-3.2L8 18z" fill="#fff"/></svg>
-                <span class="hv-tkey"><span id="hvDKey">PAY-412</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></span>
-                <span class="hv-lz hv-lz--todo" id="hvDLz">To Do</span>
-                <svg class="hv-ph-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </div>
-              <div class="hv-pt" id="hvDTitle">Add Stripe webhook retry handling</div>
-              <div class="hv-acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>Description</div>
-              <div class="hv-dlabel" id="hvDStoryLabel">User story</div>
-              <div class="hv-ddesc" id="hvDStory">As a user, I want failed webhook deliveries to retry automatically instead of dropping silently.</div>
-              <div class="hv-dlabel" id="hvDAcLabel">Acceptance criteria</div>
-              <ul class="hv-dlist" id="hvDAc">
-                <li>Failed deliveries retry with backoff</li>
-                <li>Exhausted retries hit a dead-letter queue</li>
-              </ul>
-              <div class="hv-acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>Details</div>
-              <div class="hv-dgrid" id="hvDGrid">
-                <span class="hv-dk">Type</span><span class="hv-dv">Story</span>
-                <span class="hv-dk">Assignee</span><span class="hv-dv">Eric Huang</span>
-                <span class="hv-dk">Priority</span><span class="hv-dv">High</span>
-                <span class="hv-dk">Due date</span><span class="hv-dv">Sep 2, 2026</span>
-              </div>
-              <div class="hv-acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>Attachments<b id="hvDAtt">4</b></div>
-              <div class="hv-acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>All comments<b id="hvDCom">4</b></div>
             </div>
-          </div>
           <div class="hv-foot">
             <div class="hv-stat" id="hvStat"><b>2</b> ready &middot; <b>1</b> move &middot; files to 150 MB</div>
-            <button type="button" class="hv-post" id="hvPost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="hvPostLabel">Post 2 comments</span></button>
+            <button type="button" class="hv-post" id="hvPost" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="hvPostLabel">Post 2 comments</span></button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
+  <!-- Collapsed section jump menu. Anchors point at the heading ids the sections
+       already declare through aria-labelledby, so there are no duplicate targets. -->
+  <nav class="prod-nav" aria-label="Page sections">
+    <div class="prod-nav-shell">
+      <div class="prod-nav-box">
+        <button type="button" class="prod-nav-toggle" id="prodNavToggle"
+                aria-expanded="false" aria-controls="prodNavList">
+          <span id="prodNavCurrent">Jump to section</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="prod-nav-list" id="prodNavList">
+          <a href="#highlights-heading">Highlights</a>
+          <a href="#hiw-heading">How it works</a>
+          <a href="#features-heading">Features</a>
+          <a href="#pricing-heading">Pricing</a>
+          <a href="#faq-heading">FAQ</a>
+          <a href="#support-heading">Support</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <!-- HIGHLIGHTS -->
   <section class="highlights-section" aria-labelledby="highlights-heading">
@@ -1182,19 +1197,19 @@
       <header class="section-header reveal">
         <p class="eyebrow"><span>Highlights</span></p>
         <h2 class="section-title" id="highlights-heading">A whole project. Or several. <span class="grad-text" style="background:linear-gradient(135deg,#818CF8 0%,#A78BFA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">All on one page.</span></h2>
-        <p class="section-desc">Updating tickets one at a time is the part everyone quietly dreads. Do the whole batch in one send.</p>
+        <p class="section-desc">Updating issues one at a time is the part everyone quietly dreads. Do the whole batch in one send.</p>
       </header>
 
       <div class="highlight-stack">
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the per-ticket comments figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
-            <!-- Two selected tickets, each its own card with its own comment box.
+            <button type="button" class="zoom-btn" aria-label="Open the per-issue comments figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
+            <!-- Two selected issues, each its own card with its own comment box.
                  This used to draw a list of compact rows on the left and a panel on
                  the right that held the status control AND the comment editor —
                  which is not the product. The editor and the status control belong
                  to the card; the panel (card two below) is read-only. -->
-            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three Jira tickets on the left, each wired to its own comment box on the right. The boxes hold visibly different content — a long three-line comment, a short one with a video attached, and a single line — because every ticket is written separately rather than one comment going to all of them.">
+            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three Jira issues on the left, each wired to its own comment box on the right. The boxes hold visibly different content — a long three-line comment, a short one with a video attached, and a single line — because every issue is written separately rather than one comment going to all of them.">
   <defs>
     <pattern id="bcD1" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
     <linearGradient id="bcB1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F52E6"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
@@ -1202,8 +1217,8 @@
   </defs>
   <rect width="920" height="450" fill="#F8FAFC"/><rect width="920" height="450" fill="url(#bcD1)"/>
   <circle cx="36" cy="34" r="4" fill="#4F52E6"/>
-  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">PER-TICKET COMMENTS</text>
-  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">TICKETS</text>
+  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">PER-ISSUE COMMENTS</text>
+  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">ISSUES</text>
   <text x="392" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">ITS OWN COMMENT</text>
   <rect x="98" y="126" width="248" height="92" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
   <rect x="116" y="142" width="60" height="20" rx="6" fill="#EEEEFC"/>
@@ -1235,16 +1250,16 @@
 </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Per-ticket comments</p>
-            <h3>A different comment on every ticket</h3>
-            <p>Every ticket you pick becomes its own card with its own comment box &mdash; ready to type into, nothing to open first.</p>
+            <p class="highlight-num">Per-issue comments</p>
+            <h3>A different comment on every issue</h3>
+            <p>Every issue you pick becomes its own card with its own comment box &mdash; ready to type into, nothing to open first.</p>
           </div>
         </div>
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the ticket detail figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
-            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One selected Jira ticket on the left opens into a full read-only panel on the right: its description, a video and an image attachment shown inline, and its fields — assignee, labels and sprint — all visible without leaving the app.">
+            <button type="button" class="zoom-btn" aria-label="Open the issue detail figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
+            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One selected Jira issue on the left opens into a full read-only panel on the right: its description, a video and an image attachment shown inline, and its fields — assignee, labels and sprint — all visible without leaving the app.">
   <defs>
     <pattern id="bcD2" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
     <linearGradient id="bcB2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F52E6"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
@@ -1252,8 +1267,8 @@
   </defs>
   <rect width="920" height="450" fill="#F8FAFC"/><rect width="920" height="450" fill="url(#bcD2)"/>
   <circle cx="36" cy="34" r="4" fill="#4F52E6"/>
-  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">FULL TICKET CONTEXT</text>
-  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">SELECTED TICKET</text>
+  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">FULL ISSUE CONTEXT</text>
+  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">SELECTED ISSUE</text>
   <text x="430" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">EVERYTHING IT CARRIES</text>
   <rect x="98" y="186" width="250" height="160" rx="10" fill="#FFFFFF" stroke="#4F52E6" stroke-width="1.5"/>
   <rect x="116" y="206" width="66" height="20" rx="6" fill="#EEEEFC"/>
@@ -1285,16 +1300,16 @@
 </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Full ticket context</p>
-            <h3>Click a ticket, see everything</h3>
-            <p>Press <span class="hl-ui">Details</span> for that ticket&rsquo;s description, fields and comment history. Video plays inline, images open full-size &mdash; no trip back to Jira.</p>
+            <p class="highlight-num">Full issue context</p>
+            <h3>Click an issue, see everything</h3>
+            <p>Press <span class="hl-ui">Details</span> for that issue&rsquo;s description, fields and comment history. Video plays inline, images open full-size &mdash; no trip back to Jira.</p>
           </div>
         </div>
 
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the per-ticket status figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
-            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three Jira tickets moving independently as they are commented on: PAY-412 goes from To Do to In Review, PAY-418 from In Progress to Done, and PAY-423 keeps its status with a comment only. Each row carries its own comment and its own status change.">
+            <button type="button" class="zoom-btn" aria-label="Open the per-issue status figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
+            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Three Jira issues moving independently as they are commented on: PAY-412 goes from To Do to In Review, PAY-418 from In Progress to Done, and PAY-423 keeps its status with a comment only. Each row carries its own comment and its own status change.">
   <defs>
     <pattern id="bcD3" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
     <linearGradient id="bcB3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F52E6"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
@@ -1302,8 +1317,8 @@
   </defs>
   <rect width="920" height="450" fill="#F8FAFC"/><rect width="920" height="450" fill="url(#bcD3)"/>
   <circle cx="36" cy="34" r="4" fill="#4F52E6"/>
-  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">PER-TICKET STATUS</text>
-  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">TICKETS</text>
+  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">PER-ISSUE STATUS</text>
+  <text x="98" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">ISSUES</text>
   <text x="392" y="100" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">COMMENT, THEN MOVE IT</text>
   <rect x="98" y="126" width="248" height="92" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
   <rect x="116" y="142" width="60" height="20" rx="6" fill="#EEEEFC"/>
@@ -1342,9 +1357,75 @@
 </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Per-ticket status</p>
-            <h3>Change ticket status while you comment</h3>
+            <p class="highlight-num">Per-issue status</p>
+            <h3>Change issue status while you comment</h3>
             <p>Set a status change right on the card. One to In&nbsp;Review, the next to Done, the rest left exactly where they are.</p>
+          </div>
+        </div>
+
+        <div class="highlight-card reveal">
+          <div class="highlight-card-media zoomable">
+            <button type="button" class="zoom-btn" aria-label="Open the service desk figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg><span class="zoom-btn-label">Expand</span></button>
+            <svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One service desk request carrying two comments: an internal note that only agents see, and a reply that reaches the customer and emails them.">
+  <defs>
+    <pattern id="bcD4" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
+    <linearGradient id="bcB4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F52E6"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+    <linearGradient id="bcA4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D97706"/><stop offset="1" stop-color="#F59E0B"/></linearGradient>
+  </defs>
+  <rect width="920" height="450" fill="#F8FAFC"/><rect width="920" height="450" fill="url(#bcD4)"/>
+  <circle cx="36" cy="34" r="4" fill="#4F52E6"/>
+  <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#4F52E6">ONE REQUEST, TWO AUDIENCES</text>
+
+  <!-- the request card -->
+  <rect x="60" y="78" width="470" height="316" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="84" y="102" width="9" height="9" rx="2.5" fill="#1F845A"/>
+  <text x="104" y="111" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#4F52E6">SUP-241</text>
+  <text x="176" y="111" font-family="Inter,sans-serif" font-size="11.5" fill="#64748B">SSO login fails for contractors</text>
+
+  <!-- visibility control -->
+  <rect x="84" y="128" width="196" height="26" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
+  <rect x="85" y="129" width="90" height="24" rx="5" fill="#EEF0FF"/>
+  <text x="130" y="145" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#4F52E6">Internal</text>
+  <text x="228" y="145" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Reply to customer</text>
+
+  <!-- internal lane -->
+  <rect x="84" y="172" width="422" height="92" rx="9" fill="#FFFFFF" stroke="#C7D2FE"/>
+  <rect x="84" y="172" width="422" height="26" rx="9" fill="#EEF0FF"/><rect x="84" y="189" width="422" height="9" fill="#EEF0FF"/>
+  <rect x="98" y="181" width="8" height="7" rx="1.5" fill="none" stroke="#4F52E6" stroke-width="1.6"/><path d="M100 181v-2a2 2 0 014 0v2" fill="none" stroke="#4F52E6" stroke-width="1.6"/>
+  <text x="114" y="188" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#4F52E6">Internal note</text>
+  <text x="196" y="188" font-family="Inter,sans-serif" font-size="10.5" fill="#818CF8">posted first</text>
+  <rect x="100" y="212" width="330" height="8" rx="4" fill="url(#bcB4)"/>
+  <rect x="100" y="230" width="228" height="7" rx="3.5" fill="#E2E8F0"/>
+  <rect x="100" y="246" width="150" height="7" rx="3.5" fill="#E2E8F0"/>
+
+  <!-- customer lane -->
+  <rect x="84" y="278" width="422" height="92" rx="9" fill="#FFFFFF" stroke="#FCD9A4"/>
+  <rect x="84" y="278" width="422" height="26" rx="9" fill="#FEF6E7"/><rect x="84" y="295" width="422" height="9" fill="#FEF6E7"/>
+  <circle cx="102" cy="285" r="3.1" fill="none" stroke="#D97706" stroke-width="1.6"/><path d="M97 292a5 5 0 0110 0" fill="none" stroke="#D97706" stroke-width="1.6"/>
+  <text x="114" y="294" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#B45309">Reply to customer</text>
+  <text x="222" y="294" font-family="Inter,sans-serif" font-size="10.5" fill="#D9A05B">emailed &#183; posted second</text>
+  <rect x="100" y="318" width="300" height="8" rx="4" fill="url(#bcA4)"/>
+  <rect x="100" y="336" width="206" height="7" rx="3.5" fill="#F1E4CE"/>
+  <rect x="100" y="352" width="132" height="7" rx="3.5" fill="#F1E4CE"/>
+
+  <!-- where each one lands -->
+  <path d="M540 218 h44" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/><path d="M584 213 l6 5 l-6 5" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="600" y="176" width="256" height="86" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="622" y="205" font-family="Inter,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4" fill="#64748B">THE AGENT VIEW</text>
+  <text x="622" y="230" font-family="Inter,sans-serif" font-size="11.5" fill="#94A3B8">Only your team ever reads it.</text>
+  <text x="622" y="248" font-family="Inter,sans-serif" font-size="11.5" fill="#94A3B8">Nothing leaves Jira.</text>
+
+  <path d="M540 324 h44" stroke="#D9A05B" stroke-width="2" stroke-linecap="round"/><path d="M584 319 l6 5 l-6 5" fill="none" stroke="#D9A05B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="600" y="282" width="256" height="86" rx="10" fill="#FFFDF8" stroke="#FCD9A4"/>
+  <text x="622" y="311" font-family="Inter,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4" fill="#B45309">THE CUSTOMER</text>
+  <text x="622" y="336" font-family="Inter,sans-serif" font-size="11.5" fill="#C08A4A">Lands on the portal and</text>
+  <text x="622" y="354" font-family="Inter,sans-serif" font-size="11.5" fill="#C08A4A">arrives in their inbox.</text>
+</svg>
+          </div>
+          <div class="highlight-card-copy">
+            <p class="highlight-num">Service desks</p>
+            <h3>Say it twice, to the two people who need it</h3>
+            <p>On a Service Management or Customer Service request, every comment is an internal note or a reply that reaches the customer &mdash; and one request can carry both.</p>
           </div>
         </div>
 
@@ -1358,8 +1439,8 @@
       <header class="section-header reveal">
         <p class="eyebrow"><span>How It Works</span></p>
         <h2 class="section-title" id="hiw-heading">Two ways in. <span class="grad-text" style="background:linear-gradient(135deg,#6366F1 0%,#7C3AED 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">One page to write.</span></h2>
-        <p class="section-desc">Three steps: pick your tickets, write the comment, send.</p>
-        <p class="section-desc section-desc--cont">Open it from the sidebar or any ticket's &bull;&bull;&bull; menu — in light or dark, matched to Jira.</p>
+        <p class="section-desc">Three steps: pick your issues, write the comment, send.</p>
+        <p class="section-desc section-desc--cont">Open it from the sidebar or any issue's &bull;&bull;&bull; menu &mdash; in light or dark, matched to Jira.</p>
         <div class="hiw-theme-toggle reveal" role="group" aria-label="Preview theme">
           <button type="button" class="hiw-theme-btn active" data-theme="light" onclick="setHiwTheme('light')" aria-pressed="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -1375,7 +1456,7 @@
         <div class="hiw-tab-list" role="tablist" aria-label="Steps">
           <button class="hiw-tab-btn active" role="tab" aria-selected="true" aria-controls="hiw-panel-0" data-index="0">
             <span class="hiw-tab-num">01</span>
-            <div class="hiw-tab-title">Tickets</div>
+            <div class="hiw-tab-title">Select</div>
             <p class="hiw-tab-desc">Search by keyword, key or JQL. Filter by status or just yours, then select up to 25 in one pass.</p>
             <div class="hiw-tab-progress"></div>
           </button>
@@ -1383,389 +1464,44 @@
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-1" data-index="1">
             <span class="hiw-tab-num">02</span>
             <div class="hiw-tab-title">Comment</div>
-            <p class="hiw-tab-desc">Every ticket is its own card, comment box included. Set its status, or press Details for the full ticket.</p>
+            <p class="hiw-tab-desc">Every issue is its own card, comment box included. On a service desk, choose an internal note or a reply to the customer &mdash; or both.</p>
             <div class="hiw-tab-progress"></div>
           </button>
 
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-2" data-index="2">
             <span class="hiw-tab-num">03</span>
             <div class="hiw-tab-title">Send</div>
-            <p class="hiw-tab-desc">Watch each ticket land. Retry any that fail, or undo the whole send in one click.</p>
+            <p class="hiw-tab-desc">Watch each issue land, retry any that fail, and see which requests reached a customer.</p>
             <div class="hiw-tab-progress"></div>
           </button>
         </div>
         <div class="hiw-stage">
           <div class="hiw-preview zoomable" role="tabpanel" data-theme="light">
-            <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Expand</button>
+            <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
-              <svg class="hiw-figure" viewBox="0 0 840 455" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Step 1, Tickets: search by keyword or issue key, or switch to JQL. Filter by status, scope to just the tickets assigned to you, sort, or select everything visible. Four of twenty-five tickets are selected here, listed as chips along the bottom tray.">
-                <rect width="840" height="455" fill="var(--f-base)"/>
-
-                <rect width="840" height="34" fill="var(--f-panel)"/>
-                <line x1="0" y1="34" x2="840" y2="34" stroke="var(--f-border)"/>
-                <circle cx="30" cy="17" r="7" fill="var(--f-accent)"/>
-                <text x="30" y="20.3" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-                <text x="44" y="20.5" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="var(--f-ink)">Tickets</text>
-                <line x1="84" y1="17" x2="104" y2="17" stroke="var(--f-border2)" stroke-width="1.4"/>
-                <circle cx="114" cy="17" r="7" fill="none" stroke="var(--f-border2)" stroke-width="1.5"/>
-                <text x="114" y="20.3" font-family="Inter,sans-serif" font-size="8" fill="var(--f-muted)" text-anchor="middle">2</text>
-                <text x="128" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-muted)">Comment</text>
-                <line x1="182" y1="17" x2="202" y2="17" stroke="var(--f-border2)" stroke-width="1.4"/>
-                <circle cx="212" cy="17" r="7" fill="none" stroke="var(--f-border2)" stroke-width="1.5"/>
-                <text x="212" y="20.3" font-family="Inter,sans-serif" font-size="8" fill="var(--f-muted)" text-anchor="middle">3</text>
-                <text x="226" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-muted)">Send</text>
-
-                <g font-family="Inter,sans-serif">
-                  <rect x="24" y="48" width="700" height="26" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <circle cx="42" cy="61" r="4.2" fill="none" stroke="var(--f-muted)" stroke-width="1.4"/>
-                  <path d="M45 64l3 3" stroke="var(--f-muted)" stroke-width="1.4" stroke-linecap="round"/>
-                  <text x="56" y="64.5" font-size="9" fill="var(--f-muted)">Search issues or paste a key</text>
-                  <rect x="734" y="48" width="82" height="26" rx="6" fill="var(--f-elev)" stroke="var(--f-border2)"/>
-                  <rect x="736" y="50" width="39" height="22" rx="5" fill="var(--f-accent)"/>
-                  <text x="755" y="64.5" font-size="8.4" font-weight="700" fill="#fff" text-anchor="middle">Basic</text>
-                  <text x="795" y="64.5" font-size="8.4" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">JQL</text>
-
-                  <rect x="24" y="86" width="86" height="22" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="34" y="100.5" font-size="8.2" fill="var(--f-muted)">Status</text>
-                  <text x="68" y="100.5" font-size="8.2" font-weight="700" fill="var(--f-ink)">Open</text>
-                  <path d="M97 96l3 3 3-3" fill="none" stroke="var(--f-muted)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="122" y="91" width="12" height="12" rx="3" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="142" y="100.5" font-size="8.6" fill="var(--f-ink)">Assigned to me</text>
-                  <text x="224" y="100.5" font-size="8.4" fill="var(--f-muted)">Sort</text>
-                  <rect x="248" y="86" width="76" height="22" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="258" y="100.5" font-size="8.4" fill="var(--f-ink)">Updated</text>
-                  <path d="M311 95l3 3 3-3" fill="none" stroke="var(--f-muted)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="330" y="86" width="22" height="22" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <path d="M341 92v10M337.5 98.5l3.5 3.5 3.5-3.5" fill="none" stroke="var(--f-ink2)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="362" y="86" width="112" height="22" rx="6" fill="var(--f-tint)" stroke="var(--f-accent)"/>
-                  <path d="M374 96.5l2.6 2.6 4.4-5" fill="none" stroke="var(--f-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="388" y="100.5" font-size="8.4" font-weight="700" fill="var(--f-accent)">Select all visible</text>
-                  <rect x="24" y="126" width="792" height="28" rx="6" fill="var(--f-tint)"/>
-                  <rect x="38" y="135" width="11" height="11" rx="2.5" fill="var(--f-accent)"/>
-                  <path d="M41 140.5l2 2 3.4-4" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="60" y="133" width="46" height="15" rx="4" fill="var(--f-accent)"/>
-                  <text x="83.0" y="143.8" font-size="7.4" font-weight="700" fill="#fff" text-anchor="middle">DTB-6</text>
-                  <text x="118" y="144" font-size="9" fill="var(--f-ink)">Create Terraform modules for infrastructure provisioning</text>
-                  <text x="800" y="144" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN REVIEW</text>
-                  <rect x="24" y="156" width="792" height="28" rx="6" fill="var(--f-tint)"/>
-                  <rect x="38" y="165" width="11" height="11" rx="2.5" fill="var(--f-accent)"/>
-                  <path d="M41 170.5l2 2 3.4-4" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="60" y="163" width="52" height="15" rx="4" fill="var(--f-accent)"/>
-                  <text x="86.0" y="173.8" font-size="7.4" font-weight="700" fill="#fff" text-anchor="middle">DTB-10</text>
-                  <text x="124" y="174" font-size="9" fill="var(--f-ink)">As a user, I want to bookmark frequently accessed reports</text>
-                  <text x="800" y="174" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN REVIEW</text>
-                  <rect x="24" y="186" width="792" height="28" rx="6" fill="var(--f-panel)"/>
-                  <rect x="38" y="195" width="11" height="11" rx="2.5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <rect x="60" y="193" width="46" height="15" rx="4" fill="var(--f-elev)"/>
-                  <text x="83.0" y="203.8" font-size="7.4" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">DTB-5</text>
-                  <text x="118" y="204" font-size="9" fill="var(--f-ink)">Implement rate limiting on public API endpoints</text>
-                  <text x="800" y="204" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN PROGRESS</text>
-                  <rect x="24" y="216" width="792" height="28" rx="6" fill="var(--f-tint)"/>
-                  <rect x="38" y="225" width="11" height="11" rx="2.5" fill="var(--f-accent)"/>
-                  <path d="M41 230.5l2 2 3.4-4" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="60" y="223" width="46" height="15" rx="4" fill="var(--f-accent)"/>
-                  <text x="83.0" y="233.8" font-size="7.4" font-weight="700" fill="#fff" text-anchor="middle">DTB-2</text>
-                  <text x="118" y="234" font-size="9" fill="var(--f-ink)">File upload progress bar shows 100% but upload is still processing</text>
-                  <text x="800" y="234" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN REVIEW</text>
-                  <rect x="24" y="246" width="792" height="28" rx="6" fill="var(--f-panel)"/>
-                  <rect x="38" y="255" width="11" height="11" rx="2.5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <rect x="60" y="253" width="46" height="15" rx="4" fill="var(--f-elev)"/>
-                  <text x="83.0" y="263.8" font-size="7.4" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">DTB-7</text>
-                  <text x="118" y="264" font-size="9" fill="var(--f-ink)">Charts fail to render when dataset contains null values</text>
-                  <text x="800" y="264" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN REVIEW</text>
-                  <rect x="24" y="276" width="792" height="28" rx="6" fill="var(--f-tint)"/>
-                  <rect x="38" y="285" width="11" height="11" rx="2.5" fill="var(--f-accent)"/>
-                  <path d="M41 290.5l2 2 3.4-4" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="60" y="283" width="46" height="15" rx="4" fill="var(--f-accent)"/>
-                  <text x="83.0" y="293.8" font-size="7.4" font-weight="700" fill="#fff" text-anchor="middle">DTB-1</text>
-                  <text x="118" y="294" font-size="9" fill="var(--f-ink)">As a user, I want to reset my password via SMS verification</text>
-                  <text x="800" y="294" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">TO DO</text>
-                  <rect x="24" y="306" width="792" height="28" rx="6" fill="var(--f-panel)"/>
-                  <rect x="38" y="315" width="11" height="11" rx="2.5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <rect x="60" y="313" width="46" height="15" rx="4" fill="var(--f-elev)"/>
-                  <text x="83.0" y="323.8" font-size="7.4" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">DTB-3</text>
-                  <text x="118" y="324" font-size="9" fill="var(--f-ink)">Push notifications not delivered on Android 14 devices</text>
-                  <text x="800" y="324" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">IN PROGRESS</text>
-                  <rect x="24" y="336" width="792" height="28" rx="6" fill="var(--f-panel)"/>
-                  <rect x="38" y="345" width="11" height="11" rx="2.5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <rect x="60" y="343" width="52" height="15" rx="4" fill="var(--f-elev)"/>
-                  <text x="86.0" y="353.8" font-size="7.4" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">DTB-18</text>
-                  <text x="124" y="354" font-size="9" fill="var(--f-ink)">Refactor authentication service to support OAuth 2.0</text>
-                  <text x="800" y="354" font-size="7.2" font-weight="800" fill="var(--f-muted)" text-anchor="end">TO DO</text>
-                </g>
-
-                <rect y="372" width="840" height="43" fill="var(--f-panel)"/>
-                <line x1="0" y1="372" x2="840" y2="372" stroke="var(--f-border)"/>
-                <text x="24" y="390" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9" fill="var(--f-ink)"><tspan font-weight="700">4</tspan> / 25 recipients selected</text>
-                <g font-family="Inter,sans-serif" font-size="7.4" font-weight="700">
-                  <rect x="600" y="380" width="50" height="15" rx="4" fill="var(--f-tint)"/><text x="620" y="390.5" fill="var(--f-accent-ink)" text-anchor="middle">DTB-1</text><path d="M638 385l5 5M643 385l-5 5" stroke="var(--f-accent-ink)" stroke-width="1.1" stroke-linecap="round"/>
-                  <rect x="656" y="380" width="50" height="15" rx="4" fill="var(--f-tint)"/><text x="676" y="390.5" fill="var(--f-accent-ink)" text-anchor="middle">DTB-6</text><path d="M694 385l5 5M699 385l-5 5" stroke="var(--f-accent-ink)" stroke-width="1.1" stroke-linecap="round"/>
-                  <rect x="712" y="380" width="54" height="15" rx="4" fill="var(--f-tint)"/><text x="734" y="390.5" fill="var(--f-accent-ink)" text-anchor="middle">DTB-10</text><path d="M754 385l5 5M759 385l-5 5" stroke="var(--f-accent-ink)" stroke-width="1.1" stroke-linecap="round"/>
-                  <rect x="772" y="380" width="50" height="15" rx="4" fill="var(--f-tint)"/><text x="792" y="390.5" fill="var(--f-accent-ink)" text-anchor="middle">DTB-2</text><path d="M810 385l5 5M815 385l-5 5" stroke="var(--f-accent-ink)" stroke-width="1.1" stroke-linecap="round"/>
-                </g>
-                <rect x="24" y="402" width="792" height="4" rx="2" fill="var(--f-elev)"/>
-                <rect x="24" y="402" width="127" height="4" rx="2" fill="var(--f-accent)"/>
-
-                <rect y="415" width="840" height="40" fill="var(--f-panel)"/>
-                <line x1="0" y1="415" x2="840" y2="415" stroke="var(--f-border)"/>
-                <text x="648" y="438.5" font-family="Inter,sans-serif" font-size="9" fill="var(--f-ink2)" text-anchor="end">4 of 25 selected</text>
-                <rect x="664" y="424" width="120" height="22" rx="6" fill="var(--f-accent)"/>
-                <text x="716" y="438.5" font-family="Inter,sans-serif" font-size="8.6" font-weight="700" fill="#fff" text-anchor="middle">Next: comment</text>
-                <path d="M792 431l6 4-6 4" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <img class="hiw-shot hiw-shot--light" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-01-issues-light.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="Step 1, Select: search by keyword or issue key, or switch to JQL. Filter by status, scope to just the issues assigned to you, sort, or select everything visible. Four of twenty-five issues are selected here, listed as chips along the bottom tray.">
+              <img class="hiw-shot hiw-shot--dark" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-01-issues-dark.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="" aria-hidden="true">
             </div>
             <div class="hiw-panel" id="hiw-panel-1">
-              <!-- Drawn, not captured. The v4.2 screenshots that used to sit here
-                   showed the Write/Copy tabs, the "One comment for all 5 tickets"
-                   card, "Ready — own" badges, "Use shared instead" and a Settings
-                   button — every one of them removed in v4.3. A figure built on the
-                   --f-* tokens follows the light/dark toggle on its own, so this is
-                   one drawing instead of a light and a dark capture to keep in sync. -->
-              <svg class="hiw-figure" viewBox="0 0 840 455" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Step 2, Comment: the selected tickets sit on the left, each its own card with its own comment editor and status control. On the right, a read-only detail panel opened from a ticket's Details link shows that ticket's description, acceptance criteria, fields and attachments — you can read the ticket and write about it at the same time.">
-                <rect width="840" height="455" fill="var(--f-base)"/>
-
-                <rect width="840" height="34" fill="var(--f-panel)"/>
-                <line x1="0" y1="34" x2="840" y2="34" stroke="var(--f-border)"/>
-                <circle cx="30" cy="17" r="7" fill="none" stroke="var(--f-accent)" stroke-width="1.5"/>
-                <path d="M27 17l2 2 4-4.5" fill="none" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="44" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-ink2)">Tickets</text>
-                <line x1="82" y1="17" x2="102" y2="17" stroke="var(--f-accent)" stroke-width="1.4"/>
-                <circle cx="112" cy="17" r="7" fill="var(--f-accent)"/>
-                <text x="112" y="20.3" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">2</text>
-                <text x="126" y="20.5" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="var(--f-ink)">Comment</text>
-                <line x1="180" y1="17" x2="200" y2="17" stroke="var(--f-border2)" stroke-width="1.4"/>
-                <circle cx="210" cy="17" r="7" fill="none" stroke="var(--f-border2)" stroke-width="1.5"/>
-                <text x="210" y="20.3" font-family="Inter,sans-serif" font-size="8" fill="var(--f-muted)" text-anchor="middle">3</text>
-                <text x="224" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-muted)">Send</text>
-
-                <path d="M28 50l-5 4 5 4" fill="none" stroke="var(--f-accent)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="38" y="57.5" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="var(--f-accent)">4 tickets &#183; change</text>
-                <line x1="0" y1="70" x2="840" y2="70" stroke="var(--f-border)"/>
-
-                <g font-family="Inter,sans-serif">
-                  <text x="30" y="92" font-size="8.5" font-weight="800" letter-spacing="0.8" fill="var(--f-muted)">4 TICKETS</text>
-                  <rect x="412" y="81" width="60" height="18" rx="5" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="442" y="93.5" font-size="8.5" font-weight="600" fill="var(--f-ink2)" text-anchor="middle">Clear all</text>
-
-                  <!-- ── the open ticket, still fully writable ───────────────── -->
-                  <rect x="30" y="106" width="442" height="142" rx="10" fill="var(--f-panel)" stroke="var(--f-accent)" stroke-width="1.6"/>
-                  <rect x="44" y="117" width="13" height="13" rx="3" fill="#22A06B"/>
-                  <path d="M48 120h5v7l-2.5-2-2.5 2z" fill="#fff"/>
-                  <rect x="65" y="116" width="48" height="16" rx="4" fill="var(--f-accent)"/>
-                  <text x="89" y="127.5" font-size="7.8" font-weight="700" fill="#fff" text-anchor="middle">DTB-1</text>
-                  <text x="121" y="127.5" font-size="8.4" font-weight="700" fill="var(--f-accent)">Details</text>
-                  <path d="M159 123.5l3.5 4-3.5 4" fill="none" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="360" y="116" width="58" height="17" rx="4" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="383" y="127.8" font-size="7.4" font-weight="800" fill="var(--f-ink2)" text-anchor="middle">TO DO</text>
-                  <path d="M405 123.5l3 3 3-3" fill="none" stroke="var(--f-muted)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M444 120l8 8M452 120l-8 8" stroke="var(--f-muted)" stroke-width="1.6" stroke-linecap="round"/>
-                  <text x="44" y="152" font-size="11" font-weight="700" fill="var(--f-ink)">As a user, I want to reset my password via SMS</text>
-                  <text x="44" y="165" font-size="8.2" fill="var(--f-muted)">Eric Huang &#183; last comment Aug 3</text>
-                  <rect x="44" y="174" width="414" height="62" rx="6" fill="var(--f-panel)" stroke="var(--f-accent)" stroke-width="1.2"/>
-                  <path d="M44.6 180a5.4 5.4 0 015.4-5.4h402a5.4 5.4 0 015.4 5.4v13.4H44.6z" fill="var(--f-elev)"/>
-                  <line x1="45" y1="193.4" x2="457" y2="193.4" stroke="var(--f-border)"/>
-                  <rect x="53" y="178.5" width="54" height="11.5" rx="3" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="58" y="186.8" font-size="6.4" fill="var(--f-ink2)">Normal text</text>
-                  <path d="M98 183.5l2 2 2-2" fill="none" stroke="var(--f-muted)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="114" y1="179" x2="114" y2="189" stroke="var(--f-border2)"/>
-                  <g font-size="7.6" font-weight="700" fill="var(--f-ink2)">
-                    <text x="122" y="187">B</text><text x="135" y="187" font-style="italic">I</text>
-                    <text x="145" y="187" text-decoration="underline">U</text><text x="157" y="187" text-decoration="line-through">S</text>
-                  </g>
-                  <line x1="170" y1="179" x2="170" y2="189" stroke="var(--f-border2)"/>
-                  <g stroke="var(--f-ink2)" stroke-width="1.1" stroke-linecap="round">
-                    <path d="M181 181h8M181 184h8M181 187h8"/><circle cx="178" cy="181" r="0.7"/><circle cx="178" cy="184" r="0.7"/><circle cx="178" cy="187" r="0.7"/>
-                    <path d="M199 181h8M199 184h8M199 187h8"/>
-                  </g>
-                  <line x1="216" y1="179" x2="216" y2="189" stroke="var(--f-border2)"/>
-                  <g stroke="var(--f-ink2)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M228 181l-3 3 3 3M235 181l3 3-3 3"/>
-                  </g>
-                  <g stroke="var(--f-ink2)" stroke-width="1" fill="none">
-                    <rect x="248" y="180" width="9" height="8" rx="1"/><path d="M248 183h9M252.5 180v8"/>
-                  </g>
-                  <g stroke="var(--f-ink2)" stroke-width="1" fill="none" stroke-linejoin="round">
-                    <rect x="266" y="180" width="9" height="8" rx="1.4"/><path d="M266 186l2.6-2.6 2.2 2.2 1.8-1.6 2.4 2.2"/>
-                  </g>
-                  <text x="450" y="187" font-size="6.9" fill="var(--f-muted)" text-anchor="end">9 words &#183; @ to mention</text>
-                  <text x="54" y="211" font-size="8.6" fill="var(--f-ink)">Retested on staging &#8212; the OTP now expires</text>
-                  <text x="54" y="223" font-size="8.6" fill="var(--f-ink)">correctly on the second attempt.</text>
-
-                  <!-- ── the next ticket, waiting its turn ───────────────────── -->
-                  <rect x="30" y="258" width="442" height="142" rx="10" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <rect x="44" y="269" width="13" height="13" rx="3" fill="#22A06B"/>
-                  <path d="M48 272h5v7l-2.5-2-2.5 2z" fill="#fff"/>
-                  <rect x="65" y="268" width="48" height="16" rx="4" fill="var(--f-accent)"/>
-                  <text x="89" y="279.5" font-size="7.8" font-weight="700" fill="#fff" text-anchor="middle">DTB-6</text>
-                  <text x="121" y="279.5" font-size="8.4" font-weight="700" fill="var(--f-accent)">Details</text>
-                  <path d="M159 275.5l3.5 4-3.5 4" fill="none" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="354" y="268" width="64" height="17" rx="4" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="380" y="279.8" font-size="7.2" font-weight="800" fill="var(--f-ink2)" text-anchor="middle">IN REVIEW</text>
-                  <path d="M405 275.5l3 3 3-3" fill="none" stroke="var(--f-muted)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M444 272l8 8M452 272l-8 8" stroke="var(--f-muted)" stroke-width="1.6" stroke-linecap="round"/>
-                  <text x="44" y="304" font-size="11" font-weight="700" fill="var(--f-ink)">Create Terraform modules for provisioning</text>
-                  <text x="44" y="317" font-size="8.2" fill="var(--f-muted)">Unassigned &#183; last comment 22h ago</text>
-                  <rect x="44" y="326" width="414" height="62" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <path d="M44.6 332a5.4 5.4 0 015.4-5.4h402a5.4 5.4 0 015.4 5.4v13.4H44.6z" fill="var(--f-elev)"/>
-                  <line x1="45" y1="345.4" x2="457" y2="345.4" stroke="var(--f-border)"/>
-                  <rect x="53" y="330.5" width="54" height="11.5" rx="3" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="58" y="338.8" font-size="6.4" fill="var(--f-ink2)">Normal text</text>
-                  <path d="M98 335.5l2 2 2-2" fill="none" stroke="var(--f-muted)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="114" y1="331" x2="114" y2="341" stroke="var(--f-border2)"/>
-                  <g font-size="7.6" font-weight="700" fill="var(--f-ink2)">
-                    <text x="122" y="339">B</text><text x="135" y="339" font-style="italic">I</text>
-                    <text x="145" y="339" text-decoration="underline">U</text><text x="157" y="339" text-decoration="line-through">S</text>
-                  </g>
-                  <line x1="170" y1="331" x2="170" y2="341" stroke="var(--f-border2)"/>
-                  <g stroke="var(--f-ink2)" stroke-width="1.1" stroke-linecap="round">
-                    <path d="M181 333h8M181 336h8M181 339h8"/><circle cx="178" cy="333" r="0.7"/><circle cx="178" cy="336" r="0.7"/><circle cx="178" cy="339" r="0.7"/>
-                    <path d="M199 333h8M199 336h8M199 339h8"/>
-                  </g>
-                  <line x1="216" y1="331" x2="216" y2="341" stroke="var(--f-border2)"/>
-                  <g stroke="var(--f-ink2)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M228 333l-3 3 3 3M235 333l3 3-3 3"/>
-                  </g>
-                  <g stroke="var(--f-ink2)" stroke-width="1" fill="none">
-                    <rect x="248" y="332" width="9" height="8" rx="1"/><path d="M248 335h9M252.5 332v8"/>
-                  </g>
-                  <g stroke="var(--f-ink2)" stroke-width="1" fill="none" stroke-linejoin="round">
-                    <rect x="266" y="332" width="9" height="8" rx="1.4"/><path d="M266 338l2.6-2.6 2.2 2.2 1.8-1.6 2.4 2.2"/>
-                  </g>
-                  <text x="450" y="339" font-size="6.9" fill="var(--f-muted)" text-anchor="end">0 words &#183; @ to mention</text>
-                  <text x="54" y="363" font-size="8.6" fill="var(--f-muted)">Write your comment&#8230;</text>
-                </g>
-
-                <!-- ── the read-only panel, open beside the list ─────────────── -->
-                <rect x="490" y="70" width="350" height="345" fill="var(--f-panel)"/>
-                <line x1="490" y1="70" x2="490" y2="415" stroke="var(--f-border)"/>
-                <g font-family="Inter,sans-serif">
-                  <rect x="510" y="86" width="14" height="14" rx="3" fill="#22A06B"/>
-                  <path d="M514.5 89h5v7.5l-2.5-2-2.5 2z" fill="#fff"/>
-                  <rect x="532" y="85" width="52" height="16" rx="4" fill="var(--f-accent)"/>
-                  <text x="555" y="96.5" font-size="7.8" font-weight="700" fill="#fff" text-anchor="middle">DTB-1</text>
-                  <path d="M572 90l4-4M573 86h3v3" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="592" y="85" width="58" height="16" rx="4" fill="var(--f-elev)" stroke="var(--f-border2)"/>
-                  <text x="621" y="96.5" font-size="7.4" font-weight="800" fill="var(--f-ink2)" text-anchor="middle">TO DO</text>
-                  <path d="M812 88l9 9M821 88l-9 9" stroke="var(--f-muted)" stroke-width="1.6" stroke-linecap="round"/>
-
-                  <text x="510" y="124" font-size="13" font-weight="800" fill="var(--f-ink)">As a user, I want to reset my</text>
-                  <text x="510" y="140" font-size="13" font-weight="800" fill="var(--f-ink)">password via SMS verification</text>
-
-                  <path d="M512 156l4.5 4.5 4.5-4.5" fill="none" stroke="var(--f-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="528" y="161" font-size="10" font-weight="700" fill="var(--f-ink)">Description</text>
-                  <line x1="510" y1="170" x2="822" y2="170" stroke="var(--f-border)"/>
-                  <text x="510" y="186" font-size="8.6" font-weight="700" fill="var(--f-ink)">User story</text>
-                  <text x="510" y="199" font-size="8.4" fill="var(--f-ink2)">As a user, I want to reset my password via SMS.</text>
-                  <text x="510" y="217" font-size="8.6" font-weight="700" fill="var(--f-ink)">Acceptance criteria</text>
-                  <circle cx="515" cy="227" r="1.6" fill="var(--f-accent)"/>
-                  <text x="524" y="230" font-size="8.4" fill="var(--f-ink2)">Reset can start from the login screen</text>
-                  <circle cx="515" cy="241" r="1.6" fill="var(--f-accent)"/>
-                  <text x="524" y="244" font-size="8.4" fill="var(--f-ink2)">SMS OTP is sent and can be verified</text>
-                  <circle cx="515" cy="255" r="1.6" fill="var(--f-accent)"/>
-                  <text x="524" y="258" font-size="8.4" fill="var(--f-ink2)">Errors shown for an expired OTP</text>
-
-                  <path d="M512 274l4.5 4.5 4.5-4.5" fill="none" stroke="var(--f-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="528" y="279" font-size="10" font-weight="700" fill="var(--f-ink)">Details</text>
-                  <line x1="510" y1="288" x2="822" y2="288" stroke="var(--f-border)"/>
-                  <g font-size="8.4">
-                    <text x="510" y="304" fill="var(--f-muted)">Type</text><text x="606" y="304" font-weight="600" fill="var(--f-ink)">Story</text>
-                    <text x="510" y="320" fill="var(--f-muted)">Assignee</text><text x="606" y="320" font-weight="600" fill="var(--f-ink)">Eric Huang</text>
-                    <text x="510" y="336" fill="var(--f-muted)">Priority</text><text x="606" y="336" font-weight="600" fill="var(--f-ink)">Medium</text>
-                    <text x="510" y="352" fill="var(--f-muted)">Due date</text><text x="606" y="352" font-weight="600" fill="var(--f-ink)">2026-08-31</text>
-                    <text x="510" y="368" fill="var(--f-muted)">Labels</text><text x="606" y="368" font-weight="600" fill="var(--f-ink)">low-priority</text>
-                  </g>
-                  <path d="M512 386l4.5 4.5 4.5-4.5" fill="none" stroke="var(--f-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="528" y="391" font-size="10" font-weight="700" fill="var(--f-ink)">Attachments</text>
-                  <rect x="798" y="382" width="24" height="15" rx="4" fill="var(--f-elev)"/>
-                  <text x="810" y="392.5" font-size="8" font-weight="700" fill="var(--f-ink2)" text-anchor="middle">5</text>
-                </g>
-
-                <rect y="415" width="840" height="40" fill="var(--f-panel)"/>
-                <line x1="0" y1="415" x2="840" y2="415" stroke="var(--f-border)"/>
-                <rect x="24" y="424" width="104" height="22" rx="6" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                <text x="76" y="438.5" font-family="Inter,sans-serif" font-size="8.5" font-weight="600" fill="var(--f-ink2)" text-anchor="middle">&#8592; Back to tickets</text>
-                <text x="632" y="438.5" font-family="Inter,sans-serif" font-size="9" fill="var(--f-ink2)" text-anchor="end"><tspan font-weight="700" fill="var(--f-ink)">1</tspan> ready &#183; <tspan font-weight="700" fill="var(--f-ink)">3</tspan> skipped</text>
-                <rect x="648" y="424" width="120" height="22" rx="6" fill="var(--f-accent)"/>
-                <text x="700" y="438.5" font-family="Inter,sans-serif" font-size="8.6" font-weight="700" fill="#fff" text-anchor="middle">Post 1 comment</text>
-                <path d="M750 431l8 4-8 4 2-4z" fill="#fff"/>
-              </svg>
+              <img class="hiw-shot hiw-shot--light" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-02-write-light.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="Step 2, Comment: the selected issues sit on the left, each its own card with its own comment editor and status control. On the right, a read-only detail panel opened from an issue's Details link shows that issue's description, acceptance criteria, fields and attachments — you can read the issue and write about it at the same time.">
+              <img class="hiw-shot hiw-shot--dark" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-02-write-dark.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="" aria-hidden="true">
             </div>
             <div class="hiw-panel" id="hiw-panel-2">
-              <!-- Drawn, like steps 1 and 2. The dark capture this replaced still read
-                   "Copy complete" — the heading from the retired copy-a-comment flow;
-                   the app can only say "Comments posted" or "Tickets updated" now. -->
-              <svg class="hiw-figure" viewBox="0 0 840 455" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Step 3, Send: a fan-out diagram and the heading Comments posted, with counters for Updated, Sending and Failed. Each ticket is listed with the status change it received and a link to the comment, above a Done button and a single Undo that deletes the comments and files this send created.">
-                <rect width="840" height="455" fill="var(--f-base)"/>
-
-                <rect width="840" height="34" fill="var(--f-panel)"/>
-                <line x1="0" y1="34" x2="840" y2="34" stroke="var(--f-border)"/>
-                <circle cx="30" cy="17" r="7" fill="none" stroke="var(--f-accent)" stroke-width="1.5"/>
-                <path d="M27 17l2 2 4-4.5" fill="none" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="44" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-ink2)">Tickets</text>
-                <line x1="82" y1="17" x2="102" y2="17" stroke="var(--f-accent)" stroke-width="1.4"/>
-                <circle cx="112" cy="17" r="7" fill="none" stroke="var(--f-accent)" stroke-width="1.5"/>
-                <path d="M109 17l2 2 4-4.5" fill="none" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="126" y="20.5" font-family="Inter,sans-serif" font-size="9.5" fill="var(--f-ink2)">Comment</text>
-                <line x1="180" y1="17" x2="200" y2="17" stroke="var(--f-accent)" stroke-width="1.4"/>
-                <circle cx="210" cy="17" r="7" fill="var(--f-accent)"/>
-                <text x="210" y="20.3" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">3</text>
-                <text x="224" y="20.5" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="var(--f-ink)">Send</text>
-
-                <g font-family="Inter,sans-serif">
-                  <!-- fan-out -->
-                  <circle cx="76" cy="112" r="14" fill="none" stroke="var(--f-accent)" stroke-width="1.6"/>
-                  <path d="M70 112h12M76 106v12" stroke="var(--f-accent)" stroke-width="1.6" stroke-linecap="round"/>
-                  <path d="M92 112C120 112 122 84 150 84" fill="none" stroke="var(--f-accent)" stroke-width="1.3" opacity="0.5"/>
-                  <path d="M92 112C120 112 122 140 150 140" fill="none" stroke="var(--f-accent)" stroke-width="1.3" opacity="0.5"/>
-                  <circle cx="152" cy="84" r="4.5" fill="var(--f-ok)"/>
-                  <circle cx="152" cy="140" r="4.5" fill="var(--f-ok)"/>
-
-                  <circle cx="196" cy="104" r="9" fill="var(--f-ok-tint)"/>
-                  <path d="M192 104l2.6 2.6 5.4-6" fill="none" stroke="var(--f-ok)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <text x="214" y="109" font-size="16" font-weight="800" fill="var(--f-ink)">Comments posted</text>
-                  <text x="214" y="128" font-size="9.6" fill="var(--f-ink2)"><tspan font-weight="700" fill="var(--f-ink)">2</tspan> of 2 updated · took 1s.</text>
-
-                  <!-- counters -->
-                  <rect x="60" y="164" width="150" height="56" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <text x="78" y="192" font-size="19" font-weight="800" fill="var(--f-ok)">2</text>
-                  <text x="78" y="208" font-size="9" fill="var(--f-ink2)">Updated</text>
-                  <rect x="222" y="164" width="150" height="56" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <text x="240" y="192" font-size="19" font-weight="800" fill="var(--f-accent)">0</text>
-                  <text x="240" y="208" font-size="9" fill="var(--f-muted)">Sending</text>
-                  <rect x="384" y="164" width="150" height="56" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <text x="402" y="192" font-size="19" font-weight="800" fill="var(--f-muted)">0</text>
-                  <text x="402" y="208" font-size="9" fill="var(--f-muted)">Failed</text>
-
-                  <!-- per-ticket rows -->
-                  <rect x="60" y="234" width="474" height="34" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <circle cx="80" cy="251" r="8" fill="var(--f-ok-tint)"/>
-                  <path d="M76.5 251l2.4 2.4 4.6-5" fill="none" stroke="var(--f-ok)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="98" y="243" width="46" height="15" rx="4" fill="var(--f-tint)"/>
-                  <text x="121" y="253.6" font-size="7.6" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">DTB-1</text>
-                  <text x="156" y="254" font-size="9.4" fill="var(--f-ink)">As a user, I want to reset my password via SMS…</text>
-                  <text x="452" y="254" font-size="7.6" font-weight="800" fill="var(--f-ok-ink)" text-anchor="end">TO DO → IN REVIEW</text>
-                  <path d="M508 248l6-6M509 242h5v5" fill="none" stroke="var(--f-muted)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-
-                  <rect x="60" y="276" width="474" height="34" rx="8" fill="var(--f-panel)" stroke="var(--f-border)"/>
-                  <circle cx="80" cy="293" r="8" fill="var(--f-ok-tint)"/>
-                  <path d="M76.5 293l2.4 2.4 4.6-5" fill="none" stroke="var(--f-ok)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="98" y="285" width="46" height="15" rx="4" fill="var(--f-tint)"/>
-                  <text x="121" y="295.6" font-size="7.6" font-weight="700" fill="var(--f-accent-ink)" text-anchor="middle">DTB-6</text>
-                  <text x="156" y="296" font-size="9.4" fill="var(--f-ink)">Create Terraform modules for provisioning</text>
-                  <text x="452" y="296" font-size="7.6" font-weight="800" fill="var(--f-ok-ink)" text-anchor="end">Updated</text>
-                  <path d="M508 290l6-6M509 284h5v5" fill="none" stroke="var(--f-muted)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-
-                  <!-- actions -->
-                  <rect x="60" y="330" width="66" height="26" rx="7" fill="var(--f-accent)"/>
-                  <text x="93" y="347" font-size="9.4" font-weight="700" fill="#fff" text-anchor="middle">Done</text>
-                  <rect x="290" y="330" width="244" height="26" rx="7" fill="var(--f-panel)" stroke="var(--f-border2)"/>
-                  <text x="412" y="347" font-size="9.4" font-weight="600" fill="var(--f-ink)" text-anchor="middle">Undo — delete comments and files</text>
-
-                  <text x="60" y="376" font-size="8.6" fill="var(--f-muted)">Undo removes the comments this send posted and the files it uploaded, freeing that storage. Files that were</text>
-                  <text x="60" y="390" font-size="8.6" fill="var(--f-muted)">already on a ticket are left alone. <tspan font-weight="700" fill="var(--f-ink2)">Status changes are not reverted</tspan> — move those back in Jira.</text>
-                </g>
-              </svg>
+              <img class="hiw-shot hiw-shot--light" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-03-send-light.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="Step 3, Send: the heading Comments posted, with counters for Updated, Sending and Failed. Each issue is listed with the status change it received and a link to the comment, above a Done button.">
+              <img class="hiw-shot hiw-shot--dark" src="../assets/img/Bulk Comments for Jira Assets/screens/bcj-03-send-dark.webp"
+                   width="1680" height="914" loading="lazy" decoding="async"
+                   alt="" aria-hidden="true">
             </div>
           </div>
         </div>
@@ -1787,22 +1523,29 @@
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M9 9h6M9 13h4"/></svg>
           </div>
-          <h3>A Different Comment on Every Ticket</h3>
-          <p>Every ticket you pick is its own card, comment box included. Blank ones are skipped.</p>
+          <h3>A Different Comment on Every Issue</h3>
+          <p>Every issue you pick is its own card, comment box included. Blank ones are skipped.</p>
+        </div>
+        <div class="feature-tile reveal">
+          <div class="feature-tile-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          </div>
+          <h3>On a Service Desk, Choose Who Sees It</h3>
+          <p>An internal note, a reply that emails the customer, or both on the same request.</p>
         </div>
         <div class="feature-tile reveal delay-1">
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="13 7 18 12 13 17"/><rect x="2" y="8" width="3" height="8" rx="1"/></svg>
           </div>
           <h3>Change the Status as You Comment</h3>
-          <p>Move each ticket as you comment, chosen from its own workflow. Optional per ticket.</p>
+          <p>Move each issue as you comment, chosen from its own workflow. Optional per issue.</p>
         </div>
         <div class="feature-tile reveal delay-2">
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
           </div>
           <h3>Video and Images, Playing Right There</h3>
-          <p>A ticket’s full history sits beside the editor. Video plays inline, images open full-size.</p>
+          <p>An issue’s full history sits beside the editor. Video plays inline, images open full-size.</p>
         </div>
         <div class="feature-tile reveal">
           <div class="feature-tile-icon" aria-hidden="true">
@@ -1815,15 +1558,8 @@
           <div class="feature-tile-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
           </div>
-          <h3>Live Delivery, Retry and Undo</h3>
-          <p>Watch each ticket land, retry anything that fails, and undo the whole send in one click.</p>
-        </div>
-        <div class="feature-tile reveal delay-2">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Secure &amp; Atlassian-Approved</h3>
-          <p>Built on Atlassian Forge. No external servers, no third-party transfers.</p>
+          <h3>Live Delivery, Retry and Receipts</h3>
+          <p>Watch each issue land, retry anything that fails, and see at a glance which requests were replied to and which were kept internal.</p>
         </div>
       </div>
 
@@ -1836,12 +1572,12 @@
         <div class="limit-tile reveal delay-1">
           <div class="limit-fig">2&nbsp;GB</div>
           <div class="limit-lbl">Per send</div>
-          <p>The total across every ticket in one batch, added together rather than multiplied out. Go over and the send stops before it starts and asks you to work in smaller batches — rather than failing halfway and leaving some tickets done and some not.</p>
+          <p>The total across every issue in one batch, added together rather than multiplied out. Go over and the send stops before it starts and asks you to work in smaller batches — rather than failing halfway and leaving some issues done and some not.</p>
         </div>
         <div class="limit-tile reveal delay-2">
           <div class="limit-fig">Shown first</div>
           <div class="limit-lbl">Storage arithmetic</div>
-          <p>A file lands once on every ticket you send to, so 150&nbsp;MB across 9 tickets writes 1350&nbsp;MB into Jira. The confirmation does that multiplication and names the figure before anything posts — and undo gives the storage back.</p>
+          <p>A file lands once on every issue you send to, so 150&nbsp;MB across 9 issues writes 1350&nbsp;MB into Jira. The confirmation does that multiplication and names the figure before anything posts, so nothing lands until you accept it.</p>
         </div>
       </div>
     </div>
@@ -1884,6 +1620,7 @@
               <label class="calc-label" for="bc-user-count">Users in your Jira instance</label>
               <div class="calc-slider-row">
                 <input type="range" class="calc-slider" min="1" max="1000" value="50" id="bc-user-slider"
+                  aria-label="Number of users"
                   oninput="document.getElementById('bc-user-count').value=this.value;recalcPricing('bc')">
                 <input type="number" id="bc-user-count" class="calc-input" value="50" min="1" max="100000"
                   oninput="const s=document.getElementById('bc-user-slider');s.value=Math.min(this.value,1000);recalcPricing('bc')">
@@ -1923,10 +1660,10 @@
 
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Can I post a different comment to each ticket?</span>
+            <span class="faq-btn-text">Can I post a different comment to each issue?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — always. Every ticket is its own card with its own comment box, ready to type into. Leave one blank and it is skipped. <a href="/resources/documentation/bulkcomments#full-guide">See the full guide</a>.</div>
+          <div class="faq-answer">Yes — always. Every issue is its own card with its own comment box, ready to type into. Leave one blank and it is skipped. <a href="/resources/documentation/bulkcomments#full-guide">See the full guide</a>.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1947,10 +1684,34 @@
 
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Can I change ticket statuses at the same time?</span>
+            <span class="faq-btn-text">Can I change issue statuses at the same time?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes, and each ticket can move somewhere different. Options come from that ticket’s own workflow. Note that <b>undo does not revert a status change</b>. <a href="/resources/documentation/bulkcomments#full-guide">See the full guide</a>.</div>
+          <div class="faq-answer">Yes, and each issue can move somewhere different. Options come from that issue’s own workflow. Note that <b>a status change cannot be reversed from the app</b> — move it back in Jira. <a href="/resources/documentation/bulkcomments#full-guide">See the full guide</a>.</div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Which Jira products does it work with?</span>
+            <span class="faq-chevron">&#x25BE;</span>
+          </button>
+          <div class="faq-answer">All of them &mdash; Jira Software, Jira Work Management, Jira Service Management, Customer Service Management and Jira Product Discovery. You can mix them in one send, and the app uses your product&rsquo;s own word: issues in Jira, requests on a service desk, ideas in Product Discovery.</div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Can I control who sees a comment on a service desk?</span>
+            <span class="faq-chevron">&#x25BE;</span>
+          </button>
+          <div class="faq-answer">Yes. On a Jira Service Management or Customer Service Management request, every comment is explicitly an <strong>internal note</strong>, seen only by agents, or a <strong>reply to the customer</strong>, which reaches them and emails them. The choice is made per request, so one send can answer three customers and leave private notes on two others.</div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-btn-text">Can one request carry both an internal note and a customer reply?</span>
+            <span class="faq-chevron">&#x25BE;</span>
+          </button>
+          <div class="faq-answer">Yes. Press <em>Also reply to the customer</em> and a second box opens beneath the first. They post together in order, internal first, as one request&rsquo;s work &mdash; so a full batch can be up to 50 comments across 25 requests.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1966,7 +1727,7 @@
             <span class="faq-btn-text">Where can I access the app from?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Two places: the <b>left sidebar</b>, or any ticket’s <b>••• menu</b>, which opens the app with that ticket already selected.</div>
+          <div class="faq-answer">Two places: the <b>left sidebar</b>, or any issue’s <b>••• menu</b>, which opens the app with that issue already selected.</div>
         </div>
 
       </div>
@@ -1982,7 +1743,7 @@
         <p class="section-desc">Reach us at <a href="mailto:support@datapingo.com" style="color:#A5B4FC;text-decoration:none;font-weight:600;">support@datapingo.com</a> — we typically respond within one business day.</p>
         <div class="support-btns">
           <a href="/resources/documentation/bulkcomments" class="btn-primary btn-primary--indigo">Browse Documentation</a>
-          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" class="btn-secondary">Open Support Ticket</a>
+          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" class="btn-secondary">Open Support Issue</a>
         </div>
       </div>
     </div>
@@ -2041,8 +1802,8 @@
       </div>
       <div class="footer-col">
         <h2>Products</h2>
-        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -2082,10 +1843,41 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const toggle = document.getElementById('mobileMenuToggle');
   const closeBtn = document.getElementById('mobileMenuClose');
-  const openMenu = () => { mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; closeBtn.focus(); };
-  const closeMenu = () => { mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; toggle.focus(); };
-  toggle.addEventListener('click', openMenu);
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
   closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
   mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
@@ -2093,7 +1885,7 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Guided flow: every ticket is already its own card, comment box included —
+  // Guided flow: every issue is already its own card, comment box included —
   // write into each in turn, no click needed to reveal it (loops).
   (function() {
     const hv = document.querySelector('.hv');
@@ -2102,24 +1894,14 @@
     const cards = Array.from(vWrite.querySelectorAll('.hv-card'));
     const cursor = hv.querySelector('#hvCursor');
     const stat = hv.querySelector('#hvStat'), post = hv.querySelector('#hvPost'), postLabel = hv.querySelector('#hvPostLabel');
-    const detail = hv.querySelector('#hvDetail'), hvBody = hv.querySelector('.hv-body');
-    const dEls = {
-      ico: hv.querySelector('#hvDIco'), key: hv.querySelector('#hvDKey'),
-      lz: hv.querySelector('#hvDLz'), title: hv.querySelector('#hvDTitle'),
-      storyLabel: hv.querySelector('#hvDStoryLabel'), story: hv.querySelector('#hvDStory'),
-      acLabel: hv.querySelector('#hvDAcLabel'), ac: hv.querySelector('#hvDAc'),
-      grid: hv.querySelector('#hvDGrid'),
-      att: hv.querySelector('#hvDAtt'), comments: hv.querySelector('#hvDCom'),
-    };
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Each card's own elements, queried once. Both cards carry a status control,
-    // because every ticket in the app does — but only card 0 actually uses it
-    // here (TIX[1].to is null), because a status change is per-ticket and
-    // optional, and a ticket that gets a comment and stays put says that plainly.
+    // because every issue in the app does — but only card 0 actually uses it
+    // here (TIX[1].to is null), because a status change is per-issue and
+    // optional, and an issue that gets a comment and stays put says that plainly.
     const els = cards.map((card) => ({
       card,
-      details: card.querySelector('.hv-details'),
       lz: card.querySelector('.hv-pick .pv'),
       pick: card.querySelector('.hv-pick'),
       menu: card.querySelector('.hv-menu'),
@@ -2128,36 +1910,27 @@
       t: card.querySelector('.hv-etext .t'),
       wcn: card.querySelector('.wcn'),
       att: card.querySelector('.hv-att'),
+      // Service-desk cards carry a second editor; plain Jira cards do not.
+      t2: card.querySelector('.hv-etext2 .t2'),
+      wcn2: card.querySelector('.wcn2'),
+      etext2: card.querySelector('.hv-etext2'),
     }));
 
-    // Both cards get written, because "a different comment per ticket" is the
+    // Both cards get written, because "a different comment per issue" is the
     // claim and one worked example plus one that silently goes green does not
     // show it.
     const TIX = [
-      { from: ['To Do', 'todo'], to: ['In Review', 'prog'], badge: 'Ready',
-        comment: 'Verified — deploying tonight.', opt: 1,
-        panel: {
-          key: 'PAY-412', title: 'Add Stripe webhook retry handling',
-          storyLabel: 'User story',
-          story: 'As a user, I want failed webhook deliveries to retry automatically instead of dropping silently.',
-          acLabel: 'Acceptance criteria',
-          ac: ['Failed deliveries retry with backoff', 'Exhausted retries hit a dead-letter queue'],
-          fields: [['Type', 'Story'], ['Assignee', 'Eric Huang'], ['Priority', 'High'], ['Due date', 'Sep 2, 2026']],
-          att: 4, comments: 4,
-        } },
+      // A service desk request. Two comments on one issue, because that is the
+      // gap the app closes: what the customer is told and what the team records
+      // are never the same sentence, and on a bulk send that is the point.
+      { from: ['Waiting for support', 'todo'], to: ['In Progress', 'prog'], badge: 'Ready',
+        comment: 'Root cause is the Okta group mapping — fix ships tonight.', opt: 1,
+        comment2: 'Thanks for flagging this. A fix goes out this evening.' },
       { from: ['In Progress', 'prog'], to: null, badge: 'Ready',
         comment: 'Merged behind a feature flag.',
         // A bug, so its description reads the way a bug's does — what happens and
         // how to reproduce it, not a user story with acceptance criteria.
-        panel: {
-          key: 'PAY-418', title: 'Refund flow returns 500 on partials',
-          storyLabel: 'What happens',
-          story: 'A partial refund above the captured amount returns a 500 instead of a validation error.',
-          acLabel: 'Steps to reproduce',
-          ac: ['Refund £40 against a £25 capture', 'API answers 500 with no message'],
-          fields: [['Type', 'Bug'], ['Assignee', 'Unassigned'], ['Priority', 'Medium'], ['Due date', 'None']],
-          att: 1, comments: 2,
-        } },
+      },
     ];
 
     let timers = [];
@@ -2175,14 +1948,15 @@
     // Character by character. The comment used to just fade in, which reads as a
     // slide rather than as someone writing — and writing is the thing being shown.
     // The word counter in the toolbar ticks along with it, the way the app's does.
-    function typeOut(e, text, start, per) {
-      at(start, () => { e.t.textContent = ''; e.wcn.textContent = '0'; });
+    function typeOut(e, text, start, per, lane) {
+      const tEl = lane === 2 ? e.t2 : e.t, cEl = lane === 2 ? e.wcn2 : e.wcn;
+      at(start, () => { tEl.textContent = ''; cEl.textContent = '0'; });
       for (let i = 1; i <= text.length; i++) {
         at(start + i * per, () => {
           const slice = text.slice(0, i);
-          e.t.textContent = slice;
+          tEl.textContent = slice;
           const trimmed = slice.trim();
-          e.wcn.textContent = String(trimmed ? trimmed.split(/\s+/).length : 0);
+          cEl.textContent = String(trimmed ? trimmed.split(/\s+/).length : 0);
         });
       }
       return start + text.length * per;
@@ -2223,54 +1997,29 @@
       e.etext.classList.remove('done', 'typing');
       e.t.textContent = '';
       e.wcn.textContent = '0';
+      if (e.etext2) { e.etext2.classList.remove('done', 'typing'); e.t2.textContent = ''; e.wcn2.textContent = '0'; }
       e.att.classList.remove('in');
-      e.details.classList.remove('armed');
       if (e.menu) { e.menu.classList.remove('open'); e.menu.querySelectorAll('i').forEach((o) => o.classList.remove('hot')); }
       if (e.pick) e.pick.classList.remove('armed');
     }
 
-    // The read-only flyout — opened once, on PAY-412, right after its comment
-    // and status land. It carries description, details, attachments and
-    // comment history and nothing else: no editor in here, because writing
-    // already happened in the card, not in this panel.
-    // Point the panel at one ticket. The type icon is cloned from the card that
-    // opened it, so the two can never disagree about whether it is a story or a
-    // bug — there is one source for that glyph, not two.
-    function fillDetail(i) {
-      const p = TIX[i].panel;
-      dEls.ico.innerHTML = cards[i].querySelector('.hv-ico').innerHTML;
-      dEls.key.textContent = p.key;
-      paint(dEls.lz, TIX[i].to || TIX[i].from, false);
-      dEls.title.textContent = p.title;
-      dEls.storyLabel.textContent = p.storyLabel;
-      dEls.story.textContent = p.story;
-      dEls.acLabel.textContent = p.acLabel;
-      dEls.ac.innerHTML = p.ac.map((line) => '<li></li>').join('');
-      dEls.ac.querySelectorAll('li').forEach((li, n) => { li.textContent = p.ac[n]; });
-      dEls.grid.innerHTML = '';
-      p.fields.forEach(([k, v]) => {
-        const kEl = document.createElement('span'); kEl.className = 'hv-dk'; kEl.textContent = k;
-        const vEl = document.createElement('span'); vEl.className = 'hv-dv'; vEl.textContent = v;
-        dEls.grid.append(kEl, vEl);
-      });
-      dEls.att.textContent = String(p.att);
-      dEls.comments.textContent = String(p.comments);
-    }
 
     // The demo is never re-laid-out to fit — below the width its two-pane layout
     // needs, it is drawn at that width and scaled down, so a phone and a 1024px
     // laptop both get the same design a desktop does rather than a squeezed or
-    // rearranged stand-in. 560px is where it stops reading: the ticket cards are
+    // rearranged stand-in. 560px is where it stops reading: the issue cards are
     // 250px there, and every row still fits on one line.
     //
     // This is not only a phone fix. The hero grid spends 520px on the copy column,
     // so between about 900 and 1200px the demo was handed 240–420px and its open
     // panel simply overlapped the cards it was meant to sit beside.
-    const HV_NATURAL = 560;
+    // Matches the 900px CSS breakpoint where .hv-details / .hv-cx are hidden.
+    const hvNatural = () => (window.innerWidth <= 900 ? 420 : 560);
     const fitWrap = hv.parentElement;
     let hvScale = 1;
     function fitHero() {
       const avail = fitWrap.clientWidth;
+      const HV_NATURAL = hvNatural();
       if (avail >= HV_NATURAL) {          // room to lay out honestly — let it
         hvScale = 1;
         hv.style.width = '';
@@ -2298,27 +2047,11 @@
       requestAnimationFrame(() => { fitPending = false; fitHero(); });
     });
 
-    function openDetail(i) {
-      const alreadyOpen = detail.classList.contains('open');
-      fillDetail(i);
-      hvBody.classList.add('detail-open');
-      detail.classList.add('open');
-      // Swapping ticket in an already-open panel needs a beat of its own, or the
-      // change reads as nothing having happened.
-      if (alreadyOpen) {
-        detail.classList.remove('swap'); void detail.offsetWidth; detail.classList.add('swap');
-      }
-    }
-    function closeDetail() {
-      hvBody.classList.remove('detail-open');
-      detail.classList.remove('open', 'swap');
-    }
 
     function playWrite() {
       clr();
       post.classList.remove('pressed');
       els.forEach(resetCard);
-      closeDetail();
       cursor.classList.remove('on', 'click');
       writeFoot(0);
 
@@ -2329,6 +2062,7 @@
           e.t.textContent = tk.comment;
           e.wcn.textContent = String(tk.comment.trim().split(/\s+/).length);
           e.etext.classList.add('done');
+          if (e.etext2 && tk.comment2) { e.t2.textContent = tk.comment2; e.wcn2.textContent = String(tk.comment2.trim().split(/\s+/).length); e.etext2.classList.add('done'); }
           e.att.classList.add('in');
           badge(e, tk.badge, true);
         });
@@ -2338,40 +2072,44 @@
       if (reduce) { settle(); return; }
 
       // One card at a time, in the order the work actually happens: read the
-      // ticket, then write about it, then move it.
+      // issue, then write about it, then move it.
       //
       // Read first is the whole point. Pressing Details before writing is what
       // makes the claim on this page true — you are not writing blind into a key
       // you half remember, you are reading the description, the fields and the
-      // history and THEN answering them. Writing first and consulting the ticket
+      // history and THEN answering them. Writing first and consulting the issue
       // afterwards told the opposite story.
       let t = 300;
       TIX.forEach((tk, i) => {
         const e = els[i];
 
-        // 1. Open the ticket's detail panel and hold long enough to read it. The
-        //    panel stands open from here on — the first press slides it in, the
-        //    second swaps it to the other ticket. Only the ticket it is showing
-        //    keeps its Details link lit, so the pairing is always legible.
-        at(t, () => cursorTo(e.details, 16, 8));
-        at(t + 340, () => {
-          tap();
-          e.card.classList.add('active');
-          els.forEach((o) => o.details.classList.remove('armed'));
-          e.details.classList.add('armed');
-          openDetail(i);
-        });
-        // The first read holds longer: the panel is also sliding in and the cards
-        // are narrowing around it, so there is more to take in than on the swap.
-        const read = t + 340 + (i === 0 ? 1900 : 1550);
+        // 1. Focus the card. The read-only detail flyout used to open here and
+        //    hold while it was read, but a service-desk card now carries two
+        //    editors and the panel took half the width to show them in — it
+        //    covered the thing the demo exists to show. The Details control is
+        //    still drawn on every card, because the app has it; the demo just
+        //    no longer opens it.
+        at(t, () => { e.card.classList.add('active'); });
+        const read = t + (i === 0 ? 520 : 420);
 
-        // 2. Now write, with the ticket still on screen beside it.
+        // 2. Write, at the card's full width.
         at(read, () => cursorTo(e.etext, 22, 12));
         // The click that puts the caret in the box — placeholder out, caret in.
         at(read + 380, () => { tap(); e.etext.classList.add('typing'); });
-        const typed = typeOut(e, tk.comment, read + 420, 22);
+        let typed = typeOut(e, tk.comment, read + 420, 22);
         at(typed + 220, () => e.att.classList.add('in'));
         at(typed + 420, () => e.etext.classList.add('done'));
+
+        // On a service desk the same card carries a second comment for the
+        // customer. It is written after the internal note, in the order the two
+        // actually post, so the pair reads as one pass over one request.
+        if (tk.comment2 && e.etext2) {
+          const c2 = typed + 620;
+          at(c2, () => cursorTo(e.etext2, 22, 12));
+          at(c2 + 380, () => { tap(); e.etext2.classList.add('typing'); });
+          typed = typeOut(e, tk.comment2, c2 + 420, 22, 2);
+          at(typed + 380, () => e.etext2.classList.add('done'));
+        }
 
         // 3. And move it — after the comment, not alongside it, because that is
         //    the order a single pass through a card happens in.
@@ -2465,6 +2203,23 @@
     });
   }
 
+  // A lazy <img> inside display:none never intersects, so the dark captures only
+  // start downloading on the click that reveals them - which shows an empty frame
+  // for as long as the fetch takes. Warm them on the first hint that Dark is
+  // coming; touch has no hover, so the click itself still falls back to the
+  // natural fetch. Runs once - after that the browser cache has them.
+  (function() {
+    const darkBtn = document.querySelector('.hiw-theme-btn[data-theme="dark"]');
+    if (!darkBtn) return;
+    const warm = () => {
+      document.querySelectorAll('.hiw-shot--dark').forEach(img => {
+        if (!img.complete) img.loading = 'eager';
+      });
+    };
+    ['pointerenter', 'focus'].forEach(ev =>
+      darkBtn.addEventListener(ev, warm, { once: true }));
+  })();
+
   // ── Lightbox ──
   (function() {
     const lb = document.getElementById('hiw-lightbox');
@@ -2476,6 +2231,20 @@
     // across: a walkthrough figure reads its colours from the --f-* tokens that
     // .hiw-preview[data-theme] defines, which the clone leaves behind. The
     // highlight figures are drawn light outright and ignore the tokens.
+  /* A tap opens the overlay; a drag must not. A bare click listener on a large
+     image counts any thumb-press that the browser did not turn into a scroll as
+     a tap, which is how you end up in a full-screen overlay you never asked for.
+     Comparing pointerdown to click position costs nothing and keeps tap-to-zoom,
+     which is what people expect from an image. */
+  function tapOnly(el, fn) {
+    let sx = null, sy = null;
+    el.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; }, { passive: true });
+    el.addEventListener('click', e => {
+      const dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
+      sx = null;
+      if (!dragged) fn(e);
+    });
+  }
     function showFigure(fig, theme) {
       const vb = (fig.getAttribute('viewBox') || '0 0 840 455').trim().split(/\s+/);
       // Steps are 840×455 and the highlight figures are not — a hard-coded ratio
@@ -2495,13 +2264,14 @@
       lb.setAttribute('aria-label', fig.getAttribute('aria-label') || 'Figure fullscreen');
     }
     function openLb() {
+      if (lb.classList.contains('open')) return;
       lb.classList.add('open');
       lbFig.scrollLeft = 0;
-      document.body.style.overflow = 'hidden';
+      window.__scrollLock.on();
       lbClose.focus();
     }
 
-    document.querySelector('.hiw-preview').addEventListener('click', () => {
+    tapOnly(document.querySelector('.hiw-preview'), () => {
       const preview = document.querySelector('.hiw-preview');
       const panel = document.querySelector('.hiw-panel.active');
       if (!panel) return;
@@ -2531,7 +2301,7 @@
     // ones with no way in — which bit hardest on a phone, where the card stacks
     // and the drawing renders about a third of the size it was made at.
     document.querySelectorAll('.highlight-card-media.zoomable').forEach(media => {
-      media.addEventListener('click', () => {
+      tapOnly(media, () => {
         // Direct child only — the Expand chip carries an icon <svg> of its own,
         // and it comes first in the frame.
         const fig = media.querySelector(':scope > svg');
@@ -2541,7 +2311,7 @@
       });
     });
 
-    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    function closeLb() { lb.classList.remove('open'); scrollLock.off(); }
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
@@ -2555,33 +2325,53 @@
   // Flat-tier pricing: find the tier that contains userCount, price = userCount × tier.price
   const PRICING_TIERS = {
     bc: {
+      // Graduated bands, mirroring the Marketplace pricing table 1:1 (pricing-FINAL.csv,
+      // imported 2026-09-07). Adjacent bands sharing a rate are kept separate on purpose
+      // so this stays diffable against Atlassian's own table. Sites of 10 or fewer users
+      // are free and never reach here — see FREE_LIMIT in recalcPricing().
       standard: [
         { min:1,     max:100,    price:1.10 },
         { min:101,   max:250,    price:0.95 },
-        { min:251,   max:1000,   price:0.78 },
-        { min:1001,  max:2500,   price:0.62 },
-        { min:2501,  max:5000,   price:0.50 },
-        { min:5001,  max:7500,   price:0.42 },
-        { min:7501,  max:10000,  price:0.34 },
-        { min:10001, max:15000,  price:0.27 },
-        { min:15001, max:20000,  price:0.22 },
-        { min:20001, max:25000,  price:0.19 },
-        { min:25001, max:30000,  price:0.17 },
-        { min:30001, max:100000, price:0.15 }
+        { min:251,   max:1000,   price:0.46 },
+        { min:1001,  max:2500,   price:0.31 },
+        { min:2501,  max:5000,   price:0.24 },
+        { min:5001,  max:7500,   price:0.19 },
+        { min:7501,  max:10000,  price:0.15 },
+        { min:10001, max:15000,  price:0.07 },
+        { min:15001, max:20000,  price:0.07 },
+        { min:20001, max:25000,  price:0.07 },
+        { min:25001, max:30000,  price:0.07 },
+        { min:30001, max:35000,  price:0.07 },
+        { min:35001, max:40000,  price:0.07 },
+        { min:40001, max:45000,  price:0.06 },
+        { min:45001, max:50000,  price:0.06 },
+        { min:50001, max:60000,  price:0.05 },
+        { min:60001, max:70000,  price:0.05 },
+        { min:70001, max:80000,  price:0.05 },
+        { min:80001, max:90000,  price:0.05 },
+        { min:90001, max:100000, price:0.05 }
       ],
       multiInstance: [
-        { min:1,     max:100,    price:1.30 },
-        { min:101,   max:250,    price:1.12 },
-        { min:251,   max:1000,   price:0.92 },
-        { min:1001,  max:2500,   price:0.74 },
-        { min:2501,  max:5000,   price:0.60 },
-        { min:5001,  max:7500,   price:0.50 },
-        { min:7501,  max:10000,  price:0.41 },
-        { min:10001, max:15000,  price:0.32 },
-        { min:15001, max:20000,  price:0.26 },
-        { min:20001, max:25000,  price:0.23 },
-        { min:25001, max:30000,  price:0.21 },
-        { min:30001, max:100000, price:0.18 }
+        { min:1,     max:100,    price:1.32 },
+        { min:101,   max:250,    price:1.14 },
+        { min:251,   max:1000,   price:0.55 },
+        { min:1001,  max:2500,   price:0.37 },
+        { min:2501,  max:5000,   price:0.29 },
+        { min:5001,  max:7500,   price:0.23 },
+        { min:7501,  max:10000,  price:0.18 },
+        { min:10001, max:15000,  price:0.08 },
+        { min:15001, max:20000,  price:0.08 },
+        { min:20001, max:25000,  price:0.08 },
+        { min:25001, max:30000,  price:0.08 },
+        { min:30001, max:35000,  price:0.08 },
+        { min:35001, max:40000,  price:0.08 },
+        { min:40001, max:45000,  price:0.08 },
+        { min:45001, max:50000,  price:0.08 },
+        { min:50001, max:60000,  price:0.06 },
+        { min:60001, max:70000,  price:0.06 },
+        { min:70001, max:80000,  price:0.06 },
+        { min:80001, max:90000,  price:0.06 },
+        { min:90001, max:100000, price:0.06 }
       ]
     }
   };
@@ -2663,5 +2453,66 @@
     if (document.getElementById(id + '-user-count')) recalcPricing(id);
   });
 </script>
+<script>
+  // Collapsed jump menu. The button names whichever section you are in, so the
+  // control doubles as a position indicator without occupying a full-width bar.
+  (function () {
+    const nav = document.querySelector('.prod-nav');
+    if (!nav) return;
+    const btn = document.getElementById('prodNavToggle');
+    const list = document.getElementById('prodNavList');
+    const label = document.getElementById('prodNavCurrent');
+    const links = [...list.querySelectorAll('a')];
+    const targets = links
+      .map(a => ({ a, el: document.getElementById(a.getAttribute('href').slice(1)) }))
+      .filter(t => t.el);
+
+    let openedAt = 0;
+    const close = () => { list.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+    const open  = () => { list.classList.add('open');    btn.setAttribute('aria-expanded', 'true'); openedAt = window.scrollY; };
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      list.classList.contains('open') ? close() : open();
+    });
+    links.forEach(a => a.addEventListener('click', close));
+    document.addEventListener('click', e => { if (!nav.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && list.classList.contains('open')) { close(); btn.focus(); }
+    });
+
+    // The menu is position:fixed now, so it needs to be told when to appear.
+    // Threshold: the first section reaching the menu's own resting place —
+    // the same moment the sticky version used to slide into view.
+    const firstSection = targets.length ? (targets[0].el.closest('section') || targets[0].el) : null;
+
+    function spy() {
+      if (firstSection) {
+        const rest = parseFloat(getComputedStyle(nav).top) || 84;
+        nav.classList.toggle('is-visible', firstSection.getBoundingClientRect().top <= rest + 8);
+      }
+      let current = null;
+      for (const t of targets) {
+        // 190 tracks the 176/178px scroll-margin: a section counts as current
+        // once its heading reaches where an anchor jump parks it, so the label
+        // matches the section you just jumped to rather than the one above it.
+        if (t.el.getBoundingClientRect().top - 190 <= 0) current = t;
+      }
+      links.forEach(a => a.classList.toggle('active', current && a === current.a));
+      label.textContent = current ? current.a.textContent : 'Jump to section';
+    }
+    /* An open menu used to stay parked over the middle of the screen while the
+       page scrolled away underneath it. Closing on a 48px threshold rather than
+       any scroll at all, so a momentum drift on iOS does not snap it shut the
+       instant it opens. */
+    window.addEventListener('scroll', () => {
+      if (!list.classList.contains('open')) return;
+      if (Math.abs(window.scrollY - openedAt) > 48) close();
+    }, { passive: true });
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', spy, { passive: true });
+    spy();
+  })();
+  </script>
 </body>
 </html>
