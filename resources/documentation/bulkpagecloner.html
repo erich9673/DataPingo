@@ -145,6 +145,20 @@
     .doc-video-play:hover .doc-video-ring { transform: scale(1.06); }
     .doc-video-label { font-size: 0.92rem; font-weight: 600; }
     .doc-video-sub { font-size: 0.76rem; color: var(--slate); }
+    .doc-video-gate {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      padding: 20px; text-align: center; background: var(--black-3);
+    }
+    .doc-video-gate-title { font-size: 0.92rem; font-weight: 600; color: var(--white); margin: 0; }
+    .doc-video-gate-sub { font-size: 0.78rem; color: var(--slate); margin: 0; max-width: 34ch; }
+    .doc-video-gate-btn {
+      margin-top: 4px; min-height: 44px; padding: 10px 18px;
+      font-family: inherit; font-size: 0.84rem; font-weight: 600;
+      color: var(--black); background: var(--teal);
+      border: 0; border-radius: 9px; cursor: pointer;
+    }
+    .doc-video-gate-btn:hover { filter: brightness(1.08); }
     .doc-video-fallback { font-size: 0.86rem; }
     @media (prefers-reduced-motion: reduce) {
       .doc-video-play, .doc-video-ring { transition: none; }
@@ -704,6 +718,7 @@
             <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
             <button type="submit" class="newsletter-btn">Subscribe</button>
           </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
           <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
         </form>
         <div class="footer-social">
@@ -818,15 +833,48 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    /* Record the newsletter opt-in in iubenda's Consent Database.
+     Only on success, and only for the address that actually subscribed — a
+     failed POST is not a consent. The script is fetched at that moment rather
+     than on every page load, so the 99% of visitors who never subscribe pay
+     nothing for it and iubenda sees nobody who did not opt in.
+     The proof stores the exact sentence shown next to the button, so the
+     record says what the person actually agreed to rather than just when. */
+  function logNewsletterConsent(email, formEl) {
+    var notice = formEl.querySelector('.newsletter-consent');
+    window._iub = window._iub || {};
+    _iub.cons_instructions = _iub.cons_instructions || [];
+    _iub.cons_instructions.push(['init', { api_key: 'GxQD0ZooU505v0e0bLNU9ISNzHeqimAy' }]);
+    _iub.cons_instructions.push(['submit', {
+      consent: {
+        subject: { email: email },
+        legal_notices: [{ identifier: 'privacy_policy' }],
+        preferences: { newsletter: true },
+        proofs: [{
+          content: JSON.stringify({ email: email, source: location.pathname }),
+          form: (notice ? notice.textContent.trim() : '') + ' [Subscribe]'
+        }]
+      }
+    }]);
+    if (!document.getElementById('iub-cons')) {
+      var s = document.createElement('script');
+      s.id = 'iub-cons';
+      s.async = true;
+      s.src = 'https://cdn.iubenda.com/cons/iubenda_cons.js';
+      document.head.appendChild(s);
+    }
+  }
+
   document.getElementById('footer-email-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('button[type=submit]');
     const msg = document.getElementById('form-message');
     const input = this.querySelector('input[type=email]');
     if (!input.checkValidity()) { msg.style.color='#F87171'; msg.textContent='Please enter a valid email.'; return; }
+    const email = input.value.trim();
     btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
     fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} })
-      .then(r => { if (!r.ok) throw 0; msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
+      .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
       .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
   });
 
@@ -841,20 +889,80 @@
   window.addEventListener('scroll', updateTOC, { passive: true });
   updateTOC();
 
-  // Tutorial video: swap the poster for the real embed on click. Injecting the iframe
-  // after load also sidesteps the cookie autoblocker, which only rewrites embeds
-  // present in the initial HTML.
+  // Tutorial video: swap the poster for the real embed on click.
+  //
+  // Building the iframe here rather than leaving it in the HTML keeps YouTube
+  // off the page until someone asks for it — but it also means iubenda's
+  // autoblocker never sees it. The blocker rewrites embeds present at parse
+  // time; an element created afterwards is invisible to it. So the consent
+  // check below has to be done by hand, or someone who chose "Reject all"
+  // still gets YouTube's cookies the moment they press play.
+  //
+  // (The static embed on the bulk-copy blog post needs none of this: it IS in
+  // the initial HTML, so the autoblocker handles it. youtube-nocookie.com is
+  // on iubenda's blocked-domain list for this site.)
   (function() {
     const play = document.getElementById('bpcVideoPlay');
-    if (!play) return;
-    play.addEventListener('click', () => {
+    const host = document.getElementById('bpcVideo');
+    if (!play || !host) return;
+
+    // Purpose 3 is "Experience enhancement", where iubenda files embedded
+    // video. This site runs perPurposeConsent with purposes [1, 3, 4], so a
+    // visitor can accept measurement and still refuse this one.
+    const VIDEO_PURPOSE = 3;
+
+    function consented() {
+      const cs = window._iub && window._iub.cs;
+      // No widget (blocked, or not loaded yet) means no recorded choice —
+      // treat that as "not granted" rather than assuming yes.
+      if (!cs || !cs.consent) return false;
+      if (cs.consent.rejected === true) return false;
+      const purposes = cs.consent.purposes;
+      if (purposes) return purposes[VIDEO_PURPOSE] === true;
+      return cs.consent.consent === true;
+    }
+
+    function loadVideo() {
       const frame = document.createElement('iframe');
       frame.src = 'https://www.youtube-nocookie.com/embed/Ew8wpqPWk1M?autoplay=1&rel=0&modestbranding=1';
       frame.title = 'Bulk Page Cloner for Confluence — Tutorial';
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       frame.allowFullscreen = true;
-      document.getElementById('bpcVideo').replaceChildren(frame);
+      host.replaceChildren(frame);
       frame.focus();
+    }
+
+    /** Consent is missing: say why nothing happened and offer the one control
+     *  that can change it. The "watch on YouTube" link under the frame stays
+     *  as the way out for anyone who would rather not grant anything. */
+    function askForConsent() {
+      const panel = document.createElement('div');
+      panel.className = 'doc-video-gate';
+      panel.innerHTML =
+        '<p class="doc-video-gate-title">Playing this loads YouTube</p>' +
+        '<p class="doc-video-gate-sub">That means cookies from Google, which you haven\u2019t agreed to yet.</p>';
+      const allow = document.createElement('button');
+      allow.type = 'button';
+      allow.className = 'doc-video-gate-btn';
+      allow.textContent = 'Choose cookie preferences';
+      allow.addEventListener('click', () => {
+        const api = window._iub && window._iub.cs && window._iub.cs.api;
+        if (api && api.openPreferences) api.openPreferences();
+      });
+      panel.appendChild(allow);
+      host.replaceChildren(panel);
+      allow.focus();
+    }
+
+    play.addEventListener('click', () => {
+      if (consented()) loadVideo();
+      else askForConsent();
+    });
+
+    // If they grant it in the preferences panel, honour the click they already
+    // made instead of making them find the play button again.
+    document.addEventListener('iubenda-consent-given', () => {
+      if (host.querySelector('.doc-video-gate') && consented()) loadVideo();
     });
   })();
 

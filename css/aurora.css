@@ -821,6 +821,16 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 .newsletter-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+/* The opt-in sentence. It exists so the consent record has something true to
+   point at: the form used to collect an address with no statement of what it
+   was for, and logging "proof" of a consent that was never shown would be
+   recording something that did not happen. */
+.newsletter-consent {
+  font-size: 0.72rem; line-height: 1.55; color: var(--slate); margin-top: 9px;
+}
+.newsletter-consent a { color: #8FB6D9; text-decoration: underline; text-underline-offset: 2px; }
+.newsletter-consent a:hover { color: var(--teal); }
+
 .newsletter-msg { font-size: 0.75rem; margin-top: 7px; }
 
 .footer-divider { border: none; border-top: 1px solid var(--border); }
