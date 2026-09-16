@@ -108,6 +108,14 @@
       "destination": "/resources/use-cases/recurring-confluence-pages.html"
     },
     {
+      "source": "/resources/use-cases/incident-and-release-updates",
+      "destination": "/resources/use-cases/incident-and-release-updates.html"
+    },
+    {
+      "source": "/resources/use-cases/incident-and-release-updates/",
+      "destination": "/resources/use-cases/incident-and-release-updates.html"
+    },
+    {
       "source": "/partners/become-a-solution-partner",
       "destination": "/partners/become-a-solution-partner.html"
     },

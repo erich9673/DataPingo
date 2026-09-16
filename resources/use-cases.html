@@ -192,6 +192,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* Fill the grid row so cards of unequal copy length still line their footer
+     rows up — the date divider makes any mismatch obvious. */
+  height: 100%;
   text-decoration: none;
   color: inherit;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
@@ -263,6 +266,22 @@
 }
 .uc-card:hover .uc-card-cta { gap: 10px; }
 
+/* Footer row: CTA left, publish date right — same treatment as .blog-card-meta
+   on the blog index so the two listing pages read as one system. */
+.uc-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.uc-card-meta time {
+  font-size: 0.78rem;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
 /* Coming soon card */
 .uc-card-soon {
   background: rgba(255,255,255,0.02);
@@ -323,6 +342,23 @@
 
       <div class="uc-grid" id="uc-grid">
 
+        <div class="uc-card-wrap" data-tags="jira">
+          <a href="/resources/use-cases/incident-and-release-updates" class="uc-card">
+            <div class="uc-card-visual">
+              <span class="uc-tag">Jira</span>
+              <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy" width="80" height="80">
+            </div>
+            <div class="uc-card-body">
+              <h2>Incident and Release Updates in Jira</h2>
+              <p>A practical workflow for teams that need to update many Jira issues after a single event &mdash; an incident resolved, a release shipped. A different comment on each, in one pass.</p>
+              <div class="uc-card-meta">
+                <span class="uc-card-cta">See how it works &rarr;</span>
+                <time datetime="2026-09-16">September 16, 2026</time>
+              </div>
+            </div>
+          </a>
+        </div>
+
         <div class="uc-card-wrap" data-tags="confluence">
           <a href="/resources/use-cases/recurring-confluence-pages" class="uc-card">
             <div class="uc-card-visual">
@@ -332,7 +368,10 @@
             <div class="uc-card-body">
               <h2>Recurring Confluence Page Creation</h2>
               <p>A practical workflow for teams that repeatedly create the same page structure — sprint retros, monthly reports, onboarding docs, and more. Clone once, reuse forever.</p>
-              <span class="uc-card-cta">See how it works &rarr;</span>
+              <div class="uc-card-meta">
+                <span class="uc-card-cta">See how it works &rarr;</span>
+                <time datetime="2026-06-25">June 25, 2026</time>
+              </div>
             </div>
           </a>
         </div>

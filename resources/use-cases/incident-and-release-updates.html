@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>Recurring Confluence Page Creation — Use Case | DataPingo</title>
-  <meta name="description" content="How teams use Bulk Page Cloner to automate recurring Confluence page creation for sprint retros, monthly reports, and onboarding docs.">
+  <title>Incident and Release Updates in Jira — Use Case | DataPingo</title>
+  <meta name="description" content="How teams use Bulk Comments for Jira to update every affected issue after an incident or release — a different comment on each, in one pass.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://datapingo.com/resources/use-cases/recurring-confluence-pages">
+  <link rel="canonical" href="https://datapingo.com/resources/use-cases/incident-and-release-updates">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://datapingo.com/resources/use-cases/recurring-confluence-pages">
-  <meta property="og:title" content="Recurring Confluence Page Creation | DataPingo">
-  <meta property="og:description" content="A practical workflow for teams that repeatedly create the same Confluence page structure.">
+  <meta property="og:url" content="https://datapingo.com/resources/use-cases/incident-and-release-updates">
+  <meta property="og:title" content="Incident and Release Updates in Jira | DataPingo">
+  <meta property="og:description" content="A practical workflow for teams that need to update many Jira issues after a single event.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bulk Page Cloner for Confluence — recurring page creation.">
+  <meta property="og:image:alt" content="Bulk Comments for Jira — incident and release updates.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Recurring Confluence Page Creation | DataPingo">
-  <meta name="twitter:description" content="A practical workflow for teams that repeatedly create the same Confluence page structure.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
+  <meta name="twitter:title" content="Incident and Release Updates in Jira | DataPingo">
+  <meta name="twitter:description" content="A practical workflow for teams that need to update many Jira issues after a single event.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -174,15 +174,21 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
+    /* The shot sits under its step rather than beside it: these are dense app
+       screenshots (a 14-row issue list, an editor with two toolbars), and in a
+       side-by-side grid they rendered at ~24% of their 1680px width — unreadable,
+       with the prose squeezed to ~29 characters a line. */
     .uc-step-row {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 20px;
-      align-items: center;
-      padding-bottom: 24px;
-      margin-bottom: 24px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding-bottom: 28px;
+      margin-bottom: 28px;
       border-bottom: 1px solid var(--border);
     }
+    .uc-figure { margin: 26px 0 8px; padding: 20px 18px 14px; background: rgba(5,206,240,0.03);
+      border: 1px solid var(--border); border-radius: 12px; }
+    .uc-figure figcaption { margin-top: 12px; font-size: 0.82rem; color: var(--slate); line-height: 1.6; text-align: center; }
     .uc-step-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
     .uc-step-label {
       display: flex;
@@ -208,7 +214,12 @@
       font-size: 0.92rem;
       color: var(--slate);
       line-height: 1.65;
+      /* ~70 characters. In px, not ch: this face has a wide "0", so 68ch
+         resolved to 631px (~86 chars) — wider than the readable range. */
+      max-width: 520px;
     }
+    /* 28px number + 14px gap — lines the shot up with the text above it. */
+    .uc-step-screenshot { margin-left: 42px; }
     .uc-step-screenshot img {
       width: 100%;
       border-radius: 8px;
@@ -216,7 +227,7 @@
       display: block;
     }
     @media (max-width: 680px) {
-      .uc-step-row { grid-template-columns: 1fr; }
+      .uc-step-screenshot { margin-left: 0; }
     }
 
     /* CTA box */
@@ -266,7 +277,7 @@
       .uc-toc { display: none; }
     }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Recurring Confluence Page Creation","description":"How teams use Bulk Page Cloner to automate recurring Confluence page creation for sprint retros, monthly reports, and onboarding docs.","image":"https://datapingo.com/assets/img/og-bulk-page-cloner.png","datePublished":"2026-06-25","author":{"@type":"Organization","name":"DataPingo"},"publisher":{"@type":"Organization","name":"DataPingo","logo":{"@type":"ImageObject","url":"https://datapingo.com/assets/Company%20Logo/DataPingo%20logo_LOGO%20A3.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://datapingo.com/resources/use-cases/recurring-confluence-pages"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Incident and Release Updates in Jira","description":"How teams use Bulk Comments for Jira to update every affected issue after an incident or release — a different comment on each, in one pass.","image":"https://datapingo.com/assets/img/og-bulk-comments.png","datePublished":"2026-09-16","author":{"@type":"Organization","name":"DataPingo"},"publisher":{"@type":"Organization","name":"DataPingo","logo":{"@type":"ImageObject","url":"https://datapingo.com/assets/Company%20Logo/DataPingo%20logo_LOGO%20A3.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://datapingo.com/resources/use-cases/incident-and-release-updates"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -329,7 +340,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -370,7 +381,7 @@
     </div>
     </div>
     <div class="mobile-menu-footer">
-    <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="mobile-cta">
+    <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="mobile-cta">
       View on Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -384,151 +395,314 @@
     <div class="section-wrap" style="max-width:1100px;">
       <a href="/resources/use-cases" style="display:inline-flex;align-items:center;gap:5px;color:var(--slate);font-size:0.84rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color 0.2s;min-height:44px;">&larr; Back to Use Cases</a>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
-        <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:52px;height:52px;border-radius:12px;box-shadow:0 4px 16px rgba(5,206,240,0.2);flex-shrink:0;" width="80" height="80">
-        <span class="section-tag" style="margin:0;">Confluence</span>
+        <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" style="width:52px;height:52px;border-radius:12px;box-shadow:0 4px 16px rgba(5,206,240,0.2);flex-shrink:0;" width="80" height="80">
+        <span class="section-tag" style="margin:0;">Jira</span>
       </div>
-      <h1 style="text-align:left;font-size:clamp(1.8rem,4vw,2.6rem);">Recurring Confluence Page Creation</h1>
-      <p class="hero-sub" style="text-align:left;margin:0;">A practical workflow for teams that repeatedly create the same page structure — sprint retros, monthly reports, onboarding docs, and more.</p>
+      <h1 style="text-align:left;font-size:clamp(1.8rem,4vw,2.6rem);">Incident and Release Updates in Jira</h1>
+      <p class="hero-sub" style="text-align:left;margin:0;">A practical workflow for teams that need to update many Jira issues after a single event &mdash; an incident resolved, a release shipped, a dependency upgraded.</p>
     </div>
   </section>
 
-  <!-- Two-column layout -->
   <div class="uc-detail-layout">
 
-    <!-- Sidebar -->
     <aside class="uc-detail-sidebar">
       <div>
         <p class="uc-sidebar-label">Topic</p>
-        <span class="uc-sidebar-value">Content &amp; Knowledge Management</span>
+        <span class="uc-sidebar-value">Service Management &amp; Support</span>
         <span class="uc-sidebar-value">Team Workflows &amp; Automation</span>
       </div>
       <hr class="uc-detail-divider">
       <div>
         <p class="uc-sidebar-label">App</p>
-        <a href="/products/bulk-page-cloner" class="uc-sidebar-app-link">
-          <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="" style="width:22px;height:22px;border-radius:5px;flex-shrink:0;" width="80" height="80">
-          Bulk Page Cloner for Confluence
+        <a href="/products/bulk-comments" class="uc-sidebar-app-link">
+          <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="" style="width:22px;height:22px;border-radius:5px;flex-shrink:0;" width="80" height="80">
+          Bulk Comments for Jira
         </a>
       </div>
       <hr class="uc-detail-divider">
       <div>
         <p class="uc-sidebar-label">Published</p>
-        <span class="uc-sidebar-value"><time datetime="2026-06-25">June 25, 2026</time></span>
+        <span class="uc-sidebar-value"><time datetime="2026-09-16">September 16, 2026</time></span>
       </div>
       <hr class="uc-detail-divider">
       <div>
         <p class="uc-sidebar-label">On this page</p>
         <nav class="uc-toc">
           <a href="#scenario">Scenario</a>
+          <a href="#same-message">When the words are the same</a>
           <a href="#examples">Common examples</a>
           <a href="#problem">Where it breaks down</a>
           <a href="#workflow">Recommended workflow</a>
-          <a href="#example">Concrete example</a>
           <a href="#outcome">Expected outcome</a>
         </nav>
       </div>
     </aside>
 
-    <!-- Main content -->
     <div class="uc-detail-content">
 
-      <!-- Key takeaways -->
       <div class="uc-takeaways">
         <h2>Key Takeaways</h2>
         <ul>
-          <li>Batch-create recurring pages instead of duplicating one at a time</li>
-          <li>Set naming conventions upfront to keep page trees consistent</li>
-          <li>Reduce missed labels, metadata errors, and misfiled pages</li>
+          <li>Update up to 25 Jira issues in one pass instead of opening each one</li>
+          <li>Write one comment, copy it to every issue with &ldquo;Use this comment for all&rdquo;, then change only the ones that need saying differently</li>
+          <li>On Jira Service Management, choose an internal note or a customer reply per request</li>
         </ul>
       </div>
 
       <h2 id="scenario">Scenario</h2>
-      <p>Your team creates recurring Confluence pages every week or month. The structure stays the same, but titles and dates change.</p>
+      <p>Fix one incident, or ship one release, and a pile of Jira issues all need updating at once &mdash; each with someone on the other end waiting to hear what happened.</p>
+      <p>Here are four of them on one page, and none of them need quite the same message:</p>
+      <ul>
+        <li><code>PROJ-101</code> and <code>PROJ-104</code> get the engineering detail &mdash; the root cause, and the version the fix shipped in &mdash; and both move to Done</li>
+        <li><code>SUP-88</code> gets two comments: a customer reply confirming service was restored, and an internal note carrying the incident link for the team</li>
+        <li><code>SUP-92</code> gets an internal note only &mdash; the case is still being looked at, so nothing goes to the customer and its status stays where it is</li>
+      </ul>
+      
+      <figure class="uc-figure">
+        <svg style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 495" role="img" aria-labelledby="dgTitle dgDesc">
+          <title id="dgTitle">Comments and status changes staged on one page, and each issue after a single send</title>
+          <desc id="dgDesc">Left: four Jira issues selected on one page, each with its comment written and ready. PROJ-101 and PROJ-104 are engineering issues, each with one comment and a move to Done queued. SUP-88 carries two comments, a customer reply and an internal note. SUP-92 carries an internal note only. Right: the result for each issue after a single send. The send shown covers these four issues: five comments, two statuses moved, one customer emailed.</desc>
+          <style>
+            .hdr  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11.5px; fill: #6B86A4; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
+            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
+            .aud  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+            .body { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13.5px; fill: #E8F4FF; }
+            .out  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
+            .chip { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #05CEF0; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+            .mut  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
+            .card { fill: rgba(5,206,240,0.05); stroke: rgba(5,206,240,0.18); }
+            .res  { fill: rgba(5,206,240,0.02); stroke: rgba(107,134,164,0.22); }
+          </style>
+
+          <text class="hdr" x="10" y="20">Written on one page &#183; ready</text>
+          <text class="hdr" x="580" y="20">After one send</text>
+
+          <g>
+            <rect class="card" x="8" y="36" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="62">PROJ-101</text>
+            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="62" fill="#05CEF0">&#8594; Done</text>
+            <text class="body" x="24" y="82">&#8220;Root cause was the connection pool limit.&#8221;</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="36" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="62">PROJ-101</text>
+            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="86">Comment posted &#183; moved to Done</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="122" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="148">PROJ-104</text>
+            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="148" fill="#05CEF0">&#8594; Done</text>
+            <text class="body" x="24" y="168">&#8220;Fix shipped in 4.6.1 &#8212; no action needed.&#8221;</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="122" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="148">PROJ-104</text>
+            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="172">Comment posted &#183; moved to Done</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="208" width="452" height="120" rx="10"/>
+            <text class="key" x="24" y="234">SUP-88</text>
+            <text class="aud" x="24" y="254" fill="#8C62D2">Reply to customer</text>
+            <text class="body" x="24" y="272">&#8220;Service was restored at 14:20 UTC.&#8221;</text>
+            <text class="aud" x="24" y="298" fill="#6B86A4">Internal note</text>
+            <text class="body" x="24" y="316">&#8220;Incident link and timeline for the team&#8221;</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="208" width="412" height="120" rx="10"/>
+            <text class="key" x="596" y="234">SUP-88</text>
+            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="258">Reply emailed to the customer</text>
+            <path d="M596 277 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="282">Internal note added, agents only</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="338" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="364">SUP-92</text>
+            <text class="aud" x="24" y="384" fill="#6B86A4">Internal note</text>
+            <text class="body" x="24" y="402">&#8220;Still investigating your specific case.&#8221;</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="338" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="364">SUP-92</text>
+            <path d="M596 383 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="388">Internal note added &#183; still open</text>
+          </g>
+
+          <path d="M484 225 H556" stroke="#05CEF0" stroke-width="2" fill="none"/>
+          <path d="M548 218 l8 7 l-8 7" fill="none" stroke="#05CEF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <rect x="8" y="432" width="984" height="52" rx="10" fill="rgba(5,206,240,0.10)" stroke="rgba(5,206,240,0.32)"/>
+          <text class="lbl" x="28" y="455">One send</text>
+          <text class="mut" x="28" y="473">5 comments across these 4 issues &#183; 2 statuses moved &#183; 1 customer emailed</text>
+        </svg>
+        <figcaption>With just one click, you will update 5 comments across these 4 issues, change 2 statuses and email 1 customer.</figcaption>
+      </figure>
+
+
+      <h2 id="same-message">When every issue needs the same words</h2>
+      <p>Not every batch needs a different message. A release ships and all of them get the same line. Write it on one card, press <em>Use this comment for all</em>, and it lands on every other card in the batch &mdash; as a copy, not a link, so you can still change the one or two that need saying differently.</p>
+      <figure class="uc-figure">
+        <svg style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 452" role="img" aria-labelledby="dg2Title dg2Desc">
+          <title id="dg2Title">One comment written once and copied to four issues, then sent</title>
+          <desc id="dg2Desc">Left: four Jira issues on one page. The first carries a comment reading &#8220;Released in 4.6.1 &#8212; closing this out.&#8221; The other three show the same comment, copied across with Use this comment for all. All four also have a move to Done queued. Right: after a single send, every issue shows the comment posted and moved to Done. Four comments across four issues, four statuses moved.</desc>
+          <style>
+            .hdr  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11.5px; fill: #6B86A4; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
+            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
+            .body { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13.5px; fill: #E8F4FF; }
+            .echo { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #6B86A4; font-style: italic; }
+            .out  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
+            .chip { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #05CEF0; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+            .mut  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
+            .card { fill: rgba(5,206,240,0.05); stroke: rgba(5,206,240,0.18); }
+            .src  { fill: rgba(5,206,240,0.09); stroke: rgba(5,206,240,0.45); }
+            .res  { fill: rgba(5,206,240,0.02); stroke: rgba(107,134,164,0.22); }
+          </style>
+
+          <text class="hdr" x="10" y="20">Written once &#183; copied to all</text>
+          <text class="hdr" x="580" y="20">After one send</text>
+
+          <g>
+            <rect class="src" x="8" y="36" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="62">PROJ-101</text>
+            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="62" fill="#05CEF0">&#8594; Done</text>
+            <text class="body" x="24" y="88">&#8220;Released in 4.6.1 &mdash; closing this out.&#8221;</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="36" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="62">PROJ-101</text>
+            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="86">Comment posted &#183; moved to Done</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="122" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="148">PROJ-104</text>
+            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="148" fill="#05CEF0">&#8594; Done</text>
+            <text class="echo" x="24" y="174">&#8627; the same comment</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="122" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="148">PROJ-104</text>
+            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="172">Comment posted &#183; moved to Done</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="208" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="234">PROJ-108</text>
+            <rect x="378" y="219" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="234" fill="#05CEF0">&#8594; Done</text>
+            <text class="echo" x="24" y="260">&#8627; the same comment</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="208" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="234">PROJ-108</text>
+            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="258">Comment posted &#183; moved to Done</text>
+          </g>
+          <g>
+            <rect class="card" x="8" y="294" width="452" height="76" rx="10"/>
+            <text class="key" x="24" y="320">PROJ-112</text>
+            <rect x="378" y="305" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+            <text class="chip" x="389" y="320" fill="#05CEF0">&#8594; Done</text>
+            <text class="echo" x="24" y="346">&#8627; the same comment</text>
+          </g>
+          <g>
+            <rect class="res" x="580" y="294" width="412" height="76" rx="10"/>
+            <text class="key" x="596" y="320">PROJ-112</text>
+            <path d="M596 339 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text class="out" x="620" y="344">Comment posted &#183; moved to Done</text>
+          </g>
+
+          <path d="M484 196 H556" stroke="#05CEF0" stroke-width="2" fill="none"/>
+          <path d="M548 189 l8 7 l-8 7" fill="none" stroke="#05CEF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <rect x="8" y="388" width="984" height="52" rx="10" fill="rgba(5,206,240,0.10)" stroke="rgba(5,206,240,0.32)"/>
+          <text class="lbl" x="28" y="411">One send</text>
+          <text class="mut" x="28" y="429">4 comments across these 4 issues &#183; 4 statuses moved &#183; nothing leaves Jira</text>
+        </svg>
+        <figcaption>Written on one card, copied to the rest. One click posts all 4 comments and changes all 4 statuses.</figcaption>
+      </figure>
 
       <h2 id="examples">Common examples</h2>
       <ul>
-        <li>Monthly or quarterly reports</li>
-        <li>Sprint retros, planning pages, and summaries</li>
-        <li>Project kickoff pages by client or account</li>
-        <li>Onboarding pages for each new hire cohort</li>
-        <li>Inventory pages (servers, tools, vendors, SOP records)</li>
+        <li>An incident is resolved and every linked issue needs a resolution note</li>
+        <li>A release ships and each issue in it needs the version it landed in</li>
+        <li>A dependency upgrade closes out a batch of related work</li>
+        <li>Sprint closeout, where each carry-over issue needs its own reason</li>
+        <li>A service outage where every affected request needs a customer reply</li>
       </ul>
 
       <h2 id="problem">Where it breaks down</h2>
-      <p>Manual duplication works for one-off pages. It becomes painful in batches.</p>
+      <p>Commenting on one issue is quick. The same job across twenty is a different problem.</p>
       <ul>
-        <li>Someone duplicates, renames, and refiles pages one by one</li>
-        <li>Naming becomes inconsistent over time</li>
-        <li>Pages land under the wrong parent</li>
-        <li>Metadata or labels get missed, which breaks reports later</li>
+        <li>Twenty issues means twenty tabs and twenty pastes</li>
+        <li>Writing a specific update for each is slow, so one generic message gets used everywhere</li>
+        <li>On service projects, an internal note gets posted as a customer reply by mistake</li>
+        <li>Issues get skipped, and nobody notices until someone asks</li>
       </ul>
 
       <h2 id="workflow">Recommended workflow</h2>
       <div class="uc-steps-box">
-        <span class="uc-steps-box-label">4-step setup</span>
+        <span class="uc-steps-box-label">3-step flow</span>
 
         <div class="uc-step-row">
           <div class="uc-step-label">
             <span class="uc-step-num">1</span>
-            <p>Keep one clean source page for each recurring page type — this becomes your template. Search for it by name or paste its URL.</p>
+            <p><strong>Select.</strong> Find the affected issues &mdash; search by keyword or paste an issue key, narrow by project and status, or switch to <code>JQL</code> for something more precise. Pick up to 25 in one go.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Select a Page as Template (1840 x 900 px).webp" alt="Select a source page as template in Bulk Page Cloner" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-01-issues-light.webp" alt="Selecting up to 25 Jira issues in Bulk Comments for Jira" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
         <div class="uc-step-row">
           <div class="uc-step-label">
             <span class="uc-step-num">2</span>
-            <p>Decide on a naming format before creating pages (example: <code>Report - YYYY-MM</code>). Name all copies up front using the slider to set the count.</p>
+            <p><strong>Comment.</strong> Every issue you picked becomes a card with its own comment box, all on one page. Write one and use <em>Use this comment for all</em> to copy it across, then edit the cards that need different wording &mdash; or write each from scratch. On Jira Service Management and Customer Service Management, choose an internal note or a reply to the customer &mdash; and one request can carry both.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Bulk Cloning (1840 x 900 px).webp" alt="Name all pages up front in Bulk Page Cloner" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-02-write-light.webp" alt="Each selected issue gets its own comment box, with internal note and reply to customer" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
         <div class="uc-step-row">
           <div class="uc-step-label">
             <span class="uc-step-num">3</span>
-            <p>Set destination space and parent page first — choose whether pages sit under an existing page, at the top level, or under a new parent.</p>
+            <p><strong>Send.</strong> Set a status on any card while you write. Before anything posts, a confirmation names exactly how many customers will be emailed. Then all the comments go out in a single send.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Location (1840 x 900 px).webp" alt="Choose destination space and parent page" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-03-send-light.webp" alt="Every comment posted in a single send, each row showing which audience it reached" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
       </div>
 
-      <h2 id="example">Concrete example</h2>
-      <p>For a monthly product reporting workflow, create all remaining pages for the year in one pass:</p>
-      <ul>
-        <li>Product Report - Jul 2026</li>
-        <li>Product Report - Aug 2026</li>
-        <li>Product Report - Sep 2026</li>
-        <li>Product Report - Oct 2026</li>
-        <li>Product Report - Nov 2026</li>
-        <li>Product Report - Dec 2026</li>
-      </ul>
-      <p>This reduces repetitive admin work and keeps structure consistent before content writing even starts.</p>
-
       <h2 id="outcome">Expected outcome</h2>
       <ul>
-        <li>Faster page setup for recurring workflows</li>
-        <li>Consistent naming and cleaner page trees</li>
-        <li>Fewer missed labels or metadata issues</li>
-        <li>More complete reporting and inventory coverage</li>
+        <li>Every affected issue updated in one pass</li>
+        <li>Each issue keeps its own detail</li>
+        <li>Customer-facing replies chosen on purpose</li>
+        <li>Status changes happen alongside the comment</li>
       </ul>
+
 
       <!-- CTA -->
       <div class="uc-cta-box">
         <div class="uc-cta-box-header">
-          <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:38px;height:38px;border-radius:9px;flex-shrink:0;" width="80" height="80">
-          <p>Try it with Bulk Page Cloner for Confluence</p>
+          <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" style="width:38px;height:38px;border-radius:9px;flex-shrink:0;" width="80" height="80">
+          <p>Try it with Bulk Comments for Jira</p>
         </div>
-        <p class="uc-cta-sub">Available on the Atlassian Marketplace for Confluence Cloud.</p>
+        <p class="uc-cta-sub">Available on the Atlassian Marketplace for Jira Cloud.</p>
         <div class="uc-cta-btns">
-          <a href="/products/bulk-page-cloner" class="uc-btn-primary">Learn more &rarr;</a>
-          <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="uc-btn-link">Atlassian Marketplace &rarr;</a>
+          <a href="/products/bulk-comments" class="uc-btn-primary">Learn more &rarr;</a>
+          <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="uc-btn-link">Atlassian Marketplace &rarr;</a>
         </div>
       </div>
 

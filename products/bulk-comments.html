@@ -133,6 +133,11 @@
     .product-hero-actions {
       display: flex; gap: 12px; flex-wrap: wrap;
     }
+    .product-hero-note {
+      font-size: 0.875rem; color: var(--slate); margin: 2px 0 0;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .product-hero-note svg { flex-shrink: 0; opacity: 0.85; }
 
     /* Bulk Comments — guided flow (hero signature). Fixed-size stage: it never resizes. */
     /* The grid track fixes the width (1184 content − 520 copy − 48 gap = 616px),
@@ -429,6 +434,7 @@
       .hv-details, .hv-cx   { display: none; }
       .product-hero-sub     { order: 4; margin-bottom: 28px; }
       .product-hero-actions { order: 5; }
+      .product-hero-note    { order: 6; }
     }
 
     /* Indigo primary button */
@@ -1016,7 +1022,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-nav-primary">Install on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -1058,7 +1064,7 @@
     </div>
     <div class="mobile-menu-footer">
     <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="mobile-cta">
-      Install on Marketplace
+      View on Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     </div>
@@ -1078,17 +1084,18 @@
             <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
           </div>
         </div>
-        <h1>Bulk Comments for Jira</h1>
-        <p class="product-hero-sub">Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM.</p>
+        <h1>Comment on 25 Jira issues at once</h1>
+        <p class="product-hero-sub">Bulk Comments for Jira puts every issue on one page &mdash; a different comment on each, internal or customer-facing on Jira Service Management.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Install on Atlassian Marketplace
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View on Atlassian Marketplace
           </a>
           <a href="/resources/documentation/bulkcomments" class="btn-secondary">
             View Documentation
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
+          <p class="product-hero-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Free for teams up to 10 &mdash; no credit card needed.</p>
         </div>
       </div>
 
@@ -1622,10 +1629,10 @@
             <div class="calc-group">
               <label class="calc-label" for="bc-user-count">Users in your Jira instance</label>
               <div class="calc-slider-row">
-                <input type="range" class="calc-slider" min="1" max="1000" value="50" id="bc-user-slider"
+                <input type="range" class="calc-slider" min="1" max="1000" value="10" id="bc-user-slider"
                   aria-label="Number of users"
                   oninput="document.getElementById('bc-user-count').value=this.value;recalcPricing('bc')">
-                <input type="number" id="bc-user-count" class="calc-input" value="50" min="1" max="100000"
+                <input type="number" id="bc-user-count" class="calc-input" value="10" min="1" max="100000"
                   oninput="const s=document.getElementById('bc-user-slider');s.value=Math.min(this.value,1000);recalcPricing('bc')">
               </div>
               <p class="calc-hint">Free for teams up to 10 users &mdash; no credit card needed.</p>
@@ -1760,8 +1767,8 @@
         <p class="cta-desc">Install from the Atlassian Marketplace — built on Forge, with all your data staying inside Jira.</p>
         <div class="cta-actions">
           <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--indigo">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Install on Atlassian Marketplace
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View on Atlassian Marketplace
           </a>
         </div>
       </div>
