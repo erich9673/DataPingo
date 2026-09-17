@@ -1,0 +1,123 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- "Use this comment for all", as it behaves in Bulk Comments for Jira 4.6.0.
+       All five cards are service requests on ONE page, before anything is sent: this
+       is a copy between draft cards, not an update spreading between Jira issues.
+       SUP-1 is written once (an internal note plus a reply to the customer). The first
+       press fills only EMPTY cards, and on service requests the note-and-reply pair and
+       its audience travel with the words. SUP-3 already had its own comment, so it is
+       left as written (overwriting takes a second press). SUP-5 was filled and then
+       changed by hand: a copy, not a link. -->
+  <defs>
+    <radialGradient id="ofaWash" cx="40%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.09"/>
+      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ofaGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#020911"/>
+  <rect width="1600" height="900" fill="url(#ofaWash)"/>
+
+  <g transform="translate(0,12)">
+  <!-- glows: cool on the card that was written, warm down the customer-reply column -->
+  <rect x="510" y="100" width="980" height="150" rx="20" fill="#05CEF0" opacity="0.12" filter="url(#ofaGlow)"/>
+  <rect x="1090" y="170" width="400" height="600" rx="20" fill="#F0A93C" opacity="0.045" filter="url(#ofaGlow)"/>
+
+  <!-- the one page -->
+  <rect x="390" y="60" width="1160" height="756" rx="24" fill="#040B16" stroke="#05CEF0" stroke-opacity="0.22" stroke-width="2"/>
+
+  <!-- copy rail: from the card that was written, into every EMPTY card -->
+  <g fill="none" stroke="#05CEF0" stroke-width="2.5">
+    <path d="M480,212 H456 Q440,212 440,228 V736" stroke-opacity="0.55"/>
+    <path d="M440,340 H480" stroke-opacity="0.55"/>
+    <path d="M440,604 H480" stroke-opacity="0.55"/>
+    <path d="M440,720 Q440,736 456,736 H480" stroke-opacity="0.55"/>
+  </g>
+  <circle cx="480" cy="212" r="4.5" fill="#05CEF0"/>
+  <circle cx="480" cy="340" r="4.5" fill="#05CEF0"/>
+  <circle cx="480" cy="604" r="4.5" fill="#05CEF0"/>
+  <circle cx="480" cy="736" r="4.5" fill="#05CEF0"/>
+  <!-- skipped: the rail passes SUP-3 without entering it -->
+  <circle cx="440" cy="472" r="8" fill="#040B16" stroke="#6B86A4" stroke-width="2.5"/>
+
+  <!-- SUP-1: written once -->
+  <g>
+    <rect x="480" y="90" width="1040" height="172" rx="18" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.9" stroke-width="2.25"/>
+    <circle cx="530" cy="130" r="25" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2.25"/><polygon points="533,113 519,133 529,133 526,147 541,126 531,126" fill="#359AE2" stroke="#359AE2" stroke-width="1.4" stroke-linejoin="round"/><text x="572" y="140" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="28" font-weight="700" letter-spacing="1" fill="#359AE2">SUP-1</text>
+    <rect x="700" y="109" width="404" height="42" rx="21" fill="#05CEF0" fill-opacity="0.12" stroke="#05CEF0" stroke-opacity="0.85" stroke-width="2"/>
+    <path d="M721,130 L726,135 L736,124" fill="none" stroke="#05CEF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="750" y="138" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="21" font-weight="700" letter-spacing="1" fill="#05CEF0">USE THIS COMMENT FOR ALL</text>
+    <rect x="700" y="181.0" width="370" height="62" rx="14" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.8" stroke-width="2"/>
+    <rect x="724" y="210" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M728,210 V204 A6,6 0 0 1 740,204 V210" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+    <rect x="766" y="199" width="200" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+    <rect x="766" y="218" width="139" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+    <rect x="1090" y="181.0" width="400" height="62" rx="14" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2"/>
+    <rect x="1111" y="203" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1113,206 L1124,214 L1135,206" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="1156" y="199" width="203" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+    <rect x="1156" y="218" width="265" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+  </g>
+
+  <!-- SUP-2: empty, so filled -->
+  <g>
+    <rect x="480" y="287" width="1040" height="106" rx="18" fill="#060E1C" stroke="#5E7A9A" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="530" cy="340" r="25" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2.25"/><polygon points="533,323 519,343 529,343 526,357 541,336 531,336" fill="#359AE2" stroke="#359AE2" stroke-width="1.4" stroke-linejoin="round"/><text x="572" y="350" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="28" font-weight="700" letter-spacing="1" fill="#359AE2">SUP-2</text>
+    <rect x="700" y="309.0" width="370" height="62" rx="14" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.8" stroke-width="2"/>
+    <rect x="724" y="338" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M728,338 V332 A6,6 0 0 1 740,332 V338" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+    <rect x="766" y="327" width="200" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+    <rect x="766" y="346" width="139" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+    <rect x="1090" y="309.0" width="400" height="62" rx="14" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2"/>
+    <rect x="1111" y="331" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1113,334 L1124,342 L1135,334" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="1156" y="327" width="203" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+    <rect x="1156" y="346" width="265" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+  </g>
+
+  <!-- SUP-3: already written, so left as it was -->
+  <g>
+    <rect x="480" y="419" width="1040" height="106" rx="18" fill="#060E1C" stroke="#5E7A9A" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="530" cy="472" r="25" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2.25"/><polygon points="533,455 519,475 529,475 526,489 541,468 531,468" fill="#359AE2" stroke="#359AE2" stroke-width="1.4" stroke-linejoin="round"/><text x="572" y="482" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="28" font-weight="700" letter-spacing="1" fill="#359AE2">SUP-3</text>
+    <rect x="700" y="441.0" width="480" height="62" rx="14" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.8" stroke-width="2"/>
+    <rect x="724" y="470" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M728,470 V464 A6,6 0 0 1 740,464 V470" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+    <rect x="766" y="459" width="178" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+    <rect x="766" y="478" width="310" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+  </g>
+
+  <!-- SUP-4: empty, so filled -->
+  <g>
+    <rect x="480" y="551" width="1040" height="106" rx="18" fill="#060E1C" stroke="#5E7A9A" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="530" cy="604" r="25" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2.25"/><polygon points="533,587 519,607 529,607 526,621 541,600 531,600" fill="#359AE2" stroke="#359AE2" stroke-width="1.4" stroke-linejoin="round"/><text x="572" y="614" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="28" font-weight="700" letter-spacing="1" fill="#359AE2">SUP-4</text>
+    <rect x="700" y="573.0" width="370" height="62" rx="14" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.8" stroke-width="2"/>
+    <rect x="724" y="602" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M728,602 V596 A6,6 0 0 1 740,596 V602" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+    <rect x="766" y="591" width="200" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+    <rect x="766" y="610" width="139" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+    <rect x="1090" y="573.0" width="400" height="62" rx="14" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2"/>
+    <rect x="1111" y="595" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1113,598 L1124,606 L1135,598" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="1156" y="591" width="203" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+    <rect x="1156" y="610" width="265" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+  </g>
+
+  <!-- SUP-5: filled, then its reply changed by hand -->
+  <g>
+    <rect x="480" y="683" width="1040" height="106" rx="18" fill="#060E1C" stroke="#5E7A9A" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="530" cy="736" r="25" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2.25"/><polygon points="533,719 519,739 529,739 526,753 541,732 531,732" fill="#359AE2" stroke="#359AE2" stroke-width="1.4" stroke-linejoin="round"/><text x="572" y="746" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="28" font-weight="700" letter-spacing="1" fill="#359AE2">SUP-5</text>
+    <rect x="700" y="705.0" width="370" height="62" rx="14" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.8" stroke-width="2"/>
+    <rect x="724" y="734" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M728,734 V728 A6,6 0 0 1 740,728 V734" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+    <rect x="766" y="723" width="200" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+    <rect x="766" y="742" width="139" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+    <rect x="1090" y="705.0" width="400" height="62" rx="14" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2"/>
+    <rect x="1111" y="727" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1113,730 L1124,738 L1135,730" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="1156" y="723" width="136" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+    <rect x="1156" y="742" width="92" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+    <path d="M1447,745 L1449,738 L1461,726 L1466,731 L1454,743 Z" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round"/><line x1="1458" y1="729" x2="1463" y2="734" stroke="#F0A93C" stroke-width="2.6"/>
+  </g>
+
+  <!-- what happened to each card -->
+  <text x="362" y="220" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="24" font-weight="700" letter-spacing="1.5" fill="#E8F4FF">WRITTEN ONCE</text>
+  <text x="362" y="348" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="24" font-weight="700" letter-spacing="1.5" fill="#8FA6C0">FILLED</text>
+  <text x="362" y="480" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="24" font-weight="700" letter-spacing="1.5" fill="#8FA6C0">LEFT AS WRITTEN</text>
+  <text x="362" y="612" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="24" font-weight="700" letter-spacing="1.5" fill="#8FA6C0">FILLED</text>
+  <text x="362" y="744" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="24" font-weight="700" letter-spacing="1.5" fill="#8FA6C0">FILLED, THEN CHANGED</text>
+  </g>
+</svg>
