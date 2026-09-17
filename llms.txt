@@ -21,6 +21,7 @@ DataPingo builds Atlassian Forge apps that run natively inside Confluence Cloud 
 - [Bulk Page Cloner — Documentation](https://datapingo.com/resources/documentation/bulkpagecloner): Full setup and usage guide for Bulk Page Cloner for Confluence, including the four-step flow, version history, and technical specifications.
 - [Bulk Comments — Documentation](https://datapingo.com/resources/documentation/bulkcomments): Full setup and usage guide for Bulk Comments for Jira, covering Compose mode, Replicate mode, choosing recipients, and sending.
 - [Blog](https://datapingo.com/resources/blog): Product updates, tips, and insights for Confluence teams.
+- [Bulk Comments for Jira now works across every Jira product](https://datapingo.com/resources/blog/bulk-comments-every-jira-product): Version 4.6.0 brings Bulk Comments to Jira Service Management, Customer Service Management and Jira Product Discovery, with internal notes and customer replies.
 - [Introducing Bulk Page Cloner](https://datapingo.com/resources/blog/introducing-bulk-page-cloner): Launch post explaining why Bulk Page Cloner was built and what it does.
 - [Use Cases](https://datapingo.com/resources/use-cases): Scenarios showing how DataPingo apps fit real Confluence and Jira workflows.
 - [Recurring Confluence pages](https://datapingo.com/resources/use-cases/recurring-confluence-pages): Creating the same page or page tree on a repeating schedule without rebuilding it by hand.
