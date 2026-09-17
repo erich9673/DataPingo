@@ -1,0 +1,111 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blog thumbnail: "Bulk Comments for Jira now works across every Jira product".
+       Left: the four Jira products (Jira, Jira Service Management, Customer Service
+       Management, Jira Product Discovery). Centre: the one Bulk Comments page. Right:
+       what each item leaves with. Every strand keeps its own colour through the page,
+       so each item gets its own comment; nothing fans out from a source issue.
+       Amber marks a reply that reaches a customer, as it does in the app, and is the
+       only warm colour in the blog thumbnail family. The service request carries two
+       comments (internal note behind, customer reply in front); the Customer Service
+       Management request carries a reply only. -->
+  <defs>
+    <radialGradient id="bcjWash" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.09"/>
+      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bcjToCustomer" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="1040" y2="0">
+      <stop offset="0%" stop-color="#527AD9"/>
+      <stop offset="100%" stop-color="#F0A93C"/>
+    </linearGradient>
+    <filter id="bcjGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#020911"/>
+  <rect width="1600" height="900" fill="url(#bcjWash)"/>
+
+  <!-- glows: cool behind the page, warm only where a customer is reached -->
+  <rect x="700" y="290" width="200" height="320" rx="20" fill="#05CEF0" opacity="0.15" filter="url(#bcjGlow)"/>
+  <ellipse cx="1170" cy="470" rx="150" ry="105" fill="#F0A93C" opacity="0.06" filter="url(#bcjGlow)"/>
+
+  <!-- strands: product -> page -> that item's own comment -->
+  <g fill="none" stroke-width="2.5" stroke-opacity="0.5">
+    <path d="M372,225 C540,225 540,382 700,382" stroke="#17BBEB"/>
+    <path d="M900,382 C975,382 965,225 1040,225" stroke="#17BBEB"/>
+    <path d="M372,375 C540,375 540,442 700,442" stroke="#359AE2"/>
+    <path d="M900,442 C975,442 965,375 1040,375" stroke="#359AE2"/>
+    <path d="M372,525 C540,525 540,502 700,502" stroke="#527AD9"/>
+    <path d="M900,502 C975,502 965,525 1040,525" stroke="url(#bcjToCustomer)"/>
+    <path d="M372,675 C540,675 540,562 700,562" stroke="#705AD0"/>
+    <path d="M900,562 C975,562 965,675 1040,675" stroke="#705AD0"/>
+  </g>
+  <!-- the four products -->
+  <g>
+    <circle cx="330" cy="225" r="42" fill="#0A1628" stroke="#17BBEB" stroke-opacity="0.9" stroke-width="2.5"/>
+    <rect x="314" y="209" width="32" height="32" rx="8" fill="none" stroke="#17BBEB" stroke-width="3"/><path d="M321.5,225.5 L327.5,231.5 L339,218.5" fill="none" stroke="#17BBEB" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <circle cx="330" cy="375" r="42" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.9" stroke-width="2.5"/>
+    <polygon points="333,356 318,378 329,378 326,394 342,371 331,371" fill="#359AE2" stroke="#359AE2" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <circle cx="330" cy="525" r="42" fill="#0A1628" stroke="#527AD9" stroke-opacity="0.9" stroke-width="2.5"/>
+    <circle cx="330" cy="517" r="8" fill="none" stroke="#527AD9" stroke-width="3"/><path d="M315,542 C315,528 345,528 345,542" fill="none" stroke="#527AD9" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g>
+    <circle cx="330" cy="675" r="42" fill="#0A1628" stroke="#705AD0" stroke-opacity="0.9" stroke-width="2.5"/>
+    <circle cx="330" cy="670" r="12" fill="none" stroke="#705AD0" stroke-width="3"/><path d="M324.5,684.5 L324.5,689 L335.5,689 L335.5,684.5" fill="none" stroke="#705AD0" stroke-width="3" stroke-linejoin="round"/><line x1="325.5" y1="694.5" x2="334.5" y2="694.5" stroke="#705AD0" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- the one page -->
+  <g>
+    <rect x="700" y="290" width="200" height="320" rx="20" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.9" stroke-width="2.25"/>
+    <rect x="728" y="324" width="104" height="10" rx="5" fill="#E8F4FF"/>
+    <circle cx="734" cy="382" r="6.5" fill="#17BBEB"/>
+    <rect x="752" y="378" width="112" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <circle cx="700" cy="382" r="3.5" fill="#17BBEB"/><circle cx="900" cy="382" r="3.5" fill="#17BBEB"/>
+    <circle cx="734" cy="442" r="6.5" fill="#359AE2"/>
+    <rect x="752" y="438" width="92" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <circle cx="700" cy="442" r="3.5" fill="#359AE2"/><circle cx="900" cy="442" r="3.5" fill="#359AE2"/>
+    <circle cx="734" cy="502" r="6.5" fill="#527AD9"/>
+    <rect x="752" y="498" width="120" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <circle cx="700" cy="502" r="3.5" fill="#527AD9"/><circle cx="900" cy="502" r="3.5" fill="#527AD9"/>
+    <circle cx="734" cy="562" r="6.5" fill="#705AD0"/>
+    <rect x="752" y="558" width="100" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>
+    <circle cx="700" cy="562" r="3.5" fill="#705AD0"/><circle cx="900" cy="562" r="3.5" fill="#705AD0"/>
+  </g>
+  <!-- what each item leaves with -->
+  <g>
+      <path d="M1056,181.0 H1214 A16,16 0 0 1 1230,197.0 V253.0 A16,16 0 0 1 1214,269.0 H1090 L1062,289.0 L1068,269.0 H1056 A16,16 0 0 1 1040,253.0 V197.0 A16,16 0 0 1 1056,181.0 Z" fill="#0A1628" stroke="#17BBEB" stroke-opacity="0.85" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="1066" y="211.0" width="101" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+      <rect x="1066" y="231.0" width="70" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+  </g>
+  <g>
+      <path d="M1056,323.0 H1214 A16,16 0 0 1 1230,339.0 V395.0 A16,16 0 0 1 1214,411.0 H1090 L1062,431.0 L1068,411.0 H1056 A16,16 0 0 1 1040,395.0 V339.0 A16,16 0 0 1 1056,323.0 Z" fill="#0A1628" stroke="#359AE2" stroke-opacity="0.85" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="1064" y="365.0" width="20" height="15" rx="3.5" fill="#359AE2"/><path d="M1068,365.0 V359.0 A6,6 0 0 1 1080,359.0 V365.0" fill="none" stroke="#359AE2" stroke-width="2.8"/>
+      <rect x="1102" y="353.0" width="83" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+      <rect x="1102" y="373.0" width="57" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+      <path d="M1120,365.0 H1278 A16,16 0 0 1 1294,381.0 V437.0 A16,16 0 0 1 1278,453.0 H1154 L1126,473.0 L1132,453.0 H1120 A16,16 0 0 1 1104,437.0 V381.0 A16,16 0 0 1 1120,365.0 Z" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2.25" stroke-linejoin="round"/>
+      <rect x="1125" y="400.0" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1127,403.0 L1138,411.0 L1149,403.0" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="1166" y="395.0" width="77" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+      <rect x="1166" y="415.0" width="94" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+  </g>
+  <g>
+      <g transform="translate(0,8)">
+      <path d="M1056,491.0 H1214 A16,16 0 0 1 1230,507.0 V563.0 A16,16 0 0 1 1214,579.0 H1090 L1062,599.0 L1068,579.0 H1056 A16,16 0 0 1 1040,563.0 V507.0 A16,16 0 0 1 1056,491.0 Z" fill="#1F170B" stroke="#F0A93C" stroke-opacity="0.95" stroke-width="2.25" stroke-linejoin="round"/>
+      <rect x="1061" y="526.0" width="26" height="19" rx="3.5" fill="none" stroke="#F0A93C" stroke-width="2.6"/><path d="M1063,529.0 L1074,537.0 L1085,529.0" fill="none" stroke="#F0A93C" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="1102" y="521.0" width="73" height="9" rx="4.5" fill="#FBE3B8" opacity="0.9"/>
+      <rect x="1102" y="541.0" width="52" height="8" rx="4" fill="#F0A93C" opacity="0.6"/>
+      </g>
+  </g>
+  <g>
+      <path d="M1056,631.0 H1214 A16,16 0 0 1 1230,647.0 V703.0 A16,16 0 0 1 1214,719.0 H1090 L1062,739.0 L1068,719.0 H1056 A16,16 0 0 1 1040,703.0 V647.0 A16,16 0 0 1 1056,631.0 Z" fill="#0A1628" stroke="#705AD0" stroke-opacity="0.85" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="1066" y="661.0" width="84" height="9" rx="4.5" fill="#E8F4FF" opacity="0.9"/>
+      <rect x="1066" y="681.0" width="115" height="8" rx="4" fill="#6B86A4" opacity="0.75"/>
+  </g>
+  <circle cx="1040" cy="225" r="3.5" fill="#17BBEB"/>
+  <circle cx="1040" cy="375" r="3.5" fill="#359AE2"/>
+  <circle cx="1040" cy="525" r="3.5" fill="#F0A93C"/>
+  <circle cx="1040" cy="675" r="3.5" fill="#705AD0"/>
+</svg>
