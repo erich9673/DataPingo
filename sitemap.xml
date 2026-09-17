@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/blog</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -69,6 +69,12 @@
   <url>
     <loc>https://datapingo.com/company/contact</loc>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/blog/bulk-comments-every-jira-product</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
