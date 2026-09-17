@@ -80,6 +80,14 @@
       "destination": "/resources/blog.html"
     },
     {
+      "source": "/resources/blog/bulk-comments-every-jira-product",
+      "destination": "/resources/blog/bulk-comments-every-jira-product.html"
+    },
+    {
+      "source": "/resources/blog/bulk-comments-every-jira-product/",
+      "destination": "/resources/blog/bulk-comments-every-jira-product.html"
+    },
+    {
       "source": "/resources/blog/introducing-bulk-page-cloner",
       "destination": "/resources/blog/introducing-bulk-page-cloner.html"
     },
