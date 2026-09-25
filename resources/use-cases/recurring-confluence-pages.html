@@ -473,7 +473,7 @@
             <p>Keep one clean source page for each recurring page type — this becomes your template. Search for it by name or paste its URL.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Select a Page as Template (1840 x 900 px).webp" alt="Select a source page as template in Bulk Page Cloner" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Page Cloner Assets/Source - Light (1840 x 900 px).webp" alt="Select a source page as template in Bulk Page Cloner" loading="lazy" width="3680" height="1800">
           </div>
         </div>
 
@@ -483,7 +483,7 @@
             <p>Decide on a naming format before creating pages (example: <code>Report - YYYY-MM</code>). Name all copies up front using the slider to set the count.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Bulk Cloning (1840 x 900 px).webp" alt="Name all pages up front in Bulk Page Cloner" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Page Cloner Assets/Copies - Light (1840 x 900 px).webp" alt="Name all pages up front in Bulk Page Cloner" loading="lazy" width="3680" height="1800">
           </div>
         </div>
 
@@ -493,7 +493,7 @@
             <p>Set destination space and parent page first — choose whether pages sit under an existing page, at the top level, or under a new parent.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Page Cloner Assets/Location (1840 x 900 px).webp" alt="Choose destination space and parent page" loading="lazy" width="1280" height="626">
+            <img src="/assets/img/Bulk Page Cloner Assets/Location - Light (1840 x 900 px).webp" alt="Choose destination space and parent page" loading="lazy" width="3680" height="1800">
           </div>
         </div>
 
@@ -710,61 +710,7 @@
   <p class="dp-lb-hint">Tap the image to view it at full size</p>
 </div>
 
-<script>
-(function () {
-  var lb = document.getElementById('dpLightbox');
-  if (!lb) return;
-  var stage   = document.getElementById('dpLbStage');
-  var lbImg   = document.getElementById('dpLbImg');
-  var closeBtn= document.getElementById('dpLbClose');
-  var lock    = window.__scrollLock;
-
-  /* A tap opens it; a drag must not. Same guard the product pages use — a bare
-     click listener on a big image counts a thumb-swipe as a tap. */
-  function tapOnly(el, fn) {
-    var sx = null, sy = null;
-    el.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; }, { passive: true });
-    el.addEventListener('click', function (e) {
-      var dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
-      sx = null;
-      if (!dragged) fn(e);
-    });
-  }
-
-  function open(src) {
-    lbImg.src = src.currentSrc || src.src;
-    lbImg.alt = src.alt || '';
-    lb.classList.add('open');
-    lb.classList.remove('zoomed');
-    if (lock) lock.on();
-    closeBtn.focus();
-  }
-  function close() {
-    if (!lb.classList.contains('open')) return;
-    lb.classList.remove('open', 'zoomed');
-    if (lock) lock.off();
-  }
-
-  Array.prototype.forEach.call(document.querySelectorAll('.uc-step-screenshot img'), function (img) {
-    img.style.cursor = 'zoom-in';
-    tapOnly(img, function () { open(img); });
-  });
-
-  /* Fitted -> actual size, centred on the middle of the image so the pan starts
-     somewhere useful rather than in the top-left corner. */
-  tapOnly(lbImg, function () {
-    var z = lb.classList.toggle('zoomed');
-    if (z) {
-      stage.scrollLeft = (stage.scrollWidth  - stage.clientWidth)  / 2;
-      stage.scrollTop  = (stage.scrollHeight - stage.clientHeight) / 2;
-    }
-  });
-
-  closeBtn.addEventListener('click', close);
-  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-})();
-</script>
+<script src="/js/docs-lightbox.js" defer></script>
 
 </body>
 </html>

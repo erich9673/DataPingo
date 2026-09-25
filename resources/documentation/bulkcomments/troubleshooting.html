@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>Bulk Comments for Jira — Errors & Troubleshooting</title>
+  <title>Bulk Comments for Jira — Help and support</title>
   <meta name="description" content="What each Bulk Comments for Jira error message means and how to fix it.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments/troubleshooting">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkcomments/troubleshooting">
-  <meta property="og:title" content="Bulk Comments for Jira — Errors & Troubleshooting">
+  <meta property="og:title" content="Bulk Comments for Jira — Help and support">
   <meta property="og:description" content="Complete documentation for Bulk Comments for Jira.">
   <meta property="og:site_name" content="DataPingo">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Bulk Comments for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bulk Comments for Jira — Errors & Troubleshooting">
+  <meta name="twitter:title" content="Bulk Comments for Jira — Help and support">
   <meta name="twitter:description" content="Complete documentation for Bulk Comments for Jira.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -29,277 +29,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
   <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
   <style>
-    /* Doc page layout */
-    .doc-layout {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 48px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 56px 48px 80px;
-      align-items: start;
-    }
-    .doc-sidebar {
-      position: sticky;
-      top: 100px;
-    }
-    .doc-toc-heading {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin: 0 0 12px;
-    }
-    .doc-toc a {
-      display: block;
-      font-size: 0.84rem;
-      color: var(--slate);
-      text-decoration: none;
-      padding: 5px 0 5px 12px;
-      border-left: 2px solid var(--border);
-      transition: color 0.15s, border-color 0.15s;
-      line-height: 1.4;
-      margin-bottom: 2px;
-    }
-    .doc-toc a:hover {
-      color: #A5B4FC;
-      border-left-color: #A5B4FC;
-    }
-    .doc-toc a.active {
-      color: #A5B4FC;
-      border-left-color: #A5B4FC;
-      font-weight: 600;
-    }
-    .doc-content h2 {
-      color: var(--white);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 64px 0 18px;
-      padding-top: 8px;
-      scroll-margin-top: 100px;
-    }
-    .doc-content h2:first-child { margin-top: 0; }
-    .doc-content h3 {
-      color: var(--white);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 44px 0 12px;
-    }
-    .doc-content h4 {
-      color: var(--white);
-      font-size: 1.02rem;
-      font-weight: 700;
-      margin: 32px 0 10px;
-    }
-    .doc-content p {
-      color: var(--slate);
-      font-size: 0.93rem;
-      line-height: 1.8;
-      margin: 0 0 20px;
-      /* 61ch, not 68 — the ch unit is the width of "0", which runs wider than
-         Inter's average glyph, so 68ch measured 80 real characters per line. */
-      max-width: 61ch;
-    }
-    .doc-content li { max-width: 59ch; }
-    .doc-content ul, .doc-content ol {
-      color: var(--slate);
-      font-size: 0.93rem;
-      line-height: 1.8;
-      padding-left: 22px;
-      margin: 0 0 16px;
-    }
-    .doc-content li { margin-bottom: 9px; }
-    .doc-content strong { color: var(--white); }
-    .doc-content code {
-      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-      font-size: 0.85em;
-      background: rgba(99,102,241,0.10);
-      border: 1px solid rgba(99,102,241,0.18);
-      border-radius: 4px;
-      padding: 1px 5px;
-      color: #C7D2FE;
-    }
-    /* A modifier on a scope, not a scope itself — tinted apart from <code> so the
-       scope name stays the thing you read first. */
-    .doc-content .scope-flag {
-      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-      font-size: 0.78em;
-      font-weight: 600;
-      background: rgba(87,157,255,0.10);
-      border: 1px solid rgba(87,157,255,0.26);
-      border-radius: 4px;
-      padding: 1px 6px;
-      color: #93C5FD;
-      white-space: nowrap;
-    }
-    /* Shortcut keys. Deliberately not <code>: a keystroke is a thing you press,
-       not a string you type, and the two should not look alike in a reference table. */
-    .doc-content kbd {
-      font-family: inherit;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-bottom-width: 2px;
-      border-radius: 5px;
-      padding: 2px 7px;
-      color: var(--white);
-      white-space: nowrap;
-    }
-    .doc-content a { color: #A5B4FC; text-decoration: none; }
-    .doc-content a:hover { text-decoration: underline; }
-    .doc-img-card {
-      background: var(--black-3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 16px 0;
-      cursor: zoom-in;
-      transition: border-color 0.2s;
-    }
-    .doc-img-card:hover { border-color: rgba(99,102,241,0.4); }
-    .doc-img-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    /* Inline-SVG figure: no lightbox, so no zoom affordance */
-    .doc-img-card--static { cursor: default; }
-    /* Screenshots of the real app. Light captures on a dark page, matching the
-       product page's figures — a documentation screenshot has to look like the
-       thing you are reading about, and the app is light by default. */
-    .doc-figure { margin: 20px 0 26px; }
-    /* Something you click or read in the app, as opposed to prose emphasis. Tinted
-       and semibold rather than boxed — 46 chips would add noise, and the point here
-       is to remove some. */
-
-    /* Two-level sidebar: the page set for this product, then anchors within the page
-       you are on. Added when Version History and Troubleshooting became their own
-       pages — an anchor-only nav cannot express "you are here" across a set. */
-    .doc-toc--pages { margin-bottom: 26px; }
-    .doc-toc--pages a { font-weight: 600; }
-    .doc-toc--pages a.is-current {
-      color: var(--white);
-      border-left-color: currentColor;
-    }
-    .doc-toc-heading--sub { margin-top: 26px; }
-
-    /* Troubleshooting entries: the message as the reader saw it, then why, then the fix. */
-    .ts-item {
-      border: 1px solid var(--border); border-radius: 10px;
-      padding: 18px 20px; margin: 0 0 14px;
-      background: rgba(255,255,255,0.015);
-    }
-    .ts-item .ts-msg {
-      color: var(--white); font-weight: 600; font-size: 0.92rem;
-      line-height: 1.6; margin: 0 0 10px; max-width: none;
-      /* Error strings contain unbreakable paths. Without this they set the grid
-         track's min-content width and push the page past a 375px viewport. */
-      overflow-wrap: anywhere;
-    }
-    .ts-item .ts-cause,
-    .ts-item .ts-fix { font-size: 0.89rem; line-height: 1.75; margin: 0 0 8px; max-width: none; }
-    .ts-item .ts-fix { margin-bottom: 0; }
-    .ts-item .ts-cause::before {
-      content: 'Why'; display: block;
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #7C8698; margin-bottom: 3px;
-    }
-    .ts-item .ts-fix::before {
-      content: 'Fix'; display: block;
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #A5B4FC; margin-bottom: 3px;
-    }
-    .doc-content code {
-      font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.86em;
-      background: rgba(255,255,255,0.06); border-radius: 4px; padding: 1px 5px;
-    }
-    .doc-hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(99,102,241,0.1);
-      border: 1px solid rgba(99,102,241,0.3);
-      color: #A5B4FC;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-right: 6px;
-      margin-bottom: 4px;
-    }
-    /* Runs on Atlassian — Atlassian's own trust signal, so it carries Atlassian's mark and
-       Atlassian's blue rather than a colour of ours. #579DFF is the dark-theme value of their
-       --ds-icon-brand token; the #0C66E4 the Marketplace uses is tuned for a white page and
-       goes muddy on this background. */
-    .doc-hero-badge--roa {
-      background: rgba(87,157,255,0.10);
-      border-color: rgba(87,157,255,0.32);
-      color: #579DFF;
-    }
-    /* Filled, not stroked like the other badge icons. flex-shrink is not optional: the badge is
-       a flex row, so without it the glyph squashes to ~7px wide and the layers skew. */
-    .doc-hero-badge--roa svg { fill: currentColor; flex-shrink: 0; }
-    /* Lightbox */
-    @media (max-width: 820px) {
-      .doc-layout { grid-template-columns: 1fr; padding: 36px 24px 60px; gap: 0; }
-      /* The sidebar IS the mobile nav. It used to be hidden here and duplicated as
-         a row of pills in the hero, which drifted out of sync and read as clutter.
-         Static + block puts it in the flow above the content, keeping its two
-         labelled groups (Documentation / On this page) exactly as on desktop. */
-      /* Centred as a block, not as text: .doc-toc a carries a left rail that marks
-         the active item, so centring the text would strand the rail away from it.
-         align-items:center shrinks each group to its content width and centres
-         that, keeping rail and label together. Desktop is untouched. */
-      /* On a phone the sidebar becomes a chip set. A vertical rail of text links is
-         a desktop shape — it reads as a column because there IS a column beside it.
-         Standing alone above the content it just looked like orphaned text, so each
-         entry becomes a tappable chip instead.
-
-         The two groups are deliberately not the same weight. "Documentation" leaves
-         this page, so those chips are filled and carry the indigo the doc pages
-         already use for emphasis. "On this page" only jumps within it, so those are
-         hairline ghosts — quieter, because the destination is cheaper. Current page
-         gets the same #A5B4FC the desktop rail uses for .active, so the "you are
-         here" signal is identical in both layouts. */
-      .doc-sidebar { position: static; display: flex; flex-direction: column;
-                     align-items: center; margin-bottom: 34px;
-                     padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-      .doc-sidebar .doc-toc-heading { text-align: center; margin-bottom: 10px; }
-      .doc-sidebar .doc-toc {
-        display: flex; flex-wrap: wrap; justify-content: center; gap: 7px;
-        width: 100%; max-width: 100%;
-      }
-      .doc-sidebar .doc-toc a {
-        display: inline-flex; align-items: center; justify-content: center;
-        min-height: 44px; padding: 10px 14px; margin-bottom: 0;
-        border: 1px solid var(--border); border-left: 1px solid var(--border);
-        border-radius: 9px; font-size: 0.78rem; line-height: 1.2;
-        background: transparent; white-space: nowrap;
-        transition: color 0.15s, border-color 0.15s, background 0.15s;
-      }
-      /* Group 1 — navigates away, so it carries more weight. */
-      .doc-sidebar .doc-toc--pages a {
-        background: rgba(99,102,241,0.09);
-        border-color: rgba(99,102,241,0.28);
-        color: #B9C2F0; font-weight: 600;
-      }
-      .doc-sidebar .doc-toc--pages a.is-current {
-        background: rgba(99,102,241,0.2);
-        border-color: #A5B4FC; color: #E8F4FF;
-      }
-      .doc-sidebar .doc-toc a:hover,
-      .doc-sidebar .doc-toc a.active {
-        color: #A5B4FC; border-color: rgba(165,180,252,0.5);
-        background: rgba(99,102,241,0.12);
-      }
-    }
   </style>
   <script type="application/ld+json">
 {
@@ -328,7 +63,7 @@
 }
   </script>
 </head>
-<body>
+<body data-doc-product="bulkcomments">
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
@@ -440,10 +175,10 @@
       <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
         <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="Bulk Comments for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(99,102,241,0.25);" width="192" height="192">
       </div>
-      <h1 style="text-align:center;">Troubleshooting</h1>
+      <h1 style="text-align:center;">Help and support</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The messages the app can show you, what each one means, and what to do about it.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge">v4.6.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.8.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
@@ -460,19 +195,18 @@
     <aside class="doc-sidebar">
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
-        <a href="/resources/documentation/bulkcomments">Guide</a>
+        <a href="/resources/documentation/bulkcomments">Get started</a>
+        <a href="/resources/documentation/bulkcomments/installation">Installation</a>
+        <a href="/resources/documentation/bulkcomments/where-to-open">Where to open it</a>
+        <a href="/resources/documentation/bulkcomments/guide">User guide</a>
+        <a href="/resources/documentation/bulkcomments/admin">Admin guide</a>
+        <a href="/resources/documentation/bulkcomments/technical">App technical information</a>
+        <a href="/resources/documentation/bulkcomments/faq">FAQ</a>
+        <a href="/resources/documentation/bulkcomments/troubleshooting" class="is-current">Help and support</a>
         <a href="/resources/documentation/bulkcomments/release-notes">Release notes</a>
-        <a href="/resources/documentation/bulkcomments/troubleshooting" class="is-current">Troubleshooting</a>
-        <a href="/resources/documentation/bulkcomments/specs">Specs &amp; security</a>
       </nav>
       <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
-      <nav class="doc-toc">
-        <a href="#files">Files and uploads</a>
-        <a href="#permissions">Permissions</a>
-        <a href="#statuses">Status changes</a>
-        <a href="#sending">Sending</a>
-        <a href="#license">License</a>
-      </nav>
+      <nav class="doc-toc doc-toc--auto"></nav>
     </aside>
 
     <div class="doc-content">
@@ -487,7 +221,7 @@
         </div>
         <div class="ts-item">
           <p class="ts-msg">This send is over the 2&nbsp;GB limit for one send &mdash; revise your comments, or send in smaller batches.</p>
-          <p class="ts-cause">The app caps a single send at <strong>2&nbsp;GB written into Jira in total</strong>, counted across every issue in the batch. Issues are added together, not multiplied out: 700&nbsp;MB on one, 1&nbsp;GB on another and 300&nbsp;MB on a third comes to exactly 2&nbsp;GB and still sends. This is separate from the 150&nbsp;MB per-file ceiling &mdash; a batch can breach the total while every individual file is well inside its own limit.</p>
+          <p class="ts-cause">The app caps a single send at <strong>2&nbsp;GB written into Jira in total</strong>, counted across every issue in the batch. A file is written once for every issue it lands on, so the total is file size &times; issue count &mdash; a 400&nbsp;MB video sent to 5 issues writes 2&nbsp;GB. See <a href="/resources/documentation/bulkcomments/limits">Limits</a>. This is separate from the 150&nbsp;MB per-file ceiling &mdash; a batch can breach the total while every individual file is well inside its own limit.</p>
           <p class="ts-fix">Split the batch. Send half the issues, then the rest &mdash; the total resets per send. Nothing was posted when the limit tripped, so there is nothing to clean up first. Remember that a file lands once per issue, so dropping issues from the selection cuts the total faster than shrinking the file does.</p>
         </div>
         <div class="ts-item">
@@ -531,9 +265,19 @@
           <p class="ts-fix">Move that issue in Jira, where the transition screen can be filled in. Its comment still posts normally from here.</p>
         </div>
         <div class="ts-item">
+          <p class="ts-msg">Moved in Jira since you picked it &mdash; reload and choose the status change again</p>
+          <p class="ts-cause">Somebody moved the issue between the moment you chose the transition and the moment you sent, so the transition you picked is no longer on the workflow from where the issue now sits.</p>
+          <p class="ts-fix">Reload the app and pick the status change again from where the issue is now. The comment on that issue is unaffected.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg"><em>n</em> status changes failed &mdash; the comments posted, change the status in Jira</p>
+          <p class="ts-cause">Two different things happened to one issue: the comment posted and the transition was refused.</p>
+          <p class="ts-fix">Move those issues in Jira. <strong>Retry will not pick them up, and that is deliberate</strong> &mdash; their comments are already in Jira, so re-running one would post its comment a second time. The rows name the issues, and each links straight to it.</p>
+        </div>
+        <div class="ts-item">
           <p class="ts-msg">I need to take a send back</p>
-          <p class="ts-cause">There is no undo. It was removed in 4.6.0, because it could never honestly cover a service desk &mdash; a customer reply is emailed the moment it posts, so by the time you press undo the email has already gone. An undo that works on some products and not others is worse than none, because it teaches you to rely on it.</p>
-          <p class="ts-fix">Delete the comments on the issues in Jira. The results screen lists every issue the send touched, with a link to each one, so you have the record of what to remove. Two things cannot be reversed: an email that has already reached a customer, and a status transition &mdash; move those back in Jira yourself. The confirmation before a send is what prevents this: it names the issue count, the storage total, and how many customers the send will reach.</p>
+          <p class="ts-cause">There is no undo. A customer reply is emailed the moment it posts, so nothing could reliably take one back.</p>
+          <p class="ts-fix">Delete the comments on the issues in Jira. The results screen lists every issue the send touched, with a link to each one, so you have the record of what to remove. Two things cannot be reversed: an email that has already reached a customer, and a status transition &mdash; move those back in Jira yourself. The send guard is what prevents this: before anything posts it names how many customers will be emailed, how many comments post and across how many issues, and &mdash; when the send carries files &mdash; how much storage it will add.</p>
         </div>
       </section>
 
@@ -551,9 +295,19 @@
           <p class="ts-fix">Send in batches of 25. The tray along the bottom of the Issues step lets you drop issues with the &times; on each chip.</p>
         </div>
         <div class="ts-item">
-          <p class="ts-msg">Some issues succeeded and some failed</p>
-          <p class="ts-cause">Issues are posted in parallel and each is tracked on its own, so a partial failure is normal rather than a broken run.</p>
-          <p class="ts-fix">Use <span class="ui">Retry n failed</span> on the results screen. It re-runs only the failures and leaves everything already delivered alone.</p>
+          <p class="ts-msg">Some issues succeeded and some did not</p>
+          <p class="ts-cause">Each issue is tracked on its own, so a partial result is normal rather than a broken run. It has two causes: Jira refused the post (<span class="ui">failed</span>), or the send ran out of time before that issue was started (<span class="ui">not sent</span> &mdash; nothing was posted to it).</p>
+          <p class="ts-fix">Use the retry button on the results screen &mdash; it reads <span class="ui">Retry n failed</span>, <span class="ui">Retry n unsent</span> or <span class="ui">Send the remaining n</span> depending on what is left. It re-runs only issues where nothing was posted, and leaves everything already delivered alone.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg">Not sent &mdash; the send ran out of time. Nothing was posted to this issue.</p>
+          <p class="ts-cause">A send gets 25 seconds from Atlassian before the run is stopped. The app stops <em>starting</em> new issues with time to spare and answers with what it has.</p>
+          <p class="ts-fix">Nothing was posted to those issues, so retrying is safe &mdash; the retry button covers them. If it keeps happening, the batch is heavy rather than broken: send in smaller groups, or attach fewer files per issue.</p>
+        </div>
+        <div class="ts-item">
+          <p class="ts-msg">The send was interrupted, so we don&rsquo;t know which comments went through</p>
+          <p class="ts-cause">The connection dropped before any result came back, so the app genuinely cannot tell what landed. Some comments may already be in Jira.</p>
+          <p class="ts-fix"><strong>Check the issues in Jira before sending again</strong> &mdash; anything already posted would be posted twice. Send is held until you press <span class="ui">I&rsquo;ve checked &mdash; let me send</span>.</p>
         </div>
       </section>
 
@@ -575,6 +329,7 @@
 
 
 
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>
   </div>
 </main>
@@ -756,49 +511,12 @@
       .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
       .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
   });
-
-  // TOC scroll spy
-  const tocLinks = document.querySelectorAll('.doc-toc a');
-  const sections = document.querySelectorAll('section[id]');
-  function updateTOC() {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
-    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-  }
-  window.addEventListener('scroll', updateTOC, { passive: true });
-  updateTOC();
-
-  // Lightbox
-  // Lightbox — shared .dp-lb component (css/aurora.css). These pages carry no
-  // screenshots today; the binding covers both wrapper classes so a figure added
-  // later gets the zoomable viewer rather than the old fit-to-screen one.
-  const lb = document.getElementById('dpLightbox');
-  const lbStage = document.getElementById('dpLbStage');
-  const lbImg = document.getElementById('dpLbImg');
-  const lbClose = document.getElementById('dpLbClose');
-  const openLb = src => {
-    lbImg.src = src.currentSrc || src.src; lbImg.alt = src.alt || '';
-    lb.classList.add('open'); lb.classList.remove('zoomed');
-    scrollLock.on(); lbClose.focus();
-  };
-  const closeLb = () => {
-    if (!lb.classList.contains('open')) return;
-    lb.classList.remove('open', 'zoomed'); scrollLock.off();
-  };
-  document.querySelectorAll('.doc-img-card img, .doc-figure img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    tapOnly(img, () => openLb(img));
-  });
-  tapOnly(lbImg, () => {
-    if (lb.classList.toggle('zoomed')) {
-      lbStage.scrollLeft = (lbStage.scrollWidth  - lbStage.clientWidth)  / 2;
-      lbStage.scrollTop  = (lbStage.scrollHeight - lbStage.clientHeight) / 2;
-    }
-  });
-  lbClose.addEventListener('click', closeLb);
-  lb.addEventListener('click', e => { if (e.target === lb || e.target === lbStage) closeLb(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  // TOC scroll spy now lives in /js/docs-toc.js — it builds the
+  // "On this page" list from the headings and tracks two levels.
 </script>
 
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
 </body>
 </html>

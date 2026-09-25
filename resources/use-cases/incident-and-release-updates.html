@@ -429,7 +429,7 @@
         <p class="uc-sidebar-label">On this page</p>
         <nav class="uc-toc">
           <a href="#scenario">Scenario</a>
-          <a href="#same-message">When the words are the same</a>
+          <a href="#same-message">When every issue needs the same words</a>
           <a href="#examples">Common examples</a>
           <a href="#problem">Where it breaks down</a>
           <a href="#workflow">Recommended workflow</a>
@@ -444,7 +444,7 @@
         <h2>Key Takeaways</h2>
         <ul>
           <li>Update up to 25 Jira issues in one pass instead of opening each one</li>
-          <li>Write one comment, copy it to every issue with &ldquo;Use this comment for all&rdquo;, then change only the ones that need saying differently</li>
+          <li>Write one comment, copy it to the rest from that card&rsquo;s &ldquo;&bull;&bull;&bull;&rdquo; menu, then change only the ones that need saying differently</li>
           <li>On Jira Service Management, choose an internal note or a customer reply per request</li>
         </ul>
       </div>
@@ -509,28 +509,28 @@
             <text class="key" x="24" y="234">SUP-88</text>
             <text class="aud" x="24" y="254" fill="#8C62D2">Reply to customer</text>
             <text class="body" x="24" y="272">&#8220;Service was restored at 14:20 UTC.&#8221;</text>
-            <text class="aud" x="24" y="298" fill="#6B86A4">Internal note</text>
+            <text class="aud" x="24" y="298" fill="#F7C983">Internal note</text>
             <text class="body" x="24" y="316">&#8220;Incident link and timeline for the team&#8221;</text>
           </g>
           <g>
             <rect class="res" x="580" y="208" width="412" height="120" rx="10"/>
             <text class="key" x="596" y="234">SUP-88</text>
             <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <text class="out" x="620" y="258">Reply emailed to the customer</text>
+            <text class="out" x="620" y="258">Sent to customer</text>
             <path d="M596 277 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <text class="out" x="620" y="282">Internal note added, agents only</text>
+            <text class="out" x="620" y="282" fill="#F7C983">+ Internal note</text>
           </g>
           <g>
             <rect class="card" x="8" y="338" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="364">SUP-92</text>
-            <text class="aud" x="24" y="384" fill="#6B86A4">Internal note</text>
+            <text class="aud" x="24" y="384" fill="#F7C983">Internal note</text>
             <text class="body" x="24" y="402">&#8220;Still investigating your specific case.&#8221;</text>
           </g>
           <g>
             <rect class="res" x="580" y="338" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="364">SUP-92</text>
             <path d="M596 383 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <text class="out" x="620" y="388">Internal note added &#183; still open</text>
+            <text class="out" x="620" y="388" fill="#F7C983">Internal note added &#183; still open</text>
           </g>
 
           <path d="M484 225 H556" stroke="#05CEF0" stroke-width="2" fill="none"/>
@@ -545,11 +545,11 @@
 
 
       <h2 id="same-message">When every issue needs the same words</h2>
-      <p>Not every batch needs a different message. A release ships and all of them get the same line. Write it on one card, press <em>Use this comment for all</em>, and it lands on every other card in the batch &mdash; as a copy, not a link, so you can still change the one or two that need saying differently.</p>
+      <p>Not every batch needs a different message. A release ships and all of them get the same line. Write it on one card, open that card&rsquo;s <em>&bull;&bull;&bull;</em> menu and pick <em>Copy this comment to 3 issues</em>, and it lands on every other card in the batch &mdash; as a copy, not a link, so you can still change the one or two that need saying differently.</p>
       <figure class="uc-figure">
         <svg style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 452" role="img" aria-labelledby="dg2Title dg2Desc">
           <title id="dg2Title">One comment written once and copied to four issues, then sent</title>
-          <desc id="dg2Desc">Left: four Jira issues on one page. The first carries a comment reading &#8220;Released in 4.6.1 &#8212; closing this out.&#8221; The other three show the same comment, copied across with Use this comment for all. All four also have a move to Done queued. Right: after a single send, every issue shows the comment posted and moved to Done. Four comments across four issues, four statuses moved.</desc>
+          <desc id="dg2Desc">Left: four Jira issues on one page. The first carries a comment reading &#8220;Released in 4.6.1 &#8212; closing this out.&#8221; The other three show the same comment, copied across from the first card&rsquo;s actions menu. All four also have a move to Done queued. Right: after a single send, every issue shows the comment posted and moved to Done. Four comments across four issues, four statuses moved.</desc>
           <style>
             .hdr  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11.5px; fill: #6B86A4; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
             .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
@@ -658,27 +658,27 @@
             <p><strong>Select.</strong> Find the affected issues &mdash; search by keyword or paste an issue key, narrow by project and status, or switch to <code>JQL</code> for something more precise. Pick up to 25 in one go.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-01-issues-light.webp" alt="Selecting up to 25 Jira issues in Bulk Comments for Jira" loading="lazy" width="1680" height="914">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-uc-01-issues.webp" alt="Selecting up to 25 Jira issues in Bulk Comments for Jira" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
         <div class="uc-step-row">
           <div class="uc-step-label">
             <span class="uc-step-num">2</span>
-            <p><strong>Comment.</strong> Every issue you picked becomes a card with its own comment box, all on one page. Write one and use <em>Use this comment for all</em> to copy it across, then edit the cards that need different wording &mdash; or write each from scratch. On Jira Service Management and Customer Service Management, choose an internal note or a reply to the customer &mdash; and one request can carry both.</p>
+            <p><strong>Comment.</strong> Every issue you picked becomes a card with its own comment box, all on one page, with a list down the left to jump between them and a read-only panel on the right that follows whichever card you are writing in. Write one, copy it to the rest from that card&rsquo;s <em>&bull;&bull;&bull;</em> menu, then edit the cards that need different wording &mdash; or write each from scratch. On Jira Service Management and Customer Service Management, choose an internal note or a reply to the customer &mdash; and one request can carry both, the reply on top because that is how Jira will show them.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-02-write-light.webp" alt="Each selected issue gets its own comment box, with internal note and reply to customer" loading="lazy" width="1680" height="914">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-uc-02-write.webp" alt="Each selected issue gets its own comment box, with the reply to the customer stacked above the internal note" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
         <div class="uc-step-row">
           <div class="uc-step-label">
             <span class="uc-step-num">3</span>
-            <p><strong>Send.</strong> Set a status on any card while you write. Before anything posts, a confirmation names exactly how many customers will be emailed. Then all the comments go out in a single send.</p>
+            <p><strong>Send.</strong> Set a status under any comment box while you write. Before anything posts, a confirmation names exactly how many customers will be emailed. Then all the comments go out in a single send, and every row says what happened to that issue &mdash; posted, not sent, or a status change Jira refused. Retry picks up whatever did not post and leaves anything that did alone, so an incident update is never sent twice.</p>
           </div>
           <div class="uc-step-screenshot">
-            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-03-send-light.webp" alt="Every comment posted in a single send, each row showing which audience it reached" loading="lazy" width="1680" height="914">
+            <img src="/assets/img/Bulk Comments for Jira Assets/screens/bcj-uc-03-send.webp" alt="Every comment posted in a single send, each row showing which audience it reached" loading="lazy" width="1680" height="914">
           </div>
         </div>
 
@@ -884,61 +884,7 @@
   <p class="dp-lb-hint">Tap the image to view it at full size</p>
 </div>
 
-<script>
-(function () {
-  var lb = document.getElementById('dpLightbox');
-  if (!lb) return;
-  var stage   = document.getElementById('dpLbStage');
-  var lbImg   = document.getElementById('dpLbImg');
-  var closeBtn= document.getElementById('dpLbClose');
-  var lock    = window.__scrollLock;
-
-  /* A tap opens it; a drag must not. Same guard the product pages use — a bare
-     click listener on a big image counts a thumb-swipe as a tap. */
-  function tapOnly(el, fn) {
-    var sx = null, sy = null;
-    el.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; }, { passive: true });
-    el.addEventListener('click', function (e) {
-      var dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
-      sx = null;
-      if (!dragged) fn(e);
-    });
-  }
-
-  function open(src) {
-    lbImg.src = src.currentSrc || src.src;
-    lbImg.alt = src.alt || '';
-    lb.classList.add('open');
-    lb.classList.remove('zoomed');
-    if (lock) lock.on();
-    closeBtn.focus();
-  }
-  function close() {
-    if (!lb.classList.contains('open')) return;
-    lb.classList.remove('open', 'zoomed');
-    if (lock) lock.off();
-  }
-
-  Array.prototype.forEach.call(document.querySelectorAll('.uc-step-screenshot img'), function (img) {
-    img.style.cursor = 'zoom-in';
-    tapOnly(img, function () { open(img); });
-  });
-
-  /* Fitted -> actual size, centred on the middle of the image so the pan starts
-     somewhere useful rather than in the top-left corner. */
-  tapOnly(lbImg, function () {
-    var z = lb.classList.toggle('zoomed');
-    if (z) {
-      stage.scrollLeft = (stage.scrollWidth  - stage.clientWidth)  / 2;
-      stage.scrollTop  = (stage.scrollHeight - stage.clientHeight) / 2;
-    }
-  });
-
-  closeBtn.addEventListener('click', close);
-  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-})();
-</script>
+<script src="/js/docs-lightbox.js" defer></script>
 
 </body>
 </html>

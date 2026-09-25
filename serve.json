@@ -194,6 +194,210 @@
     {
       "source": "/resources/documentation/bulkpagecloner/specs/",
       "destination": "/resources/documentation/bulkpagecloner/specs.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide",
+      "destination": "/resources/documentation/bulkcomments/guide.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/reference",
+      "destination": "/resources/documentation/bulkcomments/guide.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/reference/",
+      "destination": "/resources/documentation/bulkcomments/guide.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/limits",
+      "destination": "/resources/documentation/bulkcomments/limits.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/limits/",
+      "destination": "/resources/documentation/bulkcomments/limits.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/installation",
+      "destination": "/resources/documentation/bulkcomments/installation.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/installation/",
+      "destination": "/resources/documentation/bulkcomments/installation.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide",
+      "destination": "/resources/documentation/bulkpagecloner/guide.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/",
+      "destination": "/resources/documentation/bulkpagecloner/guide.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/reference",
+      "destination": "/resources/documentation/bulkpagecloner/reference.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/reference/",
+      "destination": "/resources/documentation/bulkpagecloner/reference.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/limits",
+      "destination": "/resources/documentation/bulkpagecloner/limits.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/limits/",
+      "destination": "/resources/documentation/bulkpagecloner/limits.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/installation",
+      "destination": "/resources/documentation/bulkpagecloner/installation.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/installation/",
+      "destination": "/resources/documentation/bulkpagecloner/installation.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide/service-management",
+      "destination": "/resources/documentation/bulkcomments/guide/service-management.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide/about-the-app",
+      "destination": "/resources/documentation/bulkcomments/guide/about-the-app.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide/step-1-select-issues",
+      "destination": "/resources/documentation/bulkcomments/guide/step-1-select-issues.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide/step-2-write-comments",
+      "destination": "/resources/documentation/bulkcomments/guide/step-2-write-comments.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/guide/step-3-send-the-batch",
+      "destination": "/resources/documentation/bulkcomments/guide/step-3-send-the-batch.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/technical",
+      "destination": "/resources/documentation/bulkcomments/technical.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v3-3-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v3-3-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v3-4-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v3-4-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v3-7-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v3-7-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-0-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-0-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-1-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-1-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-2-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-2-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-3-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-3-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-4-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-4-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-5-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-5-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-6-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-6-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-7-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-7-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/release-notes/v4-8-0",
+      "destination": "/resources/documentation/bulkcomments/release-notes/v4-8-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/admin",
+      "destination": "/resources/documentation/bulkcomments/admin.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/admin",
+      "destination": "/resources/documentation/bulkpagecloner/admin.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/technical",
+      "destination": "/resources/documentation/bulkpagecloner/technical.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v10-0-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-0-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v10-1-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-1-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v10-2-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-2-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v7-0-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v7-0-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v7-1-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v7-1-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v9-0-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v9-0-0.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/where-to-open",
+      "destination": "/resources/documentation/bulkcomments/where-to-open.html"
+    },
+    {
+      "source": "/resources/documentation/bulkcomments/faq",
+      "destination": "/resources/documentation/bulkcomments/faq.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/where-to-open",
+      "destination": "/resources/documentation/bulkpagecloner/where-to-open.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/faq",
+      "destination": "/resources/documentation/bulkpagecloner/faq.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/about-the-app",
+      "destination": "/resources/documentation/bulkpagecloner/guide/about-the-app.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/step-1-source",
+      "destination": "/resources/documentation/bulkpagecloner/guide/step-1-source.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/step-2-copies",
+      "destination": "/resources/documentation/bulkpagecloner/guide/step-2-copies.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/step-3-location",
+      "destination": "/resources/documentation/bulkpagecloner/guide/step-3-location.html"
+    },
+    {
+      "source": "/resources/documentation/bulkpagecloner/guide/step-4-done",
+      "destination": "/resources/documentation/bulkpagecloner/guide/step-4-done.html"
     }
   ]
 }

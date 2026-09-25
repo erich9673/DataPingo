@@ -151,6 +151,48 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://datapingo.com/resources/documentation/bulkcomments/guide</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkcomments/limits</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkcomments/installation</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkpagecloner/reference</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkpagecloner/limits</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkpagecloner/installation</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/release-notes</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>

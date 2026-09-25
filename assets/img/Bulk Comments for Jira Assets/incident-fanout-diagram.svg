@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-labelledby="dgTitle dgDesc">
+  <title id="dgTitle">One incident, four different comments, one send</title>
+  <desc id="dgDesc">A resolved incident fans out to four Jira issues. Each issue receives its own comment — two engineering notes that move to Done, and two service requests that receive a customer reply. All four post in a single send.</desc>
+
+  <style>
+    .lbl   { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #6B86A4; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+    .key   { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
+    .body  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13.5px; fill: #E8F4FF; }
+    .muted { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12px; fill: #6B86A4; }
+    .chip  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    .card  { fill: rgba(5,206,240,0.05); stroke: rgba(5,206,240,0.18); }
+    .wire  { stroke: rgba(107,134,164,0.45); fill: none; stroke-width: 1.5; }
+  </style>
+
+  <!-- source event -->
+  <rect x="8" y="176" width="176" height="72" rx="12" fill="rgba(124,77,204,0.12)" stroke="rgba(140,98,210,0.45)"/>
+  <text class="lbl" x="26" y="205">Incident resolved</text>
+  <text class="key" x="26" y="229" style="font-size:15px">INC-482</text>
+
+  <!-- fan-out wires -->
+  <path class="wire" d="M184 212 H236 Q248 212 248 200 V70  Q248 58 260 58"/>
+  <path class="wire" d="M184 212 H236 Q248 212 248 202 V150 Q248 138 260 138"/>
+  <path class="wire" d="M184 212 H236 Q248 212 248 222 V230 Q248 242 260 242"/>
+  <path class="wire" d="M184 212 H236 Q248 212 248 224 V310 Q248 322 260 322"/>
+
+  <!-- issue rows -->
+  <g>
+    <rect class="card" x="260" y="30" width="600" height="58" rx="10"/>
+    <text class="key"  x="280" y="55">PROJ-101</text>
+    <text class="body" x="280" y="76">“Root cause was the connection pool limit.”</text>
+    <rect x="742" y="46" width="52" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+    <text class="chip" x="754" y="61" fill="#05CEF0">Done</text>
+  </g>
+  <g>
+    <rect class="card" x="260" y="110" width="600" height="58" rx="10"/>
+    <text class="key"  x="280" y="135">PROJ-104</text>
+    <text class="body" x="280" y="156">“Fix shipped in 4.6.1 — no action needed.”</text>
+    <rect x="742" y="126" width="52" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
+    <text class="chip" x="754" y="141" fill="#05CEF0">Done</text>
+  </g>
+  <g>
+    <rect class="card" x="260" y="214" width="600" height="58" rx="10"/>
+    <text class="key"  x="280" y="239">SUP-88</text>
+    <text class="body" x="280" y="260">“Service was restored at 14:20 UTC.”</text>
+    <rect x="712" y="230" width="124" height="22" rx="11" fill="rgba(124,77,204,0.18)"/>
+    <text class="chip" x="724" y="245" fill="#8C62D2">Customer reply</text>
+  </g>
+  <g>
+    <rect class="card" x="260" y="294" width="600" height="58" rx="10"/>
+    <text class="key"  x="280" y="319">SUP-92</text>
+    <text class="body" x="280" y="340">“Still investigating your specific case.”</text>
+    <rect x="712" y="310" width="124" height="22" rx="11" fill="rgba(107,134,164,0.18)"/>
+    <text class="chip" x="724" y="325" fill="#6B86A4">Internal note</text>
+  </g>
+
+  <!-- collector -->
+  <path class="wire" d="M860 59 H900 Q912 59 912 71 V378 Q912 390 900 390 H556"/>
+  <path class="wire" d="M860 139 H900"/>
+  <path class="wire" d="M860 243 H900"/>
+  <path class="wire" d="M860 323 H900"/>
+
+  <!-- send bar -->
+  <rect x="260" y="368" width="296" height="46" rx="10" fill="rgba(5,206,240,0.10)" stroke="rgba(5,206,240,0.32)"/>
+  <text class="lbl"   x="280" y="389" fill="#05CEF0">One send</text>
+  <text class="muted" x="280" y="406">4 comments · 1 customer will be emailed</text>
+</svg>

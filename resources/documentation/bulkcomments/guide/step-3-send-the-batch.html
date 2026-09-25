@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Bulk Comments for Jira — Step 3: Send</title>
+  <meta name="description" content="The send guard, the live counters, what each result row means, and how Retry decides what to re-run.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments/guide/step-3-send-the-batch">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkcomments/guide/step-3-send-the-batch">
+  <meta property="og:title" content="Bulk Comments for Jira — Step 3 &mdash; Send">
+  <meta property="og:description" content="The send guard, the live counters, what each result row means, and how Retry decides what to re-run.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bulk Comments for Jira — documentation.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulk Comments for Jira — Step 3 &mdash; Send">
+  <meta name="twitter:description" content="Complete documentation for Bulk Comments for Jira.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <style>
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bulk Comments",
+      "item": "https://datapingo.com/resources/documentation/bulkcomments"
+    }
+  ]
+}
+  </script>
+</head></head>
+<body data-doc-product="bulkcomments">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR (staged: Products dropdown previews the post-launch lineup — see products/bulk-comments.html for the same convention) -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blog</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blog</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/bulkcomments" style="color:inherit;text-decoration:none">BULK COMMENTS FOR JIRA</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="Bulk Comments for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(99,102,241,0.25);" width="192" height="192">
+      </div>
+      <h1 style="text-align:center;">Step 3 &mdash; Send</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">The send guard, the live counters, what each result row means, and how Retry decides what to re-run.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge">v4.8.0 &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/bulkcomments">Get started</a>
+        <a href="/resources/documentation/bulkcomments/installation">Installation</a>
+        <a href="/resources/documentation/bulkcomments/where-to-open">Where to open it</a>
+        <a href="/resources/documentation/bulkcomments/guide">User guide</a>
+        <a href="/resources/documentation/bulkcomments/admin">Admin guide</a>
+        <a href="/resources/documentation/bulkcomments/technical">App technical information</a>
+        <a href="/resources/documentation/bulkcomments/faq">FAQ</a>
+        <a href="/resources/documentation/bulkcomments/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/bulkcomments/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+      <figure class="doc-figure">
+          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-03-send-light.webp" alt="The Send step: eight of eight issues updated, with Updated, Sending and Failed counters above a row per issue &mdash; two badged SENT TO CUSTOMER and, where a note went with it, + INTERNAL. The only action is Done." width="3360" height="1828" loading="lazy" decoding="async">
+          <figcaption>Send them all in one pass.</figcaption>
+        </figure>
+      <p><strong>Everything posts in one pass, and every issue reports back on its own.</strong></p>
+
+      <section id="statuses" style="scroll-margin-top:100px;">
+        <h2>What each status means</h2>
+        <p>Every issue reports its own outcome rather than sharing one tick with the batch. These are all the values a row can take:</p>
+        <table class="spec-table" style="margin:18px 0 20px;">
+          <thead><tr><th>The row reads</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ui">Queued&hellip;</span> then <span class="ui">Posting&hellip;</span></td><td>In flight. The counters above move with it.</td></tr>
+            <tr><td><span class="ui">Updated</span></td><td>The comment posted.</td></tr>
+            <tr><td><span class="ui">Status changed</span></td><td>The issue carried a status change and no comment, and it moved.</td></tr>
+            <tr><td><span class="ui">No change needed</span></td><td>The move you queued turned out to land on the status the issue was already in, so it was skipped. Nothing was written to the history and no automation was triggered &mdash; but it is reported rather than hidden, because you did ask for it.</td></tr>
+            <tr><td><span class="ui">Failed</span></td><td>Jira refused, and the row carries the reason Jira gave rather than a generic message.</td></tr>
+            <tr><td><span class="ui">Not sent &mdash; out of time</span></td><td>The send ran out of time before this issue was started. Nothing was posted to it.</td></tr>
+          </tbody>
+        </table>
+        <p>The counters above the rows &mdash; <span class="ui">Updated</span>, <span class="ui">Sending</span>, <span class="ui">Failed</span>, and <span class="ui">Status failed</span> or <span class="ui">Not sent</span> when there are any &mdash; are running totals of the same values, and update live as the send goes.</p>
+      </section>
+
+      <section id="confirmation" style="scroll-margin-top:100px;">
+        <h2>Send guard</h2>
+        <p>Some sends are worth a second look, so the <strong>send guard</strong> stops and describes the one you are about to make. Every line is counted from your actual batch, and lines with nothing to say do not appear.</p>
+        <p><strong>Two of the limits are refusals rather than warnings.</strong> A single file over <strong>150&nbsp;MB</strong> is rejected the moment you attach it, and a send that would write more than <strong>2&nbsp;GB</strong> into Jira is stopped here, before anything posts. Everything else the guard raises is a confirmation you can accept &mdash; see <a href="/resources/documentation/bulkcomments/limits">Limits</a> for every ceiling in one table.</p>
+
+        <p><strong>The send guard appears when any one of these is true:</strong></p>
+        <ul>
+          <li>the send reaches <strong>10 or more issues</strong></li>
+          <li>any comment in it <strong>@mentions</strong> someone &mdash; they are notified once per issue, so a mention across 25 issues is 25 notifications</li>
+          <li>the attachments come to <strong>50&nbsp;MB or more</strong>, which catches the send that is small in issue count and heavy in bytes</li>
+          <li>any comment is a <strong>reply to a customer</strong> &mdash; at any size, because that one cannot be taken back</li>
+        </ul>
+
+        <p><strong>What it tells you.</strong> The heading names the riskiest thing about the send: <span class="ui">Email 3 customers?</span> when any reply is customer-facing, <span class="ui">Post to 12 issues?</span> when none is, or <span class="ui">Move 4 issues?</span> when the batch is status changes only. Underneath, in order:</p>
+        <ul>
+          <li><strong>The customers, first and in the warning colour</strong> &mdash; <em>&ldquo;3 replies are set to Reply to customer &mdash; those customers get them by email. This cannot be undone.&rdquo;</em> First because it is the only irreversible part: a comment can be deleted, the email has left.</li>
+          <li><strong>What posts, and under whose name</strong> &mdash; <em>&ldquo;14 comments post under your name across 9 issues. The other 11 are internal.&rdquo;</em> Comments and issues are different numbers once a request carries both halves.</li>
+          <li><strong>Watchers</strong> &mdash; everyone watching each issue is notified.</li>
+          <li><strong>Mentions</strong> &mdash; called out separately, because a mention notifies once <em>per issue</em>.</li>
+          <li><strong>The storage arithmetic, on a heavy send only</strong> &mdash; <em>&ldquo;Keep this tab open. This send adds 1350&nbsp;MB to Jira (150&nbsp;MB &times; 9 issues). Make sure you have room for 1350&nbsp;MB.&rdquo;</em> In practice this is the <strong>50&nbsp;MB</strong> line: a comment carrying 50&nbsp;MB or more of files gets it, whatever the issue count. A second rule catches small files spread far enough to write <strong>250&nbsp;MB or more into Jira</strong>. Confirming acknowledges both halves &mdash; that the comment carries files this large, and that your site has room for the multiplied total. Either threshold alone is enough, since a file uploads once however many issues it lands on but its storage multiplies. The &times; shows only when the issues carry the same files.</li>
+          <li><strong>Video</strong> &mdash; a note that Jira may take a minute to process it, so a grey placeholder does not read as a failure.</li>
+          <li><strong>What is being skipped</strong> &mdash; <em>&ldquo;3 issues with no comment &mdash; skipped.&rdquo;</em></li>
+        </ul>
+        <p>The button repeats the number rather than saying &ldquo;Confirm&rdquo;: <span class="ui">Post 14 &mdash; email 3 customers</span>. <span class="ui">Cancel</span> takes focus, <kbd>Esc</kbd> closes, and tabbing stays inside &mdash; so the dangerous button is never the one your hands land on.</p>
+
+        <div class="doc-warning">
+          <p><strong>A send over 2&nbsp;GB is refused rather than confirmed.</strong> The dialog changes to <span class="ui">This send is too large</span>, names your total against the limit, and offers only <span class="ui">Back to comments</span>. Nothing is posted &mdash; the send stops before it starts rather than failing halfway and leaving some issues done and some not.</p>
+        </div>
+      </section>
+
+      <section id="the-send" style="scroll-margin-top:100px;">
+        <h2>After sending</h2>
+        <p><strong>You land here as soon as the upload starts, not when posting finishes</strong> &mdash; on a send carrying files the upload is most of the wait. It reads <span class="ui">Step 1 of 2 &middot; Uploading 3 of 8 &middot; 42 MB of 110 MB &middot; 4.1 MB/s &middot; ~0:16 left&hellip;</span>, then <span class="ui">Step 2 of 2 &middot; Adding to issues</span>, with <span class="ui">Cancel</span> under it throughout.</p>
+        <div class="doc-tip">
+          <p><strong>Cancelling rolls back.</strong> Files already written to issues are removed again, so you are never left with attachments scattered across a dozen issues and no comment explaining them. The same rollback runs if part of the upload fails.</p>
+        </div>
+        <p>When the run finishes the heading names what the send actually did: <span class="ui">Comments posted</span>, or <span class="ui">Status changes applied</span> when the batch only moved issues, or <span class="ui">Issues updated</span> when it was a mix &mdash; and it tells you how long it took, down to <span class="ui">took 3m 05s</span>.</p>
+
+        
+        
+        <p>Alongside those, a service-project row carries the audience it reached, and a row whose issue also moved carries the move itself &mdash; named at both ends, <span class="ui">WAITING FOR SUPPORT &rarr; ESCALATED</span>, because afterwards the issue only shows where it ended up, so where it came from is precisely the part you can no longer look up.</p>
+        <p><strong>Retry names what is left</strong> &mdash; <span class="ui">Retry <em>n</em> failed</span>, <span class="ui">Send the remaining <em>n</em></span>, or <span class="ui">Retry <em>n</em> unsent</span> when there is some of each. It re-runs only issues where <em>nothing</em> was posted, which is why it skips an issue whose comment landed and whose status change was refused. <span class="ui">Done</span> clears the batch.</p>
+      
+        <p><strong>Every row says who saw it.</strong> On a service project a row carries <span class="ui">SENT TO CUSTOMER</span>, and adds <span class="ui">+ INTERNAL</span> when that request also carried a note &mdash; same colours as everywhere else.</p>
+        <p><strong>That badge is read back off the comment Jira created</strong>, not off what was requested &mdash; so the screen can tell you when the two disagree. A row can read <span class="ui">visibility differs</span>, or <span class="ui">+ Visibility unknown</span> where Jira did not report on a second comment. Rare, and shown rather than smoothed over.</p>
+        <p>Every row opens its issue: click the <span class="ui">issue key</span> or the <span class="ui">&#8599;</span> on the right and it opens in a new tab &mdash; scroll to the bottom of the issue to see the comment or the change that landed.</p>
+        <div class="doc-tip">
+          <p><strong>Video takes a while to appear, and that is Jira.</strong> Each issue&rsquo;s copy is processed separately &mdash; roughly five to ten minutes for a 100&nbsp;MB file &mdash; and shows a grey box until it finishes. The files are already uploaded; nothing needs re-sending.</p>
+        </div>
+        <div class="doc-warning">
+          <p><strong>There is no undo.</strong> By the time you could press it a customer&rsquo;s email has already gone. The send guard replaces it &mdash; see <a href="#confirmation">the send guard</a>.</p>
+          <p>To remove a comment after the fact, delete it on the issue in Jira. Deleting a customer-facing reply does not unsend the email.</p>
+        </div>
+      </section>
+
+      <section id="failures" style="scroll-margin-top:100px;">
+        <h2>When something does not land</h2>
+        <p>Most sends finish with nothing in the <span class="ui">Failed</span> column. When part of one does not land, it is one of three things.</p>
+
+        <h3 id="status-refused" style="scroll-margin-top:100px;">The comment posted but the status change was refused</h3>
+        <p>A comment that posted and a transition Jira rejected are two different things, counted separately: <span class="ui"><em>n</em> status changes failed &mdash; the comments posted, change the status in Jira</span>.</p>
+        <p>The column is separate on purpose, because <strong>Retry never re-runs an issue whose comment already landed</strong> &mdash; that would post it twice. Make those moves in Jira instead.</p>
+        <p>The commonest cause is the issue moving in Jira after you picked it, so the transition no longer exists from where it now sits. The row says exactly that.</p>
+
+        <h3 id="out-of-time" style="scroll-margin-top:100px;">The send ran out of time, or was interrupted</h3>
+        <p>A send has a budget. Past it the app stops starting new issues and answers with what it has, marking the rest <span class="ui">Not sent &mdash; the send ran out of time. Nothing was posted to this issue.</span> <strong>Retry</strong> covers those alongside anything that failed &mdash; a known partial result is safe to retry, which is what the budget buys.</p>
+        <p>If the connection drops and no result comes back at all, Send is held: <em>&ldquo;the send was interrupted, so we don&rsquo;t know which comments went through &mdash; check the issues in Jira before sending again&rdquo;</em>, until you press <span class="ui">I&rsquo;ve checked &mdash; let me send</span>.</p>
+                <p>Most sends finish with nothing in the <span class="ui">Failed</span> column. When something does fail it is usually a permission change, or an issue that was moved or deleted while the batch was running &mdash; and the row carries the reason Jira returned.</p>
+        <p>If a retry keeps failing, <a href="/resources/documentation/bulkcomments/installation#support">tell us</a> &mdash; send the issue keys and the reason shown against each failed row.</p>
+      </section>
+    <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blog</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav></div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+  const mobileMenu = document.getElementById('mobileMenu');
+  const toggle = document.getElementById('mobileMenuToggle');
+  const closeBtn = document.getElementById('mobileMenuClose');
+  /* One shared scroll lock, counted. The drawer and the image overlay each used
+     to write document.body.style.overflow directly, so whichever closed last
+     cleared the other's lock — and a lock left set with nothing open is a page
+     that simply will not scroll, with no visible reason why. Counting means the
+     last one out turns the light off. */
+  /* A tap opens the overlay; a drag must not. A bare click listener on a large
+     image counts any thumb-press that the browser did not turn into a scroll as
+     a tap, which is how you end up in a full-screen overlay you never asked for.
+     Comparing pointerdown to click position costs nothing and keeps tap-to-zoom,
+     which is what people expect from an image. */
+  function tapOnly(el, fn) {
+    let sx = null, sy = null;
+    el.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; }, { passive: true });
+    el.addEventListener('click', e => {
+      const dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
+      sx = null;
+      if (!dragged) fn(e);
+    });
+  }
+
+  const scrollLock = window.__scrollLock || (window.__scrollLock = (function () {
+    var n = 0;
+    return {
+      on:    function () { if (++n === 1) document.body.style.overflow = 'hidden'; },
+      off:   function () { if (n > 0 && --n === 0) document.body.style.overflow = ''; },
+      clear: function () { n = 0; document.body.style.overflow = ''; }
+    };
+  })());
+
+  /* Guarded so a second open (or a close on an already-closed menu) cannot
+     push the lock count out of step. */
+  const openMenu = () => {
+    if (mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.add('open'); toggle.setAttribute('aria-expanded','true');
+    scrollLock.on(); closeBtn.focus();
+  };
+  const closeMenu = () => {
+    if (!mobileMenu.classList.contains('open')) return;
+    mobileMenu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    scrollLock.off(); toggle.focus();
+  };
+  /* The hamburger was wired open-only, so tapping it again re-ran openMenu
+     instead of closing. */
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  /* A bfcache restore (phone back button) can come back with the drawer shut but
+     the lock still applied, which reads as a frozen page. */
+  window.addEventListener('pageshow', e => { if (e.persisted && !mobileMenu.classList.contains('open')) scrollLock.clear(); });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+  mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMenu(); });
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* Record the newsletter opt-in in iubenda's Consent Database.
+     Only on success, and only for the address that actually subscribed — a
+     failed POST is not a consent. The script is fetched at that moment rather
+     than on every page load, so the 99% of visitors who never subscribe pay
+     nothing for it and iubenda sees nobody who did not opt in.
+     The proof stores the exact sentence shown next to the button, so the
+     record says what the person actually agreed to rather than just when. */
+  function logNewsletterConsent(email, formEl) {
+    var notice = formEl.querySelector('.newsletter-consent');
+    window._iub = window._iub || {};
+    _iub.cons_instructions = _iub.cons_instructions || [];
+    _iub.cons_instructions.push(['init', { api_key: 'GxQD0ZooU505v0e0bLNU9ISNzHeqimAy' }]);
+    _iub.cons_instructions.push(['submit', {
+      consent: {
+        subject: { email: email },
+        legal_notices: [{ identifier: 'privacy_policy' }],
+        preferences: { newsletter: true },
+        proofs: [{
+          content: JSON.stringify({ email: email, source: location.pathname }),
+          form: (notice ? notice.textContent.trim() : '') + ' [Subscribe]'
+        }]
+      }
+    }]);
+    if (!document.getElementById('iub-cons')) {
+      var s = document.createElement('script');
+      s.id = 'iub-cons';
+      s.async = true;
+      s.src = 'https://cdn.iubenda.com/cons/iubenda_cons.js';
+      document.head.appendChild(s);
+    }
+  }
+
+  document.getElementById('footer-email-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type=submit]');
+    const msg = document.getElementById('form-message');
+    const input = this.querySelector('input[type=email]');
+    if (!input.checkValidity()) { msg.style.color='#F87171'; msg.textContent='Please enter a valid email.'; return; }
+    const email = input.value.trim();
+    btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
+    fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} })
+      .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); msg.style.color='#67E8F9'; msg.textContent="You're subscribed!"; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
+      .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
+  });
+  // TOC scroll spy now lives in /js/docs-toc.js — it builds the
+  // "On this page" list from the headings and tracks two levels.
+</script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

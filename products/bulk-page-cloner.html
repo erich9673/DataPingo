@@ -516,6 +516,51 @@
       transition: background 0.2s;
     }
     #hiw-lightbox-close:hover { background: rgba(255,255,255,0.18); }
+
+    /* Fitting alone is close to useless on a phone. A 3360px capture shown at
+       92vw on a 375px screen measured 345px against 327px inline — a 5% gain on
+       something you already could not read, at 10% of natural size. So the
+       overlay opens FITTED and a tap switches a capture to ACTUAL SIZE inside a
+       stage that pans both axes, matching the .dp-lb component the docs use.
+       Only the <img> path offers it: the drawn figures are vector and stay
+       legible at whatever size they are fitted to. */
+    #hiw-lightbox img { cursor: zoom-in; }
+    #hiw-lightbox.zoomed {
+      display: block; overflow: auto; -webkit-overflow-scrolling: touch; padding: 0;
+      /* The blur has to go, and not for taste: a non-none backdrop-filter makes
+         this element the containing block for its position:fixed descendants,
+         so once .zoomed turns it into the scroll container the close button
+         rides away with the image (measured at x=-2288 after a 2600px pan).
+         Nothing shows through at actual size anyway — the capture covers the
+         viewport — so the fitted state keeps the blur and this one drops it. */
+      backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    #hiw-lightbox.zoomed img {
+      max-width: none; max-height: none; width: auto; height: auto;
+      margin: auto; border: 0; border-radius: 0; cursor: zoom-out;
+    }
+    /* fixed, not absolute: .zoomed turns the overlay itself into the scroll
+       container, and an absolutely-positioned control would scroll away with
+       the image just when it is needed most. */
+    #hiw-lightbox-close, #hiw-lightbox-hint { position: fixed; }
+    /* (2,2,0) — beats both the base `display:none` and the one in the phone
+       media query, so the affordance is only announced when it exists. */
+    #hiw-lightbox.can-zoom:not(.zoomed) #hiw-lightbox-hint { display: block; }
+    /* Fitted, the close control sits on a 92%-black backdrop and a translucent
+       white chip reads fine. At actual size the capture covers the viewport and
+       that same chip becomes white-on-white: measured 1.49:1 against the light
+       screenshot behind it, against a 3:1 floor for controls. It stayed
+       clickable, which is the dangerous part — nothing looks broken, the way
+       out is just invisible, and at actual size there is no backdrop left to
+       tap and no Escape key on a phone. So it turns into an opaque chip that
+       does not care what is behind it (12.3:1 on the same pixel). */
+    #hiw-lightbox.zoomed #hiw-lightbox-close {
+      background: rgba(2,9,17,0.88);
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: 0 2px 14px rgba(0,0,0,0.5);
+    }
+    #hiw-lightbox.zoomed #hiw-lightbox-close:hover { background: rgba(2,9,17,0.96); }
+
     /* The cloned figure fills the overlay the way a screenshot does. Its own
        aspect ratio keeps it from stretching on very wide viewports — read off the
        clone's viewBox, because the walkthrough steps and the highlight figures
@@ -646,7 +691,11 @@
          page (measured: button at y=-3720 against a preview at y=315).
          `top: 0` is required: the base rule declares `top: 100px`, inert under
          static but a 100px shove downward under relative. */
-      .hiw-preview { position: relative; top: 0; aspect-ratio: 16/9; }
+      /* Native frame, not 16/9. The captures are 1840:900; under object-fit:cover a
+         16/9 frame trimmed 13% off the width — 6.5% from each edge, which took the
+         Select column and part of the clone summary with it. bulk-comments.html
+         keeps its own 1680/914 here for the same reason. */
+      .hiw-preview { position: relative; top: 0; aspect-ratio: 1840 / 900; }
     }
     @media (max-width: 768px) {
       .product-hero-inner { padding: 0 24px; }
@@ -822,7 +871,7 @@
           </div>
         </div>
         <h1>Duplicate 25 Confluence pages at once</h1>
-        <p class="product-hero-sub">Bulk Page Cloner turns one page into up to 25 named copies, placed exactly where you want.</p>
+        <p class="product-hero-sub">Bulk Page Cloner takes one page as a template then creates up to 25 named copies, placed exactly where you want.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -1144,16 +1193,16 @@
           <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-1">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2 — Copies: name the copies with a live clone summary" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2 — Copies: name the copies with a live clone summary" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-2">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3 — Location: set where the copies are created" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3 — Location: set where the copies are created" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-3">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4 — Done: every created page with a direct link" loading="lazy" width="1280" height="626">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4 — Done: every created page with a direct link" loading="lazy" width="3680" height="1800">
             </div>
           </div>
         </div>
@@ -1259,11 +1308,11 @@
             <div class="calc-group">
               <label class="calc-label" for="bpc-user-count">Users in your Confluence instance</label>
               <div class="calc-slider-row">
-                <input type="range" class="calc-slider" min="1" max="1000" value="10" id="bpc-user-slider"
-                  aria-label="Number of users"
-                  oninput="document.getElementById('bpc-user-count').value=this.value;recalcPricing('bpc')">
+                <input type="range" class="calc-slider" min="0" max="1000" value="185" id="bpc-user-slider"
+                  aria-label="Number of users" aria-valuetext="10 users"
+                  oninput="calcOnSlider('bpc')">
                 <input type="number" id="bpc-user-count" class="calc-input" value="10" min="1" max="250000"
-                  oninput="const s=document.getElementById('bpc-user-slider');s.value=Math.min(this.value,1000);recalcPricing('bpc')">
+                  oninput="calcOnCount('bpc')">
               </div>
               <p class="calc-hint">Free for teams up to 10 users &mdash; no credit card needed.</p>
             </div>
@@ -1295,7 +1344,7 @@
             <span class="faq-btn-text">How many pages can I clone at once?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Up to <b>25</b> in a single run, each independently named. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner#full-guide">See the full guide</a>.</div>
+          <div class="faq-answer">Up to <b>25</b> in a single run, each independently named. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner/guide">See the user guide</a>.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1303,7 +1352,7 @@
             <span class="faq-btn-text">Can I clone pages to a different Confluence space?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — any space you have access to, not just where the source page lives. <a href="/resources/documentation/bulkpagecloner#full-guide">More on choosing a location</a>.</div>
+          <div class="faq-answer">Yes — any space you have access to, not just where the source page lives. <a href="/resources/documentation/bulkpagecloner/guide">More on choosing a location</a>.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1319,7 +1368,7 @@
             <span class="faq-btn-text">What exactly gets copied?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Content, formatting, images, video, macros, labels and attachments — exactly as the source had them. No stripped formatting, no broken macros. <a href="/resources/documentation/bulkpagecloner#limits">What's carried over</a>.</div>
+          <div class="faq-answer">Content, formatting, images, video, macros, labels and attachments — exactly as the source had them. No stripped formatting, no broken macros. <a href="/resources/documentation/bulkpagecloner/limits">What's carried over</a>.</div>
         </div>
 
         <div class="faq-item reveal">
@@ -1335,7 +1384,7 @@
             <span class="faq-btn-text">Will it warn me before creating a large batch?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — for large batches (10+), duplicate titles, and when a source page <b>@mentions people</b>, since every copy notifies them again. <a href="/resources/documentation/bulkpagecloner#limits">How the warnings work</a>.</div>
+          <div class="faq-answer">Yes — for large batches (10+), duplicate titles, and when a source page <b>@mentions people</b>, since every copy notifies them again. <a href="/resources/documentation/bulkpagecloner/limits">How the warnings work</a>.</div>
         </div>
 
       </div>
@@ -1378,7 +1427,7 @@
   <button id="hiw-lightbox-close" aria-label="Close fullscreen">&#x2715;</button>
   <img id="hiw-lightbox-img" alt="" hidden>
   <div id="hiw-lightbox-fig" hidden></div>
-  <p id="hiw-lightbox-hint">Swipe the figure to pan</p>
+  <p id="hiw-lightbox-hint">Tap the image to view it at full size</p>
 </div>
 </main>
 
@@ -1719,6 +1768,39 @@
     btn.setAttribute('aria-expanded', !isOpen);
   }
 
+
+  /* The users control is logarithmic, and the range input carries a POSITION
+     (0-1000), never a user count. A linear 1-250000 track would spend about
+     99% of its travel above 1,000 users, squeezing the 11-250 band that most
+     sites actually sit in into a few pixels. On a log scale that band gets
+     roughly a third of the track and the ceiling is still reachable. Values
+     snap to a round step for the magnitude, so the readout stays legible. */
+  const CALC_CEILING = 250000;
+  function calcPosToUsers(pos) {
+    const u = Math.exp(Math.log(CALC_CEILING) * (pos / 1000));
+    const step = u < 100 ? 1 : u < 1000 ? 10 : u < 10000 ? 100 : 1000;
+    return Math.max(1, Math.min(CALC_CEILING, Math.round(u / step) * step));
+  }
+  function calcUsersToPos(users) {
+    const u = Math.max(1, Math.min(CALC_CEILING, users || 1));
+    return Math.round(1000 * Math.log(u) / Math.log(CALC_CEILING));
+  }
+  function calcOnSlider(id) {
+    const s = document.getElementById(id + '-user-slider');
+    const n = calcPosToUsers(+s.value);
+    document.getElementById(id + '-user-count').value = n;
+    s.setAttribute('aria-valuetext', n.toLocaleString() + ' users');
+    recalcPricing(id);
+  }
+  function calcOnCount(id) {
+    const n = document.getElementById(id + '-user-count');
+    const s = document.getElementById(id + '-user-slider');
+    if (+n.value > CALC_CEILING) n.value = CALC_CEILING;
+    s.value = calcUsersToPos(+n.value);
+    s.setAttribute('aria-valuetext', (+n.value || 0).toLocaleString() + ' users');
+    recalcPricing(id);
+  }
+
   // Init on load
   document.querySelectorAll('[data-calc-id]').forEach(card => {
     const id = card.dataset.calcId;
@@ -1771,6 +1853,10 @@
     function openLb() {
       if (lb.classList.contains('open')) return;
       lb.classList.add('open');
+      // Only a capture can go to actual size; a drawn figure is vector and has
+      // no actual size to go to, so it must not advertise the tap.
+      lb.classList.toggle('can-zoom', !lbImg.hidden);
+      lb.classList.remove('zoomed');
       lbFig.scrollLeft = 0;
       window.__scrollLock.on();
       lbClose.focus();
@@ -1844,7 +1930,16 @@
       });
     });
 
-    function closeLb() { lb.classList.remove('open'); scrollLock.off(); }
+    // Fitted -> actual size, entering at the top-left. Centring the stage sounds
+    // fairer but lands mid-capture, which on a 3360px-wide screenshot of an app
+    // is the empty gutter between the titles on the left and the status badges
+    // on the right — measured as a blank screen on a 375px viewport. These are
+    // interfaces, and an interface reads from its top-left corner, so start
+    // where the stepper and the first rows are and let the reader pan on.
+    tapOnly(lbImg, () => {
+      if (lb.classList.toggle('zoomed')) { lb.scrollLeft = 0; lb.scrollTop = 0; }
+    });
+    function closeLb() { lb.classList.remove('open', 'zoomed', 'can-zoom'); scrollLock.off(); }
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });

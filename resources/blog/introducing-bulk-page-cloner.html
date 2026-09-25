@@ -342,7 +342,7 @@
         <li><strong>Generate</strong> — all pages are created and ready to open immediately</li>
       </ol>
 
-      <figure class="blog-figure"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Bulk Page Cloner's Copies step: a slider set to five, each page titled before anything is created, and a running summary showing five pages will be created" width="1280" height="626" loading="lazy" decoding="async"><figcaption>Bulk Page Cloner's Copies step: a slider set to five, each page titled before anything is created, and a running summary showing five pages will be created</figcaption></figure>
+      <figure class="blog-figure"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Bulk Page Cloner&rsquo;s Copies step: the count set to eight, each page titled before anything is created, and a running summary showing eight pages will be created" width="3680" height="1800" loading="lazy" decoding="async"><figcaption>Bulk Page Cloner&rsquo;s Copies step: the count set to eight, each page titled before anything is created, and a running summary showing eight pages will be created</figcaption></figure>
 
       <h2 id="quick-example">A quick example</h2>
       <p>Say you publish the same quarterly report for every region. Instead of duplicating and renaming one page at a time, you open Bulk Page Cloner, set your titles, and walk away with:</p>
@@ -355,7 +355,7 @@
       </ul>
       <p>All under the right parent page, consistently named, in seconds.</p>
 
-      <figure class="blog-figure"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="The Done step after a run: five pages created in the Marketing space, each listed with a direct Open link" width="1280" height="626" loading="lazy" decoding="async"><figcaption>The Done step after a run: five pages created in the Marketing space, each listed with a direct Open link</figcaption></figure>
+      <figure class="blog-figure"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="The Done step after a run: eight pages created in the Atlas space, each listed with a direct Open link" width="3680" height="1800" loading="lazy" decoding="async"><figcaption>The Done step after a run: eight pages created in the Atlas space, each listed with a direct Open link</figcaption></figure>
       <p>The same pattern works for onboarding docs, project kickoff pages, sprint templates, client folders — anything you need one of per team, per client, or per month.</p>
 
       <!-- Community callout -->
@@ -540,49 +540,7 @@
   <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
   <p class="dp-lb-hint">Tap the image to view it at full size</p>
 </div>
-<script>
-(function () {
-  var lb = document.getElementById('dpLightbox');
-  if (!lb) return;
-  var stage = document.getElementById('dpLbStage');
-  var lbImg = document.getElementById('dpLbImg');
-  var closeBtn = document.getElementById('dpLbClose');
-  var lock = window.__scrollLock;
-  function tapOnly(el, fn) {
-    var sx = null, sy = null;
-    el.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; }, { passive: true });
-    el.addEventListener('click', function (e) {
-      var dragged = sx !== null && Math.hypot(e.clientX - sx, e.clientY - sy) > 10;
-      sx = null;
-      if (!dragged) fn(e);
-    });
-  }
-  function open(src) {
-    lbImg.src = src.currentSrc || src.src; lbImg.alt = src.alt || '';
-    lb.classList.add('open'); lb.classList.remove('zoomed');
-    if (lock) lock.on();
-    closeBtn.focus();
-  }
-  function close() {
-    if (!lb.classList.contains('open')) return;
-    lb.classList.remove('open', 'zoomed');
-    if (lock) lock.off();
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('.blog-figure img'), function (img) {
-    img.style.cursor = 'zoom-in';
-    tapOnly(img, function () { open(img); });
-  });
-  tapOnly(lbImg, function () {
-    if (lb.classList.toggle('zoomed')) {
-      stage.scrollLeft = (stage.scrollWidth  - stage.clientWidth)  / 2;
-      stage.scrollTop  = (stage.scrollHeight - stage.clientHeight) / 2;
-    }
-  });
-  closeBtn.addEventListener('click', close);
-  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-})();
-</script>
+<script src="/js/docs-lightbox.js" defer></script>
 
 </body>
 </html>
