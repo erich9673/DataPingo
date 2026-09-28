@@ -232,10 +232,10 @@
         </table>
 
         <h3 id="cloning-costs-storage-because-attachment" style="scroll-margin-top:100px;">Cloning costs storage, because attachments are copied too</h3>
-        <p>A copy is a real duplicate, not a link to the original. Attachments come with it, which is what makes embedded video and images render on the copy instead of breaking &mdash; but it means the files are written again for every page you create. Clone a page carrying a 50&nbsp;MB video 25 times and Confluence stores roughly <strong>1.25&nbsp;GB</strong>, not 50&nbsp;MB.</p>
+        <p>A copy is a real page, not a link to the original. Attachments come with it, which is what makes embedded video and images render on the copy instead of breaking &mdash; but it means the files are written again for every page you create. Clone a page carrying a 50&nbsp;MB video 25 times and Confluence stores roughly <strong>1.25&nbsp;GB</strong>, not 50&nbsp;MB.</p>
 
         <div class="doc-warning">
-          <p><strong>Confluence enforces its own quota, and the app cannot see it.</strong> If your site is at its storage limit, Confluence blocks new content with a banner like &ldquo;<em>You can&rsquo;t edit or create new content in Confluence until you upgrade for more storage or delete files</em>&rdquo;, and a clone will fail for that reason rather than anything the app did. Free space in Confluence or upgrade the plan, then run the clone again. A page with no attachments costs almost nothing to duplicate, so this only bites on media-heavy templates.</p>
+          <p><strong>Confluence enforces its own quota, and the app cannot see it.</strong> If your site is at its storage limit, Confluence blocks new content with a banner like &ldquo;<em>You can&rsquo;t edit or create new content in Confluence until you upgrade for more storage or delete files</em>&rdquo;, and a clone will fail for that reason rather than anything the app did. Free space in Confluence or upgrade the plan, then run the clone again. A page with no attachments costs almost nothing to clone, so this only bites on media-heavy templates.</p>
         </div>
 
         <p>There is no per-file size limit in the app itself. Copying is performed by Confluence&rsquo;s own server-side copy operation, so whatever the source page can hold, a copy can hold too.</p>

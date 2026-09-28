@@ -101,7 +101,7 @@
             { path: 'specs', title: 'Specs & security', blurb: 'Scopes, data handling, and where everything runs.' }
           ]
         },
-        { path: 'faq', title: 'FAQ', blurb: 'The questions that come up before, during and after duplicating.' },
+        { path: 'faq', title: 'FAQ', blurb: 'The questions that come up before, during and after cloning.' },
         { path: 'troubleshooting', title: 'Help and support', blurb: 'Errors the app can show, and what to do about each.' },
         {
           path: 'release-notes', title: 'Release notes', blurb: 'Every version, newest first.',
