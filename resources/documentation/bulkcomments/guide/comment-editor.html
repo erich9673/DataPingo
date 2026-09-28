@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>Bulk Page Cloner for Confluence — About the app</title>
-  <meta name="description" content="Light and dark mode, and the full video walkthrough.">
+  <title>Bulk Comments for Jira — The comment editor</title>
+  <meta name="description" content="Formatting, tables, code, mentions and attachments — everything the editor on each composer can do, with its shortcuts.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkpagecloner/guide/about-the-app">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments/guide/comment-editor">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkpagecloner/guide/about-the-app">
-  <meta property="og:title" content="Bulk Page Cloner for Confluence — About the app">
-  <meta property="og:description" content="Light and dark mode, and the full video walkthrough.">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkcomments/guide/comment-editor">
+  <meta property="og:title" content="Bulk Comments for Jira — The comment editor">
+  <meta property="og:description" content="Formatting, tables, code, mentions and attachments — everything the editor on each composer can do, with its shortcuts.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bulk Page Cloner for Confluence — documentation.">
+  <meta property="og:image:alt" content="Bulk Comments for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bulk Page Cloner for Confluence — About the app">
-  <meta name="twitter:description" content="Complete documentation for Bulk Page Cloner for Confluence.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-page-cloner.png">
+  <meta name="twitter:title" content="Bulk Comments for Jira — The comment editor">
+  <meta name="twitter:description" content="Complete documentation for Bulk Comments for Jira.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -35,11 +35,6 @@
   <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
   <style>
-    
-    .btn-secondary--purple {
-      border-color: rgba(167,139,250,0.45) !important;
-      color: #A78BFA !important;
-    }
   </style>
   <script type="application/ld+json">
 {
@@ -61,14 +56,14 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Bulk Page Cloner",
-      "item": "https://datapingo.com/resources/documentation/bulkpagecloner"
+      "name": "Bulk Comments",
+      "item": "https://datapingo.com/resources/documentation/bulkcomments"
     }
   ]
 }
   </script>
 </head></head>
-<body data-doc-product="bulkpagecloner">
+<body data-doc-product="bulkcomments">
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
@@ -82,7 +77,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (staged: Products dropdown previews the post-launch lineup — see products/bulk-comments.html for the same convention) -->
 <header>
   <nav class="navbar" id="navbar" aria-label="Main navigation">
     <div class="nav-container">
@@ -123,7 +118,7 @@
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -164,7 +159,7 @@
     </div>
     </div>
     <div class="mobile-menu-footer">
-    <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="mobile-cta">
+    <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="mobile-cta">
       View on Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -176,20 +171,20 @@
   <!-- Hero -->
   <section class="page-hero">
     <div class="section-wrap">
-      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/bulkpagecloner" style="color:inherit;text-decoration:none">BULK PAGE CLONER FOR CONFLUENCE</a></p>
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/bulkcomments" style="color:inherit;text-decoration:none">BULK COMMENTS FOR JIRA</a></p>
       <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
-        <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(5,206,240,0.2);" width="80" height="80">
+        <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="Bulk Comments for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(99,102,241,0.25);" width="192" height="192">
       </div>
-      <h1 style="text-align:center;">About the app</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Light and dark mode, and the full video walkthrough.</p>
+      <h1 style="text-align:center;">The comment editor</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Formatting, tables, code, mentions and attachments &mdash; everything the editor on each composer can do, with its shortcuts.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
-        <span class="doc-hero-badge" style="background:rgba(5,206,240,0.15);border-color:rgba(5,206,240,0.3);color:var(--teal);">v10.2.0 &mdash; Latest</span>
+        <span class="doc-hero-badge">v4.8.0 &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
           Runs on Atlassian
         </span>
         <span class="doc-hero-badge">Atlassian Forge</span>
-        <span class="doc-hero-badge">Confluence Cloud</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
       </div>
     </div>
   </section>
@@ -201,43 +196,208 @@
     <aside class="doc-sidebar">
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
-        <a href="/resources/documentation/bulkpagecloner">Get started</a>
-        <a href="/resources/documentation/bulkpagecloner/installation">Installation</a>
-        <a href="/resources/documentation/bulkpagecloner/where-to-open">Where to open it</a>
-        <a href="/resources/documentation/bulkpagecloner/guide" class="is-current">User guide</a>
-        <a href="/resources/documentation/bulkpagecloner/admin">Admin guide</a>
-        <a href="/resources/documentation/bulkpagecloner/technical">App technical information</a>
-        <a href="/resources/documentation/bulkpagecloner/faq">FAQ</a>
-        <a href="/resources/documentation/bulkpagecloner/troubleshooting">Help and support</a>
-        <a href="/resources/documentation/bulkpagecloner/release-notes">Release notes</a>
+        <a href="/resources/documentation/bulkcomments">Get started</a>
+        <a href="/resources/documentation/bulkcomments/installation">Installation</a>
+        <a href="/resources/documentation/bulkcomments/where-to-open">Where to open it</a>
+        <a href="/resources/documentation/bulkcomments/guide">User guide</a>
+        <a href="/resources/documentation/bulkcomments/admin">Admin guide</a>
+        <a href="/resources/documentation/bulkcomments/technical">App technical information</a>
+        <a href="/resources/documentation/bulkcomments/faq">FAQ</a>
+        <a href="/resources/documentation/bulkcomments/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/bulkcomments/release-notes">Release notes</a>
       </nav>
       <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
       <nav class="doc-toc doc-toc--auto"></nav>
     </aside>
 
     <div class="doc-content">
-      <section id="light-dark" style="scroll-margin-top:100px;">
-        <h2>Light and dark mode</h2>
-        <p>Bulk Page Cloner has full light and dark theme support that matches your Confluence theme and switches live — no reload needed. Here's the same flow in dark mode:</p>
-        <div class="doc-img-card">
-          <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" alt="Bulk Page Cloner in dark mode" loading="lazy" width="3680" height="1800">
+      <p>Everything you write is posted as native Jira formatting, so a comment sent from here is indistinguishable from one typed into Jira itself — same headings, same tables, same code blocks, same file cards. The toolbar and the keyboard shortcuts deliberately mirror Jira's own editor, so there is nothing new to learn.</p>
+        <p><strong>Shortcuts below are written in Mac notation.</strong> On Windows and Linux read <kbd>&#8984;</kbd> as <kbd>Ctrl</kbd>, <kbd>&#8679;</kbd> as <kbd>Shift</kbd> and <kbd>&#8997;</kbd> as <kbd>Alt</kbd>. The app detects your machine and shows the right one in every tooltip.</p>
+
+        <div class="doc-img-card doc-img-card--static">
+          <svg viewBox="0 0 736 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The comment editor toolbar, left to right: a block-type dropdown; bold, italic, underline, strikethrough, subscript, superscript and text colour; bullet, numbered and task lists; quote and code block; table, emoji and attach file; undo and redo.">
+            <rect width="736" height="128" fill="#FFFFFF" rx="8"/>
+            <rect x="8" y="8" width="720" height="44" rx="6" fill="#f8f9fb" stroke="#e5e7ee"/>
+
+            <!-- Block type -->
+            <rect x="20" y="18" width="88" height="24" rx="3" fill="#FFFFFF" stroke="#d3d7e2"/>
+            <text x="29" y="34" font-family="Inter,sans-serif" font-size="11" fill="#586178">Normal text</text>
+            <path d="M94 28l4 5 4-5z" fill="#586178"/>
+
+            <g stroke="#e5e7ee" stroke-width="1"><path d="M116 20v20M280 20v20M356 20v20M410 20v20M486 20v20"/></g>
+
+            <!-- Text formatting -->
+            <g font-family="Inter,sans-serif" text-anchor="middle" fill="#586178">
+              <text x="128" y="36" font-size="14" font-weight="700">B</text>
+              <text x="150" y="36" font-size="14" font-weight="700" font-style="italic">I</text>
+              <text x="172" y="35" font-size="13">U</text>
+              <text x="194" y="35" font-size="13">S</text>
+              <text x="213" y="35" font-size="13">X</text><text x="222" y="38" font-size="9">2</text>
+              <text x="235" y="35" font-size="13">X</text><text x="244" y="29" font-size="9">2</text>
+              <text x="260" y="32" font-size="12" font-weight="700">A</text>
+            </g>
+            <path d="M166 39h12M188 30h12" stroke="#586178" stroke-width="1.4"/>
+            <rect x="254" y="35" width="12" height="3" rx="1.5" fill="#4f52e6"/>
+
+            <!-- Icon controls -->
+            <g fill="none" stroke="#586178" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="translate(284,22) scale(.667)">
+                <path d="M8 6h13M8 12h13M8 18h13"/>
+                <circle cx="3.5" cy="6" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="#586178" stroke="none"/>
+              </g>
+              <g transform="translate(306,22) scale(.667)">
+                <path d="M9 6h12M9 12h12M9 18h12"/>
+                <g fill="#586178" stroke="none" font-family="Inter,sans-serif" font-size="8" font-weight="700"><text x="1" y="9">1</text><text x="1" y="15">2</text><text x="1" y="21">3</text></g>
+              </g>
+              <g transform="translate(328,22) scale(.667)">
+                <rect x="2" y="4" width="6" height="6" rx="1.4"/><path d="M3.4 7l1.4 1.4 2.4-2.6"/>
+                <rect x="2" y="14" width="6" height="6" rx="1.4"/>
+                <path d="M12 7h9M12 17h9"/>
+              </g>
+              <g transform="translate(360,22) scale(.667)">
+                <rect x="3" y="4" width="2.6" height="16" rx="1.3" fill="#586178" stroke="none"/>
+                <path d="M11 8h10M11 13h10M11 18h7"/>
+              </g>
+              <g transform="translate(382,22) scale(.667)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g>
+              <g transform="translate(414,22) scale(.667)">
+                <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/>
+              </g>
+              <g transform="translate(436,22) scale(.667)">
+                <circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0"/>
+                <circle cx="9" cy="10" r="1.1" fill="#586178" stroke="none"/><circle cx="15" cy="10" r="1.1" fill="#586178" stroke="none"/>
+              </g>
+              <g transform="translate(458,22) scale(.667)">
+                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/>
+              </g>
+              <g transform="translate(490,22) scale(.667)"><path d="M3 8h10a5 5 0 0 1 0 10H7"/><path d="M6.5 4.5L3 8l3.5 3.5"/></g>
+              <g transform="translate(512,22) scale(.667)"><path d="M21 8H11a5 5 0 0 0 0 10h6"/><path d="M17.5 4.5L21 8l-3.5 3.5"/></g>
+            </g>
+
+            <text x="716" y="34" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#8b93a7">0 words &middot; @ to mention</text>
+
+            <!-- Group brackets -->
+            <g stroke="#c3c9d6" stroke-width="1.1" fill="none">
+              <path d="M20 62v4h88v-4M118 62v4h154v-4M282 62v4h66v-4M358 62v4h44v-4M412 62v4h66v-4M488 62v4h44v-4"/>
+              <path d="M64 66v10M315 66v10M445 66v10"/>
+              <path d="M195 66v30M380 66v30M510 66v30"/>
+            </g>
+            <g font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#586178" text-anchor="middle">
+              <text x="64" y="88">Block type</text>
+              <text x="315" y="88">Lists</text>
+              <text x="445" y="88">Table, emoji, file</text>
+              <text x="195" y="108">Text formatting &amp; colour</text>
+              <text x="380" y="108">Quote &amp; code</text>
+              <text x="510" y="108">Undo / redo</text>
+            </g>
+          </svg>
         </div>
+
+      <section id="editor-headings" style="scroll-margin-top:100px;">
+        <h2>Headings</h2>
+        <p>The dropdown at the far left of the toolbar sets the current block. It shows what you are currently in, so you can always tell whether the cursor is inside a heading.</p>
+        <table class="spec-table">
+          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td>Normal text</td><td><kbd>&#8984;&#8997;0</kbd></td></tr>
+            <tr><td>Heading 1 through Heading 6</td><td><kbd>&#8984;&#8997;1</kbd> &hellip; <kbd>&#8984;&#8997;6</kbd></td></tr>
+          </tbody>
+        </table>
       </section>
 
-      <section id="tutorial" style="scroll-margin-top:100px;">
-        <h2>Watch the full tutorial</h2>
-        <p>Watch our full walkthrough to see Bulk Page Cloner in action — from selecting a template to bulk-creating 25 pages in seconds.</p>
-        <div class="doc-img-card doc-video" id="bpcVideo">
-          <button type="button" class="doc-video-play" id="bpcVideoPlay" aria-label="Play the Bulk Page Cloner tutorial video">
-            <span class="doc-video-ring" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-            <span class="doc-video-label">Bulk Page Cloner &mdash; full walkthrough</span>
-            <span class="doc-video-sub">Loads YouTube only when you press play</span>
-          </button>
-        </div>
-        <p class="doc-video-fallback">Prefer to watch it there? <a href="https://youtu.be/Ew8wpqPWk1M" target="_blank" rel="noopener">Open the tutorial on YouTube &#8599;</a></p>
-        
+      <section id="editor-text-formatting" style="scroll-margin-top:100px;">
+        <h2>Text formatting</h2>
+        <table class="spec-table">
+          <thead><tr><th>Control</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bold</strong></td><td><kbd>&#8984;B</kbd></td></tr>
+            <tr><td><em>Italic</em></td><td><kbd>&#8984;I</kbd></td></tr>
+            <tr><td>Underline</td><td><kbd>&#8984;U</kbd></td></tr>
+            <tr><td>Strikethrough</td><td><kbd>&#8984;&#8679;S</kbd></td></tr>
+            <tr><td>Subscript</td><td><kbd>&#8984;,</kbd></td></tr>
+            <tr><td>Superscript</td><td><kbd>&#8984;.</kbd></td></tr>
+            <tr><td>Inline <code>code</code></td><td><kbd>&#8984;&#8679;M</kbd></td></tr>
+            <tr><td>Text colour &mdash; 28 Atlassian palette colours, plus <strong>Remove colour</strong></td><td>Toolbar <strong>A</strong> button</td></tr>
+            <tr><td>Undo / Redo</td><td><kbd>&#8984;Z</kbd> / <kbd>&#8984;Y</kbd></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="editor-lists-quotes-and-dividers" style="scroll-margin-top:100px;">
+        <h2>Lists, quotes and dividers</h2>
+        <table class="spec-table">
+          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
+          <tbody>
+            <tr><td>Bullet list</td><td><kbd>&#8984;&#8679;8</kbd></td></tr>
+            <tr><td>Numbered list</td><td><kbd>&#8984;&#8679;7</kbd></td></tr>
+            <tr><td>Task list &mdash; checkboxes your team can tick off on the issue, and they nest</td><td><kbd>&#8984;&#8679;6</kbd></td></tr>
+            <tr><td>Quote</td><td><kbd>&#8984;&#8679;B</kbd></td></tr>
+            <tr><td>Divider</td><td>Type <code>/divider</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="editor-tables" style="scroll-margin-top:100px;">
+        <h2>Tables</h2>
+        <p>The table button opens a size grid — drag across it to choose how many rows and columns you want. Once the cursor is inside a table, a second row of controls appears with everything you need to reshape it:</p>
+        <ul>
+          <li><span class="ui">Header row</span> and <span class="ui">Header col</span> — toggle either independently, so a table can have a header row, a header column, both, or neither.</li>
+          <li><span class="ui">Add columns</span> before or after the current one, and <span class="ui">add rows</span> above or below.</li>
+          <li><span class="ui">Delete table</span> to remove the whole thing in one click.</li>
+        </ul>
+      </section>
+
+      <section id="editor-code-blocks" style="scroll-margin-top:100px;">
+        <h2>Code blocks</h2>
+        <p>A code block keeps your indentation and monospacing intact, and carries a language selector with <strong>42 languages</strong> — Bash, C, C++, C#, CSS, Dart, Go, GraphQL, Groovy, Haskell, HTML, Java, JavaScript, JSON, Kotlin, Python, Ruby, Rust, SQL, TypeScript, YAML and more, plus <code>(None)</code> for plain text. The language travels with the comment, so Jira highlights it correctly on every issue you post to.</p>
+      </section>
+
+      <section id="editor-slash-commands" style="scroll-margin-top:100px;">
+        <h2>Slash commands</h2>
+        <p>Type <code>/</code> anywhere in the editor to open a command palette, exactly like Jira's. Keep typing to filter the list, move with the arrow keys, and press Enter to insert. Twelve commands are available, so you never have to reach for the toolbar mid-sentence:</p>
+        <table class="spec-table">
+          <thead><tr><th>Command</th><th>What it inserts</th></tr></thead>
+          <tbody>
+            <tr><td><code>/image</code> &middot; Image, video, or file</td><td>Attach a file to this comment</td></tr>
+            <tr><td><code>/heading 1</code></td><td>Large section heading</td></tr>
+            <tr><td><code>/heading 2</code></td><td>Medium section heading</td></tr>
+            <tr><td><code>/heading 3</code></td><td>Small section heading</td></tr>
+            <tr><td><code>/bullet list</code></td><td>Unordered list</td></tr>
+            <tr><td><code>/numbered list</code></td><td>Ordered list</td></tr>
+            <tr><td><code>/task list</code></td><td>Action items with checkboxes</td></tr>
+            <tr><td><code>/quote</code></td><td>Blockquote</td></tr>
+            <tr><td><code>/divider</code></td><td>Horizontal rule</td></tr>
+            <tr><td><code>/code block</code></td><td>Code snippet with language selector</td></tr>
+            <tr><td><code>/table</code></td><td>Opens the size picker</td></tr>
+            <tr><td><code>/emoji</code></td><td>Opens the emoji browser</td></tr>
+          </tbody>
+        </table>
+        <p><strong>It matches on synonyms.</strong> The attachment command is called &ldquo;Image, video, or file&rdquo;, but <code>/screenshot</code>, <code>/upload</code>, <code>/photo</code>, <code>/media</code>, <code>/attach</code> and <code>/video</code> all find it. The palette opens <strong>mid-sentence</strong>, not just at line start.</p>
+      </section>
+
+      <section id="editor-mentions-links-and-emoji" style="scroll-margin-top:100px;">
+        <h2>Mentions, links and emoji</h2>
+        <ul>
+          <li><span class="ui">@mentions</span> — type <code>@</code>; a bare <code>@</code> lists teammates. <strong>Only people are suggested</strong> — apps and service-project customers are filtered out. Mentioned people are notified on <em>every</em> issue the comment lands on, which is why a mention always asks you to confirm first.</li>
+          <li><span class="ui">Smart links</span> — paste a Jira or Confluence URL and it becomes a live card showing title, status, priority and assignee, fetched fresh. Click it for a <span class="ui">Display as</span> menu: <span class="ui">URL</span>, <span class="ui">Inline</span>, <span class="ui">Card</span> or <span class="ui">Embed</span>.</li>
+          <li><span class="ui">Emoji</span> — browse from the toolbar or type <code>/emoji</code>.</li>
+        </ul>
+      </section>
+
+      <section id="editor-attachments" style="scroll-margin-top:100px;">
+        <h2>Attachments</h2>
+        <p>Attach files three ways: drag them into the editor, paste a screenshot straight from the clipboard, or use the toolbar button. Dropping a file places it where your pointer is, not where the cursor happened to be.</p>
+        <ul>
+          <li><strong>Up to 150 MB per file</strong>, with no limit on how many files one comment can carry. If your Jira site sets a lower attachment limit, that one wins — the app reads the site's real limit and checks against it the moment you attach, so an oversized file is refused immediately rather than after you have written the comment.</li>
+          <li><strong>Uploading starts on attach, not on Send.</strong> The file moves while you are still typing, so the send itself is usually near-instant — the attachment shows <span class="ui">Uploading&hellip;</span> while it goes, or <span class="ui">Will upload when you send</span> if it could not start early. Nothing is visible on any issue until you actually send, and anything you attach and then delete is discarded.</li>
+          <li><strong>Images and video preview inline</strong>, align left, centre or right, and resize by dragging the edge — the same handles Jira gives you. PDFs and other documents post as file cards.</li>
+          <li><strong>Large files upload through an async queue in the background</strong>, so a long video posting to 25 issues does not block the send while it uploads.</li>
+          <li><strong>A file is refused the moment you attach it, not at send</strong>, and the message names which limit bound — your site's, or the app's 150&nbsp;MB. The oversized file is dropped; the rest of the batch still attaches.</li>
+          <li><strong>Select an attachment and a toolbar appears on it</strong> — align, card or inline, reset, download, full size, duplicate, remove. Images and video <strong>resize by dragging their edge</strong>; the width is stored as a percentage, so it scales in whatever width the reader's Jira gives the comment.</li>
+          <li><strong>Duplicating an attachment costs nothing.</strong> The copy points at the same upload, so putting one screenshot in two places in a comment does not upload it twice.</li>
+          <li><strong>Previews are generated on your own machine</strong> — nothing is sent anywhere to make them. Video gets a poster frame and a player with &plusmn;10&nbsp;seconds, speed and fullscreen; a PDF shows page one; logs, CSVs and code show their first twelve lines; anything else gets a typed file card.</li>
+          <li><strong>Removing an attachment releases it.</strong> The staged copy is deleted straight away rather than sitting in storage until it expires. And a draft reopened after a reload keeps the attachment&rsquo;s place but not its bytes — it reads <span class="ui">re-attach — file not kept after reload</span>, and correctly does not count as something to send.</li>
+          <li><strong>A whole send is capped at 2&nbsp;GB</strong> across the batch &mdash; separate from the 150&nbsp;MB per file, so every file can be inside its own limit and the send still be refused. Four 120&nbsp;MB files to 5 issues is 2400&nbsp;MB and will not send. See <a href="/resources/documentation/bulkcomments/limits">Limits</a>.</li>
+        </ul>
       </section>
     <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>
@@ -302,8 +462,7 @@
         <a href="/sla">SLA</a>
         <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
         <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
-      </nav>
-    </div>
+      </nav></div>
   </div>
 </footer>
 
@@ -423,82 +582,6 @@
   });
   // TOC scroll spy now lives in /js/docs-toc.js — it builds the
   // "On this page" list from the headings and tracks two levels.
-  // Tutorial video: swap the poster for the real embed on click.
-  //
-  // Building the iframe here rather than leaving it in the HTML keeps YouTube
-  // off the page until someone asks for it — but it also means iubenda's
-  // autoblocker never sees it. The blocker rewrites embeds present at parse
-  // time; an element created afterwards is invisible to it. So the consent
-  // check below has to be done by hand, or someone who chose "Reject all"
-  // still gets YouTube's cookies the moment they press play.
-  //
-  // (The static embed on the bulk-copy blog post needs none of this: it IS in
-  // the initial HTML, so the autoblocker handles it. youtube-nocookie.com is
-  // on iubenda's blocked-domain list for this site.)
-  (function() {
-    const play = document.getElementById('bpcVideoPlay');
-    const host = document.getElementById('bpcVideo');
-    if (!play || !host) return;
-
-    // Purpose 3 is "Experience enhancement", where iubenda files embedded
-    // video. This site runs perPurposeConsent with purposes [1, 3, 4], so a
-    // visitor can accept measurement and still refuse this one.
-    const VIDEO_PURPOSE = 3;
-
-    function consented() {
-      const cs = window._iub && window._iub.cs;
-      // No widget (blocked, or not loaded yet) means no recorded choice —
-      // treat that as "not granted" rather than assuming yes.
-      if (!cs || !cs.consent) return false;
-      if (cs.consent.rejected === true) return false;
-      const purposes = cs.consent.purposes;
-      if (purposes) return purposes[VIDEO_PURPOSE] === true;
-      return cs.consent.consent === true;
-    }
-
-    function loadVideo() {
-      const frame = document.createElement('iframe');
-      frame.src = 'https://www.youtube-nocookie.com/embed/Ew8wpqPWk1M?autoplay=1&rel=0&modestbranding=1';
-      frame.title = 'Bulk Page Cloner for Confluence — Tutorial';
-      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      frame.allowFullscreen = true;
-      host.replaceChildren(frame);
-      frame.focus();
-    }
-
-    /** Consent is missing: say why nothing happened and offer the one control
-     *  that can change it. The "watch on YouTube" link under the frame stays
-     *  as the way out for anyone who would rather not grant anything. */
-    function askForConsent() {
-      const panel = document.createElement('div');
-      panel.className = 'doc-video-gate';
-      panel.innerHTML =
-        '<p class="doc-video-gate-title">Playing this loads YouTube</p>' +
-        '<p class="doc-video-gate-sub">That means cookies from Google, which you haven\u2019t agreed to yet.</p>';
-      const allow = document.createElement('button');
-      allow.type = 'button';
-      allow.className = 'doc-video-gate-btn';
-      allow.textContent = 'Choose cookie preferences';
-      allow.addEventListener('click', () => {
-        const api = window._iub && window._iub.cs && window._iub.cs.api;
-        if (api && api.openPreferences) api.openPreferences();
-      });
-      panel.appendChild(allow);
-      host.replaceChildren(panel);
-      allow.focus();
-    }
-
-    play.addEventListener('click', () => {
-      if (consented()) loadVideo();
-      else askForConsent();
-    });
-
-    // If they grant it in the preferences panel, honour the click they already
-    // made instead of making them find the play button again.
-    document.addEventListener('iubenda-consent-given', () => {
-      if (host.querySelector('.doc-video-gate') && consented()) loadVideo();
-    });
-  })();
 </script>
 
   <script src="/js/docs-lightbox.js" defer></script>

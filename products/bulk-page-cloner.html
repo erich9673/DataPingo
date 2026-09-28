@@ -71,8 +71,8 @@
          other. Pinning the text to the top lands every H1 at the same y. */
       align-items: start;
     }
-    /* The demo still centres against the copy block. */
-    .product-hero-inner > :last-child { align-self: center; }
+    /* Top, like Bulk Comments' demo, so both heroes' demos start on the same line. */
+    .product-hero-inner > :last-child { align-self: start; }
 
     /* Centre the hero's content in whatever slack min-height:100vh creates, so a
        tall monitor gets balanced air above and below rather than a 460px void at
@@ -128,86 +128,123 @@
     }
     .product-hero-note svg { flex-shrink: 0; opacity: 0.85; }
 
-    /* BPC — clone console (hero signature) */
-    .bpc-clone {
-      position: relative; display: flex; flex-direction: column; gap: 14px;
-      width: 100%; max-width: 468px; margin-left: auto; user-select: none;
-    }
-    .bpc-src {
-      background: var(--black-3); border: 1px solid rgba(5,206,240,0.32);
-      border-radius: 14px; padding: 16px 18px; box-shadow: 0 0 30px rgba(5,206,240,0.09);
-    }
-    .bpc-src-top { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
-    .bpc-src-ic { width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(5,206,240,0.12); color: var(--teal); }
-    .bpc-src-ic svg { width: 15px; height: 15px; }
-    .bpc-src-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal); }
-    .bpc-src-title { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-    .bpc-src-body { font-size: 0.83rem; color: var(--white); line-height: 1.5; margin-bottom: 13px; }
-    .bpc-table { width: 100%; border-collapse: collapse; margin-top: 11px; font-size: 0.72rem;
-      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .bpc-table th, .bpc-table td { text-align: left; padding: 5px 10px; border-bottom: 1px solid var(--border); }
-    .bpc-table th { color: #8296AE; font-weight: 600; background: rgba(255,255,255,0.03);
-      text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6rem; }
-    .bpc-table tr:last-child td { border-bottom: none; }
-    .bpc-table td { color: var(--white); }
-    .bpc-pill { font-size: 0.6rem; font-weight: 700; padding: 1px 8px; border-radius: 20px; }
-    .bpc-pill.ok { color: #34D399; background: rgba(52,211,153,0.14); }
-    .bpc-pill.wait { color: #FBBF24; background: rgba(251,191,36,0.14); }
-    .bpc-create {
-      width: 100%; border: none; cursor: pointer; font-family: inherit;
-      font-size: 0.82rem; font-weight: 700; color: var(--black);
-      background: linear-gradient(135deg, #05CEF0, #05A8C6); border-radius: 10px; padding: 10px;
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      transition: opacity 0.2s, box-shadow 0.15s, transform 0.12s;
-    }
-    /* The button is drawn 36px tall because it is part of a scaled mockup of
-       the app, and stretching it to 44 distorts the illustration. It IS a real
-       control though (it replays the demo), so widen the hit area instead and
-       leave the painting alone. */
-    .bpc-create { position: relative; }
-    .bpc-create::after {
-      content: ''; position: absolute; left: 0; right: 0;
-      top: 50%; transform: translateY(-50%); height: 44px;
-    }
-    .bpc-create:hover { opacity: 0.9; }
-    .bpc-create svg { color: var(--black); }
-    .bpc-create.pressed { transform: scale(0.97); box-shadow: 0 0 22px rgba(5,206,240,0.45); }
+    /* BPC — hero demo, rebuilt 2026-09-28 on the app's own four steps.
+       The old demo was a source card over 25 blank tiles: it showed "25" but
+       hid the two things the product is actually for — every copy gets its
+       OWN title, and they all land where you chose. So this is the app's flow
+       at hero size: Source → Copies ("Name the copies", titled rows) →
+       Location (a destination) → Done (every copy with an Open link).
+       Project B to Project Z is exactly 25 copies of Project A.
+       It opens on a finished frame and replays; click Duplicate to rerun. */
+    .bpc-clone { width: 100%; max-width: 620px; margin-left: auto; user-select: none; position: relative; }
+    .bd { position: relative; background: rgba(8,14,26,0.92); border: 1px solid var(--pp-line, rgba(34,211,238,0.45));
+      border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.5); }
+    .bd-rail { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .bd-step { display: flex; align-items: center; gap: 6px; font-size: 0.66rem; font-weight: 600; color: #7F8CA1;
+      white-space: nowrap; transition: color 0.25s; }
+    .bd-step i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #334155; font-style: normal;
+      display: flex; align-items: center; justify-content: center; font-size: 0.56rem; font-weight: 700; color: #7F8CA1;
+      transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .bd-step i svg { width: 10px; height: 10px; display: none; }
+    .bd-step.on { color: var(--white); }
+    .bd-step.on i { background: #05CEF0; border-color: #05CEF0; color: #020911; }
+    .bd-step.done { color: #B8C4D6; }
+    .bd-step.done i { background: rgba(52,211,153,0.16); border-color: rgba(52,211,153,0.5); color: #6EE7A8; }
+    .bd-step.done i b { display: none; } .bd-step.done i svg { display: block; }
+    .bd-rail .sep { flex: 1; height: 1px; background: var(--border); min-width: 10px; }
 
-    .bpc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
-    .bpc-tile {
-      position: relative; height: 44px; border-radius: 9px;
-      background: var(--black-3); border: 1px solid var(--border);
-      padding: 0 9px; display: flex; align-items: center; gap: 7px;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .bpc-tile .doc { flex-shrink: 0; opacity: 0.45; transition: opacity 0.15s ease; }
-    .bpc-tile .doc svg { width: 13px; height: 15px; color: var(--slate); display: block; transition: color 0.15s ease; }
-    .bpc-tile .nm { flex: 1; height: 4px; border-radius: 3px; background: rgba(255,255,255,0.08); transition: background 0.15s ease; }
-    .bpc-tile .badge { position: absolute; top: 6px; right: 6px; width: 12px; height: 12px; border-radius: 50%;
-      background: var(--teal); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s ease; }
-    .bpc-tile .badge svg { width: 8px; height: 8px; color: var(--black); }
-    .bpc-tile.done { background: rgba(5,206,240,0.13); border-color: rgba(5,206,240,0.5); }
-    .bpc-tile.done .doc { opacity: 1; }
-    .bpc-tile.done .doc svg { color: var(--teal); }
-    .bpc-tile.done .nm { background: rgba(103,232,249,0.5); }
-    .bpc-tile.done .badge { opacity: 1; }
+    .bd-body { position: relative; }
+    .bd-work, .bd-done { transition: opacity 0.35s ease; }
+    .bd-done { position: absolute; inset: 0; opacity: 0; pointer-events: none; display: flex; flex-direction: column;
+      justify-content: center; gap: 12px; }
+    .bd.is-done .bd-work { opacity: 0; }
+    .bd.is-done .bd-done { opacity: 1; }
 
-    .bpc-cursor { position: absolute; top: 0; left: 0; width: 20px; height: 20px; z-index: 6; opacity: 0;
-      transition: transform 0.7s cubic-bezier(0.45,0,0.25,1), opacity 0.25s ease; pointer-events: none;
+    .bd-src { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 11px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.02); margin-bottom: 14px; }
+    .bd-ic { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(5,206,240,0.12); color: #67E8F9; }
+    .bd-ic svg { width: 15px; height: 15px; }
+    .bd-src small, .bd-dest small { display: block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #7F8CA1; }
+    .bd-src > div, .bd-dest > div { flex: 1; min-width: 0; }
+    .bd-src b, .bd-dest b { display: block; font-size: 0.86rem; font-weight: 700; color: var(--white);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bd-chip { margin-left: auto; font-size: 0.62rem; font-weight: 600; color: #A9B6C8; border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+
+    .bd-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .bd-head b { font-size: 0.84rem; font-weight: 700; color: var(--white); }
+    .bd-head .ct { font-size: 0.7rem; color: #A9B6C8; }
+    .bd-head .ct em { font-style: normal; font-weight: 700; color: #67E8F9; font-variant-numeric: tabular-nums; }
+    .bd-head .acts { margin-left: auto; font-size: 0.64rem; font-weight: 600; color: #67E8F9; white-space: nowrap; }
+    .bd-titles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .bd-titles li { display: flex; align-items: center; gap: 9px; }
+    .bd-titles .n { width: 14px; text-align: right; font-size: 0.62rem; color: #7F8CA1; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .bd-titles .f { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; height: 31px; padding: 0 10px;
+      border-radius: 7px; border: 1px solid var(--border); background: rgba(255,255,255,0.02);
+      font-size: 0.76rem; color: var(--white); transition: border-color 0.2s; }
+    .bd-titles .f.focus { border-color: #05CEF0; }
+    .bd-titles .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bd-titles .t:empty::before { content: attr(data-ph); color: #5E6B80; }
+    .bd-titles .ok { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(52,211,153,0.16); color: #6EE7A8; opacity: 0; transform: scale(0.6);
+      transition: opacity 0.2s, transform 0.2s; }
+    .bd-titles .ok svg { width: 9px; height: 9px; }
+    .bd-titles li.copied .ok { opacity: 1; transform: none; }
+    .bd-more { font-size: 0.66rem; color: #8B97AB; padding: 7px 0 0 23px; }
+    .bd-more b { color: #A9B6C8; font-weight: 600; }
+
+    .bd-dest { display: flex; align-items: center; gap: 11px; margin-top: 12px; padding: 10px 12px; border-radius: 11px;
+      border: 1px dashed #2A3A52; transition: border-color 0.3s, background 0.3s; }
+    .bd-dest b { transition: opacity 0.3s; }
+    .bd-dest.set { border-style: solid; border-color: var(--border); background: rgba(255,255,255,0.02); }
+    .bd-dest:not(.set) b, .bd-dest:not(.set) .bd-chip { opacity: 0; }
+    .bd-dest .bd-ic { background: rgba(255,255,255,0.05); color: #A9B6C8; }
+
+    .bd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+    .bd-stat { font-size: 0.78rem; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; }
+    .bd-stat b { color: #67E8F9; font-weight: 700; }
+    .bd.is-done .bd-foot { opacity: 0; }
+    .bd-foot { transition: opacity 0.3s ease; }
+    .bpc-create { border: none; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 700;
+      color: #020911; background: #05CEF0; border-radius: 9px; padding: 9px 16px;
+      display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; position: relative;
+      transition: transform 0.12s, box-shadow 0.15s, filter 0.15s; }
+    .bpc-create svg { width: 13px; height: 13px; }
+    .bpc-create:hover { filter: brightness(1.08); }
+    .bpc-create.pressed { transform: scale(0.97); }
+    .bpc-create:focus-visible { outline: 2px solid #67E8F9; outline-offset: 3px; }
+
+    .bd-done-head { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; margin-bottom: 4px; }
+    .bd-okbig { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(52,211,153,0.16); color: #6EE7A8; }
+    .bd-okbig svg { width: 18px; height: 18px; }
+    .bd-done-head b { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .bd-done-head span { font-size: 0.7rem; color: #8B97AB; }
+    .bd-links { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+    .bd-links li { display: flex; align-items: center; gap: 9px; padding: 8px 4px; border-bottom: 1px solid var(--border);
+      font-size: 0.76rem; color: var(--white); opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
+    .bd-links li.in { opacity: 1; transform: none; }
+    .bd-links svg.doc { width: 13px; height: 13px; color: #8B97AB; flex-shrink: 0; }
+    .bd-links .open { margin-left: auto; font-size: 0.68rem; font-weight: 600; color: #67E8F9; }
+    .bd-done .bd-more { text-align: center; padding: 0; }
+
+    .bpc-cursor { position: absolute; top: 0; left: 0; width: 18px; height: 18px; z-index: 6; opacity: 0;
+      transition: transform 0.55s cubic-bezier(0.33,0.9,0.28,1), opacity 0.25s ease; pointer-events: none;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
-    .bpc-cursor svg { width: 20px; height: 20px; display: block; transition: transform 0.12s ease; }
-    .bpc-cursor.tap svg { transform: scale(0.78); }
-
-    .bpc-count { text-align: center; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; color: rgba(103,232,249,0.7); }
-    .bpc-count span { color: var(--teal); font-variant-numeric: tabular-nums; }
+    .bpc-cursor.on { opacity: 1; }
+    .bpc-cursor svg { width: 18px; height: 18px; display: block; transition: transform 0.12s ease; }
+    .bpc-cursor.tap svg { transform: scale(0.8); }
 
     @media (prefers-reduced-motion: reduce) {
-      .bpc-tile { transition: none; }
       .bpc-cursor { display: none; }
+      .bd-work, .bd-done, .bd-links li, .bd-titles .ok { transition: none; }
+    }
+    @media (max-width: 520px) {
+      .bd-head .acts, .bd-src .bd-chip, .bd-dest .bd-chip { display: none; }
+      .bd-step span { display: none; }
+      .bd-step.on span { display: inline; }
     }
     @media (max-width: 900px) {
       /* Stack, and slot the demo between the H1 and the description.
@@ -248,42 +285,6 @@
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-primary--teal:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    /* Features */
-    .features-section {
-      padding: 96px 0; border-top: 1px solid var(--border);
-    }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 56px;
-    }
-    .feature-tile {
-      background: var(--black-3); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 24px;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .feature-tile::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(135deg, var(--teal) 0%, rgba(5,206,240,0.2) 100%);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .feature-tile:hover {
-      border-color: rgba(5,206,240,0.25);
-      transform: translateY(-3px);
-      box-shadow: 0 0 32px rgba(5,206,240,0.08);
-    }
-    .feature-tile:hover::after { opacity: 1; }
-    .feature-tile-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: rgba(5,206,240,0.08); border: 1px solid rgba(5,206,240,0.2);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-    .feature-tile h3 {
-      font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 10px;
-    }
-    .feature-tile p { font-size: 0.87rem; color: var(--slate); line-height: 1.75; margin: 0; }
 
     /* How it works */
     /* How it works — interactive */
@@ -456,11 +457,6 @@
     .faq-chevron { color: var(--teal); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.3s; }
     .faq-answer { display: none; padding: 0 24px 22px; color: var(--slate); font-size: 0.92rem; line-height: 1.75; }
 
-    /* Support */
-    .support-section { padding: 96px 0; border-top: 1px solid var(--border); }
-    .support-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-    .support-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
-
     /* Expand affordance — these figures are drawn 920 units wide and land at
        about a third of that on a phone, so opening one full-screen is the
        difference between a diagram and a smudge. A pointer reveals the chip on
@@ -627,15 +623,10 @@
       .hiw-theme-btn { min-height: 44px; }
       .calc-pill     { min-height: 44px; }
       .calc-input    { min-height: 44px; }
-      /* #bpcCreate really is clickable (it replays the demo) but it is drawn
-         inside a product mockup at 284x36, and growing it would put the
-         illustration out of proportion. The pseudo-element gives it a 44px
-         hit area while the painted button keeps its size. */
-      .bpc-create { position: relative; }
-      .bpc-create::after {
-        content: ''; position: absolute; left: 0; right: 0;
-        top: 50%; transform: translateY(-50%); height: 44px;
-      }
+      /* #bpcCreate is a real control (it replays the demo) drawn at mockup
+         size; the pseudo-element gives it a 44px hit area on touch. */
+      .bpc-create::after { content: ''; position: absolute; left: -6px; right: -6px;
+        top: 50%; transform: translateY(-50%); height: 44px; }
     }
 
     /* Highlights — stacked horizontal cards */
@@ -700,7 +691,6 @@
     @media (max-width: 768px) {
       .product-hero-inner { padding: 0 24px; }
       .product-hero h1 { font-size: 2rem; }
-      .features-grid { grid-template-columns: 1fr; }
 
     }
   </style>
@@ -713,7 +703,7 @@
   "operatingSystem": "Atlassian Confluence Cloud",
   "softwareVersion": "10.2.0",
   "url": "https://datapingo.com/products/bulk-page-cloner",
-  "description": "Select one Confluence page and clone it into as many as 25 exact copies in a single guided flow — content, formatting, images, video, macros, labels, and attachments all carried over.",
+  "description": "Select one Confluence page and duplicate it into as many as 25 exact copies in a single guided flow — content, formatting, images, video, macros, labels, and attachments all carried over.",
   "image": "https://datapingo.com/assets/img/og-bulk-page-cloner.png",
   "installUrl": "https://marketplace.atlassian.com/apps/2754913942",
   "downloadUrl": "https://marketplace.atlassian.com/apps/2754913942",
@@ -751,8 +741,9 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/css/product-page.css">
 </head>
-<body class="product-page">
+<body class="product-page product-page--bpc">
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
        measure: Atlassian gives vendors no attribution once someone leaves for the
@@ -800,14 +791,14 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/resources/blog" role="menuitem">Updates &amp; Blog</a>
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
             <a href="/resources/use-cases" role="menuitem">Use Cases</a>
             <a href="/resources/documentation" role="menuitem">Documentation</a>
           </div>
         </div>
       </div>
       <div class="nav-actions">
-        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+        <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary">View on Atlassian Marketplace</a>
       </div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
@@ -842,7 +833,7 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
-      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blog</a>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
       <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
@@ -850,7 +841,7 @@
     <div class="mobile-menu-footer">
   
     <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="mobile-cta">
-      View on Marketplace
+      View on Atlassian Marketplace
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     </div>
@@ -871,7 +862,7 @@
           </div>
         </div>
         <h1>Duplicate 25 Confluence pages at once</h1>
-        <p class="product-hero-sub">Bulk Page Cloner takes one page as a template then creates up to 25 named copies, placed exactly where you want.</p>
+        <p class="product-hero-sub">Bulk Page Cloner turns one page into up to 25 named copies, placed exactly where you want.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -885,37 +876,36 @@
         </div>
       </div>
 
-      <!-- Clone console: one source page → 25 copies -->
-      <div class="bpc-clone" aria-label="Cloning one Confluence page into 25 copies">
-        <div class="bpc-src">
-          <div class="bpc-src-top">
-            <span class="bpc-src-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
-            <span class="bpc-src-label">Source page</span>
+      <!-- Hero demo: the app's four steps — one page in, 25 named copies out. -->
+      <div class="bpc-clone" role="img" aria-label="Bulk Page Cloner: the source page Q3 Report — Project A is duplicated into 25 copies, each with its own title from Project B to Project Z, placed under Marketing › Reports › Q3 2026, and each copy is listed with a link to open it.">
+        <div class="bd" id="bd">
+          <div class="bd-rail" aria-hidden="true"><div class="bd-step" data-s="0"><i><b>1</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Source</span></div><span class="sep"></span><div class="bd-step" data-s="1"><i><b>2</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Copies</span></div><span class="sep"></span><div class="bd-step" data-s="2"><i><b>3</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Location</span></div><span class="sep"></span><div class="bd-step" data-s="3"><i><b>4</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Done</span></div></div>
+          <div class="bd-body">
+            <div class="bd-work">
+              <div class="bd-src"><span class="bd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><div><small>Source page</small><b>Q3 Report — Project A</b></div><span class="bd-chip">Marketing</span></div>
+              <div class="bd-head"><b>Name the copies</b><span class="ct"><em>25</em> copies</span><span class="acts">Auto-number · Copy first to all</span></div>
+              <ol class="bd-titles" id="bdTitles"><li><span class="n">1</span><span class="f"><span class="t" data-ph="Title for copy 1">Q3 Report — Project B</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">2</span><span class="f"><span class="t" data-ph="Title for copy 2">Q3 Report — Project C</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">3</span><span class="f"><span class="t" data-ph="Title for copy 3">Q3 Report — Project D</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">4</span><span class="f"><span class="t" data-ph="Title for copy 4">Q3 Report — Project E</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">5</span><span class="f"><span class="t" data-ph="Title for copy 5">Q3 Report — Project F</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">6</span><span class="f"><span class="t" data-ph="Title for copy 6">Q3 Report — Project G</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li></ol>
+              <div class="bd-more" id="bdMore">+ <b>19 more titles</b> &mdash; Project H to Project Z</div>
+              <div class="bd-dest set" id="bdDest"><span class="bd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><small>Destination</small><b>Marketing › Reports › Q3 2026</b></div><span class="bd-chip">Under a parent</span></div>
+            </div>
+            <div class="bd-done" aria-hidden="true">
+              <div class="bd-done-head"><span class="bd-okbig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>25 copies ready</b><span>In Marketing › Reports › Q3 2026</span></div>
+              <ul class="bd-links" id="bdLinks"><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project B<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project C<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project D<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project E<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project F<span class="open">Open ↗</span></li></ul>
+              <div class="bd-more">+ 20 more, each with its own link</div>
+            </div>
           </div>
-          <div class="bpc-src-title">Q3 Report — Project A</div>
-          <div class="bpc-src-body">
-            Project A closed Q3 with 3 of 4 milestones shipped. Rollout begins Oct 14, pending the security review.
-            <table class="bpc-table">
-              <thead><tr><th>Milestone</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td>Discovery</td><td><span class="bpc-pill ok">Complete</span></td></tr>
-                <tr><td>Build &amp; QA</td><td><span class="bpc-pill ok">Complete</span></td></tr>
-                <tr><td>Rollout</td><td><span class="bpc-pill wait">In review</span></td></tr>
-              </tbody>
-            </table>
+          <div class="bd-foot">
+            <span class="bd-stat" id="bdStat"><b>25</b> named &middot; <b>1</b> destination</span>
+            <button type="button" class="bpc-create" id="bpcCreate" aria-label="Replay the demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span id="bdBtn">Duplicate 25 pages</span>
+            </button>
           </div>
-          <button type="button" class="bpc-create" id="bpcCreate">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            Create 25 pages
-          </button>
+          <div class="bpc-cursor" id="bpcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
         </div>
-        <div class="bpc-grid" id="bpcGrid" aria-hidden="true"></div>
-        <div class="bpc-count"><span id="bpcCount">0</span> / 25 pages created</div>
-        <div class="bpc-cursor" id="bpcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
       </div>
     </div>
   </section>
-
 
   <!-- Collapsed section jump menu. Anchors point at the heading ids the sections
        already declare through aria-labelledby, so there are no duplicate targets. -->
@@ -931,10 +921,8 @@
         <div class="prod-nav-list" id="prodNavList">
           <a href="#highlights-heading">Highlights</a>
           <a href="#hiw-heading">How it works</a>
-          <a href="#features-heading">Features</a>
           <a href="#pricing-heading">Pricing</a>
           <a href="#faq-heading">FAQ</a>
-          <a href="#support-heading">Support</a>
         </div>
       </div>
     </div>
@@ -945,15 +933,15 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>Highlights</span></p>
-        <h2 class="section-title" id="highlights-heading">Cloning without the <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">busywork</span></h2>
+        <h2 class="section-title" id="highlights-heading">One page in. Twenty-five out.</h2>
         <p class="section-desc">Copying pages one at a time is the part everyone quietly dreads. Do the whole batch in one run.</p>
       </header>
 
       <div class="highlight-stack">
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
-            <button type="button" class="zoom-btn" aria-label="Open the bulk clone figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
-            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One source page branching through a times-twenty-five node into a set of cloned pages">
+            <button type="button" class="zoom-btn" aria-label="Open the bulk copies figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
+            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="One source page branching through a times-twenty-five node into a set of named copies">
               <defs>
                 <pattern id="bpc1Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern>
                 <linearGradient id="bpc1Bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22B8F0"/></linearGradient>
@@ -962,7 +950,7 @@
               </defs>
               <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc1Dots)"/>
               <circle cx="36" cy="34" r="4" fill="#2563EB"/>
-              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#2563EB">BULK CLONE</text>
+              <text x="50" y="39" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#2563EB">BULK COPIES</text>
 
               <text x="112" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">SOURCE</text>
               <rect x="110" y="126" width="152" height="180" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
@@ -983,7 +971,7 @@
               <circle cx="392" cy="216" r="38" fill="url(#bpc1Node)"/>
               <text x="392" y="223" text-anchor="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">&#215;25</text>
 
-              <text x="518" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">CLONES</text>
+              <text x="518" y="112" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#64748B">COPIES</text>
               <rect x="664" y="112" width="116" height="104" rx="9" fill="#FFFFFF" opacity="0.45" stroke="#E2E8F0"/>
               <rect x="664" y="228" width="116" height="104" rx="9" fill="#FFFFFF" opacity="0.45" stroke="#E2E8F0"/>
               <g>
@@ -1009,9 +997,9 @@
             </svg>
           </div>
           <div class="highlight-card-copy">
-            <p class="highlight-num">Bulk Clone</p>
+            <p class="highlight-num">Bulk Copies</p>
             <h3>One page becomes twenty-five</h3>
-            <p>Pick one page and spin off up to 25 copies in a single run — each one named before anything is created.</p>
+            <p>Pick one page and spin off up to 25 copies in a single run — every copy named before the run starts.</p>
           </div>
         </div>
 
@@ -1085,7 +1073,7 @@
         <div class="highlight-card reveal">
           <div class="highlight-card-media zoomable">
             <button type="button" class="zoom-btn" aria-label="Open the smart placement figure full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
-            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A Confluence page tree beside the three ways cloned pages can be placed">
+            <svg viewBox="0 0 920 413" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A Confluence page tree beside the three ways copies can be placed">
               <defs><pattern id="bpc3Dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.1" fill="#CBD5E1" opacity="0.5"/></pattern></defs>
               <rect width="920" height="413" fill="#F4F7FC"/><rect width="920" height="413" fill="url(#bpc3Dots)"/>
               <circle cx="36" cy="34" r="4" fill="#2563EB"/>
@@ -1130,7 +1118,7 @@
                 <rect x="470" y="288" width="404" height="72" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
                 <g stroke="#94A3B8" stroke-width="1.6" fill="none"><rect x="495" y="311" width="12" height="9" rx="1.5"/><path d="M501 320 v6 M493 326 h16 M493 326 v4 M509 326 v4"/></g>
                 <text x="526" y="318" font-size="13" font-weight="700" fill="#1E293B">As child pages of a new parent</text>
-                <text x="526" y="338" font-size="11" fill="#64748B">Create a new parent page, then add child pages to new parent.</text>
+                <text x="526" y="338" font-size="11" fill="#64748B">A brand-new parent page, with the copies under it.</text>
               </g>
             </svg>
           </div>
@@ -1141,6 +1129,16 @@
           </div>
         </div>
       </div>
+
+      <!-- Details strip: what the old Features grid said that the highlights
+           above do not. -->
+      <div class="pp-specs reveal">
+        <div class="pp-spec"><b>25 copies</b><span>Per run, each with its own title, set before anything is copied.</span></div>
+        <div class="pp-spec"><b>@mention warning</b><span>Tells you when the source page mentions people, since every copy notifies them.</span></div>
+        <div class="pp-spec"><b>Live summary</b><span>Review every title and destination before you commit.</span></div>
+        <div class="pp-spec"><b>Runs on Atlassian</b><span>Built on Forge &mdash; no external servers, no data leaving Confluence.</span></div>
+      </div>
+      <a class="pp-specs-link" href="/resources/documentation/bulkpagecloner/limits">Every limit, and what happens at each &rarr;</a>
     </div>
   </section>
 
@@ -1149,7 +1147,7 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>How It Works</span></p>
-        <h2 class="section-title" id="hiw-heading">Four steps. <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Done in seconds.</span></h2>
+        <h2 class="section-title" id="hiw-heading">Four steps. Done in seconds.</h2>
         <p class="section-desc">Source, Copies, Location, Done — with a live summary that builds as you go, in light or dark.</p>
         <div class="hiw-theme-toggle reveal" role="group" aria-label="Preview theme">
           <button type="button" class="hiw-theme-btn active" data-theme="light" onclick="setHiwTheme('light')" aria-pressed="true">
@@ -1185,7 +1183,7 @@
           <button class="hiw-tab-btn" role="tab" aria-selected="false" aria-controls="hiw-panel-3" data-index="3" onclick="hiwSelect(this,3,'bpc')">
             <span class="hiw-tab-num">04</span>
             <div class="hiw-tab-title">Done</div>
-            <p class="hiw-tab-desc">Every created page listed with a direct link. Open one and start editing.</p>
+            <p class="hiw-tab-desc">Every copy listed with a direct link. Open one and start editing.</p>
             <div class="hiw-tab-progress"></div>
           </button>
         </div>
@@ -1193,81 +1191,19 @@
           <button type="button" class="zoom-btn" aria-label="Open this step full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg><span class="zoom-btn-label">Expand</span></button>
           <div class="hiw-panel-wrap">
             <div class="hiw-panel active" id="hiw-panel-0">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1 — Source: choose a page to clone" loading="lazy" width="3680" height="1800">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Source%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 1 — Source: choose the page to duplicate" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-1">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2 — Copies: name the copies with a live clone summary" loading="lazy" width="3680" height="1800">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Copies%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 2 — Copies: name the copies with a live summary" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-2">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3 — Location: set where the copies are created" loading="lazy" width="3680" height="1800">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Location%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 3 — Location: set where the copies go" loading="lazy" width="3680" height="1800">
             </div>
             <div class="hiw-panel" id="hiw-panel-3">
-              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4 — Done: every created page with a direct link" loading="lazy" width="3680" height="1800">
+              <img data-light="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" data-dark="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Dark%20(1840%20x%20900%20px).webp" src="/assets/img/Bulk%20Page%20Cloner%20Assets/Done%20-%20Light%20(1840%20x%20900%20px).webp" alt="Step 4 — Done: every copy with a direct link" loading="lazy" width="3680" height="1800">
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features-section" aria-labelledby="features-heading">
-    <div class="section-wrap">
-      <header class="section-header reveal">
-        <p class="eyebrow"><span>Features</span></p>
-        <h2 class="section-title" id="features-heading">Everything you need to <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">clone at scale</span></h2>
-        <p class="section-desc">Built on Atlassian Forge — no external servers, no data leaving your Confluence instance.</p>
-      </header>
-      <div class="features-grid">
-
-        <div class="feature-tile reveal">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M2 9h6M2 14h6"/></svg>
-          </div>
-          <h3>Up to 25 Pages at Once</h3>
-          <p>Copy an existing page up to 25 times, with custom titles set before creation.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-1">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          </div>
-          <h3>Nothing Lost or Broken</h3>
-          <p>Content, formatting, images, video, macros, labels and attachments all carry over.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-1">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3>Copy Across Spaces</h3>
-          <p>Send copies to any space you can reach, with a searchable parent picker.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-1">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3>Live Progress &amp; Summary</h3>
-          <p>Watch it run, with a running summary you review before you commit.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-2">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
-          </div>
-          <h3>Dark Mode</h3>
-          <p>Matches your Confluence theme and switches live — no reload.</p>
-        </div>
-
-        <div class="feature-tile reveal delay-2">
-          <div class="feature-tile-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <h3>@mention Heads-Up</h3>
-          <p>Warns you when a source page @mentions people, so you know who gets notified.</p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -1277,7 +1213,7 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>Pricing</span></p>
-        <h2 class="section-title" id="pricing-heading">Simple, <span class="grad-text" style="background:linear-gradient(135deg,var(--teal) 0%,#05A8C6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">usage-based pricing</span></h2>
+        <h2 class="section-title" id="pricing-heading">Simple, usage-based pricing</h2>
         <p class="section-desc">Free for teams up to 10 users.</p>
         <p class="section-desc section-desc--cont">Enter your team size to see your estimate.</p>
       </header>
@@ -1338,70 +1274,43 @@
         <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
       </header>
       <div class="faq-list">
-
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">How many pages can I clone at once?</span>
+            <span class="faq-btn-text">How many pages can I duplicate at once?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Up to <b>25</b> in a single run, each independently named. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner/guide">See the user guide</a>.</div>
+          <div class="faq-answer">Up to <b>25</b> copies of one page per run, each with its own title. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner/guide">See the user guide</a>.</div>
         </div>
-
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Can I clone pages to a different Confluence space?</span>
+            <span class="faq-btn-text">Can copies go to a different Confluence space?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — any space you have access to, not just where the source page lives. <a href="/resources/documentation/bulkpagecloner/guide">More on choosing a location</a>.</div>
+          <div class="faq-answer">Yes &mdash; any space you have access to, not just where the source page lives. <a href="/resources/documentation/bulkpagecloner/guide">More on choosing a location</a>.</div>
         </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Is my Confluence data secure?</span>
-            <span class="faq-chevron">&#x25BE;</span>
-          </button>
-          <div class="faq-answer">Yes. Built on Atlassian Forge — everything runs on Atlassian's own infrastructure, never a server we run. No external calls, nothing stored outside your instance.</div>
-        </div>
-
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
             <span class="faq-btn-text">What exactly gets copied?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Content, formatting, images, video, macros, labels and attachments — exactly as the source had them. No stripped formatting, no broken macros. <a href="/resources/documentation/bulkpagecloner/limits">What's carried over</a>.</div>
+          <div class="faq-answer">Content, formatting, images, video, macros, labels and attachments &mdash; exactly as the source had them. <a href="/resources/documentation/bulkpagecloner/limits">What&rsquo;s carried over</a>.</div>
         </div>
-
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Does it support dark mode?</span>
+            <span class="faq-btn-text">Is my Confluence data secure?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — it matches your Confluence theme and switches live, no reload. Use the Light / Dark toggle above to see both.</div>
+          <div class="faq-answer">Yes. Built on Atlassian Forge &mdash; everything runs on Atlassian&rsquo;s own infrastructure, never a server we run. No external calls, nothing stored outside your instance.</div>
         </div>
-
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">Will it warn me before creating a large batch?</span>
+            <span class="faq-btn-text">Is it free for small teams?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Yes — for large batches (10+), duplicate titles, and when a source page <b>@mentions people</b>, since every copy notifies them again. <a href="/resources/documentation/bulkpagecloner/limits">How the warnings work</a>.</div>
+          <div class="faq-answer">Yes &mdash; free for teams up to 10 users, with no credit card. Above that, per-user pricing is billed by the Atlassian Marketplace; the calculator above shows your estimate.</div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SUPPORT -->
-  <section class="support-section" aria-labelledby="support-heading">
-    <div class="section-wrap">
-      <div class="support-inner reveal">
-        <p class="eyebrow" style="justify-content:center;"><span>Support &amp; Contact</span></p>
-        <h2 class="section-title" id="support-heading">Questions? We're here.</h2>
-        <p class="section-desc">Reach us at <a href="mailto:support@datapingo.com" style="color:var(--teal);text-decoration:none;font-weight:600;">support@datapingo.com</a> — we typically respond within one business day.</p>
-        <div class="support-btns">
-          <a href="/resources/documentation/bulkpagecloner" class="btn-primary--teal">Browse Documentation</a>
-          <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" class="btn-secondary">Open Support Ticket</a>
-        </div>
+        <p class="section-desc" style="margin-top:26px;text-align:center;">
+          <a href="/resources/documentation/bulkpagecloner/faq" style="text-decoration:none;font-weight:600;">More answers in the documentation FAQ &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -1410,14 +1319,17 @@
   <section class="product-cta cta-section" aria-labelledby="cta-heading">
     <div class="section-wrap">
       <div class="cta-inner reveal">
-        <h2 class="cta-title" id="cta-heading">Start cloning Confluence pages in minutes.</h2>
-        <p class="cta-desc">Install free from the Atlassian Marketplace — no credit card, no setup, no external tools.</p>
+        <h2 class="cta-title" id="cta-heading">Start duplicating Confluence pages in minutes.</h2>
         <div class="cta-actions">
-          <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-primary--teal">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-nav-primary pp-cta-brand">
             View on Atlassian Marketplace
           </a>
+          <a href="/resources/documentation/bulkpagecloner" class="btn-secondary">
+            Browse documentation
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
+        <p class="pp-support">Questions? Email <a href="mailto:support@datapingo.com">support@datapingo.com</a> or <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">open a support request</a><span class="pp-support-note">We typically reply within one business day.</span></p>
       </div>
     </div>
   </section>
@@ -1473,7 +1385,7 @@
       </div>
       <div class="footer-col">
         <h2>Resources</h2>
-        <a href="/resources/blog">Updates &amp; Blog</a>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
         <a href="/support">Support</a>
@@ -1543,59 +1455,106 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Clone console: source page → click Create → 25 page tiles fill in (fade, no expand)
+  // Hero demo — the app's four steps, looped. Opens finished, then replays:
+  // name the copies → set the destination → Duplicate → Done, with a link each.
   (function() {
-    const root = document.querySelector('.bpc-clone');
-    if (!root) return;
-    const grid = root.querySelector('#bpcGrid');
-    const countEl = root.querySelector('#bpcCount');
-    const createBtn = root.querySelector('#bpcCreate');
-    const cursor = root.querySelector('#bpcCursor');
+    const bd = document.getElementById('bd');
+    if (!bd) return;
+    const steps = Array.from(bd.querySelectorAll('.bd-step'));
+    const rows = Array.from(bd.querySelectorAll('#bdTitles li'));
+    const fields = rows.map(r => r.querySelector('.f'));
+    const texts = rows.map(r => r.querySelector('.t'));
+    const NAMES = texts.map(t => t.textContent);
+    const more = bd.querySelector('#bdMore'), dest = bd.querySelector('#bdDest');
+    const stat = bd.querySelector('#bdStat'), btn = bd.querySelector('#bpcCreate'), btnLabel = bd.querySelector('#bdBtn');
+    const links = Array.from(bd.querySelectorAll('#bdLinks li'));
+    const cursor = bd.querySelector('#bpcCursor');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const N = 25;
-    const doc = '<span class="doc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>';
-    const badge = '<span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>';
-    const tiles = [];
-    for (let i = 0; i < N; i++) { const t = document.createElement('div'); t.className = 'bpc-tile'; t.innerHTML = doc + '<span class="nm"></span>' + badge; grid.appendChild(t); tiles.push(t); }
 
     let timers = [];
     const clr = () => { timers.forEach(clearTimeout); timers = []; };
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
 
-    function moveCursor() {
-      const cr = root.getBoundingClientRect();
-      const br = createBtn.getBoundingClientRect();
-      const x = br.left - cr.left + br.width * 0.6;
-      const y = br.top - cr.top + br.height * 0.5 - 2;
-      cursor.style.transition = 'none';
-      cursor.style.transform = 'translate(' + (x + 30) + 'px,' + (y + 48) + 'px)';
-      void cursor.offsetWidth;
-      cursor.style.transition = '';
-      cursor.style.opacity = '1';
-      cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    // Steps before `cur` are done, `cur` is the one in progress.
+    function rail(cur) { steps.forEach((s, i) => { s.classList.toggle('done', i < cur); s.classList.toggle('on', i === cur); }); }
+    function cursorTo(el, dx, dy) {
+      const a = bd.getBoundingClientRect(), b = el.getBoundingClientRect();
+      cursor.classList.add('on');
+      cursor.style.transform = 'translate(' + (b.left - a.left + dx) + 'px,' + (b.top - a.top + dy) + 'px)';
+    }
+    function tap() { cursor.classList.add('tap'); setTimeout(() => cursor.classList.remove('tap'), 140); }
+
+    // The ready-to-run frame: every copy named, destination chosen.
+    function settle() {
+      bd.classList.remove('is-done');
+      rail(2);
+      texts.forEach((t, i) => { t.textContent = NAMES[i]; });
+      rows.forEach(r => r.classList.remove('copied'));
+      fields.forEach(f => f.classList.remove('focus'));
+      more.style.visibility = 'visible';
+      dest.classList.add('set');
+      stat.innerHTML = '<b>25</b> named &middot; <b>1</b> destination';
+      btnLabel.textContent = 'Duplicate 25 pages';
+      links.forEach(l => l.classList.remove('in'));
+      cursor.classList.remove('on');
     }
 
     function play() {
       clr();
-      tiles.forEach(t => t.classList.remove('done'));
-      countEl.textContent = '0';
-      cursor.style.opacity = '0'; cursor.classList.remove('tap'); createBtn.classList.remove('pressed');
+      bd.classList.remove('is-done');
+      btn.classList.remove('pressed');
+      rail(1);
+      texts.forEach(t => { t.textContent = ''; });
+      rows.forEach(r => r.classList.remove('copied'));
+      more.style.visibility = 'hidden';
+      dest.classList.remove('set');
+      stat.innerHTML = '<b>0</b> named';
+      btnLabel.textContent = 'Duplicate 25 pages';
+      links.forEach(l => l.classList.remove('in'));
+      cursor.classList.remove('on');
+      if (reduce) { settle(); return; }
 
-      if (reduce) { tiles.forEach(t => t.classList.add('done')); countEl.textContent = String(N); return; }
+      // 1. Name the copies, top to bottom — each title typed into its own row.
+      let t = 500;
+      at(t, () => cursorTo(fields[0], 40, 12));
+      t += 420;
+      at(t, () => tap());
+      rows.forEach((r, i) => {
+        const name = NAMES[i];
+        at(t, () => { fields.forEach(f => f.classList.remove('focus')); fields[i].classList.add('focus'); });
+        for (let c = 1; c <= name.length; c++) at(t + c * 14, () => { texts[i].textContent = name.slice(0, c); });
+        t += name.length * 14 + 90;
+        at(t, () => { stat.innerHTML = '<b>' + (i + 1) + '</b> named'; });
+      });
+      at(t, () => { fields.forEach(f => f.classList.remove('focus')); more.style.visibility = 'visible'; stat.innerHTML = '<b>25</b> named'; });
 
-      const ready = 1000;
-      at(ready, moveCursor);
-      at(ready + 820, () => { cursor.classList.add('tap'); createBtn.classList.add('pressed'); });
-      at(ready + 980, () => { cursor.classList.remove('tap'); createBtn.classList.remove('pressed'); cursor.style.opacity = '0'; });
+      // 2. Location: the destination fills in.
+      t += 450;
+      at(t, () => { rail(2); cursorTo(dest, 60, 14); });
+      at(t + 380, () => { tap(); dest.classList.add('set'); stat.innerHTML = '<b>25</b> named &middot; <b>1</b> destination'; });
 
-      const cStart = ready + 1050;
-      for (let k = 0; k < N; k++) at(cStart + k * 50, () => { tiles[k].classList.add('done'); countEl.textContent = String(k + 1); });
+      // 3. Duplicate — each copy lands and ticks off; the count runs to 25.
+      t += 1100;
+      at(t, () => cursorTo(btn, 26, 14));
+      t += 420;
+      at(t, () => { tap(); btn.classList.add('pressed'); });
+      at(t + 160, () => { btn.classList.remove('pressed'); cursor.classList.remove('on'); });
+      for (let k = 1; k <= N; k++) at(t + 160 + k * 46, () => {
+        btnLabel.textContent = k < N ? 'Duplicating ' + k + ' / ' + N : 'Duplicate 25 pages';
+        if (k <= rows.length) rows[k - 1].classList.add('copied');
+      });
+      t += 160 + N * 46 + 450;
 
-      at(cStart + N * 50 + 1700, play);
+      // 4. Done: every copy listed, each with its own link.
+      at(t, () => { rail(3); bd.classList.add('is-done'); });
+      links.forEach((l, k) => at(t + 250 + k * 110, () => l.classList.add('in')));
+      at(t + 4200, play);
     }
 
-    createBtn.addEventListener('click', play);
-    setTimeout(play, 80);
+    btn.addEventListener('click', play);
+    settle();
+    if (!reduce) setTimeout(play, 2600);
   })();
 
   /* Record the newsletter opt-in in iubenda's Consent Database.

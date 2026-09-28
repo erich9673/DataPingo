@@ -111,7 +111,7 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/resources/blog" role="menuitem">Updates &amp; Blog</a>
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
             <a href="/resources/use-cases" role="menuitem">Use Cases</a>
             <a href="/resources/documentation" role="menuitem">Documentation</a>
           </div>
@@ -153,7 +153,7 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
-      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blog</a>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
       <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
@@ -257,178 +257,8 @@
 
       <section id="comment-editor" style="scroll-margin-top:100px;">
         <h2>The comment editor</h2>
-<p>Everything you write is posted as native Jira formatting, so a comment sent from here is indistinguishable from one typed into Jira itself — same headings, same tables, same code blocks, same file cards. The toolbar and the keyboard shortcuts deliberately mirror Jira's own editor, so there is nothing new to learn.</p>
-        <p><strong>Shortcuts below are written in Mac notation.</strong> On Windows and Linux read <kbd>&#8984;</kbd> as <kbd>Ctrl</kbd>, <kbd>&#8679;</kbd> as <kbd>Shift</kbd> and <kbd>&#8997;</kbd> as <kbd>Alt</kbd>. The app detects your machine and shows the right one in every tooltip.</p>
-
-        <div class="doc-img-card doc-img-card--static">
-          <svg viewBox="0 0 736 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The comment editor toolbar, left to right: a block-type dropdown; bold, italic, underline, strikethrough, subscript, superscript and text colour; bullet, numbered and task lists; quote and code block; table, emoji and attach file; undo and redo.">
-            <rect width="736" height="128" fill="#FFFFFF" rx="8"/>
-            <rect x="8" y="8" width="720" height="44" rx="6" fill="#f8f9fb" stroke="#e5e7ee"/>
-
-            <!-- Block type -->
-            <rect x="20" y="18" width="88" height="24" rx="3" fill="#FFFFFF" stroke="#d3d7e2"/>
-            <text x="29" y="34" font-family="Inter,sans-serif" font-size="11" fill="#586178">Normal text</text>
-            <path d="M94 28l4 5 4-5z" fill="#586178"/>
-
-            <g stroke="#e5e7ee" stroke-width="1"><path d="M116 20v20M280 20v20M356 20v20M410 20v20M486 20v20"/></g>
-
-            <!-- Text formatting -->
-            <g font-family="Inter,sans-serif" text-anchor="middle" fill="#586178">
-              <text x="128" y="36" font-size="14" font-weight="700">B</text>
-              <text x="150" y="36" font-size="14" font-weight="700" font-style="italic">I</text>
-              <text x="172" y="35" font-size="13">U</text>
-              <text x="194" y="35" font-size="13">S</text>
-              <text x="213" y="35" font-size="13">X</text><text x="222" y="38" font-size="9">2</text>
-              <text x="235" y="35" font-size="13">X</text><text x="244" y="29" font-size="9">2</text>
-              <text x="260" y="32" font-size="12" font-weight="700">A</text>
-            </g>
-            <path d="M166 39h12M188 30h12" stroke="#586178" stroke-width="1.4"/>
-            <rect x="254" y="35" width="12" height="3" rx="1.5" fill="#4f52e6"/>
-
-            <!-- Icon controls -->
-            <g fill="none" stroke="#586178" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-              <g transform="translate(284,22) scale(.667)">
-                <path d="M8 6h13M8 12h13M8 18h13"/>
-                <circle cx="3.5" cy="6" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="12" r="1.5" fill="#586178" stroke="none"/><circle cx="3.5" cy="18" r="1.5" fill="#586178" stroke="none"/>
-              </g>
-              <g transform="translate(306,22) scale(.667)">
-                <path d="M9 6h12M9 12h12M9 18h12"/>
-                <g fill="#586178" stroke="none" font-family="Inter,sans-serif" font-size="8" font-weight="700"><text x="1" y="9">1</text><text x="1" y="15">2</text><text x="1" y="21">3</text></g>
-              </g>
-              <g transform="translate(328,22) scale(.667)">
-                <rect x="2" y="4" width="6" height="6" rx="1.4"/><path d="M3.4 7l1.4 1.4 2.4-2.6"/>
-                <rect x="2" y="14" width="6" height="6" rx="1.4"/>
-                <path d="M12 7h9M12 17h9"/>
-              </g>
-              <g transform="translate(360,22) scale(.667)">
-                <rect x="3" y="4" width="2.6" height="16" rx="1.3" fill="#586178" stroke="none"/>
-                <path d="M11 8h10M11 13h10M11 18h7"/>
-              </g>
-              <g transform="translate(382,22) scale(.667)"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></g>
-              <g transform="translate(414,22) scale(.667)">
-                <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 4v16M15 4v16"/>
-              </g>
-              <g transform="translate(436,22) scale(.667)">
-                <circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0"/>
-                <circle cx="9" cy="10" r="1.1" fill="#586178" stroke="none"/><circle cx="15" cy="10" r="1.1" fill="#586178" stroke="none"/>
-              </g>
-              <g transform="translate(458,22) scale(.667)">
-                <rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/>
-              </g>
-              <g transform="translate(490,22) scale(.667)"><path d="M3 8h10a5 5 0 0 1 0 10H7"/><path d="M6.5 4.5L3 8l3.5 3.5"/></g>
-              <g transform="translate(512,22) scale(.667)"><path d="M21 8H11a5 5 0 0 0 0 10h6"/><path d="M17.5 4.5L21 8l-3.5 3.5"/></g>
-            </g>
-
-            <text x="716" y="34" text-anchor="end" font-family="Inter,sans-serif" font-size="10.5" fill="#8b93a7">0 words &middot; @ to mention</text>
-
-            <!-- Group brackets -->
-            <g stroke="#c3c9d6" stroke-width="1.1" fill="none">
-              <path d="M20 62v4h88v-4M118 62v4h154v-4M282 62v4h66v-4M358 62v4h44v-4M412 62v4h66v-4M488 62v4h44v-4"/>
-              <path d="M64 66v10M315 66v10M445 66v10"/>
-              <path d="M195 66v30M380 66v30M510 66v30"/>
-            </g>
-            <g font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#586178" text-anchor="middle">
-              <text x="64" y="88">Block type</text>
-              <text x="315" y="88">Lists</text>
-              <text x="445" y="88">Table, emoji, file</text>
-              <text x="195" y="108">Text formatting &amp; colour</text>
-              <text x="380" y="108">Quote &amp; code</text>
-              <text x="510" y="108">Undo / redo</text>
-            </g>
-          </svg>
-        </div>
-
-        <h3 id="editor-headings" style="scroll-margin-top:100px;">Headings</h3>
-<p>The dropdown at the far left of the toolbar sets the current block. It shows what you are currently in, so you can always tell whether the cursor is inside a heading.</p>
-        <table class="spec-table">
-          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
-          <tbody>
-            <tr><td>Normal text</td><td><kbd>&#8984;&#8997;0</kbd></td></tr>
-            <tr><td>Heading 1 through Heading 6</td><td><kbd>&#8984;&#8997;1</kbd> &hellip; <kbd>&#8984;&#8997;6</kbd></td></tr>
-          </tbody>
-        </table>
-
-        <h3 id="editor-text-formatting" style="scroll-margin-top:100px;">Text formatting</h3>
-<table class="spec-table">
-          <thead><tr><th>Control</th><th>Shortcut</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Bold</strong></td><td><kbd>&#8984;B</kbd></td></tr>
-            <tr><td><em>Italic</em></td><td><kbd>&#8984;I</kbd></td></tr>
-            <tr><td>Underline</td><td><kbd>&#8984;U</kbd></td></tr>
-            <tr><td>Strikethrough</td><td><kbd>&#8984;&#8679;S</kbd></td></tr>
-            <tr><td>Subscript</td><td><kbd>&#8984;,</kbd></td></tr>
-            <tr><td>Superscript</td><td><kbd>&#8984;.</kbd></td></tr>
-            <tr><td>Inline <code>code</code></td><td><kbd>&#8984;&#8679;M</kbd></td></tr>
-            <tr><td>Text colour &mdash; 28 Atlassian palette colours, plus <strong>Remove colour</strong></td><td>Toolbar <strong>A</strong> button</td></tr>
-            <tr><td>Undo / Redo</td><td><kbd>&#8984;Z</kbd> / <kbd>&#8984;Y</kbd></td></tr>
-          </tbody>
-        </table>
-
-        <h3 id="editor-lists-quotes-and-dividers" style="scroll-margin-top:100px;">Lists, quotes and dividers</h3>
-<table class="spec-table">
-          <thead><tr><th>Block</th><th>Shortcut</th></tr></thead>
-          <tbody>
-            <tr><td>Bullet list</td><td><kbd>&#8984;&#8679;8</kbd></td></tr>
-            <tr><td>Numbered list</td><td><kbd>&#8984;&#8679;7</kbd></td></tr>
-            <tr><td>Task list &mdash; checkboxes your team can tick off on the issue, and they nest</td><td><kbd>&#8984;&#8679;6</kbd></td></tr>
-            <tr><td>Quote</td><td><kbd>&#8984;&#8679;B</kbd></td></tr>
-            <tr><td>Divider</td><td>Type <code>/divider</code></td></tr>
-          </tbody>
-        </table>
-
-        <h3 id="editor-tables" style="scroll-margin-top:100px;">Tables</h3>
-<p>The table button opens a size grid — drag across it to choose how many rows and columns you want. Once the cursor is inside a table, a second row of controls appears with everything you need to reshape it:</p>
-        <ul>
-          <li><span class="ui">Header row</span> and <span class="ui">Header col</span> — toggle either independently, so a table can have a header row, a header column, both, or neither.</li>
-          <li><span class="ui">Add columns</span> before or after the current one, and <span class="ui">add rows</span> above or below.</li>
-          <li><span class="ui">Delete table</span> to remove the whole thing in one click.</li>
-        </ul>
-
-        <h3 id="editor-code-blocks" style="scroll-margin-top:100px;">Code blocks</h3>
-<p>A code block keeps your indentation and monospacing intact, and carries a language selector with <strong>42 languages</strong> — Bash, C, C++, C#, CSS, Dart, Go, GraphQL, Groovy, Haskell, HTML, Java, JavaScript, JSON, Kotlin, Python, Ruby, Rust, SQL, TypeScript, YAML and more, plus <code>(None)</code> for plain text. The language travels with the comment, so Jira highlights it correctly on every issue you post to.</p>
-
-        <h3 id="editor-slash-commands" style="scroll-margin-top:100px;">Slash commands</h3>
-<p>Type <code>/</code> anywhere in the editor to open a command palette, exactly like Jira's. Keep typing to filter the list, move with the arrow keys, and press Enter to insert. Twelve commands are available, so you never have to reach for the toolbar mid-sentence:</p>
-        <table class="spec-table">
-          <thead><tr><th>Command</th><th>What it inserts</th></tr></thead>
-          <tbody>
-            <tr><td><code>/image</code> &middot; Image, video, or file</td><td>Attach a file to this comment</td></tr>
-            <tr><td><code>/heading 1</code></td><td>Large section heading</td></tr>
-            <tr><td><code>/heading 2</code></td><td>Medium section heading</td></tr>
-            <tr><td><code>/heading 3</code></td><td>Small section heading</td></tr>
-            <tr><td><code>/bullet list</code></td><td>Unordered list</td></tr>
-            <tr><td><code>/numbered list</code></td><td>Ordered list</td></tr>
-            <tr><td><code>/task list</code></td><td>Action items with checkboxes</td></tr>
-            <tr><td><code>/quote</code></td><td>Blockquote</td></tr>
-            <tr><td><code>/divider</code></td><td>Horizontal rule</td></tr>
-            <tr><td><code>/code block</code></td><td>Code snippet with language selector</td></tr>
-            <tr><td><code>/table</code></td><td>Opens the size picker</td></tr>
-            <tr><td><code>/emoji</code></td><td>Opens the emoji browser</td></tr>
-          </tbody>
-        </table>
-        <p><strong>It matches on synonyms.</strong> The attachment command is called &ldquo;Image, video, or file&rdquo;, but <code>/screenshot</code>, <code>/upload</code>, <code>/photo</code>, <code>/media</code>, <code>/attach</code> and <code>/video</code> all find it. The palette opens <strong>mid-sentence</strong>, not just at line start.</p>
-
-        <h3 id="editor-mentions-links-and-emoji" style="scroll-margin-top:100px;">Mentions, links and emoji</h3>
-<ul>
-          <li><span class="ui">@mentions</span> — type <code>@</code>; a bare <code>@</code> lists teammates. <strong>Only people are suggested</strong> — apps and service-project customers are filtered out. Mentioned people are notified on <em>every</em> issue the comment lands on, which is why a mention always asks you to confirm first.</li>
-          <li><span class="ui">Smart links</span> — paste a Jira or Confluence URL and it becomes a live card showing title, status, priority and assignee, fetched fresh. Click it for a <span class="ui">Display as</span> menu: <span class="ui">URL</span>, <span class="ui">Inline</span>, <span class="ui">Card</span> or <span class="ui">Embed</span>.</li>
-          <li><span class="ui">Emoji</span> — browse from the toolbar or type <code>/emoji</code>.</li>
-        </ul>
-
-        <h3 id="editor-attachments" style="scroll-margin-top:100px;">Attachments</h3>
-<p>Attach files three ways: drag them into the editor, paste a screenshot straight from the clipboard, or use the toolbar button. Dropping a file places it where your pointer is, not where the cursor happened to be.</p>
-        <ul>
-          <li><strong>Up to 150 MB per file</strong>, with no limit on how many files one comment can carry. If your Jira site sets a lower attachment limit, that one wins — the app reads the site's real limit and checks against it the moment you attach, so an oversized file is refused immediately rather than after you have written the comment.</li>
-          <li><strong>Uploading starts on attach, not on Send.</strong> The file moves while you are still typing, so the send itself is usually near-instant — the attachment shows <span class="ui">Uploading&hellip;</span> while it goes, or <span class="ui">Will upload when you send</span> if it could not start early. Nothing is visible on any issue until you actually send, and anything you attach and then delete is discarded.</li>
-          <li><strong>Images and video preview inline</strong>, align left, centre or right, and resize by dragging the edge — the same handles Jira gives you. PDFs and other documents post as file cards.</li>
-          <li><strong>Large files upload through an async queue in the background</strong>, so a long video posting to 25 issues does not block the send while it uploads.</li>
-          <li><strong>A file is refused the moment you attach it, not at send</strong>, and the message names which limit bound — your site's, or the app's 150&nbsp;MB. The oversized file is dropped; the rest of the batch still attaches.</li>
-          <li><strong>Select an attachment and a toolbar appears on it</strong> — align, card or inline, reset, download, full size, duplicate, remove. Images and video <strong>resize by dragging their edge</strong>; the width is stored as a percentage, so it scales in whatever width the reader's Jira gives the comment.</li>
-          <li><strong>Duplicating an attachment costs nothing.</strong> The copy points at the same upload, so putting one screenshot in two places in a comment does not upload it twice.</li>
-          <li><strong>Previews are generated on your own machine</strong> — nothing is sent anywhere to make them. Video gets a poster frame and a player with &plusmn;10&nbsp;seconds, speed and fullscreen; a PDF shows page one; logs, CSVs and code show their first twelve lines; anything else gets a typed file card.</li>
-          <li><strong>Removing an attachment releases it.</strong> The staged copy is deleted straight away rather than sitting in storage until it expires. And a draft reopened after a reload keeps the attachment&rsquo;s place but not its bytes — it reads <span class="ui">re-attach — file not kept after reload</span>, and correctly does not count as something to send.</li>
-          <li><strong>A whole send is capped at 2&nbsp;GB</strong> across the batch &mdash; separate from the 150&nbsp;MB per file, so every file can be inside its own limit and the send still be refused. Four 120&nbsp;MB files to 5 issues is 2400&nbsp;MB and will not send. See <a href="/resources/documentation/bulkcomments/limits">Limits</a>.</li>
-        </ul>
+        <p>Every composer has a full editor that posts native Jira formatting &mdash; headings, tables, code blocks, mentions, emoji and attachments up to 150&nbsp;MB per file &mdash; with the same toolbar and shortcuts as Jira&rsquo;s own.</p>
+        <p><a href="/resources/documentation/bulkcomments/guide/comment-editor">The comment editor: every format and shortcut &rarr;</a></p>
       </section>
 
       <section id="details-panel" style="scroll-margin-top:100px;">
@@ -460,7 +290,7 @@
         <h3 id="panel-sizing" style="scroll-margin-top:100px;">Opening in Jira, and resizing</h3>
         <p>The key chip in the panel header carries an <span class="ui">&#8599;</span> and opens the issue in a new tab, leaving what you have written untouched. Subtasks, linked work items and individual comments open the same way.</p>
         <p><strong>Both side panels are resizable, and the width is remembered between sessions.</strong> On a narrow window they give way rather than squeezing you: the editor keeps a 560-pixel floor, and a pinned issue list drops back to its narrow strip if the panel would push the editor below that.</p>
-        <p>Attachments on the comment you are writing work the same way, right there in the composer, up to 150&nbsp;MB per file &mdash; see <a href="#comment-editor">The comment editor</a>.</p>
+        <p>Attachments on the comment you are writing work the same way, right there in the composer, up to 150&nbsp;MB per file &mdash; see <a href="/resources/documentation/bulkcomments/guide/comment-editor#editor-attachments">The comment editor</a>.</p>
       </section>
       <section id="service-projects" style="scroll-margin-top:100px;">
         <h2>Internal/Reply to customer comment composer</h2>
@@ -502,7 +332,7 @@
         <p><span class="ui">Clear all comments &amp; status changes</span> sits above the composers and <strong>wipes the work rather than the selection</strong>: every comment you have written and every status change you have queued. It asks first &mdash; the button changes to name exactly what it is about to take &mdash; so a stray press costs nothing. It only appears when there is something to clear.</p>
         <p>Clearing does <em>not</em> send you back to Select &mdash; the issues stay picked, so it is the fast way to rewrite a batch. Nothing has been posted at this point, so there is nothing to undo.</p>
         <p>On a service project there are two more buttons here, for opening and removing internal notes across the batch &mdash; see <a href="/resources/documentation/bulkcomments/guide/service-management#batch-notes">Internal notes across the batch</a>.</p>
-        <p>Attachments work the same way here as anywhere else in the editor &mdash; see <a href="#comment-editor">The comment editor</a> for how files are attached, sized and uploaded.</p>
+        <p>Attachments work the same way here as anywhere else in the editor &mdash; see <a href="/resources/documentation/bulkcomments/guide/comment-editor#editor-attachments">The comment editor</a> for how files are attached, sized and uploaded.</p>
       </section>
     <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>
@@ -551,7 +381,7 @@
       </div>
       <div class="footer-col">
         <h2>Resources</h2>
-        <a href="/resources/blog">Updates &amp; Blog</a>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
         <a href="/support">Support</a>

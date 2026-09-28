@@ -272,6 +272,10 @@
       "destination": "/resources/documentation/bulkcomments/guide/step-2-write-comments.html"
     },
     {
+      "source": "/resources/documentation/bulkcomments/guide/comment-editor",
+      "destination": "/resources/documentation/bulkcomments/guide/comment-editor.html"
+    },
+    {
       "source": "/resources/documentation/bulkcomments/guide/step-3-send-the-batch",
       "destination": "/resources/documentation/bulkcomments/guide/step-3-send-the-batch.html"
     },

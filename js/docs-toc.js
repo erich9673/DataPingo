@@ -78,6 +78,43 @@
   nav.textContent = '';
   nav.appendChild(frag);
 
+  // ── Its own rail ──────────────────────────────────────────────────────────
+  // "On this page" used to sit under the page tree in one sidebar, which then
+  // scrolled inside itself. It moves to a rail of its own on the right; below
+  // 1240px the same rail folds into a bar at the top of the content that names
+  // the section you are reading and opens the list.
+  const layout = content.closest('.doc-layout');
+  const oldHeading = nav.previousElementSibling;
+  if (oldHeading && oldHeading.classList.contains('doc-toc-heading--sub')) oldHeading.remove();
+  const rail = document.createElement('aside');
+  rail.className = 'doc-onpage';
+  rail.setAttribute('aria-label', 'On this page');
+  rail.innerHTML =
+    '<button type="button" class="doc-onpage-toggle" aria-expanded="false">' +
+      '<span class="doc-onpage-label">On this page</span><span class="doc-onpage-now"></span>' +
+      '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>' +
+    '</button><p class="doc-toc-heading">On this page</p>';
+  rail.appendChild(nav);
+  const top = document.createElement('a');
+  top.className = 'doc-onpage-top';
+  top.href = '#main';
+  top.textContent = '\u2191 Back to top';
+  rail.appendChild(top);
+  (layout || content.parentNode).appendChild(rail);
+
+  const toggle = rail.querySelector('.doc-onpage-toggle');
+  const now = rail.querySelector('.doc-onpage-now');
+  toggle.addEventListener('click', () => {
+    const open = rail.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a') && rail.classList.contains('is-open')) {
+      rail.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   // ── Scroll spy ────────────────────────────────────────────────────────────
   // IntersectionObserver, not a scroll listener. The doc pages set
   // `overflow: clip` on <body> for the mobile drawer's scroll lock, and that
@@ -89,6 +126,10 @@
     .filter((e) => e.el);
   if (!targets.length) return;
 
+  let lastLabel = null;
+  // The read line sits below whatever is stuck to the top: the site nav, plus
+  // the phone bar on small screens.
+  const LINE = window.matchMedia('(max-width: 820px)').matches ? 172 : 130;
   const seen = new Map();          // id -> is its heading above the read line?
 
   function paint() {
@@ -99,6 +140,12 @@
     for (const g of nav.querySelectorAll('.doc-toc-group')) {
       g.classList.toggle('is-open', g === current.group);
     }
+    const g = groups.find((x) => x.id === current.group.dataset.section);
+    now.textContent = g ? g.label : '';
+    if (g && g.label !== lastLabel) {
+      lastLabel = g.label;
+      document.dispatchEvent(new CustomEvent('docs:section', { detail: g.label }));
+    }
   }
 
   // A 1px band 130px down the viewport. A heading is "passed" once it is above
@@ -106,17 +153,17 @@
   // than whatever happens to be largest on screen.
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
-      seen.set(e.target.id, e.boundingClientRect.top < 130);
+      seen.set(e.target.id, e.boundingClientRect.top < LINE);
     }
     paint();
-  }, { rootMargin: '-130px 0px -' + Math.max(0, window.innerHeight - 131) + 'px 0px', threshold: 0 });
+  }, { rootMargin: '-' + LINE + 'px 0px -' + Math.max(0, window.innerHeight - LINE - 1) + 'px 0px', threshold: 0 });
 
   targets.forEach((t) => io.observe(t.el));
 
   // The observer only reports on change, so seed the initial state and refresh
   // it when the page reflows (lazy images, a collapsed panel, a resize).
   function reseed() {
-    for (const t of targets) seen.set(t.id, t.el.getBoundingClientRect().top < 130);
+    for (const t of targets) seen.set(t.id, t.el.getBoundingClientRect().top < LINE);
     paint();
   }
   reseed();

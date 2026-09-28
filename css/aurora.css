@@ -1150,7 +1150,9 @@ body.page-404 .nav-actions { display: block; }
   text-decoration: none; border-radius: 0 0 10px 10px;
   transition: top 0.16s ease;
 }
-.skip-link:focus { top: 0; }
+/* :focus-visible, not :focus — a mouse click that lands focus on the page
+   was dropping it into view. Keyboard users still get it on the first Tab. */
+.skip-link:focus-visible { top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
@@ -1217,4 +1219,21 @@ body.page-404 .nav-actions { display: block; }
     align-items: center !important;
     justify-content: center !important;
   }
+}
+
+
+/* ── Page title + subhead (Company, Partners, Resources pages) ───────────────
+   The page's own name leads, in the brand blue, so every top-level page opens
+   the same way ("About Us", "Careers", "Documentation"…); the page's headline
+   follows as a white subhead. Scoped under .section-wrap so it outranks each
+   page's own inline `.xxx-hero h1` rule. */
+.section-wrap h1.page-title-h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 3.5rem); letter-spacing: -0.03em; line-height: 1.1;
+  margin: 0 0 14px;
+}
+.section-wrap .page-subhead {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.02em; line-height: 1.3;
+  color: var(--white); margin: 0; max-width: 36ch; text-wrap: balance;
 }

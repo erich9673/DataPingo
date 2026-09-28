@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>DataPingo — Productivity Apps for Atlassian Teams</title>
+  <title>DataPingo — Focused Applications for Atlassian Teams</title>
   <meta name="description" content="DataPingo builds apps that fix the everyday frustrations in the Atlassian ecosystem — each one solving a single problem in Confluence or Jira, completely.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://datapingo.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/">
-  <meta property="og:title" content="DataPingo — Productivity Apps for Atlassian Teams">
+  <meta property="og:title" content="DataPingo — Focused Applications for Atlassian Teams">
   <meta property="og:description" content="Forge-hosted apps for Confluence and Jira. Automate repetitive workflows — zero data stored outside Atlassian.">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="DataPingo — bulk work, done in one pass. Apps for Confluence and Jira.">
   <meta property="og:site_name" content="DataPingo">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DataPingo — Productivity Apps for Atlassian Teams">
+  <meta name="twitter:title" content="DataPingo — Focused Applications for Atlassian Teams">
   <meta name="twitter:description" content="Forge-hosted apps for Confluence and Jira. Automate repetitive workflows.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
@@ -64,6 +64,127 @@
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
   <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <style>
+    /* Home — the "Two apps" and "Built on Atlassian" sections from the
+       2026-09-28 redesign, kept inside the original home page (Eric kept
+       these two and reverted the rest). Dark ground; the review card is the
+       one light surface. Purple = Bulk Comments, blue = Bulk Page Cloner. */
+    .hm { --hm-rule: rgba(148,170,196,0.14); --hm-raised: #050D19; --hm-ink: #E8F4FF; --hm-muted: #9AADC4;
+      --bcj: #5B5EEA; --bcj-txt: #A5B4FC; --bpc: #05CEF0; --bpc-txt: #67E8F9;
+      --paper: #FBFBFD; --paper-2: #F1F3F8; --paper-line: #E3E6EE; --paper-ink: #172B4D; --paper-muted: #5B6780; }
+    .hm-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 10px; font-size: 0.9rem;
+      font-weight: 600; text-decoration: none; white-space: nowrap; transition: filter 0.18s, border-color 0.18s, background 0.18s; }
+    .hm-btn svg { width: 14px; height: 14px; }
+    .hm-btn--light { background: var(--paper); color: #0B1426; }
+    .hm-btn--light:hover { filter: brightness(0.94); }
+    .hm-btn--ghost { color: var(--hm-ink); border: 1px solid rgba(148,170,196,0.28); padding: 12px 23px; }
+    .hm-btn--ghost:hover { border-color: rgba(232,244,255,0.5); background: rgba(255,255,255,0.03); }
+    .hm-btn:focus-visible, .hm-link:focus-visible { outline: 2px solid #A5F3FC; outline-offset: 3px; }
+    /* Sections */
+    .hm-sec { padding: 104px 0; border-top: 1px solid var(--hm-rule); }
+    .hm-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    .hm-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hm-muted); margin: 0 0 14px; }
+    .hm-h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; letter-spacing: -0.035em;
+      line-height: 1.1; color: var(--hm-ink); margin: 0 0 14px; text-wrap: balance; }
+    .hm-lede { font-size: 1.02rem; line-height: 1.7; color: var(--hm-muted); margin: 0; max-width: 600px; }
+
+    /* Hero app tiles — the two apps as doors under the hero buttons, left-aligned
+       with the copy. Purple = Bulk Comments (Jira), blue = Bulk Page Cloner
+       (Confluence). They replace the four stat boxes and the Confluence / Jira
+       badges; the facts that mattered move into one line beneath them. */
+    .hero .hero-sub { margin-bottom: 40px; }
+    .hero-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 330px)); gap: 14px;
+      opacity: 0; animation: textReveal 0.7s var(--ease-expo) 0.68s both; }
+    .hero-door { position: relative; display: flex; align-items: center; gap: 14px; text-decoration: none;
+      padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(148,170,196,0.16); overflow: hidden;
+      background: rgba(5,13,25,0.8); transition: border-color 0.2s, transform 0.2s; }
+    .hero-door::before { content: ''; position: absolute; inset: 0; pointer-events: none; }
+    .hero-door--bcj::before { background: radial-gradient(ellipse 90% 120% at 100% 0%, rgba(44,33,112,0.75), transparent 70%); }
+    .hero-door--bpc::before { background: radial-gradient(ellipse 90% 120% at 100% 0%, rgba(14,58,110,0.75), transparent 70%); }
+    .hero-door > * { position: relative; }
+    .hero-door:hover { border-color: rgba(232,244,255,0.35); transform: translateY(-2px); }
+    .hero-door:focus-visible { outline: 2px solid #A5F3FC; outline-offset: 3px; }
+    .hero-door img { width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0; }
+    .hero-door small { display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-door--bcj small { color: #A5B4FC; } .hero-door--bpc small { color: #67E8F9; }
+    .hero-door b { display: block; font: 800 1.02rem 'Plus Jakarta Sans', sans-serif; color: var(--white); letter-spacing: -0.02em; }
+    .hero-door span { display: block; font-size: 0.82rem; color: var(--slate); margin-top: 2px; }
+    .hero-door .arr { margin-left: auto; color: var(--slate); font-size: 1.05rem; }
+    /* The live site's stat bar, now under the tiles instead of the buttons. */
+    /* Same width as the two tiles above (2 × 330 + 14 gap), so their edges line up. */
+    .hero .hero-stats { margin-top: 24px; animation-delay: 0.8s; max-width: 674px; }
+    @media (max-width: 760px) { .hero-doors { grid-template-columns: minmax(0, 1fr); } }
+    @media (prefers-reduced-motion: reduce) { .hero-doors { animation: none; opacity: 1; } .hero-door { transition: none; } }
+
+    /* Section headers sit centred, like the rest of the home page. */
+    .hm-sec .hm-eyebrow, .hm-sec .hm-h2 { text-align: center; }
+    .hm-sec .hm-h2 { margin-left: auto; margin-right: auto; max-width: 900px; }
+    .hm-sec .hm-lede { text-align: center; margin: 0 auto; }
+
+    /* Two apps */
+    .hm-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+    .hm-app { position: relative; border: 1px solid var(--hm-rule); border-radius: 18px; padding: 30px 30px 28px; overflow: hidden;
+      background: var(--hm-raised); display: flex; flex-direction: column; }
+    .hm-app::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.9; }
+    .hm-app--bcj::before { background: radial-gradient(ellipse 80% 70% at 100% 0%, rgba(44,33,112,0.55), transparent 70%); }
+    .hm-app--bpc::before { background: radial-gradient(ellipse 80% 70% at 100% 0%, rgba(14,58,110,0.55), transparent 70%); }
+    .hm-app > * { position: relative; }
+    .hm-app-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .hm-app-top img { width: 48px; height: 48px; border-radius: 12px; }
+    .hm-app-top small { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hm-app--bcj .hm-app-top small { color: var(--bcj-txt); } .hm-app--bpc .hm-app-top small { color: var(--bpc-txt); }
+    .hm-app-top b { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.12rem; font-weight: 800; color: var(--hm-ink); letter-spacing: -0.02em; }
+    .hm-fig { height: 132px; margin: 0 0 22px; border-radius: 12px; border: 1px solid var(--hm-rule); background: rgba(2,9,17,0.55); }
+    .hm-fig svg { width: 100%; height: 100%; display: block; }
+    .hm-app h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em;
+      line-height: 1.2; color: var(--hm-ink); margin: 0 0 10px; }
+    .hm-app p { font-size: 0.96rem; line-height: 1.7; color: var(--hm-muted); margin: 0 0 22px; }
+    .hm-app-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    .hm-app-foot .hm-btn { padding: 11px 20px; font-size: 0.86rem; }
+    .hm-app--bcj .hm-btn--app { background: var(--bcj); color: #fff; }
+    .hm-app--bpc .hm-btn--app { background: var(--bpc); color: #020911; }
+    .hm-btn--app:hover { filter: brightness(1.08); }
+    .hm-link { font-size: 0.88rem; font-weight: 600; color: var(--hm-ink); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .hm-link svg { width: 12px; height: 12px; }
+    .hm-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .hm-free { width: 100%; font-size: 0.8rem; color: var(--hm-muted); }
+
+    /* Proof — the review is the other light surface */
+    .hm-proof { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; margin-top: 48px; }
+    .hm-review { background: var(--paper); color: var(--paper-ink); border-radius: 18px; padding: 32px 34px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4); margin: 0; }
+    .hm-review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .hm-stars { display: flex; gap: 3px; } .hm-stars svg { width: 18px; height: 18px; }
+    .hm-mp { display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 700; color: #0C66E4; }
+    .hm-mp svg { width: 12px; height: 12px; fill: currentColor; }
+    .hm-review blockquote { margin: 0 0 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.18rem; font-weight: 600;
+      line-height: 1.55; letter-spacing: -0.01em; color: var(--paper-ink); }
+    .hm-review figcaption { display: flex; align-items: center; gap: 12px; font-size: 0.86rem; color: var(--paper-muted); }
+    .hm-review figcaption i { width: 38px; height: 38px; border-radius: 50%; background: #E4E9FF; color: #1F4FE0; font-style: normal;
+      font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .hm-review figcaption b { display: block; color: var(--paper-ink); font-weight: 700; }
+    .hm-trust { list-style: none; margin: 0; padding: 0; }
+    .hm-trust li { display: grid; grid-template-columns: 36px 1fr; gap: 4px 14px; padding: 18px 0; border-top: 1px solid var(--hm-rule); }
+    .hm-trust li:last-child { border-bottom: 1px solid var(--hm-rule); }
+    .hm-trust .ic { grid-row: span 2; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      background: rgba(87,157,255,0.12); color: #7CB4FF; }
+    .hm-trust .ic svg { width: 17px; height: 17px; }
+    .hm-trust b { font-size: 0.98rem; color: var(--hm-ink); font-weight: 700; }
+    .hm-trust span { font-size: 0.9rem; line-height: 1.6; color: var(--hm-muted); }
+
+    @media (max-width: 980px) {
+      .hm-apps, .hm-proof { grid-template-columns: minmax(0, 1fr); }
+      .hm-proof { gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .hm-wrap { padding: 0 20px; }
+      .hm-sec { padding: 80px 0; }
+      .hm-app { padding: 24px 22px; }
+      .hm-review { padding: 26px 24px; }
+      .hm-btn { justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hm-btn { transition: none; } }
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -114,7 +235,7 @@
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
           <div class="dropdown-content" role="menu">
-            <a href="/resources/blog" role="menuitem">Updates &amp; Blog</a>
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
             <a href="/resources/use-cases" role="menuitem">Use Cases</a>
             <a href="/resources/documentation" role="menuitem">Documentation</a>
           </div>
@@ -156,7 +277,7 @@
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Resources</div>
-      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blog</a>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
       <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
       <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
     </div>
@@ -184,59 +305,20 @@
     </div>
     <div class="hero-inner">
       <h1>
-        <span class="hero-h1-line1">Powerful</span>
+        <span class="hero-h1-line1">Focused</span>
         <span class="hero-h1-line2">Applications For</span>
         <span class="hero-h1-line3"><span class="grad-text">Atlassian Teams</span></span>
       </h1>
       <p class="hero-sub">DataPingo builds apps that fix the everyday frustrations in the Atlassian ecosystem — each one solving a single problem in Confluence or Jira, completely.</p>
-      <div class="hero-ctas">
-        <a href="#featured-product" class="btn-primary">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          Browse Apps
-        </a>
-        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-secondary">
-          View on Marketplace
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
+      <div class="hero-doors">
+        <a href="/products/bulk-comments" class="hero-door hero-door--bcj"><img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="" width="44" height="44"><div><small>For Jira</small><b>Bulk Comments</b><span>25 issues, a comment on each</span></div><span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a href="/products/bulk-page-cloner" class="hero-door hero-door--bpc"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="" width="44" height="44"><div><small>For Confluence</small><b>Bulk Page Cloner</b><span>One page into 25 named copies</span></div><span class="arr" aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="hero-stats" aria-label="Key stats">
-        <div class="hero-stat"><div class="stat-number">Forge</div><div class="stat-label">Hosted &amp; Certified</div></div>
-        <div class="hero-stat"><div class="stat-number">Free</div><div class="stat-label">Trial Available</div></div>
+      <div class="hero-stats" aria-label="Key facts">
+        <div class="hero-stat"><div class="stat-number">Forge</div><div class="stat-label">Runs on Atlassian</div></div>
+        <div class="hero-stat"><div class="stat-number">Free</div><div class="stat-label">For Teams up to 10</div></div>
         <div class="hero-stat"><div class="stat-number">Zero</div><div class="stat-label">Data Stored by Us</div></div>
         <div class="hero-stat"><div class="stat-number">Direct</div><div class="stat-label">Developer Support</div></div>
-      </div>
-    </div>
-  <!-- ③  PLATFORMS — "Runs natively inside" (Deel pattern) -->
-    <div class="platforms-section" aria-label="Platform integrations">
-      <div class="platforms-inner">
-        <p class="platforms-label">Runs natively inside your Atlassian tools</p>
-        <div class="platforms-row">
-
-          <!-- Confluence -->
-          <a href="/products/bulk-page-cloner" class="platform-badge" aria-label="Confluence integration">
-            <div class="platform-badge-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                <rect width="24" height="24" rx="5" fill="#2684FF" opacity="0.18"/>
-                <path d="M4.5 16.8c-.25.4-.05.9.4 1.05l3.2 1.05c.35.12.73-.02.9-.35.85-1.6 1.5-3 3-4.4a.5.5 0 01.7 0c1.5 1.4 2.15 2.8 3 4.4.17.33.55.47.9.35l3.2-1.05c.45-.15.65-.65.4-1.05C17.9 13.45 15.1 11 12 11s-5.9 2.45-7.5 5.8z" fill="#2684FF"/>
-                <path d="M19.5 7.2c.25-.4.05-.9-.4-1.05L15.9 5.1c-.35-.12-.73.02-.9.35-.85 1.6-1.5 3-3 4.4a.5.5 0 01-.7 0c-1.5-1.4-2.15-2.8-3-4.4-.17-.33-.55-.47-.9-.35L4.2 6.15c-.45.15-.65.65-.4 1.05C5.4 10.3 8.1 13 12 13s6.6-2.7 7.5-5.8z" fill="#2684FF" opacity="0.6"/>
-              </svg>
-            </div>
-            <span>Confluence</span>
-          </a>
-
-          <!-- Jira -->
-          <a href="/products/bulk-comments" class="platform-badge" aria-label="Jira integration">
-            <div class="platform-badge-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                <rect width="24" height="24" rx="5" fill="#2684FF" opacity="0.18"/>
-                <path d="M12 3.5L4.5 11l3.25 3.25L12 10.5l4.25 3.75L19.5 11 12 3.5z" fill="#2684FF"/>
-                <path d="M12 13.5l-4.25 3.75L11 20.5l1-1 1 1 3.25-3.25L12 13.5z" fill="#2684FF" opacity="0.6"/>
-              </svg>
-            </div>
-            <span>Jira</span>
-          </a>
-
-        </div>
       </div>
     </div>
     <a href="#featured-product" class="hero-scroll" aria-label="Scroll down">
@@ -245,190 +327,55 @@
     </a>
   </section>
 
-  <!-- ④  PRODUCTS -->
-  <section class="products-section" id="featured-product" aria-labelledby="products-heading" style="scroll-margin-top:68px;">
-    <div class="section-wrap">
-      <header class="section-header reveal">
-        <p class="eyebrow"><span>Products</span></p>
-        <h2 class="section-title" id="products-heading">Apps Built for <span class="grad-text">Real Teams</span></h2>
-        <p class="section-desc">Purpose-built for Confluence and Jira — available on the Atlassian Marketplace today.</p>
-      </header>
-      <div class="products-stack">
-
-        <article class="product-card product-card--jira reveal">
-          <div class="product-info">
-            <div class="product-meta">
-              <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="Bulk Comments for Jira icon" class="product-icon" width="60" height="60" loading="lazy">
-              <div class="product-tag-row"><span class="product-tag product-tag--jira">Jira App</span><span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span></div>
-            </div>
-            <h3 class="product-name">Bulk Comments<br>for Jira</h3>
-            <p class="product-desc">All your comments on one page up to 25 issues at once &mdash; a different comment box for each issue. Works with Jira, JSM, CS, JPD.</p>
-            <div class="product-actions">
-              <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="btn-primary btn-primary--jira">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Install from Marketplace
-              </a>
-              <a href="/products/bulk-comments" class="btn-secondary">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
+  <!-- TWO APPS — one idea, both directions -->
+  <section class="hm hm-sec" id="featured-product" aria-labelledby="apps-heading" style="scroll-margin-top:68px;">
+    <div class="hm-wrap">
+      <p class="hm-eyebrow">Two apps, one idea</p>
+      <h2 class="hm-h2" id="apps-heading">Atlassian repeats the dialog. We give you one screen.</h2>
+      <p class="hm-lede">Each app fixes one job you have been doing by hand, completely &mdash; and nothing more.</p>
+      <div class="hm-apps">
+        <article class="hm-app hm-app--bcj">
+          <div class="hm-app-top"><img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="" width="48" height="48"><div><small>For Jira</small><b>Bulk Comments</b></div></div>
+          <div class="hm-fig"><svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect x="20" y="13" width="92" height="18" rx="5" fill="rgba(165,180,252,0.1)" stroke="rgba(165,180,252,0.35)"/><text x="30" y="26" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#C7D2FE">SUP-241</text><rect x="20" y="35" width="92" height="18" rx="5" fill="rgba(165,180,252,0.1)" stroke="rgba(165,180,252,0.35)"/><text x="30" y="48" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#C7D2FE">PAY-418</text><rect x="20" y="57" width="92" height="18" rx="5" fill="rgba(165,180,252,0.1)" stroke="rgba(165,180,252,0.35)"/><text x="30" y="70" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#C7D2FE">PAY-412</text><rect x="20" y="79" width="92" height="18" rx="5" fill="rgba(165,180,252,0.1)" stroke="rgba(165,180,252,0.35)"/><text x="30" y="92" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#C7D2FE">HD-118</text><rect x="20" y="101" width="92" height="18" rx="5" fill="rgba(165,180,252,0.1)" stroke="rgba(165,180,252,0.35)"/><text x="30" y="114" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" fill="#C7D2FE">OPS-77</text><path d="M114 22 C 170 22, 170 66, 222 66" fill="none" stroke="#6366F1" stroke-opacity="0.55" stroke-width="1.4"/><path d="M114 44 C 170 44, 170 66, 222 66" fill="none" stroke="#6366F1" stroke-opacity="0.55" stroke-width="1.4"/><path d="M114 66 C 170 66, 170 66, 222 66" fill="none" stroke="#6366F1" stroke-opacity="0.55" stroke-width="1.4"/><path d="M114 88 C 170 88, 170 66, 222 66" fill="none" stroke="#6366F1" stroke-opacity="0.55" stroke-width="1.4"/><path d="M114 110 C 170 110, 170 66, 222 66" fill="none" stroke="#6366F1" stroke-opacity="0.55" stroke-width="1.4"/><rect x="224" y="20" width="154" height="92" rx="9" fill="#11102A" stroke="#818CF8"/><rect x="236" y="32" width="126" height="7" rx="3.5" fill="rgba(165,180,252,0.55)"/><rect x="236" y="46" width="104" height="7" rx="3.5" fill="rgba(165,180,252,0.25)"/><rect x="236" y="60" width="118" height="7" rx="3.5" fill="rgba(165,180,252,0.55)"/><rect x="236" y="74" width="90" height="7" rx="3.5" fill="rgba(165,180,252,0.25)"/><rect x="236" y="88" width="110" height="7" rx="3.5" fill="rgba(165,180,252,0.55)"/><text x="301" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#8B93AE">ONE PAGE</text></svg></div>
+          <h3>Many issues, one page.</h3>
+          <p>Put up to 25 issues on one page and write a different comment on each &mdash; an internal note or a reply to the customer on Jira Service Management.</p>
+          <div class="hm-app-foot">
+            <a href="/products/bulk-comments" class="hm-btn hm-btn--app">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener" class="hm-link">View on Marketplace <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <span class="hm-free">Free for teams up to 10 &middot; works with every Jira product</span>
           </div>
-          <aside class="feature-panel feature-panel--jira" aria-label="Key features">
-            <p class="feature-panel-title">Key Features</p>
-            <ul class="feature-list">
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full issue context beside every comment — description, details &amp; attachments</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Move issue status and make a comment — plus images, video &amp; files up to 150 MB each</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Guided 3-step flow with live delivery, retry &amp; per-issue receipts</li>
-            </ul>
-          </aside>
         </article>
-
-        <article class="product-card reveal delay-1">
-          <div class="product-info">
-            <div class="product-meta">
-              <img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="Bulk Page Cloner for Confluence icon" class="product-icon" width="60" height="60" loading="lazy">
-              <div class="product-tag-row"><span class="product-tag">Confluence App</span><span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span></div>
-            </div>
-            <h3 class="product-name">Bulk Page Cloner<br>for Confluence</h3>
-            <p class="product-desc">Use an existing Confluence page as a template and duplicate it up to 25 times — content, media, macros, labels and attachments copied exactly.</p>
-            <div class="product-actions">
-              <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="btn-primary">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Install from Marketplace
-              </a>
-              <a href="/products/bulk-page-cloner" class="btn-secondary">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-            </div>
+        <article class="hm-app hm-app--bpc">
+          <div class="hm-app-top"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="" width="48" height="48"><div><small>For Confluence</small><b>Bulk Page Cloner</b></div></div>
+          <div class="hm-fig"><svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect x="22" y="20" width="120" height="92" rx="9" fill="#06182E" stroke="#22D3EE"/><rect x="34" y="32" width="92" height="7" rx="3.5" fill="rgba(103,232,249,0.55)"/><rect x="34" y="46" width="76" height="7" rx="3.5" fill="rgba(103,232,249,0.25)"/><rect x="34" y="60" width="86" height="7" rx="3.5" fill="rgba(103,232,249,0.55)"/><rect x="34" y="74" width="64" height="7" rx="3.5" fill="rgba(103,232,249,0.25)"/><rect x="34" y="88" width="80" height="7" rx="3.5" fill="rgba(103,232,249,0.55)"/><path d="M144 66 C 196 66, 196 22, 250 22" fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"/><path d="M144 66 C 196 66, 196 44, 250 44" fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"/><path d="M144 66 C 196 66, 196 66, 250 66" fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"/><path d="M144 66 C 196 66, 196 88, 250 88" fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"/><path d="M144 66 C 196 66, 196 110, 250 110" fill="none" stroke="#22D3EE" stroke-opacity="0.5" stroke-width="1.4"/><rect x="252" y="13" width="126" height="18" rx="5" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.32)"/><text x="262" y="26" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#A5F3FC">Q3 Report — Project B</text><rect x="252" y="35" width="126" height="18" rx="5" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.32)"/><text x="262" y="48" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#A5F3FC">Q3 Report — Project C</text><rect x="252" y="57" width="126" height="18" rx="5" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.32)"/><text x="262" y="70" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#A5F3FC">Q3 Report — Project D</text><rect x="252" y="79" width="126" height="18" rx="5" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.32)"/><text x="262" y="92" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#A5F3FC">Q3 Report — Project E</text><rect x="252" y="101" width="126" height="18" rx="5" fill="rgba(103,232,249,0.08)" stroke="rgba(103,232,249,0.32)"/><text x="262" y="114" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#A5F3FC">Q3 Report — Project F</text><text x="82" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#8B93AE">ONE PAGE</text></svg></div>
+          <h3>One page, twenty-five copies.</h3>
+          <p>Duplicate one page up to 25 times, every copy named before it runs and placed exactly where you want &mdash; macros, labels and attachments intact.</p>
+          <div class="hm-app-foot">
+            <a href="/products/bulk-page-cloner" class="hm-btn hm-btn--app">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="hm-link">View on Marketplace <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <span class="hm-free">Free for teams up to 10 &middot; any space you can reach</span>
           </div>
-          <aside class="feature-panel" aria-label="Key features">
-            <p class="feature-panel-title">Key Features</p>
-            <ul class="feature-list">
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Clone up to 25 pages in one pass</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Full fidelity — media, macros, labels &amp; attachments</li>
-              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Guided 4-step flow with live clone summary</li>
-            </ul>
-          </aside>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ⑤  HOW IT WORKS -->
-  <section class="how-section" aria-labelledby="how-heading">
-    <div class="section-wrap">
-      <header class="section-header reveal">
-        <p class="eyebrow"><span>How It Works</span></p>
-        <h2 class="section-title" id="how-heading">Up and Running in <span class="grad-text">Minutes</span></h2>
-        <p class="section-desc">No complex setup, no professional services. Install from the Marketplace and start using the same day.</p>
-      </header>
-      <div class="steps-grid">
-        <div class="step-card reveal">
-          <div class="step-num" aria-hidden="true">01</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </div>
-          <h3 class="step-title">Install from Marketplace</h3>
-          <p class="step-desc">One click from the Atlassian Marketplace into your Confluence or Jira Cloud instance. No configuration files.</p>
-        </div>
-        <div class="step-card reveal delay-1">
-          <div class="step-num" aria-hidden="true">02</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3 class="step-title">Open inside Atlassian</h3>
-          <p class="step-desc">Apps run natively inside Confluence and Jira — no external logins, no extensions. Open from the sidebar and go.</p>
-        </div>
-        <div class="step-card reveal delay-2">
-          <div class="step-num" aria-hidden="true">03</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3 class="step-title">Start Saving Time</h3>
-          <p class="step-desc">Clone pages in bulk, or comment across dozens of issues at once. Work you repeated by hand, done in one pass.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑥  REVIEW — Atlassian Marketplace customer review -->
-  <section class="review-section" aria-label="Customer review">
-    <div class="review-inner reveal">
-      <p class="eyebrow review-eyebrow"><span>Customer Reviews</span></p>
-      <div class="review-stars" aria-label="5 out of 5 stars">
-        <svg viewBox="0 0 20 20" fill="#05CEF0" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        <svg viewBox="0 0 20 20" fill="#05CEF0" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        <svg viewBox="0 0 20 20" fill="#05CEF0" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        <svg viewBox="0 0 20 20" fill="#05CEF0" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        <svg viewBox="0 0 20 20" fill="#05CEF0" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-      </div>
-      <blockquote class="review-quote">
-        This is the only app I could find that sounded like it would do what I wanted and this works as I expected. Select a page you want to copy and make a bunch of copies with new names. Room for improvement, sure, but the developer is very responsive!
-      </blockquote>
-      <div class="review-attribution">
-        <div class="review-avatar" aria-hidden="true">K.M.</div>
-        <div class="review-meta">
-          <p class="review-name">Enterprise IS Manager</p>
-          <p class="review-source">
-            <span>Jun 3, 2026</span>
-            <span aria-hidden="true">·</span>
-            <span class="review-source-badge">Atlassian Marketplace</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑦  CREDENTIALS — HubSpot/Salesforce trust badge pattern -->
-  <section class="credentials-section" aria-labelledby="credentials-heading">
-    <div class="section-wrap">
-      <header class="section-header reveal">
-        <p class="eyebrow"><span>Built on Atlassian</span></p>
-        <h2 class="section-title" id="credentials-heading">Your data stays <span class="grad-text">inside Atlassian</span></h2>
-        <p class="section-desc">Every app runs on Atlassian Forge — no external servers, no third-party storage.</p>
-      </header>
-      <div class="credentials-grid">
-
-        <div class="credential-card credential-atlassian reveal">
-          <div class="credential-icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="rgba(38,132,255,0.1)"/>
-              <path d="M12 4L6.5 13h3.5L8 20l9.5-9h-4L12 4z" fill="#2684FF"/>
-            </svg>
-          </div>
-          <div class="credential-body">
-            <p class="credential-eyebrow">Available on</p>
-            <p class="credential-name">Atlassian Marketplace</p>
-            <p class="credential-desc">Listed and distributed through the official Marketplace — reviewed by Atlassian, installable in one click.</p>
-          </div>
-        </div>
-
-        <div class="credential-card credential-forge reveal delay-1">
-          <div class="credential-icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3l-6.5 11h4.5L8.5 21 18.5 10h-5L12 3z" fill="#05CEF0"/>
-            </svg>
-          </div>
-          <div class="credential-body">
-            <p class="credential-eyebrow">Hosted on</p>
-            <p class="credential-name">Atlassian Forge</p>
-            <p class="credential-desc">Forge is Atlassian's own hosting platform. Your Confluence and Jira data never leaves their infrastructure.</p>
-          </div>
-        </div>
-
-        <div class="credential-card credential-security reveal delay-2">
-          <div class="credential-icon-wrap" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C4DCC" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="credential-body">
-            <p class="credential-eyebrow">Guaranteed</p>
-            <p class="credential-name">Zero External Servers</p>
-            <p class="credential-desc">Nothing is stored or processed on our servers — only the Atlassian API permissions each app explicitly requires.</p>
-          </div>
-        </div>
-
+  <!-- PROOF — the one real review, beside the platform facts -->
+  <section class="hm hm-sec" aria-labelledby="proof-heading">
+    <div class="hm-wrap">
+      <p class="hm-eyebrow">Built on Atlassian</p>
+      <h2 class="hm-h2" id="proof-heading">It runs inside Atlassian. Nothing leaves it.</h2>
+      <div class="hm-proof">
+        <figure class="hm-review">
+          <div class="hm-review-top"><div class="hm-stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="#F5A524" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg viewBox="0 0 20 20" fill="#F5A524" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg viewBox="0 0 20 20" fill="#F5A524" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg viewBox="0 0 20 20" fill="#F5A524" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg viewBox="0 0 20 20" fill="#F5A524" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div><span class="hm-mp"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.57 .78l6.63 4.16-6.63 4.16L.95 4.94z"/><path d="M13.1 6.71L7.5 10.23 1.9 6.71l-1.4.88 7 4.39 7-4.39z"/><path d="M13.1 9.51L7.5 13.02 1.9 9.51l-1.4.88 7 4.39 7-4.39z"/></svg>Atlassian Marketplace review</span></div>
+          <blockquote>&ldquo;This is the only app I could find that sounded like it would do what I wanted and this works as I expected. Select a page you want to copy and make a bunch of copies with new names. Room for improvement, sure, but the developer is very responsive!&rdquo;</blockquote>
+          <figcaption><i aria-hidden="true">K.M.</i><div><b>Enterprise IS Manager</b>Bulk Page Cloner &middot; Jun 3, 2026</div></figcaption>
+        </figure>
+        <ul class="hm-trust">
+          <li><span class="ic"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.57 .78l6.63 4.16-6.63 4.16L.95 4.94z"/><path d="M13.1 6.71L7.5 10.23 1.9 6.71l-1.4.88 7 4.39 7-4.39z"/><path d="M13.1 9.51L7.5 13.02 1.9 9.51l-1.4.88 7 4.39 7-4.39z"/></svg></span><b>Runs on Atlassian</b><span>Hosted on Atlassian Forge and badged by Atlassian &mdash; no servers of ours in the path.</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><b>Nothing leaves your instance</b><span>Your Jira and Confluence data stays in Atlassian&rsquo;s cloud. We store nothing.</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><b>Open it from the sidebar</b><span>Install from the Marketplace and it is there &mdash; no setup, no extra logins.</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -438,11 +385,11 @@
     <div class="section-wrap">
       <div class="cta-inner reveal">
         <h2 class="cta-title" id="cta-heading">Ready to reclaim your team's time?</h2>
-        <p class="cta-desc">Stop doing manual work. Start free on the Atlassian Marketplace.</p>
+        <p class="cta-desc">Free for teams up to 10, on the Atlassian Marketplace.</p>
         <div class="cta-actions">
           <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Try Free on Marketplace
+            View on Marketplace
           </a>
           <a href="mailto:contact@datapingo.com" class="btn-secondary">Talk to the Team</a>
         </div>
@@ -494,7 +441,7 @@
       </div>
       <div class="footer-col">
         <h2>Resources</h2>
-        <a href="/resources/blog">Updates &amp; Blog</a>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
         <a href="/resources/use-cases">Use Cases</a>
         <a href="/resources/documentation">Documentation</a>
         <a href="/support">Support</a>

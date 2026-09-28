@@ -33,6 +33,7 @@
             { path: 'guide/about-the-app', title: 'About the app', blurb: 'Terms, keyboard and screen readers, light and dark, what is remembered.' },
             { path: 'guide/step-1-select-issues', title: 'Step 1 \u2014 Select', blurb: 'Search, the four filters, sort, and the tray that counts against the 25.' },
             { path: 'guide/step-2-write-comments', title: 'Step 2 \u2014 Comment', blurb: 'The card, the editor, and the controls that act on the whole batch.' },
+            { path: 'guide/comment-editor', title: 'The comment editor', blurb: 'Every format and shortcut, tables, code, mentions and attachments.' },
             { path: 'guide/step-3-send-the-batch', title: 'Step 3 \u2014 Send', blurb: 'The send guard, the live counters, and what each result row means.' },
             { path: 'guide/service-management', title: 'Service Management and Customer Management', blurb: 'Choosing the audience, sending both a reply and a note, and the batch controls that only requests have.' }
           ]
@@ -88,7 +89,7 @@
             { path: 'guide/step-1-source', title: 'Step 1 \u2014 Source', blurb: 'Pick the one page every copy is made from.' },
             { path: 'guide/step-2-copies', title: 'Step 2 \u2014 Copies', blurb: 'How many copies, and what each one is called.' },
             { path: 'guide/step-3-location', title: 'Step 3 \u2014 Location', blurb: 'Which space they land in, and where they sit in the tree.' },
-            { path: 'guide/step-4-done', title: 'Step 4 \u2014 Done', blurb: 'Every page created, with a direct link to each.' }
+            { path: 'guide/step-4-done', title: 'Step 4 \u2014 Done', blurb: 'Every copy, with a direct link to each.' }
           ]
         },
         { path: 'admin', title: 'Admin guide', blurb: 'The Confluence permissions that govern what the app can read and write.' },
@@ -100,7 +101,7 @@
             { path: 'specs', title: 'Specs & security', blurb: 'Scopes, data handling, and where everything runs.' }
           ]
         },
-        { path: 'faq', title: 'FAQ', blurb: 'The questions that come up before, during and after a clone.' },
+        { path: 'faq', title: 'FAQ', blurb: 'The questions that come up before, during and after duplicating.' },
         { path: 'troubleshooting', title: 'Help and support', blurb: 'Errors the app can show, and what to do about each.' },
         {
           path: 'release-notes', title: 'Release notes', blurb: 'Every version, newest first.',
@@ -173,7 +174,13 @@
         row.appendChild(a);
 
         const sub = el('div', 'doc-tree-children');
-        kids.forEach((c) => {
+        // Release notes grow by one every version. The rail shows the newest
+        // three (plus the one you are reading, if it is older) and a link to
+        // the full list, so the tree stays one screen tall on a phone.
+        const RN_SHOWN = 3;
+        const isRN = p.path === 'release-notes' && kids.length > RN_SHOWN + 1;
+        kids.forEach((c, ci) => {
+          if (isRN && ci >= RN_SHOWN && !isHere(c)) return;
           const ca = el('a', null, c.title);
           // "Step 2 — Write a different comment on each" is the page's name and
           // stays that in the breadcrumb and in prev/next. In a 236px rail the
@@ -190,6 +197,11 @@
           if (isHere(c)) { ca.className = 'is-current'; ca.setAttribute('aria-current', 'page'); }
           sub.appendChild(ca);
         });
+        if (isRN) {
+          const all = el('a', 'doc-tree-more', 'All ' + kids.length + ' versions \u2192');
+          all.href = href(p);
+          sub.appendChild(all);
+        }
 
         nav.appendChild(row);
         nav.appendChild(sub);
@@ -207,6 +219,36 @@
     });
   }
 
+
+  // ── 2. Breadcrumbs ────────────────────────────────────────────────────────
+  // The header eyebrow used to be the product name in capitals on every page.
+  // It now says where the page sits: Docs / product / section. The current
+  // page is left out — it is the H1 directly underneath.
+  const crumbHost = document.querySelector('.page-hero-eyebrow');
+  if (crumbHost && current) {
+    const trail = [{ title: 'Docs', href: DOCS_ROOT }, { title: tree.product, href: tree.root }];
+    if (parent && parent.path) trail.push({ title: parent.title, href: href(parent) });
+    crumbHost.textContent = '';
+    const nav = el('nav');
+    nav.setAttribute('aria-label', 'Breadcrumb');
+    nav.style.display = 'contents';
+    trail.forEach((c, i) => {
+      if (i) nav.appendChild(el('span', 'doc-crumb-sep', '/')).setAttribute('aria-hidden', 'true');
+      const a = el('a', null, c.title);
+      a.href = c.href;
+      nav.appendChild(a);
+    });
+    crumbHost.appendChild(nav);
+  }
+
+  // ── 2b. Search and the phone bar ──────────────────────────────────────────
+  // Both live in docs-nav.js, loaded from here so no page needs another tag.
+  if (!document.querySelector('script[src="/js/docs-nav.js"]')) {
+    const sc = document.createElement('script');
+    sc.src = '/js/docs-nav.js';
+    sc.defer = true;
+    document.head.appendChild(sc);
+  }
 
   // ── 3. Child cards on a parent page ───────────────────────────────────────
   const childHost = document.querySelector('[data-doc-children]');
