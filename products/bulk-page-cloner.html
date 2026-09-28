@@ -1657,34 +1657,29 @@
     bpc:     { licenseType: 'standard', billingCycle: 'monthly' }
   };
 
-  // Flat-tier pricing: find the tier that contains userCount, price = userCount × tier.price
+  // Graduated bands, monthly USD per user — must stay in step with the pricing CSV
+  // uploaded to the Marketplace, or the site and the listing quote different numbers.
   const PRICING_TIERS = {
     bpc: {
       standard: [
         { min:1,    max:100,   price:0.70 },
-        { min:101,  max:250,   price:0.60 },
-        { min:251,  max:1000,  price:0.45 },
-        { min:1001, max:2500,  price:0.35 },
-        { min:2501, max:5000,  price:0.32 },
-        { min:5001, max:7500,  price:0.25 },
-        { min:7501, max:10000, price:0.21 },
-        { min:10001,max:15000, price:0.18 },
-        { min:15001,max:20000, price:0.16 },
-        { min:20001,max:35000, price:0.15 },
-        { min:35001,max:250000,price:0.14 }
+        { min:101,  max:250,   price:0.55 },
+        { min:251,  max:1000,  price:0.28 },
+        { min:1001, max:2500,  price:0.20 },
+        { min:2501, max:5000,  price:0.13 },
+        { min:5001, max:10000, price:0.05 },
+        { min:10001,max:30000, price:0.04 },
+        { min:30001,max:250000,price:0.03 }
       ],
       multiInstance: [
         { min:1,    max:100,   price:0.75 },
-        { min:101,  max:250,   price:0.64 },
-        { min:251,  max:1000,  price:0.48 },
-        { min:1001, max:2500,  price:0.37 },
-        { min:2501, max:5000,  price:0.34 },
-        { min:5001, max:7500,  price:0.27 },
-        { min:7501, max:10000, price:0.22 },
-        { min:10001,max:15000, price:0.19 },
-        { min:15001,max:20000, price:0.17 },
-        { min:20001,max:35000, price:0.16 },
-        { min:35001,max:250000,price:0.15 }
+        { min:101,  max:250,   price:0.59 },
+        { min:251,  max:1000,  price:0.30 },
+        { min:1001, max:2500,  price:0.21 },
+        { min:2501, max:5000,  price:0.14 },
+        { min:5001, max:10000, price:0.06 },
+        { min:10001,max:30000, price:0.05 },
+        { min:30001,max:250000,price:0.04 }
       ]
     }
   };
