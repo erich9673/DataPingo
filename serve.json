@@ -8,6 +8,14 @@
       "destination": "/index.html"
     },
     {
+      "source": "/lp/bulk-page-cloner",
+      "destination": "/lp/bulk-page-cloner.html"
+    },
+    {
+      "source": "/lp/bulk-comments",
+      "destination": "/lp/bulk-comments.html"
+    },
+    {
       "source": "/products/bulk-comments",
       "destination": "/products/bulk-comments.html"
     },

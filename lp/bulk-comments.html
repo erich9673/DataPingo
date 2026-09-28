@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Comments for Jira — Reply to 25 Jira service requests at once</title>
+  <meta name="description" content="Reply to up to 25 Jira Service Management requests in one send — a different reply on each, internal notes where agents need them, and every status moved on the same page.">
+  <!-- Ad landing page (ChatGPT Ads test, Oct 2026). Kept out of search so it
+       never competes with /products/bulk-comments. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://datapingo.com/products/bulk-comments">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <style>
+    /* One screen, one decision: what the ad promised, proof it is real, and
+       the Marketplace button. No site nav — this page exists to be compared
+       against the full product page, so it offers no other way forward. */
+    body.lp { background: var(--black); overflow-x: clip; --lp-accent: #A5B4FC; }
+    /* One screen: the hero centres in whatever height the window has, and the
+       footer sits on the bottom edge instead of floating mid-screen. */
+    body.lp { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+    body.lp main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    /* Flex children with margin:auto shrink to their content; keep them full width. */
+    body.lp > header, body.lp main > * { width: 100%; box-sizing: border-box; }
+    .lp-top { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .lp-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.05rem; }
+    .lp-brand img { width: 30px; height: 30px; }
+    .lp-roa { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; color: #579DFF; }
+    .lp-roa svg { fill: currentColor; }
+    .lp-hero { position: relative; max-width: 1120px; margin: 0 auto; padding: 12px 32px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 52px; align-items: center; }
+    .lp-hero::before { content: ''; position: absolute; inset: -120px 0 auto; height: 620px; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse 50% 60% at 30% 30%, rgba(79,82,230,0.26), transparent 70%); }
+    .lp-app { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; color: #A5B4FC; }
+    .lp-app img { width: 40px; height: 40px; border-radius: 10px; }
+    .lp-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.2vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin: 0 0 14px; text-wrap: balance; }
+    .lp-sub { font-size: 1.05rem; line-height: 1.6; color: var(--slate); margin: 0 0 18px; max-width: 46ch; }
+    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border-radius: 12px; font-size: 1.02rem; font-weight: 700; }
+    .lp-note { margin: 12px 0 0; font-size: 0.88rem; color: var(--slate); }
+    .lp-note strong { color: var(--white); font-weight: 600; }
+    .lp-end { text-align: center; padding: 8px 32px 72px; }
+    /* The three points sit in the text column as a checklist: the demo is the
+       taller column, so they cost no height and the page fits one screen. */
+    .lp-list { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .lp-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; line-height: 1.45; color: #CBD3E1; }
+    .lp-list svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; color: var(--lp-accent); }
+    /* The repeat CTA only earns its place where the page scrolls. */
+    .lp-end { display: none; }
+    .lp-foot { border-top: 1px solid var(--border); padding: 12px 32px; display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate); }
+    .lp-foot a { color: var(--slate); text-decoration: none; }
+    .lp-foot a:hover { color: var(--white); }
+    .lp a:focus-visible { outline: 2px solid #A5B4FC; outline-offset: 3px; border-radius: 8px; }
+    @media (max-width: 860px) {
+      .lp-hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 16px; }
+      .lp-cta { width: 100%; justify-content: center; }
+      .lp-top, .lp-hero { padding-left: 20px; padding-right: 20px; }
+      .lp-end { display: block; padding: 8px 20px 48px; }
+    }
+    /* Bulk Comments — hero demo, rebuilt 2026-09-28 in the same language as
+       Bulk Page Cloner's, then brought back to the app's real Step 2 layout:
+       the step rail (Select → Comment → Send); a collapsed issue navigator on
+       the left that peeks open on hover, exactly as the app's does; one card
+       per issue with slim comment fields and the STATUS control at the card's
+       FOOT, under the comment (4.7.0+); and the read-only Details panel, which
+       PUSHES in on the right and follows the card being written. A service
+       request carries two fields — reply to the customer, internal note.
+       Opens on a finished frame, replays, ends on the app's Send screen. */
+    .hv-fit { width: 100%; max-width: 620px; margin-left: auto; position: relative; user-select: none; }
+    .cd { position: relative; background: rgba(12,11,30,0.92); border: 1px solid var(--pp-line, rgba(129,140,248,0.5));
+      border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.5); }
+    .cd-rail { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .cd-step { display: flex; align-items: center; gap: 6px; font-size: 0.66rem; font-weight: 600; color: #8189A6; white-space: nowrap; }
+    .cd-step i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #353B5C; font-style: normal;
+      display: flex; align-items: center; justify-content: center; font-size: 0.56rem; font-weight: 700; color: #8189A6;
+      transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .cd-step i svg { width: 10px; height: 10px; display: none; }
+    .cd-step.on { color: var(--white); }
+    .cd-step.on i { background: #6366F1; border-color: #6366F1; color: #fff; }
+    .cd-step.done { color: #BCC3DB; }
+    .cd-step.done i { background: rgba(52,211,153,0.16); border-color: rgba(52,211,153,0.5); color: #6EE7A8; }
+    .cd-step.done i b { display: none; } .cd-step.done i svg { display: block; }
+    .cd-rail .sep { flex: 1; height: 1px; background: var(--border); min-width: 10px; }
+
+    .cd-body { position: relative; }
+    .cd-work, .cd-done { transition: opacity 0.35s ease; }
+    .cd-done { position: absolute; inset: 0; opacity: 0; pointer-events: none; display: flex; flex-direction: column;
+      justify-content: center; gap: 11px; }
+    .cd.is-done .cd-work { opacity: 0; }
+    .cd.is-done .cd-done { opacity: 1; }
+
+    /* Step 2: navigator strip | cards | Details panel */
+    .cd-stage { position: relative; display: flex; gap: 10px; align-items: stretch; }
+    .cd-strip { flex: 0 0 22px; display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 8px 0;
+      border: 1px solid var(--border); border-radius: 9px; background: rgba(255,255,255,0.02); }
+    .cd-strip .chev { font-size: 0.7rem; color: #8189A6; line-height: 1; margin-bottom: 2px; }
+    .cd-strip i { width: 6px; height: 6px; border-radius: 50%; background: #3A4063; transition: background 0.25s; }
+    .cd-strip i.ready { background: #34D399; }
+    .cd-strip i.cur { box-shadow: 0 0 0 3px rgba(99,102,241,0.35); }
+    .cd-col { flex: 1; min-width: 0; }
+    .cd-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .cd-head b { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #8189A6; }
+    .cd-head .clr { margin-left: auto; font-size: 0.6rem; font-weight: 600; color: #A3AACB; border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+    .cd-list { display: flex; flex-direction: column; gap: 8px; }
+    .cd-card { border: 1px solid var(--border); border-radius: 11px; padding: 9px 11px 9px; background: rgba(255,255,255,0.02);
+      transition: border-color 0.2s, box-shadow 0.2s; }
+    .cd-card.act { border-color: rgba(129,140,248,0.55); box-shadow: inset 2px 0 0 #6366F1; }
+    .cd-top { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; min-width: 0; }
+    .cd-ico { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
+    .cd-key { font-size: 0.6rem; font-weight: 700; color: #fff; background: #4F46E5; border-radius: 5px; padding: 3px 6px;
+      font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .cd-det { font-size: 0.62rem; font-weight: 700; color: #A5B4FC; flex-shrink: 0; padding: 1px 4px; border-radius: 4px;
+      transition: background 0.2s; }
+    .cd-det.on { background: rgba(99,102,241,0.22); color: #E0E4FF; }
+    .cd-title { flex: 1; min-width: 0; font-size: 0.78rem; font-weight: 700; color: var(--white);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cd-f { display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 9px; border-radius: 7px;
+      border: 1px solid rgba(129,140,248,0.28); background: rgba(99,102,241,0.05); font-size: 0.74rem; color: var(--white);
+      transition: border-color 0.2s; }
+    .cd-f + .cd-f { margin-top: 6px; }
+    .cd-f.int { border-color: rgba(240,173,78,0.4); background: rgba(240,173,78,0.05); }
+    .cd-f.focus { border-color: #818CF8; }
+    .cd-f.int.focus { border-color: #F0AD4E; }
+    .cd-tag { font-size: 0.56rem; font-weight: 700; border-radius: 4px; padding: 2px 6px; flex-shrink: 0; white-space: nowrap;
+      background: rgba(99,102,241,0.2); color: #C7D2FE; }
+    .cd-f.int .cd-tag { background: rgba(240,173,78,0.18); color: #F7C983; }
+    .cd-t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cd-t:empty::before { content: 'Write your comment\2026'; color: #626B8A; }
+    .cd-ok { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(52,211,153,0.16); color: #6EE7A8; opacity: 0; transform: scale(0.6); transition: opacity 0.2s, transform 0.2s; }
+    .cd-ok svg { width: 9px; height: 9px; }
+    .cd-card.sent .cd-ok { opacity: 1; transform: none; }
+    /* Status lives at the FOOT of the card, under the comment — the app's layout. */
+    .cd-sfoot { display: flex; align-items: center; gap: 7px; margin-top: 7px; }
+    .cd-sfoot small { font-size: 0.54rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #737C9A; }
+    .cd-lz { font-size: 0.54rem; font-weight: 800; letter-spacing: 0.045em; text-transform: uppercase; padding: 3px 6px;
+      border-radius: 4px; white-space: nowrap; flex-shrink: 0; transition: background 0.3s, color 0.3s; }
+    .cd-lz.todo { background: rgba(161,171,188,0.18); color: #B6C2CF; }
+    .cd-lz.prog { background: rgba(38,132,255,0.22); color: #85B8FF; }
+    .cd-lz.rev  { background: rgba(135,119,217,0.26); color: #C9BDFF; }
+    .cd-lz.pop { animation: cdPop 0.6s ease-out; }
+    @keyframes cdPop { 35% { box-shadow: 0 0 0 4px rgba(199,210,254,0.22); } }
+    .cd-sfoot .car { font-size: 0.6rem; color: #737C9A; }
+    .cd-more { font-size: 0.66rem; color: #8B93AE; padding: 8px 0 0 2px; }
+    .cd-more b { color: #B3BAD3; font-weight: 600; }
+
+    /* The navigator, peeking out over the cards on hover. */
+    .cd-nav { position: absolute; left: 0; top: 0; bottom: 0; width: 236px; z-index: 4; border-radius: 10px;
+      background: #15142E; border: 1px solid rgba(129,140,248,0.35); box-shadow: 14px 0 30px rgba(0,0,0,0.45);
+      padding: 9px 0; opacity: 0; transform: translateX(-10px); pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease; overflow: hidden; }
+    .cd.peek .cd-nav { opacity: 1; transform: none; }
+    .cd-nav-h { display: flex; justify-content: space-between; padding: 0 12px 7px; font-size: 0.6rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; color: #8189A6; }
+    .cd-nav ul { list-style: none; margin: 0; padding: 0; }
+    .cd-nav li { display: grid; grid-template-columns: 8px 1fr; gap: 2px 8px; align-items: center; padding: 6px 12px;
+      transition: background 0.15s; }
+    .cd-nav li.hot { background: rgba(99,102,241,0.16); box-shadow: inset 2px 0 0 #6366F1; }
+    .cd-nav li i { width: 6px; height: 6px; border-radius: 50%; background: #3A4063; }
+    .cd-nav li i.ready { background: #34D399; }
+    .cd-nav li b { font-size: 0.66rem; font-weight: 700; color: #A5B4FC; }
+    .cd-nav li b em { font-style: normal; font-weight: 600; color: #6EE7A8; margin-left: 6px; font-size: 0.6rem; }
+    .cd-nav li span { grid-column: 2; font-size: 0.64rem; color: #9AA1BE; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* The read-only Details panel, pushing in on the right. */
+    .cd-panel { flex: 0 0 0px; width: 0; min-width: 0; overflow: hidden; opacity: 0;
+      border: 1px solid var(--border); border-width: 0; border-radius: 10px; background: #111026;
+      transition: flex-basis 0.35s cubic-bezier(0.2,0.8,0.3,1), opacity 0.25s ease; }
+    .cd.det .cd-panel { flex-basis: 212px; opacity: 1; border-width: 1px; }
+    .cd-pin { width: 212px; padding: 10px 12px; }
+    .cd-ph { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; }
+    .cd-ph .x { margin-left: auto; font-size: 0.7rem; color: #8189A6; }
+    .cd-pt { font-size: 0.76rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 9px; }
+    .cd-pl { font-size: 0.54rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #737C9A; margin: 0 0 5px; }
+    .cd-kv { display: grid; grid-template-columns: 62px 1fr; gap: 4px 8px; font-size: 0.64rem; margin-bottom: 10px; }
+    .cd-kv span:nth-child(odd) { color: #8189A6; } .cd-kv span:nth-child(even) { color: #DDE1F2; }
+    .cd-cm { font-size: 0.64rem; line-height: 1.45; color: #B3BAD3; }
+    .cd-cm b { color: var(--white); font-weight: 700; }
+    .cd-cm small { color: #8189A6; }
+
+    .cd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px;
+      transition: opacity 0.3s ease; }
+    .cd.is-done .cd-foot { opacity: 0; }
+    .cd-stat { font-size: 0.78rem; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; }
+    .cd-stat b { color: #A5B4FC; font-weight: 700; }
+    .cd-post { border: none; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 700; color: #fff;
+      background: #5B5EEA; border-radius: 9px; padding: 9px 16px; display: inline-flex; align-items: center; gap: 7px;
+      white-space: nowrap; position: relative; font-variant-numeric: tabular-nums; transition: transform 0.12s, filter 0.15s; }
+    .cd-post svg { width: 12px; height: 12px; }
+    .cd-post:hover { filter: brightness(1.08); }
+    .cd-post.pressed { transform: scale(0.97); }
+    .cd-post:focus-visible { outline: 2px solid #A5B4FC; outline-offset: 3px; }
+
+    .cd-done-head { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+    .cd-okbig { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(52,211,153,0.16); color: #6EE7A8; }
+    .cd-okbig svg { width: 18px; height: 18px; }
+    .cd-done-head b { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .cd-done-head span { font-size: 0.7rem; color: #8B93AE; }
+    .cd-done-head span b { font-size: inherit; }
+    .cd-counts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .cd-counts div { border: 1px solid var(--border); border-radius: 9px; padding: 8px 11px; background: rgba(255,255,255,0.02); }
+    .cd-counts b { display: block; font: 700 1rem 'Plus Jakarta Sans', sans-serif; color: #8B93AE; font-variant-numeric: tabular-nums; }
+    .cd-counts b.ok { color: #6EE7A8; } .cd-counts b.acc { color: #A5B4FC; }
+    .cd-counts span { font-size: 0.6rem; color: #8B93AE; }
+    .cd-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+    .cd-rows li { display: flex; align-items: center; gap: 8px; padding: 8px 2px; border-bottom: 1px solid var(--border);
+      font-size: 0.74rem; color: var(--white); opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
+    .cd-rows li.in { opacity: 1; transform: none; }
+    .cd-rows .tt { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cd-rows .u { font-size: 0.66rem; font-weight: 600; color: #6EE7A8; flex-shrink: 0; }
+    .cd-bi, .cd-bc { font-size: 0.5rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px;
+      padding: 3px 6px; flex-shrink: 0; white-space: nowrap; }
+    .cd-bi { background: rgba(240,173,78,0.16); color: #F7C983; }
+    .cd-bc { background: rgba(99,102,241,0.2); color: #C7D2FE; }
+    .cd-ln { width: 11px; height: 11px; color: #8B93AE; flex-shrink: 0; }
+    .cd-done .cd-more { text-align: center; padding: 0; }
+
+    .cd-cursor { position: absolute; top: 0; left: 0; width: 17px; height: 17px; z-index: 6; opacity: 0; pointer-events: none;
+      transition: transform 0.5s cubic-bezier(0.33,0.9,0.28,1), opacity 0.25s ease; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .cd-cursor.on { opacity: 1; }
+    .cd-cursor svg { width: 17px; height: 17px; display: block; transition: transform 0.12s; }
+    .cd-cursor.tap svg { transform: scale(0.8); }
+    @media (prefers-reduced-motion: reduce) {
+      .cd-cursor { display: none; }
+      .cd-work, .cd-done, .cd-rows li, .cd-ok, .cd-nav, .cd-panel { transition: none; }
+    }
+    @media (max-width: 520px) {
+      .cd-head .clr, .cd-bc { display: none; }
+      .cd-step span { display: none; }
+      .cd-step.on span { display: inline; }
+      .cd-nav { width: 210px; }
+      .cd-post::after { content: ''; position: absolute; left: -6px; right: -6px; top: 50%; transform: translateY(-50%); height: 44px; }
+    }
+  </style>
+</head>
+<body class="lp">
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <header class="lp-top">
+    <a class="lp-brand" href="/"><img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="" width="128" height="128">DataPingo</a>
+    <span class="lp-roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>Runs on Atlassian</span>
+  </header>
+
+  <main id="main">
+    <section class="lp-hero">
+      <div>
+        <p class="lp-app"><img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(80%20x%2080%20px).png" alt="" width="80" height="80">Bulk Comments for Jira</p>
+        <h1>Reply to 25 Jira service requests at once</h1>
+        <p class="lp-sub">Give every request its own reply and status, with internal notes where agents need them &mdash; all in one send.</p>
+        <ul class="lp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>A customer reply or an internal note on each request</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Set every status on the same card as you write</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Your data stays in Jira &mdash; built on Atlassian Forge</span></li>
+        </ul>
+        <a class="btn-nav-primary lp-cta" href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">View on Atlassian Marketplace
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        <p class="lp-note"><strong>Free for teams up to 10.</strong> No credit card.</p>
+      </div>
+      <!-- Hero demo: the app's Step 2 — navigator, one card per issue, Details panel. -->
+      <div class="hv-fit">
+        <div class="cd" id="cd" role="img" aria-label="Bulk Comments for Jira: six selected issues on one page, each with its own comment and its status control under the comment. The issue list on the left peeks open on hover; the Details panel opens beside the issue being written. A service request, SUP-241, gets both a reply to the customer and an internal note. Posting all six ends on Comments posted, six of six updated.">
+          <div class="cd-rail" aria-hidden="true"><div class="cd-step"><i><b>1</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Select</span></div><span class="sep"></span><div class="cd-step"><i><b>2</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Comment</span></div><span class="sep"></span><div class="cd-step"><i><b>3</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Send</span></div></div>
+          <div class="cd-body">
+            <div class="cd-work">
+              <div class="cd-stage">
+                <div class="cd-strip" id="cdStrip" aria-hidden="true"><span class="chev">›</span><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="cd-col">
+                  <div class="cd-head"><b>6 issues</b><span class="clr">Clear all comments &amp; status changes</span></div>
+                  <div class="cd-list" id="cdList"><div class="cd-card"><div class="cd-top"><svg class="cd-ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#1F845A"/><path d="M13.2 4.5L7.4 13.4h3.6l-.9 6.1 5.9-8.9h-3.7z" fill="#fff"/></svg><span class="cd-key">SUP-241</span><span class="cd-det">Details ›</span><span class="cd-title">SSO login fails for contractors on Okta</span></div><div class="cd-f"><span class="cd-tag">Reply to customer</span><span class="cd-t" data-c="Thanks for flagging this. A fix goes out this evening.">Thanks for flagging this. A fix goes out this evening.</span><span class="cd-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cd-f int"><span class="cd-tag">Internal note</span><span class="cd-t" data-c="Root cause is the Okta group mapping — fix ships tonight.">Root cause is the Okta group mapping — fix ships tonight.</span><span class="cd-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cd-sfoot"><small>Status</small><span class="cd-lz prog" data-from="todo|Waiting for support" data-to="prog|In Progress">In Progress</span><span class="car">▾</span></div></div><div class="cd-card"><div class="cd-top"><svg class="cd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E2483D"/><circle cx="12" cy="12" r="4.4" fill="#fff"/></svg><span class="cd-key">PAY-418</span><span class="cd-det">Details ›</span><span class="cd-title">Refund flow returns 500 on partials</span></div><div class="cd-f"><span class="cd-t" data-c="Merged behind a feature flag — verifying on staging now.">Merged behind a feature flag — verifying on staging now.</span><span class="cd-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cd-sfoot"><small>Status</small><span class="cd-lz prog">In Progress</span><span class="car">▾</span></div></div><div class="cd-card"><div class="cd-top"><svg class="cd-ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#4688EC"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cd-key">PAY-412</span><span class="cd-det">Details ›</span><span class="cd-title">Add retry to webhook delivery</span></div><div class="cd-f"><span class="cd-t" data-c="Ready for review — PR linked, tests green.">Ready for review — PR linked, tests green.</span><span class="cd-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div><div class="cd-sfoot"><small>Status</small><span class="cd-lz rev" data-from="todo|To Do" data-to="rev|In Review">In Review</span><span class="car">▾</span></div></div></div>
+                  <div class="cd-more">+ <b>3 more issues</b> &mdash; each with its own comment</div>
+                </div>
+                <div class="cd-panel" aria-hidden="true"><div class="cd-pin">
+                  <div class="cd-ph"><span class="cd-key">PAY-412</span><span class="cd-lz todo" id="cdPanelLz">To Do</span><span class="x">✕</span></div>
+                  <div class="cd-pt">Add retry to webhook delivery</div>
+                  <p class="cd-pl">Details</p>
+                  <div class="cd-kv"><span>Type</span><span>Task</span><span>Assignee</span><span>Jamie Cole</span><span>Priority</span><span>Medium</span><span>Labels</span><span>payments</span></div>
+                  <p class="cd-pl">All comments 2</p>
+                  <div class="cd-cm"><b>Jamie Cole</b> <small>&middot; Sep 7</small><br>Retry budget is in &mdash; watching the queue overnight.</div>
+                </div></div>
+                <div class="cd-nav" aria-hidden="true"><div class="cd-nav-h"><span>6 issues</span><span>‹</span></div><ul id="cdNav"><li><i></i><b>SUP-241<em>→ In Progress</em></b><span>SSO login fails for contractors…</span></li><li><i></i><b>PAY-418</b><span>Refund flow returns 500 on partials</span></li><li><i></i><b>PAY-412<em>→ In Review</em></b><span>Add retry to webhook delivery</span></li><li><i></i><b>HD-118</b><span>Checkout fails on saved cards</span></li><li><i></i><b>PAY-423</b><span>Still blocked on the Stripe sandbox</span></li><li><i></i><b>HD-124<em>→ Resolved</em></b><span>Invoice shows the wrong period</span></li></ul></div>
+              </div>
+            </div>
+            <div class="cd-done" aria-hidden="true">
+              <div class="cd-done-head"><span class="cd-okbig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Comments posted</b><span><b>6</b> of 6 updated &middot; took 1s.</span></div>
+              <div class="cd-counts"><div><b class="ok">6</b><span>Updated</span></div><div><b class="acc">0</b><span>Sending</span></div><div><b>0</b><span>Failed</span></div></div>
+              <ul class="cd-rows" id="cdRows">
+                <li><span class="cd-key">SUP-241</span><span class="tt">SSO login fails for contractors on Okta</span><span class="u">Updated</span><span class="cd-bi">Internal</span><span class="cd-bc">+ Sent to customer</span><svg class="cd-ln" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></li>
+                <li><span class="cd-key">PAY-418</span><span class="tt">Refund flow returns 500 on partials</span><span class="u">Updated</span><svg class="cd-ln" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></li>
+                <li><span class="cd-key">PAY-412</span><span class="tt">Add retry to webhook delivery</span><span class="u">Updated</span><svg class="cd-ln" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></li>
+              </ul>
+              <div class="cd-more">+ 3 more, each linked to its comment</div>
+            </div>
+          </div>
+          <div class="cd-foot">
+            <span class="cd-stat" id="cdStat"><b>6</b> ready &middot; <b>2</b> moves</span>
+            <button type="button" class="cd-post" id="cdPost" aria-label="Replay the demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="cdPostLabel">Post 6 comments</span></button>
+          </div>
+          <span class="cd-cursor" id="cdCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></span>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="lp-end">
+      <a class="btn-nav-primary lp-cta" href="https://marketplace.atlassian.com/apps/2184917707" target="_blank" rel="noopener">View on Atlassian Marketplace</a>
+    </div>
+  </main>
+
+  <footer class="lp-foot">
+    <span>&copy; 2026 DataPingo</span>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/security">Security</a>
+  </footer>
+  <script>
+  // Hero demo — the app's Step 2, looped. Opens on the ready-to-post frame,
+  // then replays: write SUP-241's reply and note and move it; hover the
+  // navigator (it peeks open); write PAY-418; open PAY-412's Details (the panel
+  // pushes in and stays beside it) while writing and moving it; post; Send screen.
+  (function() {
+    const cd = document.getElementById('cd');
+    if (!cd) return;
+    const steps = Array.from(cd.querySelectorAll('.cd-step'));
+    const cards = Array.from(cd.querySelectorAll('#cdList .cd-card'));
+    const fields = cards.map(c => Array.from(c.querySelectorAll('.cd-f')));
+    const lzs = cards.map(c => c.querySelector('.cd-lz'));
+    const dets = cards.map(c => c.querySelector('.cd-det'));
+    const dots = Array.from(cd.querySelectorAll('#cdStrip i'));
+    const navRows = Array.from(cd.querySelectorAll('#cdNav li'));
+    const navDots = navRows.map(r => r.querySelector('i'));
+    const strip = cd.querySelector('#cdStrip');
+    const panelLz = cd.querySelector('#cdPanelLz'), panelX = cd.querySelector('.cd-ph .x');
+    const stat = cd.querySelector('#cdStat'), post = cd.querySelector('#cdPost'), postLabel = cd.querySelector('#cdPostLabel');
+    const rows = Array.from(cd.querySelectorAll('#cdRows li'));
+    const cursor = cd.querySelector('#cdCursor');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const TOTAL = 6, SHOWN = cards.length;
+
+    let timers = [];
+    const clr = () => { timers.forEach(clearTimeout); timers = []; };
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    function rail(cur) { steps.forEach((s, i) => { s.classList.toggle('done', i < cur); s.classList.toggle('on', i === cur); }); }
+    function lz(el, pair, pop) { const [cls, label] = pair.split('|'); el.className = 'cd-lz ' + cls + (pop ? ' pop' : ''); el.textContent = label; }
+    function cursorTo(el, dx, dy) {
+      const a = cd.getBoundingClientRect(), b = el.getBoundingClientRect();
+      cursor.classList.add('on');
+      cursor.style.transform = 'translate(' + (b.left - a.left + dx) + 'px,' + (b.top - a.top + dy) + 'px)';
+    }
+    function tap() { cursor.classList.add('tap'); setTimeout(() => cursor.classList.remove('tap'), 140); }
+    // The strip and the navigator show the same six issues; the three below
+    // the fold are already written, so their dots start ready.
+    function ready(i, on) { if (dots[i]) dots[i].classList.toggle('ready', on); if (navDots[i]) navDots[i].classList.toggle('ready', on); }
+    function current(i) { dots.forEach((d, k) => d.classList.toggle('cur', k === i)); navRows.forEach((r, k) => r.classList.toggle('hot', k === i)); }
+    function foot(n, moves) {
+      stat.innerHTML = '<b>' + n + '</b> ready &middot; <b>' + moves + '</b> ' + (moves === 1 ? 'move' : 'moves');
+      postLabel.textContent = 'Post ' + n + (n === 1 ? ' comment' : ' comments');
+    }
+
+    function settle() {
+      cd.classList.remove('is-done', 'peek', 'det');
+      rail(1);
+      fields.flat().forEach(f => { const t = f.querySelector('.cd-t'); t.textContent = t.dataset.c; f.classList.remove('focus'); });
+      cards.forEach((c, i) => { c.classList.remove('act', 'sent'); if (lzs[i].dataset.to) lz(lzs[i], lzs[i].dataset.to); });
+      dets.forEach(d => d.classList.remove('on'));
+      for (let i = 0; i < TOTAL; i++) ready(i, true);
+      current(-1);
+      lz(panelLz, 'rev|In Review');
+      rows.forEach(r => r.classList.remove('in'));
+      foot(TOTAL, 2);
+      cursor.classList.remove('on');
+    }
+
+    function write(i, t) {
+      fields[i].forEach((f) => {
+        const tEl = f.querySelector('.cd-t'), text = tEl.dataset.c;
+        at(t, () => cursorTo(f, 60, 9));
+        t += 340;
+        at(t, () => { tap(); fields.flat().forEach(x => x.classList.remove('focus')); f.classList.add('focus'); });
+        for (let c = 1; c <= text.length; c++) at(t + c * 13, () => { tEl.textContent = text.slice(0, c); });
+        t += text.length * 13 + 150;
+      });
+      return t;
+    }
+    function move(i, t, alsoPanel) {
+      at(t, () => cursorTo(lzs[i], 14, 6));
+      t += 360;
+      at(t, () => { tap(); lz(lzs[i], lzs[i].dataset.to, true); if (alsoPanel) lz(panelLz, lzs[i].dataset.to, true); });
+      return t + 220;
+    }
+
+    function play() {
+      clr();
+      cd.classList.remove('is-done', 'peek', 'det');
+      post.classList.remove('pressed');
+      rail(1);
+      fields.flat().forEach(f => { f.querySelector('.cd-t').textContent = ''; f.classList.remove('focus'); });
+      cards.forEach((c, i) => { c.classList.remove('act', 'sent'); if (lzs[i].dataset.from) lz(lzs[i], lzs[i].dataset.from); });
+      dets.forEach(d => d.classList.remove('on'));
+      for (let i = 0; i < TOTAL; i++) ready(i, i >= SHOWN);
+      current(0);
+      lz(panelLz, 'todo|To Do');
+      rows.forEach(r => r.classList.remove('in'));
+      foot(TOTAL - SHOWN, 0);
+      cursor.classList.remove('on');
+      if (reduce) { settle(); return; }
+
+      let t = 450, moves = 0;
+      const done = (i) => at(t, () => { fields[i].forEach(f => f.classList.remove('focus')); cards[i].classList.remove('act'); ready(i, true); foot(TOTAL - SHOWN + i + 1, moves); });
+
+      // SUP-241: the reply, the internal note, then move it.
+      at(t, () => { cards[0].classList.add('act'); current(0); });
+      t = write(0, t);
+      t = move(0, t); at(t - 220, () => { moves = 1; });
+      done(0); t += 300;
+
+      // A brief hover on the navigator: it peeks open over the cards.
+      at(t, () => cursorTo(strip, 8, 40));
+      t += 420;
+      at(t, () => { cd.classList.add('peek'); current(1); });
+      at(t + 380, () => cursorTo(navRows[1], 110, 10));
+      t += 1500;
+      at(t, () => cd.classList.remove('peek'));
+
+      // PAY-418: comment only — its status stays where it is.
+      at(t, () => { cards[1].classList.add('act'); current(1); });
+      t = write(1, t + 120);
+      done(1); t += 300;
+
+      // PAY-412: open Details first — the panel pushes in and stays beside it.
+      // A phone has no room to push it into, so there the card is just written.
+      const roomy = !window.matchMedia('(max-width: 520px)').matches;
+      at(t, () => { cards[2].classList.add('act'); current(2); if (roomy) cursorTo(dets[2], 16, 7); });
+      if (roomy) {
+        t += 400;
+        at(t, () => { tap(); dets[2].classList.add('on'); cd.classList.add('det'); });
+        t += 900;
+      }
+      t = write(2, t);
+      t = move(2, t, roomy); at(t - 220, () => { moves = 2; });
+      done(2); t += 500;
+      if (roomy) {
+        at(t, () => cursorTo(panelX, 2, 2));
+        t += 380;
+        at(t, () => { tap(); cd.classList.remove('det'); dets[2].classList.remove('on'); });
+        t += 450;
+      }
+      at(t, () => current(-1));
+
+      // Post — each issue lands and ticks; the button counts the send.
+      at(t, () => cursorTo(post, 26, 14));
+      t += 420;
+      at(t, () => { tap(); post.classList.add('pressed'); rail(2); });
+      at(t + 160, () => { post.classList.remove('pressed'); cursor.classList.remove('on'); });
+      for (let k = 1; k <= TOTAL; k++) at(t + 160 + k * 170, () => {
+        postLabel.textContent = k < TOTAL ? 'Sending ' + k + ' / ' + TOTAL : 'Post 6 comments';
+        if (k <= SHOWN) cards[k - 1].classList.add('sent');
+      });
+      t += 160 + TOTAL * 170 + 400;
+
+      at(t, () => { rail(3); cd.classList.add('is-done'); });
+      rows.forEach((r, k) => at(t + 250 + k * 140, () => r.classList.add('in')));
+      at(t + 4200, play);
+    }
+
+    post.addEventListener('click', play);
+    settle();
+    if (!reduce) setTimeout(play, 2600);
+  })();
+  </script>
+</body>
+</html>

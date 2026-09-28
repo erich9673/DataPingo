@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Page Cloner — Clone one Confluence page into 25 copies</title>
+  <meta name="description" content="Clone one Confluence page into up to 25 copies — give every copy its own title and choose where in the page tree they are created.">
+  <!-- Ad landing page (ChatGPT Ads test, Oct 2026). Kept out of search so it
+       never competes with /products/bulk-page-cloner. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://datapingo.com/products/bulk-page-cloner">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <style>
+    /* One screen, one decision: what the ad promised, proof it is real, and
+       the Marketplace button. No site nav — this page exists to be compared
+       against the full product page, so it offers no other way forward. */
+    body.lp { background: var(--black); overflow-x: clip; --lp-accent: #67E8F9; }
+    /* One screen: the hero centres in whatever height the window has, and the
+       footer sits on the bottom edge instead of floating mid-screen. */
+    body.lp { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+    body.lp main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    /* Flex children with margin:auto shrink to their content; keep them full width. */
+    body.lp > header, body.lp main > * { width: 100%; box-sizing: border-box; }
+    .lp-top { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .lp-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.05rem; }
+    .lp-brand img { width: 30px; height: 30px; }
+    .lp-roa { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; color: #579DFF; }
+    .lp-roa svg { fill: currentColor; }
+    .lp-hero { position: relative; max-width: 1120px; margin: 0 auto; padding: 12px 32px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 52px; align-items: center; }
+    .lp-hero::before { content: ''; position: absolute; inset: -120px 0 auto; height: 620px; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse 50% 60% at 30% 30%, rgba(14,116,210,0.22), transparent 70%); }
+    .lp-app { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; color: #67E8F9; }
+    .lp-app img { width: 40px; height: 40px; border-radius: 10px; }
+    .lp-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.2vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin: 0 0 14px; text-wrap: balance; }
+    .lp-sub { font-size: 1.05rem; line-height: 1.6; color: var(--slate); margin: 0 0 18px; max-width: 46ch; }
+    .lp-cta { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border-radius: 12px; font-size: 1.02rem; font-weight: 700; }
+    .lp-note { margin: 12px 0 0; font-size: 0.88rem; color: var(--slate); }
+    .lp-note strong { color: var(--white); font-weight: 600; }
+    .lp-end { text-align: center; padding: 8px 32px 72px; }
+    /* The three points sit in the text column as a checklist: the demo is the
+       taller column, so they cost no height and the page fits one screen. */
+    .lp-list { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .lp-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; line-height: 1.45; color: #CBD3E1; }
+    .lp-list svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; color: var(--lp-accent); }
+    /* The repeat CTA only earns its place where the page scrolls. */
+    .lp-end { display: none; }
+    .lp-foot { border-top: 1px solid var(--border); padding: 12px 32px; display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate); }
+    .lp-foot a { color: var(--slate); text-decoration: none; }
+    .lp-foot a:hover { color: var(--white); }
+    .lp a:focus-visible { outline: 2px solid #67E8F9; outline-offset: 3px; border-radius: 8px; }
+    @media (max-width: 860px) {
+      .lp-hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 16px; }
+      .lp-cta { width: 100%; justify-content: center; }
+      .lp-top, .lp-hero { padding-left: 20px; padding-right: 20px; }
+      .lp-end { display: block; padding: 8px 20px 48px; }
+    }
+    /* BPC — hero demo, rebuilt 2026-09-28 on the app's own four steps.
+       The old demo was a source card over 25 blank tiles: it showed "25" but
+       hid the two things the product is actually for — every copy gets its
+       OWN title, and they all land where you chose. So this is the app's flow
+       at hero size: Source → Copies ("Name the copies", titled rows) →
+       Location (a destination) → Done (every copy with an Open link).
+       Project B to Project Z is exactly 25 copies of Project A.
+       It opens on a finished frame and replays; click Create to rerun. */
+    .bpc-clone { width: 100%; max-width: 620px; margin-left: auto; user-select: none; position: relative; }
+    .bd { position: relative; background: rgba(8,14,26,0.92); border: 1px solid var(--pp-line, rgba(34,211,238,0.45));
+      border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.5); }
+    .bd-rail { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .bd-step { display: flex; align-items: center; gap: 6px; font-size: 0.66rem; font-weight: 600; color: #7F8CA1;
+      white-space: nowrap; transition: color 0.25s; }
+    .bd-step i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #334155; font-style: normal;
+      display: flex; align-items: center; justify-content: center; font-size: 0.56rem; font-weight: 700; color: #7F8CA1;
+      transition: background 0.25s, border-color 0.25s, color 0.25s; }
+    .bd-step i svg { width: 10px; height: 10px; display: none; }
+    .bd-step.on { color: var(--white); }
+    .bd-step.on i { background: #05CEF0; border-color: #05CEF0; color: #020911; }
+    .bd-step.done { color: #B8C4D6; }
+    .bd-step.done i { background: rgba(52,211,153,0.16); border-color: rgba(52,211,153,0.5); color: #6EE7A8; }
+    .bd-step.done i b { display: none; } .bd-step.done i svg { display: block; }
+    .bd-rail .sep { flex: 1; height: 1px; background: var(--border); min-width: 10px; }
+
+    .bd-body { position: relative; }
+    .bd-work, .bd-done { transition: opacity 0.35s ease; }
+    .bd-done { position: absolute; inset: 0; opacity: 0; pointer-events: none; display: flex; flex-direction: column;
+      justify-content: center; gap: 12px; }
+    .bd.is-done .bd-work { opacity: 0; }
+    .bd.is-done .bd-done { opacity: 1; }
+
+    .bd-src { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 11px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.02); margin-bottom: 14px; }
+    .bd-ic { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(5,206,240,0.12); color: #67E8F9; }
+    .bd-ic svg { width: 15px; height: 15px; }
+    .bd-src small, .bd-dest small { display: block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #7F8CA1; }
+    .bd-src > div, .bd-dest > div { flex: 1; min-width: 0; }
+    .bd-src b, .bd-dest b { display: block; font-size: 0.86rem; font-weight: 700; color: var(--white);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bd-chip { margin-left: auto; font-size: 0.62rem; font-weight: 600; color: #A9B6C8; border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+
+    .bd-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .bd-head b { font-size: 0.84rem; font-weight: 700; color: var(--white); }
+    .bd-head .ct { font-size: 0.7rem; color: #A9B6C8; }
+    .bd-head .ct em { font-style: normal; font-weight: 700; color: #67E8F9; font-variant-numeric: tabular-nums; }
+    .bd-head .acts { margin-left: auto; font-size: 0.64rem; font-weight: 600; color: #67E8F9; white-space: nowrap; }
+    .bd-titles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .bd-titles li { display: flex; align-items: center; gap: 9px; }
+    .bd-titles .n { width: 14px; text-align: right; font-size: 0.62rem; color: #7F8CA1; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .bd-titles .f { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; height: 31px; padding: 0 10px;
+      border-radius: 7px; border: 1px solid var(--border); background: rgba(255,255,255,0.02);
+      font-size: 0.76rem; color: var(--white); transition: border-color 0.2s; }
+    .bd-titles .f.focus { border-color: #05CEF0; }
+    .bd-titles .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bd-titles .t:empty::before { content: attr(data-ph); color: #5E6B80; }
+    .bd-titles .ok { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(52,211,153,0.16); color: #6EE7A8; opacity: 0; transform: scale(0.6);
+      transition: opacity 0.2s, transform 0.2s; }
+    .bd-titles .ok svg { width: 9px; height: 9px; }
+    .bd-titles li.copied .ok { opacity: 1; transform: none; }
+    .bd-more { font-size: 0.66rem; color: #8B97AB; padding: 7px 0 0 23px; }
+    .bd-more b { color: #A9B6C8; font-weight: 600; }
+
+    .bd-dest { display: flex; align-items: center; gap: 11px; margin-top: 12px; padding: 10px 12px; border-radius: 11px;
+      border: 1px dashed #2A3A52; transition: border-color 0.3s, background 0.3s; }
+    .bd-dest b { transition: opacity 0.3s; }
+    .bd-dest.set { border-style: solid; border-color: var(--border); background: rgba(255,255,255,0.02); }
+    .bd-dest:not(.set) b, .bd-dest:not(.set) .bd-chip { opacity: 0; }
+    .bd-dest .bd-ic { background: rgba(255,255,255,0.05); color: #A9B6C8; }
+
+    .bd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+    .bd-stat { font-size: 0.78rem; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; }
+    .bd-stat b { color: #67E8F9; font-weight: 700; }
+    .bd.is-done .bd-foot { opacity: 0; }
+    .bd-foot { transition: opacity 0.3s ease; }
+    .bpc-create { border: none; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 700;
+      color: #020911; background: #05CEF0; border-radius: 9px; padding: 9px 16px;
+      display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; position: relative;
+      transition: transform 0.12s, box-shadow 0.15s, filter 0.15s; }
+    .bpc-create svg { width: 13px; height: 13px; }
+    .bpc-create:hover { filter: brightness(1.08); }
+    .bpc-create.pressed { transform: scale(0.97); }
+    .bpc-create:focus-visible { outline: 2px solid #67E8F9; outline-offset: 3px; }
+
+    .bd-done-head { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; margin-bottom: 4px; }
+    .bd-okbig { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: rgba(52,211,153,0.16); color: #6EE7A8; }
+    .bd-okbig svg { width: 18px; height: 18px; }
+    .bd-done-head b { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .bd-done-head span { font-size: 0.7rem; color: #8B97AB; }
+    .bd-links { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+    .bd-links li { display: flex; align-items: center; gap: 9px; padding: 8px 4px; border-bottom: 1px solid var(--border);
+      font-size: 0.76rem; color: var(--white); opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
+    .bd-links li.in { opacity: 1; transform: none; }
+    .bd-links svg.doc { width: 13px; height: 13px; color: #8B97AB; flex-shrink: 0; }
+    .bd-links .open { margin-left: auto; font-size: 0.68rem; font-weight: 600; color: #67E8F9; }
+    .bd-done .bd-more { text-align: center; padding: 0; }
+
+    .bpc-cursor { position: absolute; top: 0; left: 0; width: 18px; height: 18px; z-index: 6; opacity: 0;
+      transition: transform 0.55s cubic-bezier(0.33,0.9,0.28,1), opacity 0.25s ease; pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .bpc-cursor.on { opacity: 1; }
+    .bpc-cursor svg { width: 18px; height: 18px; display: block; transition: transform 0.12s ease; }
+    .bpc-cursor.tap svg { transform: scale(0.8); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bpc-cursor { display: none; }
+      .bd-work, .bd-done, .bd-links li, .bd-titles .ok { transition: none; }
+    }
+    @media (max-width: 520px) {
+      .bd-head .acts, .bd-src .bd-chip, .bd-dest .bd-chip { display: none; }
+      .bd-step span { display: none; }
+      .bd-step.on span { display: inline; }
+    }
+    @media (max-width: 520px) {
+      .bpc-create { position: relative; }
+      .bpc-create::after { content: ''; position: absolute; left: -6px; right: -6px; top: 50%; transform: translateY(-50%); height: 44px; }
+    }
+  </style>
+</head>
+<body class="lp">
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <header class="lp-top">
+    <a class="lp-brand" href="/"><img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="" width="128" height="128">DataPingo</a>
+    <span class="lp-roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>Runs on Atlassian</span>
+  </header>
+
+  <main id="main">
+    <section class="lp-hero">
+      <div>
+        <p class="lp-app"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(80%20x%2080%20px).png" alt="" width="80" height="80">Bulk Page Cloner for Confluence</p>
+        <h1>Clone one Confluence page into 25 copies</h1>
+        <p class="lp-sub">Give every copy its own title and choose where in the page tree it is created &mdash; all on one screen, in one run.</p>
+        <ul class="lp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Name all 25 copies before anything is created</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Macros, labels and attachments come with every copy</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Your data stays in Confluence &mdash; built on Atlassian Forge</span></li>
+        </ul>
+        <a class="btn-nav-primary lp-cta" href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener">View on Atlassian Marketplace
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        <p class="lp-note"><strong>Free for teams up to 10.</strong> No credit card.</p>
+      </div>
+      <!-- Hero demo: the app's four steps — one page in, 25 named copies out. -->
+      <div class="bpc-clone" role="img" aria-label="Bulk Page Cloner: the source page Q3 Report — Project A is cloned into 25 copies, each with its own title from Project B to Project Z, placed under Marketing › Reports › Q3 2026, and each copy is listed with a link to open it.">
+        <div class="bd" id="bd">
+          <div class="bd-rail" aria-hidden="true"><div class="bd-step" data-s="0"><i><b>1</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Source</span></div><span class="sep"></span><div class="bd-step" data-s="1"><i><b>2</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Copies</span></div><span class="sep"></span><div class="bd-step" data-s="2"><i><b>3</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Location</span></div><span class="sep"></span><div class="bd-step" data-s="3"><i><b>4</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i><span>Done</span></div></div>
+          <div class="bd-body">
+            <div class="bd-work">
+              <div class="bd-src"><span class="bd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span><div><small>Source page</small><b>Q3 Report — Project A</b></div><span class="bd-chip">Marketing</span></div>
+              <div class="bd-head"><b>Name the copies</b><span class="ct"><em>25</em> copies</span><span class="acts">Auto-number · Copy first to all</span></div>
+              <ol class="bd-titles" id="bdTitles"><li><span class="n">1</span><span class="f"><span class="t" data-ph="Title for copy 1">Q3 Report — Project B</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">2</span><span class="f"><span class="t" data-ph="Title for copy 2">Q3 Report — Project C</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">3</span><span class="f"><span class="t" data-ph="Title for copy 3">Q3 Report — Project D</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">4</span><span class="f"><span class="t" data-ph="Title for copy 4">Q3 Report — Project E</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">5</span><span class="f"><span class="t" data-ph="Title for copy 5">Q3 Report — Project F</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li><li><span class="n">6</span><span class="f"><span class="t" data-ph="Title for copy 6">Q3 Report — Project G</span><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></li></ol>
+              <div class="bd-more" id="bdMore">+ <b>19 more titles</b> &mdash; Project H to Project Z</div>
+              <div class="bd-dest set" id="bdDest"><span class="bd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><small>Destination</small><b>Marketing › Reports › Q3 2026</b></div><span class="bd-chip">Under a parent</span></div>
+            </div>
+            <div class="bd-done" aria-hidden="true">
+              <div class="bd-done-head"><span class="bd-okbig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>25 copies ready</b><span>In Marketing › Reports › Q3 2026</span></div>
+              <ul class="bd-links" id="bdLinks"><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project B<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project C<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project D<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project E<span class="open">Open ↗</span></li><li><svg class="doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Report — Project F<span class="open">Open ↗</span></li></ul>
+              <div class="bd-more">+ 20 more, each with its own link</div>
+            </div>
+          </div>
+          <div class="bd-foot">
+            <span class="bd-stat" id="bdStat"><b>25</b> named &middot; <b>1</b> destination</span>
+            <button type="button" class="bpc-create" id="bpcCreate" aria-label="Replay the demo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span id="bdBtn">Create 25 pages</span>
+            </button>
+          </div>
+          <div class="bpc-cursor" id="bpcCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="lp-end">
+      <a class="btn-nav-primary lp-cta" href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener">View on Atlassian Marketplace</a>
+    </div>
+  </main>
+
+  <footer class="lp-foot">
+    <span>&copy; 2026 DataPingo</span>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/security">Security</a>
+  </footer>
+  <script>
+  // Hero demo — the app's four steps, looped. Opens finished, then replays:
+  // name the copies → set the destination → Create → Done, with a link each.
+  (function() {
+    const bd = document.getElementById('bd');
+    if (!bd) return;
+    const steps = Array.from(bd.querySelectorAll('.bd-step'));
+    const rows = Array.from(bd.querySelectorAll('#bdTitles li'));
+    const fields = rows.map(r => r.querySelector('.f'));
+    const texts = rows.map(r => r.querySelector('.t'));
+    const NAMES = texts.map(t => t.textContent);
+    const more = bd.querySelector('#bdMore'), dest = bd.querySelector('#bdDest');
+    const stat = bd.querySelector('#bdStat'), btn = bd.querySelector('#bpcCreate'), btnLabel = bd.querySelector('#bdBtn');
+    const links = Array.from(bd.querySelectorAll('#bdLinks li'));
+    const cursor = bd.querySelector('#bpcCursor');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const N = 25;
+
+    let timers = [];
+    const clr = () => { timers.forEach(clearTimeout); timers = []; };
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+
+    // Steps before `cur` are done, `cur` is the one in progress.
+    function rail(cur) { steps.forEach((s, i) => { s.classList.toggle('done', i < cur); s.classList.toggle('on', i === cur); }); }
+    function cursorTo(el, dx, dy) {
+      const a = bd.getBoundingClientRect(), b = el.getBoundingClientRect();
+      cursor.classList.add('on');
+      cursor.style.transform = 'translate(' + (b.left - a.left + dx) + 'px,' + (b.top - a.top + dy) + 'px)';
+    }
+    function tap() { cursor.classList.add('tap'); setTimeout(() => cursor.classList.remove('tap'), 140); }
+
+    // The ready-to-run frame: every copy named, destination chosen.
+    function settle() {
+      bd.classList.remove('is-done');
+      rail(2);
+      texts.forEach((t, i) => { t.textContent = NAMES[i]; });
+      rows.forEach(r => r.classList.remove('copied'));
+      fields.forEach(f => f.classList.remove('focus'));
+      more.style.visibility = 'visible';
+      dest.classList.add('set');
+      stat.innerHTML = '<b>25</b> named &middot; <b>1</b> destination';
+      btnLabel.textContent = 'Create 25 pages';
+      links.forEach(l => l.classList.remove('in'));
+      cursor.classList.remove('on');
+    }
+
+    function play() {
+      clr();
+      bd.classList.remove('is-done');
+      btn.classList.remove('pressed');
+      rail(1);
+      texts.forEach(t => { t.textContent = ''; });
+      rows.forEach(r => r.classList.remove('copied'));
+      more.style.visibility = 'hidden';
+      dest.classList.remove('set');
+      stat.innerHTML = '<b>0</b> named';
+      btnLabel.textContent = 'Create 25 pages';
+      links.forEach(l => l.classList.remove('in'));
+      cursor.classList.remove('on');
+      if (reduce) { settle(); return; }
+
+      // 1. Name the copies, top to bottom — each title typed into its own row.
+      let t = 500;
+      at(t, () => cursorTo(fields[0], 40, 12));
+      t += 420;
+      at(t, () => tap());
+      rows.forEach((r, i) => {
+        const name = NAMES[i];
+        at(t, () => { fields.forEach(f => f.classList.remove('focus')); fields[i].classList.add('focus'); });
+        for (let c = 1; c <= name.length; c++) at(t + c * 14, () => { texts[i].textContent = name.slice(0, c); });
+        t += name.length * 14 + 90;
+        at(t, () => { stat.innerHTML = '<b>' + (i + 1) + '</b> named'; });
+      });
+      at(t, () => { fields.forEach(f => f.classList.remove('focus')); more.style.visibility = 'visible'; stat.innerHTML = '<b>25</b> named'; });
+
+      // 2. Location: the destination fills in.
+      t += 450;
+      at(t, () => { rail(2); cursorTo(dest, 60, 14); });
+      at(t + 380, () => { tap(); dest.classList.add('set'); stat.innerHTML = '<b>25</b> named &middot; <b>1</b> destination'; });
+
+      // 3. Create — each copy lands and ticks off; the count runs to 25.
+      t += 1100;
+      at(t, () => cursorTo(btn, 26, 14));
+      t += 420;
+      at(t, () => { tap(); btn.classList.add('pressed'); });
+      at(t + 160, () => { btn.classList.remove('pressed'); cursor.classList.remove('on'); });
+      for (let k = 1; k <= N; k++) at(t + 160 + k * 46, () => {
+        btnLabel.textContent = k < N ? 'Creating ' + k + ' / ' + N : 'Create 25 pages';
+        if (k <= rows.length) rows[k - 1].classList.add('copied');
+      });
+      t += 160 + N * 46 + 450;
+
+      // 4. Done: every copy listed, each with its own link.
+      at(t, () => { rail(3); bd.classList.add('is-done'); });
+      links.forEach((l, k) => at(t + 250 + k * 110, () => l.classList.add('in')));
+      at(t + 4200, play);
+    }
+
+    btn.addEventListener('click', play);
+    settle();
+    if (!reduce) setTimeout(play, 2600);
+  })();
+  </script>
+</body>
+</html>
