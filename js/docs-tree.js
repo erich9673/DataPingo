@@ -53,18 +53,18 @@
           path: 'release-notes', title: 'Release notes',
           blurb: 'Every version, newest first.',
           children: [
-            { path: 'release-notes/v4-8-0', title: 'v4.8.0 \u2014 September 21, 2026', blurb: 'Release notes for version 4.8.0' },
-            { path: 'release-notes/v4-7-0', title: 'v4.7.0 \u2014 September 21, 2026', blurb: 'The Comment step rebuilt around writing to twenty-five issues rather than one, and three fixes ' },
-            { path: 'release-notes/v4-6-0', title: 'v4.6.0 \u2014 September 7, 2026', blurb: 'Release notes for version 4.6.0' },
-            { path: 'release-notes/v4-5-0', title: 'v4.5.0 \u2014 September 3, 2026', blurb: 'Release notes for version 4.5.0' },
-            { path: 'release-notes/v4-4-0', title: 'v4.4.0 \u2014 September 3, 2026', blurb: 'Release notes for version 4.4.0' },
-            { path: 'release-notes/v4-3-0', title: 'v4.3.0 \u2014 August 26, 2026', blurb: 'Release notes for version 4.3.0' },
-            { path: 'release-notes/v4-2-0', title: 'v4.2.0 \u2014 August 6, 2026', blurb: 'Release notes for version 4.2.0' },
-            { path: 'release-notes/v4-1-0', title: 'v4.1.0 \u2014 August 3, 2026', blurb: 'Release notes for version 4.1.0' },
-            { path: 'release-notes/v4-0-0', title: 'v4.0.0 \u2014 July 22, 2026', blurb: 'Release notes for version 4.0.0' },
-            { path: 'release-notes/v3-7-0', title: 'v3.7.0 \u2014 July 17, 2026', blurb: 'Release notes for version 3.7.0' },
-            { path: 'release-notes/v3-4-0', title: 'v3.4.0 \u2014 July 16, 2026', blurb: 'Release notes for version 3.4.0' },
-            { path: 'release-notes/v3-3-0', title: 'v3.3.0 \u2014 July 9, 2026', blurb: 'Release notes for version 3.3.0' }
+            { path: 'release-notes/v4-8-0', title: 'v4.8.0 \u2014 September 21, 2026', blurb: 'Yellow now means internal everywhere in the app, matching Jira Service Management\u2019s own convention, and the comment history colours are fixed.' },
+            { path: 'release-notes/v4-7-0', title: 'v4.7.0 \u2014 September 21, 2026', blurb: 'The Comment step rebuilt for batches of 25, plus fixes for an internal note that could reach a customer and a send that could post twice.' },
+            { path: 'release-notes/v4-6-0', title: 'v4.6.0 \u2014 September 7, 2026', blurb: 'Jira Service Management and Customer Service Management support: each request gets a reply to the customer, an internal note, or both.' },
+            { path: 'release-notes/v4-5-0', title: 'v4.5.0 \u2014 September 3, 2026', blurb: 'A refused send now says how to fix it: the app is free for teams of 10 or fewer, or renew on the Atlassian Marketplace.' },
+            { path: 'release-notes/v4-4-0', title: 'v4.4.0 \u2014 September 3, 2026', blurb: 'Renew on Marketplace now opens the Pricing tab, and the app names the free tier for teams of 10 or fewer.' },
+            { path: 'release-notes/v4-3-0', title: 'v4.3.0 \u2014 August 26, 2026', blurb: 'One comment flow for every batch: each issue gets its own comment, attachments and status, with its full detail beside the editor.' },
+            { path: 'release-notes/v4-2-0', title: 'v4.2.0 \u2014 August 6, 2026', blurb: 'The license is checked only at send: an expired or cancelled license blocks sending, never browsing, drafts or undo.' },
+            { path: 'release-notes/v4-1-0', title: 'v4.1.0 \u2014 August 3, 2026', blurb: 'Change each issue\u2019s status as you comment, see its full context beside the editor, and filter the list by status.' },
+            { path: 'release-notes/v4-0-0', title: 'v4.0.0 \u2014 July 22, 2026', blurb: 'One page to write every comment, attachments up to 150 MB that upload while you write, and Undo on every screen.' },
+            { path: 'release-notes/v3-7-0', title: 'v3.7.0 \u2014 July 17, 2026', blurb: 'Write a separate comment for each selected issue, open the app from an issue\u2019s actions menu or Activity tab, and confirm before large sends.' },
+            { path: 'release-notes/v3-4-0', title: 'v3.4.0 \u2014 July 16, 2026', blurb: 'Drafts autosave per issue, so a half-written batch survives a reload, plus parallel posting and a faster editor.' },
+            { path: 'release-notes/v3-3-0', title: 'v3.3.0 \u2014 July 9, 2026', blurb: 'Write a comment once and post it to up to 25 Jira issues, or copy an existing comment with its images, videos and attachments.' }
           ]
         }
       ]
@@ -106,12 +106,12 @@
         {
           path: 'release-notes', title: 'Release notes', blurb: 'Every version, newest first.',
           children: [
-            { path: 'release-notes/v10-2-0', title: 'v10.2.0 \u2014 September 3, 2026' },
-            { path: 'release-notes/v10-1-0', title: 'v10.1.0 \u2014 August 7, 2026' },
-            { path: 'release-notes/v10-0-0', title: 'v10.0.0 \u2014 July 23, 2026' },
-            { path: 'release-notes/v9-0-0', title: 'v9.0.0 \u2014 July 19, 2026' },
-            { path: 'release-notes/v7-1-0', title: 'v7.1.0 \u2014 July 6, 2026' },
-            { path: 'release-notes/v7-0-0', title: 'v7.0.0 \u2014 June 22, 2026' }
+            { path: 'release-notes/v10-2-0', title: 'v10.2.0 \u2014 September 3, 2026', blurb: 'The lapsed-license notice now names the free tier for teams of 10 or fewer and always links to where you can renew.' },
+            { path: 'release-notes/v10-1-0', title: 'v10.1.0 \u2014 August 7, 2026', blurb: 'Runs now report exactly what didn\u2019t carry over, template snapshots are deleted after each run, and the license is checked at clone time.' },
+            { path: 'release-notes/v10-0-0', title: 'v10.0.0 \u2014 July 23, 2026', blurb: 'A permissions-only release that removes the unused search:confluence scope. Cloning works exactly as in 9.0.0.' },
+            { path: 'release-notes/v9-0-0', title: 'v9.0.0 \u2014 July 19, 2026', blurb: 'A maintenance release that drops the email-address permission. Cloning, the interface and data handling are unchanged.' },
+            { path: 'release-notes/v7-1-0', title: 'v7.1.0 \u2014 July 6, 2026', blurb: 'A ground-up redesign: a guided Source, Copies, Location, Done flow, search-first page picking, and full dark mode.' },
+            { path: 'release-notes/v7-0-0', title: 'v7.0.0 \u2014 June 22, 2026', blurb: 'Images, files and embedded video now carry over to every copy, plus a searchable parent picker and faster loading in large spaces.' }
           ]
         }
       ]
