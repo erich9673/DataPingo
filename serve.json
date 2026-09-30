@@ -240,14 +240,6 @@
       "destination": "/resources/documentation/bulkpagecloner/guide.html"
     },
     {
-      "source": "/resources/documentation/bulkpagecloner/reference",
-      "destination": "/resources/documentation/bulkpagecloner/reference.html"
-    },
-    {
-      "source": "/resources/documentation/bulkpagecloner/reference/",
-      "destination": "/resources/documentation/bulkpagecloner/reference.html"
-    },
-    {
       "source": "/resources/documentation/bulkpagecloner/limits",
       "destination": "/resources/documentation/bulkpagecloner/limits.html"
     },

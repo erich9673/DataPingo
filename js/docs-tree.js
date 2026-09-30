@@ -270,7 +270,9 @@
       if (c.blurb) card.appendChild(el('span', 'doc-hub-card-sub', c.blurb));
       grid.appendChild(card);
     });
-    childHost.appendChild(grid);
+    // Pages ship these cards as static HTML too, so crawlers that skip
+    // JavaScript still get the links; the manifest wins whenever JS runs.
+    childHost.replaceChildren(grid);
   }
 
   // ── 4. Prev / next ────────────────────────────────────────────────────────
