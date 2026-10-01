@@ -1,0 +1,179 @@
+/* Styles for /resources/use-cases.html only — moved out of an inline <style> block. It is
+   linked at the same point in <head>, so the cascade order is unchanged. */
+/* ── USE CASES ──────────────────────────────── */
+.uc-page-header {
+  padding: 72px 48px 28px;
+  text-align: left;
+}
+.uc-page-header h1 {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) { .uc-page-header { padding: 80px 24px 40px; text-align: left; } }
+
+.uc-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+.uc-filter-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid var(--border);
+  color: var(--slate);
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.uc-filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+.uc-filter-btn.active { background: var(--teal); border-color: var(--teal); color: var(--black); }
+
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.uc-card-wrap.hidden { display: none; }
+
+/* Standard use case card */
+.uc-card {
+  background: var(--black-2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Fill the grid row so cards of unequal copy length still line their footer
+     rows up — the date divider makes any mismatch obvious. */
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.uc-card:hover {
+  border-color: var(--teal-border);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(5,206,240,0.09);
+}
+.uc-card-visual {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(5,206,240,0.08) 0%, rgba(124,77,204,0.1) 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.uc-card-visual img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(5,206,240,0.2));
+}
+.uc-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-block;
+  background: rgba(5,206,240,0.12);
+  border: 1px solid rgba(5,206,240,0.3);
+  color: var(--teal);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.uc-card-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.uc-card-body h2 {
+  color: var(--white);
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.uc-card-body p {
+  color: var(--slate);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  flex: 1;
+  margin: 0 0 20px;
+}
+.uc-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: gap 0.2s;
+}
+.uc-card:hover .uc-card-cta { gap: 10px; }
+
+/* Footer row: CTA left, publish date right — same treatment as .blog-card-meta
+   on the blog index so the two listing pages read as one system. */
+.uc-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.uc-card-meta time {
+  font-size: 0.78rem;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+/* Coming soon card */
+.uc-card-soon {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+
+.uc-suggest-box {
+  border: 1px dashed rgba(5,206,240,0.25);
+  border-radius: 18px;
+  padding: 40px;
+  text-align: center;
+  background: rgba(5,206,240,0.02);
+  margin-top: 40px;
+}
+.uc-suggest-box h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.uc-suggest-box p {
+  color: var(--slate);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Touch target — measured 32px tall at 375px. */
+@media (max-width: 768px) {
+  .uc-filter-btn { min-height: 44px; }
+}

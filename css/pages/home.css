@@ -1,0 +1,121 @@
+/* Styles for /index.html only — moved out of an inline <style> block. It is
+   linked at the same point in <head>, so the cascade order is unchanged. */
+/* Home — the "Two apps" and "Built on Atlassian" sections from the
+   2026-09-28 redesign, kept inside the original home page (Eric kept
+   these two and reverted the rest). Dark ground; the review card is the
+   one light surface. Purple = Bulk Comments, blue = Bulk Page Cloner. */
+.hm { --hm-rule: rgba(148,170,196,0.14); --hm-raised: #050D19; --hm-ink: #E8F4FF; --hm-muted: #9AADC4;
+  --bcj: #5B5EEA; --bcj-txt: #A5B4FC; --bpc: #05CEF0; --bpc-txt: #67E8F9;
+  --paper: #FBFBFD; --paper-2: #F1F3F8; --paper-line: #E3E6EE; --paper-ink: #172B4D; --paper-muted: #5B6780; }
+.hm-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 10px; font-size: 0.9rem;
+  font-weight: 600; text-decoration: none; white-space: nowrap; transition: filter 0.18s, border-color 0.18s, background 0.18s; }
+.hm-btn svg { width: 14px; height: 14px; }
+.hm-btn--light { background: var(--paper); color: #0B1426; }
+.hm-btn--light:hover { filter: brightness(0.94); }
+.hm-btn--ghost { color: var(--hm-ink); border: 1px solid rgba(148,170,196,0.28); padding: 12px 23px; }
+.hm-btn--ghost:hover { border-color: rgba(232,244,255,0.5); background: rgba(255,255,255,0.03); }
+.hm-btn:focus-visible, .hm-link:focus-visible { outline: 2px solid #A5F3FC; outline-offset: 3px; }
+/* Sections */
+.hm-sec { padding: 104px 0; border-top: 1px solid var(--hm-rule); }
+.hm-wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.hm-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hm-muted); margin: 0 0 14px; }
+.hm-h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 3.2vw, 2.7rem); font-weight: 800; letter-spacing: -0.035em;
+  line-height: 1.1; color: var(--hm-ink); margin: 0 0 14px; text-wrap: balance; }
+.hm-lede { font-size: 1.02rem; line-height: 1.7; color: var(--hm-muted); margin: 0; max-width: 600px; }
+
+/* Hero app tiles — the two apps as doors under the hero buttons, left-aligned
+   with the copy. Purple = Bulk Comments (Jira), blue = Bulk Page Cloner
+   (Confluence). They replace the four stat boxes and the Confluence / Jira
+   badges; the facts that mattered move into one line beneath them. */
+.hero .hero-sub { margin-bottom: 40px; }
+.hero-doors { display: grid; grid-template-columns: repeat(2, minmax(0, 330px)); gap: 14px;
+  opacity: 0; animation: textReveal 0.7s var(--ease-expo) 0.68s both; }
+.hero-door { position: relative; display: flex; align-items: center; gap: 14px; text-decoration: none;
+  padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(148,170,196,0.16); overflow: hidden;
+  background: rgba(5,13,25,0.8); transition: border-color 0.2s, transform 0.2s; }
+.hero-door::before { content: ''; position: absolute; inset: 0; pointer-events: none; }
+.hero-door--bcj::before { background: radial-gradient(ellipse 90% 120% at 100% 0%, rgba(44,33,112,0.75), transparent 70%); }
+.hero-door--bpc::before { background: radial-gradient(ellipse 90% 120% at 100% 0%, rgba(14,58,110,0.75), transparent 70%); }
+.hero-door > * { position: relative; }
+.hero-door:hover { border-color: rgba(232,244,255,0.35); transform: translateY(-2px); }
+.hero-door:focus-visible { outline: 2px solid #A5F3FC; outline-offset: 3px; }
+.hero-door img { width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0; }
+.hero-door small { display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero-door--bcj small { color: #A5B4FC; } .hero-door--bpc small { color: #67E8F9; }
+.hero-door b { display: block; font: 800 1.02rem 'Plus Jakarta Sans', sans-serif; color: var(--white); letter-spacing: -0.02em; }
+.hero-door span { display: block; font-size: 0.82rem; color: var(--slate); margin-top: 2px; }
+.hero-door .arr { margin-left: auto; color: var(--slate); font-size: 1.05rem; }
+/* The live site's stat bar, now under the tiles instead of the buttons. */
+/* Same width as the two tiles above (2 × 330 + 14 gap), so their edges line up. */
+.hero .hero-stats { margin-top: 24px; animation-delay: 0.8s; max-width: 674px; }
+@media (max-width: 760px) { .hero-doors { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .hero-doors { animation: none; opacity: 1; } .hero-door { transition: none; } }
+
+/* Section headers sit centred, like the rest of the home page. */
+.hm-sec .hm-eyebrow, .hm-sec .hm-h2 { text-align: center; }
+.hm-sec .hm-h2 { margin-left: auto; margin-right: auto; max-width: 900px; }
+.hm-sec .hm-lede { text-align: center; margin: 0 auto; }
+
+/* Two apps */
+.hm-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.hm-app { position: relative; border: 1px solid var(--hm-rule); border-radius: 18px; padding: 30px 30px 28px; overflow: hidden;
+  background: var(--hm-raised); display: flex; flex-direction: column; }
+.hm-app::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.9; }
+.hm-app--bcj::before { background: radial-gradient(ellipse 80% 70% at 100% 0%, rgba(44,33,112,0.55), transparent 70%); }
+.hm-app--bpc::before { background: radial-gradient(ellipse 80% 70% at 100% 0%, rgba(14,58,110,0.55), transparent 70%); }
+.hm-app > * { position: relative; }
+.hm-app-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.hm-app-top img { width: 48px; height: 48px; border-radius: 12px; }
+.hm-app-top small { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.hm-app--bcj .hm-app-top small { color: var(--bcj-txt); } .hm-app--bpc .hm-app-top small { color: var(--bpc-txt); }
+.hm-app-top b { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.12rem; font-weight: 800; color: var(--hm-ink); letter-spacing: -0.02em; }
+.hm-fig { height: 132px; margin: 0 0 22px; border-radius: 12px; border: 1px solid var(--hm-rule); background: rgba(2,9,17,0.55); }
+.hm-fig svg { width: 100%; height: 100%; display: block; }
+.hm-app h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.2; color: var(--hm-ink); margin: 0 0 10px; }
+.hm-app p { font-size: 0.96rem; line-height: 1.7; color: var(--hm-muted); margin: 0 0 22px; }
+.hm-app-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.hm-app-foot .hm-btn { padding: 11px 20px; font-size: 0.86rem; }
+.hm-app--bcj .hm-btn--app { background: var(--bcj); color: #fff; }
+.hm-app--bpc .hm-btn--app { background: var(--bpc); color: #020911; }
+.hm-btn--app:hover { filter: brightness(1.08); }
+.hm-link { font-size: 0.88rem; font-weight: 600; color: var(--hm-ink); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.hm-link svg { width: 12px; height: 12px; }
+.hm-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hm-free { width: 100%; font-size: 0.8rem; color: var(--hm-muted); }
+
+/* Proof — the review is the other light surface */
+.hm-proof { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; margin-top: 48px; }
+.hm-review { background: var(--paper); color: var(--paper-ink); border-radius: 18px; padding: 32px 34px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4); margin: 0; }
+.hm-review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.hm-stars { display: flex; gap: 3px; } .hm-stars svg { width: 18px; height: 18px; }
+.hm-mp { display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 700; color: #0C66E4; }
+.hm-mp svg { width: 12px; height: 12px; fill: currentColor; }
+.hm-review blockquote { margin: 0 0 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.18rem; font-weight: 600;
+  line-height: 1.55; letter-spacing: -0.01em; color: var(--paper-ink); }
+.hm-review figcaption { display: flex; align-items: center; gap: 12px; font-size: 0.86rem; color: var(--paper-muted); }
+.hm-review figcaption i { width: 38px; height: 38px; border-radius: 50%; background: #E4E9FF; color: #1F4FE0; font-style: normal;
+  font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.hm-review figcaption b { display: block; color: var(--paper-ink); font-weight: 700; }
+.hm-trust { list-style: none; margin: 0; padding: 0; }
+.hm-trust li { display: grid; grid-template-columns: 36px 1fr; gap: 4px 14px; padding: 18px 0; border-top: 1px solid var(--hm-rule); }
+.hm-trust li:last-child { border-bottom: 1px solid var(--hm-rule); }
+.hm-trust .ic { grid-row: span 2; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  background: rgba(87,157,255,0.12); color: #7CB4FF; }
+.hm-trust .ic svg { width: 17px; height: 17px; }
+.hm-trust b { font-size: 0.98rem; color: var(--hm-ink); font-weight: 700; }
+.hm-trust span { font-size: 0.9rem; line-height: 1.6; color: var(--hm-muted); }
+
+@media (max-width: 980px) {
+  .hm-apps, .hm-proof { grid-template-columns: minmax(0, 1fr); }
+  .hm-proof { gap: 36px; }
+}
+@media (max-width: 640px) {
+  .hm-wrap { padding: 0 20px; }
+  .hm-sec { padding: 80px 0; }
+  .hm-app { padding: 24px 22px; }
+  .hm-review { padding: 26px 24px; }
+  .hm-btn { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .hm-btn { transition: none; } }
