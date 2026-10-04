@@ -31,8 +31,11 @@
   <link rel="stylesheet" href="/css/aurora.css">
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
-  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
-  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -151,54 +154,65 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 23, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Last Updated:</strong> October 4, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
         <h2 style="color:var(--teal);margin-top:0;margin-bottom:12px;font-size:1.05rem;">Security at a Glance</h2>
-        <p style="color:var(--slate);margin:0;">DataPingo builds exclusively on Atlassian's Forge platform. All infrastructure, hosting, encryption, and runtime security is provided and managed by Atlassian. DataPingo does not operate independent servers, databases, or cloud infrastructure. We do not hold any third-party security certifications (such as SOC 2, ISO 27001, or PCI-DSS) independently — our security posture is inherited from and governed by Atlassian's platform.</p>
+        <p style="color:var(--slate);margin:0;">Every DataPingo app is built on Atlassian's Forge platform and acts as you, with your permissions. All app infrastructure, hosting, encryption, and runtime security is provided and managed by Atlassian; your content never leaves Atlassian and no data is kept on DataPingo systems. We do not hold any third-party security certifications (such as SOC 2, ISO 27001, or PCI-DSS) independently &mdash; our apps' security posture is inherited from and governed by Atlassian's platform.</p>
       </div>
 
       <h2>1. Platform &amp; Infrastructure</h2>
       <h3>1.1 Atlassian Forge</h3>
       <p>All DataPingo apps are built on <a href="https://developer.atlassian.com/platform/forge/" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Forge</a> — Atlassian's hosted serverless platform. This means:</p>
       <ul>
-        <li><strong>No external servers:</strong> DataPingo does not run or manage any servers, databases, or cloud infrastructure outside of Atlassian.</li>
+        <li><strong>No external servers for app data:</strong> Our apps do not use any servers, databases, or cloud infrastructure outside of Atlassian.</li>
         <li><strong>No data egress:</strong> App code runs inside Atlassian's infrastructure. Data never leaves Atlassian's environment to reach DataPingo systems.</li>
         <li><strong>Atlassian-managed security:</strong> Encryption, network security, runtime isolation, and infrastructure hardening are all handled by Atlassian.</li>
         <li><strong>Automatic updates:</strong> The Forge runtime receives security patches from Atlassian automatically.</li>
       </ul>
       <p>For full details on Atlassian's infrastructure security, see <a href="https://www.atlassian.com/trust/security" target="_blank" rel="noopener" style="color:var(--teal);">atlassian.com/trust/security</a>.</p>
 
-      <h2>2. Data Handling</h2>
-      <h3>2.1 What Data Each App Accesses</h3>
-
-      <h4>Bulk Comments for Jira</h4>
+      <h2>2. How Every DataPingo App Handles Your Data</h2>
+      <p>These rules apply to every app DataPingo publishes, including future ones. An app that cannot meet them is not released.</p>
       <ul>
-        <li><strong>Scopes requested:</strong> <code>read:jira-work</code>, <code>write:jira-work</code>, <code>read:jira-user</code> and <code>storage:app</code>. No others.</li>
-        <li><strong>Read scope:</strong> Reads Jira issue and comment details — including existing comment content and media — to populate issue search results and the source comment being copied.</li>
-        <li><strong>Write scope:</strong> Posts comments to the Jira issues you select and uploads their attachments. Comment text and media move between issues entirely inside Atlassian's infrastructure.</li>
-        <li><strong>Acts as you, not as itself:</strong> Every comment and file is created under your own Atlassian account and is subject to your existing Jira permissions. The app cannot reach an issue you could not reach yourself. Writing is granted with impersonation so that authorship still holds for large attachments, which finish uploading after you have moved on; everything the app reads, it reads inside your own session.</li>
-        <li><strong>Attachment staging:</strong> Files you attach are uploaded to Atlassian's Forge Object Store, copied into each selected issue, and deleted. Uploads that are never sent expire automatically within one hour. Object Store is Atlassian infrastructure, isolated per Atlassian site.</li>
-        <li><strong>App storage:</strong> Apart from those staged files, stores only per-issue job status for the send queue in Forge storage — isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
-        <li><strong>No external transmission:</strong> No Jira issue data, comment content, or media is sent to DataPingo or any third party.</li>
+        <li><strong>It acts as you.</strong> Every read and write is made with your own Atlassian account and your existing permissions. An app cannot reach an issue, page, or space that you could not reach yourself, and what it creates is authored by you.</li>
+        <li><strong>Nothing leaves Atlassian.</strong> Apps declare no external egress. Your content is never sent to DataPingo or to any third party.</li>
+        <li><strong>No data is kept.</strong> Apps keep nothing on DataPingo systems. When an action needs working data while it runs &mdash; files waiting to be posted, or a copy of the page being cloned &mdash; it stays in your own Atlassian site's Forge storage and is deleted when the action finishes. Anything left behind by an interrupted action expires automatically.</li>
+        <li><strong>Minimum permissions.</strong> Each app requests only the Atlassian scopes it needs, listed below and on the <strong>Privacy &amp; Security</strong> tab of its Marketplace listing.</li>
+        <li><strong>Logs carry no content.</strong> Our developer logs record app activity &mdash; when an action ran, on which Atlassian site, how many items it touched, IDs, sizes, timings, and error codes &mdash; with names, titles, and issue, comment, or page content redacted or never logged.</li>
       </ul>
 
-      <h4>Bulk Page Cloner for Confluence</h4>
-      <ul>
-        <li><strong>Read scope:</strong> Reads the selected template page (content, formatting, images, video, macros, labels, and attachments) only at the moment of cloning. No page data is retained by the app after the operation completes.</li>
-        <li><strong>Write scope:</strong> Creates new Confluence pages in the destination space/parent chosen by the user.</li>
-        <li><strong>App storage:</strong> Uses Forge KV Storage for app state (e.g. UI preferences). This storage is isolated per Atlassian tenant and not accessible outside of Atlassian.</li>
-        <li><strong>No personal data stored:</strong> The app does not collect, log, or store Confluence page content, user identifiers, or metadata on any external system.</li>
-      </ul>
+      <h3 id="apps" style="scroll-margin-top:100px;">2.1 App-by-App Reference</h3>
+      <p>The specifics for each app. When a new app is released, it is added here first.</p>
+      <div style="overflow-x:auto;margin-bottom:32px;">
+        <table class="stack-table" style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead>
+            <tr style="background:var(--black-3);border-bottom:1px solid var(--border);">
+              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">App</th>
+              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Atlassian scopes</th>
+              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Working data while an action runs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Bulk Comments for Jira</td>
+              <td data-label="Atlassian scopes" style="padding:14px 16px;color:var(--slate);vertical-align:top;"><span class="scope-list"><code>read:jira-work</code><span><code>write:jira-work</code> <span class="scope-flag">allowImpersonation</span></span><code>read:jira-user</code><code>storage:app</code></span></td>
+              <td data-label="Working data while an action runs" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Files you attach are held in Atlassian's Forge Object Store until they are posted to each selected issue, then deleted; files that are never sent expire within one hour. The progress of each send is tracked until it completes. Writing uses impersonation so that large files, which finish uploading after you have moved on, are still posted as you.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Bulk Page Cloner for Confluence</td>
+              <td data-label="Atlassian scopes" style="padding:14px 16px;color:var(--slate);vertical-align:top;"><span class="scope-list"><code>read:page:confluence</code><code>read:space:confluence</code><code>read:label:confluence</code><code>write:page:confluence</code><code>write:confluence-content</code><code>storage:app</code></span></td>
+              <td data-label="Working data while an action runs" style="padding:14px 16px;color:var(--slate);vertical-align:top;">A copy of the page you are cloning, kept while the clone run is in progress and deleted when it ends (it expires after seven days if a run is abandoned). Your list of pages is cached for up to one hour so the page picker loads quickly.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h3>2.2 Data Minimization</h3>
-      <p>Each app requests only the Atlassian API scopes necessary to deliver its core functionality. Scopes are listed in each app's Marketplace listing under the Privacy &amp; Security tab.</p>
-
-      <h3>2.3 GDPR &amp; Personal Data</h3>
-      <p>DataPingo apps run entirely on Atlassian Forge and declare no external egress, so no end-user data is processed or stored outside Atlassian's infrastructure. On each app's Marketplace listing we have declared, and Atlassian has approved, that DataPingo is <strong>neither a data controller nor a data processor</strong> under the GDPR with reference to that app. Those declarations are public on the <strong>Privacy &amp; Security</strong> tab of every listing.</p>
-      <p>An app may <em>read</em> personal data in the course of doing its job — resolving a name for an @mention, for example — but it does not retain it. What each app keeps in Atlassian's own storage is itemised in its documentation, and uninstalling removes it.</p>
-      <p>Customer contact details reach us only through the Atlassian Marketplace. We do not sell, distribute or share that information. See our <a href="/privacy">Privacy Policy</a> for what we hold and your rights over it.</p>
+      <h3>2.2 GDPR &amp; Personal Data</h3>
+      <p>Because DataPingo apps run entirely on Atlassian Forge and declare no external egress, no end-user data is processed or stored outside Atlassian's infrastructure. On each app's Marketplace listing we have declared, and Atlassian has approved, that DataPingo is <strong>neither a data controller nor a data processor</strong> under the GDPR with reference to that app. Those declarations are public on the <strong>Privacy &amp; Security</strong> tab of every listing.</p>
+      <p>An app may <em>read</em> personal data in the course of its job &mdash; resolving a name for an @mention, for example &mdash; but it does not keep it beyond the working data described above, and uninstalling an app removes anything it holds.</p>
+      <p>The personal data DataPingo itself holds &mdash; mainly business contact details &mdash; is covered by our <a href="/privacy">Privacy Policy</a>, together with your rights over it.</p>
 
       <h2>3. Atlassian Marketplace Trust &amp; Compliance</h2>
       <p>All DataPingo apps are reviewed and listed on the Atlassian Marketplace. By listing on the Marketplace, apps must comply with:</p>
@@ -222,7 +236,7 @@
       </ul>
 
       <h2>6. Policy Updates</h2>
-      <p>This page is updated when DataPingo's data handling practices change. Material changes will be announced via our website. Continued use of our app constitutes acceptance of the current policy.</p>
+      <p>This page is updated when DataPingo's data handling practices change or a new app is released. Material changes will be announced via our website. Continued use of our apps constitutes acceptance of the current policy.</p>
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px;">
         <h3 style="color:var(--white);margin-top:0;margin-bottom:16px;">Contact</h3>
@@ -234,7 +248,7 @@
         </ul>
       </div>
 
-      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: July 23, 2026</em></p>
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: October 4, 2026</em></p>
 
     </div>
   </section>

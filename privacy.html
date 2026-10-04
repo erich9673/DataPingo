@@ -31,8 +31,11 @@
   <link rel="stylesheet" href="/css/aurora.css">
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
-  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above. -->
-  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=d.createElement(s);js.async=true;js.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f)})(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -151,59 +154,113 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Effective Date:</strong> January 1, 2025 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Last Updated:</strong> July 23, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><strong style="color:var(--white);">Last Updated:</strong> October 4, 2026 &nbsp;&middot;&nbsp; <strong style="color:var(--white);">Company:</strong> DataPingo</p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
         <h2 style="color:var(--teal);margin-top:0;margin-bottom:12px;font-size:1.05rem;">Privacy Summary</h2>
-        <p style="color:var(--slate);margin:0;">DataPingo builds productivity apps for Atlassian Confluence and Jira. Our apps run entirely inside Atlassian's infrastructure — we do not operate external servers or databases that store your app data. This policy explains what limited information we do collect and how it is used.</p>
+        <p style="color:var(--slate);margin:0 0 12px;">DataPingo builds productivity apps for Atlassian Confluence and Jira. Our apps act as you inside your Atlassian site and keep no data &mdash; your issues, comments, and pages never reach us.</p>
+        <p style="color:var(--slate);margin:0;">This policy covers the limited personal information DataPingo does hold: business contact details from Marketplace licensing, what you send us through our website or by email, and how visitors use datapingo.com. DataPingo is a trade name of Eric Huang, a sole proprietor based in New Jersey, USA (&ldquo;DataPingo&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), who is responsible for this information.</p>
       </div>
 
-      <h2>1. Information We Collect</h2>
-
-      <h3>1.1 Atlassian Forge App Data</h3>
-      <p>Our apps are built on the <strong>Atlassian Forge</strong> platform. All app data is stored exclusively in <strong>Atlassian Forge storage</strong> — it never leaves Atlassian's cloud infrastructure and DataPingo has no direct access to it.</p>
-      <p><strong>Bulk Comments for Jira</strong> reads Jira issue and comment details — including existing comment content and media — to post a new comment, or copy an existing comment, across the issues you select. Comment text and media move between Jira issues entirely inside Atlassian's own infrastructure; no issue or comment data is stored on external DataPingo servers.</p>
-      <p><strong>Bulk Page Cloner for Confluence</strong> reads the selected template page's content, formatting, images, video, macros, labels, and attachments in order to create the requested clones. No page data is stored by the app — it is read from Confluence, used to create the clones, and discarded. Clones are created directly in your Confluence instance via the Atlassian Forge API.</p>
-      <p>Files you attach to a comment are uploaded to <strong>Atlassian's Forge Object Store</strong>, held there while the comment is being written, copied into each issue you selected, and then deleted. An upload that is never sent expires automatically within one hour. Forge Object Store is Atlassian infrastructure, isolated per Atlassian site; the files are not readable by DataPingo and are never transmitted to any DataPingo system or third party. Apart from those staged files, the app stores only per-issue job status for the send queue in Atlassian Forge storage.</p>
-
-      <h3>1.2 Website Analytics and Advertising</h3>
-      <p>When you visit <strong>datapingo.com</strong>, we use Google Tag Manager and Google Analytics to collect standard web analytics including pages visited, browser type, and general geographic region. This is used to understand how visitors use our site.</p>
-      <p>If you allow the <strong>Marketing</strong> category in our cookie banner, we also use advertising technologies including Google Ads to measure our advertising and to show DataPingo ads to people who have visited this site. We never sell your personal information, and nothing is shared for advertising unless you have allowed it &mdash; see <a href="#cookies">section 8</a>.</p>
-
-      <h3>1.3 Support Communications</h3>
-      <p>If you contact us by email, we retain the content of that communication to respond to your inquiry and for record-keeping.</p>
-
-      <h3>1.4 App Onboarding &amp; Support Communications</h3>
-      <p>When you install or evaluate one of our Atlassian Marketplace apps, we may collect and process the email address of the technical contact associated with that installation (obtained via Atlassian's APIs or license reporting) to send onboarding, support, and service-related communications about the app you installed. Every marketing or non-transactional email we send — including these onboarding messages and any newsletter you subscribe to — includes a one-click unsubscribe link; you can opt out at any time and we will stop emailing that address immediately. We do not sell or share your email address with any third party.</p>
-
-      <h2>2. How We Use Your Information</h2>
+      <h2>1. Our Apps</h2>
+      <p>Every DataPingo app is built on <strong>Atlassian Forge</strong> and runs inside Atlassian's cloud. Each app acts as you, with your own Atlassian permissions, to carry out the bulk actions you ask for &mdash; such as commenting on many Jira issues or cloning Confluence pages.</p>
       <ul>
-        <li>To operate and improve our Atlassian apps</li>
-        <li>To respond to support requests</li>
-        <li>To understand website usage through aggregated analytics</li>
-        <li>To comply with legal obligations</li>
+        <li><strong>Nothing leaves Atlassian.</strong> Issue, comment, and page content is never sent to DataPingo or to any third party.</li>
+        <li><strong>No data is kept.</strong> If an action needs working data while it runs &mdash; files waiting to be posted, or a copy of the page being cloned &mdash; it stays in your own Atlassian site and is deleted when the action finishes. Anything left by an interrupted action expires automatically.</li>
+        <li><strong>DataPingo cannot see your content.</strong> Our developer logs record app activity &mdash; when an action ran, on which Atlassian site, how many items it touched, and whether it succeeded &mdash; with names, titles, and content redacted or never logged.</li>
+        <li><strong>No cookies.</strong> Our apps set no cookies and are not part of this website's analytics.</li>
       </ul>
-      <p>We do not sell your personal information. We do not use app data for advertising.</p>
+      <p>The exact scopes and working data for each app are listed in the <a href="/security#apps">app-by-app reference</a> in our Security Policy.</p>
 
-      <h2>3. Information Sharing</h2>
-      <h3>3.1 Atlassian</h3>
-      <p>Our apps are distributed through the <strong>Atlassian Marketplace</strong>. Atlassian handles installation, licensing, and billing. Please refer to <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" style="color:var(--teal);">Atlassian's Privacy Policy</a> for details on how they handle your data.</p>
+      <h2>2. Information We Collect</h2>
 
-      <h3>3.2 Legal Requirements</h3>
-      <p>We may disclose information when required by law, to protect our rights, or to respond to valid legal process.</p>
+      <h3>2.1 Marketplace Licensing Contacts</h3>
+      <p>When your organisation installs, evaluates, or buys one of our apps, Atlassian's licensing reports give us the technical and billing contacts for that installation &mdash; typically name, email address, company, and the app and licence involved. We use them to send onboarding, service, and app-related emails.</p>
 
-      <h2>4. Data Security</h2>
-      <p>Because our apps run on Atlassian Forge, the security of app data is governed by Atlassian's enterprise-grade infrastructure, including encryption in transit and at rest. For details, see <a href="https://www.atlassian.com/trust/security" target="_blank" style="color:var(--teal);">Atlassian's Trust &amp; Security page</a>.</p>
-      <p>For our website, we use standard HTTPS encryption. Support communications are handled via email and retained only as long as necessary.</p>
+      <h3>2.2 What You Send Us</h3>
+      <p>When you subscribe to our newsletter, use our contact form, apply to a partner programme, email us, or raise a ticket on our support portal, we keep what you send &mdash; such as your name, email address, company, and message &mdash; to respond and for record-keeping.</p>
 
-      <h2>5. Data Retention</h2>
-      <p>App data stored in Atlassian Forge is retained for as long as the app is installed on your Atlassian site. Uninstalling the app removes the app's access; data deletion follows Atlassian's Forge data lifecycle policies. Support email communications are retained until the matter is resolved.</p>
-      <p>Files staged for a Bulk Comments for Jira send are the exception: they are deleted as soon as the send completes, and any file that is uploaded but never sent expires automatically within one hour. They are not retained for the life of the installation.</p>
+      <h3>2.3 Email Engagement</h3>
+      <p>Our emails contain a small tracking image and tracked links, so we can see whether an email was opened and which links were clicked. We use this to judge which emails are useful. Every marketing or non-transactional email includes a one-click unsubscribe link, and we stop emailing that address immediately when you use it.</p>
+
+      <h3>2.4 Business Contacts We Reach Out To</h3>
+      <p>We may contact people at organisations that use Atlassian products to tell them about our apps, using professional contact details from public sources such as LinkedIn and company websites &mdash; name, job title, company, and work contact details. Every such message lets you opt out, and if you do, we will not contact you again.</p>
+
+      <h3>2.5 Website Analytics and Advertising</h3>
+      <p>With your consent, datapingo.com uses Google Analytics to understand how visitors use the site, and advertising technologies from Google (Google Ads) and OpenAI (ChatGPT Ads) to measure our advertising and show DataPingo ads to people who have visited. See <a href="#cookies">section 8</a>.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li><strong>To support and improve our apps</strong> &mdash; onboarding, service, and support emails to the people who installed them.</li>
+        <li><strong>To answer you</strong> &mdash; replying to messages, support tickets, and partner applications.</li>
+        <li><strong>To tell businesses about our apps</strong> &mdash; newsletters, product updates, and outreach, always with a way to opt out.</li>
+        <li><strong>To understand and advertise our website</strong> &mdash; analytics and advertising, only with your consent.</li>
+        <li><strong>To meet legal obligations.</strong></li>
+      </ul>
+      <p>We do not sell your personal information, and we never use content from your Atlassian site for any purpose.</p>
+
+      <h2>4. Who We Share It With</h2>
+      <p>We use the service providers below to run DataPingo. They handle personal information only to provide their service to us.</p>
+      <div style="overflow-x:auto;margin-bottom:24px;">
+        <table class="stack-table" style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead>
+            <tr style="background:var(--black-3);border-bottom:1px solid var(--border);">
+              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">Who</th>
+              <th style="padding:14px 16px;text-align:left;color:var(--white);font-weight:600;">What for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Atlassian</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Marketplace licensing and billing; our support portal</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Google</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Analytics and advertising (with your consent); our business email</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">OpenAI</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Measuring our ChatGPT advertising (with your consent)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">iubenda</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Managing your cookie choices</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Hosting and database providers</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Running our website and storing contact records, form submissions, and email history</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Email delivery provider</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Sending our emails</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Business software providers</td>
+              <td data-label="What for" style="padding:14px 16px;color:var(--slate);vertical-align:top;">Team notifications, AI writing assistance, and finding business prospects</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Most of these providers are based in the United States. Where information about people in the UK or the European Economic Area is transferred there, we rely on the safeguards those providers offer, such as the EU&ndash;US Data Privacy Framework or standard contractual clauses. Atlassian's own handling of your data is described in <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian's Privacy Policy</a>.</p>
+      <p>We may also disclose information when required by law, to protect our rights, or to respond to valid legal process.</p>
+
+      <h2>5. Security and Retention</h2>
+      <p>Our apps' security is provided by Atlassian's platform, including encryption in transit and at rest &mdash; see our <a href="/security">Security Policy</a>. For everything else we use reputable providers, encrypted connections, and access limited to DataPingo.</p>
+      <ul>
+        <li><strong>Licensing contacts</strong> &mdash; kept while the licence relationship lasts and for up to two years after, unless you ask us to delete them sooner.</li>
+        <li><strong>Messages, form submissions, and support tickets</strong> &mdash; kept until the matter is resolved and for up to two years after.</li>
+        <li><strong>Unsubscribes</strong> &mdash; we keep a record of addresses that have opted out, so we never email them again.</li>
+        <li><strong>Website analytics</strong> &mdash; kept in Google Analytics for no more than 14 months.</li>
+      </ul>
 
       <h2>6. Your Privacy Rights</h2>
-      <h3>6.1 Why we are allowed to hold your email address</h3>
-      <p>The only personal data DataPingo holds directly is contact information: the technical contact for an installation, obtained through Atlassian's licensing APIs, and anything you send us by email. We rely on <strong>legitimate interests</strong> — communicating with the business that installed our software about that software — rather than on consent. Installing an app is not by itself consent to be emailed, so every non-transactional message we send carries a one-click unsubscribe, and we stop immediately when you use it.</p>
+      <h3>6.1 Why we are allowed to hold your information</h3>
+      <ul>
+        <li><strong>Legitimate interests</strong> &mdash; for licensing contacts, business outreach, and answering what you send us. Communicating with businesses about software they use, or may find useful, is a legitimate interest; installing an app is not by itself consent to be emailed, so every non-transactional message carries a one-click unsubscribe and we stop immediately when you use it.</li>
+        <li><strong>Consent</strong> &mdash; for the newsletter, and for website analytics and advertising cookies. You can withdraw it at any time.</li>
+        <li><strong>Legal obligation</strong> &mdash; where the law requires us to keep or disclose information.</li>
+      </ul>
       <h3>6.2 What you can ask us to do</h3>
       <ul>
         <li><strong>Access</strong> — get a copy of the personal data we hold about you</li>
@@ -215,9 +272,9 @@
       </ul>
       <p>Email <a href="mailto:contact@datapingo.com">contact@datapingo.com</a> and we will respond within 30 days. We do not charge for this and will not ask you to justify the request.</p>
       <h3>6.3 Complaints</h3>
-      <p>If you are in the UK, EU, or EEA and believe we have handled your data improperly, you may complain to your national data protection supervisory authority. We would rather you told us first so we can put it right.</p>
+      <p>If you are in the UK or the European Economic Area (the EU plus Iceland, Liechtenstein, and Norway) and believe we have handled your data improperly, you may complain to your national data protection supervisory authority. We would rather you told us first so we can put it right.</p>
       <h3>6.4 Data inside your Atlassian site</h3>
-      <p>Issue, comment, and page content processed by our apps stays inside Atlassian and is controlled by you, not by us. For that data your controls are your Atlassian account and site admin settings; DataPingo cannot access it and therefore cannot export or delete it on your behalf.</p>
+      <p>Issue, comment, and page content that our apps work with stays inside Atlassian and is controlled by you, not by us. For that data your controls are your Atlassian account and site admin settings; DataPingo cannot access it and therefore cannot export or delete it on your behalf.</p>
 
       <h2>7. Children's Privacy</h2>
       <p>Our services are business tools sold to organisations and are not intended for anyone under 16. We do not knowingly collect personal information from anyone under 16. If you believe we hold such information, email <a href="mailto:contact@datapingo.com">contact@datapingo.com</a> and we will delete it.</p>
@@ -228,18 +285,17 @@
       <ul>
         <li><strong>Strictly necessary</strong> — needed for the site to work and to remember your cookie choices. These carry no tracking and are always on.</li>
         <li><strong>Measurement</strong> — Google Tag Manager and Google Analytics, used in aggregate to see which pages people visit. Set only if you allow them, and you can withdraw that permission at any time.</li>
-        <li><strong>Marketing</strong> — advertising and remarketing technologies, including Google Ads. We use these to measure our advertising and to show DataPingo ads to people who have visited this site. They are set <em>only</em> if you allow the Marketing category, and never before.</li>
+        <li><strong>Marketing</strong> — advertising and measurement technologies from Google (Google Ads) and OpenAI (ChatGPT Ads). We use these to measure our advertising and to show DataPingo ads to people who have visited this site. They are set <em>only</em> if you allow the Marketing category, and never before.</li>
       </ul>
       <h3>8.2 Selling and sharing</h3>
       <p><strong>DataPingo does not sell your personal information.</strong> We have never accepted, and do not accept, money or other value in exchange for your data, and we do not disclose personal information to data brokers.</p>
-      <p><strong>We may share personal information for advertising.</strong> When you allow the Marketing category, advertising technologies including Google Ads may receive information about your visit, so that we can measure our advertising and show DataPingo ads to people who have been here before. Under the California Consumer Privacy Act as amended by the CPRA, and comparable US state privacy laws, this counts as <strong>&ldquo;sharing&rdquo; for cross-context behavioural advertising</strong> even though no money changes hands.</p>
+      <p><strong>We may share personal information for advertising.</strong> When you allow the Marketing category, Google and OpenAI may receive information about your visit, so that we can measure our advertising and show DataPingo ads to people who have been here before. Under the California Consumer Privacy Act as amended by the CPRA, and comparable US state privacy laws, this counts as <strong>&ldquo;sharing&rdquo; for cross-context behavioural advertising</strong> even though no money changes hands.</p>
       <p><strong>You can opt out at any time.</strong> Decline the Marketing category, or switch it off later in the cookie preferences panel — reachable from the <strong>Cookie Preferences</strong> link in the footer of every page. Nothing is shared for advertising unless you have allowed it.</p>
       <h3>8.3 Changing your mind</h3>
       <p>You can change or withdraw your cookie choices at any time through the consent banner's preferences panel, or by clearing cookies in your browser. Withdrawing consent does not affect the lawfulness of anything done before you withdrew it.</p>
-      <p>Our Atlassian Forge apps set no cookies at all. They run inside your Atlassian site and are not part of this website's analytics.</p>
 
       <h2>9. Privacy Policy Updates</h2>
-      <p>We may update this Privacy Policy periodically. Continued use of our services after changes constitutes acceptance of the updated policy. The effective date at the top of this page reflects the most recent revision.</p>
+      <p>We may update this Privacy Policy periodically. Continued use of our services after changes constitutes acceptance of the updated policy. The &ldquo;Last Updated&rdquo; date at the top of this page shows when it last changed.</p>
 
       <h2>10. Contact Information for Privacy Matters</h2>
       <p>If you have questions about this Privacy Policy or our privacy practices, or if you would like to exercise your privacy rights, please contact us using the information below.</p>
