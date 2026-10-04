@@ -1267,3 +1267,10 @@ body.page-404 .nav-actions { display: block; }
 }
 .scope-list > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 @media (min-width: 641px) { .stack-table td:has(> .scope-list) { min-width: 300px; } }
+
+/* Legal-page date line: on phones put "Last Updated" and "Company" on their
+   own lines instead of wrapping with a stray separator dot at a line end. */
+@media (max-width: 640px) {
+  .meta-sep { display: none; }
+  .meta-item { display: block; }
+}
