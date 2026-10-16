@@ -181,6 +181,19 @@
     return li;
   }
 
+  // GA4 'search' event: once per settled query (typing paused 1s), with the result
+  // count, so searches that find nothing show up as gaps in the docs. Anything that
+  // looks like an email address is never sent.
+  let searchTimer = 0, lastSearch = '';
+  function trackSearch(q, results) {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      if (q.length < 2 || q === lastSearch || /@/.test(q) || !window.dpTrack) return;
+      lastSearch = q;
+      window.dpTrack('search', { search_term: q.slice(0, 100), search_results: results, search_scope: scope });
+    }, 1000);
+  }
+
   function run() {
     const q = input.value.trim();
     list.textContent = '';
@@ -206,8 +219,10 @@
     if (!hits.length) {
       empty.textContent = 'Nothing in the ' + (scope !== 'all' ? NAMES[scope] + ' ' : '') + 'docs matches \u201c' + q + '\u201d. Try fewer or different words.';
       empty.className = 'dsearch-empty';
+      trackSearch(q, 0);
       return;
     }
+    trackSearch(q, hits.length);
     empty.textContent = hits.length + (hits.length === 1 ? ' result' : ' results');
     empty.className = 'dsearch-empty dsearch-label';
     hits.slice(0, 30).forEach(([, r], i) => {

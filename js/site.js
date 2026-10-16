@@ -96,6 +96,6 @@ document.getElementById('footer-email-form').addEventListener('submit', function
   const email = input.value.trim();
   btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
   fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} })
-    .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); msg.style.color='#67E8F9'; msg.textContent='Almost there — check your inbox to confirm.'; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
+    .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); if (window.dpTrack) dpTrack('generate_lead', { form_name: 'newsletter' }); msg.style.color='#67E8F9'; msg.textContent='Almost there — check your inbox to confirm.'; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
     .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
 });
