@@ -68,13 +68,25 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Bulk Comments",
+      "name": "Bulk Comments for Jira",
       "item": "https://datapingo.com/resources/documentation/bulkcomments"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "User guide",
+      "item": "https://datapingo.com/resources/documentation/bulkcomments/guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Step 2 — Comment",
+      "item": "https://datapingo.com/resources/documentation/bulkcomments/guide/step-2-write-comments"
     }
   ]
 }
   </script>
-</head></head>
+</head>
 <body data-doc-product="bulkcomments">
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking. This is the only conversion this site can
@@ -224,7 +236,7 @@
 
     <div class="doc-content">
       <figure class="doc-figure">
-          <img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-light.webp" alt="The Comment step: the issue list down the left, request SUP-5 in the middle carrying a reply to the customer above an internal note, its status control beneath them, and the read-only details panel on the right." width="3360" height="1828" loading="lazy" decoding="async">
+          <img fetchpriority="high" src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/screens/bcj-02-write-light.webp" alt="The Comment step: the issue list down the left, request SUP-5 in the middle carrying a reply to the customer above an internal note, its status control beneath them, and the read-only details panel on the right." width="3360" height="1828" decoding="async">
           <figcaption>Write a different comment on each issue.</figcaption>
         </figure>
       <p><strong>Write a separate comment on every issue you picked.</strong> Each one is its own composer with its own editor, attachments and status change, and you land on the list already able to type. The issues run down the left so you can jump between them, the composers sit in the middle, and a panel on the right shows the full detail of whichever composer you are on.</p>
@@ -337,6 +349,7 @@
         <p><strong>The number is real</strong>, and it excludes the composer you are copying from. If a target already has something in it the entry arms and asks again &mdash; <span class="ui">Overwrite <em>n</em> comments?</span> &mdash; before replacing anything, so a copy can never quietly wipe work you have already done.</p>
         <p>It is a copy, not a link. Every composer stays independently editable afterwards, so the normal pattern is to paste the shared version everywhere and then change the two that need saying differently.</p>
         <p><strong>On a service project you get this twice &mdash; once for each audience.</strong> The menu carries a separate entry for the customer reply and for the internal note, so you can push one set of words to every reply in the batch and a different set to every note. A copy never crosses between them, so a reply can never land in somebody&rsquo;s internal note &mdash; see <a href="/resources/documentation/bulkcomments/guide/service-management#batch-copy">Copying with two audiences</a>.</p>
+        <p>Updating every issue after an incident or a release? See <a href="/resources/use-cases/incident-and-release-updates">incident and release updates in Jira</a>.</p>
       </section>
 
       <section id="batch-controls" style="scroll-margin-top:100px;">

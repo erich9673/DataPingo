@@ -31,35 +31,53 @@
   <link rel="stylesheet" href="/css/aurora.css">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "DataPingo",
-  "url": "https://datapingo.com",
-  "description": "DataPingo builds productivity apps for Atlassian Confluence and Jira.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "100 Matawan Road, Suite 325 #1104",
-    "addressLocality": "Matawan",
-    "addressRegion": "NJ",
-    "postalCode": "07747",
-    "addressCountry": "US"
-  },
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://datapingo.com/assets/img/favicon-512.png",
-    "width": 512,
-    "height": 512
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/datapingo",
-    "https://marketplace.atlassian.com/vendors/719515432/datapingo",
-    "https://www.youtube.com/@DataPingoCom"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "email": "support@datapingo.com",
-    "url": "https://datapingo.com/support"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://datapingo.com/#organization",
+      "name": "DataPingo",
+      "url": "https://datapingo.com/",
+      "description": "DataPingo builds productivity apps for Atlassian Confluence and Jira.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "100 Matawan Road, Suite 325 #1104",
+        "addressLocality": "Matawan",
+        "addressRegion": "NJ",
+        "postalCode": "07747",
+        "addressCountry": "US"
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://datapingo.com/assets/img/favicon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/datapingo",
+        "https://marketplace.atlassian.com/vendors/719515432/datapingo",
+        "https://www.youtube.com/@DataPingoCom"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@datapingo.com",
+        "url": "https://datapingo.com/support"
+      },
+      "founder": {
+        "@id": "https://datapingo.com/company/about-us#eric-huang"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://datapingo.com/#website",
+      "name": "DataPingo",
+      "url": "https://datapingo.com/",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://datapingo.com/#organization"
+      }
+    }
+  ]
 }</script>
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
   <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the

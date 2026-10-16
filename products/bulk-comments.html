@@ -824,27 +824,38 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://datapingo.com/products/bulk-comments#app",
   "name": "Bulk Comments for Jira",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Atlassian Jira Cloud",
+  "applicationSuite": "Jira",
   "softwareVersion": "4.8.0",
   "url": "https://datapingo.com/products/bulk-comments",
-  "description": "Comment on up to 25 Jira issues from one page — a different comment on each, internal or customer-facing on JSM. Runs entirely on Atlassian Forge — no external servers.",
+  "description": "Comment on up to 25 Jira issues from one page, a different comment and files on each, with replies or internal notes on Jira Service Management requests. Runs entirely on Atlassian Forge — no external servers.",
   "image": "https://datapingo.com/assets/img/og-bulk-comments.png",
-  "installUrl": "https://marketplace.atlassian.com/apps/2184917707",
-  "downloadUrl": "https://marketplace.atlassian.com/apps/2184917707",
+  "installUrl": "https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira",
+  "downloadUrl": "https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
-    "url": "https://marketplace.atlassian.com/apps/2184917707",
-    "description": "Free for teams up to 10 users. Paid per-user pricing above 10 users, billed by the Atlassian Marketplace."
+    "url": "https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira",
+    "description": "Free for teams up to 10 users. Paid per-user pricing above 10 users, billed by the Atlassian Marketplace.",
+    "eligibleQuantity": {
+      "@type": "QuantitativeValue",
+      "maxValue": 10,
+      "unitText": "users"
+    }
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://datapingo.com/#organization",
     "name": "DataPingo",
-    "url": "https://datapingo.com"
-  }
+    "url": "https://datapingo.com/"
+  },
+  "sameAs": [
+    "https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira"
+  ]
 }
   </script>
   <script type="application/ld+json">
@@ -861,7 +872,7 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Bulk Comments",
+      "name": "Bulk Comments for Jira",
       "item": "https://datapingo.com/products/bulk-comments"
     }
   ]

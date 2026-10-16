@@ -26,13 +26,13 @@
   </url>
   <url>
     <loc>https://datapingo.com/partners/become-a-marketing-partner</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://datapingo.com/partners/become-a-solution-partner</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,19 +56,19 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/use-cases</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://datapingo.com/company/about-us</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/company/contact</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/blog/introducing-bulk-page-cloner</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/use-cases/incident-and-release-updates</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://datapingo.com/company/careers</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -218,7 +218,7 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkcomments/troubleshooting</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -266,19 +266,19 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkcomments/guide/step-3-send-the-batch</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkcomments/limits</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkcomments/installation</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -295,26 +295,32 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://datapingo.com/resources/documentation/bulkcomments/technical</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://datapingo.com/resources/documentation/bulkcomments/where-to-open</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide/about-the-app</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide/step-1-source</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -326,25 +332,25 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide/step-3-location</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/guide/step-4-done</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/limits</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/installation</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -392,13 +398,13 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/troubleshooting</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/specs</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -410,13 +416,19 @@
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/faq</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://datapingo.com/resources/documentation/bulkpagecloner/technical</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://datapingo.com/resources/documentation/bulkpagecloner/where-to-open</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

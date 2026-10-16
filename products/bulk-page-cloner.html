@@ -710,27 +710,38 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://datapingo.com/products/bulk-page-cloner#app",
   "name": "Bulk Page Cloner for Confluence",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Atlassian Confluence Cloud",
+  "applicationSuite": "Confluence",
   "softwareVersion": "10.2.0",
   "url": "https://datapingo.com/products/bulk-page-cloner",
   "description": "Select one Confluence page and clone it into as many as 25 exact copies in a single guided flow — content, formatting, images, video, macros, labels, and attachments all carried over.",
   "image": "https://datapingo.com/assets/img/og-bulk-page-cloner.png",
-  "installUrl": "https://marketplace.atlassian.com/apps/2754913942",
-  "downloadUrl": "https://marketplace.atlassian.com/apps/2754913942",
+  "installUrl": "https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence",
+  "downloadUrl": "https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
-    "url": "https://marketplace.atlassian.com/apps/2754913942",
-    "description": "Free for teams up to 10 users. Paid per-user pricing above 10 users, billed by the Atlassian Marketplace."
+    "url": "https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence",
+    "description": "Free for teams up to 10 users. Paid per-user pricing above 10 users, billed by the Atlassian Marketplace.",
+    "eligibleQuantity": {
+      "@type": "QuantitativeValue",
+      "maxValue": 10,
+      "unitText": "users"
+    }
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://datapingo.com/#organization",
     "name": "DataPingo",
-    "url": "https://datapingo.com"
-  }
+    "url": "https://datapingo.com/"
+  },
+  "sameAs": [
+    "https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence"
+  ]
 }
   </script>
   <script type="application/ld+json">
@@ -747,7 +758,7 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Bulk Page Cloner",
+      "name": "Bulk Page Cloner for Confluence",
       "item": "https://datapingo.com/products/bulk-page-cloner"
     }
   ]
@@ -1288,10 +1299,10 @@
       <div class="faq-list">
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
-            <span class="faq-btn-text">How many pages can I clone at once?</span>
+            <span class="faq-btn-text">How do I clone a Confluence page multiple times?</span>
             <span class="faq-chevron">&#x25BE;</span>
           </button>
-          <div class="faq-answer">Up to <b>25</b> copies of one page per run, each with its own title. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner/guide">See the user guide</a>, or the <a href="/resources/blog/bulk-copy-confluence-pages-guide">step-by-step walkthrough</a>. Cloning the same report every month? See <a href="/resources/use-cases/recurring-confluence-pages">recurring Confluence pages</a>.</div>
+          <div class="faq-answer">Pick the source page, set how many copies you need (up to <b>25</b> per run), give each one a title, and choose where they land: under a parent you pick, at the space root, or under a new parent. One run clones them all, with content, formatting, macros, labels and attachments carried over. A full 25 finishes in a minute or two; smaller batches take seconds. <a href="/resources/documentation/bulkpagecloner/guide">See the user guide</a>, or the <a href="/resources/blog/bulk-copy-confluence-pages-guide">step-by-step walkthrough</a>. Cloning the same report every month? See <a href="/resources/use-cases/recurring-confluence-pages">recurring Confluence pages</a>.</div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">
