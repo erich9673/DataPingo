@@ -117,6 +117,15 @@
     /* was rgba(255,255,255,0.2) = 1.8:1 — the byline, date and read time were
        barely visible against the header. 0.5 measures 5.2:1. */
     .blog-post-byline span { color: rgba(255,255,255,0.5); }
+    /* Each item stays on one line instead of breaking "Eric / Huang" into
+       columns. On a phone the "·" separators go and spacing does their job,
+       so a wrapped read time never leaves a dot dangling at a line end. */
+    .blog-post-byline { flex-wrap: wrap; row-gap: 6px; }
+    .blog-post-byline > span { white-space: nowrap; }
+    @media (max-width: 640px) {
+      .blog-post-byline { column-gap: 14px; }
+      .blog-post-byline > span:nth-child(even) { display: none; }
+    }
 
     /* Article body */
     .blog-article-body {
