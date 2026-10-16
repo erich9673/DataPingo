@@ -314,10 +314,15 @@ a  { color: inherit; }
   max-width: 1280px; margin: 0 auto; width: 100%;
 }
 
-/* Staggered text entrance */
-.hero-badge, .hero-h1-line1, .hero-h1-line2, .hero-h1-line3,
-.hero-sub, .hero-ctas, .hero-stats {
+/* Staggered text entrance. The headline and lede only rise — they are the
+   page's largest text, so they must be visible from the first paint (an
+   opacity-0 element doesn't count as painted, which held LCP back ~0.8s).
+   The badge, buttons and stats still fade in around them. */
+.hero-badge, .hero-ctas, .hero-stats {
   opacity: 0; animation: textReveal 0.7s var(--ease-expo) both;
+}
+.hero-h1-line1, .hero-h1-line2, .hero-h1-line3, .hero-sub {
+  animation: textRise 0.7s var(--ease-expo) both;
 }
 .hero-h1-line1 { animation-delay: 0.15s; }
 .hero-h1-line2 { animation-delay: 0.23s; }
@@ -329,6 +334,10 @@ a  { color: inherit; }
 @keyframes textReveal {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes textRise {
+  from { transform: translateY(14px); }
+  to   { transform: translateY(0); }
 }
 
 .hero h1 {

@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Bulk Comments for Jira — FAQ</title>
-  <meta name="description" content="The questions that come up before, during and after a batch — and where the full answer lives.">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Answers about Bulk Comments for Jira: setup, which Jira products it works with, limits, attachments, undo, pricing, and where your data goes.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/bulkcomments/faq">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/resources/documentation/bulkcomments/faq">
   <meta property="og:title" content="Bulk Comments for Jira — FAQ">
-  <meta property="og:description" content="The questions that come up before, during and after a batch — and where the full answer lives.">
+  <meta property="og:description" content="Answers about Bulk Comments for Jira: setup, which Jira products it works with, limits, attachments, undo, pricing, and where your data goes.">
   <meta property="og:site_name" content="DataPingo">
   <meta property="og:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Bulk Comments for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bulk Comments for Jira — FAQ">
-  <meta name="twitter:description" content="Complete documentation for Bulk Comments for Jira.">
+  <meta name="twitter:description" content="Answers about Bulk Comments for Jira: setup, which Jira products it works with, limits, attachments, undo, pricing, and where your data goes.">
   <meta name="twitter:image" content="https://datapingo.com/assets/img/og-bulk-comments.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
@@ -236,13 +236,15 @@
         <h3 id="server-dc" style="scroll-margin-top:100px;">Does it work on Jira Server or Data Center?</h3>
         <p>No. It is built on Atlassian Forge, which is Cloud only.</p>
         <h3 id="products" style="scroll-margin-top:100px;">Which Jira products does it work with?</h3>
-        <p>Jira, Jira Service Management, Customer Service Management and Jira Product Discovery. On a service project you also get a choice of audience &mdash; see <a href="/resources/documentation/bulkcomments/guide/service-management">Service Management and Customer Management</a>.</p>
+        <p>Jira, Jira Service Management, Customer Service Management and Jira Product Discovery. On a service project you also get a choice of audience &mdash; see <a href="/resources/documentation/bulkcomments/guide/service-management">Jira Service Management and Customer Service Management</a>.</p>
       </section>
 
       <section id="sending" style="scroll-margin-top:100px;">
         <h2>Limits and sending</h2>
         <h3 id="how-many" style="scroll-margin-top:100px;">How many issues can I comment on at once?</h3>
         <p>Twenty-five per send. The tray on the Select step stops you picking a twenty-sixth. A service-project request can carry two comments, so a full batch is up to 50 comments across 25 issues.</p>
+        <h3 id="same-comment" style="scroll-margin-top:100px;">Can I post the same comment on every issue?</h3>
+        <p>Yes. Write it in one composer and choose <span class="ui">Copy this comment to <em>n</em> issues</span> from its <span class="ui">&bull;&bull;&bull;</span> menu. It fills every other composer in the batch and asks before it overwrites anything you already wrote. See <a href="/resources/documentation/bulkcomments/guide/step-2-write-comments#copying">Copy one comment across the batch</a>.</p>
         <h3 id="more-than-25" style="scroll-margin-top:100px;">What if I need more than 25?</h3>
         <p>Send in batches. Filter down to the first 25, send them, press <span class="ui">Done</span> and pick the next set. Anything you wrote on issues you have not sent yet is kept.</p>
         <h3 id="file-size" style="scroll-margin-top:100px;">How big can an attachment be?</h3>

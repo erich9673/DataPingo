@@ -140,6 +140,10 @@
       "destination": "/partners/become-a-solution-partner.html"
     },
     {
+      "source": "/partners/become-a-partner",
+      "destination": "/partners/become-a-partner.html"
+    },
+    {
       "source": "/partners/become-a-marketing-partner",
       "destination": "/partners/become-a-marketing-partner.html"
     },

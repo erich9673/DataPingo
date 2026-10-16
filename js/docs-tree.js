@@ -35,7 +35,7 @@
             { path: 'guide/step-2-write-comments', title: 'Step 2 \u2014 Comment', blurb: 'The card, the editor, and the controls that act on the whole batch.' },
             { path: 'guide/comment-editor', title: 'The comment editor', blurb: 'Every format and shortcut, tables, code, mentions and attachments.' },
             { path: 'guide/step-3-send-the-batch', title: 'Step 3 \u2014 Send', blurb: 'The send guard, the live counters, and what each result row means.' },
-            { path: 'guide/service-management', title: 'Service Management and Customer Management', blurb: 'Choosing the audience, sending both a reply and a note, and the batch controls that only requests have.' }
+            { path: 'guide/service-management', title: 'Jira Service Management and Customer Service Management', blurb: 'Choosing the audience, sending both a reply and a note, and the batch controls that only requests have.' }
           ]
         },
         { path: 'admin', title: 'Admin guide', blurb: 'The Jira settings and project permissions that govern what the app can do.' },
