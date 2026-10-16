@@ -115,6 +115,51 @@
           ]
         }
       ]
+    },
+
+    // Page Order: its docs are live for the Marketplace review but linked from nowhere
+    // else on the site (noindex, out of the sitemap and the docs hub) until launch.
+    pageorder: {
+      product: 'Page Order for Confluence',
+      root: DOCS_ROOT + '/pageorder',
+      pages: [
+        {
+          path: '', title: 'Get started',
+          children: [
+            { path: "installation", title: "Installation", blurb: "Installing on Confluence Cloud, the free tier, and uninstalling." },
+            { path: "where-to-open", title: "Where to open it", blurb: "The three ways into the app, and where each one starts." }
+          ]
+        },
+        {
+          path: 'guide', title: 'User guide',
+          blurb: "How the organizer works: arrange pages, review every change, then save.",
+          children: [
+            { path: "guide/about-the-app", title: "About the app", blurb: "The layout, the words this guide uses, keyboard support, light and dark, and what is kept." },
+            { path: "guide/open-and-navigate", title: "Open a list of pages", blurb: "Choose a space, then open any page or folder to see its child pages." },
+            { path: "guide/sort", title: "Sort pages", blurb: "Sort all or a selection: five orders, numbers by value, and every level below." },
+            { path: "guide/select-and-drag", title: "Select and drag pages", blurb: "Tick pages by clicking or sweeping across them, then drag them as one: between pages, or into one." },
+            { path: "guide/move-to", title: "Move to another parent or space", blurb: "Send ticked pages under another parent, in this space or another, with their child pages." },
+            { path: "guide/review-and-save", title: "Review and save", blurb: "Check every change in Unsaved changes, save it as you, and read what the result means." }
+          ]
+        },
+        { path: "admin", title: "Admin guide", blurb: "The Confluence permissions that decide who can change the order." },
+        {
+          path: 'technical', title: 'App technical information',
+          blurb: "Where it runs, how it acts as you, what it stores, and how a save works.",
+          children: [
+            { path: "limits", title: "Limits", blurb: "Every ceiling in one place, and what happens at each." },
+            { path: "specs", title: "Specs & security", blurb: "Scopes, data handling, and where everything runs." }
+          ]
+        },
+        { path: "faq", title: "FAQ", blurb: "The questions that come up before, during and after a save." },
+        { path: "troubleshooting", title: "Help and support", blurb: "Errors the app can show, and what to do about each." },
+        {
+          path: 'release-notes', title: 'Release notes', blurb: "Every version, newest first.",
+          children: [
+            { path: "release-notes/v3-3-0", title: "v3.3.0 \u2014 October 2026", blurb: "First release: sort child pages in one step, drag many pages into place, move them to another parent or space." }
+          ]
+        }
+      ]
     }
   };
 

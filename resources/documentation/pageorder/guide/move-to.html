@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Page Order for Confluence — Move to another parent or space</title>
+  <meta name="description" content="Use Move to… in Page Order for Confluence to send pages under another parent or into another space, first or last, with title clashes handled.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/pageorder/guide/move-to">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/pageorder/guide/move-to">
+  <meta property="og:title" content="Page Order for Confluence — Move to another parent or space">
+  <meta property="og:description" content="Use Move to… in Page Order for Confluence to send pages under another parent or into another space, first or last, with title clashes handled.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DataPingo — productivity apps for Atlassian teams.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Order for Confluence — Move to another parent or space">
+  <meta name="twitter:description" content="Complete documentation for Page Order for Confluence.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the
+       dataLayer, addressed to G-W5VY62S4LR (GA4 is configured inside GTM, so an
+       event without send_to reaches no property); Google's tag sends it only if
+       the visitor allowed Measurement cookies.
+       Visits that arrive from DataPingo's own tools (a local preview, DPMT), or from a
+       browser opted in once with ?internal=1 (?internal=0 undoes it), are tagged
+       traffic_type=internal so GA4's internal-traffic filter can drop them. Nothing is
+       stored for ordinary visitors. -->
+  <script>(function(w,d){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.dpTrack=function(n,p){p=p||{};if(!p.send_to)p.send_to='G-W5VY62S4LR';g('event',n,p)};var i=false;try{var ls=w.localStorage,ss=w.sessionStorage,q=/[?&]internal=([01])(&|$)/.exec(location.search),r='';if(q){if(q[1]==='1')ls.setItem('dp_internal','1');else{ls.removeItem('dp_internal');ss.removeItem('dp_internal')}}try{r=new URL(d.referrer).hostname}catch(e){}if(!(q&&q[1]==='0')&&/^(localhost|127\.0\.0\.1|\[::1\])$|^10\.|^192\.168\.|^172\.(1[6-9]|2\d|3[01])\.|\.local$|\.nip\.io$|^dpmt\.datapingo\.com$|^dpmt-dpmt\.vercel\.app$/.test(r))ss.setItem('dp_internal','1');i=ls.getItem('dp_internal')==='1'||ss.getItem('dp_internal')==='1'}catch(e){}if(i)g('set',{traffic_type:'internal'})})(window,document);</script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
+  <style>
+    
+    .btn-secondary--purple {
+      border-color: rgba(167,139,250,0.45) !important;
+      color: #A78BFA !important;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Page Order for Confluence",
+      "item": "https://datapingo.com/resources/documentation/pageorder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "User guide",
+      "item": "https://datapingo.com/resources/documentation/pageorder/guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Move to another parent or space",
+      "item": "https://datapingo.com/resources/documentation/pageorder/guide/move-to"
+    }
+  ]
+}
+  </script>
+</head>
+<body data-doc-product="pageorder">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/apps/1059993353" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/apps/1059993353" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/pageorder" style="color:inherit;text-decoration:none">PAGE ORDER FOR CONFLUENCE</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Page Order Assets/Page Order for Confluence (80 x 80 px).png" alt="Page Order for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(59,106,232,0.25);" width="80" height="80">
+      </div>
+      <h1 style="text-align:center;">Move to another parent or space</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Send pages under any parent, in this space or another, child pages and all.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge" style="background:rgba(59,106,232,0.15);border-color:rgba(110,150,250,0.35);color:#93B4FF;">v3.3.0 &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Confluence Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/pageorder">Get started</a>
+        <a href="/resources/documentation/pageorder/installation">Installation</a>
+        <a href="/resources/documentation/pageorder/where-to-open">Where to open it</a>
+        <a href="/resources/documentation/pageorder/guide">User guide</a>
+        <a href="/resources/documentation/pageorder/admin">Admin guide</a>
+        <a href="/resources/documentation/pageorder/technical">App technical information</a>
+        <a href="/resources/documentation/pageorder/faq">FAQ</a>
+        <a href="/resources/documentation/pageorder/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/pageorder/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+<figure class="doc-figure">
+          <img src="/assets/img/Page%20Order%20Assets/Move%20to%20-%20Light%20(2000%20x%201088%20px).webp" alt="The Move to&hellip; popup over the organizer, headed Move 3 pages, with the line Choose a space, then the page to put them under. Their child pages move with them. On the left, Find a space above the spaces Team Handbook, tagged This space, then Archive, which is chosen, Support and Alex Morgan. On the right, Find a page in Archive above Top level of Archive, which is chosen, then 2025 and Old policies. The footer reads Moving to the top level of Archive, with If a title is already used in Archive, you can rename it or leave it out. beneath, then Put them First or Last with Last chosen, Cancel and Move here." width="2000" height="1088" loading="lazy" decoding="async">
+          <figcaption>Choose a space, then the page to put them under.</figcaption>
+        </figure>
+      <p><strong>Move to&hellip; sends the ticked pages under another parent</strong> &mdash; anywhere in this space, or in another space you can see &mdash; without dragging them there. Their child pages go with them. Like every other change, the move waits in <a href="/resources/documentation/pageorder/guide/review-and-save">Unsaved changes</a> until you save.</p>
+        <ol>
+          <li>Tick the pages in the list (see <a href="/resources/documentation/pageorder/guide/select-and-drag">Select and drag pages</a>). <span class="ui">Move to&hellip;</span> appears in the list&rsquo;s header as soon as one is ticked.</li>
+          <li>Click <span class="ui">Move to&hellip;</span>.</li>
+          <li>Choose a space on the left, then on the right the page to put them under, or the space&rsquo;s top level.</li>
+          <li>Beside <span class="ui">Put them</span>, choose <span class="ui">First</span> or <span class="ui">Last</span>.</li>
+          <li>Click <span class="ui">Move here</span>. The popup closes, the app checks the pages (and asks about any title already used in the other space), and the move is listed in Unsaved changes &mdash; for example <span class="ui">3 pages move into</span> <strong>Old policies</strong> <span class="ui">in Archive</span>, with <span class="ui">From Meeting notes &middot; at the bottom &middot; their child pages move with them</span> beneath.</li>
+        </ol>
+
+      <section id="the-popup" style="scroll-margin-top:100px;">
+        <h2>The Move to&hellip; popup</h2>
+        <p>It is laid out like Confluence&rsquo;s own Move dialog. The heading counts the pages that will go, <span class="ui">Move 3 pages</span>, above the line <span class="ui">Choose a space, then the page to put them under. Their child pages move with them.</span></p>
+        <ul>
+          <li><strong>Spaces, on the left.</strong> Every space you can see that has a home page is listed, except archived spaces. The one you are organizing comes first, tagged <span class="ui">This space</span>, and its pages show straight away while the rest load; the others follow, most recently updated first, with spaces that have no recent edits after them by name. <span class="ui">Find a space</span> narrows the list by name.</li>
+          <li><strong>Pages, on the right.</strong> The first row, <span class="ui">Top level of Archive</span>, puts the pages at the space&rsquo;s top level. Below it come the space&rsquo;s top-level pages and folders; the arrow beside one shows its child pages, a level at a time.</li>
+          <li><strong>Or search.</strong> <span class="ui">Find a page in Archive</span> finds pages and folders in the chosen space by title, 50 at a time, with <span class="ui">Show more</span> for the next 50. Search can lag a few seconds behind Confluence, so a page created moments ago may not turn up yet: browse to it instead.</li>
+          <li><strong>Rows you can&rsquo;t choose.</strong> The pages you are moving are tagged <span class="ui">Moving</span>, since a page can&rsquo;t go under itself, and the parent you are looking at is tagged <span class="ui">Already here</span>. Neither can be chosen or opened; to reach a page beneath <span class="ui">Already here</span>, search for it.</li>
+        </ul>
+        <p>The footer reads back your choice &mdash; <span class="ui">Moving to Old policies in Archive</span>, or <span class="ui">Moving to the top level of Archive</span> &mdash; and says <span class="ui">Choose a page to move them under.</span> until you pick one. For another space it adds <span class="ui">If a title is already used in Archive, you can rename it or leave it out.</span> <span class="ui">Move here</span> works once a destination is chosen. <span class="ui">Cancel</span> closes the popup and changes nothing; clicking outside the popup doesn&rsquo;t close it.</p>
+      </section>
+
+      <section id="first-or-last" style="scroll-margin-top:100px;">
+        <h2>First or Last</h2>
+        <p>Beside <span class="ui">Put them</span>, <span class="ui">First</span> puts the pages at the top of the new parent&rsquo;s child pages, and <span class="ui">Last</span>, the default, at the bottom. Either way they arrive together, in the order they had in your list, and Unsaved changes says which: <span class="ui">at the top</span> or <span class="ui">at the bottom</span>.</p>
+        <p><strong>To put them somewhere in between</strong>, move them within this space, then open the new parent &mdash; from the page tree, or by clicking its title in the list. The pages are there, marked <span class="ui">Moving in</span>, and you can drag them into place before you save; the move then reads <span class="ui">placed where you put them</span>. The app reminds you after each such move: <span class="ui">Open How we work to put them exactly where you want.</span></p>
+        <p>For a move into another space, the organizer stays on the space you opened, so the pages land first or last. Once the move is saved, open that space in Page Order to arrange them.</p>
+      </section>
+
+      <section id="in-the-dialog" style="scroll-margin-top:100px;">
+        <h2>Move to&hellip; in the &bull;&bull;&bull; dialog</h2>
+        <p>Opened with <span class="ui">Organize Child Pages</span> from a page&rsquo;s &bull;&bull;&bull; menu, the organizer is already a dialog, and it can&rsquo;t open a popup on top of itself. There, <span class="ui">Move to&hellip;</span> drops down a smaller picker with the same choices:</p>
+        <ul>
+          <li><strong>A space list</strong> beside the heading, <span class="ui">Move 3 pages to</span>.</li>
+          <li><strong><span class="ui">Find a page</span></strong> &mdash; type to search the chosen space. With nothing typed it browses: the arrow beside a page shows its child pages, the <span class="ui">&#8249;</span> row above them goes back up a level, and the first row puts the pages straight into what you are looking at: <span class="ui">Top level of Team Handbook</span>, or <span class="ui">Into How we work</span> once you have opened a page.</li>
+          <li><strong><span class="ui">Put them</span> <span class="ui">First</span> or <span class="ui">Last</span></strong>, along the bottom, with the reminder <span class="ui">Child pages move with them.</span></li>
+        </ul>
+        <p><strong>Choose First or Last before you click a destination.</strong> There is no Move here button: clicking a page stages the move at once. The pages you are moving and the parent you are in aren&rsquo;t listed. <kbd>Esc</kbd> or a click outside closes the picker.</p>
+      </section>
+
+      <section id="another-space" style="scroll-margin-top:100px;">
+        <h2>Moving to another space</h2>
+        <p>Any space in the list can take the pages, but each move still has to be one Confluence lets you make there. The app acts as you, so a page Confluence won&rsquo;t let you move into that space is reported when you save, and the rest still move (see <a href="/resources/documentation/pageorder/guide/review-and-save#results">Results</a>).</p>
+
+        <h3 id="title-clashes" style="scroll-margin-top:100px;">When a title is already used there</h3>
+        <p>Confluence keeps page titles unique within a space, whatever their capitals, and won&rsquo;t move a page into a space that already has its title. So before the move is listed, the app checks each page&rsquo;s title against the other space and finds a free title for each one that clashes (the panel reads <span class="ui">Checking the pages&hellip;</span>, then <span class="ui">Finding free titles&hellip;</span>). Then it asks, above the list:</p>
+        <p><span class="ui">This title is already used in Archive. Confluence won&rsquo;t move a page there under the same title. Rename it and move, or leave it out?</span></p>
+        <p>Each clashing page is listed with its new title, <span class="ui">&ldquo;Weekly sync&rdquo; &rarr; &ldquo;Weekly sync (1)&rdquo;</span>, the first five in full and then <span class="ui">and <em>n</em> more</span>. With several, the question opens <span class="ui"><em>n</em> titles are already used in Archive.</span> Until you answer, you can&rsquo;t tick, drag, sort, move or save.</p>
+        <ul>
+          <li><span class="ui">Rename and move</span> &mdash; each page takes the first free numbered title: &ldquo;Weekly sync (1)&rdquo;, else &ldquo;Weekly sync (2)&rdquo;, and so on, as Confluence&rsquo;s own Move suggests. Free means not used in either space, and not already given to another page in the same move. The rename happens when you save, just before the move, and makes a new version of the page, like any rename. Unsaved changes shows <span class="ui">1 renamed first (title taken there)</span> on the move, and <span class="ui">renamed to &ldquo;Weekly sync (1)&rdquo;</span> beside the page.</li>
+          <li><span class="ui">Leave it out</span> (<span class="ui">Leave them out</span> for several) &mdash; the other pages still move, and the clashing ones stay where they are. The move notes <span class="ui">1 left out (title already used there)</span>; open it to read <span class="ui">&ldquo;Weekly sync&rdquo; wasn&rsquo;t moved: Archive already has a page with this title.</span> If that leaves no page to move, nothing is listed and the panel says <span class="ui">1 page left out: Archive already has a page with the same title.</span></li>
+        </ul>
+        <p>If none of &ldquo;(1)&rdquo; to &ldquo;(100)&rdquo; is free for a page, it is left out without asking.</p>
+      </section>
+
+      <section id="child-pages" style="scroll-margin-top:100px;">
+        <h2>Child pages move with the parent</h2>
+        <p>Moving a page takes everything beneath it along, every level down, as Confluence&rsquo;s own Move does. Each page you pick counts as one page move however much sits beneath it, and one save can send up to <strong>1,000 pages</strong> to new parents. Past that, <span class="ui">Save changes</span> is switched off and the panel says <span class="ui">That&rsquo;s <em>n</em> pages moving to new parents. One save can move up to 1,000: cancel some with &times; and move them in a second save.</span></p>
+
+        <h3 id="too-big" style="scroll-margin-top:100px;">Pages with more than 1,000 pages beneath them</h3>
+        <p>Confluence can&rsquo;t move such a page at all, not even with its own Move, so the organizer marks it <span class="ui">Too big to move out</span> and Move to&hellip; leaves it behind:</p>
+        <ul>
+          <li>The popup counts only the pages that can go: tick three with one of them too big, and it reads <span class="ui">Move 2 pages</span>.</li>
+          <li>When every ticked page is too big, <span class="ui">Move to&hellip;</span> is switched off; point at it to read <span class="ui">Too big to move out: Confluence can&rsquo;t move a page with more than 1,000 pages beneath it</span>.</li>
+          <li>A ticked page that is too big stays where it is, and the move notes <span class="ui">1 left out (too big to move)</span>; open it to read <span class="ui">&ldquo;Projects&rdquo; wasn&rsquo;t moved: it has <em>n</em> pages beneath it. Confluence can&rsquo;t move a page with more than 1,000 pages beneath it, not even with its own Move. Move some of its child pages out first.</span> The app counts again when you move, so a page that has only just grown past the limit is caught too.</li>
+        </ul>
+        <p>Such a page can still be reordered within its own list (see <a href="/resources/documentation/pageorder/guide/select-and-drag#too-big">Select and drag pages</a>), and <a href="/resources/documentation/pageorder/limits">Limits</a> has every ceiling in one place.</p>
+      </section>
+
+      <section id="change-your-mind" style="scroll-margin-top:100px;">
+        <h2>Changing your mind</h2>
+        <ul>
+          <li><strong>Move a page again</strong> and it goes to the new place instead: the earlier move is replaced, not added to.</li>
+          <li><strong>Move it back to where it came from</strong> and the move is cancelled.</li>
+          <li><strong>Press <span class="ui">&times;</span> on the move</strong> in Unsaved changes (<span class="ui">Cancel this move</span>) to cancel all of it: its pages go back to their old places.</li>
+        </ul>
+        <p>Nothing reaches Confluence until you press <span class="ui">Save changes</span>; see <a href="/resources/documentation/pageorder/guide/review-and-save">Review and save</a>.</p>
+      </section>
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script src="/js/site.js"></script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

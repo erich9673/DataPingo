@@ -8,6 +8,82 @@
       "destination": "/index.html"
     },
     {
+      "source": "/resources/documentation/pageorder",
+      "destination": "/resources/documentation/pageorder.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/",
+      "destination": "/resources/documentation/pageorder.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/installation",
+      "destination": "/resources/documentation/pageorder/installation.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/where-to-open",
+      "destination": "/resources/documentation/pageorder/where-to-open.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/admin",
+      "destination": "/resources/documentation/pageorder/admin.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/faq",
+      "destination": "/resources/documentation/pageorder/faq.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide",
+      "destination": "/resources/documentation/pageorder/guide.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/about-the-app",
+      "destination": "/resources/documentation/pageorder/guide/about-the-app.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/open-and-navigate",
+      "destination": "/resources/documentation/pageorder/guide/open-and-navigate.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/sort",
+      "destination": "/resources/documentation/pageorder/guide/sort.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/select-and-drag",
+      "destination": "/resources/documentation/pageorder/guide/select-and-drag.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/move-to",
+      "destination": "/resources/documentation/pageorder/guide/move-to.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/guide/review-and-save",
+      "destination": "/resources/documentation/pageorder/guide/review-and-save.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/technical",
+      "destination": "/resources/documentation/pageorder/technical.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/limits",
+      "destination": "/resources/documentation/pageorder/limits.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/specs",
+      "destination": "/resources/documentation/pageorder/specs.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/troubleshooting",
+      "destination": "/resources/documentation/pageorder/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/release-notes",
+      "destination": "/resources/documentation/pageorder/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/pageorder/release-notes/v3-3-0",
+      "destination": "/resources/documentation/pageorder/release-notes/v3-3-0.html"
+    },
+    {
       "source": "/lp/bulk-page-cloner",
       "destination": "/lp/bulk-page-cloner.html"
     },

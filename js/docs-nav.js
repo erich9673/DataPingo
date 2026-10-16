@@ -21,8 +21,11 @@
   window.__docsNav = true;
 
   const PRODUCT = document.body.dataset.docProduct || null;
-  const NAMES = { bulkcomments: 'Bulk Comments', bulkpagecloner: 'Bulk Page Cloner' };
-  const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner' };
+  const NAMES = { bulkcomments: 'Bulk Comments', bulkpagecloner: 'Bulk Page Cloner', pageorder: 'Page Order' };
+  const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner', pageorder: '/resources/documentation/pageorder' };
+  // Apps the docs hub searches across. Page Order's docs search themselves, but stay out
+  // of the hub's "both apps" results until it launches.
+  const LISTED = ['bulkcomments', 'bulkpagecloner'];
   const POPULAR = [
     ['Installation', '/installation'],
     ['Limits', '/limits'],
@@ -62,6 +65,7 @@
 
   function score(r, toks, phrase, scope) {
     if (scope !== 'all' && r.p !== scope) return 0;
+    if (scope === 'all' && !LISTED.includes(r.p)) return 0;
     let s = 0;
     for (const t of toks) {
       const h = r._h.includes(t), ti = r._t.includes(t), x = r._x.includes(t);
@@ -204,7 +208,7 @@
     if (!toks.length) {                                     // nothing typed: the usual destinations
       empty.textContent = 'Popular';
       empty.className = 'dsearch-empty dsearch-label';
-      const keys = scope === 'all' ? Object.keys(ROOTS) : [scope];
+      const keys = scope === 'all' ? LISTED : [scope];
       keys.forEach((k) => POPULAR.forEach(([label, path], i) =>
         list.appendChild(resultItem(ROOTS[k] + path, keys.length > 1 ? NAMES[k] : '', label, '', [], 'dsr-p-' + k + i))));
       return;
