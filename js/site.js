@@ -99,3 +99,44 @@ document.getElementById('footer-email-form').addEventListener('submit', function
     .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); if (window.dpTrack) dpTrack('generate_lead', { form_name: 'newsletter' }); msg.style.color='#67E8F9'; msg.textContent='Almost there — check your inbox to confirm.'; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
     .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
 });
+
+/*
+ * Cloudflare Turnstile CAPTCHA on every form that posts to DPMT (newsletter,
+ * contact, partner). Added 2026-10-19 after a bot driving a real browser here
+ * sent 140 newsletter confirmation emails to people who never signed up.
+ * Usually invisible: Cloudflare only shows a box when it wants a click. The
+ * widget adds a hidden `cf-turnstile-response` input, so each form's existing
+ * `new FormData(form)` sends the token with no other change.
+ */
+(function () {
+  var SITE_KEY = '0x4AAAAAAFbn1cjaYuarRmBB';
+  if (!SITE_KEY) return;
+  var forms = [].slice.call(document.querySelectorAll('#footer-email-form, #contact-form, #partner-form'));
+  if (!forms.length) return;
+  var slots = forms.map(function (form) {
+    var el = document.createElement('div');
+    el.className = 'dp-turnstile';
+    el.style.margin = '8px 0 0';
+    var submit = form.querySelector('button[type=submit]');
+    var row = submit && submit.closest('.newsletter-row');
+    // Below the button row in the footer, so the email field and button stay side by side.
+    if (row && row.parentNode === form) form.insertBefore(el, row.nextSibling);
+    else if (submit && submit.parentNode) submit.parentNode.insertBefore(el, submit);
+    else form.appendChild(el);
+    return { form: form, el: el, id: null };
+  });
+  window.dpTurnstileReady = function () {
+    slots.forEach(function (s) {
+      s.id = window.turnstile.render(s.el, { sitekey: SITE_KEY, appearance: 'interaction-only' });
+      // Tokens are single-use: fetch a fresh one shortly after each send.
+      s.form.addEventListener('submit', function () {
+        setTimeout(function () { if (s.id !== null) window.turnstile.reset(s.id); }, 2500);
+      });
+    });
+  };
+  var sc = document.createElement('script');
+  sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=dpTurnstileReady';
+  sc.async = true;
+  sc.defer = true;
+  document.head.appendChild(sc);
+})();
