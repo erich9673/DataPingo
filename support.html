@@ -56,7 +56,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -74,6 +74,7 @@
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -122,6 +123,7 @@
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -221,8 +223,8 @@
 
       <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px;">
         <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
-          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">How do I get started with Bulk Page Cloner for Confluence?</h3>
-          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Getting started is easy! Visit our <a href="/resources/documentation/bulkpagecloner" style="color:var(--teal);">comprehensive documentation</a> for step-by-step installation and usage guides. You can install the app directly from the <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace</a>.</p>
+          <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">How do I get started with a DataPingo app?</h3>
+          <p style="color:var(--slate);margin:0;font-size:0.9rem;line-height:1.7;">Each app has its own guide in our <a href="/resources/documentation" style="color:var(--teal);">documentation</a>, with step-by-step installation and usage. Install any of them from our <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian Marketplace vendor page</a>.</p>
         </div>
         <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:24px;">
           <h3 style="color:var(--teal);margin-top:0;margin-bottom:10px;font-size:1rem;">What information should I include in my support request?</h3>
@@ -294,6 +296,7 @@
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>

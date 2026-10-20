@@ -117,8 +117,7 @@
       ]
     },
 
-    // Page Order: its docs are live for the Marketplace review but linked from nowhere
-    // else on the site (noindex, out of the sitemap and the docs hub) until launch.
+    // Page Order for Confluence (launched October 2026).
     pageorder: {
       product: 'Page Order for Confluence',
       root: DOCS_ROOT + '/pageorder',
@@ -156,7 +155,7 @@
         {
           path: 'release-notes', title: 'Release notes', blurb: "Every version, newest first.",
           children: [
-            { path: "release-notes/v3-3-0", title: "v3.3.0 \u2014 October 2026", blurb: "First release: sort child pages in one step, drag many pages into place, move them to another parent or space." }
+            { path: "release-notes/v3-3-0", title: "v3.3.0 \u2014 October 4, 2026", blurb: "First release: sort child pages in one step, drag many pages into place, move them to another parent or space." }
           ]
         }
       ]

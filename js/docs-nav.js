@@ -23,9 +23,6 @@
   const PRODUCT = document.body.dataset.docProduct || null;
   const NAMES = { bulkcomments: 'Bulk Comments', bulkpagecloner: 'Bulk Page Cloner', pageorder: 'Page Order' };
   const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner', pageorder: '/resources/documentation/pageorder' };
-  // Apps the docs hub searches across. Page Order's docs search themselves, but stay out
-  // of the hub's "both apps" results until it launches.
-  const LISTED = ['bulkcomments', 'bulkpagecloner'];
   const POPULAR = [
     ['Installation', '/installation'],
     ['Limits', '/limits'],
@@ -65,7 +62,6 @@
 
   function score(r, toks, phrase, scope) {
     if (scope !== 'all' && r.p !== scope) return 0;
-    if (scope === 'all' && !LISTED.includes(r.p)) return 0;
     let s = 0;
     for (const t of toks) {
       const h = r._h.includes(t), ti = r._t.includes(t), x = r._x.includes(t);
@@ -124,10 +120,10 @@
     empty = dlg.querySelector('.dsearch-empty');
 
     // A product's docs search that product only, with no switching. The chips
-    // exist only on the docs hub, which covers both apps.
+    // exist only on the docs hub, which covers every app.
     const scopeHost = dlg.querySelector('.dsearch-scope');
     if (PRODUCT) scopeHost.remove();
-    scopeBtns = (PRODUCT ? [] : [['bulkcomments', 'Bulk Comments'], ['bulkpagecloner', 'Bulk Page Cloner'], ['all', 'Both apps']]).map(([key, label]) => {
+    scopeBtns = (PRODUCT ? [] : [['all', 'All apps'], ['bulkcomments', 'Bulk Comments'], ['bulkpagecloner', 'Bulk Page Cloner'], ['pageorder', 'Page Order']]).map(([key, label]) => {
       const b = el('button', 'dsearch-chip', label);
       b.type = 'button';
       b.dataset.scope = key;
@@ -160,7 +156,7 @@
 
   function paintScope() {
     scopeBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.scope === scope)));
-    input.placeholder = scope === 'all' ? 'Search both apps’ docs' : 'Search ' + NAMES[scope] + ' docs';
+    input.placeholder = scope === 'all' ? 'Search all the docs' : 'Search ' + NAMES[scope] + ' docs';
   }
 
   function setActive(i) {
@@ -208,7 +204,7 @@
     if (!toks.length) {                                     // nothing typed: the usual destinations
       empty.textContent = 'Popular';
       empty.className = 'dsearch-empty dsearch-label';
-      const keys = scope === 'all' ? LISTED : [scope];
+      const keys = scope === 'all' ? Object.keys(ROOTS) : [scope];
       keys.forEach((k) => POPULAR.forEach(([label, path], i) =>
         list.appendChild(resultItem(ROOTS[k] + path, keys.length > 1 ? NAMES[k] : '', label, '', [], 'dsr-p-' + k + i))));
       return;

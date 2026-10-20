@@ -11,6 +11,7 @@
    ────────────────────────────────────────────────────────────────────────── */
 :root { --doc-accent: #A5B4FC; --doc-accent-rgb: 165,180,252; --doc-fill-rgb: 99,102,241; --doc-fill: #6366F1; }
 body[data-doc-product="bulkpagecloner"] { --doc-accent: var(--teal); --doc-accent-rgb: 5,206,240; --doc-fill-rgb: 5,206,240; --doc-fill: var(--teal); }
+body[data-doc-product="pageorder"] { --doc-accent: #93B4FF; --doc-accent-rgb: 147,180,255; --doc-fill-rgb: 59,106,232; --doc-fill: #3B6AE8; }
 
 .doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; max-width: 1100px; margin: 0 auto; padding: 56px 48px 80px; align-items: start; }
 .doc-sidebar { position: sticky; top: 100px; }
@@ -226,6 +227,7 @@ body[data-doc-product="bulkpagecloner"] { --doc-accent: var(--teal); --doc-accen
   --doc-nav-kid:   #859AB4;
 }
 body[data-doc-product="bulkpagecloner"] { --doc-nav-hover: #9FE9F7; }
+body[data-doc-product="pageorder"] { --doc-nav-hover: #BFD2FF; }
 
 .doc-layout { grid-template-columns: 236px 1fr; }
 
@@ -314,6 +316,7 @@ body[data-doc-product="bulkpagecloner"] { --doc-nav-hover: #9FE9F7; }
 :root { --doc-fill-rgb: 91,94,234; --doc-fill: #5B5EEA; --doc-hue: 91,94,234;
         --doc-l: 232px; --doc-r: 208px; --doc-gap: 56px; --doc-pad: 40px; --doc-max: 1320px; }
 body[data-doc-product="bulkpagecloner"] { --doc-hue: 14,116,210; }
+body[data-doc-product="pageorder"] { --doc-hue: 59,106,232; }
 
 /* ── Header ───────────────────────────────────────────────────────────────── */
 body[data-doc-product] .page-hero { padding: 108px 0 30px; text-align: left; overflow: visible; }
@@ -554,6 +557,7 @@ body[data-doc-product] .page-hero .doc-hero-badge { margin: 0; font-size: 0.72re
   .dsearch-input { font-size: 16px; }             /* below 16px iOS zooms the page on focus */
   .dsearch-foot { display: none; }
   .dsearch-hit { padding: 12px; }
+  .dsearch-scope { flex-wrap: wrap; overflow-x: visible; }   /* four chips: wrap, so the selected one is never off-screen */
 }
 @media (prefers-reduced-motion: reduce) { .doc-sheet-panel { animation: none; } }
 

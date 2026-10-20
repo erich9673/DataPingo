@@ -516,6 +516,7 @@
     }
     .calc-pill:hover { border-color: rgba(99,102,241,0.5); color: var(--white); }
     .calc-pill.active { border-color: #6366F1; background: rgba(99,102,241,0.12); color: var(--white); }
+    .calc-pill:disabled { opacity: 0.45; cursor: not-allowed; }
     .calc-save-badge {
       font-size: 0.68rem; font-weight: 700; padding: 2px 7px;
       border-radius: 99px; background: rgba(99,102,241,0.18);
@@ -890,7 +891,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -908,6 +909,7 @@
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -956,6 +958,7 @@
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -1407,14 +1410,14 @@
                 <button class="calc-pill active" data-val="standard" onclick="setPill(this,'bc')">Standard</button>
                 <button class="calc-pill" data-val="multiInstance" onclick="setPill(this,'bc')">Multi-Instance</button>
               </div>
-              <p class="calc-hint" id="bc-license-hint">Best for single Jira instance</p>
+              <p class="calc-hint" id="bc-license-hint">Best for a single Jira instance</p>
             </div>
 
             <div class="calc-group">
               <label class="calc-label">Billing Cycle</label>
               <div class="calc-pill-row" data-field="billingCycle">
                 <button class="calc-pill active" data-val="monthly" onclick="setPill(this,'bc')">Monthly</button>
-                <button class="calc-pill" data-val="annual" onclick="setPill(this,'bc')">Annual <span class="calc-save-badge">Save 17%</span></button>
+                <button class="calc-pill" data-val="annual" onclick="setPill(this,'bc')">Annual <span class="calc-save-badge">Up to 17% off</span></button>
               </div>
             </div>
 
@@ -1558,6 +1561,7 @@
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>
@@ -1981,8 +1985,19 @@
     const field = row.dataset.field;
     calcState[productId][field] = btn.dataset.val;
     if (field === 'licenseType') {
+      const multi = btn.dataset.val === 'multiInstance';
       const hint = document.getElementById(productId + '-license-hint');
-      if (hint) hint.textContent = btn.dataset.val === 'standard' ? 'Best for single Jira instance' : 'For multiple Atlassian instances';
+      if (hint) hint.textContent = multi ? 'For multiple Atlassian instances; billed annually' : 'Best for a single Jira instance';
+      // Multi-instance is sold on annual billing only, so lock the cycle to Annual.
+      const card = btn.closest('.calc-card');
+      const monthlyPill = card && card.querySelector('[data-field="billingCycle"] [data-val="monthly"]');
+      const annualPill = card && card.querySelector('[data-field="billingCycle"] [data-val="annual"]');
+      if (monthlyPill) { monthlyPill.disabled = multi; monthlyPill.setAttribute('aria-disabled', String(multi)); }
+      if (multi && annualPill) {
+        monthlyPill.classList.remove('active');
+        annualPill.classList.add('active');
+        calcState[productId].billingCycle = 'annual';
+      }
     }
     recalcPricing(productId);
   }
@@ -2018,10 +2033,20 @@
         lower = t.max;
       }
     }
-    const isAnnual = billingCycle === 'annual';
-    // Atlassian annual = 10× monthly (equivalent to 2 months free)
-    const finalTotal = isAnnual ? monthlyTotal * 10 : monthlyTotal;
-    const avgPerUser = monthlyTotal / userCount; // blended monthly rate across tiers
+    const isAnnual = billingCycle === 'annual' || licenseType === 'multiInstance';
+    const titleEl = document.querySelector('#' + productId + '-calc-panel .calc-panel-title');
+    if (titleEl) titleEl.textContent = isAnnual ? 'Annual Estimate' : 'Monthly Estimate';
+    // Annual is sold in user tiers (the listing's 10, 15, 25, 50, 100, 200 … users),
+    // each priced at 10× the monthly cost of the tier's top count — so 11 users pay
+    // the 15-user price. The formula matches every annual tier on the live listings.
+    const ANNUAL_TOPS = [10, 15, 25, 50, 100, 200, 300, 400, 500, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 3750, 4000, 4250, 4500, 4750, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000];
+    const annualTop = u => ANNUAL_TOPS.find(c => u <= c) || (u <= 50000 ? Math.ceil(u / 1000) * 1000 : Math.ceil(u / 10000) * 10000);
+    const monthlyFor = u => { if (u <= FREE_LIMIT) return 0; let sum = 0, low = 0; for (const t of tiers) { if (u <= low) break; sum += (Math.min(u, t.max) - low) * t.price; low = t.max; } return sum; };
+    const billedUsers = isAnnual ? annualTop(userCount) : userCount;
+    const finalTotal = isAnnual ? monthlyFor(billedUsers) * 10 : monthlyTotal;
+    const annualSaving = monthlyTotal * 12 - finalTotal;
+    // Per user a month either way, so annual reads as what the tier really costs.
+    const avgPerUser = isFree ? 0 : (isAnnual ? finalTotal / userCount / 12 : monthlyTotal / userCount);
     const period = isAnnual ? 'per year' : 'per month';
     const fmtUSD = n => 'USD ' + n.toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 });
 
@@ -2036,10 +2061,12 @@
     } else {
       html += `<div class="calc-line-item"><span class="calc-line-label">Users</span><span class="calc-line-val">${userCount.toLocaleString()}</span></div>`;
       html += `<div class="calc-line-item"><span class="calc-line-label">Avg per user</span><span class="calc-line-val">${fmtUSD(avgPerUser)}/mo</span></div>`;
-      if (isAnnual) html += `<div class="calc-line-item"><span class="calc-line-label">Annual saving</span><span class="calc-line-val" style="color:${accentColor}">${fmtUSD(monthlyTotal * 2)} off</span></div>`;
+      if (isAnnual && billedUsers !== userCount) html += `<div class="calc-line-item"><span class="calc-line-label">Annual tier</span><span class="calc-line-val">${billedUsers.toLocaleString()} users</span></div>`;
+      // No saving line for multi-instance: it has no monthly plan to compare against.
+      if (isAnnual && licenseType !== 'multiInstance' && annualSaving > 0.005) html += `<div class="calc-line-item"><span class="calc-line-label">Annual saving</span><span class="calc-line-val" style="color:${accentColor}">${fmtUSD(annualSaving)} off</span></div>`;
       html += `<hr class="calc-divider">`;
       html += `<div class="calc-total-row"><span class="calc-total-label">Total</span><span class="calc-total-price">${fmtUSD(finalTotal)}</span></div>`;
-      html += `<p class="calc-total-period">${period} &bull; ${fmtUSD(avgPerUser)} per user (average)</p>`;
+      html += `<p class="calc-total-period">${period} &bull; ${fmtUSD(avgPerUser)} per user a month (average)</p>`;
     }
     html += `<a href="${mktLink}" target="_blank" rel="noopener" class="calc-cta-btn">Start free trial &rarr;</a>`;
     bodyEl.innerHTML = html;

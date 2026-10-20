@@ -56,7 +56,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -74,6 +74,7 @@
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -122,6 +123,7 @@
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -163,7 +165,7 @@
     <div class="section-wrap page-content-max">
 
       <div style="background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px;">
-        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><span class="meta-item"><strong style="color:var(--white);">Last Updated:</strong> October 4, 2026</span><span class="meta-sep"> &nbsp;&middot;&nbsp; </span><span class="meta-item"><strong style="color:var(--white);">Company:</strong> DataPingo</span></p>
+        <p style="color:var(--slate);margin:0;font-size:0.9rem;"><span class="meta-item"><strong style="color:var(--white);">Last Updated:</strong> October 20, 2026</span><span class="meta-sep"> &nbsp;&middot;&nbsp; </span><span class="meta-item"><strong style="color:var(--white);">Company:</strong> DataPingo</span></p>
       </div>
 
       <div style="background:var(--black-2);border:1px solid var(--teal-border);border-radius:12px;padding:24px;margin-bottom:40px;">
@@ -214,6 +216,11 @@
               <td data-label="Atlassian scopes" style="padding:14px 16px;color:var(--slate);vertical-align:top;"><span class="scope-list"><code>read:page:confluence</code><code>read:space:confluence</code><code>read:label:confluence</code><code>write:page:confluence</code><code>write:confluence-content</code><code>storage:app</code></span></td>
               <td data-label="Working data while an action runs" style="padding:14px 16px;color:var(--slate);vertical-align:top;">A copy of the page you are cloning, kept while the clone run is in progress and deleted when it ends (it expires after seven days if a run is abandoned). Your list of pages is cached for up to one hour so the page picker loads quickly.</td>
             </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:14px 16px;color:var(--white);font-weight:600;vertical-align:top;">Page Order for Confluence</td>
+              <td data-label="Atlassian scopes" style="padding:14px 16px;color:var(--slate);vertical-align:top;"><span class="scope-list"><code>write:confluence-content</code><code>write:page:confluence</code><code>read:hierarchical-content:confluence</code><code>read:page:confluence</code><code>read:folder:confluence</code><code>read:space:confluence</code><code>search:confluence</code></span></td>
+              <td data-label="Working data while an action runs" style="padding:14px 16px;color:var(--slate);vertical-align:top;">None. Page Order stores nothing: it reads the page tree while you have it open and saves your changes as you, with no copy kept anywhere.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -238,10 +245,10 @@
       <h2>5. Incident Response</h2>
       <p>If you discover a security vulnerability or data concern related to a DataPingo app:</p>
       <ul>
-        <li>Email <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> with a description of the issue. Please do not open a public ticket or post details anywhere public until we have had a chance to fix it.</li>
+        <li>Email <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> with a description of the issue. Please do not open a public issue or post details anywhere public until we have had a chance to fix it.</li>
         <li>A confirmed security issue is treated as <strong style="color:var(--white);">Critical</strong>, so you will hear from a person within <strong style="color:var(--white);">1 business day</strong> and we will give you a resolution timeline then. Response targets live in one place &mdash; the table in our <a href="/sla" style="color:var(--teal);">Service Level Agreement</a>.</li>
         <li>For platform-level security issues (Forge infrastructure, Atlassian APIs), please also report to <a href="https://www.atlassian.com/trust/security/report-a-vulnerability" target="_blank" rel="noopener" style="color:var(--teal);">Atlassian's bug bounty program</a>.</li>
-        <li>Not sure whether something is a security issue? <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Raise a ticket on the support portal</a> and we will route it. If it turns out to be a vulnerability, please move the conversation to <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> rather than leaving details in a portal ticket.</li>
+        <li>Not sure whether something is a security issue? <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Open a request on the support portal</a> and we will route it. If it turns out to be a vulnerability, please move the conversation to <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a> rather than leaving details in a portal request.</li>
       </ul>
 
       <h2>6. Policy Updates</h2>
@@ -252,12 +259,12 @@
         <ul style="color:var(--slate);margin:0;">
           <li><strong style="color:var(--white);">Questions about this policy:</strong> <a href="mailto:contact@datapingo.com" style="color:var(--teal);">contact@datapingo.com</a></li>
           <li><strong style="color:var(--white);">Vulnerability reports &amp; security incidents:</strong> <a href="mailto:security@datapingo.com" style="color:var(--teal);">security@datapingo.com</a></li>
-          <li><strong style="color:var(--white);">Support portal:</strong> <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Raise a ticket</a></li>
+          <li><strong style="color:var(--white);">Support portal:</strong> <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener" style="color:var(--teal);">Open a request</a></li>
           <li><strong style="color:var(--white);">Legal:</strong> <a href="/privacy" style="color:var(--teal);">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms" style="color:var(--teal);">Terms of Service</a></li>
         </ul>
       </div>
 
-      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: October 4, 2026</em></p>
+      <p style="color:var(--slate);font-size:0.85rem;margin-top:32px;text-align:center;"><em>Last updated: October 20, 2026</em></p>
 
     </div>
   </section>
@@ -294,6 +301,7 @@
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>

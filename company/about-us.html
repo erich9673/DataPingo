@@ -86,7 +86,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -104,6 +104,7 @@
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -152,6 +153,7 @@
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -268,10 +270,11 @@
 
 .product-cards-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-top: 40px;
 }
+@media (max-width: 960px) { .product-cards-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .product-cards-row { grid-template-columns: 1fr; } }
 .product-feature-card {
   border-radius: 18px;
@@ -313,6 +316,12 @@
   color: var(--teal);
 }
 .product-feature-card.purple-card .card-arrow { color: #A78BFA; }
+.product-feature-card.azure-card {
+  background: rgba(59,106,232,0.07);
+  border: 1px solid rgba(110,150,250,0.3);
+}
+.product-feature-card.azure-card:hover { box-shadow: 0 12px 40px rgba(59,106,232,0.15); }
+.product-feature-card.azure-card .card-arrow { color: #93B4FF; }
 
 .principles-row {
   display: grid;
@@ -455,7 +464,7 @@
         <div class="founder-card">
           <h2>Eric Huang</h2>
           <p class="role">Founder &amp; CEO</p>
-          <p class="bio">Eric has worked across marketing, product and engineering in the Atlassian ecosystem and started DataPingo to build the workflow tools he wished existed. He personally reviews every customer support ticket to ensure that our tools can solve their problems.</p>
+          <p class="bio">Eric has worked across marketing, product and engineering in the Atlassian ecosystem and started DataPingo to build the workflow tools he wished existed. He personally reviews every customer support request to ensure that our tools can solve their problems.</p>
           <div class="founder-links">
             <a href="https://www.linkedin.com/in/erichuang0/" target="_blank" rel="noopener" class="founder-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -471,8 +480,8 @@
   <section class="page-section" style="background:var(--black-2);">
     <div class="section-wrap reveal">
       <p class="section-tag" style="margin-bottom:12px;">What we make</p>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:4px;letter-spacing:-0.02em;">Two apps. Real problems solved.</h2>
-      <p style="color:var(--slate);font-size:0.95rem;">Both live on the Atlassian Marketplace and run entirely inside Atlassian's Forge platform.</p>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:4px;letter-spacing:-0.02em;">Three apps. Real problems solved.</h2>
+      <p style="color:var(--slate);font-size:0.95rem;">All three live on the Atlassian Marketplace and run entirely inside Atlassian's Forge platform.</p>
       <div class="product-cards-row">
         <a href="/products/bulk-comments" class="product-feature-card purple-card">
           <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" loading="lazy" width="192" height="192">
@@ -484,6 +493,12 @@
           <img src="/assets/img/Bulk Page Cloner Assets/Bulk Page Cloner for Confluence (80 x 80 px).png" alt="Bulk Page Cloner" loading="lazy" width="80" height="80">
           <h3>Bulk Page Cloner for Confluence</h3>
           <p>Recreating the same Confluence page by hand, again and again. Now you make up to 25 named copies in one pass — content, macros, labels and attachments carried over exactly.</p>
+          <span class="card-arrow">View product &rarr;</span>
+        </a>
+        <a href="/products/page-order" class="product-feature-card azure-card">
+          <img src="/assets/img/Page Order Assets/Page Order for Confluence (80 x 80 px).png" alt="Page Order for Confluence" loading="lazy" width="80" height="80">
+          <h3>Page Order for Confluence</h3>
+          <p>Dragging Confluence pages into order one at a time, because new pages land at the end of the list. Now you sort a whole list A to Z or by date in one step, and move many pages at once.</p>
           <span class="card-arrow">View product &rarr;</span>
         </a>
       </div>
@@ -559,6 +574,7 @@
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>

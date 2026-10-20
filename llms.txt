@@ -8,6 +8,7 @@ DataPingo's apps run natively inside Confluence Cloud and Jira Cloud on Atlassia
 
 - [Bulk Comments for Jira](https://datapingo.com/products/bulk-comments): Comment on up to 25 Jira issues from one page, with a different comment (and, if needed, a status change) on each — or write one comment and copy it to the rest. Images, video and files up to 150 MB each are included. Works with Jira, Jira Service Management (JSM), Customer Service Management and Jira Product Discovery; on a JSM request each comment is a reply to the customer, an internal note, or both. Free for teams up to 10 users. Marketplace: https://marketplace.atlassian.com/apps/2184917707/bulk-comments-for-jira
 - [Bulk Page Cloner for Confluence](https://datapingo.com/products/bulk-page-cloner): Clone one Confluence page into up to 25 copies in a single run — content, formatting, images, video, macros, labels and attachments all carried over. Name every copy first, then place them under a parent you pick, at the space root, or under a new parent, in any space you can reach. Free for teams up to 10 users. Marketplace: https://marketplace.atlassian.com/apps/2754913942/bulk-page-cloner-for-confluence
+- [Page Order for Confluence](https://datapingo.com/products/page-order): Sort a page's child pages A to Z, Z to A, newest, oldest or recently updated in one step, and drag many pages into place at once or move them under another parent or into another space. Nothing changes in Confluence until you review the changes and save; the app stores no data and acts as you. Free for teams up to 10 users. Marketplace: https://marketplace.atlassian.com/apps/1059993353/page-order-for-confluence
 
 ## How-to
 
@@ -19,7 +20,7 @@ DataPingo's apps run natively inside Confluence Cloud and Jira Cloud on Atlassia
 
 ## Documentation
 
-- [Documentation](https://datapingo.com/resources/documentation): Setup guides, limits and error fixes for both apps.
+- [Documentation](https://datapingo.com/resources/documentation): Setup guides, limits and error fixes for every DataPingo app.
 - [Bulk Comments for Jira — Documentation](https://datapingo.com/resources/documentation/bulkcomments): Installation, the three-step guide (select issues, write a comment on each, send the batch), the comment editor, Jira Service Management requests, limits, FAQ and release notes.
 - [Bulk Comments for Jira — FAQ](https://datapingo.com/resources/documentation/bulkcomments/faq): Setup, which Jira products it works with, limits, attachments, undo, pricing and where your data goes.
 - [Bulk Comments for Jira — Limits](https://datapingo.com/resources/documentation/bulkcomments/limits): 25 issues per send, 150 MB per file, and the 2 GB per-send ceiling.
@@ -30,6 +31,12 @@ DataPingo's apps run natively inside Confluence Cloud and Jira Cloud on Atlassia
 - [Bulk Page Cloner for Confluence — Limits](https://datapingo.com/resources/documentation/bulkpagecloner/limits): 25 copies of one source page per run, and how copies count toward Confluence storage.
 - [Bulk Page Cloner for Confluence — Specs, Permissions & Security](https://datapingo.com/resources/documentation/bulkpagecloner/specs): Permissions requested, data handling and the Forge security model.
 - [Bulk Page Cloner for Confluence — Release notes](https://datapingo.com/resources/documentation/bulkpagecloner/release-notes): What changed in each version.
+- [Page Order for Confluence — Documentation](https://datapingo.com/resources/documentation/pageorder): Installation, where to open it, the user guide (open a list of pages, sort, select and drag, move to another parent or space, review and save), limits, FAQ and release notes.
+- [Page Order for Confluence — Sort pages](https://datapingo.com/resources/documentation/pageorder/guide/sort): Five sort orders, numbers sorted by value, and sorting every level below.
+- [Page Order for Confluence — FAQ](https://datapingo.com/resources/documentation/pageorder/faq): Setup, sorting and moving, saving, pricing, and privacy and security.
+- [Page Order for Confluence — Limits](https://datapingo.com/resources/documentation/pageorder/limits): 1,000 page moves per save, Confluence's 1,000-items-beneath rule, unique titles, and rate limits.
+- [Page Order for Confluence — Specs, Permissions & Security](https://datapingo.com/resources/documentation/pageorder/specs): Its seven scopes, how it acts as you, and why it stores no data.
+- [Page Order for Confluence — Release notes](https://datapingo.com/resources/documentation/pageorder/release-notes): What changed in each version.
 
 ## Blog
 
@@ -55,4 +62,4 @@ DataPingo's apps run natively inside Confluence Cloud and Jira Cloud on Atlassia
 - [Privacy Policy](https://datapingo.com/privacy): How DataPingo collects and handles user data.
 - [Terms of Service](https://datapingo.com/terms): Terms governing use of DataPingo products and website.
 - [Security](https://datapingo.com/security): DataPingo's security practices and commitments.
-- [Service Level Agreement](https://datapingo.com/sla): Support response times, service commitments, and exclusions for both apps.
+- [Service Level Agreement](https://datapingo.com/sla): Support response times, service commitments, and exclusions for every DataPingo app.

@@ -107,7 +107,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
@@ -126,6 +126,7 @@
           <div class="dropdown-content" role="menu">
             <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
             <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -174,6 +175,7 @@
       <div class="mobile-nav-label">Products</div>
       <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
       <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -224,6 +226,7 @@
       <div class="hero-doors">
         <a href="/products/bulk-comments" class="hero-door hero-door--bcj"><img src="/assets/img/Bulk%20Comments%20for%20Jira%20Assets/Bulk%20Comments%20for%20Jira%20(128%20x%20128%20px).png" alt="" width="44" height="44"><div><small>For Jira</small><b>Bulk Comments</b><span>25 issues, a comment on each</span></div><span class="arr" aria-hidden="true">&rarr;</span></a>
         <a href="/products/bulk-page-cloner" class="hero-door hero-door--bpc"><img src="/assets/img/Bulk%20Page%20Cloner%20Assets/Bulk%20Page%20Cloner%20for%20Confluence%20(128%20x%20128%20px).png" alt="" width="44" height="44"><div><small>For Confluence</small><b>Bulk Page Cloner</b><span>One page into 25 named copies</span></div><span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a href="/products/page-order" class="hero-door hero-door--po"><img src="/assets/img/Page%20Order%20Assets/Page%20Order%20for%20Confluence%20(144%20x%20144%20px).png" alt="" width="44" height="44"><div><small>For Confluence</small><b>Page Order</b><span>Sort child pages in one step</span></div><span class="arr" aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="hero-stats" aria-label="Key facts">
         <div class="hero-stat"><div class="stat-number">Forge</div><div class="stat-label">Runs on Atlassian</div></div>
@@ -238,10 +241,10 @@
     </a>
   </section>
 
-  <!-- TWO APPS — one idea, both directions -->
+  <!-- THE APPS — one idea: what Atlassian makes you repeat, done on one screen -->
   <section class="hm hm-sec" id="featured-product" aria-labelledby="apps-heading" style="scroll-margin-top:68px;">
     <div class="hm-wrap">
-      <p class="hm-eyebrow">Two apps, one idea</p>
+      <p class="hm-eyebrow">Three apps, one idea</p>
       <h2 class="hm-h2" id="apps-heading">Atlassian repeats the dialog. We give you one screen.</h2>
       <p class="hm-lede">Each app fixes one job you have been doing by hand, completely &mdash; and nothing more.</p>
       <div class="hm-apps">
@@ -265,6 +268,17 @@
             <a href="/products/bulk-page-cloner" class="hm-btn hm-btn--app">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             <a href="https://marketplace.atlassian.com/apps/2754913942" target="_blank" rel="noopener" class="hm-link">View on Marketplace <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
             <span class="hm-free">Free for teams up to 10 &middot; any space you can reach</span>
+          </div>
+        </article>
+        <article class="hm-app hm-app--po">
+          <div class="hm-app-top"><img src="/assets/img/Page%20Order%20Assets/Page%20Order%20for%20Confluence%20(144%20x%20144%20px).png" alt="" width="48" height="48"><div><small>For Confluence</small><b>Page Order</b></div></div>
+          <div class="hm-fig"><svg viewBox="0 0 400 132" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect x="22" y="13" width="108" height="18" rx="5" fill="rgba(147,180,255,0.04)" stroke="rgba(147,180,255,0.3)" stroke-dasharray="3 2"/><text x="32" y="26" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#8FA0BE">Travel</text><rect x="22" y="35" width="108" height="18" rx="5" fill="rgba(147,180,255,0.04)" stroke="rgba(147,180,255,0.3)" stroke-dasharray="3 2"/><text x="32" y="48" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#8FA0BE">Onboarding</text><rect x="22" y="57" width="108" height="18" rx="5" fill="rgba(147,180,255,0.04)" stroke="rgba(147,180,255,0.3)" stroke-dasharray="3 2"/><text x="32" y="70" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#8FA0BE">Holidays</text><rect x="22" y="79" width="108" height="18" rx="5" fill="rgba(147,180,255,0.04)" stroke="rgba(147,180,255,0.3)" stroke-dasharray="3 2"/><text x="32" y="92" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#8FA0BE">Benefits</text><rect x="22" y="101" width="108" height="18" rx="5" fill="rgba(147,180,255,0.04)" stroke="rgba(147,180,255,0.3)" stroke-dasharray="3 2"/><text x="32" y="114" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#8FA0BE">Security</text><path d="M132 22 C 200 22, 200 110, 268 110" fill="none" stroke="#3B6AE8" stroke-opacity="0.65" stroke-width="1.4"/><path d="M132 44 C 200 44, 200 66, 268 66" fill="none" stroke="#3B6AE8" stroke-opacity="0.65" stroke-width="1.4"/><path d="M132 66 C 200 66, 200 44, 268 44" fill="none" stroke="#3B6AE8" stroke-opacity="0.65" stroke-width="1.4"/><path d="M132 88 C 200 88, 200 22, 268 22" fill="none" stroke="#3B6AE8" stroke-opacity="0.65" stroke-width="1.4"/><path d="M132 110 C 200 110, 200 88, 268 88" fill="none" stroke="#3B6AE8" stroke-opacity="0.65" stroke-width="1.4"/><rect x="270" y="13" width="108" height="18" rx="5" fill="rgba(147,180,255,0.1)" stroke="rgba(147,180,255,0.42)"/><text x="280" y="26" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#BFD2FF">Benefits</text><rect x="270" y="35" width="108" height="18" rx="5" fill="rgba(147,180,255,0.1)" stroke="rgba(147,180,255,0.42)"/><text x="280" y="48" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#BFD2FF">Holidays</text><rect x="270" y="57" width="108" height="18" rx="5" fill="rgba(147,180,255,0.1)" stroke="rgba(147,180,255,0.42)"/><text x="280" y="70" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#BFD2FF">Onboarding</text><rect x="270" y="79" width="108" height="18" rx="5" fill="rgba(147,180,255,0.1)" stroke="rgba(147,180,255,0.42)"/><text x="280" y="92" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#BFD2FF">Security</text><rect x="270" y="101" width="108" height="18" rx="5" fill="rgba(147,180,255,0.1)" stroke="rgba(147,180,255,0.42)"/><text x="280" y="114" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="#BFD2FF">Travel</text><text x="324" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#8B93AE">A TO Z</text></svg></div>
+          <h3>Every page in its place.</h3>
+          <p>Sort a page&rsquo;s child pages A to Z or by date in one step, and move many pages at once &mdash; to a new spot, another parent or another space.</p>
+          <div class="hm-app-foot">
+            <a href="/products/page-order" class="hm-btn hm-btn--app">See how it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://marketplace.atlassian.com/apps/1059993353" target="_blank" rel="noopener" class="hm-link">View on Marketplace <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <span class="hm-free">Free for teams up to 10 &middot; follows Confluence permissions</span>
           </div>
         </article>
       </div>
@@ -341,6 +355,7 @@
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
       </div>
       <div class="footer-col">
         <h2>Company</h2>

@@ -1,7 +1,8 @@
 /* ══════════════════════════════════════════════════════════════════════════
    PRODUCT PAGES — Direction A "Quiet dark" (chosen 2026-09-28)
 
-   Shared by products/bulk-comments.html and products/bulk-page-cloner.html,
+   Shared by products/bulk-comments.html, products/bulk-page-cloner.html and
+   products/page-order.html,
    linked AFTER each page's own <style> so it wins on source order, and scoped
    through body.product-page so it wins on specificity against the pages'
    single-class rules. Nothing here reaches any other page on the site.
@@ -33,6 +34,18 @@
   --pp-tint:       rgba(34,211,238,0.1);
   --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
                    radial-gradient(ellipse 85% 105% at 76% 30%, #0E3A6E 0%, #0A2344 55%, #061428 100%);
+}
+/* Page Order — azure, from its icon (azure → violet). Kept bluer than Bulk
+   Comments' indigo so the two never read as the same product. */
+.product-page--po {
+  --pp-acc:        #93B4FF;               /* 9.7:1 on #020911 */
+  --pp-acc-strong: #BFD2FF;
+  --pp-fill:       #3B6AE8;               /* button — white text 4.8:1 */
+  --pp-fill-ink:   #FFFFFF;
+  --pp-line:       rgba(110,150,250,0.5);
+  --pp-tint:       rgba(80,125,245,0.13);
+  --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
+                   radial-gradient(ellipse 85% 105% at 76% 30%, #1C2C78 0%, #111B4A 55%, #090F2A 100%);
 }
 .product-page { --pp-rule: rgba(148,170,196,0.14); --pp-raised: #050D19; }
 
