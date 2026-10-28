@@ -566,6 +566,150 @@
     {
       "source": "/resources/documentation/pageorder/release-notes/v3-3-0",
       "destination": "/resources/documentation/pageorder/release-notes/v3-3-0.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder",
+      "destination": "/resources/documentation/issueorder.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/",
+      "destination": "/resources/documentation/issueorder.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/installation",
+      "destination": "/resources/documentation/issueorder/installation.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/installation/",
+      "destination": "/resources/documentation/issueorder/installation.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/where-to-open",
+      "destination": "/resources/documentation/issueorder/where-to-open.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/where-to-open/",
+      "destination": "/resources/documentation/issueorder/where-to-open.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide",
+      "destination": "/resources/documentation/issueorder/guide.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/",
+      "destination": "/resources/documentation/issueorder/guide.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/about-the-app",
+      "destination": "/resources/documentation/issueorder/guide/about-the-app.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/about-the-app/",
+      "destination": "/resources/documentation/issueorder/guide/about-the-app.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/drag-and-drop",
+      "destination": "/resources/documentation/issueorder/guide/drag-and-drop.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/drag-and-drop/",
+      "destination": "/resources/documentation/issueorder/guide/drag-and-drop.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/move-to",
+      "destination": "/resources/documentation/issueorder/guide/move-to.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/move-to/",
+      "destination": "/resources/documentation/issueorder/guide/move-to.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/sort",
+      "destination": "/resources/documentation/issueorder/guide/sort.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/sort/",
+      "destination": "/resources/documentation/issueorder/guide/sort.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/priority-lanes",
+      "destination": "/resources/documentation/issueorder/guide/priority-lanes.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/priority-lanes/",
+      "destination": "/resources/documentation/issueorder/guide/priority-lanes.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/review-and-save",
+      "destination": "/resources/documentation/issueorder/guide/review-and-save.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/guide/review-and-save/",
+      "destination": "/resources/documentation/issueorder/guide/review-and-save.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/admin",
+      "destination": "/resources/documentation/issueorder/admin.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/admin/",
+      "destination": "/resources/documentation/issueorder/admin.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/technical",
+      "destination": "/resources/documentation/issueorder/technical.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/technical/",
+      "destination": "/resources/documentation/issueorder/technical.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/limits",
+      "destination": "/resources/documentation/issueorder/limits.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/limits/",
+      "destination": "/resources/documentation/issueorder/limits.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/specs",
+      "destination": "/resources/documentation/issueorder/specs.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/specs/",
+      "destination": "/resources/documentation/issueorder/specs.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/faq",
+      "destination": "/resources/documentation/issueorder/faq.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/faq/",
+      "destination": "/resources/documentation/issueorder/faq.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/troubleshooting",
+      "destination": "/resources/documentation/issueorder/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/troubleshooting/",
+      "destination": "/resources/documentation/issueorder/troubleshooting.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/release-notes",
+      "destination": "/resources/documentation/issueorder/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/release-notes/",
+      "destination": "/resources/documentation/issueorder/release-notes.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/release-notes/first-release",
+      "destination": "/resources/documentation/issueorder/release-notes/first-release.html"
+    },
+    {
+      "source": "/resources/documentation/issueorder/release-notes/first-release/",
+      "destination": "/resources/documentation/issueorder/release-notes/first-release.html"
     }
   ]
 }

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Issue Order for Jira — App technical information</title>
+  <meta name="description" content="How Issue Order for Jira works: Forge Custom UI with no backend, every call made as you, nothing stored outside your browser, saves written to Jira&#x27;s Rank.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/technical">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/technical">
+  <meta property="og:title" content="Issue Order for Jira — App technical information">
+  <meta property="og:description" content="How Issue Order for Jira works: Forge Custom UI with no backend, every call made as you, nothing stored outside your browser, saves written to Jira&#x27;s Rank.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue Order for Jira — App technical information">
+  <meta name="twitter:description" content="How Issue Order for Jira works: Forge Custom UI with no backend, every call made as you, nothing stored outside your browser, saves written to Jira&#x27;s Rank.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the
+       dataLayer, addressed to G-W5VY62S4LR (GA4 is configured inside GTM, so an
+       event without send_to reaches no property); Google's tag sends it only if
+       the visitor allowed Measurement cookies.
+       Visits that arrive from DataPingo's own tools (a local preview, DPMT), or from a
+       browser opted in once with ?internal=1 (?internal=0 undoes it), are tagged
+       traffic_type=internal so GA4's internal-traffic filter can drop them. Nothing is
+       stored for ordinary visitors. -->
+  <script>(function(w,d){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.dpTrack=function(n,p){p=p||{};if(!p.send_to)p.send_to='G-W5VY62S4LR';g('event',n,p)};var i=false;try{var ls=w.localStorage,ss=w.sessionStorage,q=/[?&]internal=([01])(&|$)/.exec(location.search),r='';if(q){if(q[1]==='1')ls.setItem('dp_internal','1');else{ls.removeItem('dp_internal');ss.removeItem('dp_internal')}}try{r=new URL(d.referrer).hostname}catch(e){}if(!(q&&q[1]==='0')&&/^(localhost|127\.0\.0\.1|\[::1\])$|^10\.|^192\.168\.|^172\.(1[6-9]|2\d|3[01])\.|\.local$|\.nip\.io$|^dpmt\.datapingo\.com$|^dpmt-dpmt\.vercel\.app$/.test(r))ss.setItem('dp_internal','1');i=ls.getItem('dp_internal')==='1'||ss.getItem('dp_internal')==='1'}catch(e){}if(i)g('set',{traffic_type:'internal'})})(window,document);</script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
+  <style>
+    
+    .btn-secondary--purple {
+      border-color: rgba(167,139,250,0.45) !important;
+      color: #A78BFA !important;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Issue Order for Jira",
+      "item": "https://datapingo.com/resources/documentation/issueorder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "App technical information",
+      "item": "https://datapingo.com/resources/documentation/issueorder/technical"
+    }
+  ]
+}
+  </script>
+</head>
+<body data-doc-product="issueorder">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/issueorder" style="color:inherit;text-decoration:none">ISSUE ORDER FOR JIRA</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Issue Order Assets/Issue Order for Jira icon.png" alt="Issue Order for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(124,92,230,0.25);" width="160" height="160">
+      </div>
+      <h1 style="text-align:center;">App technical information</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Where Issue Order runs, how it acts as you, what it keeps in your browser, and how loading and saving work.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge">First release &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/guide">User guide</a>
+        <a href="/resources/documentation/issueorder/admin">Admin guide</a>
+        <a href="/resources/documentation/issueorder/technical">App technical information</a>
+        <a href="/resources/documentation/issueorder/faq">FAQ</a>
+        <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/issueorder/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+<section id="where-it-runs" style="scroll-margin-top:100px;">
+<h2>Where it runs</h2>
+<p>Issue Order for Jira is an Atlassian Forge app made of one Custom UI screen and nothing else: no backend function, no Forge storage, no triggers and no scheduled jobs. Jira shows that screen for <span class="ui">Issue Order for Jira</span> under <strong>Apps</strong>, and in a pop-up for <span class="ui">Reorder child issues</span> in an issue&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu (see <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>).</p>
+<p>It declares no external domains, so it has no way to send anything outside Atlassian: it is a <strong>Runs on Atlassian</strong> app. It draws its own issue-type and priority icons instead of loading Jira&rsquo;s icon images from your site, and follows Jira&rsquo;s light or dark theme. While nobody has it open, nothing of it runs.</p>
+</section>
+
+<section id="acts-as-you" style="scroll-margin-top:100px;">
+<h2>It acts as you</h2>
+<p>Every call to Jira is made from your browser through Forge&rsquo;s <code>requestJira</code>, as the person signed in. The app never acts as itself or for someone who isn&rsquo;t at the screen, and holds no API keys or tokens. So Jira applies your own permissions, exactly as if you ranked issues on a board by hand: spaces you can&rsquo;t browse aren&rsquo;t listed, issues hidden from you never load, and a change you aren&rsquo;t allowed to make is refused. The app also checks Jira&rsquo;s parent rules before a move is staged, so a refusal comes with its reason, not at save. The <a href="/resources/documentation/issueorder/admin#permissions">Admin guide</a> covers the permissions.</p>
+</section>
+
+<section id="what-it-stores" style="scroll-margin-top:100px;">
+<h2>What it stores</h2>
+<p>Nothing outside your browser. Issues are read live from Jira, and a saved order is Jira&rsquo;s Rank. A few things are kept in your browser&rsquo;s local storage, for that browser only. They never leave it:</p>
+<table class="spec-table">
+<thead><tr><th>What</th><th>Kept for each</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td>Last space opened</td><td>Jira site</td><td>The space the Apps page opens next time</td></tr>
+<tr><td><span class="ui">Show</span> level</td><td>Jira site</td><td>How many levels the Apps page opens with</td></tr>
+<tr><td><span class="ui">Hide done</span>, <span class="ui">Numbers</span></td><td>Browser</td><td>Whether each switch is on</td></tr>
+<tr><td>Priority lanes&rsquo; <span class="ui">Not placed yet</span></td><td>Person, site and list</td><td>When you last looked at the list, and the keys of new issues you&rsquo;ve placed or kept</td></tr>
+<tr><td>Unsaved changes (the safety net)</td><td>Person, site and starting point: a space, or the issue the pop-up opened on</td><td>While you have unsaved changes: the keys of the issues you changed, their new places and priorities, and the lists you made them on. No summaries.</td></tr>
+</tbody>
+</table>
+<p>The safety net is what lets a closed tab come back with <span class="ui">Restore unsaved changes</span>. It is cleared by a save that leaves nothing unsaved, by <span class="ui">Discard</span> (or <span class="ui">Discard them</span> on the restore banner), and by <span class="ui">Leave without saving</span> or <span class="ui">Switch and discard</span>; after 14 days it is ignored and removed. If the browser blocks storage, the switches start at their defaults and there is no safety net.</p>
+</section>
+
+<section id="how-loading-works" style="scroll-margin-top:100px;">
+<h2>How a list loads</h2>
+<p>Each list (a space&rsquo;s epics, an epic&rsquo;s child issues, an issue&rsquo;s sub-tasks) is read in two steps:</p>
+<ol>
+<li><strong>Which issues.</strong> A Jira search finds them in Rank order, asking for ids only. That way Jira returns up to 5,000 a page instead of 100, and one search covers the children of up to 50 parents.</li>
+<li><strong>The issues themselves.</strong> They are then read directly, 100 to a call and up to 8 calls at once, each with its current parent and Rank.</li>
+</ol>
+<p>The second step keeps the outline exact. Search can lag behind a change: for a second or two after a re-rank it can return the old order, and just after a parent change it can still list an issue under its old parent. An issue&rsquo;s own Rank and parent are current at once, so the order always comes from Rank, and an issue that just changed parent goes in the list it now belongs to. A sub-task created moments ago is picked up from its parent&rsquo;s own list of sub-tasks. Deleted issues, and issues you can&rsquo;t see, are left out.</p>
+<p>A list shows up to 1,000 issues (<a href="/resources/documentation/issueorder/limits#issues-per-list">Limits</a>). The toolbar&rsquo;s <span class="ui">Refresh from Jira</span> reads every list it has loaded again; coming back to the tab does it quietly, at most once a minute, when you have no unsaved changes and nothing to undo.</p>
+</section>
+
+<section id="how-a-save-works" style="scroll-margin-top:100px;">
+<h2>How a save works</h2>
+<p>Nothing is written to Jira until you press <span class="ui">Save changes</span>. The save then runs from your tab, in this order:</p>
+<ol>
+<li><strong>Check that nothing changed.</strong> While the bar says <span class="ui">Checking Jira&hellip;</span>, every list the save will reorder is read again: the same issues must be there, in the same order. If anything changed, a teammate re-ranking on a board for example, nothing is written and a banner says <span class="ui">The order changed in Jira while you were editing, so nothing was saved.</span> <span class="ui">Refresh</span> loads the latest and puts your changes back where they still fit.</li>
+<li><strong>Check that ranking works</strong>, with a rank request that changes nothing. If Jira refuses it, nothing is written.</li>
+<li><strong>New parents, then new priorities</strong>, four at a time.</li>
+<li><strong>Rank, one list at a time, with the fewest moves.</strong> The list&rsquo;s Rank is read fresh; if a teammate re-ranked it since the check, it is left alone and named in the result. Otherwise the app keeps the longest run of issues already in order and ranks only the others, each run straight after the issue above it, up to 50 issues per call (Jira&rsquo;s limit). A list that receives issues gets this step too, because a new parent alone doesn&rsquo;t change an issue&rsquo;s Rank.</li>
+<li><strong>Read back.</strong> If a batch landed out of order, it is put right once, one issue at a time. Then every list the save touched is read back, and the outline shows what Jira now has.</li>
+</ol>
+<p>Ranking only what has to move matters because Rank is one order for the whole site: an issue the save doesn&rsquo;t need to move keeps its place on every board and backlog. At the end the status says <span class="ui">Saved <em>n</em> changes. Boards and backlogs show this order too.</span> A change Jira refuses doesn&rsquo;t stop the rest; it stays in your draft with the reason. <a href="/resources/documentation/issueorder/guide/review-and-save">Review and save</a> shows this from your side.</p>
+<h3 id="keep-the-tab-open" style="scroll-margin-top:100px;">Keep the tab open</h3>
+<p>With no backend, a save runs only while your tab is open. Closing or reloading it stops the save, and what was written stays written. The app asks your browser to warn you first, but some browsers skip that inside an app&rsquo;s frame. If the tab does close, the safety net still has your unsaved changes and offers them back next time.</p>
+<h3 id="undo" style="scroll-margin-top:100px;">Undo before you save, none after</h3>
+<p>Until you save, &#8984;/Ctrl+Z undoes your last change and &#8679;&#8984;Z or Ctrl+Y redoes it, up to 100 steps. After a save there is no undo, as in Jira itself: put the issues back and save again.</p>
+<h3 id="busy" style="scroll-margin-top:100px;">When Jira is busy</h3>
+<p>If Jira answers &ldquo;too many requests&rdquo;, the app waits as long as Jira asks (or 1, 2, 4, then 8 seconds, never more than 10 at a time) and tries again, up to four times. Only that answer is retried, because Jira didn&rsquo;t act on the request. If Jira is still busy, you see <span class="ui">Jira is limiting requests right now. Wait a few seconds, then try again.</span></p>
+</section>
+
+<section id="limits-and-security" style="scroll-margin-top:100px;">
+<h2>Limits, specs and security</h2>
+<div data-doc-children>
+<div class="doc-hub">
+<a class="doc-hub-card" href="/resources/documentation/issueorder/limits"><span class="doc-hub-card-title">Limits</span><span class="doc-hub-card-sub">Every ceiling in one place, and what happens at each.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/specs"><span class="doc-hub-card-title">Specs &amp; security</span><span class="doc-hub-card-sub">Scopes, data handling, hosting and authentication.</span></a>
+</div>
+</div>
+</section>
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script src="/js/site.js"></script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

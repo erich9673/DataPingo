@@ -21,8 +21,11 @@
   window.__docsNav = true;
 
   const PRODUCT = document.body.dataset.docProduct || null;
-  const NAMES = { bulkcomments: 'Bulk Comments', bulkpagecloner: 'Bulk Page Cloner', pageorder: 'Page Order' };
-  const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner', pageorder: '/resources/documentation/pageorder' };
+  const NAMES = { bulkcomments: 'Bulk Comments', bulkpagecloner: 'Bulk Page Cloner', pageorder: 'Page Order', issueorder: 'Issue Order' };
+  const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner', pageorder: '/resources/documentation/pageorder', issueorder: '/resources/documentation/issueorder' };
+  // Apps whose docs are published but not listed yet: only their own pages search them,
+  // never the docs hub's "All apps". Remove a key at that app's launch.
+  const UNLISTED = ['issueorder'];
   const POPULAR = [
     ['Installation', '/installation'],
     ['Limits', '/limits'],
@@ -62,6 +65,7 @@
 
   function score(r, toks, phrase, scope) {
     if (scope !== 'all' && r.p !== scope) return 0;
+    if (scope === 'all' && UNLISTED.includes(r.p)) return 0;
     let s = 0;
     for (const t of toks) {
       const h = r._h.includes(t), ti = r._t.includes(t), x = r._x.includes(t);
@@ -204,7 +208,7 @@
     if (!toks.length) {                                     // nothing typed: the usual destinations
       empty.textContent = 'Popular';
       empty.className = 'dsearch-empty dsearch-label';
-      const keys = scope === 'all' ? Object.keys(ROOTS) : [scope];
+      const keys = scope === 'all' ? Object.keys(ROOTS).filter((k) => !UNLISTED.includes(k)) : [scope];
       keys.forEach((k) => POPULAR.forEach(([label, path], i) =>
         list.appendChild(resultItem(ROOTS[k] + path, keys.length > 1 ? NAMES[k] : '', label, '', [], 'dsr-p-' + k + i))));
       return;

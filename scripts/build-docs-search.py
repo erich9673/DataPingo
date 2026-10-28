@@ -20,7 +20,7 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, 'resources', 'documentation')
 OUT = os.path.join(ROOT, 'js', 'docs-search-index.json')
-PRODUCTS = ('bulkcomments', 'bulkpagecloner', 'pageorder')
+PRODUCTS = ('bulkcomments', 'bulkpagecloner', 'pageorder', 'issueorder')
 SKIP = {'svg', 'script', 'style', 'template', 'noscript'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
 

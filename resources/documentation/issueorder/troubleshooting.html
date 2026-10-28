@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Issue Order for Jira — Help and support</title>
+  <meta name="description" content="What each Issue Order for Jira message means when loading, sorting, moving or saving issues, how to fix it, and how to reach DataPingo support.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/troubleshooting">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/troubleshooting">
+  <meta property="og:title" content="Issue Order for Jira — Help and support">
+  <meta property="og:description" content="What each Issue Order for Jira message means when loading, sorting, moving or saving issues, how to fix it, and how to reach DataPingo support.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue Order for Jira — Help and support">
+  <meta name="twitter:description" content="What each Issue Order for Jira message means when loading, sorting, moving or saving issues, how to fix it, and how to reach DataPingo support.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the
+       dataLayer, addressed to G-W5VY62S4LR (GA4 is configured inside GTM, so an
+       event without send_to reaches no property); Google's tag sends it only if
+       the visitor allowed Measurement cookies.
+       Visits that arrive from DataPingo's own tools (a local preview, DPMT), or from a
+       browser opted in once with ?internal=1 (?internal=0 undoes it), are tagged
+       traffic_type=internal so GA4's internal-traffic filter can drop them. Nothing is
+       stored for ordinary visitors. -->
+  <script>(function(w,d){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.dpTrack=function(n,p){p=p||{};if(!p.send_to)p.send_to='G-W5VY62S4LR';g('event',n,p)};var i=false;try{var ls=w.localStorage,ss=w.sessionStorage,q=/[?&]internal=([01])(&|$)/.exec(location.search),r='';if(q){if(q[1]==='1')ls.setItem('dp_internal','1');else{ls.removeItem('dp_internal');ss.removeItem('dp_internal')}}try{r=new URL(d.referrer).hostname}catch(e){}if(!(q&&q[1]==='0')&&/^(localhost|127\.0\.0\.1|\[::1\])$|^10\.|^192\.168\.|^172\.(1[6-9]|2\d|3[01])\.|\.local$|\.nip\.io$|^dpmt\.datapingo\.com$|^dpmt-dpmt\.vercel\.app$/.test(r))ss.setItem('dp_internal','1');i=ls.getItem('dp_internal')==='1'||ss.getItem('dp_internal')==='1'}catch(e){}if(i)g('set',{traffic_type:'internal'})})(window,document);</script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
+  <style>
+    
+    .btn-secondary--purple {
+      border-color: rgba(167,139,250,0.45) !important;
+      color: #A78BFA !important;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Issue Order for Jira",
+      "item": "https://datapingo.com/resources/documentation/issueorder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Help and support",
+      "item": "https://datapingo.com/resources/documentation/issueorder/troubleshooting"
+    }
+  ]
+}
+  </script>
+</head>
+<body data-doc-product="issueorder">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/issueorder" style="color:inherit;text-decoration:none">ISSUE ORDER FOR JIRA</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Issue Order Assets/Issue Order for Jira icon.png" alt="Issue Order for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(124,92,230,0.25);" width="160" height="160">
+      </div>
+      <h1 style="text-align:center;">Help and support</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Every message Issue Order for Jira can show, what it means and what to do, and how to reach us.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge">First release &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/guide">User guide</a>
+        <a href="/resources/documentation/issueorder/admin">Admin guide</a>
+        <a href="/resources/documentation/issueorder/technical">App technical information</a>
+        <a href="/resources/documentation/issueorder/faq">FAQ</a>
+        <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/issueorder/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+<section id="opening" style="scroll-margin-top:100px;">
+<h2>Opening and loading</h2>
+<p>Issue Order for Jira reads every list from Jira as you, when you open it. If Jira won&rsquo;t show you an issue, the app can&rsquo;t either.</p>
+<div class="ts-item">
+<p class="ts-msg">Issue Order couldn&rsquo;t start. Reload the page. &nbsp;/&nbsp; Issue Order couldn&rsquo;t tell which issue it&rsquo;s on. Reload the page.</p>
+<p class="ts-cause">Jira didn&rsquo;t pass the app what it needs to start: where it was opened, or which issue it was opened on.</p>
+<p class="ts-fix">Reload the page in your browser, then open the app again. If it keeps happening, write to support.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Reorder child issues isn&rsquo;t in an issue&rsquo;s &bull;&bull;&bull; menu</p>
+<p class="ts-cause">It&rsquo;s offered only on issues in Jira software and business spaces. Jira Service Management (JSM), Customer Service Management and Jira Product Discovery spaces don&rsquo;t have it.</p>
+<p class="ts-fix">Open it on an issue in a software or business space, or from <span class="ui">Apps</span> &rarr; <span class="ui">Issue Order for Jira</span>. If it&rsquo;s missing everywhere, ask a Jira admin whether the app is installed. See <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Spaces couldn&rsquo;t be loaded.</p>
+<p class="ts-cause">Jira didn&rsquo;t return the list of spaces. Jira&rsquo;s own reason follows the message.</p>
+<p class="ts-fix">Press <span class="ui">Try again</span>. If it keeps failing, reload the page.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">You don&rsquo;t have access to any spaces with issues yet. &nbsp;/&nbsp; A space is missing from the list</p>
+<p class="ts-cause">The Apps page lists only the software and business spaces you can browse. JSM, Customer Service Management and Jira Product Discovery spaces aren&rsquo;t offered. A remembered space that has gone, or that you can no longer see, is forgotten, and <span class="ui">Choose a space</span> shows instead.</p>
+<p class="ts-fix">Check your access to the space in Jira. <span class="ui">Find a space</span> filters by name, or by a space&rsquo;s exact key.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">IOQ-1 couldn&rsquo;t be found. It may have been deleted, or you may not have permission to see it.</p>
+<p class="ts-cause">The issue you chose <span class="ui">Reorder child issues</span> on couldn&rsquo;t be read as you.</p>
+<p class="ts-fix">Open the issue in Jira yourself. If it doesn&rsquo;t load there, it can&rsquo;t load here: ask the space&rsquo;s admin for access.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">These issues couldn&rsquo;t be loaded. They may have been deleted, or you may not have permission to see them.</p>
+<p class="ts-cause">Jira answered &ldquo;not found&rdquo; or &ldquo;not allowed&rdquo; for a list: its epic was deleted, or your access changed.</p>
+<p class="ts-fix">Check the epic in Jira, then press <span class="ui">Try again</span> on the list (or <kbd>Enter</kbd> on it from the keyboard).</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Issues couldn&rsquo;t be loaded. Jira said: &hellip;</p>
+<p class="ts-cause">Jira refused or failed to read a list, for the reason it gives after &ldquo;Jira said:&rdquo;. Without &ldquo;Jira said:&rdquo;, the reason is your browser&rsquo;s own, usually a dropped connection.</p>
+<p class="ts-fix">Press <span class="ui">Try again</span> on the list, or <span class="ui">Refresh from Jira</span> (&#8635;) in the toolbar.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira didn&rsquo;t let Issue Order read these issues. Your Jira admin may need to update the app.</p>
+<p class="ts-cause">Jira turned down the app itself, not you. That usually means the app installed on your site is missing a permission a newer version asks for.</p>
+<p class="ts-fix">Ask a Jira admin to check <strong>Apps &rarr; Manage apps</strong> for an update to Issue Order waiting for approval. If there is none, write to support. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira is limiting requests right now. Wait a few seconds, then try again.</p>
+<p class="ts-cause">Jira kept answering that too many requests were coming in, even after the app waited and tried again four times.</p>
+<p class="ts-fix">Wait a few seconds, then press <span class="ui">Try again</span>, or repeat what you were doing. Nothing was changed.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Some lists have more than 1,000 issues. The first 1,000 are shown, and Sort is off for those lists.</p>
+<p class="ts-cause">A list shows at most 1,000 issues, in Rank order. Past that, it ends with <span class="ui">Only the first 1,000 issues by Rank are shown here.</span>, and the counts that include it end in a +, such as <span class="ui">1,000+</span>. With <span class="ui">Hide done</span> ticked, it shows its first 1,000 open issues instead. See <a href="/resources/documentation/issueorder/limits">Limits</a>.</p>
+<p class="ts-fix">You can still drag and move the issues it shows. To sort the list, move some of its issues to another epic first.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Lists with more than 1,000 issues will switch once your changes are saved or discarded.</p>
+<p class="ts-cause">You ticked or unticked <span class="ui">Hide done</span>, which changes which 1,000 issues a long list shows. Reading those lists again now could drop your unsaved changes, so the app waits.</p>
+<p class="ts-fix">Save or discard. The lists then switch by themselves, with <span class="ui">Lists past 1,000 now show their first 1,000 open issues.</span> (or <span class="ui">&hellip; done ones included.</span>).</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">An issue created or moved in Jira doesn&rsquo;t show</p>
+<p class="ts-cause">Each list is read when it first opens. Changes made in Jira after that show when the lists are read again.</p>
+<p class="ts-fix">Press <span class="ui">Refresh from Jira</span> (&#8635;); your unsaved changes are put back on top. With nothing unsaved and nothing to undo, coming back to the tab also reloads the outline by itself, once the lists are more than a minute old.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Loaded the latest from Jira. <em>n</em> lists couldn&rsquo;t be read, so they show what was loaded before.</p>
+<p class="ts-cause">A refresh couldn&rsquo;t read some lists, for example because the connection dropped. Those lists keep what they showed; the others are fresh.</p>
+<p class="ts-fix">Check your connection, then press <span class="ui">Refresh from Jira</span> (&#8635;) again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">No issues match &ldquo;&hellip;&rdquo;.</p>
+<p class="ts-cause">Find looks through what&rsquo;s loaded: the top list and the level under it, and sub-tasks only once their issue has been opened. With <span class="ui">Hide done</span> ticked, done issues aren&rsquo;t found. A whole key, like IOQ-9, finds that issue only.</p>
+<p class="ts-fix">Untick <span class="ui">Hide done</span>, or choose <span class="ui">Sub-tasks</span> under <span class="ui">Show</span>, then search again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">All <em>n</em> epics are done. Untick Hide done to see them. &nbsp;/&nbsp; IOQ-7 has no child issues yet. &nbsp;/&nbsp; This space has no epics yet. Issues without an epic are listed below.</p>
+<p class="ts-cause">Everything in the list is done and <span class="ui">Hide done</span> is ticked, or there is nothing in it yet. Inside the outline, an epic like that reads <span class="ui">All <em>n</em> are done. Untick Hide done to see them.</span> or <span class="ui">Nothing here yet. Drop issues here to move them in.</span></p>
+<p class="ts-fix">Untick <span class="ui">Hide done</span>, or drag issues onto the empty epic to move them in.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Sub-tasks don&rsquo;t have child issues. Open this on the issue above it to reorder its sub-tasks. &nbsp;/&nbsp; IOQ-12&rsquo;s space has no sub-task type, so there&rsquo;s nothing under it to put in order.</p>
+<p class="ts-cause">You chose <span class="ui">Reorder child issues</span> on a sub-task, or on a story or task in a space whose work types include no sub-tasks.</p>
+<p class="ts-fix">Open the sub-task&rsquo;s parent, or the epic above the issue, and choose <span class="ui">&bull;&bull;&bull;</span> &rarr; <span class="ui">Reorder child issues</span> there.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Issue Order stopped unexpectedly.</p>
+<p class="ts-cause">Something went wrong inside the app while drawing the screen. The message underneath says nothing unsaved was sent to Jira, and that your unsaved changes are offered back when you reopen it. What you had saved is safe in Jira.</p>
+<p class="ts-fix">Press <span class="ui">Reload</span>, or <span class="ui">Close</span> in the pop-up. The app offers your unsaved changes back when it opens. On the Apps page it opens on <span class="ui">Choose a space</span> after a crash, in case that space is what set it off. If it happens again, send the error text shown under the message to <a href="mailto:support@datapingo.com">support@datapingo.com</a>.</p>
+</div>
+</section>
+
+<section id="permissions" style="scroll-margin-top:100px;">
+<h2>Permissions</h2>
+<p>The app acts as you. Reordering needs Jira&rsquo;s <strong>Schedule issues</strong> and <strong>Edit issues</strong> permissions in the space, the same pair Jira&rsquo;s own ranking needs. Moving an issue to another parent needs both too, because the app ranks it where you put it. A new priority needs <strong>Edit issues</strong>. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+<div class="ts-item">
+<p class="ts-msg">You can see Issue Order QA but can&rsquo;t reorder there. It needs the Schedule issues and Edit issues permissions.</p>
+<p class="ts-cause">You lack one or both permissions in that space, so its issues are read-only for you. A drag, sort or move there stops with <span class="ui">You can&rsquo;t reorder issues in Issue Order QA. It needs the Schedule issues and Edit issues permissions.</span></p>
+<p class="ts-fix">Ask a Jira admin or the space&rsquo;s admin for both permissions, then close the app and open it again, so it checks once more.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">You can&rsquo;t change IOQ-56&rsquo;s parent: it needs the Edit issues permission in Issue Order QA. &nbsp;/&nbsp; IOQ-56 can&rsquo;t be moved: placing it needs the Schedule issues permission in Issue Order QA.</p>
+<p class="ts-cause">You can&rsquo;t edit that issue, or can&rsquo;t rank it where it would land. Any other issues in the same move still go.</p>
+<p class="ts-fix">Ask for the permission named, or ask someone who has it to move the issue.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">IOQ-56 kept its priority: changing it needs the Edit issues permission.</p>
+<p class="ts-cause">You dragged it into another priority lane, but you can&rsquo;t edit its priority. It moved; its priority stays as it was.</p>
+<p class="ts-fix">Ask for Edit issues, or ask someone who has it to change the priority.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira&rsquo;s ranking isn&rsquo;t available to you on this site, so issues can be seen here but not reordered. &nbsp;/&nbsp; This Jira site has no Rank field, so issues can be seen here but not reordered.</p>
+<p class="ts-cause">When it opens, the app checks that Jira will rank issues for you, with a request that changes nothing. Jira refused it, or the site has no Rank field. A saved order is Jira&rsquo;s Rank, so without it nothing can be reordered.</p>
+<p class="ts-fix">Check that you can rank issues on a board in that space. If you can, ask a Jira admin to look for a waiting update to the app under <strong>Apps &rarr; Manage apps</strong>, then reopen it. Write to support if the message stays.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira didn&rsquo;t let you reorder these issues. It needs the Schedule issues and Edit issues permissions, and Jira&rsquo;s ranking on this site.</p>
+<p class="ts-cause">Jira refused a save as you. The app checks your permissions as each space&rsquo;s issues load; if that check couldn&rsquo;t run, it lets you work and Jira answers at save.</p>
+<p class="ts-fix">Ask for both permissions in the space, then save again. Your changes stay in the draft.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira didn&rsquo;t let Issue Order save this change. Your Jira admin may need to update the app.</p>
+<p class="ts-cause">Jira turned down the app, not you, usually because the installed version is missing a permission.</p>
+<p class="ts-fix">Ask a Jira admin to approve the app&rsquo;s update under <strong>Apps &rarr; Manage apps</strong>, then save again. Your changes stay in the draft.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Issues I know exist don&rsquo;t appear</p>
+<p class="ts-cause">Jira returns only issues you can see, so the app shows only those. <span class="ui">Hide done</span>, ticked to start with, hides done issues too.</p>
+<p class="ts-fix">Untick <span class="ui">Hide done</span>. For issues you can&rsquo;t see in Jira either, ask the space&rsquo;s admin for access.</p>
+</div>
+</section>
+
+<section id="sorting" style="scroll-margin-top:100px;">
+<h2>Sorting</h2>
+<p>A sort only changes your draft; nothing reaches Jira until you save. See <a href="/resources/documentation/issueorder/guide/sort">Sort issues</a>.</p>
+<div class="ts-item">
+<p class="ts-msg">Sort&hellip; is greyed out</p>
+<p class="ts-cause">Sort waits while a save or a refresh runs, while the <a href="#saving">&ldquo;order changed in Jira&rdquo; banner</a> shows, and in Review. It&rsquo;s also off when Jira&rsquo;s ranking isn&rsquo;t available to you.</p>
+<p class="ts-fix">Let the save finish, press <span class="ui">Refresh</span> in the banner, or click <span class="ui">Show everything</span> to leave Review.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Sort or cancel the sort first.</p>
+<p class="ts-cause">The Sort bar is open, and the outline shows its preview, so dragging, undoing, discarding and saving wait for it.</p>
+<p class="ts-fix">Press <span class="ui">Sort</span> to keep the sort in your draft, or <span class="ui">Cancel</span> (or <kbd>Esc</kbd>) to drop it.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Tick an epic to sort its child issues, or tick 2 or more issues to sort just those. &nbsp;/&nbsp; Tick an issue with sub-tasks to sort them, or tick 2 or more issues to sort just those.</p>
+<p class="ts-cause">Sort sorts what&rsquo;s ticked, and one ticked issue with nothing under it leaves it nothing to sort. In the pop-up the same case reads <span class="ui">Untick it to sort all of IOQ-1&rsquo;s child issues, or tick 2 or more to sort just those.</span></p>
+<p class="ts-fix">Tick an epic, an issue with sub-tasks, or two or more issues. Or untick everything to sort the top list.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Already in this order. &nbsp;/&nbsp; Already in Jira&rsquo;s order. &nbsp;/&nbsp; Pick a field to sort by.</p>
+<p class="ts-cause">The sort you chose would move nothing, so the bar&rsquo;s <span class="ui">Sort</span> button stays off. Issues that tie keep their current order, and <span class="ui">Rank</span> changes nothing unless you&rsquo;ve rearranged the list. Right after the bar opens, nothing is previewed until you pick a field.</p>
+<p class="ts-fix">Pick another field after <span class="ui">by</span>, or add <span class="ui">+ Then by</span> to break ties.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Working out the preview&hellip;</p>
+<p class="ts-cause">The app is reading what the sort needs: the site&rsquo;s priority order, a field&rsquo;s values, or a list that&rsquo;s still loading. <span class="ui">Sort</span> waits until the preview is ready.</p>
+<p class="ts-fix">Wait a moment; the preview appears in the outline.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Pressing Return in the Sort bar doesn&rsquo;t sort</p>
+<p class="ts-cause">Return in one of the bar&rsquo;s drop-downs only picks the choice, so you can look at the preview first.</p>
+<p class="ts-fix">Press the <span class="ui">Sort</span> button, or move to it with <kbd>Tab</kbd> and press Return.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">My last sort&rsquo;s &ldquo;then by&rdquo; levels are gone</p>
+<p class="ts-cause">Sort starts afresh each time it opens: on <span class="ui">Rank</span>, sorting the child issues in each epic (in the pop-up, the issue&rsquo;s own list), with no levels left over. While it&rsquo;s open, a level whose field isn&rsquo;t offered for what you&rsquo;re sorting now, such as another space&rsquo;s field, is dropped.</p>
+<p class="ts-fix">Pick the levels again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">A field I want isn&rsquo;t in the list</p>
+<p class="ts-cause">Under <span class="ui">This space&rsquo;s fields</span>, Sort offers the number, date, choice, version, component and label fields on the edit screens of the issues being sorted. Fields holding people, and free-text fields, aren&rsquo;t offered.</p>
+<p class="ts-fix">Ask a Jira admin to put the field on the work type&rsquo;s edit screen, then reload the page and open Sort again. The app reads each issue&rsquo;s edit screen once per page load.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Story Points couldn&rsquo;t be read from Jira, so it leaves the issues in their order.</p>
+<p class="ts-cause">Jira didn&rsquo;t return that field&rsquo;s values, so the sort treats every issue as having none.</p>
+<p class="ts-fix">Cancel the sort, press <span class="ui">Refresh from Jira</span> (&#8635;) so the field is read again, then sort again. Until a refresh, the app keeps the empty values it got.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">This list has more than 1,000 issues, so Sort is off for it. &nbsp;/&nbsp; Lists with more than 1,000 issues were left as they are.</p>
+<p class="ts-cause">Only the first 1,000 issues of a long list are loaded, so a sort couldn&rsquo;t place the rest. When you sort several lists at once, the long ones are skipped and the others are sorted.</p>
+<p class="ts-fix">Move some issues to another epic until the list is under 1,000, then sort it.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Hidden done issues keep their places.</p>
+<p class="ts-cause"><span class="ui">Hide done</span> is ticked, the sort moves something, and the list has done issues. The sort arranges only the issues you can see. When you sort the epics it reads <span class="ui">Hidden done epics keep their places.</span></p>
+<p class="ts-fix">Nothing to fix. To sort the done issues too, untick <span class="ui">Hide done</span> first.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Lists with more than 1,000 issues can&rsquo;t be put in lanes here.</p>
+<p class="ts-cause"><span class="ui">Put in lanes</span> sorts a whole list by priority, and a long list isn&rsquo;t fully loaded.</p>
+<p class="ts-fix">Move some issues out first. See <a href="/resources/documentation/issueorder/guide/priority-lanes">Priority lanes</a>.</p>
+</div>
+</section>
+
+<section id="moving" style="scroll-margin-top:100px;">
+<h2>Dragging and moving</h2>
+<p>Before a move goes into your draft, the app checks what Jira would refuse. During a drag the reason shows in red beside the pointer; let go there and nothing moves, and the status line repeats the reason. See <a href="/resources/documentation/issueorder/guide/drag-and-drop">Drag and drop</a> and <a href="/resources/documentation/issueorder/guide/move-to">Move to another epic</a>.</p>
+<div class="ts-item">
+<p class="ts-msg">Tick the issues to move first: click a row, or press a checkbox and sweep down.</p>
+<p class="ts-cause"><span class="ui">Move to&hellip;</span> in the toolbar moves the ticked issues, and none are ticked.</p>
+<p class="ts-fix">Tick one or more rows, or use <span class="ui">Move to&hellip;</span> in a row&rsquo;s own <span class="ui">&bull;&bull;&bull;</span> menu.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">I let go and nothing moved</p>
+<p class="ts-cause">A drop counts only where the blue line or a highlighted row shows. Over the dragged rows themselves, over the <span class="ui">Not placed yet</span> rows of priority lanes, or outside the outline, there&rsquo;s nowhere to land.</p>
+<p class="ts-fix">Drag again and let go once the line or highlight appears. The label beside the pointer says where the issues will land, such as <span class="ui">&rarr; 1.4</span> or <span class="ui">&rarr; into IOQ-4, at the end</span>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Child issues go under an epic. &nbsp;/&nbsp; Sub-tasks go under a story, task or bug, not an epic. &nbsp;/&nbsp; Epics go under the level above them, like an initiative.</p>
+<p class="ts-cause">A parent must be exactly one level up, as Jira requires, so the app keeps each issue on its own level.</p>
+<p class="ts-fix">Drop the issues on a row one level above them, or between rows of their own level.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Only child issues go in this list. &nbsp;/&nbsp; Sub-tasks always need a parent issue. &nbsp;/&nbsp; Issues without an epic stay in their own space.</p>
+<p class="ts-cause"><span class="ui">Without an epic</span> holds the space&rsquo;s own issues that have no epic. Epics and sub-tasks can&rsquo;t go there, and neither can another space&rsquo;s issues.</p>
+<p class="ts-fix">Move only this space&rsquo;s child issues there.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Epics can only be reordered here.</p>
+<p class="ts-cause">The space&rsquo;s list of epics shows every epic, so an epic can move up or down in it but not out of it. On sites with a level above epics, the message adds how to give an epic another initiative: open its current initiative&rsquo;s <span class="ui">&bull;&bull;&bull;</span> &rsaquo; <span class="ui">Reorder child issues</span> and use <span class="ui">Move to&hellip;</span>.</p>
+<p class="ts-fix">Drag the epic up or down, or use <span class="ui">Move up</span> and <span class="ui">Move down</span> in its <span class="ui">&bull;&bull;&bull;</span> menu.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Jira keeps sub-tasks in their own space. &nbsp;/&nbsp; Team-managed spaces keep parents and children in the same space.</p>
+<p class="ts-cause">Jira won&rsquo;t move a sub-task to another space, or link a team-managed space&rsquo;s issues to a parent in another space, either way. For issues from a team-managed space, <span class="ui">Move to&hellip;</span> doesn&rsquo;t offer <span class="ui">Other spaces</span> and says the space is team-managed.</p>
+<p class="ts-fix">Pick a parent in the same space.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">This list shows issues whose epic is in another space. To put an issue under such an epic, use Move to&hellip; with Other spaces.</p>
+<p class="ts-cause">You dropped issues into <span class="ui">Under epics in other spaces</span>. You can reorder issues there and move them out, but not move issues in.</p>
+<p class="ts-fix">Tick the issues, choose <span class="ui">Move to&hellip;</span>, tick <span class="ui">Other spaces</span>, and pick the epic.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">IOQ-56 stayed where it was: &hellip; &nbsp;/&nbsp; <em>n</em> issues can&rsquo;t go there</p>
+<p class="ts-cause">Some of the issues you moved can&rsquo;t go there, for the reason given after the colon. The others moved. While you drag, the label beside the pointer warns how many won&rsquo;t go.</p>
+<p class="ts-fix">Move those issues somewhere that takes them, or deal with the reason first.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">This list has more than 1,000 issues and only the first 1,000 are shown, so its end isn&rsquo;t here. Drop them next to one you can see instead.</p>
+<p class="ts-cause">You dropped issues at the end of a list past 1,000, or chose <span class="ui">Move to bottom</span> or <span class="ui">At the end</span> for it. Its real end isn&rsquo;t loaded.</p>
+<p class="ts-fix">Drop them between two issues you can see, or choose <span class="ui">At the top</span>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Select issues under one parent to move them together.</p>
+<p class="ts-cause"><span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Move to top</span> and <span class="ui">Move to bottom</span> work within one list, and the ticked issues sit in several.</p>
+<p class="ts-fix">Tick issues under one parent, or drag the group where you want it.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Ticks hold one level at a time (epics, child issues or sub-tasks), so the earlier ones were cleared.</p>
+<p class="ts-cause">You ticked an issue on another level. Ticked issues move together, so they&rsquo;re always on one level.</p>
+<p class="ts-fix">Tick the issues again, on one level.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Show everything to drag issues again. In Review you can undo changes or save.</p>
+<p class="ts-cause">Review shows only your changes, so dragging, <span class="ui">Sort&hellip;</span> and <span class="ui">Move to&hellip;</span> are off there.</p>
+<p class="ts-fix">Click <span class="ui">Show everything</span> beside the draft.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Those issues couldn&rsquo;t be loaded, so nothing was moved. Try again.</p>
+<p class="ts-cause">You moved issues into a list that was still loading, and it couldn&rsquo;t be read.</p>
+<p class="ts-fix">Press <span class="ui">Try again</span> on that list, then move the issues again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">An option in Move to&hellip; is greyed out, or reads Already here.</p>
+<p class="ts-cause">Options Jira would refuse are shown with the reason and can&rsquo;t be chosen. <span class="ui">Already here.</span> marks where the issues are now, including the epic in another space that an issue already sits under. When every option has the same reason, it shows once: <span class="ui">None of these can take them.</span> followed by the reason.</p>
+<p class="ts-fix">Choose another parent, or search for one.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">No open epics here. Done ones are hidden while Hide done is on.</p>
+<p class="ts-cause">While <span class="ui">Hide done</span> is ticked, <span class="ui">Move to&hellip;</span> leaves done epics out, here and in its search, because issues moved there would vanish from the outline.</p>
+<p class="ts-fix">Untick <span class="ui">Hide done</span> to be offered done epics too.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Nothing matches &ldquo;&hellip;&rdquo;. &nbsp;/&nbsp; No epics found.</p>
+<p class="ts-cause">The search in <span class="ui">Move to&hellip;</span> asks Jira for epics (or, for sub-tasks, issues) you can see that match a key or the start of a word in the summary, showing the 50 most recently updated. Without <span class="ui">Other spaces</span> it looks in this space only. An epic created a moment ago can take a few seconds to turn up. If the search itself fails, Jira&rsquo;s reason shows in red instead.</p>
+<p class="ts-fix">Type the epic&rsquo;s key, or more of its summary. Tick <span class="ui">Other spaces</span> for an epic elsewhere, untick <span class="ui">Hide done</span> for a done one, or wait a few seconds and search again.</p>
+</div>
+</section>
+
+<section id="saving" style="scroll-margin-top:100px;">
+<h2>Saving</h2>
+<p>A save checks Jira first, then writes each change on its own, as you. Everything about it: <a href="/resources/documentation/issueorder/guide/review-and-save">Review and save</a>.</p>
+<div class="ts-item">
+<p class="ts-msg">The order changed in Jira while you were editing, so nothing was saved.</p>
+<p class="ts-cause">Someone re-ranked, moved or deleted an issue in a list your changes touch. The save stopped before writing anything, so their change isn&rsquo;t undone. Until you refresh, editing and saving are off.</p>
+<p class="ts-fix">Press <span class="ui">Refresh</span>. Your own moves come back on top where they still fit, and the teammate&rsquo;s order is kept. Check the result in Review, then save. See <a href="/resources/documentation/issueorder/guide/review-and-save#changed-in-jira">If the order changed in Jira</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Save changes is greyed out</p>
+<p class="ts-cause">There are no changes, a save or a refresh is already running, the &ldquo;order changed in Jira&rdquo; banner is showing, the Sort bar is open, or Jira&rsquo;s ranking isn&rsquo;t available to you.</p>
+<p class="ts-fix">Sort or cancel the sort, press <span class="ui">Refresh</span> in the banner, or see <a href="#permissions">Permissions</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Loading the latest from Jira. Save again in a moment.</p>
+<p class="ts-cause">The outline was reloading itself, after you came back to the tab, when you pressed Save.</p>
+<p class="ts-fix">Press <span class="ui">Save changes</span> again in a moment.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Nothing was saved. Reordering needs Jira&rsquo;s ranking, which isn&rsquo;t available to you on this site.</p>
+<p class="ts-cause">The check before writing found that Jira won&rsquo;t rank issues for you on this site, so nothing was changed.</p>
+<p class="ts-fix">See the ranking message under <a href="#permissions">Permissions</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Nothing was saved. &hellip;</p>
+<p class="ts-cause">The checks before writing failed, often because the connection dropped (the reason is then the browser&rsquo;s own, such as &ldquo;Failed to fetch&rdquo;), or Jira refused every change, for the reason that follows. Your changes stay in the draft.</p>
+<p class="ts-fix">Deal with the reason, check your connection, and save again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Saved what Jira accepted. <em>n</em> changes couldn&rsquo;t be saved and stay in your draft. &nbsp;/&nbsp; Part of the new order was saved. &hellip;</p>
+<p class="ts-cause">Jira refused some changes. What it accepted is saved. Each refused change stays in your draft with a red note on its row, and the status line repeats the first one.</p>
+<p class="ts-fix">Deal with each reason, below, then save again. Review lists what&rsquo;s left. See <a href="/resources/documentation/issueorder/guide/review-and-save#partial">When some changes can&rsquo;t be saved</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Couldn&rsquo;t move: &hellip;</p>
+<p class="ts-cause">Jira refused the issue&rsquo;s new parent, for the reason that follows, such as &ldquo;Could not find issue by id or key.&rdquo; when the epic was deleted meanwhile.</p>
+<p class="ts-fix">Move the issue somewhere that still exists, or take the move back with its <span class="ui">&times;</span>. If the reason is a permission, ask for Edit issues in that space.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Order not saved: IOQ-12, IOQ-13 couldn&rsquo;t be ranked. Jira said: &hellip; &nbsp;/&nbsp; Order not saved: Jira refused the new order. Jira said: &hellip; &nbsp;/&nbsp; Order only partly saved. &hellip; The rest is still in your draft.</p>
+<p class="ts-cause">Jira refused some or all of a list&rsquo;s new Rank, for the reason it gives. &ldquo;Partly&rdquo; means some rank calls went through before one failed.</p>
+<p class="ts-fix">Deal with Jira&rsquo;s reason, often an issue that was deleted or that you can&rsquo;t edit, then save again. Only what&rsquo;s still out of place is ranked.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Order only partly saved. Jira didn&rsquo;t keep the new order. The rest is still in your draft.</p>
+<p class="ts-cause">Jira took the rank calls, but reading the list back showed a different order, even after the app fixed it once, one issue at a time.</p>
+<p class="ts-fix">Press <span class="ui">Refresh from Jira</span> (&#8635;) and save again. If it happens again, write to support.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Order not saved: it changed in Jira during the save, so it was left as it is. Your order is still in the draft; save again to use it. &nbsp;/&nbsp; Order didn&rsquo;t fully stick: another list in this save shares issues with it. It&rsquo;s still in your draft; save again.</p>
+<p class="ts-cause">Someone re-ranked that list between the check and the write, so the app left their change in place. Or two lists in one save share issues, such as an epic in its space&rsquo;s epics and under an initiative, and the later one moved them.</p>
+<p class="ts-fix">Look at the list in Review. If your order is still what you want, save again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Priority not changed: &hellip;</p>
+<p class="ts-cause">Jira refused the new priority from a drag into another lane. The reason after it can read &ldquo;Jira refused the new order. Jira said: &hellip;&rdquo;; Jira&rsquo;s own words at the end are about the priority.</p>
+<p class="ts-fix">Deal with Jira&rsquo;s reason, such as an issue deleted meanwhile, then save again, or drag the issue back to its own lane.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Saved, but the new order couldn&rsquo;t be read back from Jira, so every list was reloaded.</p>
+<p class="ts-cause">The changes were written, but the app couldn&rsquo;t read the result, so it reloaded every list from Jira instead.</p>
+<p class="ts-fix">Check the outline. Anything that didn&rsquo;t save is still in the draft.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">A board or backlog doesn&rsquo;t show the saved order</p>
+<p class="ts-cause">A save writes Jira&rsquo;s Rank, which boards and backlogs sort by, but a board whose filter is ordered by another field shows that field&rsquo;s order. A Jira page that was already open shows the old order until it reloads.</p>
+<p class="ts-fix">Reload the Jira page, and check that the board&rsquo;s filter is ordered by Rank.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Close, Discard or the space picker does nothing</p>
+<p class="ts-cause">A save is running, and nothing else can start until it ends. The space picker&rsquo;s tooltip says <span class="ui">Wait for the save to finish</span>.</p>
+<p class="ts-fix">Wait for the result in the status line.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">I closed the tab while it was saving</p>
+<p class="ts-cause">The save runs in your browser, so closing the tab stopped it. Changes already written stay in Jira.</p>
+<p class="ts-fix">Open the app in the same place. It offers your unsaved changes back; restoring puts back what still applies. Save again to finish.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">You left unsaved changes here a minute ago.</p>
+<p class="ts-cause">You left this space, or this issue&rsquo;s pop-up, with unsaved changes, and the app kept a copy in your browser.</p>
+<p class="ts-fix">Choose <span class="ui">Restore unsaved changes</span> or <span class="ui">Discard them</span>. See <a href="/resources/documentation/issueorder/guide/review-and-save#safety-net">Unsaved changes are kept in your browser</a>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Some of those lists couldn&rsquo;t be loaded, so nothing was restored yet. Try Restore again. &nbsp;/&nbsp; Those changes no longer fit: Jira has changed since. Nothing was restored.</p>
+<p class="ts-cause">A list the kept changes need couldn&rsquo;t be read, so the offer stays. Or Jira has changed so much since that none of the kept changes still applies, so the copy was dropped.</p>
+<p class="ts-fix">For the first, press <span class="ui">Restore unsaved changes</span> again. For the second, make the changes again.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Leave without saving? Your <em>n</em> changes will be lost. &nbsp;/&nbsp; Switch to Issue Order Scale? Your unsaved changes in Issue Order QA will be lost.</p>
+<p class="ts-cause">You pressed <span class="ui">Close</span> in the pop-up, or chose another space on the Apps page, with changes not saved yet.</p>
+<p class="ts-fix"><span class="ui">Keep editing</span> keeps them so you can save. <span class="ui">Leave without saving</span> or <span class="ui">Switch and discard</span> drops them, and the copy in your browser too. Nothing has reached Jira either way.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Restore changes has gone</p>
+<p class="ts-cause">After <span class="ui">Discard</span>, the <span class="ui">Restore changes</span> link lasts until your next change, undo or refresh. If it can&rsquo;t bring them back, it says <span class="ui">Those changes can no longer be restored.</span></p>
+<p class="ts-fix">Make the changes again. <kbd>&#8984;</kbd>/<kbd>Ctrl</kbd>+<kbd>Z</kbd> may still step back through them.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">I need to undo a save</p>
+<p class="ts-cause">There is no undo after a save. That&rsquo;s why every change shows in the outline, and in Review, before you save.</p>
+<p class="ts-fix">Drag or move the issues back, or sort the list again, and save.</p>
+</div>
+</section>
+
+<section id="license" style="scroll-margin-top:100px;">
+<h2>License</h2>
+<p>The license is checked each time the app opens, on the Apps page and in the pop-up.</p>
+<div class="ts-item">
+<p class="ts-msg">Issue Order needs an active subscription on this site. Ask your Jira admin to subscribe to Issue Order for Jira on the Atlassian Marketplace.</p>
+<p class="ts-cause">Atlassian reports this site&rsquo;s license as inactive: a trial ended, or the subscription lapsed. It isn&rsquo;t about your own permissions; the app is off for everyone on the site. Your issues and their saved order are untouched, because the order is Jira&rsquo;s own Rank.</p>
+<p class="ts-fix">Ask a Jira admin to subscribe on the app&rsquo;s page on the Atlassian Marketplace (<strong>Manage apps</strong> in Jira has no way to subscribe). Issue Order is free for sites with 10 or fewer users and paid per user above that: see <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Atlassian Marketplace</a>. Then open the app again.</p>
+</div>
+</section>
+
+<section id="support" style="scroll-margin-top:100px;">
+<h2>Get support</h2>
+<p>Not listed here, or the fix didn&rsquo;t work? Write to <a href="mailto:support@datapingo.com">support@datapingo.com</a>; we typically reply within one business day. Include the exact message the app showed, where you opened it (the Apps page or <span class="ui">Reorder child issues</span>), and the space and epic you were working in.</p>
+<div class="doc-support-grid">
+<div class="doc-support-card">
+<h3 id="documentation" style="scroll-margin-top:100px;">Documentation</h3>
+<p>Every screen, message and limit</p>
+<a href="/resources/documentation/issueorder">Browse the docs &rarr;</a>
+</div>
+<div class="doc-support-card">
+<h3 id="support-portal" style="scroll-margin-top:100px;">Support portal</h3>
+<p>Open a support request and follow its progress</p>
+<a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">Open a request &rarr;</a>
+</div>
+<div class="doc-support-card">
+<h3 id="email" style="scroll-margin-top:100px;">Email</h3>
+<p>Problems, questions and feature requests</p>
+<a href="mailto:support@datapingo.com">support@datapingo.com &rarr;</a>
+</div>
+</div>
+</section>
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script src="/js/site.js"></script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

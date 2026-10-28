@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Issue Order for Jira — Documentation</title>
+  <meta name="description" content="Issue Order for Jira puts an epic&#x27;s child issues in order: drag, move between epics and sort them, then save to Jira&#x27;s own Rank in one go.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder">
+  <meta property="og:title" content="Issue Order for Jira — Documentation">
+  <meta property="og:description" content="Issue Order for Jira puts an epic&#x27;s child issues in order: drag, move between epics and sort them, then save to Jira&#x27;s own Rank in one go.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue Order for Jira — Documentation">
+  <meta name="twitter:description" content="Issue Order for Jira puts an epic&#x27;s child issues in order: drag, move between epics and sort them, then save to Jira&#x27;s own Rank in one go.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the
+       dataLayer, addressed to G-W5VY62S4LR (GA4 is configured inside GTM, so an
+       event without send_to reaches no property); Google's tag sends it only if
+       the visitor allowed Measurement cookies.
+       Visits that arrive from DataPingo's own tools (a local preview, DPMT), or from a
+       browser opted in once with ?internal=1 (?internal=0 undoes it), are tagged
+       traffic_type=internal so GA4's internal-traffic filter can drop them. Nothing is
+       stored for ordinary visitors. -->
+  <script>(function(w,d){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.dpTrack=function(n,p){p=p||{};if(!p.send_to)p.send_to='G-W5VY62S4LR';g('event',n,p)};var i=false;try{var ls=w.localStorage,ss=w.sessionStorage,q=/[?&]internal=([01])(&|$)/.exec(location.search),r='';if(q){if(q[1]==='1')ls.setItem('dp_internal','1');else{ls.removeItem('dp_internal');ss.removeItem('dp_internal')}}try{r=new URL(d.referrer).hostname}catch(e){}if(!(q&&q[1]==='0')&&/^(localhost|127\.0\.0\.1|\[::1\])$|^10\.|^192\.168\.|^172\.(1[6-9]|2\d|3[01])\.|\.local$|\.nip\.io$|^dpmt\.datapingo\.com$|^dpmt-dpmt\.vercel\.app$/.test(r))ss.setItem('dp_internal','1');i=ls.getItem('dp_internal')==='1'||ss.getItem('dp_internal')==='1'}catch(e){}if(i)g('set',{traffic_type:'internal'})})(window,document);</script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
+  <style>
+    
+    .btn-secondary--purple {
+      border-color: rgba(167,139,250,0.45) !important;
+      color: #A78BFA !important;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Issue Order for Jira",
+      "item": "https://datapingo.com/resources/documentation/issueorder"
+    }
+  ]
+}
+  </script>
+</head>
+<body data-doc-product="issueorder" class="doc-root">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/issueorder" style="color:inherit;text-decoration:none">ISSUE ORDER FOR JIRA</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Issue Order Assets/Issue Order for Jira icon.png" alt="Issue Order for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(124,92,230,0.25);" width="160" height="160">
+      </div>
+      <h1 style="text-align:center;">Issue Order for Jira</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Put an epic’s child issues in the order you want, then save every change to Jira in one go.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge">First release &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/guide">User guide</a>
+        <a href="/resources/documentation/issueorder/admin">Admin guide</a>
+        <a href="/resources/documentation/issueorder/technical">App technical information</a>
+        <a href="/resources/documentation/issueorder/faq">FAQ</a>
+        <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/issueorder/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+<section id="overview" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
+<p><strong>Put an epic&rsquo;s child issues in the order you want, and save them to Jira in one go.</strong></p>
+<p>Jira lets you drag sub-tasks into order, but not the child issues of an epic in a company-managed space. The epic&rsquo;s <strong>Child work items</strong> list shows them in Rank order, and you can&rsquo;t rearrange them there.</p>
+<p>Issue Order for Jira shows a space, or one epic, as a numbered outline in that same Rank order. Drag child issues into place, tick several and move them together, or send them to another epic with <span class="ui">Move to&hellip;</span>, even one in another company-managed space. <span class="ui">Sort&hellip;</span> orders them by priority, due date, status or the space&rsquo;s own fields such as story points, up to three levels deep. Turn on priority lanes and every list is put in priority order, grouped by priority.</p>
+<p>Nothing changes in Jira until you press <span class="ui">Save changes</span>. Until then every change is a draft, marked in the outline so you can check it. A save writes Jira&rsquo;s own Rank, plus any new parents and priorities, so the epic&rsquo;s child list, boards and backlogs all show the new order.</p>
+<p>The app acts as you, so you can only reorder issues you could already rank on a board. It stores nothing outside your browser and runs on Atlassian, with no server of its own. It works in software and business spaces, company-managed and team-managed.</p>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/outline.webp" alt="Issue Order for Jira on the Apps page with the Issue Order QA space open (8 epics &middot; 39 child issues): epic 1 Launch checklist with its child issues numbered 1.1 Step 1 Plan to 1.6 Step 10 Ship, then epic 2 Priority mix with its child issues, under a toolbar with Find, Show, Hide done, Numbers, Priority lanes, Sort&hellip; and Move to&hellip;" width="1539" height="784" loading="lazy" decoding="async"><figcaption>A whole space as one numbered outline, in Jira&rsquo;s Rank order.</figcaption></figure>
+</section>
+
+<section id="ways-in" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Two ways in</h2>
+<ul>
+<li><span class="ui">Reorder child issues</span> in an issue&rsquo;s <strong>&bull;&bull;&bull;</strong> menu &mdash; opens in a pop-up on that issue: an epic&rsquo;s child issues, or a story&rsquo;s sub-tasks.</li>
+<li><span class="ui">Issue Order for Jira</span> under <strong>Apps</strong> &mdash; a full page: choose a space and see its epics, child issues and sub-tasks together.</li>
+</ul>
+<p>Both open the same organizer. <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a> covers where each one starts and when to use which.</p>
+</section>
+
+<section id="first-reorder" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>Your first reorder in a minute</h2>
+<p>Say the epic <strong>Launch checklist</strong> (IOQ-1) has six child issues, and Jira has them in this order: Step 3 Write tests, Step 10 Ship, Step 1 Plan, Step 2 Build, Step 5 Review, Step 4 Fix bugs. Step 1 Plan should come first.</p>
+<ol>
+<li>Open Launch checklist in Jira, open its <strong>&bull;&bull;&bull;</strong> menu and choose <span class="ui">Reorder child issues</span>. A pop-up lists the six child issues, numbered 1 to 6, in the same order as Jira&rsquo;s Child work items.</li>
+<li>Point at <strong>Step 1 Plan</strong> (3). Press the grip that appears at its left edge and drag it up until a line shows above Step 3 Write tests. The label beside the pointer ends <span class="ui">&rarr; 1</span>. Let go.</li>
+<li>Step 1 Plan is now 1, with its number in blue, the old 3 struck through and the note <span class="ui">Moved up from 3</span>. The footer reads <span class="ui">Draft &middot; 1 change</span>. Nothing has changed in Jira yet.</li>
+<li>Click <span class="ui">Save changes</span>. The footer shows <span class="ui">Checking Jira&hellip;</span>, then <span class="ui">Saving changes&hellip;</span>, and the status line says <span class="ui">Saved 1 change. Boards and backlogs show this order too.</span></li>
+<li>Click <span class="ui">Close</span>. Jira refreshes the epic, and its Child work items list now starts with Step 1 Plan. In the space&rsquo;s backlog, Step 1 Plan now sits directly above Step 3 Write tests too.</li>
+</ol>
+<div class="doc-tip">
+<p><strong>Reordering needs the Schedule issues and Edit issues permissions</strong> in that space. Without them you can see the outline but not change it &mdash; see the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+</div>
+</section>
+
+<section id="where-next" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Where to next</h2>
+<p>The <a href="/resources/documentation/issueorder/guide">User guide</a> walks through the organizer, one job at a time:</p>
+<div class="doc-hub">
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/about-the-app"><span class="doc-hub-card-title">About the app</span><span class="doc-hub-card-sub">The outline, its numbers and toolbar, and what the app keeps in your browser.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/drag-and-drop"><span class="doc-hub-card-title">Drag and drop</span><span class="doc-hub-card-sub">Tick issues, then drag them into place or onto another epic.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/move-to"><span class="doc-hub-card-title">Move to&hellip;</span><span class="doc-hub-card-sub">Send issues to another epic, even one in another space.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/sort"><span class="doc-hub-card-title">Sort</span><span class="doc-hub-card-sub">Up to three levels, including the space&rsquo;s own fields, with a live preview.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/priority-lanes"><span class="doc-hub-card-title">Priority lanes</span><span class="doc-hub-card-sub">Group a list by priority, and change an issue&rsquo;s priority by dragging.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/review-and-save"><span class="doc-hub-card-title">Review and save</span><span class="doc-hub-card-sub">Check every change, then save it all to Jira in one go.</span></a>
+</div>
+<p>Setting it up? See <a href="/resources/documentation/issueorder/installation">Installation</a> and the <a href="/resources/documentation/issueorder/admin">Admin guide</a>. Something not working? <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a> lists the app&rsquo;s messages and what to do about each.</p>
+</section>
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script src="/js/site.js"></script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

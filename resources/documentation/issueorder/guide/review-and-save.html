@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
+  <title>Issue Order for Jira — Review and save</title>
+  <meta name="description" content="How Issue Order for Jira keeps your changes as a draft, marks them in the outline, and saves them to Jira&#x27;s Rank, including partial saves and the safety net.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/guide/review-and-save">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/guide/review-and-save">
+  <meta property="og:title" content="Issue Order for Jira — Review and save">
+  <meta property="og:description" content="How Issue Order for Jira keeps your changes as a draft, marks them in the outline, and saves them to Jira&#x27;s Rank, including partial saves and the safety net.">
+  <meta property="og:site_name" content="DataPingo">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Issue Order for Jira — Review and save">
+  <meta name="twitter:description" content="How Issue Order for Jira keeps your changes as a draft, marks them in the outline, and saves them to Jira&#x27;s Rank, including partial saves and the safety net.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/aurora.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <script type="text/javascript" src="https://embeds.iubenda.com/widgets/2c5853ca-02d6-4d0f-abc9-99800b8bbcb6.js"></script>
+  <!-- Analytics helper, before GTM. dpTrack(name, params) queues a GA4 event in the
+       dataLayer, addressed to G-W5VY62S4LR (GA4 is configured inside GTM, so an
+       event without send_to reaches no property); Google's tag sends it only if
+       the visitor allowed Measurement cookies.
+       Visits that arrive from DataPingo's own tools (a local preview, DPMT), or from a
+       browser opted in once with ?internal=1 (?internal=0 undoes it), are tagged
+       traffic_type=internal so GA4's internal-traffic filter can drop them. Nothing is
+       stored for ordinary visitors. -->
+  <script>(function(w,d){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments)}w.dpTrack=function(n,p){p=p||{};if(!p.send_to)p.send_to='G-W5VY62S4LR';g('event',n,p)};var i=false;try{var ls=w.localStorage,ss=w.sessionStorage,q=/[?&]internal=([01])(&|$)/.exec(location.search),r='';if(q){if(q[1]==='1')ls.setItem('dp_internal','1');else{ls.removeItem('dp_internal');ss.removeItem('dp_internal')}}try{r=new URL(d.referrer).hostname}catch(e){}if(!(q&&q[1]==='0')&&/^(localhost|127\.0\.0\.1|\[::1\])$|^10\.|^192\.168\.|^172\.(1[6-9]|2\d|3[01])\.|\.local$|\.nip\.io$|^dpmt\.datapingo\.com$|^dpmt-dpmt\.vercel\.app$/.test(r))ss.setItem('dp_internal','1');i=ls.getItem('dp_internal')==='1'||ss.getItem('dp_internal')==='1'}catch(e){}if(i)g('set',{traffic_type:'internal'})})(window,document);</script>
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THVHPGSR');})();</script>
+  <!-- ChatGPT Ads measurement pixel. Same localhost guard as the GTM snippet above.
+       Loads only once the visitor allows the Marketing cookie category, as the privacy
+       policy promises. iubenda reports that choice to Google Consent Mode as ad_storage,
+       so this reads the latest ad_storage state from the dataLayer and watches for updates. -->
+  <script>(function(){var h=location.hostname;if(h==='localhost'||h==='127.0.0.1'||h==='::1'||/^10\./.test(h)||/^192\.168\./.test(h)||/^172\.(1[6-9]|2\d|3[01])\./.test(h)||/\.local$/.test(h))return;var w=window,dl=w.dataLayer=w.dataLayer||[];function ad(x){return x&&x[0]==='consent'&&x[2]&&x[2].ad_storage;}function load(){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var js=document.createElement('script');js.async=true;js.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';var f=document.getElementsByTagName('script')[0];f.parentNode.insertBefore(js,f);w.oaiq('init',{pixelId:'46MsFyJ9LopfAUANSGy8Vy'});}var s=null;for(var i=0;i<dl.length;i++)if(ad(dl[i]))s=ad(dl[i]);if(s==='granted')load();var p=dl.push;dl.push=function(){for(var j=0;j<arguments.length;j++)if(ad(arguments[j])==='granted')load();return p.apply(dl,arguments);};})();</script>
+  <style>
+    
+    .btn-secondary--purple {
+      border-color: rgba(167,139,250,0.45) !important;
+      color: #A78BFA !important;
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://datapingo.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Documentation",
+      "item": "https://datapingo.com/resources/documentation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Issue Order for Jira",
+      "item": "https://datapingo.com/resources/documentation/issueorder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "User guide",
+      "item": "https://datapingo.com/resources/documentation/issueorder/guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Review and save",
+      "item": "https://datapingo.com/resources/documentation/issueorder/guide/review-and-save"
+    }
+  ]
+}
+  </script>
+</head>
+<body data-doc-product="issueorder">
+<a class="skip-link" href="#main">Skip to main content</a>
+<!-- Marketplace click-out tracking. This is the only conversion this site can
+       measure: Atlassian gives vendors no attribution once someone leaves for the
+       listing, so a click on a Marketplace link is the last observable step.
+       GA4 Enhanced Measurement already logs outbound clicks, but generically — it
+       cannot say WHICH app was clicked, so "does the Bulk Comments page convert
+       better than the Bulk Page Cloner page" was unanswerable. This names the app.
+       Delegated on document so it covers links added later, and passive so it
+       never delays the navigation it is measuring. -->
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="DataPingo home">
+        <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo logo" class="nav-logo" width="128" height="128">
+        <span class="logo-wordmark">DataPingo</span>
+      </a>
+      <div class="nav-links" role="menubar">
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
+            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
+            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Company &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/company/about-us" role="menuitem">About Us</a>
+            <a href="/company/careers" role="menuitem">Careers</a>
+            <a href="/company/contact" role="menuitem">Contact</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Partners &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/partners/become-a-solution-partner" role="menuitem">Become a Solution Partner</a>
+            <a href="/partners/become-a-marketing-partner" role="menuitem">Become a Marketing Partner</a>
+          </div>
+        </div>
+        <div class="dropdown" role="none">
+          <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Resources &#x25BE;</span>
+          <div class="dropdown-content" role="menu">
+            <a href="/resources/blog" role="menuitem">Updates &amp; Blogs</a>
+            <a href="/resources/use-cases" role="menuitem">Use Cases</a>
+            <a href="/resources/documentation" role="menuitem">Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="btn-nav-primary">View on Marketplace</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><rect y="0" width="18" height="2" rx="1" fill="currentColor"/><rect y="6" width="14" height="2" rx="1" fill="currentColor"/><rect y="12" width="18" height="2" rx="1" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation" aria-modal="true">
+    <nav>
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-wordmark">DataPingo</span>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#x2715;</button>
+      </div>
+      <div class="mobile-menu-body">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Products</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
+      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Company</div>
+      <a href="/company/about-us" class="mobile-nav-link">About Us</a>
+      <a href="/company/careers" class="mobile-nav-link">Careers</a>
+      <a href="/company/contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Partners</div>
+      <a href="/partners/become-a-solution-partner" class="mobile-nav-link">Become a Solution Partner</a>
+      <a href="/partners/become-a-marketing-partner" class="mobile-nav-link">Become a Marketing Partner</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-label">Resources</div>
+      <a href="/resources/blog" class="mobile-nav-link">Updates &amp; Blogs</a>
+      <a href="/resources/use-cases" class="mobile-nav-link">Use Cases</a>
+      <a href="/resources/documentation" class="mobile-nav-link">Documentation</a>
+    </div>
+    </div>
+    <div class="mobile-menu-footer">
+    <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener" class="mobile-cta">
+      View on Marketplace
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="section-wrap">
+      <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/issueorder" style="color:inherit;text-decoration:none">ISSUE ORDER FOR JIRA</a></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
+        <img src="/assets/img/Issue Order Assets/Issue Order for Jira icon.png" alt="Issue Order for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(124,92,230,0.25);" width="160" height="160">
+      </div>
+      <h1 style="text-align:center;">Review and save</h1>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">See every change before it reaches Jira, take back what you don't want, and save it all in one go.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        <span class="doc-hero-badge">First release &mdash; Latest</span>
+        <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span class="doc-hero-badge">Atlassian Forge</span>
+        <span class="doc-hero-badge">Jira Cloud</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column doc layout -->
+  <div class="doc-layout">
+
+    <aside class="doc-sidebar">
+      <p class="doc-toc-heading">Documentation</p>
+      <nav class="doc-toc doc-toc--pages">
+        <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/guide">User guide</a>
+        <a href="/resources/documentation/issueorder/admin">Admin guide</a>
+        <a href="/resources/documentation/issueorder/technical">App technical information</a>
+        <a href="/resources/documentation/issueorder/faq">FAQ</a>
+        <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>
+        <a href="/resources/documentation/issueorder/release-notes">Release notes</a>
+      </nav>
+      <p class="doc-toc-heading doc-toc-heading--sub">On this page</p>
+      <nav class="doc-toc doc-toc--auto"></nav>
+    </aside>
+
+    <div class="doc-content">
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/review.webp" alt="Review shows only the changes. The header reads Draft &middot; 2 changes with Show everything, and the line above the outline reads 2 changes, not saved yet. &times; undoes one. Under Launch checklist, Step 10 Ship is 1.1 with Moved up from 1.6, and a faint line reads IOQ-13 Step 5 Review, moved to 4.4 in IOQ-4. Under Small epic, Step 5 Review is 4.4 with From IOQ-1 Launch checklist." width="1568" height="424" loading="lazy" decoding="async"><figcaption>Review shows only what you changed, and where each issue was.</figcaption></figure>
+
+<p><strong>Nothing changes in Jira until you press <span class="ui">Save changes</span>.</strong> Every drag, <span class="ui">Move to&hellip;</span>, sort and priority-lane change in Issue Order for Jira is a draft. Each one is marked in the outline where it happens, Review shows just your changes, and one save writes them all.</p>
+
+<div class="doc-tip"><p><strong>Keep the tab open while it saves.</strong> The save runs in your browser, so closing the tab part way stops it there. See <a href="#keep-the-tab-open">Keep the tab open</a>.</p></div>
+
+<section id="the-draft" style="scroll-margin-top:100px;">
+<h2>The draft</h2>
+<p>With your first change, the draft shows <span class="ui">Draft &middot; <em>n</em> changes</span> beside <span class="ui">Discard</span> and <span class="ui">Save changes</span>: at the top of the Apps page, or in the footer of the <span class="ui">Reorder child issues</span> pop-up. With nothing staged it reads <span class="ui">No changes</span>, and both buttons are off.</p>
+<p>The count is the issues you moved, plus one for each priority change. Issues that only shift because another one moved get a new number but aren&rsquo;t counted, so dragging one issue to the top counts one, and a sort counts each issue it really moves.</p>
+<p>The draft is yours alone: nobody else sees it until you save. In the pop-up it holds everything you change there, also after the breadcrumb takes you out to the whole space. On the Apps page it belongs to one space, and switching space asks first (see <a href="#leaving">Leaving with unsaved changes</a>).</p>
+</section>
+
+<section id="marks" style="scroll-margin-top:100px;">
+<h2>How changes are marked</h2>
+<p>A change reads like a correction on a printed page: the new number in blue, the old one struck through, and a short note on the row.</p>
+<table class="spec-table">
+<thead><tr><th>The row shows</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td>A new number in blue, the old one struck through</td><td>The issue&rsquo;s new place, and its place in Jira&rsquo;s order now. Numbers show while <span class="ui">Numbers</span> is ticked.</td></tr>
+<tr><td><span class="ui">Moved up from 1.3</span> &nbsp;/&nbsp; <span class="ui">Moved down from 1.2</span></td><td>You moved it within its own list. With <span class="ui">Numbers</span> unticked, the note is just <span class="ui">Moved up</span> or <span class="ui">Moved down</span>.</td></tr>
+<tr><td><span class="ui">From IOQ-1 Launch checklist</span></td><td>It&rsquo;s moving in from another epic or parent.</td></tr>
+<tr><td><span class="ui">Was without an epic</span> &nbsp;/&nbsp; <span class="ui">Moved out of IOQ-1</span> &nbsp;/&nbsp; <span class="ui">Was under <em>key</em></span></td><td>It&rsquo;s getting an epic; it&rsquo;s losing its epic (it now shows under <span class="ui">Without an epic</span>); or it&rsquo;s leaving an epic in another space.</td></tr>
+<tr><td>A faint line, such as <span class="ui">IOQ-<em>n</em> Step 10 Ship, moved to 4.<em>n</em> in IOQ-4</span></td><td>Where an issue left. Several leaving for the same place share one line: <span class="ui">2 issues moved to IOQ-4 Small epic</span>.</td></tr>
+<tr><td><span class="ui">Its child issues sorted by priority, 3 moved</span>, on an epic&rsquo;s row</td><td>You sorted that epic&rsquo;s list. The issues the sort moved get blue numbers, but no note and no struck-through number of their own. A sort of the epics shows in the header instead, such as <span class="ui">Epics sorted by priority</span>, and a sort of <span class="ui">Without an epic</span> on its heading. In the pop-up, a sort of the issue&rsquo;s own list shows above the outline: <span class="ui">Child issues of IOQ-1 sorted by priority</span>.</td></tr>
+<tr><td><span class="ui">Priority Low &rarr; High</span></td><td>You dragged it into another priority lane, so its priority changes too. Its priority icon already shows the new one. See <a href="/resources/documentation/issueorder/guide/priority-lanes">Priority lanes</a>.</td></tr>
+<tr><td>A note in red</td><td>Jira refused this change at the last save, and it&rsquo;s still in your draft. See <a href="#partial">When some changes can&rsquo;t be saved</a>.</td></tr>
+</tbody>
+</table>
+<p>Moving an issue within or into a list you sorted removes the sort&rsquo;s note: from then on, every issue out of its old place, the sort&rsquo;s included, gets a note of its own.</p>
+</section>
+
+<section id="undo" style="scroll-margin-top:100px;">
+<h2>Take back a change</h2>
+<ul>
+<li><strong>The <span class="ui">&times;</span> at the end of a note</strong> (<span class="ui">Undo this change</span>) takes back that issue&rsquo;s change. It goes back to its old place and parent, and keeps its old priority.</li>
+<li><strong>The <span class="ui">&times;</span> on a faint line</strong> brings back the issues that left from there.</li>
+<li><strong>The <span class="ui">&times;</span> on a sort&rsquo;s note</strong> puts that list back in Jira&rsquo;s order. Issues you moved into it stay in it.</li>
+<li><strong>From the keyboard</strong>, a row&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu (<kbd>Shift</kbd>+<kbd>F10</kbd>) has <span class="ui">Undo this change</span> or <span class="ui">Undo the sort</span> on rows that have one.</li>
+<li><strong><kbd>&#8984;</kbd>+<kbd>Z</kbd></strong> (<kbd>Ctrl</kbd>+<kbd>Z</kbd> on Windows) undoes your last change, up to 100 steps back. <kbd>&#8984;</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> or <kbd>&#8984;</kbd>+<kbd>Y</kbd> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> or <kbd>Ctrl</kbd>+<kbd>Y</kbd>) redoes it. They leave the draft alone while you type in Find or a pop-up.</li>
+</ul>
+<p>Undo only reaches the draft. Its history starts afresh after each save and each refresh, and nothing undoes a save.</p>
+</section>
+
+<section id="review" style="scroll-margin-top:100px;">
+<h2>Review your changes</h2>
+<p>Click <span class="ui">Draft &middot; <em>n</em> changes</span>; its hint reads <span class="ui">Review</span>. The outline then shows only the rows you changed, the faint lines where issues left, and the epics they sit under. A line above it says <span class="ui"><em>n</em> changes, not saved yet. &times; undoes one.</span> The hint turns to <span class="ui">Show everything</span>: click it to see the whole outline again.</p>
+<p>In Review you can undo, save or discard, but not make new changes:</p>
+<ul>
+<li>A drag doesn&rsquo;t start, and the status line says <span class="ui">Show everything to drag issues again. In Review you can undo changes or save.</span></li>
+<li><span class="ui">Sort&hellip;</span> and <span class="ui">Move to&hellip;</span> are off.</li>
+<li>A row&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu offers only <span class="ui">Open in a new tab</span> and its undo items.</li>
+</ul>
+<p>Review ends by itself when you undo the last change. In the pop-up it shows what&rsquo;s under the issue on screen. If you also changed things elsewhere in the space, it adds <span class="ui">Some are outside IOQ-1.</span> with <span class="ui">See them in the whole space</span>.</p>
+<div class="doc-tip"><p>With <span class="ui">Hide done</span> ticked, a change to a done issue doesn&rsquo;t show in Review. Untick it to see every change.</p></div>
+</section>
+
+<section id="discard" style="scroll-margin-top:100px;">
+<h2>Discard</h2>
+<p><span class="ui">Discard</span> drops every unsaved change at once, without asking, and deletes the copy kept in your browser. The status line says <span class="ui">Discarded <em>n</em> changes.</span> with <span class="ui">Restore changes</span> beside it, which brings them all back: <span class="ui">Restored <em>n</em> changes. They&rsquo;re still not saved.</span> The link goes with your next change, undo or refresh. Neither touches Jira.</p>
+</section>
+
+<section id="saving" style="scroll-margin-top:100px;">
+<h2>What Save does</h2>
+<p>Press <span class="ui">Save changes</span>. The draft reads <span class="ui">Checking Jira&hellip;</span>, then <span class="ui">Saving changes&hellip;</span> with a progress bar. The save runs in this order:</p>
+<ol>
+<li><strong>It checks that nothing changed in Jira.</strong> Each list your changes touch is read again, straight from the issues, and compared with how it looked when it loaded. If any of them differs, nothing is written: see <a href="#changed-in-jira">If the order changed in Jira</a>. When the save will rank issues, the app also checks that Jira&rsquo;s ranking is available to you.</li>
+<li><strong>New parents.</strong> Each issue you moved to another epic or parent, or out of its epic, gets its new parent, four at a time.</li>
+<li><strong>New priorities</strong>, from drags into other priority lanes, four at a time.</li>
+<li><strong>Rank, one list at a time.</strong> Lists that only receive issues go first, then the lists you rearranged or sorted. For each one, the app reads the order Jira has at that moment and ranks only the issues that must move: the longest run already in the right order stays put, and the others are ranked next to it, up to 50 issues in one call. Then it reads the list back and, if Jira didn&rsquo;t keep a batch in order, fixes it once, one issue at a time.</li>
+<li><strong>It reads back</strong> every list it touched, so the outline shows what Jira has now.</li>
+</ol>
+<p>Why this order? Giving an issue a new parent doesn&rsquo;t move it in Jira&rsquo;s order, so every list that receives issues also gets a Rank step, which puts them where you dropped them. And Rank is one order shared by the epic&rsquo;s child list (&ldquo;Child work items&rdquo; in Jira&rsquo;s newer screens), boards and backlogs, so the app ranks as few issues as it can and leaves the rest alone.</p>
+<p>The app acts as you. Jira applies your own permissions to every change, and each one shows in the issue&rsquo;s History under your name. When Jira says it is busy, the app waits and tries again, up to four times, so a short busy spell slows a save down rather than failing it.</p>
+<p>While it saves, you can&rsquo;t edit, discard, refresh, switch space or close the pop-up.</p>
+
+<h3 id="saved" style="scroll-margin-top:100px;">When it&rsquo;s done</h3>
+<p>The status line says <span class="ui">Saved <em>n</em> changes. Boards and backlogs show this order too.</span> The marks clear and the draft reads <span class="ui">No changes</span>. In the pop-up, <span class="ui">Close</span> then refreshes the issue, so Jira&rsquo;s own child list shows the new order straight away where Jira allows it, or the next time it loads.</p>
+<p>There is no undo after a save. To go back, move the issues back and save again.</p>
+
+<h3 id="keep-the-tab-open" style="scroll-margin-top:100px;">Keep the tab open</h3>
+<p>Issue Order has no server of its own: your browser makes every call to Jira, so a save runs only while the tab, or the pop-up, stays open. Close it part way and the save stops there. Changes already written stay in Jira; the rest aren&rsquo;t made. Your browser may warn you before you leave while a save runs, but browsers can skip that warning for an app shown inside Jira.</p>
+<p>The copy of your draft in this browser is still there, so opening the app in the same place offers it back (see <a href="#safety-net">below</a>). Restoring puts back what still applies to the order Jira has now. Save again to finish.</p>
+</section>
+
+<section id="partial" style="scroll-margin-top:100px;">
+<h2>When some changes can&rsquo;t be saved</h2>
+<p>Each new parent, each new priority and each list&rsquo;s new order succeeds or fails on its own, so one refusal never stops the rest. What Jira accepted is saved. What it refused stays in your draft, where you put it, with the reason in red: on the issue&rsquo;s row for a new parent or priority, and on the epic&rsquo;s row (or the issue&rsquo;s, for its sub-tasks) for a list&rsquo;s new order. A list with no row of its own, such as the space&rsquo;s epics, gets no red note. The status line sums it up and repeats the first reason:</p>
+<ul>
+<li><span class="ui">Saved what Jira accepted. <em>n</em> changes couldn&rsquo;t be saved and stay in your draft.</span></li>
+<li><span class="ui">Part of the new order was saved.</span> &hellip; when a list&rsquo;s new Rank was written only in part.</li>
+<li><span class="ui">Nothing was saved.</span> &hellip; when Jira accepted none of it.</li>
+</ul>
+<table class="spec-table">
+<thead><tr><th>The row says</th><th>What happened</th></tr></thead>
+<tbody>
+<tr><td><span class="ui">Couldn&rsquo;t move:</span> and Jira&rsquo;s reason</td><td>Jira refused the new parent: the epic was deleted meanwhile, for example, or you can&rsquo;t edit the issue.</td></tr>
+<tr><td><span class="ui">Order not saved:</span> and the reason</td><td>Jira refused the new Rank for that list.</td></tr>
+<tr><td><span class="ui">Order only partly saved.</span> &hellip; <span class="ui">The rest is still in your draft.</span></td><td>Some of the list&rsquo;s rank calls went through before one failed, or Jira didn&rsquo;t keep the order they set.</td></tr>
+<tr><td><span class="ui">Order not saved: it changed in Jira during the save, so it was left as it is. Your order is still in the draft; save again to use it.</span></td><td>Someone re-ranked that list in the moments between the check and the write. The app leaves their change in place; saving again puts your order on top of it.</td></tr>
+<tr><td><span class="ui">Order didn&rsquo;t fully stick: another list in this save shares issues with it. It&rsquo;s still in your draft; save again.</span></td><td>Two lists in one save share issues, such as an epic in its space&rsquo;s epics and under an initiative, and the later one moved them.</td></tr>
+<tr><td><span class="ui">Priority not changed:</span> and the reason</td><td>Jira refused the new priority.</td></tr>
+</tbody>
+</table>
+<p>Deal with the reason, then press <span class="ui">Save changes</span> again; Review lists what&rsquo;s left. If Jira took the changes but the app couldn&rsquo;t read them back, it says <span class="ui">Saved, but the new order couldn&rsquo;t be read back from Jira, so every list was reloaded.</span>, and only what failed stays in the draft. Every message, with what to do: <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>.</p>
+</section>
+
+<section id="changed-in-jira" style="scroll-margin-top:100px;">
+<h2>If the order changed in Jira</h2>
+<p>A teammate may re-rank an issue on a board, move one to another epic, or delete one while you work. If that happens in a list your changes touch, the save stops before writing anything. A banner says <span class="ui">The order changed in Jira while you were editing, so nothing was saved.</span> with <span class="ui">Refresh</span>, and the status line says the same, adding <span class="ui">Refresh to load it; your changes are put back where they still fit.</span></p>
+<p>Until you refresh, editing and saving are off. <span class="ui">Refresh</span> reads every list again and puts your changes back on top:</p>
+<ul>
+<li>In a list that changed, only your own moves go back, so the teammate&rsquo;s order stays and your save won&rsquo;t undo it. The list&rsquo;s sort note goes, as the sort no longer holds exactly.</li>
+<li>A move whose issue is no longer where you moved it from is dropped.</li>
+<li>Lists that didn&rsquo;t change keep your order as it was.</li>
+</ul>
+<p>The status line then says <span class="ui">Loaded the latest from Jira. Your changes are back on top where they still fit.</span> Check them in Review, then save.</p>
+<p>Only the lists your draft touches are checked, and a list you only take issues out of is checked just for those issues. So a teammate working in another epic never blocks your save. An issue someone adds to your list doesn&rsquo;t block it either: it shows after a refresh, wherever Jira ranked it. The check covers order and parents, not priorities, so a priority you set wins over one a teammate set meanwhile.</p>
+</section>
+
+<section id="safety-net" style="scroll-margin-top:100px;">
+<h2>Unsaved changes are kept in your browser</h2>
+<p>While you have unsaved changes, the app keeps a copy in this browser: the staged changes and the lists they were made on, as issue keys, with no summaries. The copy is kept per Jira site, per person, and per place you opened the app: a space on the Apps page, or an issue&rsquo;s pop-up. A closed tab, a reload or a crash doesn&rsquo;t lose your work.</p>
+<p>Open the app in the same place again and a banner says <span class="ui">You left unsaved changes here <em>5 minutes ago</em>.</span> Choose:</p>
+<ul>
+<li><span class="ui">Restore unsaved changes</span>. The status line says <span class="ui">Restored. <em>n</em> changes, still not saved: Review shows them.</span> If a list changed in Jira since, only your own moves go back on it, and the line adds <span class="ui"><em>n</em> lists had changed in Jira since, so only your own moves went back there.</span> If none of it fits any more, you see <span class="ui">Those changes no longer fit: Jira has changed since. Nothing was restored.</span></li>
+<li><span class="ui">Discard them</span> deletes the copy for good.</li>
+</ul>
+<p>If you make new changes first, the banner asks <span class="ui">You&rsquo;ve made new changes. Your unsaved changes from <em>5 minutes ago</em> are still kept: add them to these, or discard them?</span> <span class="ui">Add them too</span> adds the kept ones only where they don&rsquo;t touch the same issues or lists, so nothing you did since is overwritten. While the banner is up, the copy stays exactly as it was, and your new changes aren&rsquo;t kept until you choose.</p>
+<p>The copy goes when you save everything, discard, choose <span class="ui">Leave without saving</span> or <span class="ui">Switch and discard</span>, and after 14 days. If your browser blocks site data there is no copy, and a private window keeps it only until the window closes.</p>
+</section>
+
+<section id="leaving" style="scroll-margin-top:100px;">
+<h2>Leaving with unsaved changes</h2>
+<ul>
+<li><strong>Closing the pop-up</strong> with <span class="ui">Close</span> asks first: <span class="ui">Leave without saving? Your <em>n</em> changes will be lost.</span>, with <span class="ui">Keep editing</span> and <span class="ui">Leave without saving</span>.</li>
+<li><strong>Switching space</strong> on the Apps page asks too: <span class="ui">Switch to Issue Order Scale? Your unsaved changes in Issue Order QA will be lost.</span>, with <span class="ui">Keep editing</span> and <span class="ui">Switch and discard</span>.</li>
+<li><strong>Reloading or closing the tab</strong> may bring up your browser&rsquo;s own warning, but browsers can skip it for an app inside Jira. If Jira closes the pop-up itself, the app can&rsquo;t ask. Either way, the copy in your browser covers you: see <a href="#safety-net">above</a>.</li>
+</ul>
+<p>Something not working as described? See <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>.</p>
+</section>
+      <nav class="doc-prevnext" data-doc-prevnext></nav>
+    </div>
+  </div>
+  </main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-row" aria-label="DataPingo home">
+          <img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="DataPingo" class="footer-logo" loading="lazy" width="128" height="128">
+          <span class="footer-wordmark">DataPingo</span>
+        </a>
+        <p class="footer-address">100 Matawan Road, Suite 325 #1104<br>Matawan, New Jersey, 07747, USA</p>
+        <h2 class="footer-newsletter-heading">Stay in the Loop</h2>
+        <p class="footer-newsletter-desc">Product updates and news — no spam.</p>
+        <form action="https://dpmt-dpmt.vercel.app/api/forms/cmrig6z570002kioxy2jsomdn/submit" method="POST" id="footer-email-form" novalidate>
+          <div class="newsletter-row">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
+          <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
+        <a href="/products/page-order">Page Order for Confluence</a>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="/company/about-us">About Us</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/partners/become-a-solution-partner">Become a Solution Partner</a>
+        <a href="/partners/become-a-marketing-partner">Become a Marketing Partner</a>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <a href="/resources/blog">Updates &amp; Blogs</a>
+        <a href="/resources/use-cases">Use Cases</a>
+        <a href="/resources/documentation">Documentation</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <nav class="footer-bottom-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security</a>
+        <a href="/sla">SLA</a>
+        <a href="https://www.iubenda.com/privacy-policy/47551801/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="#" class="iubenda-cs-preferences-link" onclick="event.preventDefault();if(window._iub&amp;&amp;_iub.cs&amp;&amp;_iub.cs.api&amp;&amp;_iub.cs.api.openPreferences)_iub.cs.api.openPreferences();">Cookie Preferences</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="dp-lb" id="dpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="dp-lb-close" id="dpLbClose" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <div class="dp-lb-stage" id="dpLbStage"><img id="dpLbImg" alt=""></div>
+  <p class="dp-lb-hint">Tap the image to view it at full size</p>
+</div>
+<script src="/js/site.js"></script>
+
+  <script src="/js/docs-lightbox.js" defer></script>
+  <script src="/js/docs-tree.js" defer></script>
+  <script src="/js/docs-toc.js" defer></script>
+</body>
+</html>

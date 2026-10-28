@@ -159,6 +159,48 @@
           ]
         }
       ]
+    },
+
+    // Issue Order for Jira (docs written October 2026, before launch: pages are noindex and unlisted).
+    issueorder: {
+      product: 'Issue Order for Jira',
+      root: DOCS_ROOT + '/issueorder',
+      pages: [
+        {
+          path: "", title: "Get started",
+          children: [
+            { path: "installation", title: "Installation", blurb: "Installing from the Marketplace, the free tier, and uninstalling." },
+            { path: "where-to-open", title: "Where to open it", blurb: "Reorder child issues on an issue, or the Apps page for a whole space." }
+          ]
+        },
+        {
+          path: "guide", title: "User guide", blurb: "Arrange, review and save: drag, Move to, Sort, priority lanes and saving.",
+          children: [
+            { path: "guide/about-the-app", title: "About the app", blurb: "The layout, numbering, Show, Hide done, Find and the keyboard, and what the app keeps in your browser." },
+            { path: "guide/drag-and-drop", title: "Select and drag issues", blurb: "Tick issues, drag them into place or onto another epic, and use the row menu or the keyboard." },
+            { path: "guide/move-to", title: "Move to another epic", blurb: "Give ticked issues a new epic, in this space or another, or a new parent for sub-tasks." },
+            { path: "guide/sort", title: "Sort issues", blurb: "Sort what\u2019s ticked by up to three levels, with a live preview, kept as a draft until you save." },
+            { path: "guide/priority-lanes", title: "Priority lanes", blurb: "Group a list by priority, fix what\u2019s out of order, and place new issues, all as a draft." },
+            { path: "guide/review-and-save", title: "Review and save", blurb: "The draft, Review, Discard and Save: what a save writes to Jira, in what order, and what if it can't." }
+          ]
+        },
+        { path: "admin", title: "Admin guide", blurb: "Permissions, where it appears, space types, the Rank field, licensing and uninstalling." },
+        {
+          path: "technical", title: "App technical information", blurb: "Where it runs, what it stores, and how loading and saving work.",
+          children: [
+            { path: "limits", title: "Limits", blurb: "Every ceiling in one place, and what happens at each." },
+            { path: "specs", title: "Specs & security", blurb: "Scopes, data handling, hosting and authentication." }
+          ]
+        },
+        { path: "faq", title: "FAQ", blurb: "Boards and backlogs, teammates, sub-tasks, team-managed spaces, permissions and data, in short answers." },
+        { path: "troubleshooting", title: "Help and support", blurb: "Every message the app can show, with its cause and the fix, plus how to contact support." },
+        {
+          path: "release-notes", title: "Release notes", blurb: "Every version, newest first.",
+          children: [
+            { path: "release-notes/first-release", title: "First release \u2014 October 2026", blurb: "First release: order an epic\u2019s child issues, move and sort them, and save in one go." }
+          ]
+        }
+      ]
     }
   };
 
