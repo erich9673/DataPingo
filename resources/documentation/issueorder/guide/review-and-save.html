@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Review and save">
   <meta property="og:description" content="How Issue Order for Jira keeps your changes as a draft, marks them in the outline, and saves them to Jira&#x27;s Rank, including partial saves and the safety net.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Review and save">
   <meta name="twitter:description" content="How Issue Order for Jira keeps your changes as a draft, marks them in the outline, and saves them to Jira&#x27;s Rank, including partial saves and the safety net.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -239,7 +241,7 @@
     </aside>
 
     <div class="doc-content">
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/review.webp" alt="Review shows only the changes. The header reads Draft &middot; 2 changes with Show everything, and the line above the outline reads 2 changes, not saved yet. &times; undoes one. Under Launch checklist, Step 10 Ship is 1.1 with Moved up from 1.6, and a faint line reads IOQ-13 Step 5 Review, moved to 4.4 in IOQ-4. Under Small epic, Step 5 Review is 4.4 with From IOQ-1 Launch checklist." width="1568" height="424" loading="lazy" decoding="async"><figcaption>Review shows only what you changed, and where each issue was.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/review.webp" alt="Review shows only the changes. The header reads Draft &middot; 2 changes with Show everything, Sort&hellip; and Move to&hellip; are greyed, and the line above the outline reads 2 changes, not saved yet. &times; undoes one. Under Checkout redesign, Ship to beta is 1.1, the old 1.6 struck through, with Moved up from 1.6, and a faint line reads SHOP-13 Review with support, moved to 4.4 in SHOP-4. Under Gift cards, Review with support is 4.4, the old 1.5 struck through, with From SHOP-1 Checkout redesign." width="1568" height="427" loading="lazy" decoding="async"><figcaption>Review shows only what you changed, and where each issue was.</figcaption></figure>
 
 <p><strong>Nothing changes in Jira until you press <span class="ui">Save changes</span>.</strong> Every drag, <span class="ui">Move to&hellip;</span>, sort and priority-lane change in Issue Order for Jira is a draft. Each one is marked in the outline where it happens, Review shows just your changes, and one save writes them all.</p>
 
@@ -259,11 +261,11 @@
 <thead><tr><th>The row shows</th><th>What it means</th></tr></thead>
 <tbody>
 <tr><td>A new number in blue, the old one struck through</td><td>The issue&rsquo;s new place, and its place in Jira&rsquo;s order now. Numbers show while <span class="ui">Numbers</span> is ticked.</td></tr>
-<tr><td><span class="ui">Moved up from 1.3</span> &nbsp;/&nbsp; <span class="ui">Moved down from 1.2</span></td><td>You moved it within its own list. With <span class="ui">Numbers</span> unticked, the note is just <span class="ui">Moved up</span> or <span class="ui">Moved down</span>.</td></tr>
-<tr><td><span class="ui">From IOQ-1 Launch checklist</span></td><td>It&rsquo;s moving in from another epic or parent.</td></tr>
-<tr><td><span class="ui">Was without an epic</span> &nbsp;/&nbsp; <span class="ui">Moved out of IOQ-1</span> &nbsp;/&nbsp; <span class="ui">Was under <em>key</em></span></td><td>It&rsquo;s getting an epic; it&rsquo;s losing its epic (it now shows under <span class="ui">Without an epic</span>); or it&rsquo;s leaving an epic in another space.</td></tr>
-<tr><td>A faint line, such as <span class="ui">IOQ-<em>n</em> Step 10 Ship, moved to 4.<em>n</em> in IOQ-4</span></td><td>Where an issue left. Several leaving for the same place share one line: <span class="ui">2 issues moved to IOQ-4 Small epic</span>.</td></tr>
-<tr><td><span class="ui">Its child issues sorted by priority, 3 moved</span>, on an epic&rsquo;s row</td><td>You sorted that epic&rsquo;s list. The issues the sort moved get blue numbers, but no note and no struck-through number of their own. A sort of the epics shows in the header instead, such as <span class="ui">Epics sorted by priority</span>, and a sort of <span class="ui">Without an epic</span> on its heading. In the pop-up, a sort of the issue&rsquo;s own list shows above the outline: <span class="ui">Child issues of IOQ-1 sorted by priority</span>.</td></tr>
+<tr><td><span class="ui">Moved up from 1.6</span> &nbsp;/&nbsp; <span class="ui">Moved down from 1.1</span></td><td>You moved it within its own list. With <span class="ui">Numbers</span> unticked, the note is just <span class="ui">Moved up</span> or <span class="ui">Moved down</span>.</td></tr>
+<tr><td><span class="ui">From SHOP-1 Checkout redesign</span></td><td>It&rsquo;s moving in from another epic or parent.</td></tr>
+<tr><td><span class="ui">Was without an epic</span> &nbsp;/&nbsp; <span class="ui">Moved out of SHOP-1</span> &nbsp;/&nbsp; <span class="ui">Was under <em>key</em></span></td><td>It&rsquo;s getting an epic; it&rsquo;s losing its epic (it now shows under <span class="ui">Without an epic</span>); or it&rsquo;s leaving an epic in another space.</td></tr>
+<tr><td>A faint line, such as <span class="ui">SHOP-13 Review with support, moved to 4.4 in SHOP-4</span></td><td>Where an issue left. Several leaving for the same place share one line: <span class="ui">2 issues moved to SHOP-4 Gift cards</span>.</td></tr>
+<tr><td><span class="ui">Its child issues sorted by priority, 3 moved</span>, on an epic&rsquo;s row</td><td>You sorted that epic&rsquo;s list. The issues the sort moved get blue numbers, but no note and no struck-through number of their own. A sort of the epics shows in the header instead, such as <span class="ui">Epics sorted by priority</span>, and a sort of <span class="ui">Without an epic</span> on its heading. A sort of an issue&rsquo;s sub-tasks puts the same note, <span class="ui">Its child issues sorted by &hellip;</span>, on that issue&rsquo;s row. In the pop-up, a sort of the issue&rsquo;s own list shows above the outline: <span class="ui">Child issues of SHOP-1 sorted by priority</span>.</td></tr>
 <tr><td><span class="ui">Priority Low &rarr; High</span></td><td>You dragged it into another priority lane, so its priority changes too. Its priority icon already shows the new one. See <a href="/resources/documentation/issueorder/guide/priority-lanes">Priority lanes</a>.</td></tr>
 <tr><td>A note in red</td><td>Jira refused this change at the last save, and it&rsquo;s still in your draft. See <a href="#partial">When some changes can&rsquo;t be saved</a>.</td></tr>
 </tbody>
@@ -291,8 +293,9 @@
 <li>A drag doesn&rsquo;t start, and the status line says <span class="ui">Show everything to drag issues again. In Review you can undo changes or save.</span></li>
 <li><span class="ui">Sort&hellip;</span> and <span class="ui">Move to&hellip;</span> are off.</li>
 <li>A row&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu offers only <span class="ui">Open in a new tab</span> and its undo items.</li>
+<li>Find and <span class="ui">Show</span> have no effect until you click <span class="ui">Show everything</span>.</li>
 </ul>
-<p>Review ends by itself when you undo the last change. In the pop-up it shows what&rsquo;s under the issue on screen. If you also changed things elsewhere in the space, it adds <span class="ui">Some are outside IOQ-1.</span> with <span class="ui">See them in the whole space</span>.</p>
+<p>Review ends by itself when you undo the last change. In the pop-up it shows what&rsquo;s under the issue on screen. If you also changed things elsewhere in the space, it adds <span class="ui">Some are outside SHOP-1.</span> with <span class="ui">See them in the whole space</span>.</p>
 <div class="doc-tip"><p>With <span class="ui">Hide done</span> ticked, a change to a done issue doesn&rsquo;t show in Review. Untick it to see every change.</p></div>
 </section>
 
@@ -332,6 +335,7 @@
 <li><span class="ui">Part of the new order was saved.</span> &hellip; when a list&rsquo;s new Rank was written only in part.</li>
 <li><span class="ui">Nothing was saved.</span> &hellip; when Jira accepted none of it.</li>
 </ul>
+<p>Here <em>n</em> counts what failed: each issue that didn&rsquo;t get its new parent or priority, and each list whose new order didn&rsquo;t go through, so it can differ from the draft&rsquo;s count.</p>
 <table class="spec-table">
 <thead><tr><th>The row says</th><th>What happened</th></tr></thead>
 <tbody>
@@ -340,7 +344,7 @@
 <tr><td><span class="ui">Order only partly saved.</span> &hellip; <span class="ui">The rest is still in your draft.</span></td><td>Some of the list&rsquo;s rank calls went through before one failed, or Jira didn&rsquo;t keep the order they set.</td></tr>
 <tr><td><span class="ui">Order not saved: it changed in Jira during the save, so it was left as it is. Your order is still in the draft; save again to use it.</span></td><td>Someone re-ranked that list in the moments between the check and the write. The app leaves their change in place; saving again puts your order on top of it.</td></tr>
 <tr><td><span class="ui">Order didn&rsquo;t fully stick: another list in this save shares issues with it. It&rsquo;s still in your draft; save again.</span></td><td>Two lists in one save share issues, such as an epic in its space&rsquo;s epics and under an initiative, and the later one moved them.</td></tr>
-<tr><td><span class="ui">Priority not changed:</span> and the reason</td><td>Jira refused the new priority.</td></tr>
+<tr><td><span class="ui">Priority not changed:</span> and the reason</td><td>Jira refused the new priority, which needs the Edit issues permission in the issue&rsquo;s space. The reason is worded as for an order: <span class="ui">Jira didn&rsquo;t let you reorder these issues&hellip;</span> means Jira didn&rsquo;t let you edit the issue (the Schedule issues part doesn&rsquo;t apply), and after <span class="ui">Jira refused the new order. Jira said:</span> Jira&rsquo;s own words are about the priority.</td></tr>
 </tbody>
 </table>
 <p>Deal with the reason, then press <span class="ui">Save changes</span> again; Review lists what&rsquo;s left. If Jira took the changes but the app couldn&rsquo;t read them back, it says <span class="ui">Saved, but the new order couldn&rsquo;t be read back from Jira, so every list was reloaded.</span>, and only what failed stays in the draft. Every message, with what to do: <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>.</p>
@@ -361,7 +365,7 @@
 
 <section id="safety-net" style="scroll-margin-top:100px;">
 <h2>Unsaved changes are kept in your browser</h2>
-<p>While you have unsaved changes, the app keeps a copy in this browser: the staged changes and the lists they were made on, as issue keys, with no summaries. The copy is kept per Jira site, per person, and per place you opened the app: a space on the Apps page, or an issue&rsquo;s pop-up. A closed tab, a reload or a crash doesn&rsquo;t lose your work.</p>
+<p>While you have unsaved changes, the app keeps a copy in this browser: the staged changes and the lists they were made on, as issue keys, priority names and sort names, never summaries. The copy is kept per Jira site, per person, and per place you opened the app: a space on the Apps page, or an issue&rsquo;s pop-up. A closed tab, a reload or a crash doesn&rsquo;t lose your work.</p>
 <p>Open the app in the same place again and a banner says <span class="ui">You left unsaved changes here <em>5 minutes ago</em>.</span> Choose:</p>
 <ul>
 <li><span class="ui">Restore unsaved changes</span>. The status line says <span class="ui">Restored. <em>n</em> changes, still not saved: Review shows them.</span> If a list changed in Jira since, only your own moves go back on it, and the line adds <span class="ui"><em>n</em> lists had changed in Jira since, so only your own moves went back there.</span> If none of it fits any more, you see <span class="ui">Those changes no longer fit: Jira has changed since. Nothing was restored.</span></li>
@@ -375,7 +379,7 @@
 <h2>Leaving with unsaved changes</h2>
 <ul>
 <li><strong>Closing the pop-up</strong> with <span class="ui">Close</span> asks first: <span class="ui">Leave without saving? Your <em>n</em> changes will be lost.</span>, with <span class="ui">Keep editing</span> and <span class="ui">Leave without saving</span>.</li>
-<li><strong>Switching space</strong> on the Apps page asks too: <span class="ui">Switch to Issue Order Scale? Your unsaved changes in Issue Order QA will be lost.</span>, with <span class="ui">Keep editing</span> and <span class="ui">Switch and discard</span>.</li>
+<li><strong>Switching space</strong> on the Apps page asks too: <span class="ui">Switch to <em>space</em>? Your unsaved changes in Shop will be lost.</span>, with <span class="ui">Keep editing</span> and <span class="ui">Switch and discard</span>.</li>
 <li><strong>Reloading or closing the tab</strong> may bring up your browser&rsquo;s own warning, but browsers can skip it for an app inside Jira. If Jira closes the pop-up itself, the app can&rsquo;t ask. Either way, the copy in your browser covers you: see <a href="#safety-net">above</a>.</li>
 </ul>
 <p>Something not working as described? See <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a>.</p>

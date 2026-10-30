@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Specs &amp; security">
   <meta property="og:description" content="Issue Order for Jira specs and security: three scopes, no backend, no egress, nothing stored outside your browser, and every call made as the signed-in user.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Specs &amp; security">
   <meta name="twitter:description" content="Issue Order for Jira specs and security: three scopes, no backend, no egress, nothing stored outside your browser, and every call made as the signed-in user.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -240,7 +242,7 @@
 
     <div class="doc-content">
 <section id="technical" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>Technical specifications</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>Technical specifications</h2>
 <table class="spec-table">
 <thead>
 <tr><th>Detail</th><th>Value</th></tr>
@@ -251,12 +253,13 @@
 <tr><td><strong>Installation</strong></td><td><a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">Atlassian Marketplace</a>, by a Jira site admin</td></tr>
 <tr><td><strong>Where it opens</strong></td><td><span class="ui">Issue Order for Jira</span> under <span class="ui">Apps</span>, and <span class="ui">Reorder child issues</span> in an issue&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu. See <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>.</td></tr>
 <tr><td><strong>Where the order is saved</strong></td><td>Jira&rsquo;s own Rank, plus any new parents and priorities. The epic&rsquo;s child list, boards and backlogs follow it.</td></tr>
-<tr><td><strong>Licensing</strong></td><td>Free for sites with 10 or fewer users; paid per user above that, billed through the Atlassian Marketplace. See the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the listing</a>.</td></tr>
+<tr><td><strong>Licensing</strong></td><td>Free for teams of 10 or fewer users; paid per user above that, on graduated tiers (from 11 users, every user is billed), through the Atlassian Marketplace. See the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the listing</a>.</td></tr>
 <tr><td><strong>Runs on Atlassian</strong></td><td>Yes. The app runs entirely on Atlassian and declares no external domains, so nothing leaves your Jira site.</td></tr>
 <tr><td><strong>Backend</strong></td><td>None. No Forge function: every call to Jira is made from your browser.</td></tr>
 <tr><td><strong>Data storage</strong></td><td>None outside your browser. No Forge storage and no database.</td></tr>
 <tr><td><strong>Authentication</strong></td><td>As the signed-in person, through Forge. No API keys, tokens or other secrets.</td></tr>
 <tr><td><strong>Themes</strong></td><td>Light &amp; dark, matched to your Jira theme</td></tr>
+<tr><td><strong>Personal data</strong></td><td>None stored by the app. While you use it, the app reads issue summaries, types, statuses, priorities, dates, parents and Rank (and, for a sort, the field it sorts by), all as you, and no people fields. Only your own browser keeps your view settings, the priority lanes&rsquo; notes and any unsaved draft (issue keys, priority names and sort names, never summaries); the notes and the draft are filed under your Atlassian account ID, so they stay separate from anyone else using that browser. No external egress is declared, so nothing reaches a DataPingo server. See <a href="#privacy-security">Privacy &amp; security</a>.</td></tr>
 <tr><td><strong>Current version</strong></td><td>First release</td></tr>
 <tr><td><strong>Last updated</strong></td><td>October 2026</td></tr>
 </tbody>
@@ -268,16 +271,13 @@
 <li>Jira&rsquo;s Rank field, which almost every Jira Cloud site has</li>
 <li>To change an order: the <strong>Schedule issues</strong> and <strong>Edit issues</strong> permissions in that space, which Jira&rsquo;s own ranking needs</li>
 </ul>
-<h3 id="scopes" style="scroll-margin-top:100px;">Permissions required</h3>
+<h3 id="permissions" style="scroll-margin-top:100px;">Permissions required</h3>
 <p>Three scopes, and no others:</p>
-<table class="spec-table">
-<thead><tr><th>Scope</th><th>What it&rsquo;s used for</th></tr></thead>
-<tbody>
-<tr><td><code>read:jira-work</code></td><td>Read the spaces you can browse and their issue types; issues (summary, type, status, priority, due date, created, parent and sub-tasks) and their Rank; the Rank field&rsquo;s id; the site&rsquo;s issue types and priorities; and your own Schedule issues and Edit issues permissions. For <span class="ui">Move to&hellip;</span>, search for epics and issues. For <span class="ui">Sort&hellip;</span>, one issue&rsquo;s edit screen per space and issue type, to see which of the space&rsquo;s fields can be sorted by and a choice field&rsquo;s options in order, and the values of the field a sort uses.</td></tr>
-<tr><td><code>write:issue:jira-software</code></td><td>Change Rank. This is the only scope Jira&rsquo;s rank endpoint accepts.</td></tr>
-<tr><td><code>write:jira-work</code></td><td>Change an issue&rsquo;s parent (<span class="ui">Move to&hellip;</span>, or a drop onto another epic or issue) and its priority (a drag into another priority lane).</td></tr>
-</tbody>
-</table>
+<ul>
+<li><code>read:jira-work</code> &mdash; read the spaces you can browse and their issue types; issues (summary, type, status, priority, due date, created, parent and sub-tasks) and their Rank; the Rank field&rsquo;s id; the site&rsquo;s issue types; and your own Schedule issues and Edit issues permissions. For <span class="ui">Priority lanes</span> and sorting by priority, the site&rsquo;s priority order, read from a few issues&rsquo; edit screens (or Jira&rsquo;s own priority list, where the site allows it). For <span class="ui">Move to&hellip;</span>, search for epics and issues. For <span class="ui">Sort&hellip;</span>, one issue&rsquo;s edit screen per space and issue type, to see which of the space&rsquo;s fields can be sorted by and a choice field&rsquo;s options in order, and the values of the field a sort uses.</li>
+<li><code>write:issue:jira-software</code> &mdash; change Rank. This is the only scope Jira&rsquo;s rank endpoint accepts.</li>
+<li><code>write:jira-work</code> &mdash; change an issue&rsquo;s parent (<span class="ui">Move to&hellip;</span>, or a drop onto another epic or issue) and its priority (a drag into another priority lane).</li>
+</ul>
 <div class="doc-tip">
 <p><strong>No admin scopes, no storage, no egress.</strong> The app acts as you and can only see and change what you could by hand. It asks for no administration permissions, no storage scope and no way to act for anyone who isn&rsquo;t at the screen.</p>
 </div>
@@ -287,13 +287,13 @@
 </section>
 
 <section id="privacy-security" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Privacy &amp; security</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Privacy &amp; security</h2>
 <ul>
 <li><strong>Data privacy:</strong> <a href="/privacy">DataPingo Privacy Policy</a></li>
 <li><strong>Security:</strong> <a href="/security">DataPingo Security Policy</a></li>
 <li><strong>Hosting:</strong> Atlassian Forge. Issue Order is one screen that Jira shows in a frame; it has no backend function, no triggers and no scheduled or background jobs, so nothing of it runs while nobody has it open.</li>
 <li><strong>Data storage:</strong> None outside your browser. Unsaved changes live in your open tab, with a safety-net copy in your browser, and the order itself lives in Jira&rsquo;s Rank.</li>
-<li><strong>Browser storage:</strong> Your view switches, the last space you opened, the priority lanes&rsquo; note of which new issues you&rsquo;ve seen, and a safety-net copy of unsaved changes (issue keys, priority names and sort names, never summaries) are kept in your browser&rsquo;s local storage. They never leave that browser; the drafts and notes are filed under your Jira account id so two people sharing a browser don&rsquo;t see each other&rsquo;s. A kept draft is dropped after 14 days; the lane notes and view switches stay until the browser&rsquo;s site data is cleared. <a href="/resources/documentation/issueorder/technical#what-it-stores">What it stores</a> lists each one.</li>
+<li><strong>Browser storage:</strong> Your view switches, the last space you opened, the priority lanes&rsquo; note of which new issues you&rsquo;ve seen, and a safety-net copy of unsaved changes (issue keys, priority names and sort names, never summaries) are kept in your browser&rsquo;s local storage. They never leave that browser; the drafts and notes are filed under your Atlassian account ID so two people sharing a browser don&rsquo;t see each other&rsquo;s. A kept draft is dropped after 14 days; the lane notes and view switches stay until the browser&rsquo;s site data is cleared. <a href="/resources/documentation/issueorder/technical#what-it-stores">What it stores</a> lists each one.</li>
 <li><strong>Personal data:</strong> The only personal data the app uses is your own Atlassian account ID, from Forge, as part of the names under which your browser keeps your safety net and lane notes, so they stay separate from anyone else using the same browser. It never leaves your browser. The app reads the issue fields it shows and sorts by, and none that hold people: no assignee, reporter or other people fields, no descriptions and no comments. It reads them live from Jira as you and shows them only to you. Jira&rsquo;s space details also include the space lead, which the app ignores.</li>
 <li><strong>Authentication:</strong> Every call to Jira is made as you, through Forge&rsquo;s <code>requestJira</code> in your browser. The app never acts as itself, uses no impersonation, and holds no secrets, API keys or personal access tokens.</li>
 <li><strong>Egress:</strong> None. No external domains are declared, nothing is sent outside Atlassian, and the app has no web triggers or API of its own for anything outside Jira to call.</li>

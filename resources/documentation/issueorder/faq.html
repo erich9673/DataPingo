@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — FAQ">
   <meta property="og:description" content="Short answers about Issue Order for Jira: boards and backlogs, teammates, automatic sorting, sub-tasks, team-managed spaces, permissions and what it stores.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — FAQ">
   <meta name="twitter:description" content="Short answers about Issue Order for Jira: boards and backlogs, teammates, automatic sorting, sub-tasks, team-managed spaces, permissions and what it stores.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -233,6 +235,22 @@
     </aside>
 
     <div class="doc-content">
+<section id="setup" style="scroll-margin-top:100px;">
+<h2>Setting it up</h2>
+<h3 id="configure" style="scroll-margin-top:100px;">Is there anything to configure after installing?</h3>
+<p>No. The app has no settings screen and adds no admin page to Jira. What each person can do with it is decided by the Jira permissions they already have. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+<h3 id="who-can-use" style="scroll-margin-top:100px;">Who can use it?</h3>
+<p>Everyone who uses Jira on the site, once a site admin has installed it; there is nothing to set up. It acts as each person, so Jira&rsquo;s own permissions decide what they can do. Reordering needs <strong>Schedule issues</strong> and <strong>Edit issues</strong> in the space, and so does moving an issue to another parent, because the app ranks it where you put it. A new priority needs <strong>Edit issues</strong>. Without them, the order shows but can&rsquo;t be changed. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+<h3 id="restrict" style="scroll-margin-top:100px;">Can I restrict it to certain spaces?</h3>
+<p>Not from inside the app, because there is nothing to configure, and a Forge app is installed for the whole site, not per space. Jira&rsquo;s own permissions are the control: someone without <strong>Schedule issues</strong> and <strong>Edit issues</strong> in a space can see the order there but can&rsquo;t change it with the app either.</p>
+<h3 id="performance" style="scroll-margin-top:100px;">Will it slow my Jira site down?</h3>
+<p>It runs on Atlassian&rsquo;s own infrastructure and does something only while someone has it open, from that person&rsquo;s browser. It adds no backend, no background jobs and no triggers, just two entries: <span class="ui">Reorder child issues</span> in an issue&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu, and <span class="ui">Issue Order for Jira</span> under <strong>Apps</strong>.</p>
+<h3 id="server-dc" style="scroll-margin-top:100px;">Does it work on Jira Server or Data Center?</h3>
+<p>No. It&rsquo;s built on Atlassian Forge, which is Cloud only.</p>
+<h3 id="where-open" style="scroll-margin-top:100px;">Where do I open it from?</h3>
+<p>Two places: <span class="ui">Reorder child issues</span> in an issue&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu, which opens a pop-up on that issue, or <span class="ui">Issue Order for Jira</span> under <strong>Apps</strong> in Jira&rsquo;s sidebar, a full page where you choose a space. See <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>.</p>
+</section>
+
 <section id="order-in-jira" style="scroll-margin-top:100px;">
 <h2>The order in Jira</h2>
 <h3 id="boards-and-backlogs" style="scroll-margin-top:100px;">Does the new order show on boards and backlogs?</h3>
@@ -246,7 +264,7 @@
 <h3 id="keep-sorted" style="scroll-margin-top:100px;">Can it keep a list sorted automatically?</h3>
 <p>No. A sort is a one-off: it puts the list in order once, in your draft, and Save writes that order as Rank. The app works only while someone has it open, with no background jobs, so an issue added or re-ranked later goes wherever Jira puts it until someone sorts the list again. With <span class="ui">Priority lanes</span> ticked, new issues wait in <span class="ui">Not placed yet</span> at the top of their list, and <span class="ui">Place by priority</span> puts each one in its lane. See <a href="/resources/documentation/issueorder/guide/priority-lanes">Priority lanes</a>.</p>
 <h3 id="lanes-in-jira" style="scroll-margin-top:100px;">Why don&rsquo;t priority lanes show in Jira?</h3>
-<p>Lanes are a way of looking at a list in Issue Order, not something Jira has. Ticking <span class="ui">Priority lanes</span> puts every list in priority order as part of your draft, and a list of 5 or more issues gets a divider for each priority. Jira gets the order itself, as Rank, when you save, plus a new priority for each issue you drag into another lane. So a list put in lanes shows in Jira in the same order, just without the dividers. Lanes are off each time you open the app.</p>
+<p>Lanes are a way of looking at a list in Issue Order, not something Jira has. Ticking <span class="ui">Priority lanes</span> puts each epic&rsquo;s child issues (and their sub-tasks) in priority order as part of your draft; choose <span class="ui">Child issues and epics</span> to put the epics in lanes too. A list of 5 or more issues gets a divider for each priority. Jira gets the order itself, as Rank, when you save, plus a new priority for each issue you drag into another lane. So a list put in lanes shows in Jira in the same order, just without the dividers. Lanes are off each time you open the app.</p>
 <h3 id="notifications" style="scroll-margin-top:100px;">Does it send notifications?</h3>
 <p>Reordering changes only Rank, the field a drag on a board changes, so it notifies people no more than reordering on a board does. A new parent or a new priority is an ordinary edit to the issue, made as you, and the app doesn&rsquo;t turn notifications off for it: the space&rsquo;s notification scheme decides who hears about it, as when you change the field in Jira. Every change shows in the issue&rsquo;s History under your name.</p>
 </section>
@@ -262,15 +280,35 @@
 <h3 id="how-many" style="scroll-margin-top:100px;">How many issues can a list have?</h3>
 <p>Each list shows up to 1,000 issues, in Rank order. Past that, it shows its first 1,000 (with <span class="ui">Hide done</span> ticked, its first 1,000 open ones), says so at its end, and Sort is off for it. You can still drag the issues it shows, but not drop issues at its end, because its real end isn&rsquo;t loaded. See <a href="/resources/documentation/issueorder/limits">Limits</a>.</p>
 <h3 id="other-products" style="scroll-margin-top:100px;">Does it work in Jira Service Management, Customer Service Management or Jira Product Discovery?</h3>
-<p>No. Issue Order is for Jira&rsquo;s software and business spaces. <span class="ui">Reorder child issues</span> doesn&rsquo;t appear on issues in JSM, Customer Service Management or Jira Product Discovery spaces, and the Apps page doesn&rsquo;t list those spaces.</p>
+<p>No. Issue Order is for Jira&rsquo;s software and business spaces. <span class="ui">Reorder child issues</span> doesn&rsquo;t appear on issues in JSM, Customer Service Management or Jira Product Discovery spaces, and the Apps page doesn&rsquo;t list those spaces. This only limits where you open it from. A request from one of those spaces that sits under an epic in a software or business space still shows in that epic&rsquo;s list.</p>
 </section>
 
-<section id="access-and-data" style="scroll-margin-top:100px;">
-<h2>Access and data</h2>
-<h3 id="who-can-use" style="scroll-margin-top:100px;">Who can use it?</h3>
-<p>Everyone who uses Jira on the site, once a site admin has installed it; there is nothing to set up. It acts as each person, so Jira&rsquo;s own permissions decide what they can do. Reordering needs <strong>Schedule issues</strong> and <strong>Edit issues</strong> in the space, and so does moving an issue to another parent, because the app ranks it where you put it. A new priority needs <strong>Edit issues</strong>. Without them, the order shows but can&rsquo;t be changed. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
+<section id="licensing" style="scroll-margin-top:100px;">
+<h2>Licensing and purchasing</h2>
+<h3 id="cost" style="scroll-margin-top:100px;">What does it cost?</h3>
+<p>Free for teams of 10 or fewer. Above that it&rsquo;s billed per user, on graduated tiers, through the Atlassian Marketplace on your existing Atlassian invoice; from 11 users, every user is billed. See the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Marketplace listing</a>.</p>
+<h3 id="account" style="scroll-margin-top:100px;">Do I need a DataPingo account?</h3>
+<p>No. Billing is Atlassian&rsquo;s and lands on your existing Atlassian invoice. There is no separate account to create and no payment detail to enter with us.</p>
+<h3 id="free-tier" style="scroll-margin-top:100px;">Is the free tier a trial?</h3>
+<p>No. Sites with 10 users or fewer are free on an ongoing basis, not for a limited period. From 11 users, every user is billed.</p>
+<h3 id="lapses" style="scroll-margin-top:100px;">What happens if the subscription lapses?</h3>
+<p>The app says so as soon as it opens, from either way in, and loads nothing: <span class="ui">Issue Order needs an active subscription on this site. Ask your Jira admin to subscribe to Issue Order for Jira on the Atlassian Marketplace.</span> Orders already saved are unaffected: they are Jira&rsquo;s own Rank.</p>
+</section>
+
+<section id="privacy" style="scroll-margin-top:100px;">
+<h2>Privacy and security</h2>
+<h3 id="data-location" style="scroll-margin-top:100px;">Where does my data go?</h3>
+<p>Nowhere outside Atlassian. The app runs entirely on Atlassian and declares no external domains, so it has no way to send anything elsewhere: it is a <strong>Runs on Atlassian</strong> app. Nothing reaches a DataPingo server.</p>
 <h3 id="what-it-stores" style="scroll-margin-top:100px;">What does the app store?</h3>
-<p>Nothing outside your browser. It has no app storage, no database and no backend, and it runs entirely on Atlassian with no external connections. Your browser keeps a few conveniences: the last space you opened, the <span class="ui">Show</span> level, the <span class="ui">Hide done</span> and <span class="ui">Numbers</span> switches, and which new issues priority lanes have already shown you. While you have unsaved changes it also keeps a copy of them, as issue keys, for up to 14 days. None of it is sent anywhere. See <a href="/resources/documentation/issueorder/specs">Specs &amp; security</a>.</p>
+<p>Nothing outside your browser. It has no app storage, no database and no backend, and it runs entirely on Atlassian with no external connections. Your browser keeps a few conveniences: the last space you opened, the <span class="ui">Show</span> level, the <span class="ui">Hide done</span> and <span class="ui">Numbers</span> switches, and which new issues priority lanes have already shown you. While you have unsaved changes it also keeps a copy of them (issue keys, priority names and sort names, never summaries) for up to 14 days. None of it is sent anywhere. See <a href="/resources/documentation/issueorder/specs">Specs &amp; security</a>.</p>
+<h3 id="permissions-asked" style="scroll-margin-top:100px;">What permissions does it ask for?</h3>
+<p>Three, and nothing else: read issues, spaces and their fields; change Rank; and change an issue&rsquo;s parent and priority. There are no admin permissions and no storage scope. See <a href="/resources/documentation/issueorder/specs#permissions">Permissions required</a> for what each one is used for.</p>
+<h3 id="as-you" style="scroll-margin-top:100px;">Who makes the changes &mdash; me or the app?</h3>
+<p>You do. Every read and every change is made with your own Jira account, from your browser, so Jira applies your own permissions, exactly as if you had ranked the issues on a board or edited them by hand.</p>
+<h3 id="see-more" style="scroll-margin-top:100px;">Can the app show someone issues they can&rsquo;t normally see?</h3>
+<p>No. It acts as the person using it, so it can only list and change issues that person could already reach. Spaces they can&rsquo;t browse aren&rsquo;t listed, and issues hidden from them never load, not even in <span class="ui">Move to&hellip;</span>.</p>
+<h3 id="uninstall" style="scroll-margin-top:100px;">What happens when I uninstall?</h3>
+<p>Nothing needs deleting in Jira, because the app stores nothing there. Issues stay where the last save put them, in Jira&rsquo;s own Rank, and saved parents and priorities stay too. Each person&rsquo;s browser may keep a few small entries until its site data is cleared; see <a href="/resources/documentation/issueorder/installation#uninstalling">Uninstalling</a>.</p>
 </section>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

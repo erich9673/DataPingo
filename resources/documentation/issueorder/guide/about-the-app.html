@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — About the app">
   <meta property="og:description" content="How Issue Order for Jira lays out a space: header, draft and toolbar, numbering, Show, Hide done, Find, keyboard keys, and what stays in your browser.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — About the app">
   <meta name="twitter:description" content="How Issue Order for Jira lays out a space: header, draft and toolbar, numbering, Show, Hide done, Find, keyboard keys, and what stays in your browser.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -243,12 +245,13 @@
 
 <section id="layout" style="scroll-margin-top:100px;">
 <h2>The layout</h2>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/outline.webp" alt="Issue Order for Jira on the Apps page with the Shop space open (8 epics &middot; 39 child issues, No changes): epic 1 SHOP-1 Checkout redesign with its child issues numbered 1.1 Plan the new checkout to 1.6 Ship to beta, all BACKLOG, then epic 2 SHOP-2 Store admin with 2.1 Login fails on Safari IN PROGRESS, under a toolbar with Find, Show on Stories, tasks &amp; bugs, Hide done and Numbers ticked, Priority lanes, Sort&hellip; and Move to&hellip;" width="1568" height="633" loading="lazy" decoding="async"><figcaption>The header, the toolbar and the numbered outline on the Apps page.</figcaption></figure>
 <p>Top to bottom, on the Apps page:</p>
 <ul>
 <li><strong>The app bar</strong> &mdash; <span class="ui">Issue Order</span>, then <span class="ui">Space</span> and a button with the space&rsquo;s name, for switching spaces (see <a href="/resources/documentation/issueorder/where-to-open#choose-a-space">Choose a space</a>).</li>
-<li><strong>The header</strong> &mdash; the space&rsquo;s name and what it holds, such as <span class="ui">8 epics &middot; 39 child issues</span>. The child issue count appears once every epic&rsquo;s list has loaded; it counts done issues too, and leaves out the issues without an epic.</li>
+<li><strong>The header</strong> &mdash; the space&rsquo;s name and what it holds, such as <span class="ui">8 epics &middot; 39 child issues</span>. The child issue count appears once every epic&rsquo;s list has loaded, for example with <span class="ui">Show</span> set to the level under epics. With <span class="ui">Show</span> on <span class="ui">Epics</span>, the header shows only the epic count. The child issue count counts done issues too, and leaves out the issues without an epic.</li>
 <li><strong>The draft</strong>, at the right of the header &mdash; <span class="ui">No changes</span>, or <span class="ui">Draft &middot; <em>n</em> changes</span> with <span class="ui">Review</span>, then <span class="ui">Discard</span> and <span class="ui">Save changes</span>. See <a href="/resources/documentation/issueorder/guide/review-and-save">Review and save</a>.</li>
-<li><strong>Banners</strong>, only when there is something to say: unsaved changes from an earlier visit, a space you can see but not reorder, an order that changed in Jira while you edited, or a list with more than 1,000 issues.</li>
+<li><strong>Banners</strong>, only when there is something to say: unsaved changes from an earlier visit, a space you can see but not reorder, an order that changed in Jira while you edited, a list with more than 1,000 issues, or a site where Jira won&rsquo;t rank issues for you, so the outline is read-only (see <a href="/resources/documentation/issueorder/troubleshooting#permissions">Help and support &rsaquo; Permissions</a>).</li>
 <li><strong>The toolbar</strong> &mdash; described below.</li>
 <li><strong>The outline</strong> &mdash; one row per epic, child issue or sub-task. It scrolls inside the app; a soft fade along its bottom edge means there is more below.</li>
 <li><strong>The status line</strong> at the bottom, where the app answers what you just did: <span class="ui">Showing epics.</span>, the reason a move was refused, or <span class="ui">Saved <em>n</em> changes. Boards and backlogs show this order too.</span></li>
@@ -271,11 +274,12 @@
 <tr><td><span class="ui">?</span> (<span class="ui">How it works</span>)</td><td>A short note on how to tick, drag, move and sort, worded for where you are.</td></tr>
 </tbody>
 </table>
-<p>When you come back to the app&rsquo;s tab, it quietly reloads from Jira if it last read a minute or more ago, but never while you have unsaved changes.</p>
+<p>When you come back to the app&rsquo;s tab, it quietly reloads from Jira if it last read a minute or more ago, but only with nothing unsaved and nothing to undo, and not while a pop-up or the Sort bar is open.</p>
 
 <h3 id="rows" style="scroll-margin-top:100px;">A row</h3>
 <p>Left to right: a grip (shown when you point at the row or tick it), a checkbox, a fold arrow when the issue has something under it, its number, its work type icon, its key, its summary, its status and its priority. An unsaved change adds a short note, such as <span class="ui">Moved up from 1.6</span>. Point at a row and a <span class="ui">&bull;&bull;&bull;</span> button appears at its right end, with the row&rsquo;s actions.</p>
 <p>Click a key to open that issue in a new browser tab; it doesn&rsquo;t tick the row. In a narrow window, keys and statuses are left out to make room.</p>
+<p>While the outline loads you see grey placeholder bars. A list you open shows <span class="ui">Loading&hellip;</span> until it arrives. If one can&rsquo;t be read, its row gives the reason and a <span class="ui">Try again</span> link (<kbd>Enter</kbd> from the keyboard). A list past 1,000 issues ends with <span class="ui">Only the first 1,000 &hellip; are shown here.</span> See <a href="/resources/documentation/issueorder/troubleshooting#opening">Help and support</a>.</p>
 </section>
 
 <section id="words" style="scroll-margin-top:100px;">
@@ -313,10 +317,10 @@
 
 <section id="sections" style="scroll-margin-top:100px;">
 <h2>Without an epic, and Under epics in other spaces</h2>
-<p>Below the epics, two headings collect the space&rsquo;s child issues that no epic in the space holds. Click a heading to open or fold it. Its count appears once its list has loaded.</p>
+<p>Below the epics, two headings collect the space&rsquo;s child issues that no epic in the space holds. Click a heading to open or fold it. Its count appears once its list has loaded, and counts done issues too, like the header (<span class="ui">1,000+</span> for a list past 1,000).</p>
 <ul>
 <li><span class="ui">Without an epic</span> &mdash; the space&rsquo;s standard issues that have no epic, numbered 1, 2, 3 in Rank order. Moving an issue in removes its epic; moving one out gives it one. Only child issues from the same space can go in.</li>
-<li><span class="ui">Under epics in other spaces</span> &mdash; the space&rsquo;s issues whose epic is in another space, which company-managed spaces allow. It appears only when there are some, and each row says which epic, for example <span class="ui">Under IOT-170 Payments API v2</span>. You can reorder these issues and move them out to one of this space&rsquo;s epics; nothing can be moved in. When the space has nothing else to show, this section opens by itself.</li>
+<li><span class="ui">Under epics in other spaces</span> &mdash; the space&rsquo;s issues whose epic is in another space, which company-managed spaces allow. It appears only when there are some, and each row says which epic, for example <span class="ui">Under APP-170 Mobile payments</span>. You can reorder these issues and move them out to one of this space&rsquo;s epics; nothing can be moved in. When the space has nothing else to show, this section opens by itself.</li>
 </ul>
 <p>A space with no epics opens on its issues instead, numbered 1, 2, 3, with no <span class="ui">Without an epic</span> heading.</p>
 </section>
@@ -325,7 +329,7 @@
 <h2>Show</h2>
 <p><span class="ui">Show</span> sets how far the outline opens: <span class="ui">Epics</span>, then the level under them (<span class="ui">Stories, tasks &amp; bugs</span>, for example), then <span class="ui">Sub-tasks</span>. Each choice opens every parent down to that level and loads its lists, and the status line confirms it, for example <span class="ui">Showing sub-tasks.</span></p>
 <ul>
-<li><strong>The first time, a space opens on its epics only.</strong> After that, the Apps page opens on the level you chose last. Your browser remembers it for each Jira site.</li>
+<li><strong>The first time, a space opens on its epics only.</strong> After that, a space with epics opens on the level you last chose in any space on that Jira site; your browser remembers it. A space without epics always opens on its issues.</li>
 <li><strong>Opening or folding a row by hand switches Show off.</strong> No choice is highlighted until you pick one again.</li>
 <li><strong>In the pop-up</strong>, Show uses general names: <span class="ui">Child issues</span> and <span class="ui">Sub-tasks</span> on an epic. It always starts on the issue&rsquo;s own list.</li>
 <li><strong>Only the levels the space has are offered.</strong> A space with no sub-task type has no <span class="ui">Sub-tasks</span> choice, and a list with only one level has no Show at all.</li>
@@ -348,13 +352,14 @@
 
 <section id="find" style="scroll-margin-top:100px;">
 <h2>Find</h2>
-<p>Type in the Find box to narrow the outline. It reads <span class="ui">Find an issue by key or summary</span> on the Apps page and <span class="ui">Find in IOQ-1</span> in the pop-up.</p>
+<p>Type in the Find box to narrow the outline. It reads <span class="ui">Find an issue by key or summary</span> on the Apps page and <span class="ui">Find in SHOP-1</span> in the pop-up.</p>
 <ul>
-<li><strong>Words</strong> match anywhere in a key or a summary: <em>Step 1</em> finds Step 1 Plan and Step 10 Ship.</li>
-<li><strong>A whole key</strong>, such as <em>IOQ-9</em>, finds that issue, or a summary that names it, but not IOQ-90.</li>
+<li><strong>Words</strong> match anywhere in a key or a summary: <em>check</em> finds Plan the new checkout and Gift card balance check alike.</li>
+<li><strong>A whole key</strong>, such as <em>SHOP-9</em>, finds that issue, or a summary that names it, but not SHOP-90.</li>
 <li><strong>Matches keep their context.</strong> Each shows with the rows it sits under and everything under it, so finding an epic shows its child issues.</li>
 <li><strong>Find searches what&rsquo;s loaded.</strong> While it&rsquo;s in use, the app loads the next level down: every epic&rsquo;s child issues and the issues without an epic. Sub-tasks are found once their lists are loaded, for example with Show set to sub-tasks.</li>
 <li>With no match, the outline reads <span class="ui">No issues match &ldquo;<em>text</em>&rdquo;.</span></li>
+<li><strong>While Review is showing</strong>, Find doesn&rsquo;t narrow the outline. Click <span class="ui">Show everything</span> first (see <a href="/resources/documentation/issueorder/guide/review-and-save#review">Review your changes</a>).</li>
 </ul>
 <p><kbd>Enter</kbd> or <kbd>&darr;</kbd> moves you into the outline; <kbd>Esc</kbd> clears the box. Rows that Find holds open can&rsquo;t be folded until you clear it. Ticked issues that Find hides drop out of the ticks.</p>
 </section>
@@ -366,17 +371,17 @@
 <thead><tr><th>Keys</th><th>What they do</th></tr></thead>
 <tbody>
 <tr><td><kbd>&uarr;</kbd> <kbd>&darr;</kbd></td><td>Move the cursor. <kbd>Home</kbd> and <kbd>End</kbd> go to the first and last row, <kbd>Page Up</kbd> and <kbd>Page Down</kbd> ten rows at a time.</td></tr>
-<tr><td><kbd>Shift</kbd> + <kbd>&uarr;</kbd> <kbd>&darr;</kbd></td><td>Tick the rows from where you started to the cursor.</td></tr>
+<tr><td><kbd>Shift</kbd> + <kbd>&uarr;</kbd> <kbd>&darr;</kbd></td><td>Tick the rows from where you started to the cursor, replacing other ticks. <kbd>Shift</kbd> with <kbd>Home</kbd>, <kbd>End</kbd>, <kbd>Page Up</kbd> or <kbd>Page Down</kbd> does the same.</td></tr>
 <tr><td><kbd>&rarr;</kbd></td><td>Opens a row; on an open row, moves to its first child.</td></tr>
 <tr><td><kbd>&larr;</kbd></td><td>Folds an open row; on any other row, goes to its parent.</td></tr>
-<tr><td><kbd>Enter</kbd></td><td>Opens or folds the row.</td></tr>
+<tr><td><kbd>Enter</kbd></td><td>Opens or folds the row. On a <span class="ui">Not placed yet</span> row it places the new issues by priority; on a list that couldn&rsquo;t load, it tries again.</td></tr>
 <tr><td><kbd>Space</kbd></td><td>Ticks or unticks the row.</td></tr>
-<tr><td><kbd>Esc</kbd></td><td>Closes the Sort bar if it&rsquo;s open; otherwise clears the ticks.</td></tr>
-<tr><td><kbd>Shift</kbd> + <kbd>F10</kbd>, or the menu key</td><td>Opens the row&rsquo;s &bull;&bull;&bull; menu: <span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Move to top</span>, <span class="ui">Move to bottom</span>, <span class="ui">Move to&hellip;</span> and more. In the menu, <kbd>&uarr;</kbd> <kbd>&darr;</kbd> choose, <kbd>Enter</kbd> picks and <kbd>Esc</kbd> closes it.</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Closes the Sort bar if it&rsquo;s open; otherwise clears the ticks. During a drag, cancels it.</td></tr>
+<tr><td><kbd>Shift</kbd> + <kbd>F10</kbd>, or the menu key</td><td>Opens the row&rsquo;s &bull;&bull;&bull; menu: <span class="ui">Move up</span>, <span class="ui">Move down</span>, <span class="ui">Move to top</span>, <span class="ui">Move to bottom</span>, <span class="ui">Move to&hellip;</span> and more. In the menu, <kbd>&uarr;</kbd> <kbd>&darr;</kbd> choose, <kbd>Enter</kbd> picks and <kbd>Esc</kbd> closes it. On a sorted <span class="ui">Without an epic</span> or <span class="ui">Under epics in other spaces</span> heading, which has no &bull;&bull;&bull; menu, it undoes that sort at once (<kbd>&#8984;</kbd>/<kbd>Ctrl</kbd> + <kbd>Z</kbd> brings it back).</td></tr>
 <tr><td><kbd>&#8984;</kbd>/<kbd>Ctrl</kbd> + <kbd>Z</kbd></td><td>Undoes your last change in the draft. <kbd>&#8679;</kbd><kbd>&#8984;</kbd><kbd>Z</kbd> or <kbd>Ctrl</kbd> + <kbd>Y</kbd> redoes it. Not while you type in a box.</td></tr>
 </tbody>
 </table>
-<p>Dragging needs a pointer; from the keyboard, every move is in the &bull;&bull;&bull; menu (see <a href="/resources/documentation/issueorder/guide/drag-and-drop#keyboard">Select and drag issues</a>). Screen readers hear each row&rsquo;s number, type, key, summary, status, priority and any unsaved change, and are told what each move did.</p>
+<p>Dragging needs a pointer; from the keyboard, every move is in the &bull;&bull;&bull; menu (see <a href="/resources/documentation/issueorder/guide/select-and-drag#keyboard">Select and drag issues</a>). Screen readers hear each row&rsquo;s number, type, key, summary, status, priority and any unsaved change, and are told what each move did.</p>
 </section>
 
 <section id="light-dark" style="scroll-margin-top:100px;">
@@ -391,7 +396,7 @@
 <li><strong>Your switches:</strong> <span class="ui">Hide done</span> and <span class="ui">Numbers</span>.</li>
 <li><strong>Your Show level and the last space you opened</strong> on the Apps page, for each Jira site.</li>
 <li><strong>For priority lanes,</strong> when you last looked at each list and which new issues you have placed (issue keys only).</li>
-<li><strong>The unsaved-changes safety net.</strong> While you have unsaved changes, the app keeps them (issue keys, where each is going and any new priority, no summaries) for each site, Jira account and starting point: a space on the Apps page, or the issue the pop-up opened on.</li>
+<li><strong>The unsaved-changes safety net.</strong> While you have unsaved changes, the app keeps them (issue keys, priority names and sort names, never summaries) for each site, Jira account and starting point: a space on the Apps page, or the issue the pop-up opened on.</li>
 </ul>
 <p>The safety net is what lets a closed tab, a reload or a crash cost you nothing. Come back and a banner reads <span class="ui">You left unsaved changes here <em>n</em> minutes ago.</span>, with <span class="ui">Restore unsaved changes</span> and <span class="ui">Discard them</span>. Restoring puts your changes back where they still fit; where a list changed in Jira since, only your own moves go back. The kept copy is cleared when you save, discard or leave without saving, and dropped after 14 days.</p>
 <div class="doc-tip"><p><strong>Another browser starts fresh.</strong> A different browser or computer, a private window, or a browser that blocks site storage starts with the default switches and has no safety net. Clearing your browser data clears all of it.</p></div>

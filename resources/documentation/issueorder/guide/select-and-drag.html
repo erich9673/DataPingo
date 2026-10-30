@@ -7,20 +7,20 @@
   <title>Issue Order for Jira — Select and drag issues</title>
   <meta name="description" content="Tick issues in Issue Order for Jira and drag them to a new place or under another epic: what each drop does, what Jira allows, and the row menu.">
   <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/guide/drag-and-drop">
+  <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/guide/select-and-drag">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/guide/drag-and-drop">
+  <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/guide/select-and-drag">
   <meta property="og:title" content="Issue Order for Jira — Select and drag issues">
   <meta property="og:description" content="Tick issues in Issue Order for Jira and drag them to a new place or under another epic: what each drop does, what Jira allows, and the row menu.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Select and drag issues">
   <meta name="twitter:description" content="Tick issues in Issue Order for Jira and drag them to a new place or under another epic: what each drop does, what Jira allows, and the row menu.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -86,7 +86,7 @@
       "@type": "ListItem",
       "position": 5,
       "name": "Select and drag issues",
-      "item": "https://datapingo.com/resources/documentation/issueorder/guide/drag-and-drop"
+      "item": "https://datapingo.com/resources/documentation/issueorder/guide/select-and-drag"
     }
   ]
 }
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -239,17 +241,17 @@
     </aside>
 
     <div class="doc-content">
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/drag.webp" alt="Launch checklist after a drag: IOQ-10 Step 10 Ship now sits first as 1.1, its number in blue and the old 1.6 struck through, with the note Moved up from 1.6 and an &times;. The header reads Draft &middot; 1 change, with Discard and Save changes. Step 1 Plan to Step 5 Review follow as 1.2 to 1.6." width="1568" height="465" loading="lazy" decoding="async"><figcaption>A drop waits in the draft: Step 10 Ship moved up to 1.1.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/drag.webp" alt="Checkout redesign after a drag: SHOP-10 Ship to beta now sits first as 1.1, its number in blue and the old 1.6 struck through, with the note Moved up from 1.6 and an &times;. The header reads Draft &middot; 1 change with Review, then Discard and Save changes. Plan the new checkout to Review with support follow as 1.2 to 1.6." width="1568" height="465" loading="lazy" decoding="async"><figcaption>A drop waits in the draft: Ship to beta moved up to 1.1.</figcaption></figure>
 <p><strong>In Issue Order for Jira, tick the issues, then drag them where they belong.</strong> Drop between two issues to put them in that place, or onto an epic to move them under it. Several ticked issues move as one. Every drop is checked against what Jira allows before you let go, and nothing changes in Jira until you press <span class="ui">Save changes</span>.</p>
 
 <section id="select" style="scroll-margin-top:100px;">
 <h2>Tick issues</h2>
-<p>Four ways, and they combine:</p>
+<p>Four ways. All but <kbd>Shift</kbd> with the arrow keys add to the ticks you already have:</p>
 <ul>
 <li><strong>Click a row</strong> to tick it; click a ticked row to untick it. Anywhere on the row works except the fold arrow, the key (which opens the issue in a new tab) and the <span class="ui">&bull;&bull;&bull;</span> button.</li>
 <li><strong>Sweep</strong> &mdash; press an unticked row, or any checkbox, and drag up or down. Every row you pass on the same level is ticked. Press a ticked row&rsquo;s checkbox and sweep to untick instead. Near the top or bottom of the outline, it scrolls for you.</li>
 <li><strong>Shift-click</strong> a row to tick every row between the last one you clicked and this one.</li>
-<li><strong>From the keyboard</strong>, <kbd>Space</kbd> ticks the row under the cursor, and <kbd>Shift</kbd> with <kbd>&uarr;</kbd> or <kbd>&darr;</kbd> ticks a run of rows.</li>
+<li><strong>From the keyboard</strong>, <kbd>Space</kbd> ticks the row under the cursor, and <kbd>Shift</kbd> with <kbd>&uarr;</kbd> or <kbd>&darr;</kbd> ticks the run from where you started to the cursor, replacing other ticks.</li>
 </ul>
 <p>The toolbar then counts them, <span class="ui">3 selected</span>, with an <span class="ui">Unselect</span> link, and the move button reads <span class="ui">Move 3 to&hellip;</span>. <kbd>Esc</kbd>, or a click on the empty space below the last row, clears the ticks too. Ticking never changes the draft.</p>
 <ul>
@@ -269,7 +271,7 @@
 </ul>
 <p>While you drag:</p>
 <ul>
-<li><strong>A card follows the pointer</strong> with the issue&rsquo;s key and summary, or a count such as <span class="ui">2 issues</span>, and where they will land: <span class="ui">&rarr; 1.1</span>, the number the first issue will get there, or <span class="ui">&rarr; into IOQ-4, at the end</span> over an epic.</li>
+<li><strong>A card follows the pointer</strong> with the issue&rsquo;s key and summary, or a count such as <span class="ui">2 issues</span>, and where they will land: <span class="ui">&rarr; 1.1</span>, the number the first issue will get there, or <span class="ui">&rarr; into SHOP-4, at the end</span> over an epic.</li>
 <li><strong>A line</strong> shows the spot between two issues, or the row you will drop into is highlighted. The issues you carry are dimmed.</li>
 <li><strong>Folded rows open for you.</strong> Hold the pointer over a folded epic for a moment and it opens, so you can drop at an exact place inside it.</li>
 <li><strong>The outline scrolls</strong> while the pointer is near its top or bottom edge, faster the closer you go.</li>
@@ -320,7 +322,7 @@
 <li><strong>You see it before you let go.</strong> The card&rsquo;s title fades, the reason shows on it in red, and no line appears. Let go anyway and the same reason appears in the status line. Nothing changes.</li>
 <li><strong>Some can go, some can&rsquo;t.</strong> The card adds <span class="ui">1 issue can&rsquo;t go there</span>. Let go and the others move, while the status line names the ones that stayed: <span class="ui"><em>key</em> stayed where it was:</span> followed by the reason.</li>
 <li><strong>The end of a very long list.</strong> A list with more than 1,000 issues shows only its first 1,000, so its end isn&rsquo;t on screen, and a drop onto its parent, which would put the issues at the end, is refused: <span class="ui">This list has more than 1,000 issues and only the first 1,000 are shown, so its end isn&rsquo;t here. Drop them next to one you can see instead.</span> See <a href="/resources/documentation/issueorder/limits#issues-per-list">Limits</a>.</li>
-<li><strong>Dragging is off for a moment</strong> while Review is showing (<span class="ui">Show everything to drag issues again. In Review you can undo changes or save.</span>), while the Sort bar is open (<span class="ui">Sort or cancel the sort first.</span>), and during a save or a refresh.</li>
+<li><strong>Dragging is off for a moment</strong> while Review is showing (<span class="ui">Show everything to drag issues again. In Review you can undo changes or save.</span>), while the Sort bar is open (<span class="ui">Sort or cancel the sort first.</span>), and during a save or a refresh. It&rsquo;s also off while the banner <span class="ui">The order changed in Jira while you were editing&hellip;</span> is showing (press <span class="ui">Refresh</span> first), and on a site where Jira&rsquo;s ranking isn&rsquo;t available to you. In those cases a drag just doesn&rsquo;t start, and the <span class="ui">&bull;&bull;&bull;</span> menu offers only <span class="ui">Open in a new tab</span> and any undo items.</li>
 </ul>
 </section>
 
@@ -331,13 +333,13 @@
 <thead><tr><th>You moved it</th><th>Its note</th></tr></thead>
 <tbody>
 <tr><td>Up or down in its own list</td><td><span class="ui">Moved up from 1.6</span>, <span class="ui">Moved down from 1.1</span></td></tr>
-<tr><td>To another epic</td><td><span class="ui">From IOQ-1 Launch checklist</span></td></tr>
+<tr><td>To another epic</td><td><span class="ui">From SHOP-1 Checkout redesign</span></td></tr>
 <tr><td>Out of <span class="ui">Without an epic</span></td><td><span class="ui">Was without an epic</span></td></tr>
-<tr><td>Into <span class="ui">Without an epic</span></td><td><span class="ui">Moved out of IOQ-1</span></td></tr>
-<tr><td>Out of <span class="ui">Under epics in other spaces</span></td><td><span class="ui">Was under IOT-170</span></td></tr>
+<tr><td>Into <span class="ui">Without an epic</span></td><td><span class="ui">Moved out of SHOP-1</span></td></tr>
+<tr><td>Out of <span class="ui">Under epics in other spaces</span></td><td><span class="ui">Was under APP-170</span></td></tr>
 </tbody>
 </table>
-<p>Where an issue left its old list, a dashed <strong>ghost line</strong> keeps its place: <span class="ui">IOQ-10 Step 10 Ship, moved to 4.4 in IOQ-4</span>, <span class="ui">2 issues moved to IOQ-4 Small epic</span>, or <span class="ui">IOQ-10 Step 10 Ship, moved out of its epic</span>. Issues that only shifted to make room renumber quietly, without a note, so the marks show what you did and nothing else.</p>
+<p>Where an issue left its old list, a dashed <strong>ghost line</strong> keeps its place: <span class="ui">SHOP-13 Review with support, moved to 4.4 in SHOP-4</span>, <span class="ui">2 issues moved to SHOP-4 Gift cards</span>, or <span class="ui">SHOP-13 Review with support, moved out of its epic</span>. Issues that only shifted to make room renumber quietly, without a note, so the marks show what you did and nothing else.</p>
 </section>
 
 <section id="row-menu" style="scroll-margin-top:100px;">
@@ -350,7 +352,7 @@
 <li><span class="ui">Open in a new tab</span> &mdash; the issue in Jira.</li>
 </ul>
 <p>On a row ticked with others, the moves act on all the ticked issues. To move them together they must share a parent; otherwise the status line says <span class="ui">Select issues under one parent to move them together.</span></p>
-<p>The menu adapts to the row. An epic in the space&rsquo;s list has no <span class="ui">Move to&hellip;</span>, because epics can only be reordered there. A row with an unsaved change adds <span class="ui">Undo this change</span>, a parent whose list you sorted adds <span class="ui">Undo the sort</span>, and with priority lanes on, an issue out of priority order adds <span class="ui">Move into its priority lane</span>. While Review is showing or the Sort bar is open, the moves are left out.</p>
+<p>The menu adapts to the row. An epic in the space&rsquo;s list has no <span class="ui">Move to&hellip;</span>, because epics can only be reordered there. A row with an unsaved change adds <span class="ui">Undo this change</span>, a parent whose list you sorted adds <span class="ui">Undo the sort</span>, and with priority lanes on, an issue out of priority order adds <span class="ui">Move into its priority lane</span>. The moves are left out whenever dragging is off: while Review is showing or the Sort bar is open, during a save or a refresh, while the &ldquo;order changed in Jira&rdquo; banner is showing, and on a site where Jira&rsquo;s ranking isn&rsquo;t available to you (see <a href="#refusals">Refused drops</a>).</p>
 </section>
 
 <section id="keyboard" style="scroll-margin-top:100px;">

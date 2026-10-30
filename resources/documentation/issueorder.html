@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Documentation">
   <meta property="og:description" content="Issue Order for Jira puts an epic&#x27;s child issues in order: drag, move between epics and sort them, then save to Jira&#x27;s own Rank in one go.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Documentation">
   <meta name="twitter:description" content="Issue Order for Jira puts an epic&#x27;s child issues in order: drag, move between epics and sort them, then save to Jira&#x27;s own Rank in one go.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -215,6 +215,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -228,17 +230,17 @@
 
     <div class="doc-content">
 <section id="overview" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
 <p><strong>Put an epic&rsquo;s child issues in the order you want, and save them to Jira in one go.</strong></p>
 <p>Jira lets you drag sub-tasks into order, but not the child issues of an epic in a company-managed space. The epic&rsquo;s <strong>Child work items</strong> list shows them in Rank order, and you can&rsquo;t rearrange them there.</p>
-<p>Issue Order for Jira shows a space, or one epic, as a numbered outline in that same Rank order. Drag child issues into place, tick several and move them together, or send them to another epic with <span class="ui">Move to&hellip;</span>, even one in another company-managed space. <span class="ui">Sort&hellip;</span> orders them by priority, due date, status or the space&rsquo;s own fields such as story points, up to three levels deep. Turn on priority lanes and every list is put in priority order, grouped by priority.</p>
+<p>Issue Order for Jira shows a space, or one epic, as a numbered outline in that same Rank order. Drag child issues into place, tick several and move them together, or send them to another epic with <span class="ui">Move to&hellip;</span>, even one in another company-managed space. <span class="ui">Sort&hellip;</span> orders them by priority, due date, status or the space&rsquo;s own fields such as story points, up to three levels deep. Turn on priority lanes and each epic&rsquo;s child issues are put in priority order, grouped by priority.</p>
 <p>Nothing changes in Jira until you press <span class="ui">Save changes</span>. Until then every change is a draft, marked in the outline so you can check it. A save writes Jira&rsquo;s own Rank, plus any new parents and priorities, so the epic&rsquo;s child list, boards and backlogs all show the new order.</p>
 <p>The app acts as you, so you can only reorder issues you could already rank on a board. It stores nothing outside your browser and runs on Atlassian, with no server of its own. It works in software and business spaces, company-managed and team-managed.</p>
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/outline.webp" alt="Issue Order for Jira on the Apps page with the Issue Order QA space open (8 epics &middot; 39 child issues): epic 1 Launch checklist with its child issues numbered 1.1 Step 1 Plan to 1.6 Step 10 Ship, then epic 2 Priority mix with its child issues, under a toolbar with Find, Show, Hide done, Numbers, Priority lanes, Sort&hellip; and Move to&hellip;" width="1539" height="784" loading="lazy" decoding="async"><figcaption>A whole space as one numbered outline, in Jira&rsquo;s Rank order.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/outline.webp" alt="Issue Order for Jira on the Apps page with the Shop space open (8 epics &middot; 39 child issues, No changes): epic 1 SHOP-1 Checkout redesign with its child issues numbered 1.1 Plan the new checkout to 1.6 Ship to beta, all BACKLOG, then epic 2 SHOP-2 Store admin with 2.1 Login fails on Safari IN PROGRESS, under a toolbar with Find, Show on Stories, tasks &amp; bugs, Hide done and Numbers ticked, Priority lanes, Sort&hellip; and Move to&hellip;" width="1568" height="633" loading="lazy" decoding="async"><figcaption>A whole space as one numbered outline, in Jira&rsquo;s Rank order.</figcaption></figure>
 </section>
 
 <section id="ways-in" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Two ways in</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Two ways in</h2>
 <ul>
 <li><span class="ui">Reorder child issues</span> in an issue&rsquo;s <strong>&bull;&bull;&bull;</strong> menu &mdash; opens in a pop-up on that issue: an epic&rsquo;s child issues, or a story&rsquo;s sub-tasks.</li>
 <li><span class="ui">Issue Order for Jira</span> under <strong>Apps</strong> &mdash; a full page: choose a space and see its epics, child issues and sub-tasks together.</li>
@@ -247,32 +249,34 @@
 </section>
 
 <section id="first-reorder" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>Your first reorder in a minute</h2>
-<p>Say the epic <strong>Launch checklist</strong> (IOQ-1) has six child issues, and Jira has them in this order: Step 3 Write tests, Step 10 Ship, Step 1 Plan, Step 2 Build, Step 5 Review, Step 4 Fix bugs. Step 1 Plan should come first.</p>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>Your first reorder in a minute</h2>
+<p>Say the epic <strong>Checkout redesign</strong> (SHOP-1) has six child issues, and Jira has them in this order: Plan the new checkout, Build payment form, Write checkout tests, Fix rounding bug, Review with support, Ship to beta. Ship to beta should come first.</p>
 <ol>
-<li>Open Launch checklist in Jira, open its <strong>&bull;&bull;&bull;</strong> menu and choose <span class="ui">Reorder child issues</span>. A pop-up lists the six child issues, numbered 1 to 6, in the same order as Jira&rsquo;s Child work items.</li>
-<li>Point at <strong>Step 1 Plan</strong> (3). Press the grip that appears at its left edge and drag it up until a line shows above Step 3 Write tests. The label beside the pointer ends <span class="ui">&rarr; 1</span>. Let go.</li>
-<li>Step 1 Plan is now 1, with its number in blue, the old 3 struck through and the note <span class="ui">Moved up from 3</span>. The footer reads <span class="ui">Draft &middot; 1 change</span>. Nothing has changed in Jira yet.</li>
+<li>Open Checkout redesign in Jira, open its <strong>&bull;&bull;&bull;</strong> menu and choose <span class="ui">Reorder child issues</span>. A pop-up lists the six child issues, numbered 1 to 6, in the same order as Jira&rsquo;s Child work items.</li>
+<li>Point at <strong>Ship to beta</strong> (6). Press the grip that appears at its left edge and drag it up until a line shows above Plan the new checkout. The label beside the pointer ends <span class="ui">&rarr; 1</span>. Let go.</li>
+<li>Ship to beta is now 1, with its number in blue, the old 6 struck through and the note <span class="ui">Moved up from 6</span>. The footer reads <span class="ui">Draft &middot; 1 change</span>. Nothing has changed in Jira yet.</li>
 <li>Click <span class="ui">Save changes</span>. The footer shows <span class="ui">Checking Jira&hellip;</span>, then <span class="ui">Saving changes&hellip;</span>, and the status line says <span class="ui">Saved 1 change. Boards and backlogs show this order too.</span></li>
-<li>Click <span class="ui">Close</span>. Jira refreshes the epic, and its Child work items list now starts with Step 1 Plan. In the space&rsquo;s backlog, Step 1 Plan now sits directly above Step 3 Write tests too.</li>
+<li>Click <span class="ui">Close</span>. Jira refreshes the epic, and its Child work items list now starts with Ship to beta. In the space&rsquo;s backlog, Ship to beta now sits directly above Plan the new checkout too.</li>
 </ol>
 <div class="doc-tip">
 <p><strong>Reordering needs the Schedule issues and Edit issues permissions</strong> in that space. Without them you can see the outline but not change it &mdash; see the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
 </div>
 </section>
 
-<section id="where-next" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Where to next</h2>
-<p>The <a href="/resources/documentation/issueorder/guide">User guide</a> walks through the organizer, one job at a time:</p>
+<section id="all-pages" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>All documentation</h2>
+<div data-doc-children>
 <div class="doc-hub">
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/about-the-app"><span class="doc-hub-card-title">About the app</span><span class="doc-hub-card-sub">The outline, its numbers and toolbar, and what the app keeps in your browser.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/drag-and-drop"><span class="doc-hub-card-title">Drag and drop</span><span class="doc-hub-card-sub">Tick issues, then drag them into place or onto another epic.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/move-to"><span class="doc-hub-card-title">Move to&hellip;</span><span class="doc-hub-card-sub">Send issues to another epic, even one in another space.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/sort"><span class="doc-hub-card-title">Sort</span><span class="doc-hub-card-sub">Up to three levels, including the space&rsquo;s own fields, with a live preview.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/priority-lanes"><span class="doc-hub-card-title">Priority lanes</span><span class="doc-hub-card-sub">Group a list by priority, and change an issue&rsquo;s priority by dragging.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/guide/review-and-save"><span class="doc-hub-card-title">Review and save</span><span class="doc-hub-card-sub">Check every change, then save it all to Jira in one go.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/installation"><span class="doc-hub-card-title">Installation</span><span class="doc-hub-card-sub">Installing from the Marketplace, the free tier, and uninstalling.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/where-to-open"><span class="doc-hub-card-title">Where to open it</span><span class="doc-hub-card-sub">Reorder child issues on an issue, or the Apps page for a whole space.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/guide"><span class="doc-hub-card-title">User guide</span><span class="doc-hub-card-sub">Arrange, review and save: drag, Move to, Sort, priority lanes and saving.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/admin"><span class="doc-hub-card-title">Admin guide</span><span class="doc-hub-card-sub">Permissions, where it appears, space types, the Rank field, licensing and uninstalling.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/technical"><span class="doc-hub-card-title">App technical information</span><span class="doc-hub-card-sub">Where it runs, what it stores, and how loading and saving work.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/faq"><span class="doc-hub-card-title">FAQ</span><span class="doc-hub-card-sub">Boards and backlogs, teammates, sub-tasks, team-managed spaces, permissions and data, in short answers.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/troubleshooting"><span class="doc-hub-card-title">Help and support</span><span class="doc-hub-card-sub">Every message the app can show, with its cause and the fix, plus how to contact support.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/release-notes"><span class="doc-hub-card-title">Release notes</span><span class="doc-hub-card-sub">Every version, newest first.</span></a>
 </div>
-<p>Setting it up? See <a href="/resources/documentation/issueorder/installation">Installation</a> and the <a href="/resources/documentation/issueorder/admin">Admin guide</a>. Something not working? <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a> lists the app&rsquo;s messages and what to do about each.</p>
+</div>
 </section>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — App technical information">
   <meta property="og:description" content="How Issue Order for Jira works: Forge Custom UI with no backend, every call made as you, nothing stored outside your browser, saves written to Jira&#x27;s Rank.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — App technical information">
   <meta name="twitter:description" content="How Issue Order for Jira works: Forge Custom UI with no backend, every call made as you, nothing stored outside your browser, saves written to Jira&#x27;s Rank.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -233,6 +235,17 @@
     </aside>
 
     <div class="doc-content">
+<section id="technical" style="scroll-margin-top:100px;">
+<h2>App technical information</h2>
+<p>Where the app runs, whose permissions it uses, what it keeps, and how a list loads and a save reaches Jira. Issue Order runs entirely on Atlassian, with no backend and no external servers.</p>
+<div data-doc-children>
+<div class="doc-hub">
+<a class="doc-hub-card" href="/resources/documentation/issueorder/limits"><span class="doc-hub-card-title">Limits</span><span class="doc-hub-card-sub">Every ceiling in one place, and what happens at each.</span></a>
+<a class="doc-hub-card" href="/resources/documentation/issueorder/specs"><span class="doc-hub-card-title">Specs &amp; security</span><span class="doc-hub-card-sub">Scopes, data handling, hosting and authentication.</span></a>
+</div>
+</div>
+</section>
+
 <section id="where-it-runs" style="scroll-margin-top:100px;">
 <h2>Where it runs</h2>
 <p>Issue Order for Jira is an Atlassian Forge app made of one Custom UI screen and nothing else: no backend function, no Forge storage, no triggers and no scheduled jobs. Jira shows that screen for <span class="ui">Issue Order for Jira</span> under <strong>Apps</strong>, and in a pop-up for <span class="ui">Reorder child issues</span> in an issue&rsquo;s <span class="ui">&bull;&bull;&bull;</span> menu (see <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>).</p>
@@ -254,7 +267,7 @@
 <tr><td><span class="ui">Show</span> level</td><td>Jira site</td><td>How many levels the Apps page opens with</td></tr>
 <tr><td><span class="ui">Hide done</span>, <span class="ui">Numbers</span></td><td>Browser</td><td>Whether each switch is on</td></tr>
 <tr><td>Priority lanes&rsquo; <span class="ui">Not placed yet</span></td><td>Person, site and list</td><td>When you last looked at the list, and the keys of new issues you&rsquo;ve placed or kept</td></tr>
-<tr><td>Unsaved changes (the safety net)</td><td>Person, site and starting point: a space, or the issue the pop-up opened on</td><td>While you have unsaved changes: the keys of the issues you changed, their new places and priorities, and the lists you made them on. No summaries.</td></tr>
+<tr><td>Unsaved changes (the safety net)</td><td>Person, site and starting point: a space, or the issue the pop-up opened on</td><td>While you have unsaved changes: the keys of the issues you changed, their new places, new priorities and the name of any sort you applied (such as <span class="ui">Sorted by priority</span>), and the lists you made them on. No summaries.</td></tr>
 </tbody>
 </table>
 <p>The safety net is what lets a closed tab come back with <span class="ui">Restore unsaved changes</span>. It is cleared by a save that leaves nothing unsaved, by <span class="ui">Discard</span> (or <span class="ui">Discard them</span> on the restore banner), and by <span class="ui">Leave without saving</span> or <span class="ui">Switch and discard</span>; after 14 days it is ignored and removed. If the browser blocks storage, the switches start at their defaults and there is no safety net.</p>
@@ -268,7 +281,7 @@
 <li><strong>The issues themselves.</strong> They are then read directly, 100 to a call and up to 8 calls at once, each with its current parent and Rank.</li>
 </ol>
 <p>The second step keeps the outline exact. Search can lag behind a change: for a second or two after a re-rank it can return the old order, and just after a parent change it can still list an issue under its old parent. An issue&rsquo;s own Rank and parent are current at once, so the order always comes from Rank, and an issue that just changed parent goes in the list it now belongs to. A sub-task created moments ago is picked up from its parent&rsquo;s own list of sub-tasks. Deleted issues, and issues you can&rsquo;t see, are left out.</p>
-<p>A list shows up to 1,000 issues (<a href="/resources/documentation/issueorder/limits#issues-per-list">Limits</a>). The toolbar&rsquo;s <span class="ui">Refresh from Jira</span> reads every list it has loaded again; coming back to the tab does it quietly, at most once a minute, when you have no unsaved changes and nothing to undo.</p>
+<p>A list shows up to 1,000 issues (<a href="/resources/documentation/issueorder/limits#issues-per-list">Limits</a>). The toolbar&rsquo;s <span class="ui">Refresh from Jira</span> reads every list it has loaded again; coming back to the tab does it quietly, at most once a minute, only with nothing unsaved and nothing to undo, and not while a pop-up or the Sort bar is open.</p>
 </section>
 
 <section id="how-a-save-works" style="scroll-margin-top:100px;">
@@ -288,16 +301,6 @@
 <p>Until you save, &#8984;/Ctrl+Z undoes your last change and &#8679;&#8984;Z or Ctrl+Y redoes it, up to 100 steps. After a save there is no undo, as in Jira itself: put the issues back and save again.</p>
 <h3 id="busy" style="scroll-margin-top:100px;">When Jira is busy</h3>
 <p>If Jira answers &ldquo;too many requests&rdquo;, the app waits as long as Jira asks (or 1, 2, 4, then 8 seconds, never more than 10 at a time) and tries again, up to four times. Only that answer is retried, because Jira didn&rsquo;t act on the request. If Jira is still busy, you see <span class="ui">Jira is limiting requests right now. Wait a few seconds, then try again.</span></p>
-</section>
-
-<section id="limits-and-security" style="scroll-margin-top:100px;">
-<h2>Limits, specs and security</h2>
-<div data-doc-children>
-<div class="doc-hub">
-<a class="doc-hub-card" href="/resources/documentation/issueorder/limits"><span class="doc-hub-card-title">Limits</span><span class="doc-hub-card-sub">Every ceiling in one place, and what happens at each.</span></a>
-<a class="doc-hub-card" href="/resources/documentation/issueorder/specs"><span class="doc-hub-card-title">Specs &amp; security</span><span class="doc-hub-card-sub">Scopes, data handling, hosting and authentication.</span></a>
-</div>
-</div>
 </section>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

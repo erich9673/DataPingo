@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Admin guide">
   <meta property="og:description" content="Issue Order for Jira admin guide: the Jira permissions it relies on, where it appears, space types, the Rank field, licensing and uninstalling.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Admin guide">
   <meta name="twitter:description" content="Issue Order for Jira admin guide: the Jira permissions it relies on, where it appears, space types, the Rank field, licensing and uninstalling.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -245,13 +247,13 @@
 <thead><tr><th>To</th><th>What you need</th><th>Without it</th></tr></thead>
 <tbody>
 <tr><td>See a space and its issues</td><td>Permission to browse the space. Issue security applies as anywhere in Jira.</td><td>The space isn&rsquo;t listed on the Apps page, and issues you can&rsquo;t see never load, not even in <span class="ui">Move to&hellip;</span>.</td></tr>
-<tr><td>Reorder issues: drag, <span class="ui">Sort&hellip;</span>, <span class="ui">Put in lanes</span>, <span class="ui">Move up</span> and the rest</td><td><strong>Schedule issues</strong> and <strong>Edit issues</strong> in the issue&rsquo;s space, the pair Jira&rsquo;s own ranking needs</td><td>Read-only, with a banner. A drag says <span class="ui">You can&rsquo;t reorder issues in Issue Order QA. It needs the Schedule issues and Edit issues permissions.</span> and nothing moves.</td></tr>
-<tr><td>Give an issue another epic or parent</td><td><strong>Edit issues</strong>, plus <strong>Schedule issues</strong> to place it in its new list</td><td>The issue stays put, with the reason, such as <span class="ui">You can&rsquo;t change IOQ-12&rsquo;s parent: it needs the Edit issues permission in Issue Order QA.</span></td></tr>
+<tr><td>Reorder issues: drag, <span class="ui">Sort&hellip;</span>, <span class="ui">Put in lanes</span>, <span class="ui">Move up</span> and the rest</td><td><strong>Schedule issues</strong> and <strong>Edit issues</strong> in the issue&rsquo;s space, the pair Jira&rsquo;s own ranking needs</td><td>Read-only, with a banner. A drag says <span class="ui">You can&rsquo;t reorder issues in Shop. It needs the Schedule issues and Edit issues permissions.</span> and nothing moves.</td></tr>
+<tr><td>Give an issue another epic or parent</td><td><strong>Edit issues</strong>, plus <strong>Schedule issues</strong> to place it in its new list</td><td>The issue stays put, with the reason, such as <span class="ui">You can&rsquo;t change SHOP-12&rsquo;s parent: it needs the Edit issues permission in Shop.</span></td></tr>
 <tr><td>Change a priority by dragging into another lane</td><td>The same as reordering, since the drag reorders too</td><td>Nothing moves.</td></tr>
 </tbody>
 </table>
 <h3 id="read-only-banner" style="scroll-margin-top:100px;">The read-only banner</h3>
-<p>When you lack either permission in a space whose issues are on screen, a banner names it: <span class="ui">You can see Issue Order QA but can&rsquo;t reorder there. It needs the Schedule issues and Edit issues permissions.</span> Everything stays readable, and changes that involve that space are refused with the reason.</p>
+<p>When you lack either permission in a space whose issues are on screen, a banner names it: <span class="ui">You can see Shop but can&rsquo;t reorder there. It needs the Schedule issues and Edit issues permissions.</span> Everything stays readable, and changes that involve that space are refused with the reason.</p>
 <p>If the check itself fails, the app doesn&rsquo;t assume no. It lets you work, and Jira gives the real answer at save: anything refused is named and stays in your draft, and the rest is saved.</p>
 <div class="doc-tip">
 <p><strong>Where to grant them.</strong> In a company-managed space, from the space&rsquo;s permission scheme. In a team-managed space, the person&rsquo;s role in the space decides. Newer Jira screens may say &ldquo;work items&rdquo; where these names say &ldquo;issues&rdquo;.</p>
@@ -260,7 +262,7 @@
 
 <section id="nothing-to-configure" style="scroll-margin-top:100px;">
 <h2>Nothing to configure</h2>
-<p>There is no settings screen, no admin page and no app data to manage. A Jira site admin installs the app once for the whole site, because Forge apps can&rsquo;t be installed per space (see <a href="/resources/documentation/issueorder/installation">Installation</a>). After that, everyone can open it. The view switches, such as <span class="ui">Hide done</span> and <span class="ui">Priority lanes</span>, are kept in each person&rsquo;s own browser, so they never change anyone else&rsquo;s view.</p>
+<p>There is no settings screen, no admin page and no app data to manage. A Jira site admin installs the app once for the whole site, because Forge apps can&rsquo;t be installed per space (see <a href="/resources/documentation/issueorder/installation">Installation</a>). After that, everyone can open it. The view choices (<span class="ui">Show</span>, <span class="ui">Hide done</span> and <span class="ui">Numbers</span>) and the last space opened are kept in the browser, not in Jira, so they never change anyone else&rsquo;s view. <span class="ui">Priority lanes</span> starts off each time the app opens.</p>
 </section>
 
 <section id="where-it-appears" style="scroll-margin-top:100px;">
@@ -298,14 +300,14 @@
 
 <section id="licensing" style="scroll-margin-top:100px;">
 <h2>Licensing</h2>
-<p>Issue Order is <strong>free for sites with 10 or fewer users</strong>, and paid per user above that, billed through the Atlassian Marketplace. Prices are on the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">Marketplace listing</a>. A site admin starts a trial or subscribes from the app&rsquo;s page on the Marketplace.</p>
+<p>Issue Order is <strong>free for teams of 10 or fewer users</strong>. Above that it&rsquo;s billed per user, on graduated tiers, through the Atlassian Marketplace on your existing Atlassian invoice; from 11 users, every user is billed. Prices are on the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">Marketplace listing</a>. A site admin starts a trial or subscribes from the app&rsquo;s page on the Marketplace.</p>
 <p>The license is checked every time the app opens. If the site&rsquo;s subscription isn&rsquo;t active, both ways in show only <span class="ui">Issue Order needs an active subscription on this site. Ask your Jira admin to subscribe to Issue Order for Jira on the Atlassian Marketplace.</span> In the pop-up, <span class="ui">Close</span> closes it. Orders already saved are unaffected: they are Jira&rsquo;s own Rank.</p>
 </section>
 
 <section id="uninstall" style="scroll-margin-top:100px;">
 <h2>Uninstalling</h2>
 <p>A site admin uninstalls the app from <strong>Manage apps</strong>, under <strong>Settings &rarr; Apps</strong> in Jira. There is nothing to export or clean up. Everything the app saved is Jira&rsquo;s own (Rank, parents and priorities), so every issue stays where the last save put it.</p>
-<p>The only traces are in each person&rsquo;s browser: their view switches and last space, the priority lanes&rsquo; notes, and any unsaved changes the safety net kept, as issue keys. None of it is ever sent anywhere. <a href="/resources/documentation/issueorder/technical#what-it-stores">What it stores</a> lists each item.</p>
+<p>The only traces are in each person&rsquo;s browser: their view switches and last space, the priority lanes&rsquo; notes, and any unsaved changes the safety net kept (issue keys, priority names and sort names, never summaries). None of it is ever sent anywhere. <a href="/resources/documentation/issueorder/technical#what-it-stores">What it stores</a> lists each item.</p>
 </section>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

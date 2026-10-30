@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
-  <title>Issue Order for Jira — First release — October 2026</title>
+  <title>Issue Order for Jira — First release</title>
   <meta name="description" content="The first release of Issue Order for Jira: a numbered outline in Rank order, drag and Move to, Sort, priority lanes, and one save.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/release-notes/first-release">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/release-notes/first-release">
-  <meta property="og:title" content="Issue Order for Jira — First release — October 2026">
+  <meta property="og:title" content="Issue Order for Jira — First release">
   <meta property="og:description" content="The first release of Issue Order for Jira: a numbered outline in Rank order, drag and Move to, Sort, priority lanes, and one save.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Issue Order for Jira — First release — October 2026">
+  <meta name="twitter:title" content="Issue Order for Jira — First release">
   <meta name="twitter:description" content="The first release of Issue Order for Jira: a numbered outline in Rank order, drag and Move to, Sort, priority lanes, and one save.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -85,7 +85,7 @@
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "First release \u2014 October 2026",
+      "name": "First release",
       "item": "https://datapingo.com/resources/documentation/issueorder/release-notes/first-release"
     }
   ]
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -256,7 +258,7 @@
 <li><strong>Without an epic</strong> and <strong>Under epics in other spaces</strong> &mdash; sections at the bottom, so every issue in the space has a place.</li>
 <li><strong>Find, Hide done and Numbers</strong> &mdash; find an issue by key or summary; hide done issues (on by default); show or hide the numbers.</li>
 <li><strong>Up to 1,000 issues per list</strong>, with the list saying so when there are more. With Hide done on, a longer list shows its first 1,000 open issues.</li>
-<li><strong>Light and dark</strong>, matching your Jira theme, with Jira&rsquo;s icons for its standard work types (epic, story, task, bug, feature, sub-task); other types get a neutral grey icon.</li>
+<li><strong>Light and dark</strong>, matching your Jira theme, with icons drawn to match Jira&rsquo;s standard work types (epic, story, task, bug, feature, sub-task); other types get a neutral grey icon.</li>
 </ul>
 <h3 id="drag-and-select" style="scroll-margin-top:100px;">Dragging and ticking</h3>
 <ul>
@@ -283,9 +285,9 @@
 </ul>
 <h3 id="priority-lanes" style="scroll-margin-top:100px;">Priority lanes</h3>
 <ul>
-<li><strong>One switch</strong> &mdash; tick <span class="ui">Priority lanes</span> in the toolbar and every list is put in priority order, grouped into lanes, as part of your draft. Untick it to take that back.</li>
+<li><strong>One switch</strong> &mdash; tick <span class="ui">Priority lanes</span> in the toolbar and each epic&rsquo;s child issues, and their sub-tasks, are put in priority order, grouped into lanes (or the epics too, with <span class="ui">Child issues and epics</span>), as part of your draft. Untick it to take that back.</li>
 <li><strong>Drag into another lane to change an issue&rsquo;s priority</strong> as well as its place; the new priority is saved with the order.</li>
-<li><strong>Lists left out of order say how many</strong> &mdash; <span class="ui"><em>n</em> of <em>n</em> out of priority order</span> &mdash; and <span class="ui">Put in lanes</span> sorts them into lanes, keeping your order within each lane.</li>
+<li><strong>Lists left out of order say how many</strong> &mdash; <span class="ui"><em>n</em> of <em>m</em> out of priority order</span> &mdash; and <span class="ui">Put in lanes</span> sorts them into lanes, keeping your order within each lane.</li>
 <li><strong>Not placed yet</strong> &mdash; issues new since you last ordered a list wait at its top: <span class="ui">Place by priority</span> or <span class="ui">Keep where they are</span>.</li>
 </ul>
 <h3 id="draft-review-save" style="scroll-margin-top:100px;">Draft, Review and save</h3>
@@ -298,7 +300,7 @@
 </ul>
 <h3 id="safety-net" style="scroll-margin-top:100px;">Safety net</h3>
 <ul>
-<li><strong>Unsaved changes survive a closed tab</strong> &mdash; they&rsquo;re kept in your browser (issue keys only) while you edit, and coming back offers <span class="ui">Restore unsaved changes</span> or <span class="ui">Discard them</span>.</li>
+<li><strong>Unsaved changes survive a closed tab</strong> &mdash; they&rsquo;re kept in your browser (issue keys, priority names and sort names, never summaries) while you edit, and coming back offers <span class="ui">Restore unsaved changes</span> or <span class="ui">Discard them</span>.</li>
 <li><strong>Lists that changed in Jira since</strong> get back only your own moves, so a teammate&rsquo;s work stays.</li>
 <li><strong>Kept for 14 days</strong>, and cleared when you save, discard or leave without saving.</li>
 <li><strong>Leaving asks first</strong> &mdash; <span class="ui">Close</span> in the pop-up and switching space on the Apps page both ask before unsaved changes are lost.</li>
@@ -307,7 +309,7 @@
 <ul>
 <li><strong>Big spaces load fast</strong> &mdash; the app finds a list&rsquo;s issues in one quick search, then reads them several at a time.</li>
 <li><strong>Your last space opens straight away</strong>, while the full list of spaces loads behind it.</li>
-<li><strong>A fresh view when you come back</strong> &mdash; returning to the tab quietly reloads the outline from Jira, at most once a minute and only when you have no unsaved changes.</li>
+<li><strong>A fresh view when you come back</strong> &mdash; returning to the tab quietly reloads the outline from Jira if it last read a minute or more ago, but only with nothing unsaved and nothing to undo, and not while a pop-up or the Sort bar is open.</li>
 </ul>
 <h3 id="permissions-and-data" style="scroll-margin-top:100px;">Permissions and data</h3>
 <ul>
@@ -316,7 +318,7 @@
 </ul>
 </section>
 <div class="doc-tip">
-<p><strong>Free for sites with 10 or fewer users.</strong> Install it from the Atlassian Marketplace &mdash; see <a href="/resources/documentation/issueorder/installation">Installation</a>.</p>
+<p><strong>Free for teams of 10 or fewer.</strong> Install it from the Atlassian Marketplace &mdash; see <a href="/resources/documentation/issueorder/installation">Installation</a>.</p>
 </div>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

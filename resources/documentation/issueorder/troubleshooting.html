@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Help and support">
   <meta property="og:description" content="What each Issue Order for Jira message means when loading, sorting, moving or saving issues, how to fix it, and how to reach DataPingo support.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Help and support">
   <meta name="twitter:description" content="What each Issue Order for Jira message means when loading, sorting, moving or saving issues, how to fix it, and how to reach DataPingo support.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -257,7 +259,7 @@
 <p class="ts-fix">Check your access to the space in Jira. <span class="ui">Find a space</span> filters by name, or by a space&rsquo;s exact key.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">IOQ-1 couldn&rsquo;t be found. It may have been deleted, or you may not have permission to see it.</p>
+<p class="ts-msg">SHOP-1 couldn&rsquo;t be found. It may have been deleted, or you may not have permission to see it.</p>
 <p class="ts-cause">The issue you chose <span class="ui">Reorder child issues</span> on couldn&rsquo;t be read as you.</p>
 <p class="ts-fix">Open the issue in Jira yourself. If it doesn&rsquo;t load there, it can&rsquo;t load here: ask the space&rsquo;s admin for access.</p>
 </div>
@@ -294,7 +296,7 @@
 <div class="ts-item">
 <p class="ts-msg">An issue created or moved in Jira doesn&rsquo;t show</p>
 <p class="ts-cause">Each list is read when it first opens. Changes made in Jira after that show when the lists are read again.</p>
-<p class="ts-fix">Press <span class="ui">Refresh from Jira</span> (&#8635;); your unsaved changes are put back on top. With nothing unsaved and nothing to undo, coming back to the tab also reloads the outline by itself, once the lists are more than a minute old.</p>
+<p class="ts-fix">Press <span class="ui">Refresh from Jira</span> (&#8635;); your unsaved changes are put back on top. With nothing unsaved, nothing to undo, and no pop-up or Sort bar open, coming back to the tab also reloads the outline by itself, once the lists are more than a minute old.</p>
 </div>
 <div class="ts-item">
 <p class="ts-msg">Loaded the latest from Jira. <em>n</em> lists couldn&rsquo;t be read, so they show what was loaded before.</p>
@@ -303,16 +305,21 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">No issues match &ldquo;&hellip;&rdquo;.</p>
-<p class="ts-cause">Find looks through what&rsquo;s loaded: the top list and the level under it, and sub-tasks only once their issue has been opened. With <span class="ui">Hide done</span> ticked, done issues aren&rsquo;t found. A whole key, like IOQ-9, finds that issue only.</p>
+<p class="ts-cause">Find looks through what&rsquo;s loaded: the top list and the level under it, and sub-tasks only once their issue has been opened. With <span class="ui">Hide done</span> ticked, done issues aren&rsquo;t found. A whole key, like SHOP-9, finds that issue (or a summary that names it), not SHOP-90.</p>
 <p class="ts-fix">Untick <span class="ui">Hide done</span>, or choose <span class="ui">Sub-tasks</span> under <span class="ui">Show</span>, then search again.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">All <em>n</em> epics are done. Untick Hide done to see them. &nbsp;/&nbsp; IOQ-7 has no child issues yet. &nbsp;/&nbsp; This space has no epics yet. Issues without an epic are listed below.</p>
-<p class="ts-cause">Everything in the list is done and <span class="ui">Hide done</span> is ticked, or there is nothing in it yet. Inside the outline, an epic like that reads <span class="ui">All <em>n</em> are done. Untick Hide done to see them.</span> or <span class="ui">Nothing here yet. Drop issues here to move them in.</span></p>
+<p class="ts-msg">All <em>n</em> epics are done. Untick Hide done to see them. &nbsp;/&nbsp; SHOP-7 has no child issues yet. &nbsp;/&nbsp; This space has no issues yet.</p>
+<p class="ts-cause">Everything in the list is done and <span class="ui">Hide done</span> is ticked, or there is nothing in it yet. A space with no epics opens on its issues, and the message uses the space&rsquo;s own word for them, such as tasks. Inside the outline, an epic like that reads <span class="ui">All <em>n</em> are done. Untick Hide done to see them.</span> or <span class="ui">Nothing here yet. Drop issues here to move them in.</span></p>
 <p class="ts-fix">Untick <span class="ui">Hide done</span>, or drag issues onto the empty epic to move them in.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">Sub-tasks don&rsquo;t have child issues. Open this on the issue above it to reorder its sub-tasks. &nbsp;/&nbsp; IOQ-12&rsquo;s space has no sub-task type, so there&rsquo;s nothing under it to put in order.</p>
+<p class="ts-msg">This space has no issues of its own here. <em>n</em> issues sit under epics in other spaces, below.</p>
+<p class="ts-cause">The space has no epics, and every issue it has sits under an epic in another space. Those issues are listed below, under <span class="ui">Under epics in other spaces</span>.</p>
+<p class="ts-fix">Nothing to fix. Reorder them in that list, or move them out of it with <span class="ui">Move to&hellip;</span>.</p>
+</div>
+<div class="ts-item">
+<p class="ts-msg">Sub-tasks don&rsquo;t have child issues. Open this on the issue above it to reorder its sub-tasks. &nbsp;/&nbsp; <em>key</em>&rsquo;s space has no sub-task type, so there&rsquo;s nothing under it to put in order.</p>
 <p class="ts-cause">You chose <span class="ui">Reorder child issues</span> on a sub-task, or on a story or task in a space whose work types include no sub-tasks.</p>
 <p class="ts-fix">Open the sub-task&rsquo;s parent, or the epic above the issue, and choose <span class="ui">&bull;&bull;&bull;</span> &rarr; <span class="ui">Reorder child issues</span> there.</p>
 </div>
@@ -327,19 +334,14 @@
 <h2>Permissions</h2>
 <p>The app acts as you. Reordering needs Jira&rsquo;s <strong>Schedule issues</strong> and <strong>Edit issues</strong> permissions in the space, the same pair Jira&rsquo;s own ranking needs. Moving an issue to another parent needs both too, because the app ranks it where you put it. A new priority needs <strong>Edit issues</strong>. See the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
 <div class="ts-item">
-<p class="ts-msg">You can see Issue Order QA but can&rsquo;t reorder there. It needs the Schedule issues and Edit issues permissions.</p>
-<p class="ts-cause">You lack one or both permissions in that space, so its issues are read-only for you. A drag, sort or move there stops with <span class="ui">You can&rsquo;t reorder issues in Issue Order QA. It needs the Schedule issues and Edit issues permissions.</span></p>
+<p class="ts-msg">You can see Shop but can&rsquo;t reorder there. It needs the Schedule issues and Edit issues permissions.</p>
+<p class="ts-cause">You lack one or both permissions in that space, so its issues are read-only for you. A drag, sort or move there stops with <span class="ui">You can&rsquo;t reorder issues in Shop. It needs the Schedule issues and Edit issues permissions.</span></p>
 <p class="ts-fix">Ask a Jira admin or the space&rsquo;s admin for both permissions, then close the app and open it again, so it checks once more.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">You can&rsquo;t change IOQ-56&rsquo;s parent: it needs the Edit issues permission in Issue Order QA. &nbsp;/&nbsp; IOQ-56 can&rsquo;t be moved: placing it needs the Schedule issues permission in Issue Order QA.</p>
+<p class="ts-msg">You can&rsquo;t change SHOP-56&rsquo;s parent: it needs the Edit issues permission in Shop. &nbsp;/&nbsp; SHOP-56 can&rsquo;t be moved: placing it needs the Schedule issues permission in Shop.</p>
 <p class="ts-cause">You can&rsquo;t edit that issue, or can&rsquo;t rank it where it would land. Any other issues in the same move still go.</p>
 <p class="ts-fix">Ask for the permission named, or ask someone who has it to move the issue.</p>
-</div>
-<div class="ts-item">
-<p class="ts-msg">IOQ-56 kept its priority: changing it needs the Edit issues permission.</p>
-<p class="ts-cause">You dragged it into another priority lane, but you can&rsquo;t edit its priority. It moved; its priority stays as it was.</p>
-<p class="ts-fix">Ask for Edit issues, or ask someone who has it to change the priority.</p>
 </div>
 <div class="ts-item">
 <p class="ts-msg">Jira&rsquo;s ranking isn&rsquo;t available to you on this site, so issues can be seen here but not reordered. &nbsp;/&nbsp; This Jira site has no Rank field, so issues can be seen here but not reordered.</p>
@@ -373,13 +375,13 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">Sort or cancel the sort first.</p>
-<p class="ts-cause">The Sort bar is open, and the outline shows its preview, so dragging, undoing, discarding and saving wait for it.</p>
+<p class="ts-cause">The Sort bar is open, and the outline shows its preview, so dragging, the <span class="ui">&times;</span> undo buttons on rows, <span class="ui">Discard</span> and <span class="ui">Save changes</span> wait for it.</p>
 <p class="ts-fix">Press <span class="ui">Sort</span> to keep the sort in your draft, or <span class="ui">Cancel</span> (or <kbd>Esc</kbd>) to drop it.</p>
 </div>
 <div class="ts-item">
 <p class="ts-msg">Tick an epic to sort its child issues, or tick 2 or more issues to sort just those. &nbsp;/&nbsp; Tick an issue with sub-tasks to sort them, or tick 2 or more issues to sort just those.</p>
-<p class="ts-cause">Sort sorts what&rsquo;s ticked, and one ticked issue with nothing under it leaves it nothing to sort. In the pop-up the same case reads <span class="ui">Untick it to sort all of IOQ-1&rsquo;s child issues, or tick 2 or more to sort just those.</span></p>
-<p class="ts-fix">Tick an epic, an issue with sub-tasks, or two or more issues. Or untick everything to sort the top list.</p>
+<p class="ts-cause">Sort sorts what&rsquo;s ticked, and one ticked issue with nothing under it leaves it nothing to sort. In the pop-up the same case reads <span class="ui">Untick it to sort all of SHOP-1&rsquo;s child issues, or tick 2 or more to sort just those.</span></p>
+<p class="ts-fix">Tick an epic, an issue with sub-tasks, or two or more issues. Or untick everything to sort the child issues in each epic (in a space with no epics, its issues; in the pop-up, the issue&rsquo;s own list). To sort the epics themselves, choose <span class="ui">the epics</span> in the drop-down after <span class="ui">Sort</span> in the bar.</p>
 </div>
 <div class="ts-item">
 <p class="ts-msg">Already in this order. &nbsp;/&nbsp; Already in Jira&rsquo;s order. &nbsp;/&nbsp; Pick a field to sort by.</p>
@@ -398,7 +400,7 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">My last sort&rsquo;s &ldquo;then by&rdquo; levels are gone</p>
-<p class="ts-cause">Sort starts afresh each time it opens: on <span class="ui">Rank</span>, sorting the child issues in each epic (in the pop-up, the issue&rsquo;s own list), with no levels left over. While it&rsquo;s open, a level whose field isn&rsquo;t offered for what you&rsquo;re sorting now, such as another space&rsquo;s field, is dropped.</p>
+<p class="ts-cause">Sort starts afresh each time it opens: on <span class="ui">Rank</span>, with no levels left over, sorting the child issues in each epic. In a space with no epics it sorts the issues themselves. In the pop-up it sorts the issue&rsquo;s own list, except on an initiative, where it sorts the child issues in each of its epics. While it&rsquo;s open, a level whose field isn&rsquo;t offered for what you&rsquo;re sorting now, such as another space&rsquo;s field, is dropped.</p>
 <p class="ts-fix">Pick the levels again.</p>
 </div>
 <div class="ts-item">
@@ -426,11 +428,16 @@
 <p class="ts-cause"><span class="ui">Put in lanes</span> sorts a whole list by priority, and a long list isn&rsquo;t fully loaded.</p>
 <p class="ts-fix">Move some issues out first. See <a href="/resources/documentation/issueorder/guide/priority-lanes">Priority lanes</a>.</p>
 </div>
+<div class="ts-item">
+<p class="ts-msg">I ticked Priority lanes and nothing moved</p>
+<p class="ts-cause">Lists already in priority order have nothing to move. Lists you can&rsquo;t reorder, lists past 1,000 issues, and a list you&rsquo;ve just sorted or restored are left as they are and show a count instead. Lanes also wait while unsaved changes from before are on offer, and if Jira&rsquo;s priority order couldn&rsquo;t be read: the lanes then follow Jira&rsquo;s default priorities (Highest to Lowest), but no list is rearranged, and no message says so.</p>
+<p class="ts-fix">Restore or discard the unsaved changes first, or untick <span class="ui">Priority lanes</span> and tick it again so the priority order is read again. See <a href="/resources/documentation/issueorder/guide/priority-lanes#turn-on">Turn lanes on</a>.</p>
+</div>
 </section>
 
 <section id="moving" style="scroll-margin-top:100px;">
 <h2>Dragging and moving</h2>
-<p>Before a move goes into your draft, the app checks what Jira would refuse. During a drag the reason shows in red beside the pointer; let go there and nothing moves, and the status line repeats the reason. See <a href="/resources/documentation/issueorder/guide/drag-and-drop">Drag and drop</a> and <a href="/resources/documentation/issueorder/guide/move-to">Move to another epic</a>.</p>
+<p>Before a move goes into your draft, the app checks what Jira would refuse. During a drag the reason shows in red beside the pointer; let go there and nothing moves, and the status line repeats the reason. See <a href="/resources/documentation/issueorder/guide/select-and-drag">Drag and drop</a> and <a href="/resources/documentation/issueorder/guide/move-to">Move to another epic</a>.</p>
 <div class="ts-item">
 <p class="ts-msg">Tick the issues to move first: click a row, or press a checkbox and sweep down.</p>
 <p class="ts-cause"><span class="ui">Move to&hellip;</span> in the toolbar moves the ticked issues, and none are ticked.</p>
@@ -439,7 +446,7 @@
 <div class="ts-item">
 <p class="ts-msg">I let go and nothing moved</p>
 <p class="ts-cause">A drop counts only where the blue line or a highlighted row shows. Over the dragged rows themselves, over the <span class="ui">Not placed yet</span> rows of priority lanes, or outside the outline, there&rsquo;s nowhere to land.</p>
-<p class="ts-fix">Drag again and let go once the line or highlight appears. The label beside the pointer says where the issues will land, such as <span class="ui">&rarr; 1.4</span> or <span class="ui">&rarr; into IOQ-4, at the end</span>.</p>
+<p class="ts-fix">Drag again and let go once the line or highlight appears. The label beside the pointer says where the issues will land, such as <span class="ui">&rarr; 1.4</span> or <span class="ui">&rarr; into SHOP-4, at the end</span>.</p>
 </div>
 <div class="ts-item">
 <p class="ts-msg">Child issues go under an epic. &nbsp;/&nbsp; Sub-tasks go under a story, task or bug, not an epic. &nbsp;/&nbsp; Epics go under the level above them, like an initiative.</p>
@@ -467,7 +474,7 @@
 <p class="ts-fix">Tick the issues, choose <span class="ui">Move to&hellip;</span>, tick <span class="ui">Other spaces</span>, and pick the epic.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">IOQ-56 stayed where it was: &hellip; &nbsp;/&nbsp; <em>n</em> issues can&rsquo;t go there</p>
+<p class="ts-msg">SHOP-56 stayed where it was: &hellip; &nbsp;/&nbsp; <em>n</em> issues can&rsquo;t go there</p>
 <p class="ts-cause">Some of the issues you moved can&rsquo;t go there, for the reason given after the colon. The others moved. While you drag, the label beside the pointer warns how many won&rsquo;t go.</p>
 <p class="ts-fix">Move those issues somewhere that takes them, or deal with the reason first.</p>
 </div>
@@ -507,8 +514,8 @@
 <p class="ts-fix">Untick <span class="ui">Hide done</span> to be offered done epics too.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">Nothing matches &ldquo;&hellip;&rdquo;. &nbsp;/&nbsp; No epics found.</p>
-<p class="ts-cause">The search in <span class="ui">Move to&hellip;</span> asks Jira for epics (or, for sub-tasks, issues) you can see that match a key or the start of a word in the summary, showing the 50 most recently updated. Without <span class="ui">Other spaces</span> it looks in this space only. An epic created a moment ago can take a few seconds to turn up. If the search itself fails, Jira&rsquo;s reason shows in red instead.</p>
+<p class="ts-msg">Nothing matches &ldquo;&hellip;&rdquo;. &nbsp;/&nbsp; No issues found. &nbsp;/&nbsp; No open initiatives found.</p>
+<p class="ts-cause">The search in <span class="ui">Move to&hellip;</span> asks Jira for epics you can see that match a key or the start of a word in the summary, showing the 50 most recently updated. Without <span class="ui">Other spaces</span> it looks in this space only. For sub-tasks it lists issues in the same space, and an empty list reads <span class="ui">No issues found.</span> For epics it lists initiatives. While <span class="ui">Hide done</span> is ticked, done ones are left out, and the note says so: when that leaves no initiative, it reads <span class="ui">No open initiatives found.</span> An epic created a moment ago can take a few seconds to turn up. If the search itself fails, Jira&rsquo;s reason shows in red instead, or <span class="ui">Search failed.</span></p>
 <p class="ts-fix">Type the epic&rsquo;s key, or more of its summary. Tick <span class="ui">Other spaces</span> for an epic elsewhere, untick <span class="ui">Hide done</span> for a done one, or wait a few seconds and search again.</p>
 </div>
 </section>
@@ -543,7 +550,7 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">Saved what Jira accepted. <em>n</em> changes couldn&rsquo;t be saved and stay in your draft. &nbsp;/&nbsp; Part of the new order was saved. &hellip;</p>
-<p class="ts-cause">Jira refused some changes. What it accepted is saved. Each refused change stays in your draft with a red note on its row, and the status line repeats the first one.</p>
+<p class="ts-cause">Jira refused some changes. What it accepted is saved. Each refused change stays in your draft with a red note on its row, and the status line repeats the first one. Here <em>n</em> counts what failed: each issue that didn&rsquo;t get its new parent or priority, and each list whose new order didn&rsquo;t go through, so it can differ from the draft&rsquo;s count.</p>
 <p class="ts-fix">Deal with each reason, below, then save again. Review lists what&rsquo;s left. See <a href="/resources/documentation/issueorder/guide/review-and-save#partial">When some changes can&rsquo;t be saved</a>.</p>
 </div>
 <div class="ts-item">
@@ -552,7 +559,7 @@
 <p class="ts-fix">Move the issue somewhere that still exists, or take the move back with its <span class="ui">&times;</span>. If the reason is a permission, ask for Edit issues in that space.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">Order not saved: IOQ-12, IOQ-13 couldn&rsquo;t be ranked. Jira said: &hellip; &nbsp;/&nbsp; Order not saved: Jira refused the new order. Jira said: &hellip; &nbsp;/&nbsp; Order only partly saved. &hellip; The rest is still in your draft.</p>
+<p class="ts-msg">Order not saved: SHOP-12, SHOP-13 couldn&rsquo;t be ranked. Jira said: &hellip; &nbsp;/&nbsp; Order not saved: Jira refused the new order. Jira said: &hellip; &nbsp;/&nbsp; Order only partly saved. &hellip; The rest is still in your draft.</p>
 <p class="ts-cause">Jira refused some or all of a list&rsquo;s new Rank, for the reason it gives. &ldquo;Partly&rdquo; means some rank calls went through before one failed.</p>
 <p class="ts-fix">Deal with Jira&rsquo;s reason, often an issue that was deleted or that you can&rsquo;t edit, then save again. Only what&rsquo;s still out of place is ranked.</p>
 </div>
@@ -568,7 +575,7 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">Priority not changed: &hellip;</p>
-<p class="ts-cause">Jira refused the new priority from a drag into another lane. The reason after it can read &ldquo;Jira refused the new order. Jira said: &hellip;&rdquo;; Jira&rsquo;s own words at the end are about the priority.</p>
+<p class="ts-cause">Jira refused the new priority from a drag into another lane. The reason after it uses the wording for a reorder, but it&rsquo;s about the priority. &ldquo;Jira refused the new order. Jira said: &hellip;&rdquo; ends in Jira&rsquo;s own words about the priority. &ldquo;Jira didn&rsquo;t let you reorder these issues&hellip;&rdquo; means Jira refused you: a new priority needs Edit issues in that space (the Schedule issues part doesn&rsquo;t apply). &ldquo;Jira didn&rsquo;t let Issue Order save this change&hellip;&rdquo; means Jira turned down the app, as under <a href="#permissions">Permissions</a>.</p>
 <p class="ts-fix">Deal with Jira&rsquo;s reason, such as an issue deleted meanwhile, then save again, or drag the issue back to its own lane.</p>
 </div>
 <div class="ts-item">
@@ -583,7 +590,7 @@
 </div>
 <div class="ts-item">
 <p class="ts-msg">Close, Discard or the space picker does nothing</p>
-<p class="ts-cause">A save is running, and nothing else can start until it ends. The space picker&rsquo;s tooltip says <span class="ui">Wait for the save to finish</span>.</p>
+<p class="ts-cause">A save or a <span class="ui">Refresh from Jira</span> is running, and nothing else can start until it ends. The space picker&rsquo;s tooltip says <span class="ui">Wait for the save to finish</span> either way.</p>
 <p class="ts-fix">Wait for the result in the status line.</p>
 </div>
 <div class="ts-item">
@@ -602,7 +609,7 @@
 <p class="ts-fix">For the first, press <span class="ui">Restore unsaved changes</span> again. For the second, make the changes again.</p>
 </div>
 <div class="ts-item">
-<p class="ts-msg">Leave without saving? Your <em>n</em> changes will be lost. &nbsp;/&nbsp; Switch to Issue Order Scale? Your unsaved changes in Issue Order QA will be lost.</p>
+<p class="ts-msg">Leave without saving? Your <em>n</em> changes will be lost. &nbsp;/&nbsp; Switch to <em>space</em>? Your unsaved changes in Shop will be lost.</p>
 <p class="ts-cause">You pressed <span class="ui">Close</span> in the pop-up, or chose another space on the Apps page, with changes not saved yet.</p>
 <p class="ts-fix"><span class="ui">Keep editing</span> keeps them so you can save. <span class="ui">Leave without saving</span> or <span class="ui">Switch and discard</span> drops them, and the copy in your browser too. Nothing has reached Jira either way.</p>
 </div>
@@ -624,7 +631,7 @@
 <div class="ts-item">
 <p class="ts-msg">Issue Order needs an active subscription on this site. Ask your Jira admin to subscribe to Issue Order for Jira on the Atlassian Marketplace.</p>
 <p class="ts-cause">Atlassian reports this site&rsquo;s license as inactive: a trial ended, or the subscription lapsed. It isn&rsquo;t about your own permissions; the app is off for everyone on the site. Your issues and their saved order are untouched, because the order is Jira&rsquo;s own Rank.</p>
-<p class="ts-fix">Ask a Jira admin to subscribe on the app&rsquo;s page on the Atlassian Marketplace (<strong>Manage apps</strong> in Jira has no way to subscribe). Issue Order is free for sites with 10 or fewer users and paid per user above that: see <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Atlassian Marketplace</a>. Then open the app again.</p>
+<p class="ts-fix">Ask a Jira admin to subscribe on the app&rsquo;s page on the Atlassian Marketplace (<strong>Manage apps</strong> in Jira has no way to subscribe). Issue Order is free for sites with 10 users or fewer; from 11 users, every user is billed, on graduated tiers: see <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Atlassian Marketplace</a>. Then open the app again.</p>
 </div>
 </section>
 

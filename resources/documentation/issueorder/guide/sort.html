@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Sort issues">
   <meta property="og:description" content="Sort child issues in Issue Order for Jira by priority, due date, status, story points or your space’s own fields, up to three levels, previewed before you save.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Sort issues">
   <meta name="twitter:description" content="Sort child issues in Issue Order for Jira by priority, due date, status, story points or your space’s own fields, up to three levels, previewed before you save.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -239,7 +241,7 @@
     </aside>
 
     <div class="doc-content">
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/sort.webp" alt="The Sort bar reads Sort the child issues of IOQ-1 Launch checklist by Priority, Highest first, then by Due date, Soonest first, with the note 1 issue changes place. Sort keeps it in your draft. Below it, the preview shows Step 2 Build (Highest) first and Step 1 Plan (Low) moved to 1.6." width="1568" height="522" loading="lazy" decoding="async"><figcaption>Sort an epic&rsquo;s child issues by Priority, then by Due date. The outline previews the result before you sort.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/sort.webp" alt="Checkout redesign is ticked and the Sort bar reads Sort the child issues of SHOP-1 Checkout redesign by Priority, Highest first, then by Due date, Soonest first, with the note 1 issue changes place. Sort keeps it in your draft. The header still reads No changes. Below it, the preview runs Build payment form (Highest), Write checkout tests, Fix rounding bug, Review with support and Ship to beta as 1.1 to 1.5, with Plan the new checkout (Low) moved to 1.6." width="1568" height="522" loading="lazy" decoding="async"><figcaption>Sort an epic&rsquo;s child issues by Priority, then by Due date. The outline previews the result before you sort.</figcaption></figure>
 
 <p><strong>Sort puts a list in order by the fields you pick, up to three levels deep.</strong> Tick what you want sorted, click <span class="ui">Sort&hellip;</span>, and choose. Issue Order for Jira shows the result in the outline while you choose. Click <span class="ui">Sort</span> and the new order joins your draft; nothing changes in Jira until you click <span class="ui">Save changes</span>.</p>
 
@@ -249,21 +251,22 @@
 <table class="spec-table">
 <thead><tr><th>Ticked</th><th>What is sorted</th></tr></thead>
 <tbody>
-<tr><td>One epic</td><td>Its child issues: <span class="ui">Sort the child issues of IOQ-1 Launch checklist</span>. Ticking an epic lights up its child issues, so you can see what Sort will act on.</td></tr>
+<tr><td>One epic</td><td>Its child issues: <span class="ui">Sort the child issues of SHOP-1 Checkout redesign</span>. Ticking an epic lights up its child issues, so you can see what Sort will act on.</td></tr>
 <tr><td>Several epics</td><td>Each epic&rsquo;s child issues, each list on its own: <span class="ui">the child issues of <em>n</em> epics</span>. The epics themselves don&rsquo;t move.</td></tr>
-<tr><td>One issue with sub-tasks</td><td>Its sub-tasks: <span class="ui">the sub-tasks of IOQ-44 Story with 5 sub-tasks</span>.</td></tr>
+<tr><td>One issue with sub-tasks</td><td>Its sub-tasks: <span class="ui">the sub-tasks of SHOP-44 Tracking page</span>.</td></tr>
 <tr><td>Two or more issues</td><td>Only those issues: <span class="ui">the <em>n</em> selected issues, in their own places</span>. They trade places among the spots they already hold, and every issue you didn&rsquo;t tick stays put. Ticked issues under different epics are sorted within each epic; none changes epic.</td></tr>
-<tr><td>Nothing</td><td>Every epic&rsquo;s child issues, each list on its own: the first words read <span class="ui">the child issues in each of the <em>n</em> epics</span>. They&rsquo;re a choice: pick <span class="ui">the epics</span> there to sort the epics themselves. With <span class="ui">Hide done</span> on, done epics are left out, with their child issues.</td></tr>
+<tr><td>Nothing</td><td>Every epic&rsquo;s child issues, each list on its own: the first words read <span class="ui">the child issues in each of the <em>n</em> epics</span>, ending <span class="ui">that have them</span> when some epics have none, or <span class="ui">the child issues of the epic</span> when the space shows only one. They&rsquo;re a choice: pick <span class="ui">the epics</span> there to sort the epics themselves. With <span class="ui">Hide done</span> on, done epics are left out, with their child issues.</td></tr>
 </tbody>
 </table>
 <p><strong>Without an epic.</strong> With nothing ticked, put the cursor on the <span class="ui">Without an epic</span> heading (click it, or reach it with the arrow keys) and Sort sorts that list: <span class="ui">the issues without an epic</span>. The <span class="ui">Under epics in other spaces</span> heading works the same way. Move the cursor to any other row and Sort goes back to the child issues in each epic.</p>
-<p><strong>In the <span class="ui">Reorder child issues</span> pop-up</strong>, nothing ticked means the issue&rsquo;s own list, such as <span class="ui">the child issues of IOQ-1 Launch checklist</span>. When some of its child issues have sub-tasks, the first words offer those instead: <span class="ui">the sub-tasks in each of the <em>n</em> child issues</span>, or <span class="ui">the sub-tasks in each of the <em>n</em> child issues that have them</span>.</p>
-<p>One ticked issue with no sub-tasks gives Sort nothing to do. On the Apps page the bar then says <span class="ui">Tick an epic to sort its child issues, or tick 2 or more issues to sort just those.</span> In the pop-up it says <span class="ui">Untick it to sort all of <em>IOQ-1</em>&rsquo;s child issues, or tick 2 or more to sort just those.</span> You can tick and untick rows while the bar is open; the bar and the preview follow.</p>
+<p><strong>In the <span class="ui">Reorder child issues</span> pop-up</strong>, nothing ticked means the issue&rsquo;s own list, such as <span class="ui">the child issues of SHOP-1 Checkout redesign</span>. When some of those child issues have sub-tasks, the first words become a choice, so you can pick <span class="ui">the sub-tasks in each of the <em>n</em> child issues</span> instead (<span class="ui">&hellip;that have them</span> when only some do). In an initiative&rsquo;s pop-up, Sort opens on <span class="ui">the child issues in each of the <em>n</em> epics</span>, like the Apps page, and the initiative&rsquo;s own list of epics is the other choice.</p>
+<p><strong>In a space with no epics</strong>, nothing ticked sorts the issues themselves: <span class="ui">the issues</span>. Pick <span class="ui">the sub-tasks in each of the <em>n</em> issues</span> in the first words to sort those instead.</p>
+<p>One ticked issue with no sub-tasks gives Sort nothing to do. On the Apps page the bar then says <span class="ui">Tick an epic to sort its child issues, or tick 2 or more issues to sort just those.</span> In a space with no epics it says <span class="ui">Tick an issue with sub-tasks to sort them, or tick 2 or more issues to sort just those.</span> In the pop-up it says <span class="ui">Untick it to sort all of <em>SHOP-1</em>&rsquo;s child issues, or tick 2 or more to sort just those.</span>, or <span class="ui">&hellip;all of <em>SHOP-44</em>&rsquo;s sub-tasks&hellip;</span> when the pop-up is open on a story. You can tick and untick rows while the bar is open; the bar and the preview follow.</p>
 </section>
 
 <section id="sort-bar" style="scroll-margin-top:100px;">
 <h2>The Sort bar</h2>
-<p><span class="ui">Sort&hellip;</span> opens a slim bar between the toolbar and the outline. It reads as a sentence: <span class="ui">Sort</span> <strong>the child issues of IOQ-1 Launch checklist</strong> <span class="ui">by</span> <strong>Priority</strong> <strong>Highest first</strong> <span class="ui">then by</span> <strong>Due date</strong> <strong>Soonest first</strong>.</p>
+<p><span class="ui">Sort&hellip;</span> opens a slim bar between the toolbar and the outline. It reads as a sentence: <span class="ui">Sort</span> <strong>the child issues of SHOP-1 Checkout redesign</strong> <span class="ui">by</span> <strong>Priority</strong> <strong>Highest first</strong> <span class="ui">then by</span> <strong>Due date</strong> <strong>Soonest first</strong>.</p>
 <ul>
 <li><strong>It opens on Rank every time</strong>, Jira&rsquo;s default order, with no <span class="ui">then by</span> levels left from the last sort. Nothing is previewed and <span class="ui">Sort</span> is off until you pick a field: the note says <span class="ui">Pick a field to sort by.</span> So opening Sort never undoes your draft, priority lanes included.</li>
 <li><strong>Pick a field after <span class="ui">by</span></strong>, then which way in the list beside it. A field starts on its first direction. A field with only one direction shows it as plain text.</li>
@@ -343,7 +346,7 @@
 <section id="rank" style="scroll-margin-top:100px;">
 <h2>Rank: back to Jira&rsquo;s order</h2>
 <p><strong>Rank</strong> is the order the list had in Jira when the app read it. Choosing it removes the <span class="ui">then by</span> levels and hides <span class="ui">+ Then by</span>, because Rank has no ties to break.</p>
-<p>Use it to take back the order you gave a list in this draft, by sorting, by dragging or by priority lanes: the note says <span class="ui"><em>n</em> issues go back to Jira&rsquo;s order.</span> Issues you moved in from another epic stay in the list, because a move is a change of its own. With <span class="ui">Hide done</span> on, hidden done issues keep their places.</p>
+<p>Use it to take back the order you gave a list in this draft, by sorting, by dragging or by priority lanes: the note says <span class="ui"><em>n</em> issues go back to Jira&rsquo;s order.</span> Issues you moved in from another epic stay in the list, because a move is a change of its own. With <span class="ui">Hide done</span> on, hidden done issues keep their places, and the list keeps a note, such as <span class="ui">Its child issues back in Jira&rsquo;s order, <em>n</em> moved</span>.</p>
 </section>
 
 <section id="after-sorting" style="scroll-margin-top:100px;">
@@ -351,6 +354,7 @@
 <p>The bar closes, and each sorted epic stays open so you can see its new order. A sorted list gets one note rather than a note on every row:</p>
 <ul>
 <li>on an epic&rsquo;s row: <span class="ui">Its child issues sorted by priority, then due date, <em>n</em> moved</span></li>
+<li>on an issue&rsquo;s row, for its sub-tasks: the same words, <span class="ui">Its child issues sorted by priority, <em>n</em> moved</span></li>
 <li>for the epics, in the header: <span class="ui">Epics sorted by priority</span></li>
 <li>on the <span class="ui">Without an epic</span> heading: <span class="ui">Sorted by priority</span></li>
 </ul>
@@ -374,7 +378,7 @@
 <p>Sorting changes Rank, which needs the Schedule issues and Edit issues permissions in the issues&rsquo; space. Without them, Sort stops with <span class="ui">You can&rsquo;t reorder issues in <em>space</em>. It needs the Schedule issues and Edit issues permissions.</span> The <a href="/resources/documentation/issueorder/admin#permissions">admin guide</a> has the details.</p>
 
 <h3 id="busy" style="scroll-margin-top:100px;">While the app is busy</h3>
-<p><span class="ui">Sort&hellip;</span> is off while a save or a refresh runs, while Review is on, and after the order changed in Jira, until you refresh. If sorting doesn&rsquo;t do what you expect, see <a href="/resources/documentation/issueorder/troubleshooting#sorting">Troubleshooting</a>.</p>
+<p><span class="ui">Sort&hellip;</span> is off while a save or a refresh runs, while Review is on, after the order changed in Jira, until you refresh, and on a site where Jira&rsquo;s ranking isn&rsquo;t available to you (see the <a href="/resources/documentation/issueorder/admin#rank-field">Admin guide</a>). If sorting doesn&rsquo;t do what you expect, see <a href="/resources/documentation/issueorder/troubleshooting#sorting">Troubleshooting</a>.</p>
 </section>
       <nav class="doc-prevnext" data-doc-prevnext></nav>
     </div>

@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Limits">
   <meta property="og:description" content="Issue Order for Jira limits: 1,000 issues per list, three sort levels, 50 Move to… results, Jira&#x27;s parent and cross-space rules, and the 14-day safety net.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Limits">
   <meta name="twitter:description" content="Issue Order for Jira limits: 1,000 issues per list, three sort levels, 50 Move to… results, Jira&#x27;s parent and cross-space rules, and the 14-day safety net.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -240,7 +242,7 @@
 
     <div class="doc-content">
 <section id="limits" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>Limits</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>Limits</h2>
 <p>A few numbers are Issue Order for Jira&rsquo;s own. The rest are Jira&rsquo;s rules: the app works within them, and checks them before a change is staged, so a refusal doesn&rsquo;t first appear when you save.</p>
 <table class="spec-table" style="margin-top:20px;">
 <thead>
@@ -274,7 +276,7 @@
 <p><span class="ui">Under epics in other spaces</span> counts only issues whose epic is in another space toward its 1,000. In a space with more than 2,000 epics, the app finds them among the space&rsquo;s first 20,000 child issues, in Rank order.</p>
 
 <h3 id="move-to-results" style="scroll-margin-top:100px;">Move to&hellip; shows up to 50 results</h3>
-<p>A search in <span class="ui">Move to&hellip;</span> lists up to 50 matches, most recently updated first. A whole key such as IOQ-1 finds that issue; other words match the start of words in a summary. With the search empty and <span class="ui">Other spaces</span> off, a child issue&rsquo;s choices are its space&rsquo;s epics in the order the outline shows them, then <span class="ui">Without an epic</span>. In the pop-up, where the space&rsquo;s epics aren&rsquo;t loaded, they come from Jira instead: up to 50, most recently updated first.</p>
+<p>A search in <span class="ui">Move to&hellip;</span> lists up to 50 matches, most recently updated first. A whole key such as SHOP-1 finds that issue; other words match the start of words in a summary. With the search empty and <span class="ui">Other spaces</span> off, a child issue&rsquo;s choices are its space&rsquo;s epics in the order the outline shows them, then <span class="ui">Without an epic</span>. In the pop-up, where the space&rsquo;s epics aren&rsquo;t loaded, they come from Jira instead: up to 50, most recently updated first.</p>
 <p>With <span class="ui">Hide done</span> on, done epics and other done parents aren&rsquo;t offered, and when that leaves nothing to offer the note says why, for example <span class="ui">No open epics here. Done ones are hidden while Hide done is on.</span></p>
 
 <h3 id="one-at-a-time" style="scroll-margin-top:100px;">One site and one space at a time</h3>
@@ -290,7 +292,7 @@
 </section>
 
 <section id="jira-rules" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Jira&rsquo;s own rules</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Jira&rsquo;s own rules</h2>
 <p>These come from Jira and apply to every way of changing an issue, not just this app, so the app can&rsquo;t lift them. It checks them as you drag or choose in <span class="ui">Move to&hellip;</span>: a choice Jira would refuse is greyed out with the reason, and a drop is refused with it.</p>
 <h3 id="parent-rules" style="scroll-margin-top:100px;">Parent rules</h3>
 <p>A parent is exactly one level up, in every kind of space.</p>
@@ -299,7 +301,7 @@
 <tbody>
 <tr><td><strong>A child issue</strong> (story, task, bug&hellip;)</td><td>Under an epic, or to <span class="ui">Without an epic</span> in its own space</td><td><span class="ui">Child issues go under an epic.</span> or <span class="ui">Issues without an epic stay in their own space.</span></td></tr>
 <tr><td><strong>A sub-task</strong></td><td>Under a story, task or bug in its own space</td><td><span class="ui">Sub-tasks go under a story, task or bug, not an epic.</span>, <span class="ui">Jira keeps sub-tasks in their own space.</span> or <span class="ui">Sub-tasks always need a parent issue.</span></td></tr>
-<tr><td><strong>An epic</strong></td><td>Under the level above epics, such as an initiative, on sites that have one. Not from the space&rsquo;s list of epics: open the initiative&rsquo;s <span class="ui">Reorder child issues</span> and move it from there.</td><td><span class="ui">Epics go under the level above them, like an initiative.</span> On a site without that level, <span class="ui">Move to&hellip;</span> says <span class="ui">No initiatives found. Epics can move only on sites with a level above epics.</span> From the space&rsquo;s list of epics: <span class="ui">Epics can only be reordered here.</span></td></tr>
+<tr><td><strong>An epic</strong></td><td>Under the level above epics, such as an initiative, on sites that have one. Not from the space&rsquo;s list of epics: open the initiative&rsquo;s <span class="ui">Reorder child issues</span> and move it from there.</td><td><span class="ui">Epics go under the level above them, like an initiative.</span> From the space&rsquo;s list of epics: <span class="ui">Epics can only be reordered here.</span> On a site with initiatives, the message adds how to move one from its initiative. On a site without that level, epics can only be reordered.</td></tr>
 <tr><td><strong>Anything into <span class="ui">Under epics in other spaces</span></strong></td><td>Nothing moves in. This list is the app&rsquo;s own: it only gathers issues whose epic is in another space.</td><td><span class="ui">This list shows issues whose epic is in another space. To put an issue under such an epic, use Move to&hellip; with Other spaces.</span></td></tr>
 <tr><td><strong>An issue under itself</strong></td><td>Never</td><td><span class="ui">An issue can&rsquo;t go under itself.</span></td></tr>
 </tbody>

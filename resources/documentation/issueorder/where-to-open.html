@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Where to open it">
   <meta property="og:description" content="Open Issue Order for Jira from an issue&#x27;s Reorder child issues action or from Apps: what each one shows first, and when to use which.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Where to open it">
   <meta name="twitter:description" content="Open Issue Order for Jira from an issue&#x27;s Reorder child issues action or from Apps: what each one shows first, and when to use which.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -240,13 +242,13 @@
 <li>Open <strong>Apps</strong> in Jira&rsquo;s sidebar, choose <span class="ui">Issue Order for Jira</span>, then a space.</li>
 </ol>
 <p>Both open the same organizer: a numbered outline in Rank order, with the same toolbar. They differ in where it starts. Each keeps its own draft, so changes made in the pop-up don&rsquo;t show on the Apps page until you save them. Whichever you use, nothing changes in Jira until you press <span class="ui">Save changes</span>.</p>
-<p>Both work in Jira&rsquo;s software and business spaces, company-managed or team-managed. The &bull;&bull;&bull; action doesn&rsquo;t appear in Jira Service Management (JSM), Customer Service Management or Jira Product Discovery spaces, and the Apps page doesn&rsquo;t list those spaces.</p>
+<p>Both work in Jira&rsquo;s software and business spaces, company-managed or team-managed. The &bull;&bull;&bull; action doesn&rsquo;t appear in Jira Service Management (JSM), Customer Service Management or Jira Product Discovery spaces, and the Apps page doesn&rsquo;t list those spaces. This only limits where you open it from: a request from one of those spaces that sits under an epic in a software or business space still shows in that epic&rsquo;s list.</p>
 </section>
 
 <section id="issue-menu" style="scroll-margin-top:100px;">
 <h2>From an issue: Reorder child issues</h2>
 <p>Open the issue whose child issues you want in order, open its <strong>&bull;&bull;&bull;</strong> menu and choose <span class="ui">Reorder child issues</span>. The organizer opens in a large pop-up over the issue, already on that issue&rsquo;s own list. It&rsquo;s the quickest way in when you know which epic is out of order.</p>
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/popup.webp" alt="The Reorder child issues pop-up opened from the epic Launch checklist (IOQ-1): the breadcrumb Issue Order QA / IOQ-1, 6 child issues and Close, the toolbar, then Step 1 Plan to Step 10 Ship numbered 1 to 6, with No changes, Discard and Save changes at the foot." width="1168" height="1017" loading="lazy" decoding="async"><figcaption>Reorder child issues on an epic: its child issues, numbered in Rank order.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/popup.webp" alt="The Reorder child issues pop-up opened from the epic Checkout redesign (SHOP-1): the breadcrumb Shop / SHOP-1, 6 child issues and Close, a toolbar with Find in SHOP-1 and Show on Child issues, then Plan the new checkout to Ship to beta numbered 1 to 6, all BACKLOG, with No changes, Discard and Save changes at the foot." width="904" height="621" loading="lazy" decoding="async"><figcaption>Reorder child issues on an epic: its child issues, numbered in Rank order.</figcaption></figure>
 
 <h3 id="what-it-shows" style="scroll-margin-top:100px;">What the pop-up shows</h3>
 <table class="spec-table">
@@ -258,10 +260,10 @@
 <tr><td>A sub-task</td><td>Nothing to order: <span class="ui">Sub-tasks don&rsquo;t have child issues. Open this on the issue above it to reorder its sub-tasks.</span></td></tr>
 </tbody>
 </table>
-<p>The header shows where you are (<span class="ui">Issue Order QA / IOQ-1</span>), the issue&rsquo;s summary, a count such as <span class="ui">6 child issues</span>, and <span class="ui">Close</span>. The footer holds the status line and the draft: <span class="ui">No changes</span> or <span class="ui">Draft &middot; <em>n</em> changes</span>, then <span class="ui">Discard</span> and <span class="ui">Save changes</span>. An issue with nothing under it says so, for example <span class="ui">IOQ-7 has no child issues yet.</span></p>
+<p>The header shows where you are (<span class="ui">Shop / SHOP-1</span>), the issue&rsquo;s summary, a count such as <span class="ui">6 child issues</span>, and <span class="ui">Close</span>. The footer holds the status line and the draft: <span class="ui">No changes</span> or <span class="ui">Draft &middot; <em>n</em> changes</span>, then <span class="ui">Discard</span> and <span class="ui">Save changes</span>. An issue with nothing under it says so, for example <span class="ui">SHOP-7 has no child issues yet.</span></p>
 
 <h3 id="whole-space" style="scroll-margin-top:100px;">Zoom out to the whole space</h3>
-<p>The space&rsquo;s name in the breadcrumb is a link; its tooltip reads <span class="ui">See the whole space</span>. It shows the whole space in the pop-up, the way the Apps page does: every epic, with <span class="ui">Without an epic</span> at the bottom. <span class="ui">Back to IOQ-1</span> takes you back to the issue you opened.</p>
+<p>The space&rsquo;s name in the breadcrumb is a link; its tooltip reads <span class="ui">See the whole space</span>. It shows the whole space in the pop-up, the way the Apps page does: every epic, with <span class="ui">Without an epic</span> at the bottom. <span class="ui">Back to SHOP-1</span> takes you back to the issue you opened.</p>
 <p>Your unsaved changes come with you both ways. Move a child issue to another epic, zoom out to put it in place there, and save everything together.</p>
 
 <h3 id="close" style="scroll-margin-top:100px;">Close</h3>
@@ -279,7 +281,7 @@
 <li><span class="ui">Find a space</span> filters by any part of a space&rsquo;s name, or by its whole key in any case.</li>
 <li>Click a space to open it. The bar at the top then shows <span class="ui">Space</span> and a button with the space&rsquo;s name: click it to switch to another space.</li>
 <li><strong>It remembers your space.</strong> Next time, the page opens straight on the space you used last. Your browser keeps it, for each Jira site. If that space is gone, or you can no longer see it, you choose again.</li>
-<li><strong>Switching with unsaved changes asks first</strong> &mdash; <span class="ui">Switch to &hellip;? Your unsaved changes in &hellip; will be lost.</span> &mdash; with <span class="ui">Keep editing</span> and <span class="ui">Switch and discard</span>. While a save is running, the space button does nothing; its tooltip reads <span class="ui">Wait for the save to finish</span>.</li>
+<li><strong>Switching with unsaved changes asks first</strong> &mdash; <span class="ui">Switch to &hellip;? Your unsaved changes in &hellip; will be lost.</span> &mdash; with <span class="ui">Keep editing</span> and <span class="ui">Switch and discard</span>. While a save or a <span class="ui">Refresh from Jira</span> is running, the space button does nothing; its tooltip reads <span class="ui">Wait for the save to finish</span>.</li>
 </ul>
 
 <h3 id="space-start" style="scroll-margin-top:100px;">What a space opens on</h3>

@@ -10,8 +10,11 @@
    callout are not the same colour, and collapsing them tints every tip box.
    ────────────────────────────────────────────────────────────────────────── */
 :root { --doc-accent: #A5B4FC; --doc-accent-rgb: 165,180,252; --doc-fill-rgb: 99,102,241; --doc-fill: #6366F1; }
-body[data-doc-product="bulkpagecloner"] { --doc-accent: var(--teal); --doc-accent-rgb: 5,206,240; --doc-fill-rgb: 5,206,240; --doc-fill: var(--teal); }
+/* Confluence apps take a blue, Jira apps a purple (Eric, 2026-10-28); each app its own shade. */
+body[data-doc-product="bulkcomments"] { --doc-accent: #D8B4FE; --doc-accent-rgb: 216,180,254; --doc-fill-rgb: 147,51,234; --doc-fill: #9333EA; }
+body[data-doc-product="bulkpagecloner"] { --doc-accent: #7CC0FA; --doc-accent-rgb: 124,192,250; --doc-fill-rgb: 30,127,216; --doc-fill: #1E7FD8; }
 body[data-doc-product="pageorder"] { --doc-accent: #93B4FF; --doc-accent-rgb: 147,180,255; --doc-fill-rgb: 59,106,232; --doc-fill: #3B6AE8; }
+body[data-doc-product="issueorder"] { --doc-accent: #C4B5FD; --doc-accent-rgb: 196,181,253; --doc-fill-rgb: 124,58,237; --doc-fill: #7C3AED; }
 
 .doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; max-width: 1100px; margin: 0 auto; padding: 56px 48px 80px; align-items: start; }
 .doc-sidebar { position: sticky; top: 100px; }
@@ -226,8 +229,10 @@ body[data-doc-product="pageorder"] { --doc-accent: #93B4FF; --doc-accent-rgb: 14
   --doc-nav-hover: #C7D2FE;
   --doc-nav-kid:   #859AB4;
 }
-body[data-doc-product="bulkpagecloner"] { --doc-nav-hover: #9FE9F7; }
+body[data-doc-product="bulkcomments"] { --doc-nav-hover: #EBD5FF; }
+body[data-doc-product="bulkpagecloner"] { --doc-nav-hover: #BEE0FD; }
 body[data-doc-product="pageorder"] { --doc-nav-hover: #BFD2FF; }
+body[data-doc-product="issueorder"] { --doc-nav-hover: #DDD6FE; }
 
 .doc-layout { grid-template-columns: 236px 1fr; }
 
@@ -315,8 +320,10 @@ body[data-doc-product="pageorder"] { --doc-nav-hover: #BFD2FF; }
    ────────────────────────────────────────────────────────────────────────── */
 :root { --doc-fill-rgb: 91,94,234; --doc-fill: #5B5EEA; --doc-hue: 91,94,234;
         --doc-l: 232px; --doc-r: 208px; --doc-gap: 56px; --doc-pad: 40px; --doc-max: 1320px; }
+body[data-doc-product="bulkcomments"] { --doc-hue: 147,51,234; }
 body[data-doc-product="bulkpagecloner"] { --doc-hue: 14,116,210; }
 body[data-doc-product="pageorder"] { --doc-hue: 59,106,232; }
+body[data-doc-product="issueorder"] { --doc-hue: 124,58,237; }
 
 /* ── Header ───────────────────────────────────────────────────────────────── */
 body[data-doc-product] .page-hero { padding: 108px 0 30px; text-align: left; overflow: visible; }
@@ -536,7 +543,7 @@ body[data-doc-product] .page-hero .doc-hero-badge { margin: 0; font-size: 0.72re
   flex: 0 0 auto; min-height: 34px; padding: 0 12px; border-radius: 17px; cursor: pointer;
   border: 1px solid rgba(255,255,255,0.14); background: none; color: #A9B6C8; font: inherit; font-size: 0.8rem; font-weight: 600;
 }
-.dsearch-chip[aria-pressed="true"] { background: rgba(91,94,234,0.22); border-color: rgba(165,180,252,0.55); color: #fff; }
+.dsearch-chip[aria-pressed="true"] { background: rgba(var(--doc-fill-rgb, 91,94,234),0.22); border-color: rgba(var(--doc-accent-rgb, 165,180,252),0.55); color: #fff; }
 .dsearch-body { overflow-y: auto; overscroll-behavior: contain; padding: 6px 8px 10px; }
 .dsearch-empty { margin: 8px 10px; font-size: 0.86rem; color: #A9B6C8; }
 .dsearch-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8FA3BC; }
@@ -547,7 +554,7 @@ body[data-doc-product] .page-hero .doc-hero-badge { margin: 0; font-size: 0.72re
 .dsearch-where { font-size: 0.72rem; font-weight: 600; color: #8FA3BC; }
 .dsearch-head { font-size: 0.93rem; font-weight: 600; color: var(--white); line-height: 1.35; }
 .dsearch-snip { font-size: 0.82rem; color: #A9B6C8; line-height: 1.55; }
-.dsearch mark { background: rgba(165,180,252,0.22); color: #fff; border-radius: 3px; padding: 0 1px; }
+.dsearch mark { background: rgba(var(--doc-accent-rgb, 165,180,252),0.22); color: #fff; border-radius: 3px; padding: 0 1px; }
 .dsearch-foot { display: flex; gap: 16px; padding: 10px 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.74rem; color: #8FA3BC; }
 .dsearch-foot kbd { margin-right: 3px; }
 .dsearch button:focus-visible { outline: 2px solid var(--ds-acc); outline-offset: 2px; }

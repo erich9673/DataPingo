@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cz4_2mdDjQGA_qZgJaCvtsJ1oFeI4TT8K6Dh0HlA7eg" />
   <title>Issue Order for Jira — Priority lanes</title>
-  <meta name="description" content="How priority lanes in Issue Order for Jira group a list by priority, flag issues out of order, change priority on a drag, and hold new issues for you.">
+  <meta name="description" content="How priority lanes in Issue Order for Jira group child issues by priority, count issues out of order, change priority on a drag, and hold new issues for you.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://datapingo.com/resources/documentation/issueorder/guide/priority-lanes">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datapingo.com/resources/documentation/issueorder/guide/priority-lanes">
   <meta property="og:title" content="Issue Order for Jira — Priority lanes">
-  <meta property="og:description" content="How priority lanes in Issue Order for Jira group a list by priority, flag issues out of order, change priority on a drag, and hold new issues for you.">
+  <meta property="og:description" content="How priority lanes in Issue Order for Jira group child issues by priority, count issues out of order, change priority on a drag, and hold new issues for you.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Priority lanes">
-  <meta name="twitter:description" content="How priority lanes in Issue Order for Jira group a list by priority, flag issues out of order, change priority on a drag, and hold new issues for you.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:description" content="How priority lanes in Issue Order for Jira group child issues by priority, count issues out of order, change priority on a drag, and hold new issues for you.">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -207,7 +207,7 @@
         <img src="/assets/img/Issue Order Assets/Issue Order for Jira icon.png" alt="Issue Order for Jira" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(124,92,230,0.25);" width="160" height="160">
       </div>
       <h1 style="text-align:center;">Priority lanes</h1>
-      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Keep each list grouped by priority while you set the order within each priority by hand.</p>
+      <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Keep an epic’s child issues grouped by priority while you set the order within each priority by hand.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
         <span class="doc-hero-badge">First release &mdash; Latest</span>
         <span class="doc-hero-badge doc-hero-badge--roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -239,33 +241,33 @@
     </aside>
 
     <div class="doc-content">
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/lanes.webp" alt="Priority lanes ticked, covering Child issues: Launch checklist&rsquo;s child issues are grouped under Highest &middot; 1, High &middot; 2, Medium &middot; 2 and Low &middot; 1, with Step 1 Plan moved down from 1.1 to 1.6, and the header reads Draft &middot; 2 changes. Priority mix below is grouped the same way." width="1568" height="690" loading="lazy" decoding="async"><figcaption>Ticking Priority lanes groups each epic&rsquo;s child issues by priority, as a draft. You still set the order within each lane.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/lanes.webp" alt="Priority lanes ticked, covering Child issues: Checkout redesign&rsquo;s child issues are grouped under Highest &middot; 1, High &middot; 2, Medium &middot; 2 and Low &middot; 1, with Plan the new checkout now 1.6, the old 1.1 struck through and the note Moved down from 1.1, and the header reads Draft &middot; 2 changes. Store admin below starts its own lanes with Highest &middot; 2." width="1568" height="633" loading="lazy" decoding="async"><figcaption>Ticking Priority lanes groups each epic&rsquo;s child issues by priority, as a draft. You still set the order within each lane.</figcaption></figure>
 
-<p><strong>Priority lanes put each list in priority order, grouped into lanes, and keep it that way while you order it by hand.</strong> You want an epic&rsquo;s child issues most important first, but in your own order within each priority. Turn lanes on and every list is put in lanes at once, as part of your draft.</p>
+<p><strong>Priority lanes put a list in priority order, grouped into lanes, and keep it that way while you order it by hand.</strong> You want an epic&rsquo;s child issues most important first, but in your own order within each priority. Turn lanes on and the lists inside epics are put in lanes at once, as part of your draft.</p>
 <p>The lane headings are shown in Issue Order for Jira only; Jira never sees them. When you save, Jira gets the new order (Rank) and any priority you changed, so boards and backlogs follow. Turn lanes off before you save and the lists go back to the order you had.</p>
 
 <section id="turn-on" style="scroll-margin-top:100px;">
 <h2>Turn lanes on</h2>
 <p>Lanes are off each time you open the app. Tick <span class="ui">Priority lanes</span> in the toolbar, after <span class="ui">Hide done</span> and <span class="ui">Numbers</span>. The same switch is in the <span class="ui">Reorder child issues</span> pop-up.</p>
 <ul>
-<li><strong>Ticking it puts lists in lanes</strong>, as one change in your draft. On the Apps page a choice appears beside the switch:
+<li><strong>Ticking it puts lists in lanes</strong>, as one change in your draft. On the Apps page, in a space with epics, a choice appears beside the switch:
 <ul>
 <li><span class="ui">Child issues</span> (the default): the lists inside epics, so each epic&rsquo;s child issues and each issue&rsquo;s sub-tasks. The order of the epics themselves is left alone.</li>
-<li><span class="ui">Child issues and epics</span>: every list, so the epics and <span class="ui">Without an epic</span> too. Going back to Child issues takes the epics back out: <span class="ui">Epics taken out of lanes: back to the order you had.</span></li>
+<li><span class="ui">Child issues and epics</span>: every list, so the epics, <span class="ui">Without an epic</span> and <span class="ui">Under epics in other spaces</span> too. Going back to Child issues takes the epics back out: <span class="ui">Epics taken out of lanes: back to the order you had.</span></li>
 </ul>
-In the <span class="ui">Reorder child issues</span> pop-up there&rsquo;s no choice: the lists there are all inside the issue you opened. </li>
+In the <span class="ui">Reorder child issues</span> pop-up there&rsquo;s no choice: the lists there are all inside the issue you opened. In a space without epics there&rsquo;s no choice either, and every list goes in lanes. </li>
 <li>Each list is sorted by priority, most important first, keeping your order within each priority. The status line says how many issues moved: <span class="ui"><em>n</em> issues put in their priority lanes. Not saved yet: Save changes writes it to Jira, and turning lanes off takes it back.</span> Lists you open later, by unfolding an epic or changing <span class="ui">Show</span>, are put in lanes as they appear, quietly: they don&rsquo;t take your next undo. A list loaded only for <span class="ui">Find</span> or a Sort preview isn&rsquo;t touched until you open it.</li>
 <li><strong>Each list once per time you turn lanes on.</strong> If you <span class="ui">Discard</span>, undo or <span class="ui">&times;</span> a list&rsquo;s lane moves, they aren&rsquo;t redone; that list shows its count and <a href="#put-in-lanes">Put in lanes</a> instead.</li>
 <li><strong>Unticking it takes the lane moves back</strong> for every list you haven&rsquo;t changed since: <span class="ui">Taken out of lanes: back to the order you had.</span> Anything you changed after turning lanes on stays in your draft.</li>
 <li><strong>Some lists aren&rsquo;t put in lanes:</strong> lists in a space where you can&rsquo;t reorder, lists past 1,000 issues, a list you&rsquo;ve just sorted or restored (your choice stands), and child lists of a done epic hidden by <span class="ui">Hide done</span>. They show their count instead. An issue you moved into a list keeps the place you gave it.</li>
-<li><strong>It waits</strong> while unsaved changes from before are on offer, while a save or refresh runs (the switch is greyed out then), and if Jira&rsquo;s priority order couldn&rsquo;t be read (turning lanes off and on tries again).</li>
+<li><strong>It waits</strong> while unsaved changes from before are on offer, while a save or refresh runs (the switch is greyed out then), and if Jira&rsquo;s priority order couldn&rsquo;t be read (turning lanes off and on tries again). In that case lanes show Jira&rsquo;s default priorities (Highest to Lowest) but no list is rearranged.</li>
 <li>With lanes on, <span class="ui">How it works</span> (the <span class="ui">?</span> button) adds a short note about them.</li>
 </ul>
 </section>
 
 <section id="when-lanes-show" style="scroll-margin-top:100px;">
 <h2>When a list shows lanes</h2>
-<p>Every list has its own lanes: the epics, each epic&rsquo;s child issues, each issue&rsquo;s sub-tasks, and <span class="ui">Without an epic</span>. A list gets lane headings, such as <span class="ui">High &middot; 3</span> (the priority, then how many issues it holds), only when all three are true:</p>
+<p>Every list that lanes cover has its own lanes. With <span class="ui">Child issues</span>, that is each epic&rsquo;s child issues and each issue&rsquo;s sub-tasks. With <span class="ui">Child issues and epics</span>, it is also the epics, <span class="ui">Without an epic</span> and <span class="ui">Under epics in other spaces</span>. In the pop-up and in a space without epics, it is every list. A list gets lane headings, such as <span class="ui">High &middot; 2</span> (the priority, then how many issues it holds), only when all three are true:</p>
 <ul>
 <li><strong>It mixes priorities.</strong> A list where every issue has the same priority looks like a plain list.</li>
 <li><strong>It&rsquo;s already in priority order</strong>, most important first.</li>
@@ -280,8 +282,9 @@ In the <span class="ui">Reorder child issues</span> pop-up there&rsquo;s no choi
 <ul>
 <li>on an epic&rsquo;s row, for its child issues: <span class="ui"><em>n</em> of <em>m</em> issues out of priority order</span></li>
 <li>on an issue&rsquo;s row, for its sub-tasks: <span class="ui"><em>n</em> of <em>m</em> sub-tasks out of priority order</span></li>
-<li>on the <span class="ui">Without an epic</span> heading, and in the header for the top list (the epics, or in the pop-up the issue&rsquo;s own list): <span class="ui"><em>n</em> of <em>m</em> out of priority order</span></li>
+<li>on the <span class="ui">Without an epic</span> heading, and in the header for the top list (the epics with <span class="ui">Child issues and epics</span>, the issues in a space without epics, or in the pop-up the issue&rsquo;s own list): <span class="ui"><em>n</em> of <em>m</em> out of priority order</span></li>
 </ul>
+<p>The epics and <span class="ui">Without an epic</span> get lanes, and so a count, only with <span class="ui">Child issues and epics</span> picked.</p>
 <p>A row shows its count while the row is open. Short lists get a count too: three sub-tasks can be out of order.</p>
 <p><strong>How issues are counted.</strong> The app finds the longest run of issues already in priority order and counts the rest: the fewest issues that would have to move. When it could go either way, the issue further down is the one counted, as in an important issue buried under less important ones.</p>
 <p>Out-of-order issues aren&rsquo;t highlighted. To fix one on its own, choose <span class="ui">Move into its priority lane</span> from its <span class="ui">&bull;&bull;&bull;</span> menu; only out-of-order issues have it. The issue moves the shortest way: up to the end of its own lane if it&rsquo;s more important than the lane it sits in, or down to the start of its own lane if it&rsquo;s less important.</p>

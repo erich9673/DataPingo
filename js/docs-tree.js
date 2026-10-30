@@ -177,10 +177,10 @@
           path: "guide", title: "User guide", blurb: "Arrange, review and save: drag, Move to, Sort, priority lanes and saving.",
           children: [
             { path: "guide/about-the-app", title: "About the app", blurb: "The layout, numbering, Show, Hide done, Find and the keyboard, and what the app keeps in your browser." },
-            { path: "guide/drag-and-drop", title: "Select and drag issues", blurb: "Tick issues, drag them into place or onto another epic, and use the row menu or the keyboard." },
+            { path: "guide/select-and-drag", title: "Select and drag issues", blurb: "Tick issues, drag them into place or onto another epic, and use the row menu or the keyboard." },
             { path: "guide/move-to", title: "Move to another epic", blurb: "Give ticked issues a new epic, in this space or another, or a new parent for sub-tasks." },
             { path: "guide/sort", title: "Sort issues", blurb: "Sort what\u2019s ticked by up to three levels, with a live preview, kept as a draft until you save." },
-            { path: "guide/priority-lanes", title: "Priority lanes", blurb: "Group a list by priority, fix what\u2019s out of order, and place new issues, all as a draft." },
+            { path: "guide/priority-lanes", title: "Priority lanes", blurb: "Group child issues by priority, fix what\u2019s out of order, and place new issues, all as a draft." },
             { path: "guide/review-and-save", title: "Review and save", blurb: "The draft, Review, Discard and Save: what a save writes to Jira, in what order, and what if it can't." }
           ]
         },

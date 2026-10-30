@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Move to another epic">
   <meta property="og:description" content="Use Move to… in Issue Order for Jira to give issues a new epic or parent, in this space or another, at the top or the end. Nothing changes until you save.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Move to another epic">
   <meta name="twitter:description" content="Use Move to… in Issue Order for Jira to give issues a new epic or parent, in this space or another, at the top or the end. Nothing changes until you save.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -227,6 +227,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -239,14 +241,14 @@
     </aside>
 
     <div class="doc-content">
-<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/move-to.webp" alt="Step 5 Review is ticked under Launch checklist and the Move to&hellip; picker is open: Move 1 issue to&hellip;, a Find an epic box, an unticked Other spaces checkbox, then the space&rsquo;s epics in Rank order. IOQ-1 Launch checklist is greyed out with Already here., IOQ-4 Small epic is chosen, At the end is selected, and the button reads Move to IOQ-4." width="1568" height="622" loading="lazy" decoding="async"><figcaption>Move to&hellip;: the space&rsquo;s epics in Rank order, with the one it is already under greyed out.</figcaption></figure>
+<figure class="doc-figure"><img src="/assets/img/Issue Order Assets/move-to.webp" alt="After the drag (Draft &middot; 1 change), SHOP-13 Review with support is ticked as 1.6 under Checkout redesign, the toolbar reads 1 selected with Unselect, and the Move to&hellip; picker is open: Move 1 issue to&hellip;, a Find an epic box, an unticked Other spaces checkbox, then the space&rsquo;s open epics SHOP-1 to SHOP-7 in Rank order. SHOP-1 Checkout redesign is greyed out with Already here., SHOP-4 Gift cards is chosen, At the end is selected, and the button reads Move to SHOP-4." width="1568" height="633" loading="lazy" decoding="async"><figcaption>Move to&hellip;: the space&rsquo;s epics in Rank order, with the one it is already under greyed out.</figcaption></figure>
 <p><strong>In Issue Order for Jira, Move to&hellip; gives the ticked issues a new parent without dragging them there.</strong> Child issues go under another epic, in this space or another, or to <span class="ui">Without an epic</span>; sub-tasks go under another issue in the same space. They land at the top or the end of the new parent&rsquo;s list. Like every change, the move waits in the draft: nothing changes in Jira until you press <span class="ui">Save changes</span>.</p>
 <ol>
-<li>Tick the issues (see <a href="/resources/documentation/issueorder/guide/drag-and-drop#select">Select and drag issues</a>).</li>
+<li>Tick the issues (see <a href="/resources/documentation/issueorder/guide/select-and-drag#select">Select and drag issues</a>).</li>
 <li>Click <span class="ui">Move to&hellip;</span> in the toolbar (<span class="ui">Move 3 to&hellip;</span> with three ticked), or choose <span class="ui">Move to&hellip;</span> in a row&rsquo;s &bull;&bull;&bull; menu.</li>
 <li>Choose the new parent in the list, or type to find it.</li>
 <li>Choose <span class="ui">At the top</span> or <span class="ui">At the end</span>, the default.</li>
-<li>Click the button, which names your choice: <span class="ui">Move to IOQ-1</span>.</li>
+<li>Click the button, which names your choice: <span class="ui">Move to SHOP-4</span>.</li>
 </ol>
 
 <section id="open" style="scroll-margin-top:100px;">
@@ -272,18 +274,19 @@
 </tbody>
 </table>
 <ul>
-<li><strong>Child issues, nothing typed:</strong> the space&rsquo;s epics in the order the outline shows them, including any reorder you haven&rsquo;t saved yet. <span class="ui">Without an epic &middot; Issue Order QA</span> comes last: choose it to take the issues out of their epic. In the pop-up on an issue, where the space&rsquo;s epics aren&rsquo;t loaded, the epics come from Jira instead, most recently updated first.</li>
-<li><strong>Typing asks Jira.</strong> The list reads <span class="ui">Searching&hellip;</span> for a moment. A full key, such as IOQ-4, finds that issue; other words match the start of words in the summary. Up to 50 results show, most recently updated first (see <a href="/resources/documentation/issueorder/limits#move-to-results">Limits</a>). <span class="ui">Without an epic</span> isn&rsquo;t listed while you search.</li>
+<li><strong>Child issues, nothing typed:</strong> the space&rsquo;s epics in the order the outline shows them, including any reorder you haven&rsquo;t saved yet. <span class="ui">Without an epic &middot; Shop</span> comes last: choose it to take the issues out of their epic. In the pop-up on an issue, where the space&rsquo;s epics aren&rsquo;t loaded, the epics come from Jira instead, most recently updated first.</li>
+<li><strong>An issue from another space</strong>, listed under one of this space&rsquo;s epics: the picker offers that issue&rsquo;s own space&rsquo;s epics, from Jira, most recently updated first, and <span class="ui">Without an epic</span> there. Tick <span class="ui">Other spaces</span> to choose another of this space&rsquo;s epics.</li>
+<li><strong>Typing asks Jira.</strong> The list reads <span class="ui">Searching&hellip;</span> for a moment. A full key, such as SHOP-4, finds that issue; other words match the start of words in the summary. Up to 50 results show, most recently updated first (see <a href="/resources/documentation/issueorder/limits#move-to-results">Limits</a>). <span class="ui">Without an epic</span> isn&rsquo;t listed while you search.</li>
 <li><strong>Sub-tasks and epics always ask Jira.</strong> With nothing typed, the list shows the 50 most recently updated choices.</li>
 <li><strong>Results from another space</strong> show that space&rsquo;s name at the right.</li>
 </ul>
-<p>The button reads <span class="ui">Move</span>, greyed, until you choose; then <span class="ui">Move to IOQ-1</span>, or <span class="ui">Move to Without an epic</span>.</p>
+<p>The button reads <span class="ui">Move</span>, greyed, until you choose; then <span class="ui">Move to SHOP-4</span>, or <span class="ui">Move to Without an epic</span>.</p>
 </section>
 
 <section id="top-or-end" style="scroll-margin-top:100px;">
 <h2>At the top or At the end</h2>
 <p><span class="ui">At the end</span>, the default, puts the issues after the last issue in the new parent&rsquo;s list; <span class="ui">At the top</span> puts them before the first. Several arrive together, in the order they had in the outline.</p>
-<p>To put them somewhere in between, move them, then drag them into place inside the new parent before you save. For an epic in this space, it opens in the outline to show them (see <a href="/resources/documentation/issueorder/guide/drag-and-drop#drag">Drag</a>).</p>
+<p>To put them somewhere in between, move them, then drag them into place inside the new parent before you save. For an epic in this space, it opens in the outline to show them (see <a href="/resources/documentation/issueorder/guide/select-and-drag#drag">Drag</a>).</p>
 <p>A list with more than 1,000 issues shows only its first 1,000, so its end isn&rsquo;t on screen and <span class="ui">At the end</span> is refused there with <span class="ui">This list has more than 1,000 issues and only the first 1,000 are shown, so its end isn&rsquo;t here. Drop them next to one you can see instead.</span> Choose <span class="ui">At the top</span> instead, or see <a href="/resources/documentation/issueorder/limits#issues-per-list">Limits</a>.</p>
 </section>
 
@@ -292,7 +295,7 @@
 <p>A choice Jira would refuse is greyed, with the reason beneath it, and can&rsquo;t be chosen. That way a move fails here, with a reason, rather than on Save.</p>
 <ul>
 <li><span class="ui">Already here.</span> &mdash; the issues are already under it. This includes an issue in <span class="ui">Under epics in other spaces</span> when its own epic turns up in an <span class="ui">Other spaces</span> search.</li>
-<li><strong>Jira&rsquo;s rules</strong>, in the same words as a refused drop, such as <span class="ui">Team-managed spaces keep parents and children in the same space.</span> The full list is in <a href="/resources/documentation/issueorder/guide/drag-and-drop#what-jira-allows">What Jira allows</a>.</li>
+<li><strong>Jira&rsquo;s rules</strong>, in the same words as a refused drop, such as <span class="ui">Team-managed spaces keep parents and children in the same space.</span> The full list is in <a href="/resources/documentation/issueorder/guide/select-and-drag#what-jira-allows">What Jira allows</a>.</li>
 <li><strong>Permissions</strong> &mdash; <span class="ui">You can&rsquo;t change <em>key</em>&rsquo;s parent: it needs the Edit issues permission in <em>space</em>.</span>, <span class="ui"><em>key</em> can&rsquo;t be moved: placing it needs the Schedule issues permission in <em>space</em>.</span> or <span class="ui">You can&rsquo;t reorder issues in <em>space</em>. It needs the Schedule issues and Edit issues permissions.</span></li>
 </ul>
 <p>When every choice is refused for the same reason, the picker says it once: <span class="ui">None of these can take it.</span> followed by the reason (<span class="ui">them</span> for several issues).</p>
@@ -307,7 +310,7 @@
 <li><strong>A team-managed epic in another space</strong> is greyed: <span class="ui">Team-managed spaces keep parents and children in the same space.</span></li>
 <li><strong>Sub-tasks</strong> never get <span class="ui">Other spaces</span>: Jira keeps them in their own space.</li>
 </ul>
-<p><strong>After the move</strong>, the issue leaves this space&rsquo;s outline, since its new epic isn&rsquo;t part of it, and a ghost line keeps its old place: <span class="ui">IOQ-33 Small one, moved to IOT-170 Payments API v2</span>. When you save, it lands at the top or the end of that epic&rsquo;s child issues, as you chose. From then on it is listed in this space&rsquo;s <span class="ui">Under epics in other spaces</span> section whenever the outline reads it from Jira, for example after <span class="ui">Refresh from Jira</span>.</p>
+<p><strong>After the move</strong>, the issue leaves this space&rsquo;s outline, since its new epic isn&rsquo;t part of it, and a ghost line keeps its old place: <span class="ui">SHOP-33 Gift card balance check, moved to APP-170 Mobile payments</span>. When you save, it lands at the top or the end of that epic&rsquo;s child issues, as you chose. From then on it is listed in this space&rsquo;s <span class="ui">Under epics in other spaces</span> section whenever the outline reads it from Jira, for example after <span class="ui">Refresh from Jira</span>.</p>
 <p>To bring such an issue back, tick it under <span class="ui">Under epics in other spaces</span> and move it to one of this space&rsquo;s epics. Nothing can be moved into that section (see <a href="/resources/documentation/issueorder/guide/about-the-app#sections">About the app</a>).</p>
 </section>
 
@@ -321,7 +324,7 @@
 <section id="sub-tasks" style="scroll-margin-top:100px;">
 <h2>Sub-tasks</h2>
 <p>Tick sub-tasks and <span class="ui">Move to&hellip;</span> looks for another issue in the same space to put them under. The find box reads <span class="ui">Find an issue by key or summary</span>, and with nothing typed the list shows the space&rsquo;s 50 most recently updated standard issues. Epics aren&rsquo;t offered: sub-tasks go under a story, task or bug.</p>
-<p>You can also drag sub-tasks onto another issue in the outline (see <a href="/resources/documentation/issueorder/guide/drag-and-drop#where-it-lands">Between issues, or onto one</a>).</p>
+<p>You can also drag sub-tasks onto another issue in the outline (see <a href="/resources/documentation/issueorder/guide/select-and-drag#where-it-lands">Between issues, or onto one</a>).</p>
 </section>
 
 <section id="epics" style="scroll-margin-top:100px;">
@@ -335,11 +338,11 @@
 <h2>What a move looks like</h2>
 <p>The picker closes, the new parent opens in the outline to show the issues, and they flash briefly. The header counts the change: <span class="ui">Draft &middot; 1 change</span>.</p>
 <ul>
-<li><strong>In the new list</strong>, each issue shows its new number in blue, its old one struck through, and a note with an <span class="ui">&times;</span>: <span class="ui">From IOQ-4 Small epic</span>. An issue taken out of its epic reads <span class="ui">Moved out of IOQ-4</span> under <span class="ui">Without an epic</span>; one given an epic reads <span class="ui">Was without an epic</span>, or <span class="ui">Was under IOT-170</span> if it came from <span class="ui">Under epics in other spaces</span>.</li>
-<li><strong>In the old list</strong>, a dashed ghost line keeps its place: <span class="ui">IOQ-33 Small one, moved to 1.7 in IOQ-1</span>. Neighbours going to the same place share one line, <span class="ui">2 issues moved to IOQ-1 Launch checklist</span>, and a move to <span class="ui">Without an epic</span> reads <span class="ui">IOQ-33 Small one, moved out of its epic</span>.</li>
+<li><strong>In the new list</strong>, each issue shows its new number in blue, its old one struck through, and a note with an <span class="ui">&times;</span>: <span class="ui">From SHOP-1 Checkout redesign</span>. An issue taken out of its epic reads <span class="ui">Moved out of SHOP-1</span> under <span class="ui">Without an epic</span>; one given an epic reads <span class="ui">Was without an epic</span>, or <span class="ui">Was under APP-170</span> if it came from <span class="ui">Under epics in other spaces</span>.</li>
+<li><strong>In the old list</strong>, a dashed ghost line keeps its place: <span class="ui">SHOP-13 Review with support, moved to 4.4 in SHOP-4</span>. Neighbours going to the same place share one line, <span class="ui">2 issues moved to SHOP-4 Gift cards</span>, and a move to <span class="ui">Without an epic</span> reads <span class="ui">SHOP-13 Review with support, moved out of its epic</span>.</li>
 <li><strong>Everything else renumbers quietly</strong>, in both lists, without a note.</li>
 </ul>
-<p>A screen reader hears the move, for example <span class="ui">IOQ-33 Small one moved to 1.7. Not saved yet.</span></p>
+<p>A screen reader hears the move, for example <span class="ui">SHOP-13 Review with support moved to 4.4. Not saved yet.</span></p>
 </section>
 
 <section id="change-your-mind" style="scroll-margin-top:100px;">

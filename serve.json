@@ -608,12 +608,12 @@
       "destination": "/resources/documentation/issueorder/guide/about-the-app.html"
     },
     {
-      "source": "/resources/documentation/issueorder/guide/drag-and-drop",
-      "destination": "/resources/documentation/issueorder/guide/drag-and-drop.html"
+      "source": "/resources/documentation/issueorder/guide/select-and-drag",
+      "destination": "/resources/documentation/issueorder/guide/select-and-drag.html"
     },
     {
-      "source": "/resources/documentation/issueorder/guide/drag-and-drop/",
-      "destination": "/resources/documentation/issueorder/guide/drag-and-drop.html"
+      "source": "/resources/documentation/issueorder/guide/select-and-drag/",
+      "destination": "/resources/documentation/issueorder/guide/select-and-drag.html"
     },
     {
       "source": "/resources/documentation/issueorder/guide/move-to",

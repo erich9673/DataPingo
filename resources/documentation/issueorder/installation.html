@@ -13,14 +13,14 @@
   <meta property="og:title" content="Issue Order for Jira — Installation">
   <meta property="og:description" content="Install Issue Order for Jira from the Atlassian Marketplace: who can install it, where it shows up, licensing and the free tier, and uninstalling.">
   <meta property="og:site_name" content="DataPingo">
-  <meta property="og:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta property="og:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Issue Order for Jira — documentation.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Issue Order for Jira — Installation">
   <meta name="twitter:description" content="Install Issue Order for Jira from the Atlassian Marketplace: who can install it, where it shows up, licensing and the free tier, and uninstalling.">
-  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-image.png">
+  <meta name="twitter:image" content="https://datapingo.com/assets/img/og-issue-order.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
@@ -221,6 +221,8 @@
       <p class="doc-toc-heading">Documentation</p>
       <nav class="doc-toc doc-toc--pages">
         <a href="/resources/documentation/issueorder">Get started</a>
+        <a href="/resources/documentation/issueorder/installation">Installation</a>
+        <a href="/resources/documentation/issueorder/where-to-open">Where to open it</a>
         <a href="/resources/documentation/issueorder/guide">User guide</a>
         <a href="/resources/documentation/issueorder/admin">Admin guide</a>
         <a href="/resources/documentation/issueorder/technical">App technical information</a>
@@ -234,12 +236,12 @@
 
     <div class="doc-content">
 <section id="installation" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Installation</h2>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Installation</h2>
 <p>Installing needs a Jira admin, since apps are installed for the whole site.</p>
 <ol>
 <li>Open <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">Issue Order for Jira</a> on the Atlassian Marketplace, or search for it from <strong>Apps &rarr; Explore more apps</strong> inside Jira.</li>
 <li>Click <strong>Try it free</strong> and choose your Jira Cloud site.</li>
-<li>Accept the permissions it asks for. The app uses them to read issues, spaces and their fields, and to change only an issue&rsquo;s Rank, parent and priority. There are no admin permissions and no app storage &mdash; see <a href="/resources/documentation/issueorder/specs#scopes">Specifications</a> for what each one is used for.</li>
+<li>Accept the permissions it asks for. The app uses them to read issues, spaces and their fields, and to change only an issue&rsquo;s Rank, parent and priority. There are no admin permissions and no app storage &mdash; see <a href="/resources/documentation/issueorder/specs#permissions">Permissions required</a> for what each one is used for.</li>
 <li>Open it from <span class="ui">Reorder child issues</span> in an issue&rsquo;s <strong>&bull;&bull;&bull;</strong> menu, or from <span class="ui">Issue Order for Jira</span> under <strong>Apps</strong>.</li>
 </ol>
 <p>There is nothing to set up after that. The app has no settings screen: what each person can do with it is decided by the Jira permissions they already have &mdash; see the <a href="/resources/documentation/issueorder/admin">Admin guide</a>.</p>
@@ -253,26 +255,33 @@
 
 <h3 id="licensing" style="scroll-margin-top:100px;">Licensing and the free tier</h3>
 <div class="doc-tip">
-<p><strong>Free for sites with 10 or fewer users.</strong> Above that it&rsquo;s paid per user, through the Atlassian Marketplace. There is no separate DataPingo account to create. See the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Marketplace listing</a>.</p>
+<p><strong>Free for teams of 10 or fewer.</strong> Above that, paid tiers are billed through the Atlassian Marketplace on your existing Atlassian invoice: there is no separate DataPingo account to create and no card to enter with us.</p>
 </div>
+<p>Issue Order is billed per user, on graduated tiers. The free tier covers sites with 10 users or fewer; from 11 users, every user is billed. See the <a href="https://marketplace.atlassian.com/vendors/719515432/datapingo" target="_blank" rel="noopener">pricing on the Marketplace listing</a>.</p>
 <p>If the site&rsquo;s subscription isn&rsquo;t active, the app says so as soon as it opens, from either way in: <span class="ui">Issue Order needs an active subscription on this site. Ask your Jira admin to subscribe to Issue Order for Jira on the Atlassian Marketplace.</span> Nothing loads until the subscription is active again. Issues you have already ordered stay exactly where they are, because the order is Jira&rsquo;s own Rank.</p>
 
 <h3 id="uninstalling" style="scroll-margin-top:100px;">Uninstalling</h3>
 <p>Uninstall from <strong>Manage apps</strong> in Jira&rsquo;s app settings. There is nothing to clean up in Jira or anywhere else, because the app stores nothing of its own.</p>
 <ul>
 <li><strong>What you saved stays.</strong> Every order you saved is Jira&rsquo;s own Rank, so the epic&rsquo;s child list, boards and backlogs keep it. Parent and priority changes you saved stay too.</li>
-<li><strong>Each person&rsquo;s browser may keep a few small entries</strong>: the last space they opened, their Show, Hide done and Numbers choices, the priority lanes&rsquo; record of new issues, and, if they left changes unsaved, a draft of issue keys. None of it ever leaves that browser. While the app is installed, an unsaved draft is dropped after 14 days; after uninstalling, these entries stay until the browser&rsquo;s site data is cleared.</li>
+<li><strong>Each person&rsquo;s browser may keep a few small entries</strong>: the last space they opened, their Show, Hide done and Numbers choices, the priority lanes&rsquo; record of new issues, and, if they left changes unsaved, a draft of them (issue keys, priority names and sort names, never summaries). None of it ever leaves that browser. While the app is installed, an unsaved draft is dropped after 14 days; after uninstalling, these entries stay until the browser&rsquo;s site data is cleared.</li>
 </ul>
 </section>
 
 <section id="support" style="scroll-margin-top:100px;">
-<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#A5B4FC" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Support &amp; contact</h2>
-<p>Something not working, or a question about Issue Order? Write to <a href="mailto:support@datapingo.com">support@datapingo.com</a>; we typically reply within one business day. <a href="/resources/documentation/issueorder/troubleshooting">Help and support</a> lists the app&rsquo;s messages and what to do about each.</p>
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#C4B5FD" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Support &amp; contact</h2>
+<p>For technical support, feature requests, or general questions about Issue Order for Jira:</p>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:support@datapingo.com">support@datapingo.com</a></li>
+<li><strong>Response Time:</strong> Within one business day</li>
+<li><strong>Support Scope:</strong> App functionality and technical issues</li>
+</ul>
+
 <div class="doc-support-grid">
 <div class="doc-support-card">
 <h3 id="documentation" style="scroll-margin-top:100px;">Documentation</h3>
-<p>Every screen, setting and limit</p>
-<a href="/resources/documentation/issueorder">Browse the docs &rarr;</a>
+<p>Browse docs for all DataPingo products</p>
+<a href="/resources/documentation">Browse Docs &rarr;</a>
 </div>
 <div class="doc-support-card">
 <h3 id="support-portal" style="scroll-margin-top:100px;">Support portal</h3>
@@ -280,9 +289,9 @@
 <a href="https://datapingo.atlassian.net/servicedesk/customer/portals" target="_blank" rel="noopener">Open a request &rarr;</a>
 </div>
 <div class="doc-support-card">
-<h3 id="email" style="scroll-margin-top:100px;">Email</h3>
-<p>Problems, questions and feature requests</p>
-<a href="mailto:support@datapingo.com">support@datapingo.com &rarr;</a>
+<h3 id="community" style="scroll-margin-top:100px;">Community</h3>
+<p>Follow what I post and answer on the Atlassian Community</p>
+<a href="https://community.atlassian.com/forums/user/viewprofilepage/user-id/5928198?show=activity" target="_blank" rel="noopener">View my activity &rarr;</a>
 </div>
 </div>
 </section>
