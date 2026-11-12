@@ -10,9 +10,9 @@
        Management request carries a reply only. -->
   <defs>
     <radialGradient id="bcjWash" cx="50%" cy="42%" r="70%">
-      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.09"/>
-      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.025"/>
-      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.09"/>
+      <stop offset="55%" stop-color="#C084FC" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="bcjToCustomer" gradientUnits="userSpaceOnUse" x1="900" y1="0" x2="1040" y2="0">
       <stop offset="0%" stop-color="#527AD9"/>
@@ -27,7 +27,7 @@
   <rect width="1600" height="900" fill="url(#bcjWash)"/>
 
   <!-- glows: cool behind the page, warm only where a customer is reached -->
-  <rect x="700" y="290" width="200" height="320" rx="20" fill="#05CEF0" opacity="0.15" filter="url(#bcjGlow)"/>
+  <rect x="700" y="290" width="200" height="320" rx="20" fill="#C084FC" opacity="0.15" filter="url(#bcjGlow)"/>
   <ellipse cx="1170" cy="470" rx="150" ry="105" fill="#F0A93C" opacity="0.06" filter="url(#bcjGlow)"/>
 
   <!-- strands: product -> page -> that item's own comment -->
@@ -60,7 +60,7 @@
   </g>
   <!-- the one page -->
   <g>
-    <rect x="700" y="290" width="200" height="320" rx="20" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.9" stroke-width="2.25"/>
+    <rect x="700" y="290" width="200" height="320" rx="20" fill="#060E1C" stroke="#C084FC" stroke-opacity="0.9" stroke-width="2.25"/>
     <rect x="728" y="324" width="104" height="10" rx="5" fill="#E8F4FF"/>
     <circle cx="734" cy="382" r="6.5" fill="#17BBEB"/>
     <rect x="752" y="378" width="112" height="8" rx="4" fill="#6B86A4" opacity="0.8"/>

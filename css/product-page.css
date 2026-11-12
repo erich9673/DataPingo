@@ -1,8 +1,8 @@
 /* ══════════════════════════════════════════════════════════════════════════
    PRODUCT PAGES — Direction A "Quiet dark" (chosen 2026-09-28)
 
-   Shared by products/bulk-comments.html, products/bulk-page-cloner.html and
-   products/page-order.html,
+   Shared by products/bulk-comments.html, products/bulk-page-cloner.html,
+   products/page-order.html and products/issue-order.html,
    linked AFTER each page's own <style> so it wins on source order, and scoped
    through body.product-page so it wins on specificity against the pages'
    single-class rules. Nothing here reaches any other page on the site.
@@ -10,30 +10,35 @@
    The redesign is subtraction: the site's dark ground stays, and what goes is
    the glow, gradient text, gradient buttons, hover lifts and the card around
    every block. Each page gets ONE product colour, used for the button, the
-   eyebrows and the active state — plus a tinted hero ground (purple for Bulk
-   Comments, blue for Bulk Page Cloner) — the C mockup's hero ground, faded
+   eyebrows and the active state — plus a tinted hero ground (purple for the
+   Jira apps, blue for the Confluence apps) — the C mockup's hero ground, faded
    into the page ground over the hero's last third so there is no band edge.
    ══════════════════════════════════════════════════════════════════════════ */
 
 .product-page--bcj {
-  --pp-acc:        #A5B4FC;               /* text accent — 10.0:1 on #020911 */
-  --pp-acc-strong: #C7D2FE;
-  --pp-fill:       #5B5EEA;               /* button — white text 4.96:1 */
+  /* Purple since 2026-10-30 (was indigo), as its docs: Jira apps are purple.
+     Pinker than Issue Order's violet so the two Jira apps stay apart. */
+  --pp-acc:        #D8B4FE;               /* text accent — 11.3:1 on #020911 */
+  --pp-acc-strong: #EBD5FF;
+  --pp-fill:       #9333EA;               /* button — white text 5.4:1 */
   --pp-fill-ink:   #FFFFFF;
-  --pp-line:       rgba(129,140,248,0.5);
-  --pp-tint:       rgba(99,102,241,0.12);
+  --pp-line:       rgba(192,132,252,0.5);
+  --pp-tint:       rgba(147,51,234,0.13);
   --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
-                   radial-gradient(ellipse 85% 105% at 76% 30%, #2C2170 0%, #16113A 55%, #0B0920 100%);
+                   radial-gradient(ellipse 85% 105% at 76% 30%, #2C1048 0%, #150A28 45%, #020911 80%);
 }
 .product-page--bpc {
-  --pp-acc:        #67E8F9;               /* 13.8:1 on #020911 */
-  --pp-acc-strong: #A5F3FC;
-  --pp-fill:       #05CEF0;               /* the site's own teal, dark ink on it */
-  --pp-fill-ink:   #020911;
-  --pp-line:       rgba(34,211,238,0.45);
-  --pp-tint:       rgba(34,211,238,0.1);
+  /* Sky blue since 2026-10-30 (was the site's teal), to match its new icon
+     and its docs: Confluence apps are blue. Lighter and greener than Page
+     Order's azure so the two Confluence apps stay apart. */
+  --pp-acc:        #7CC0FA;               /* 10.3:1 on #020911 */
+  --pp-acc-strong: #BEE0FD;
+  --pp-fill:       #1C74C9;               /* button — white text 4.8:1 */
+  --pp-fill-ink:   #FFFFFF;
+  --pp-line:       rgba(124,192,250,0.45);
+  --pp-tint:       rgba(56,150,240,0.12);
   --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
-                   radial-gradient(ellipse 85% 105% at 76% 30%, #0E3A6E 0%, #0A2344 55%, #061428 100%);
+                   radial-gradient(ellipse 85% 105% at 76% 30%, #0A2A50 0%, #06172E 45%, #020911 80%);
 }
 /* Page Order — azure, from its icon (azure → violet). Kept bluer than Bulk
    Comments' indigo so the two never read as the same product. */
@@ -45,20 +50,44 @@
   --pp-line:       rgba(110,150,250,0.5);
   --pp-tint:       rgba(80,125,245,0.13);
   --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
-                   radial-gradient(ellipse 85% 105% at 76% 30%, #1C2C78 0%, #111B4A 55%, #090F2A 100%);
+                   radial-gradient(ellipse 85% 105% at 76% 30%, #141F56 0%, #0A1232 45%, #020911 80%);
+}
+/* Issue Order — violet, from its icon and the Jira apps' purple. Redder
+   than Bulk Comments' indigo so the two Jira apps never read as one. */
+.product-page--io {
+  --pp-acc:        #C4B5FD;               /* 10.8:1 on #020911 */
+  --pp-acc-strong: #DDD6FE;
+  --pp-fill:       #7C3AED;               /* button — white text 5.7:1 */
+  --pp-fill-ink:   #FFFFFF;
+  --pp-line:       rgba(167,139,250,0.5);
+  --pp-tint:       rgba(139,92,246,0.14);
+  --pp-hue:        linear-gradient(to bottom, rgba(2,9,17,0) 68%, #020911 100%),
+                   radial-gradient(ellipse 85% 105% at 76% 30%, #26144F 0%, #120B2C 45%, #020911 80%);
 }
 .product-page { --pp-rule: rgba(148,170,196,0.14); --pp-raised: #050D19; }
 
 /* ── Hero ─────────────────────────────────────────────────────────────── */
 /* The tint replaces the old faint corner glow. It is an ellipse centred
    behind the demo that dissolves into the page ground, so the hero has a
-   colour without a hard band edge under it. */
+   colour without a hard band edge under it. Toned down 2026-11-11 (Eric:
+   "purple hue is a little too much"): darker centre, and the edges now fade
+   to the page ground instead of staying tinted, for all four apps. */
 .product-page .product-hero::before { background: var(--pp-hue); }
 /* The ::before is absolutely positioned and the hero's content is not, so it
    paints ABOVE the copy. Harmless while it was a 7% glow; with a real colour
    it veiled the H1. Lift the content onto its own layer. */
 .product-page .product-hero-inner { position: relative; z-index: 1; }
 .product-page .product-hero-icon { box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+/* App name beside the icon, badges under it (added 2026-11-11). */
+.product-page .product-hero-id { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-width: 0; }
+.product-page .product-hero-name {
+  margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 25px; font-weight: 700;
+  line-height: 1.2; letter-spacing: -0.015em; color: var(--white, #fff); text-wrap: balance;
+}
+@media (max-width: 900px) {
+  .product-page .product-hero-name { font-size: 1.1rem; }
+  .product-page .product-hero-id .product-hero-badges { flex-direction: row; flex-wrap: wrap; }
+}
 .product-page .product-hero-tag {
   background: transparent; border-color: var(--pp-rule); color: var(--pp-acc);
 }
@@ -233,3 +262,10 @@
    starts with. */
 .product-page .cta-actions .pp-cta-brand { display: inline-flex; align-items: center; padding: 13px 26px; font-size: 0.875rem; font-weight: 600; border-radius: 9px; }
 @media (max-width: 768px) { .product-page .cta-actions .pp-cta-brand { padding: 15px 24px; } }
+
+/* Hero columns: from 1200px the copy column keeps 520px so its two buttons
+   stay on one line (Bulk Comments' rule, shared by all four). Narrower than
+   that the demos need the room more, so the pages keep their own split. */
+@media (min-width: 1200px) {
+  .product-page .product-hero-inner { grid-template-columns: 520px minmax(0, 1fr); gap: 48px; }
+}

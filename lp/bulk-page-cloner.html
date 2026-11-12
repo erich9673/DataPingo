@@ -35,7 +35,7 @@
     /* One screen, one decision: what the ad promised, proof it is real, and
        the Marketplace button. No site nav — this page exists to be compared
        against the full product page, so it offers no other way forward. */
-    body.lp { background: var(--black); overflow-x: clip; --lp-accent: #67E8F9; }
+    body.lp { background: var(--black); overflow-x: clip; --lp-accent: #7CC0FA; }
     /* One screen: the hero centres in whatever height the window has, and the
        footer sits on the bottom edge instead of floating mid-screen. */
     body.lp { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
@@ -50,7 +50,7 @@
     .lp-hero { position: relative; max-width: 1120px; margin: 0 auto; padding: 12px 32px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 52px; align-items: center; }
     .lp-hero::before { content: ''; position: absolute; inset: -120px 0 auto; height: 620px; pointer-events: none; z-index: -1;
       background: radial-gradient(ellipse 50% 60% at 30% 30%, rgba(14,116,210,0.22), transparent 70%); }
-    .lp-app { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; color: #67E8F9; }
+    .lp-app { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.9rem; font-weight: 600; color: #7CC0FA; }
     .lp-app img { width: 40px; height: 40px; border-radius: 10px; }
     .lp-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4.2vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin: 0 0 14px; text-wrap: balance; }
     .lp-sub { font-size: 1.05rem; line-height: 1.6; color: var(--slate); margin: 0 0 18px; max-width: 46ch; }
@@ -68,7 +68,7 @@
     .lp-foot { border-top: 1px solid var(--border); padding: 12px 32px; display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate); }
     .lp-foot a { color: var(--slate); text-decoration: none; }
     .lp-foot a:hover { color: var(--white); }
-    .lp a:focus-visible { outline: 2px solid #67E8F9; outline-offset: 3px; border-radius: 8px; }
+    .lp a:focus-visible { outline: 2px solid #7CC0FA; outline-offset: 3px; border-radius: 8px; }
     @media (max-width: 860px) {
       .lp-hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 16px; }
       .lp-cta { width: 100%; justify-content: center; }
@@ -84,7 +84,7 @@
        Project B to Project Z is exactly 25 copies of Project A.
        It opens on a finished frame and replays; click Create to rerun. */
     .bpc-clone { width: 100%; max-width: 620px; margin-left: auto; user-select: none; position: relative; }
-    .bd { position: relative; background: rgba(8,14,26,0.92); border: 1px solid var(--pp-line, rgba(34,211,238,0.45));
+    .bd { position: relative; background: rgba(8,14,26,0.92); border: 1px solid var(--pp-line, rgba(124,192,250,0.45));
       border-radius: 16px; padding: 16px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.5); }
     .bd-rail { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
     .bd-step { display: flex; align-items: center; gap: 6px; font-size: 0.66rem; font-weight: 600; color: #7F8CA1;
@@ -94,7 +94,7 @@
       transition: background 0.25s, border-color 0.25s, color 0.25s; }
     .bd-step i svg { width: 10px; height: 10px; display: none; }
     .bd-step.on { color: var(--white); }
-    .bd-step.on i { background: #05CEF0; border-color: #05CEF0; color: #020911; }
+    .bd-step.on i { background: #1C74C9; border-color: #1C74C9; color: #fff; }
     .bd-step.done { color: #B8C4D6; }
     .bd-step.done i { background: rgba(52,211,153,0.16); border-color: rgba(52,211,153,0.5); color: #6EE7A8; }
     .bd-step.done i b { display: none; } .bd-step.done i svg { display: block; }
@@ -110,7 +110,7 @@
     .bd-src { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 11px;
       border: 1px solid var(--border); background: rgba(255,255,255,0.02); margin-bottom: 14px; }
     .bd-ic { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(5,206,240,0.12); color: #67E8F9; }
+      background: rgba(56,150,240,0.12); color: #7CC0FA; }
     .bd-ic svg { width: 15px; height: 15px; }
     .bd-src small, .bd-dest small { display: block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; color: #7F8CA1; }
@@ -123,15 +123,15 @@
     .bd-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
     .bd-head b { font-size: 0.84rem; font-weight: 700; color: var(--white); }
     .bd-head .ct { font-size: 0.7rem; color: #A9B6C8; }
-    .bd-head .ct em { font-style: normal; font-weight: 700; color: #67E8F9; font-variant-numeric: tabular-nums; }
-    .bd-head .acts { margin-left: auto; font-size: 0.64rem; font-weight: 600; color: #67E8F9; white-space: nowrap; }
+    .bd-head .ct em { font-style: normal; font-weight: 700; color: #7CC0FA; font-variant-numeric: tabular-nums; }
+    .bd-head .acts { margin-left: auto; font-size: 0.64rem; font-weight: 600; color: #7CC0FA; white-space: nowrap; }
     .bd-titles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
     .bd-titles li { display: flex; align-items: center; gap: 9px; }
     .bd-titles .n { width: 14px; text-align: right; font-size: 0.62rem; color: #7F8CA1; font-variant-numeric: tabular-nums; flex-shrink: 0; }
     .bd-titles .f { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; height: 31px; padding: 0 10px;
       border-radius: 7px; border: 1px solid var(--border); background: rgba(255,255,255,0.02);
       font-size: 0.76rem; color: var(--white); transition: border-color 0.2s; }
-    .bd-titles .f.focus { border-color: #05CEF0; }
+    .bd-titles .f.focus { border-color: #1C74C9; }
     .bd-titles .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .bd-titles .t:empty::before { content: attr(data-ph); color: #5E6B80; }
     .bd-titles .ok { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center;
@@ -151,17 +151,17 @@
 
     .bd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
     .bd-stat { font-size: 0.78rem; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; }
-    .bd-stat b { color: #67E8F9; font-weight: 700; }
+    .bd-stat b { color: #7CC0FA; font-weight: 700; }
     .bd.is-done .bd-foot { opacity: 0; }
     .bd-foot { transition: opacity 0.3s ease; }
     .bpc-create { border: none; cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 700;
-      color: #020911; background: #05CEF0; border-radius: 9px; padding: 9px 16px;
+      color: #fff; background: #1C74C9; border-radius: 9px; padding: 9px 16px;
       display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; position: relative;
       transition: transform 0.12s, box-shadow 0.15s, filter 0.15s; }
     .bpc-create svg { width: 13px; height: 13px; }
     .bpc-create:hover { filter: brightness(1.08); }
     .bpc-create.pressed { transform: scale(0.97); }
-    .bpc-create:focus-visible { outline: 2px solid #67E8F9; outline-offset: 3px; }
+    .bpc-create:focus-visible { outline: 2px solid #7CC0FA; outline-offset: 3px; }
 
     .bd-done-head { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; margin-bottom: 4px; }
     .bd-okbig { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -174,7 +174,7 @@
       font-size: 0.76rem; color: var(--white); opacity: 0; transform: translateY(4px); transition: opacity 0.3s, transform 0.3s; }
     .bd-links li.in { opacity: 1; transform: none; }
     .bd-links svg.doc { width: 13px; height: 13px; color: #8B97AB; flex-shrink: 0; }
-    .bd-links .open { margin-left: auto; font-size: 0.68rem; font-weight: 600; color: #67E8F9; }
+    .bd-links .open { margin-left: auto; font-size: 0.68rem; font-weight: 600; color: #7CC0FA; }
     .bd-done .bd-more { text-align: center; padding: 0; }
 
     .bpc-cursor { position: absolute; top: 0; left: 0; width: 18px; height: 18px; z-index: 6; opacity: 0;
@@ -200,7 +200,7 @@
   </style>
 </head>
 <body class="lp">
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':h.indexOf('101065922')>-1?'issue-order-for-jira':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
   <header class="lp-top">
     <a class="lp-brand" href="/"><img src="/assets/Company Logo/DataPingo logo_LOGO A3.png" alt="" width="128" height="128">DataPingo</a>
     <span class="lp-roa" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg>Runs on Atlassian</span>

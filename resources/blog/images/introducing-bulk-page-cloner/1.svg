@@ -1,9 +1,9 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="washTree" cx="50%" cy="30%" r="65%">
-      <stop offset="0%" stop-color="#05CEF0" stop-opacity="0.09"/>
-      <stop offset="55%" stop-color="#05CEF0" stop-opacity="0.025"/>
-      <stop offset="100%" stop-color="#05CEF0" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#4FA8F5" stop-opacity="0.09"/>
+      <stop offset="55%" stop-color="#4FA8F5" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="#4FA8F5" stop-opacity="0"/>
     </radialGradient>
     <filter id="glowTree" x="-80%" y="-80%" width="260%" height="260%">
       <feGaussianBlur stdDeviation="18" result="blur"/>
@@ -15,7 +15,7 @@
   <rect width="1600" height="900" fill="url(#washTree)"/>
 
   <!-- glow behind the source page -->
-  <rect x="755" y="110" width="90" height="120" rx="10" fill="#05CEF0" opacity="0.16" filter="url(#glowTree)"/>
+  <rect x="755" y="110" width="90" height="120" rx="10" fill="#4FA8F5" opacity="0.16" filter="url(#glowTree)"/>
   <!-- soft glow under the child row -->
   <ellipse cx="800" cy="560" rx="420" ry="90" fill="#7C4DCC" opacity="0.06" filter="url(#glowTree)"/>
 
@@ -26,7 +26,7 @@
   <path d="M800,236 C800,350 1100,350 1100,514" fill="none" stroke="#705AD0" stroke-opacity="0.45" stroke-width="2"/>
 
   <!-- origin node -->
-  <circle cx="800" cy="234" r="4" fill="#05CEF0"/>
+  <circle cx="800" cy="234" r="4" fill="#4FA8F5"/>
 
   <!-- child page glyphs (page-with-folded-corner icon; solid, equally "real" — these are placed pages, not fading generations) -->
   <g>
@@ -64,8 +64,8 @@
 
   <!-- source page glyph — larger, brighter, the one real template -->
   <g>
-    <path d="M755,110 L829,110 L845,126 L845,230 L755,230 Z" fill="#060E1C" stroke="#05CEF0" stroke-opacity="0.9" stroke-width="2.25"/>
-    <path d="M829,110 L829,126 L845,126 Z" fill="#05CEF0" fill-opacity="0.4"/>
+    <path d="M755,110 L829,110 L845,126 L845,230 L755,230 Z" fill="#060E1C" stroke="#4FA8F5" stroke-opacity="0.9" stroke-width="2.25"/>
+    <path d="M829,110 L829,126 L845,126 Z" fill="#4FA8F5" fill-opacity="0.4"/>
     <rect x="771" y="146" width="58" height="7" rx="3.5" fill="#E8F4FF"/>
     <rect x="771" y="164" width="44" height="6" rx="3" fill="#6B86A4" opacity="0.85"/>
     <rect x="771" y="180" width="50" height="6" rx="3" fill="#6B86A4" opacity="0.85"/>

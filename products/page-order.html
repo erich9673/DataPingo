@@ -118,9 +118,12 @@
        which only appears once there is something to save. The page tree is
        left out, as the app's own "Hide page tree" does. The pages are the
        Team Handbook › Policies set used on the Marketplace listing.
-       It opens on the ready-to-save frame, then replays: Sort all → A to Z →
-       every page slides to its place with its ▲/▼ mark → Save changes →
-       "Moving pages… k of 8" → Saved. */
+       It opens on the ready-to-save frame, then replays: press Holidays and
+       drag down to tick three pages in one sweep → "3 selected" → drag them
+       onto Time off ("Sick leave +2 more · Move into “Time off”") → they
+       leave Policies, and Unsaved changes says "3 pages move into Time off"
+       → Save changes → "Moving pages… k of 3" → Saved. Wording is the app's
+       own (PageList.jsx DragCard, changes.js). */
     .po-demo { width: 100%; max-width: 620px; margin-left: auto; user-select: none; position: relative; }
     .pd { --rh: 26px; position: relative; background: rgba(8,14,26,0.92); border: 1px solid var(--pp-line);
       border-radius: 16px; padding: 16px 18px 18px; box-shadow: 0 26px 60px rgba(0,0,0,0.5); }
@@ -166,22 +169,28 @@
     .pd-row .mk { font-size: 0.62rem; font-weight: 700; color: #8B97AB; font-variant-numeric: tabular-nums;
       opacity: 0; transition: opacity 0.3s; }
     .pd-row.moved .mk { opacity: 1; }
+    /* Ticked rows light up, as the app's selected rows do; the ones being
+       carried dim; the page they drop into is outlined; pages moved into
+       another page leave this list. */
+    .pd-row.sel { background: var(--pp-tint); }
+    .pd-row.lifted { opacity: 0.4; }
+    .pd-row.into { background: var(--pp-tint); box-shadow: inset 0 0 0 1.5px var(--pp-fill); border-radius: 6px; }
+    .pd-row.gone { opacity: 0; pointer-events: none; }
+    .pd-row { transition: top 0.75s cubic-bezier(0.45, 0.05, 0.2, 1), opacity 0.35s ease, background 0.15s; }
+    .pd-row.landed { animation: pdLand 1.2s ease-out; }
+    @keyframes pdLand { from { background: var(--pp-tint); } to { background: transparent; } }
+    .pd-chg small { display: block; margin-top: 3px; font-size: 0.6rem; color: #8B97AB; }
+    .pd-card { position: absolute; top: 0; left: 0; z-index: 5; display: flex; align-items: center; gap: 6px;
+      padding: 6px 9px; border-radius: 8px; background: #F4F9FF; color: #0B2547;
+      font-size: 0.72rem; font-weight: 700; white-space: nowrap; box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+      opacity: 0; pointer-events: none;
+      transition: transform 0.55s cubic-bezier(0.33,0.9,0.28,1), opacity 0.2s ease; }
+    .pd-card.on { opacity: 1; }
+    .pd-card .doc { width: 12px; height: 12px; color: #3B6AE8; flex-shrink: 0; }
+    .pd-card b { padding: 1px 7px; border-radius: 99px; background: #3B6AE8; color: #fff; font-size: 0.64rem; }
+    .pd-card em { display: none; font-style: normal; font-weight: 600; color: #3B6AE8; }
+    .pd-card.into em { display: inline; }
 
-    .pd-menu { position: absolute; top: 38px; right: 8px; width: 184px; z-index: 4; padding: 6px 0 4px;
-      background: #0E1729; border: 1px solid rgba(148,170,196,0.22); border-radius: 9px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.55);
-      opacity: 0; transform: translateY(-4px); pointer-events: none; transition: opacity 0.18s, transform 0.18s; }
-    .pd-menu.open { opacity: 1; transform: none; }
-    .pd-menu small { display: block; padding: 3px 12px 5px; font-size: 0.56rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: #7F8CA1; }
-    .pd-opt { padding: 5px 12px; transition: background 0.15s; }
-    .pd-opt b { display: block; font-size: 0.72rem; font-weight: 600; color: #E8F4FF; }
-    .pd-opt span { display: block; font-size: 0.6rem; color: #8B97AB; }
-    .pd-opt.hover { background: var(--pp-tint); }
-    .pd-num { display: flex; gap: 8px; align-items: flex-start; margin-top: 4px; padding: 7px 12px 4px;
-      border-top: 1px solid var(--border); font-size: 0.64rem; color: #C9D3E2; }
-    .pd-num .pd-cb { margin-top: 1px; }
-    .pd-num span { display: block; font-size: 0.56rem; color: #8B97AB; }
 
     .pd-sidewrap { overflow: hidden; min-width: 0; }
     .pd-side { width: 196px; padding: 12px; border: 1px solid var(--pp-line); border-radius: 10px;
@@ -222,11 +231,12 @@
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
     .po-cursor.on { opacity: 1; }
     .po-cursor svg { width: 18px; height: 18px; display: block; transition: transform 0.12s ease; }
-    .po-cursor.tap svg { transform: scale(0.8); }
+    .po-cursor.tap svg, .po-cursor.down svg { transform: scale(0.8); }
+    .po-cursor.sweep { transition: transform 0.95s linear, opacity 0.25s ease; }
 
     @media (prefers-reduced-motion: reduce) {
-      .po-cursor { display: none; }
-      .pd-row, .pd-main, .pd-side, .pd-rows, .pd-menu { transition: none; }
+      .po-cursor, .pd-card { display: none; }
+      .pd-row, .pd-main, .pd-side, .pd-rows { transition: none; }
       .pd-dot { animation: none; }
     }
     /* Phones: no room beside the list, so the panel sits under it. */
@@ -617,7 +627,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Marketplace click-out tracking (see bulk-page-cloner.html). Page Order's
      listing id is 1059993353. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':h.indexOf('101065922')>-1?'issue-order-for-jira':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -632,10 +642,13 @@
       <div class="nav-links" role="menubar">
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
-          <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
-            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          <div class="dropdown-content" role="menu" aria-label="Products">
+            <span class="dropdown-group dropdown-group--jira" aria-hidden="true">Jira</span>
+            <a href="/products/bulk-comments" role="menuitem" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+            <a href="/products/issue-order" role="menuitem" aria-label="Issue Order for Jira">Issue Order</a>
+            <span class="dropdown-group dropdown-group--confluence" aria-hidden="true">Confluence</span>
+            <a href="/products/bulk-page-cloner" role="menuitem" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+            <a href="/products/page-order" role="menuitem" aria-label="Page Order for Confluence">Page Order</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -682,9 +695,12 @@
     <div class="mobile-menu-body">
 <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
-      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--jira">Jira</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+      <a href="/products/issue-order" class="mobile-nav-link" aria-label="Issue Order for Jira">Issue Order</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--confluence">Confluence</div>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+      <a href="/products/page-order" class="mobile-nav-link" aria-label="Page Order for Confluence">Page Order</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -721,13 +737,16 @@
       <div class="product-hero-text">
         <div class="product-hero-meta">
           <img src="/assets/img/Page%20Order%20Assets/Page%20Order%20for%20Confluence%20(144%20x%20144%20px).png" alt="Page Order for Confluence icon" class="product-hero-icon" width="144" height="144">
-          <div class="product-hero-badges">
-            <span class="product-hero-tag">Confluence App</span>
-            <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
+          <div class="product-hero-id">
+            <p class="product-hero-name">Page Order for Confluence</p>
+            <div class="product-hero-badges">
+              <span class="product-hero-tag">Confluence App</span>
+              <span class="roa-badge" title="Verified by Atlassian: runs entirely on Atlassian infrastructure with no external data egress"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.57471 0.781006L14.2041 4.94319L7.57471 9.10538L0.945292 4.94319L7.57471 0.781006Z"/><path d="M13.1 6.7104L7.5 10.2263L1.9 6.7104L0.500001 7.58937L7.5 11.9842L14.5 7.58937L13.1 6.7104Z"/><path d="M13.1 9.50715L7.5 13.023L1.9 9.50715L0.500001 10.3861L7.5 14.781L14.5 10.3861L13.1 9.50715Z"/></svg> Runs on Atlassian</span>
+            </div>
           </div>
         </div>
-        <h1>Sort Confluence child pages in one step</h1>
-        <p class="product-hero-sub">Page Order sorts child pages A to Z or by date, and moves many pages at once: to a new spot, another parent or another space.</p>
+        <h1>Sort child pages in one step</h1>
+        <p class="product-hero-sub">Select one or several child pages and drag them into place, move them to another parent or space, or sort them A to Z or by date. Save once, and the page tree follows.</p>
         <div class="product-hero-actions">
           <a href="https://marketplace.atlassian.com/apps/1059993353" target="_blank" rel="noopener" class="btn-primary">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -737,13 +756,13 @@
             View Documentation
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <p class="product-hero-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Free for teams up to 10 &mdash; no credit card needed.</p>
+          <p class="product-hero-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Free for teams up to 10</p>
         </div>
       </div>
 
-      <!-- Hero demo: the organizer on Team Handbook › Policies. Sort all → A to Z
-           → Unsaved changes → Save changes → Saved. -->
-      <div class="po-demo" role="img" aria-label="Page Order: the 12 child pages of Policies, in no particular order, are sorted A to Z with Sort all. The Unsaved changes panel lists the moves under Policies, and Save changes moves the pages in Confluence.">
+      <!-- Hero demo: the organizer on Team Handbook › Policies. Sweep to tick three pages →
+           drag them into Time off → Unsaved changes → Save changes → Saved. -->
+      <div class="po-demo" role="img" aria-label="Page Order: under Policies, three child pages, Holidays, Parental leave and Sick leave, are ticked in one sweep and dragged together into the page Time off. The Unsaved changes panel says 3 pages move into Time off, and Save changes moves them in Confluence.">
         <div class="pd" id="pd">
           <div class="pd-top" aria-hidden="true">
             <img src="/assets/img/Page%20Order%20Assets/Page%20Order%20for%20Confluence%20(144%20x%20144%20px).png" alt="" width="22" height="22">
@@ -753,40 +772,30 @@
           <div class="pd-main">
             <div class="pd-list" aria-hidden="true">
               <div class="pd-lhead">
-                <span class="pd-cb"></span><span>12 pages</span>
-                <span class="pd-sortbtn" id="pdSort"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h7.5M2.5 12h4"/></svg>Sort all</span>
+                <span class="pd-cb" id="pdAll"></span><span id="pdCount">12 pages</span>
+                <span class="pd-sortbtn" id="pdSort"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h7.5M2.5 12h4"/></svg><span id="pdSortLabel">Sort all</span></span>
               </div>
               <div class="pd-rows" id="pdRows">
                 <div class="pd-row" data-n="Travel"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Travel</span><span class="mk"></span></div>
+                <div class="pd-row" data-n="Holidays"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Holidays</span><span class="mk"></span></div>
+                <div class="pd-row" data-n="Parental leave"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Parental leave</span><span class="mk"></span></div>
+                <div class="pd-row" data-n="Sick leave"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Sick leave</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Remote work"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Remote work</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Onboarding"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Onboarding</span><span class="mk"></span></div>
-                <div class="pd-row" data-n="Holidays"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Holidays</span><span class="mk"></span></div>
-                <div class="pd-row" data-n="Benefits"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Benefits</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Security"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Security</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Expenses"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Expenses</span><span class="mk"></span></div>
+                <div class="pd-row" data-n="Time off"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Time off</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Code of conduct"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Code of conduct</span><span class="mk"></span></div>
-                <div class="pd-row" data-n="Parental leave"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Parental leave</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Equipment"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Equipment</span><span class="mk"></span></div>
-                <div class="pd-row" data-n="Performance reviews"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Performance reviews</span><span class="mk"></span></div>
                 <div class="pd-row" data-n="Learning budget"><span class="pd-cb"></span><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="t">Learning budget</span><span class="mk"></span></div>
-              </div>
-              <div class="pd-menu" id="pdMenu">
-                <small>Sort all pages</small>
-                <div class="pd-opt" id="pdAZ"><b>A to Z</b><span>By title</span></div>
-                <div class="pd-opt"><b>Z to A</b><span>By title, reversed</span></div>
-                <div class="pd-opt"><b>Newest first</b><span>By date created</span></div>
-                <div class="pd-opt"><b>Oldest first</b><span>By date created</span></div>
-                <div class="pd-opt"><b>Recently updated first</b><span>By last update</span></div>
-                <div class="pd-num"><span class="pd-cb on"></span><div>Sort numbers by value<span>2, 9, 10 rather than 10, 2, 9</span></div></div>
               </div>
             </div>
             <div class="pd-sidewrap">
               <div class="pd-side" id="pdSide" data-state="dirty">
                 <div class="pd-s pd-s--dirty">
                   <h4 aria-hidden="true">Unsaved changes</h4>
-                  <p aria-hidden="true"><span class="pd-moves">8</span> page moves. Saving can&rsquo;t be undone.</p>
-                  <div class="pd-chg" aria-hidden="true"><i>&rsaquo;</i><span><span class="pd-moves">8</span> pages change place under <b>Policies</b></span></div>
-                  <p aria-hidden="true">Sorted A to Z.</p>
+                  <p aria-hidden="true"><span class="pd-moves">3</span> page moves. Saving can&rsquo;t be undone.</p>
+                  <div class="pd-chg" aria-hidden="true"><i>&rsaquo;</i><span><span class="pd-moves">3</span> pages move into <b>Time off</b><small>From Policies &middot; at the bottom &middot; their child pages move with them</small></span></div>
                   <div class="pd-acts">
                     <span class="pd-btn" aria-hidden="true">Discard</span>
                     <button type="button" class="pd-btn primary" id="pdSave" aria-label="Replay the demo">Save changes</button>
@@ -794,17 +803,18 @@
                 </div>
                 <div class="pd-s pd-s--saving" aria-hidden="true">
                   <h4><span class="pd-dot"></span>Saving</h4>
-                  <p id="pdProgText">Moving pages&hellip; 0 of 8</p>
+                  <p id="pdProgText">Moving pages&hellip; 0 of 3</p>
                   <span class="pd-prog"><span id="pdProg"></span></span>
                   <p class="pd-fine">Keep this tab open until it&rsquo;s done.</p>
                 </div>
                 <div class="pd-s pd-s--saved" aria-hidden="true">
                   <h4><span class="pd-dot ok"></span>Saved</h4>
-                  <p class="pd-fine"><span class="pd-moves">8</span> pages moved.</p>
+                  <p class="pd-fine"><span class="pd-moves">3</span> pages moved.</p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="pd-card" id="pdCard" aria-hidden="true"><svg class="doc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="1.75" width="10" height="12.5" rx="1.5"/><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.5"/></svg><span class="pd-ct">Sick leave</span><b class="pd-cmore">+2 more</b><em>Move into &ldquo;Time off&rdquo;</em></div>
           <div class="po-cursor" id="poCursor" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#0b1220" stroke-width="1.2" stroke-linejoin="round"><path d="M5 2.5l14.5 8.2-6.4 1.2 3 6.6-2.7 1.2-3-6.6-4.4 4.6z"/></svg></div>
         </div>
       </div>
@@ -836,7 +846,7 @@
     <div class="section-wrap">
       <header class="section-header reveal">
         <p class="eyebrow"><span>Highlights</span></p>
-        <h2 class="section-title" id="highlights-heading">Every page in its place, in one step.</h2>
+        <h2 class="section-title" id="highlights-heading">Put your Confluence pages in their place.</h2>
         <p class="section-desc">Confluence adds new pages to the end of the list and moves them one drag at a time. Page Order does the whole list at once.</p>
       </header>
 
@@ -856,7 +866,7 @@
 
               <g font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6">
                 <text x="140" y="86" fill="#64748B">AS IT IS</text>
-                <text x="580" y="86" fill="#6D4FE0">A TO Z</text>
+                <text x="580" y="86" fill="#3B6AE8">A TO Z</text>
               </g>
 
               <!-- Lines: left row i to right row j. Unmoved pages get a flat grey line. -->
@@ -945,13 +955,13 @@
 
               <!-- Selected group -->
               <text x="72" y="104" font-family="Inter,sans-serif" font-size="13" font-weight="700" letter-spacing="1.6" fill="#3B6CF6">SELECTED</text>
-              <g font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#2B3FB8">
-                <rect x="72" y="118" width="218" height="38" rx="9" fill="#EEF2FF" stroke="#A5B4FC"/>
-                <rect x="72" y="166" width="218" height="38" rx="9" fill="#EEF2FF" stroke="#A5B4FC"/>
-                <rect x="72" y="214" width="218" height="38" rx="9" fill="#EEF2FF" stroke="#A5B4FC"/>
+              <g font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#1F4FC2">
+                <rect x="72" y="118" width="218" height="38" rx="9" fill="#EAF1FF" stroke="#93B4FF"/>
+                <rect x="72" y="166" width="218" height="38" rx="9" fill="#EAF1FF" stroke="#93B4FF"/>
+                <rect x="72" y="214" width="218" height="38" rx="9" fill="#EAF1FF" stroke="#93B4FF"/>
                 <g fill="#3B6CF6"><rect x="88" y="129" width="16" height="16" rx="4"/><rect x="88" y="177" width="16" height="16" rx="4"/><rect x="88" y="225" width="16" height="16" rx="4"/></g>
                 <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M92 137 l3 3 l5.5 -6"/><path d="M92 185 l3 3 l5.5 -6"/><path d="M92 233 l3 3 l5.5 -6"/></g>
-                <g fill="none" stroke="#6478E8" stroke-width="1.4"><rect x="114" y="129" width="12" height="16" rx="2"/><rect x="114" y="177" width="12" height="16" rx="2"/><rect x="114" y="225" width="12" height="16" rx="2"/></g>
+                <g fill="none" stroke="#5B86F0" stroke-width="1.4"><rect x="114" y="129" width="12" height="16" rx="2"/><rect x="114" y="177" width="12" height="16" rx="2"/><rect x="114" y="225" width="12" height="16" rx="2"/></g>
                 <text x="138" y="142">Benefits</text>
                 <text x="138" y="190">Expenses</text>
                 <text x="138" y="238">Holidays</text>
@@ -1023,13 +1033,13 @@
                 <rect x="60" y="92" width="290" height="276" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
                 <text x="82" y="124" font-size="16" font-weight="800" fill="#0F172A">Meeting notes</text>
                 <text x="82" y="144" font-size="12" fill="#64748B">Team Handbook</text>
-                <g font-size="14" font-weight="700" fill="#2B3FB8">
-                  <rect x="76" y="160" width="258" height="36" rx="8" fill="#EEF2FF" stroke="#A5B4FC"/>
-                  <rect x="76" y="204" width="258" height="36" rx="8" fill="#EEF2FF" stroke="#A5B4FC"/>
-                  <rect x="76" y="248" width="258" height="36" rx="8" fill="#EEF2FF" stroke="#A5B4FC"/>
+                <g font-size="14" font-weight="700" fill="#1F4FC2">
+                  <rect x="76" y="160" width="258" height="36" rx="8" fill="#EAF1FF" stroke="#93B4FF"/>
+                  <rect x="76" y="204" width="258" height="36" rx="8" fill="#EAF1FF" stroke="#93B4FF"/>
+                  <rect x="76" y="248" width="258" height="36" rx="8" fill="#EAF1FF" stroke="#93B4FF"/>
                   <g fill="#3B6CF6"><rect x="90" y="170" width="16" height="16" rx="4"/><rect x="90" y="214" width="16" height="16" rx="4"/><rect x="90" y="258" width="16" height="16" rx="4"/></g>
                   <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M94 178 l3 3 l5.5 -6"/><path d="M94 222 l3 3 l5.5 -6"/><path d="M94 266 l3 3 l5.5 -6"/></g>
-                  <g fill="none" stroke="#6478E8" stroke-width="1.4"><rect x="116" y="170" width="12" height="16" rx="2"/><rect x="116" y="214" width="12" height="16" rx="2"/><rect x="116" y="258" width="12" height="16" rx="2"/></g>
+                  <g fill="none" stroke="#5B86F0" stroke-width="1.4"><rect x="116" y="170" width="12" height="16" rx="2"/><rect x="116" y="214" width="12" height="16" rx="2"/><rect x="116" y="258" width="12" height="16" rx="2"/></g>
                   <text x="140" y="183">2026-01 All hands</text>
                   <text x="140" y="227">2026-02 All hands</text>
                   <text x="140" y="271">2026-03 All hands</text>
@@ -1053,14 +1063,14 @@
                 <rect x="600" y="74" width="272" height="304" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
                 <text x="622" y="106" font-size="16" font-weight="800" fill="#0F172A">Archive</text>
                 <text x="622" y="126" font-size="12" fill="#64748B">Another space</text>
-                <rect x="616" y="146" width="240" height="36" rx="8" fill="#EEF2FF" stroke="#A5B4FC"/>
+                <rect x="616" y="146" width="240" height="36" rx="8" fill="#EAF1FF" stroke="#93B4FF"/>
                 <rect x="630" y="156" width="12" height="16" rx="2" fill="none" stroke="#3B6CF6" stroke-width="1.4"/>
-                <text x="654" y="169" font-size="14.5" font-weight="700" fill="#2B3FB8">Top level of Archive</text>
-                <g font-size="13.5" font-weight="600" fill="#3B4FD8">
-                  <rect x="640" y="190" width="216" height="32" rx="8" fill="#F5F7FF" stroke="#C7D2FE"/>
-                  <rect x="640" y="230" width="216" height="32" rx="8" fill="#F5F7FF" stroke="#C7D2FE"/>
-                  <rect x="640" y="270" width="216" height="32" rx="8" fill="#F5F7FF" stroke="#C7D2FE"/>
-                  <g fill="none" stroke="#6478E8" stroke-width="1.3"><rect x="654" y="198" width="11" height="15" rx="2"/><rect x="654" y="238" width="11" height="15" rx="2"/><rect x="654" y="278" width="11" height="15" rx="2"/></g>
+                <text x="654" y="169" font-size="14.5" font-weight="700" fill="#1F4FC2">Top level of Archive</text>
+                <g font-size="13.5" font-weight="600" fill="#2D5BD8">
+                  <rect x="640" y="190" width="216" height="32" rx="8" fill="#F3F7FF" stroke="#C3D5FF"/>
+                  <rect x="640" y="230" width="216" height="32" rx="8" fill="#F3F7FF" stroke="#C3D5FF"/>
+                  <rect x="640" y="270" width="216" height="32" rx="8" fill="#F3F7FF" stroke="#C3D5FF"/>
+                  <g fill="none" stroke="#5B86F0" stroke-width="1.3"><rect x="654" y="198" width="11" height="15" rx="2"/><rect x="654" y="238" width="11" height="15" rx="2"/><rect x="654" y="278" width="11" height="15" rx="2"/></g>
                   <text x="676" y="211">2026-01 All hands</text>
                   <text x="676" y="251">2026-02 All hands</text>
                   <text x="676" y="291">2026-03 All hands</text>
@@ -1246,7 +1256,7 @@
           <div class="faq-answer">Yes &mdash; free for teams up to 10 users, with no credit card. Above that, per-user pricing is billed by the Atlassian Marketplace; the calculator above shows your estimate.</div>
         </div>
         <p class="section-desc" style="margin-top:26px;text-align:center;">
-          <a href="/resources/documentation/pageorder" style="text-decoration:none;font-weight:600;">More answers in the documentation &rarr;</a></p>
+          <a href="/resources/documentation/pageorder/faq" style="text-decoration:none;font-weight:600;">More answers in the documentation FAQ &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -1300,15 +1310,11 @@
           <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
           <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
         </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
       </div>
       <div class="footer-col">
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/issue-order">Issue Order for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/page-order">Page Order for Confluence</a>
       </div>
@@ -1330,7 +1336,14 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 DataPingo. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
       <nav class="footer-bottom-links" aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
@@ -1345,48 +1358,52 @@
 
 <script src="/js/site.js"></script>
 <script>
-  // Hero demo — the organizer, looped. Opens on the ready-to-save frame, then
-  // replays: Sort all → A to Z → the pages slide into place → Save changes →
-  // "Moving pages… k of 8" → Saved.
+  // Hero demo — the organizer, looped. Opens on the ready-to-save frame,
+  // then replays: sweep to tick three pages → drag them into another page →
+  // Unsaved changes → Save changes → "Moving pages… k of 3" → Saved.
   (function () {
     const pd = document.getElementById('pd');
     if (!pd) return;
     const rowsBox = pd.querySelector('#pdRows');
     const rows = Array.from(rowsBox.children);
-    const START = rows.map(r => r.dataset.n);
-    const SORTED = START.slice().sort((a, b) => a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' }));
     const byName = Object.fromEntries(rows.map(r => [r.dataset.n, r]));
-    // The number of moves the app reports: every page outside the longest run
-    // that is already in sorted order (Policies: 12 pages, 8 moves).
-    const seq = START.map(n => SORTED.indexOf(n));
-    const run = seq.map(() => 1);
-    for (let i = 0; i < seq.length; i++) for (let j = 0; j < i; j++) if (seq[j] < seq[i]) run[i] = Math.max(run[i], run[j] + 1);
-    const MOVES = START.length - Math.max(...run);
+    const START = rows.map(r => r.dataset.n);
+    // Ticked in one sweep (a run in the list), then dropped into Time off.
+    const PICK = ['Holidays', 'Parental leave', 'Sick leave'];
+    const INTO = 'Time off';
+    const END = START.filter(n => !PICK.includes(n));
+    const N = PICK.length, MOVES = N;
+    const GRAB = PICK[N - 1];
     pd.querySelectorAll('.pd-moves').forEach(el => { el.textContent = MOVES; });
 
-    const sortBtn = pd.querySelector('#pdSort'), menu = pd.querySelector('#pdMenu'), az = pd.querySelector('#pdAZ');
+    const count = pd.querySelector('#pdCount'), sortLabel = pd.querySelector('#pdSortLabel');
     const side = pd.querySelector('#pdSide'), save = pd.querySelector('#pdSave');
     const prog = pd.querySelector('#pdProg'), progText = pd.querySelector('#pdProgText');
-    const cursor = pd.querySelector('#poCursor');
+    const cursor = pd.querySelector('#poCursor'), card = pd.querySelector('#pdCard');
+    card.querySelector('.pd-ct').textContent = GRAB;
+    card.querySelector('.pd-cmore').textContent = '+' + (N - 1) + ' more';
+    card.querySelector('em').textContent = 'Move into “' + INTO + '”';
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const rh = () => byName[START[0]].getBoundingClientRect().height || 26;
 
     let timers = [];
     const clr = () => { timers.forEach(clearTimeout); timers = []; };
     const at = (ms, fn) => timers.push(setTimeout(fn, ms));
 
+    // Rows in `order` take their places; pages not in it have left the list.
     function place(order, instant) {
       if (instant) rowsBox.classList.add('instant');
+      rows.forEach(r => r.classList.toggle('gone', !order.includes(r.dataset.n)));
       order.forEach((n, i) => byName[n].style.setProperty('--i', i));
       if (instant) { void rowsBox.offsetHeight; rowsBox.classList.remove('instant'); }
+      head(0, order.length);
     }
-    // ▲/▼ — how far each page moves, as the app marks it.
-    function marks(on) {
-      rows.forEach(r => {
-        const d = SORTED.indexOf(r.dataset.n) - START.indexOf(r.dataset.n);
-        r.querySelector('.mk').textContent = on && d ? (d > 0 ? '▼' + d : '▲' + -d) : '';
-        r.classList.toggle('moved', on && d !== 0);
-      });
+    function head(selected, total) {
+      count.textContent = selected ? selected + ' selected' : total + ' pages';
+      sortLabel.textContent = selected > 1 ? 'Sort ' + selected + ' selected' : 'Sort all';
     }
+    const tick = (n, on) => { byName[n].querySelector('.pd-cb').classList.toggle('on', on); byName[n].classList.toggle('sel', on); };
+    const lift = on => PICK.forEach(n => byName[n].classList.toggle('lifted', on));
     function panel(state) {
       if (state) side.dataset.state = state;
       pd.classList.toggle('has-side', !!state);
@@ -1395,67 +1412,101 @@
       prog.style.width = (k / MOVES * 100) + '%';
       progText.textContent = 'Moving pages… ' + k + ' of ' + MOVES;
     }
-    function closeMenu() { menu.classList.remove('open'); sortBtn.classList.remove('open'); az.classList.remove('hover'); }
+    function cursorAt(x, y) {
+      cursor.classList.add('on');
+      cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      card.style.transform = 'translate(' + (x + 14) + 'px,' + (y + 10) + 'px)';
+    }
     function cursorTo(el, dx, dy) {
       const a = pd.getBoundingClientRect(), b = el.getBoundingClientRect();
-      cursor.classList.add('on');
-      cursor.style.transform = 'translate(' + (b.left - a.left + dx) + 'px,' + (b.top - a.top + dy) + 'px)';
+      cursorAt(b.left - a.left + dx, b.top - a.top + dy);
     }
     function tap() { cursor.classList.add('tap'); setTimeout(() => cursor.classList.remove('tap'), 140); }
+    function reset() {
+      save.classList.remove('pressed');
+      // A replay can interrupt a run mid-sweep or mid-drag: clear it all.
+      cursor.classList.remove('on', 'down', 'sweep', 'tap');
+      card.classList.remove('on', 'into');
+      rows.forEach(r => r.classList.remove('sel', 'lifted', 'into', 'landed'));
+      rows.forEach(r => r.querySelector('.pd-cb').classList.remove('on'));
+    }
 
-    // The ready-to-save frame: sorted, every move marked, Unsaved changes open.
+    // The ready-to-save frame: the pages moved out, Unsaved changes open.
     function settle() {
-      closeMenu();
-      place(SORTED, true);
-      marks(true);
+      reset();
+      place(END, true);
       panel('dirty');
-      cursor.classList.remove('on');
     }
 
     function play() {
       clr();
-      closeMenu();
-      save.classList.remove('pressed');
-      cursor.classList.remove('on');
+      reset();
       if (reduce) { settle(); return; }
       // Back to the list as it is: fade, reset, fade in.
       rowsBox.classList.add('fade');
       panel(null);
       let t = 260;
-      at(t, () => { marks(false); place(START, true); rowsBox.classList.remove('fade'); });
+      at(t, () => { place(START, true); rowsBox.classList.remove('fade'); });
 
-      // 1. Sort all → A to Z.
+      // 1. Press a page that isn't ticked and drag down: every page passed is
+      //    ticked, the way you select cells in a spreadsheet.
+      const i0 = START.indexOf(PICK[0]), i1 = START.indexOf(GRAB);
+      const SWEEP = 950;
       t += 700;
-      at(t, () => cursorTo(sortBtn, 22, 9));
-      t += 520;
-      at(t, () => { tap(); sortBtn.classList.add('open'); menu.classList.add('open'); });
-      t += 620;
-      at(t, () => cursorTo(az, 46, 12));
-      t += 440;
-      at(t, () => az.classList.add('hover'));
-      t += 300;
-      at(t, () => { tap(); closeMenu(); place(SORTED); panel('dirty'); });
-      t += 820;
-      at(t, () => marks(true));
+      at(t, () => cursorTo(byName[PICK[0]].querySelector('.t'), 30, 5));
+      t += 600;
+      at(t, () => { cursor.classList.add('down'); tick(PICK[0], true); head(1); });
+      t += 150;
+      at(t, () => { cursor.classList.add('sweep'); cursorTo(byName[GRAB].querySelector('.t'), 30, 5); });
+      PICK.slice(1).forEach((n, j) => {
+        const f = (START.indexOf(n) - i0 - 0.2) / (i1 - i0);
+        at(t + Math.round(SWEEP * f), () => { tick(n, true); head(j + 2); });
+      });
+      t += SWEEP + 100;
+      at(t, () => cursor.classList.remove('down', 'sweep'));
 
-      // 2. Save changes — each move ticks the progress on.
-      t += 1500;
+      // 2. Press a ticked page and drag: all three come along, onto the
+      //    middle of Time off, which takes them in as its child pages.
+      t += 650;
+      at(t, () => {
+        tap(); lift(true);
+        card.style.transition = 'none';
+        cursorTo(byName[GRAB].querySelector('.t'), 30, 5);
+        void card.offsetHeight; card.style.transition = '';
+        card.classList.add('on');
+      });
+      t += 260;
+      at(t, () => cursorTo(byName[INTO].querySelector('.t'), 26, rh() / 2 - 4));
+      t += 520;
+      at(t, () => { byName[INTO].classList.add('into'); card.classList.add('into'); });
+      t += 650;
+
+      // 3. Drop: the pages leave Policies, and Unsaved changes lists the move.
+      at(t, () => {
+        card.classList.remove('on', 'into'); byName[INTO].classList.remove('into'); lift(false);
+        PICK.forEach(n => tick(n, false));
+        place(END); panel('dirty');
+        byName[INTO].classList.add('landed');
+      });
+
+      // 4. Save changes — each move ticks the progress on.
+      t += 2300;
       at(t, () => cursorTo(save, 40, 10));
       t += 520;
       at(t, () => { tap(); save.classList.add('pressed'); });
       t += 170;
-      at(t, () => { save.classList.remove('pressed'); cursor.classList.remove('on'); progress(0); panel('saving'); });
-      for (let k = 1; k <= MOVES; k++) at(t + k * 300, () => progress(k));
-      t += MOVES * 300 + 500;
+      at(t, () => { save.classList.remove('pressed'); cursor.classList.remove('on'); byName[INTO].classList.remove('landed'); progress(0); panel('saving'); });
+      for (let k = 1; k <= MOVES; k++) at(t + k * 450, () => progress(k));
+      t += MOVES * 450 + 500;
 
-      // 3. Saved: the list is the order now, so the marks go.
-      at(t, () => { panel('saved'); marks(false); rows.forEach(r => r.classList.remove('moved')); });
+      // 5. Saved.
+      at(t, () => panel('saved'));
       at(t + 3400, play);
     }
 
     save.addEventListener('click', play);
     settle();
-    if (!reduce) setTimeout(play, 2600);
+    if (!reduce) at(2600, play); // a replay click before then cancels it
   })();
 
   function toggleFaq(btn) {
@@ -1763,5 +1814,6 @@
     spy();
   })();
 </script>
+<script src="/js/hero-name-fit.js"></script>
 </body>
 </html>

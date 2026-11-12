@@ -133,7 +133,7 @@
     .uc-detail-content li { margin-bottom: 5px; }
     .uc-detail-content strong { color: var(--white); }
     .uc-detail-content code {
-      background: rgba(5,206,240,0.1);
+      background: rgba(147,51,234,0.1);
       color: var(--teal);
       padding: 1px 6px;
       border-radius: 4px;
@@ -142,7 +142,7 @@
 
     /* Key takeaways */
     .uc-takeaways {
-      background: rgba(5,206,240,0.05);
+      background: rgba(147,51,234,0.05);
       border-left: 3px solid var(--teal);
       border-radius: 0 10px 10px 0;
       padding: 18px 22px;
@@ -198,7 +198,7 @@
       margin-bottom: 28px;
       border-bottom: 1px solid var(--border);
     }
-    .uc-figure { margin: 26px 0 8px; padding: 20px 18px 14px; background: rgba(5,206,240,0.03);
+    .uc-figure { margin: 26px 0 8px; padding: 20px 18px 14px; background: rgba(147,51,234,0.03);
       border: 1px solid var(--border); border-radius: 12px; }
     .uc-figure figcaption { margin-top: 12px; font-size: 0.82rem; color: var(--slate); line-height: 1.6; text-align: center; }
     .uc-step-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
@@ -244,8 +244,8 @@
 
     /* CTA box */
     .uc-cta-box {
-      background: rgba(5,206,240,0.05);
-      border: 1px solid rgba(5,206,240,0.2);
+      background: rgba(147,51,234,0.05);
+      border: 1px solid rgba(147,51,234,0.2);
       border-radius: 14px;
       padding: 28px 32px;
       margin-top: 40px;
@@ -302,7 +302,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':h.indexOf('101065922')>-1?'issue-order-for-jira':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}
     /* Touch targets — standalone sidebar/CTA links, measured 322x23 and 171x24. */
@@ -323,10 +323,13 @@
       <div class="nav-links" role="menubar">
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
-          <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
-            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          <div class="dropdown-content" role="menu" aria-label="Products">
+            <span class="dropdown-group dropdown-group--jira" aria-hidden="true">Jira</span>
+            <a href="/products/bulk-comments" role="menuitem" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+            <a href="/products/issue-order" role="menuitem" aria-label="Issue Order for Jira">Issue Order</a>
+            <span class="dropdown-group dropdown-group--confluence" aria-hidden="true">Confluence</span>
+            <a href="/products/bulk-page-cloner" role="menuitem" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+            <a href="/products/page-order" role="menuitem" aria-label="Page Order for Confluence">Page Order</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -373,9 +376,12 @@
       <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
-      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--jira">Jira</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+      <a href="/products/issue-order" class="mobile-nav-link" aria-label="Issue Order for Jira">Issue Order</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--confluence">Confluence</div>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+      <a href="/products/page-order" class="mobile-nav-link" aria-label="Page Order for Confluence">Page Order</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -410,7 +416,7 @@
     <div class="section-wrap" style="max-width:1100px;">
       <a href="/resources/use-cases" style="display:inline-flex;align-items:center;gap:5px;color:var(--slate);font-size:0.84rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color 0.2s;min-height:44px;">&larr; Back to Use Cases</a>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
-        <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" style="width:52px;height:52px;border-radius:12px;box-shadow:0 4px 16px rgba(5,206,240,0.2);flex-shrink:0;" width="80" height="80">
+        <img src="/assets/img/Bulk Comments for Jira Assets/Bulk Comments for Jira (80 x 80 px).png" alt="Bulk Comments for Jira" style="width:52px;height:52px;border-radius:12px;box-shadow:0 4px 16px rgba(147,51,234,0.2);flex-shrink:0;" width="80" height="80">
         <span class="section-tag" style="margin:0;">Jira</span>
       </div>
       <h1 style="text-align:left;font-size:clamp(1.8rem,4vw,2.6rem);">Incident and Release Updates in Jira</h1>
@@ -485,15 +491,15 @@
           <desc id="dgDesc">Left: four Jira issues selected on one page, each with its comment written and ready. PROJ-101 and PROJ-104 are engineering issues, each with one comment and a move to Done queued. SUP-88 carries two comments, a customer reply and an internal note. SUP-92 carries an internal note only. Right: the result for each issue after a single send. The send shown covers these four issues: five comments, two statuses moved, one customer emailed.</desc>
           <style>
             .hdr  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11.5px; fill: #6B86A4; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
-            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
+            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #C084FC; font-weight: 600; }
             .aud  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
             .body { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13.5px; fill: #E8F4FF; }
             .out  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
             .chip { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
-            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #05CEF0; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #C084FC; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
             .mut  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
-            .card { fill: rgba(5,206,240,0.05); stroke: rgba(5,206,240,0.18); }
-            .res  { fill: rgba(5,206,240,0.02); stroke: rgba(107,134,164,0.22); }
+            .card { fill: rgba(147,51,234,0.05); stroke: rgba(147,51,234,0.18); }
+            .res  { fill: rgba(147,51,234,0.02); stroke: rgba(107,134,164,0.22); }
           </style>
 
           <text class="hdr" x="10" y="20">Written on one page &#183; ready</text>
@@ -502,27 +508,27 @@
           <g>
             <rect class="card" x="8" y="36" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="62">PROJ-101</text>
-            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="62" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="62" fill="#C084FC">&#8594; Done</text>
             <text class="body" x="24" y="82">&#8220;Root cause was the connection pool limit.&#8221;</text>
           </g>
           <g>
             <rect class="res" x="580" y="36" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="62">PROJ-101</text>
-            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="86">Comment posted &#183; moved to Done</text>
           </g>
           <g>
             <rect class="card" x="8" y="122" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="148">PROJ-104</text>
-            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="148" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="148" fill="#C084FC">&#8594; Done</text>
             <text class="body" x="24" y="168">&#8220;Fix shipped in 4.6.1 &#8212; no action needed.&#8221;</text>
           </g>
           <g>
             <rect class="res" x="580" y="122" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="148">PROJ-104</text>
-            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="172">Comment posted &#183; moved to Done</text>
           </g>
           <g>
@@ -536,9 +542,9 @@
           <g>
             <rect class="res" x="580" y="208" width="412" height="120" rx="10"/>
             <text class="key" x="596" y="234">SUP-88</text>
-            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="258">Sent to customer</text>
-            <path d="M596 277 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 277 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="282" fill="#F7C983">+ Internal note</text>
           </g>
           <g>
@@ -550,14 +556,14 @@
           <g>
             <rect class="res" x="580" y="338" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="364">SUP-92</text>
-            <path d="M596 383 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 383 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="388" fill="#F7C983">Internal note added &#183; still open</text>
           </g>
 
-          <path d="M484 225 H556" stroke="#05CEF0" stroke-width="2" fill="none"/>
-          <path d="M548 218 l8 7 l-8 7" fill="none" stroke="#05CEF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M484 225 H556" stroke="#C084FC" stroke-width="2" fill="none"/>
+          <path d="M548 218 l8 7 l-8 7" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-          <rect x="8" y="432" width="984" height="52" rx="10" fill="rgba(5,206,240,0.10)" stroke="rgba(5,206,240,0.32)"/>
+          <rect x="8" y="432" width="984" height="52" rx="10" fill="rgba(147,51,234,0.10)" stroke="rgba(147,51,234,0.32)"/>
           <text class="lbl" x="28" y="455">One send</text>
           <text class="mut" x="28" y="473">5 comments across these 4 issues &#183; 2 statuses moved &#183; 1 customer emailed</text>
         </svg>
@@ -573,16 +579,16 @@
           <desc id="dg2Desc">Left: four Jira issues on one page. The first carries a comment reading &#8220;Released in 4.6.1 &#8212; closing this out.&#8221; The other three show the same comment, copied across from the first card&rsquo;s actions menu. All four also have a move to Done queued. Right: after a single send, every issue shows the comment posted and moved to Done. Four comments across four issues, four statuses moved.</desc>
           <style>
             .hdr  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11.5px; fill: #6B86A4; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; }
-            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #05CEF0; font-weight: 600; }
+            .key  { font-family: ui-monospace, Menlo, monospace; font-size: 13px; fill: #C084FC; font-weight: 600; }
             .body { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13.5px; fill: #E8F4FF; }
             .echo { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #6B86A4; font-style: italic; }
             .out  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
             .chip { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
-            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #05CEF0; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+            .lbl  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 13px; fill: #C084FC; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
             .mut  { font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif; font-size: 12.5px; fill: #6B86A4; }
-            .card { fill: rgba(5,206,240,0.05); stroke: rgba(5,206,240,0.18); }
-            .src  { fill: rgba(5,206,240,0.09); stroke: rgba(5,206,240,0.45); }
-            .res  { fill: rgba(5,206,240,0.02); stroke: rgba(107,134,164,0.22); }
+            .card { fill: rgba(147,51,234,0.05); stroke: rgba(147,51,234,0.18); }
+            .src  { fill: rgba(147,51,234,0.09); stroke: rgba(147,51,234,0.45); }
+            .res  { fill: rgba(147,51,234,0.02); stroke: rgba(107,134,164,0.22); }
           </style>
 
           <text class="hdr" x="10" y="20">Written once &#183; copied to all</text>
@@ -591,60 +597,60 @@
           <g>
             <rect class="src" x="8" y="36" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="62">PROJ-101</text>
-            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="62" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="47" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="62" fill="#C084FC">&#8594; Done</text>
             <text class="body" x="24" y="88">&#8220;Released in 4.6.1 &mdash; closing this out.&#8221;</text>
           </g>
           <g>
             <rect class="res" x="580" y="36" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="62">PROJ-101</text>
-            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 81 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="86">Comment posted &#183; moved to Done</text>
           </g>
           <g>
             <rect class="card" x="8" y="122" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="148">PROJ-104</text>
-            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="148" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="133" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="148" fill="#C084FC">&#8594; Done</text>
             <text class="echo" x="24" y="174">&#8627; the same comment</text>
           </g>
           <g>
             <rect class="res" x="580" y="122" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="148">PROJ-104</text>
-            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 167 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="172">Comment posted &#183; moved to Done</text>
           </g>
           <g>
             <rect class="card" x="8" y="208" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="234">PROJ-108</text>
-            <rect x="378" y="219" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="234" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="219" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="234" fill="#C084FC">&#8594; Done</text>
             <text class="echo" x="24" y="260">&#8627; the same comment</text>
           </g>
           <g>
             <rect class="res" x="580" y="208" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="234">PROJ-108</text>
-            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 253 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="258">Comment posted &#183; moved to Done</text>
           </g>
           <g>
             <rect class="card" x="8" y="294" width="452" height="76" rx="10"/>
             <text class="key" x="24" y="320">PROJ-112</text>
-            <rect x="378" y="305" width="66" height="22" rx="11" fill="rgba(5,206,240,0.14)"/>
-            <text class="chip" x="389" y="320" fill="#05CEF0">&#8594; Done</text>
+            <rect x="378" y="305" width="66" height="22" rx="11" fill="rgba(147,51,234,0.14)"/>
+            <text class="chip" x="389" y="320" fill="#C084FC">&#8594; Done</text>
             <text class="echo" x="24" y="346">&#8627; the same comment</text>
           </g>
           <g>
             <rect class="res" x="580" y="294" width="412" height="76" rx="10"/>
             <text class="key" x="596" y="320">PROJ-112</text>
-            <path d="M596 339 l5 5 l11 -12" fill="none" stroke="#05CEF0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M596 339 l5 5 l11 -12" fill="none" stroke="#C084FC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             <text class="out" x="620" y="344">Comment posted &#183; moved to Done</text>
           </g>
 
-          <path d="M484 196 H556" stroke="#05CEF0" stroke-width="2" fill="none"/>
-          <path d="M548 189 l8 7 l-8 7" fill="none" stroke="#05CEF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M484 196 H556" stroke="#C084FC" stroke-width="2" fill="none"/>
+          <path d="M548 189 l8 7 l-8 7" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-          <rect x="8" y="388" width="984" height="52" rx="10" fill="rgba(5,206,240,0.10)" stroke="rgba(5,206,240,0.32)"/>
+          <rect x="8" y="388" width="984" height="52" rx="10" fill="rgba(147,51,234,0.10)" stroke="rgba(147,51,234,0.32)"/>
           <text class="lbl" x="28" y="411">One send</text>
           <text class="mut" x="28" y="429">4 comments across these 4 issues &#183; 4 statuses moved &#183; nothing leaves Jira</text>
         </svg>
@@ -752,15 +758,11 @@
           <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
           <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
         </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
       </div>
       <div class="footer-col">
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/issue-order">Issue Order for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/page-order">Page Order for Confluence</a>
       </div>
@@ -782,7 +784,14 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 DataPingo. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
       <nav class="footer-bottom-links" aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>

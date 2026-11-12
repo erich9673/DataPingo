@@ -152,6 +152,16 @@ a  { color: inherit; }
   border-radius: 6px; transition: color 0.15s ease, background 0.15s ease;
 }
 .dropdown-content a:hover { background: var(--teal-dim); color: var(--teal); }
+/* Products menu: apps grouped by the product they run in (Eric, 2026-10-30),
+   Jira first. The heading colours follow the apps' hues: Jira purple,
+   Confluence blue. */
+.dropdown-group {
+  display: block; padding: 8px 14px 4px;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.dropdown-content a + .dropdown-group { margin-top: 6px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
+.dropdown-group--jira, .mobile-nav-sublabel--jira { color: #C4B5FD; }
+.dropdown-group--confluence, .mobile-nav-sublabel--confluence { color: #93B4FF; }
 
 .nav-actions { flex-shrink: 0; }
 
@@ -252,6 +262,10 @@ a  { color: inherit; }
 }
 .mobile-nav-link:last-child { border-bottom: none; }
 .mobile-nav-link:hover { color: var(--white); }
+.mobile-nav-sublabel {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  margin: 10px 0 0;
+}
 
 /* CTA footer */
 .mobile-menu-footer {
@@ -848,6 +862,11 @@ footer { background: var(--black-2); border-top: 1px solid var(--border); paddin
   gap: 16px; flex-wrap: wrap; padding: 22px 0;
 }
 .footer-bottom p { font-size: 0.77rem; color: var(--slate); }
+/* LinkedIn sits beside the copyright (moved 2026-11-11 from its own row under
+   the newsletter form, where it made the footer one row taller). */
+.footer-bottom-left { display: flex; align-items: center; gap: 14px; }
+.footer-bottom .footer-social a { width: 28px; height: 28px; border-radius: 6px; }
+.footer-bottom .footer-social svg { width: 14px; height: 14px; }
 .footer-bottom-links { display: flex; gap: 22px; }
 .footer-bottom-links a { font-size: 0.77rem; color: var(--slate); text-decoration: none; transition: color 0.15s ease; }
 .footer-bottom-links a:hover { color: var(--teal); }
@@ -1078,6 +1097,7 @@ body.page-404 .nav-actions { display: block; }
   .footer-address { margin-bottom: 14px; }
   .footer-newsletter-desc { margin-bottom: 10px; }
   .footer-bottom { flex-direction: column; text-align: center; gap: 10px; padding: 14px 0; }
+  .footer-bottom-left { justify-content: center; }
   .footer-bottom-links { justify-content: center; flex-wrap: wrap; gap: 8px; }
 
   footer { padding-top: 40px; }

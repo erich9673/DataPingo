@@ -124,6 +124,14 @@
       "destination": "/products/page-order.html"
     },
     {
+      "source": "/products/issue-order",
+      "destination": "/products/issue-order.html"
+    },
+    {
+      "source": "/products/issue-order/",
+      "destination": "/products/issue-order.html"
+    },
+    {
       "source": "/resources/documentation/bulkpagecloner",
       "destination": "/resources/documentation/bulkpagecloner.html"
     },
@@ -440,6 +448,10 @@
       "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-1-0.html"
     },
     {
+      "source": "/resources/documentation/bulkpagecloner/release-notes/v10-3-0",
+      "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-3-0.html"
+    },
+    {
       "source": "/resources/documentation/bulkpagecloner/release-notes/v10-2-0",
       "destination": "/resources/documentation/bulkpagecloner/release-notes/v10-2-0.html"
     },
@@ -566,6 +578,14 @@
     {
       "source": "/resources/documentation/pageorder/release-notes/v3-3-0",
       "destination": "/resources/documentation/pageorder/release-notes/v3-3-0.html"
+    },
+    {
+      "source": "/products",
+      "destination": "/products/index.html"
+    },
+    {
+      "source": "/products/",
+      "destination": "/products/index.html"
     },
     {
       "source": "/resources/documentation/issueorder",
@@ -704,12 +724,12 @@
       "destination": "/resources/documentation/issueorder/release-notes.html"
     },
     {
-      "source": "/resources/documentation/issueorder/release-notes/first-release",
-      "destination": "/resources/documentation/issueorder/release-notes/first-release.html"
+      "source": "/resources/documentation/issueorder/release-notes/v2-1-0",
+      "destination": "/resources/documentation/issueorder/release-notes/v2-1-0.html"
     },
     {
-      "source": "/resources/documentation/issueorder/release-notes/first-release/",
-      "destination": "/resources/documentation/issueorder/release-notes/first-release.html"
+      "source": "/resources/documentation/issueorder/release-notes/v2-1-0/",
+      "destination": "/resources/documentation/issueorder/release-notes/v2-1-0.html"
     }
   ]
 }

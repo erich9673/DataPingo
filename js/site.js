@@ -55,38 +55,6 @@ mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMe
 const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1, rootMargin:'0px 0px -36px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* Record the newsletter opt-in in iubenda's Consent Database.
-   Only on success, and only for the address that actually subscribed — a
-   failed POST is not a consent. The script is fetched at that moment rather
-   than on every page load, so the 99% of visitors who never subscribe pay
-   nothing for it and iubenda sees nobody who did not opt in.
-   The proof stores the exact sentence shown next to the button, so the
-   record says what the person actually agreed to rather than just when. */
-function logNewsletterConsent(email, formEl) {
-  var notice = formEl.querySelector('.newsletter-consent');
-  window._iub = window._iub || {};
-  _iub.cons_instructions = _iub.cons_instructions || [];
-  _iub.cons_instructions.push(['init', { api_key: 'GxQD0ZooU505v0e0bLNU9ISNzHeqimAy' }]);
-  _iub.cons_instructions.push(['submit', {
-    consent: {
-      subject: { email: email },
-      legal_notices: [{ identifier: 'privacy_policy' }],
-      preferences: { newsletter: true },
-      proofs: [{
-        content: JSON.stringify({ email: email, source: location.pathname }),
-        form: (notice ? notice.textContent.trim() : '') + ' [Subscribe]'
-      }]
-    }
-  }]);
-  if (!document.getElementById('iub-cons')) {
-    var s = document.createElement('script');
-    s.id = 'iub-cons';
-    s.async = true;
-    s.src = 'https://cdn.iubenda.com/cons/iubenda_cons.js';
-    document.head.appendChild(s);
-  }
-}
-
 document.getElementById('footer-email-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = this.querySelector('button[type=submit]');
@@ -96,7 +64,7 @@ document.getElementById('footer-email-form').addEventListener('submit', function
   const email = input.value.trim();
   btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
   fetch(this.action, { method:'POST', body:new FormData(this), headers:{Accept:'application/json'} })
-    .then(r => { if (!r.ok) throw 0; logNewsletterConsent(email, this); if (window.dpTrack) dpTrack('generate_lead', { form_name: 'newsletter' }); msg.style.color='#67E8F9'; msg.textContent='Almost there — check your inbox to confirm.'; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
+    .then(r => { if (!r.ok) throw 0; if (window.dpTrack) dpTrack('generate_lead', { form_name: 'newsletter' }); msg.style.color='#67E8F9'; msg.textContent='Almost there — check your inbox to confirm.'; input.value=''; setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';},3000); })
     .catch(()=>{ msg.style.color='#F87171'; msg.textContent='Something went wrong — try again.'; btn.disabled=false; btn.textContent='Subscribe'; });
 });
 

@@ -25,7 +25,7 @@
   const ROOTS = { bulkcomments: '/resources/documentation/bulkcomments', bulkpagecloner: '/resources/documentation/bulkpagecloner', pageorder: '/resources/documentation/pageorder', issueorder: '/resources/documentation/issueorder' };
   // Apps whose docs are published but not listed yet: only their own pages search them,
   // never the docs hub's "All apps". Remove a key at that app's launch.
-  const UNLISTED = ['issueorder'];
+  const UNLISTED = [];
   const POPULAR = [
     ['Installation', '/installation'],
     ['Limits', '/limits'],
@@ -127,7 +127,7 @@
     // exist only on the docs hub, which covers every app.
     const scopeHost = dlg.querySelector('.dsearch-scope');
     if (PRODUCT) scopeHost.remove();
-    scopeBtns = (PRODUCT ? [] : [['all', 'All apps'], ['bulkcomments', 'Bulk Comments'], ['bulkpagecloner', 'Bulk Page Cloner'], ['pageorder', 'Page Order']]).map(([key, label]) => {
+    scopeBtns = (PRODUCT ? [] : [['all', 'All apps'], ['bulkcomments', 'Bulk Comments'], ['issueorder', 'Issue Order'], ['bulkpagecloner', 'Bulk Page Cloner'], ['pageorder', 'Page Order']]).map(([key, label]) => {
       const b = el('button', 'dsearch-chip', label);
       b.type = 'button';
       b.dataset.scope = key;

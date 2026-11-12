@@ -96,7 +96,7 @@
        better than the Bulk Page Cloner page" was unanswerable. This names the app.
        Delegated on document so it covers links added later, and passive so it
        never delays the navigation it is measuring. -->
-  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var a=t.closest('a[href*="marketplace.atlassian.com"]');if(!a)return;var h=a.getAttribute('href')||'';var app=h.indexOf('2184917707')>-1?'bulk-comments-for-jira':h.indexOf('2754913942')>-1?'bulk-page-cloner':h.indexOf('1059993353')>-1?'page-order-for-confluence':h.indexOf('101065922')>-1?'issue-order-for-jira':'vendor-profile';(window.dataLayer=window.dataLayer||[]).push({event:'marketplace_click',app_clicked:app,link_url:h,source_page:location.pathname});if(window.oaiq)oaiq('measure','custom',{type:'custom',contents:[{id:app,name:app,content_type:'product'}]},{custom_event_name:'marketplace_click'});},{passive:true});})();</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THVHPGSR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}</style>
 
@@ -111,10 +111,13 @@
       <div class="nav-links" role="menubar">
         <div class="dropdown" role="none">
           <span class="nav-link" role="menuitem" aria-haspopup="true" tabindex="0">Products &#x25BE;</span>
-          <div class="dropdown-content" role="menu">
-            <a href="/products/bulk-comments" role="menuitem">Bulk Comments for Jira</a>
-            <a href="/products/bulk-page-cloner" role="menuitem">Bulk Page Cloner for Confluence</a>
-            <a href="/products/page-order" role="menuitem">Page Order for Confluence</a>
+          <div class="dropdown-content" role="menu" aria-label="Products">
+            <span class="dropdown-group dropdown-group--jira" aria-hidden="true">Jira</span>
+            <a href="/products/bulk-comments" role="menuitem" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+            <a href="/products/issue-order" role="menuitem" aria-label="Issue Order for Jira">Issue Order</a>
+            <span class="dropdown-group dropdown-group--confluence" aria-hidden="true">Confluence</span>
+            <a href="/products/bulk-page-cloner" role="menuitem" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+            <a href="/products/page-order" role="menuitem" aria-label="Page Order for Confluence">Page Order</a>
           </div>
         </div>
         <div class="dropdown" role="none">
@@ -161,9 +164,12 @@
       <div class="mobile-menu-body">
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Products</div>
-      <a href="/products/bulk-comments" class="mobile-nav-link">Bulk Comments for Jira</a>
-      <a href="/products/bulk-page-cloner" class="mobile-nav-link">Bulk Page Cloner for Confluence</a>
-      <a href="/products/page-order" class="mobile-nav-link">Page Order for Confluence</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--jira">Jira</div>
+      <a href="/products/bulk-comments" class="mobile-nav-link" aria-label="Bulk Comments for Jira">Bulk Comments</a>
+      <a href="/products/issue-order" class="mobile-nav-link" aria-label="Issue Order for Jira">Issue Order</a>
+      <div class="mobile-nav-sublabel mobile-nav-sublabel--confluence">Confluence</div>
+      <a href="/products/bulk-page-cloner" class="mobile-nav-link" aria-label="Bulk Page Cloner for Confluence">Bulk Page Cloner</a>
+      <a href="/products/page-order" class="mobile-nav-link" aria-label="Page Order for Confluence">Page Order</a>
     </div>
     <div class="mobile-nav-section">
       <div class="mobile-nav-label">Company</div>
@@ -198,7 +204,7 @@
     <div class="section-wrap">
       <p class="section-tag page-hero-eyebrow"><a href="/resources/documentation/pageorder" style="color:inherit;text-decoration:none">PAGE ORDER FOR CONFLUENCE</a></p>
       <div style="display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:20px;">
-        <img src="/assets/img/Page Order Assets/Page Order for Confluence (80 x 80 px).png" alt="Page Order for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(59,106,232,0.25);" width="80" height="80">
+        <img src="/assets/img/Page Order Assets/Page Order for Confluence (144 x 144 px).png" alt="Page Order for Confluence" style="width:64px;height:64px;border-radius:14px;box-shadow:0 0 32px rgba(59,106,232,0.25);" width="80" height="80">
       </div>
       <h1 style="text-align:center;">User guide</h1>
       <p class="hero-sub" style="text-align:center;margin-left:auto;margin-right:auto;">Open a list, arrange it, check every change, then save it to Confluence.</p>
@@ -236,6 +242,30 @@
     </aside>
 
     <div class="doc-content">
+<section id="overview" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#93B4FF" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Overview</h2>
+<p><strong>Put a parent&rsquo;s child pages in order in one step, and move many pages at once.</strong></p>
+<p>Confluence adds each new page to the end of its parent&rsquo;s list, and its page tree moves one page per drag. Putting a long list in order means dragging every page by hand.</p>
+<p>Page Order sorts the child pages of any page, folder or space in one step: A to Z, Z to A, newest, oldest or recently updated, with numbers in titles sorted as numbers. Drag across pages to select a group, then drag it to a new spot, drop it into another page, or send it to another parent or space with <strong>Move to&hellip;</strong>. Child pages always go with their parent.</p>
+<p>Nothing changes in Confluence until you press <strong>Save changes</strong>. Until then every change waits in the <strong>Unsaved changes</strong> panel, which lists each one and the pages in it, so you see exactly what a save will do before it runs.</p>
+<p>The app acts only as you, so it never moves a page you couldn&rsquo;t move by hand. It stores nothing and runs entirely inside Confluence on Atlassian Forge, with no external server in the path.</p>
+</section>
+
+<section id="first-sort" style="scroll-margin-top:100px;">
+<h2><svg style="display:inline;vertical-align:-3px;margin-right:8px;color:#93B4FF" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>Your first sort in a minute</h2>
+<p>Say the <strong>Policies</strong> page in a <strong>Team Handbook</strong> space has a dozen child pages in the order they were written, and you want them A to Z.</p>
+<ol>
+<li>Open <strong>Policies</strong>, open its <strong>&bull;&bull;&bull;</strong> menu and select <strong>Organize Child Pages</strong>. Its child pages appear in the order Confluence&rsquo;s page tree shows them.</li>
+<li>Click <strong>Sort all</strong> and choose <strong>A to Z</strong>. Leave <strong>Sort numbers by value</strong> ticked, so 2 comes before 10.</li>
+<li>The list takes the new order, with &#9650;/&#9660; marks showing how far each page moves. The <strong>Unsaved changes</strong> panel appears beside it with a summary such as <span class="ui">8 page moves. Saving can&rsquo;t be undone.</span> Open <span class="ui">8 pages change place under Policies</span> to see each page&rsquo;s old and new position.</li>
+<li>Click <strong>Save changes</strong>, and keep the tab open while the panel counts the moves.</li>
+<li>When the panel says <strong>Saved</strong> (<span class="ui">8 pages moved.</span>), Confluence&rsquo;s own page tree shows the same order.</li>
+</ol>
+<div class="doc-tip">
+<p><strong>Changing the order needs Space admin or Manage all content</strong> in that space, the same permissions Confluence&rsquo;s own Move needs. Without either you can see the order but not change it &mdash; see the <a href="/resources/documentation/pageorder/admin">Admin guide</a>.</p>
+</div>
+</section>
+
 <section id="user-guide" style="scroll-margin-top:100px;">
         <p>Page Order works on <strong>one parent at a time</strong>. The list in the middle shows that parent&rsquo;s child pages in the order Confluence&rsquo;s page tree shows them, the space&rsquo;s page tree sits beside it, and an <strong>Unsaved changes</strong> panel appears on the right as soon as you change something. If you have not opened the app yet, <a href="/resources/documentation/pageorder/where-to-open">here are the three ways in</a>.</p>
         <p>Every job runs the same way:</p>
@@ -281,15 +311,11 @@
           <p class="newsletter-consent">By subscribing you agree to our <a href="/privacy">Privacy Policy</a>. Unsubscribe any time.</p>
           <div id="form-message" class="newsletter-msg" aria-live="polite"></div>
         </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
       </div>
       <div class="footer-col">
         <h2>Products</h2>
         <a href="/products/bulk-comments">Bulk Comments for Jira</a>
+        <a href="/products/issue-order">Issue Order for Jira</a>
         <a href="/products/bulk-page-cloner">Bulk Page Cloner for Confluence</a>
         <a href="/products/page-order">Page Order for Confluence</a>
       </div>
@@ -311,7 +337,14 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2026 DataPingo. All rights reserved.</p>
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 DataPingo. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/datapingo/" target="_blank" rel="noopener" aria-label="DataPingo on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
       <nav class="footer-bottom-links" aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
