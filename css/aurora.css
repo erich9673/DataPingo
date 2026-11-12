@@ -1303,3 +1303,30 @@ body.page-404 .nav-actions { display: block; }
   .meta-sep { display: none; }
   .meta-item { display: block; }
 }
+
+/* ── Footer link lists fold on phones (Eric, 2026-11-12) ──────────────────
+   js/site.js puts a button in each column heading and adds .footer-fold to
+   <html>. Above 768px the button is plain heading text. On phones each
+   heading is a 44px row with a chevron, and its links show when opened. */
+.footer-col-toggle {
+  background: none; border: 0; padding: 0; margin: 0; color: inherit;
+  font: inherit; letter-spacing: inherit; text-transform: inherit; text-align: left;
+  cursor: default;
+}
+.footer-col-toggle svg { display: none; }
+@media (max-width: 768px) {
+  .footer-fold .footer-grid { gap: 0; }
+  .footer-fold .footer-brand { margin-bottom: 14px; }
+  .footer-fold .footer-col { border-top: 1px solid var(--border); }
+  .footer-fold .footer-col h2 { margin: 0; }
+  .footer-fold .footer-col-toggle {
+    display: flex; width: 100%; min-height: 48px; align-items: center;
+    justify-content: space-between; cursor: pointer;
+  }
+  .footer-fold .footer-col-toggle svg { display: block; color: var(--slate); transition: transform 0.2s ease; }
+  .footer-fold .footer-col.fc-open .footer-col-toggle svg { transform: rotate(180deg); }
+  .footer-fold .footer-col:not(.fc-open) .footer-col-links { display: none; }
+  .footer-fold .footer-col-links { padding-bottom: 8px; }
+  .footer-col-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .footer-col-toggle svg { transition: none; } }

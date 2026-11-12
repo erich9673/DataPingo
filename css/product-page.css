@@ -269,3 +269,62 @@
 @media (min-width: 1200px) {
   .product-page .product-hero-inner { grid-template-columns: 520px minmax(0, 1fr); gap: 48px; }
 }
+
+/* ── Phones: a shorter page (Eric, 2026-11-12) ────────────────────────────
+   At 375px each product page ran about 11 screens, mostly because Highlights
+   and How it works tell the same story twice, once in words and once in
+   pictures. On phones only: the highlight cards keep their picture, label and
+   heading (the paragraph drops) and the four facts sit 2x2. Desktop and tablet
+   are unchanged. */
+@media (max-width: 600px) {
+  .product-page .hiw-section,
+  .product-page .pricing-section,
+  .product-page .faq-section,
+  .product-page .product-cta { padding-top: 56px; padding-bottom: 56px; }
+  .product-page .product-hero { padding-bottom: 56px; }
+  .product-page .highlight-card { gap: 14px; padding: 22px 0; }
+  .product-page .highlight-card-copy > p:not(.highlight-num) { display: none; }
+  .product-page .highlight-card-copy h3 { font-size: 1.3rem; margin-bottom: 0; }
+
+  .product-page .pp-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-page .pp-spec { padding: 14px 14px 16px; }
+  .product-page .pp-spec + .pp-spec { border-top: 0; border-left: 0; }
+  .product-page .pp-spec:nth-child(even) { border-left: 1px solid var(--pp-rule); }
+  .product-page .pp-spec:nth-child(n+3) { border-top: 1px solid var(--pp-rule); }
+  .product-page .pp-spec b { font-size: 1rem; margin-bottom: 4px; }
+  .product-page .pp-spec span { font-size: 0.76rem; line-height: 1.5; }
+
+  /* Top of the page: what it is and where to get it come first, the demo
+     after (Eric, 2026-11-12). Previously the description and the Marketplace
+     button sat on the second screen, below the demo. */
+  .product-page .product-hero .product-hero-sub { order: 3; }
+  .product-page .product-hero .product-hero-actions { order: 4; margin-bottom: 36px; }
+  .product-page .product-hero-inner > :not(.product-hero-text) { order: 5; }
+
+  /* How it works repeats the demo at the top (same steps), and its
+     screenshots are full Jira screens shrunk to ~325px, unreadable. */
+  .product-page .hiw-section { display: none; }
+
+  /* The floating section menu sat on top of headings as you scrolled. */
+  .product-page .prod-nav { display: none; }
+
+  /* Pricing: the calculator folds behind "Estimate your cost" (js/site.js
+     adds the buttons and .calc-fold). Without the script it shows as before. */
+  .calc-fold .pricing-section:not(.calc-open) .pricing-calculator { display: none; }
+  .calc-fold .pricing-section .section-desc--cont { display: none; }
+  .calc-fold-actions { flex-direction: column; gap: 10px; margin-top: 24px; }
+  .calc-fold-actions a, .calc-fold-actions button {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 12px 20px; border-radius: 12px;
+    font-family: inherit; font-size: 0.95rem; font-weight: 600; line-height: 1.2;
+    text-decoration: none; cursor: pointer;
+  }
+  .calc-fold-actions a { background: var(--pp-fill); color: var(--pp-fill-ink); border: 0; }
+  .calc-fold-actions button { background: none; color: var(--white); border: 1px solid var(--pp-rule); }
+  .calc-fold-actions button svg { transition: transform 0.2s ease; }
+  .calc-open .calc-fold-actions button svg { transform: rotate(180deg); }
+  .calc-fold-actions button:focus-visible, .calc-fold-actions a:focus-visible { outline: 2px solid var(--pp-acc); outline-offset: 2px; }
+  .calc-open .pricing-calculator { margin-top: 20px; }
+}
+.calc-fold-actions { display: none; }
+@media (max-width: 600px) { .calc-fold .calc-fold-actions { display: flex; } }

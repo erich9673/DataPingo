@@ -108,3 +108,91 @@ document.getElementById('footer-email-form').addEventListener('submit', function
   sc.defer = true;
   document.head.appendChild(sc);
 })();
+
+/* Footer link lists fold behind their headings on phones (Eric, 2026-11-12).
+   Each column heading gets a button; its links move into a wrapper the button
+   opens and closes. Only phones fold (css/aurora.css): above 768px the button
+   is inert and every link shows. Without this script every link shows too. */
+(function () {
+  var cols = [].slice.call(document.querySelectorAll('footer .footer-col'));
+  if (!cols.length || !window.matchMedia) return;
+  var mq = window.matchMedia('(max-width: 768px)');
+  var chevron = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+  var toggles = [];
+  cols.forEach(function (col, i) {
+    var h = col.querySelector('h2');
+    if (!h) return;
+    var list = document.createElement('div');
+    list.className = 'footer-col-links';
+    list.id = 'footer-col-links-' + i;
+    [].slice.call(col.children).forEach(function (el) {
+      if (el.tagName === 'A') list.appendChild(el);
+    });
+    col.appendChild(list);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'footer-col-toggle';
+    b.setAttribute('aria-controls', list.id);
+    var label = document.createElement('span');
+    label.textContent = h.textContent;
+    b.appendChild(label);
+    b.insertAdjacentHTML('beforeend', chevron);
+    h.textContent = '';
+    h.appendChild(b);
+    b.addEventListener('click', function () {
+      if (!mq.matches) return;
+      b.setAttribute('aria-expanded', String(col.classList.toggle('fc-open')));
+    });
+    toggles.push({ col: col, b: b });
+  });
+  function sync() {
+    toggles.forEach(function (t) {
+      if (mq.matches) {
+        t.b.removeAttribute('tabindex');
+        t.b.setAttribute('aria-expanded', String(t.col.classList.contains('fc-open')));
+      } else {
+        t.b.setAttribute('tabindex', '-1');
+        t.b.removeAttribute('aria-expanded');
+      }
+    });
+  }
+  sync();
+  if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
+  document.documentElement.classList.add('footer-fold');
+})();
+
+/* Product pages on phones (Eric, 2026-11-12): the pricing calculator folds
+   behind an "Estimate your cost" button, with "Start free trial" beside it so
+   the main action stays one tap away. Only phones fold (css/product-page.css);
+   the buttons are hidden above 600px and the calculator shows as before. */
+(function () {
+  var section = document.querySelector('.product-page .pricing-section');
+  var calc = section && section.querySelector('.pricing-calculator');
+  var header = section && section.querySelector('.section-header');
+  if (!calc || !header) return;
+  var hero = document.querySelector('.product-hero-actions a[href*="marketplace.atlassian.com"]');
+  var wrap = document.createElement('div');
+  wrap.className = 'calc-fold-actions';
+  if (hero) {
+    var trial = document.createElement('a');
+    trial.href = hero.href;
+    trial.target = '_blank';
+    trial.rel = 'noopener';
+    trial.innerHTML = 'Start free trial &rarr;';
+    wrap.appendChild(trial);
+  }
+  if (!calc.id) calc.id = 'pricing-calculator';
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.setAttribute('aria-controls', calc.id);
+  btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = 'Estimate your cost <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+  btn.addEventListener('click', function () {
+    var open = section.classList.toggle('calc-open');
+    btn.setAttribute('aria-expanded', String(open));
+    if (open) calc.classList.add('visible');
+  });
+  wrap.appendChild(btn);
+  header.parentNode.insertBefore(wrap, header.nextSibling);
+  document.documentElement.classList.add('calc-fold');
+})();
